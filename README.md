@@ -33,5 +33,5 @@ This project was created using:
 ## Resources
 
 * SLACK - #webteam
-* GitHub - https://github.com/CityOfDetroit/local-services-lookup
+* GitHub - https://github.com/jedgar1mx/COD-Design-System
 
