@@ -1,0 +1,73 @@
+{
+  "name": "cod-design-system",
+  "version": "0.1.0",
+  "description": "City of Detroit design system",
+  "main": "main.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jedgar1mx/COD-Design-System"
+  },
+  "keywords": [
+    "components",
+    "web components",
+    "webpack",
+    "JS",
+    "design system",
+    "storybook"
+  ],
+  "bugs": {
+    "url": "https://github.com/jedgar1mx/COD-Design-Systemissues"
+  },
+  "homepage": "https://github.com/jedgar1mx/COD-Design-System#readme",
+  "scripts": {
+    "build": "webpack --mode production",
+    "start": "webpack-dev-server --mode development",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  },
+  "author": "Edgar Montes",
+  "license": "MIT",
+  "dependencies": {
+    "@turf/simplify": "^5.1.5",
+    "@turf/turf": "^5.1.6",
+    "maplibre-gl": "^2.4.0",
+    "terraformer-arcgis-parser": "^1.1.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.15.8",
+    "@babel/plugin-proposal-class-properties": "^7.14.5",
+    "@babel/plugin-syntax-dynamic-import": "^7.8.3",
+    "@babel/plugin-transform-react-inline-elements": "^7.16.0",
+    "@babel/plugin-transform-runtime": "^7.15.8",
+    "@babel/preset-env": "^7.16.0",
+    "@babel/runtime": "^7.15.4",
+    "@storybook/addon-a11y": "^6.5.16",
+    "@storybook/addon-actions": "^6.5.16",
+    "@storybook/addon-essentials": "^6.5.16",
+    "@storybook/addon-links": "^6.5.16",
+    "@storybook/builder-webpack5": "^6.5.16",
+    "@storybook/manager-webpack5": "^6.5.16",
+    "@storybook/web-components": "^6.5.16",
+    "@svgr/webpack": "^5.5.0",
+    "babel-loader": "^8.2.3",
+    "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
+    "concurrently": "^7.0.0",
+    "css-loader": "^6.5.0",
+    "css-minimizer-webpack-plugin": "^3.4.1",
+    "cypress": "^9.5.0",
+    "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^5.5.0",
+    "lit-html": "^2.6.1",
+    "mini-css-extract-plugin": "^2.5.3",
+    "sass": "^1.43.4",
+    "sass-loader": "^12.3.0",
+    "start-server-and-test": "^1.14.0",
+    "style-loader": "^3.3.1",
+    "terser-webpack-plugin": "^5.2.4",
+    "url-loader": "^4.1.1",
+    "webpack": "^5.61.0",
+    "webpack-cli": "^4.9.1",
+    "webpack-dev-server": "^4.4.0"
+  },
+  "browserslist": "> 0.25%, not dead"
+}
