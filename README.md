@@ -9,6 +9,15 @@ This project was created using:
  - [MapLibre](https://maplibre.org/) for map framework.
  - [Storybook](https://www.cypress.io/) for UI component management.
 
+## Implenentation
+1. Load package into your project
+    ```
+    yarn add @cityofdetroit/cod-design-system
+    ```
+    ```
+    npm i @cityofdetroit/cod-design-system
+    ```
+
 ## Setup Local Environment.
 
 1. Download the repo.
@@ -30,8 +39,3 @@ This project was created using:
     ```
     $ yarn build-storybook
     ```
-## Resources
-
-* SLACK - #webteam
-* GitHub - https://github.com/jedgar1mx/COD-Design-System
-
