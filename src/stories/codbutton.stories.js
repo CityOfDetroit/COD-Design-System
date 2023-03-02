@@ -1,3 +1,5 @@
+import { userEvent, within } from '@storybook/testing-library';
+import { expect } from '@storybook/jest';
 import './codbutton';
 
 export default {
@@ -33,7 +35,7 @@ export default {
 const Template = (args) => {
   const btn = document.createElement('cod-button');
   btn.addEventListener('click', (e)=>{
-    console.log(e)
+    args.onclick(e)
   })
   btn.setAttribute('data-primary', args.primary);
   btn.setAttribute('data-label', args.label);
@@ -43,6 +45,7 @@ const Template = (args) => {
   btn.setAttribute('data-img-alt', (args.imgAlt) ? args.imgAlt : '');
   btn.setAttribute('data-hover', args.hover);
   btn.setAttribute('data-shape', args.shape);
+  btn.setAttribute('role', args.role);
   return btn;
 }
 
@@ -90,3 +93,18 @@ SquareImage.args = {
   img: 'https://detroitmi.gov/sites/detroitmi.localhost/files/2023-02/map.png',
   imgAlt: 'map',
 };
+
+export const WithInteraction = Template.bind({});
+WithInteraction.args = {
+  primary: true,
+  label: 'Interaction',
+  role: 'button',
+  onclick: (e) => {console.log(e)}
+};
+
+WithInteraction.play = async ({ args, canvasElement }) => {
+  // Assigns canvas to the component root element
+  const canvas = within(canvasElement);
+  await userEvent.click(canvas.getByRole('button'));
+  await expect(console.log);
+}
