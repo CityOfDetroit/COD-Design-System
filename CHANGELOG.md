@@ -1,12 +1,6 @@
-# v0.0.2 (Wed Mar 01 2023)
+# v0.0.1 (Wed Mar 01 2023)
 
-#### ⚠️ Pushed to `master`
-
-- Adding interaction testing for simple components. ([@jedgar1mx](https://github.com/jedgar1mx))
-- Moving styles to external sheets, add shared variables, add test-runner. ([@jedgar1mx](https://github.com/jedgar1mx))
-- Fixing readme. ([@jedgar1mx](https://github.com/jedgar1mx))
-- Initial setup. ([@jedgar1mx](https://github.com/jedgar1mx))
-- Initial commit ([@jedgar1mx](https://github.com/jedgar1mx))
+- Created first version of the design system, with `Badge`, `Button`, `Loader` components. ([@jedgar1mx](https://github.com/jedgar1mx))
 
 #### Authors: 1
 
