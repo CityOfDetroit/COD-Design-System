@@ -1,12 +1,9 @@
 {
-  "name": "cod-design-system",
-  "version": "0.1.0",
+  "name": "@cityofdetroit/cod-design-system",
+  "version": "0.0.1",
   "description": "City of Detroit design system",
-  "main": "main.js",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/jedgar1mx/COD-Design-System"
-  },
+  "main": "dist/index.js",
+  "repository": "https://github.com/jedgar1mx/COD-Design-System",
   "keywords": [
     "components",
     "web components",
@@ -17,15 +14,17 @@
     "storybook"
   ],
   "bugs": {
-    "url": "https://github.com/jedgar1mx/COD-Design-Systemissues"
+    "url": "https://github.com/jedgar1mx/COD-Design-System/issues"
   },
   "homepage": "https://github.com/jedgar1mx/COD-Design-System#readme",
   "scripts": {
     "build": "webpack --mode production",
+    "build-package": "cross-env BABEL_ENV=production babel src -d dist",
     "start": "webpack-dev-server --mode development",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook",
-    "test-storybook": "test-storybook"
+    "storybook": "start-storybook -p 6006 -s public",
+    "build-storybook": "build-storybook -s public",
+    "test-storybook": "test-storybook",
+    "release": "auto shipit --base-branch=dev"
   },
   "author": "Edgar Montes",
   "license": "MIT",
@@ -36,6 +35,7 @@
     "terraformer-arcgis-parser": "^1.1.0"
   },
   "devDependencies": {
+    "@babel/cli": "^7.21.0",
     "@babel/core": "^7.15.8",
     "@babel/plugin-proposal-class-properties": "^7.14.5",
     "@babel/plugin-syntax-dynamic-import": "^7.8.3",
@@ -57,9 +57,11 @@
     "@storybook/testing-library": "^0.0.13",
     "@storybook/web-components": "^6.5.16",
     "@svgr/webpack": "^5.5.0",
+    "auto": "^10.43.0",
     "babel-loader": "^8.2.3",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
     "concurrently": "^7.0.0",
+    "cross-env": "^7.0.3",
     "css-loader": "^6.5.0",
     "css-minimizer-webpack-plugin": "^3.4.1",
     "cypress": "^9.5.0",
@@ -82,5 +84,13 @@
     "webpack-cli": "^4.9.1",
     "webpack-dev-server": "^4.4.0"
   },
-  "browserslist": "> 0.25%, not dead"
+  "browserslist": "> 0.25%, not dead",
+  "babel": {
+    "presets": [
+      [
+        "@babel/preset-env"
+      ]
+    ]
+  },
+  "private": false
 }
