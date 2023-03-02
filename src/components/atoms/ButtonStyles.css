@@ -1,0 +1,191 @@
+.cod-button {
+    font-family: var(--font-family);
+    font-weight: 700;
+    border: 0;
+    cursor: pointer;
+    display: inline-block;
+    line-height: 1;
+}
+
+.cod-button.cod-button--square.cod-button--img {
+    display: flex;
+}
+
+.cod-button--primary.cod-button--color-1,
+.cod-button--secondary.cod-button--color-1:hover {
+    color: var(--color-light);
+    background-color: var(--color-1);
+}
+
+.cod-button--primary.cod-button--color-1.cod-button--not-hover:hover {
+    color: var(--color-light);
+    background-color: var(--color-1);
+}
+
+.cod-button--primary.cod-button--color-2,
+.cod-button--secondary.cod-button--color-2:hover {
+    color: var(--color-1);
+    background-color: var(--color-2);
+}
+
+.cod-button--primary.cod-button--color-2.cod-button--not-hover:hover {
+    color: var(--color-1);
+    background-color: var(--color-2);
+}
+
+.cod-button--primary.cod-button--color-3,
+.cod-button--secondary.cod-button--color-3:hover {
+    color: var(--color-dark);
+    background-color: var(--color-3);
+}
+
+.cod-button--primary.cod-button--color-3.cod-button--not-hover:hover {
+    color: var(--color-dark);
+    background-color: var(--color-3);
+}
+
+.cod-button--primary.cod-button--color-4,
+.cod-button--secondary.cod-button--color-4:hover {
+    color: var(--color-light);
+    background-color: var(--color-4);
+}
+
+.cod-button--primary.cod-button--color-4.cod-button--not-hover:hover {
+    color: var(--color-light);
+    background-color: var(--color-4);
+}
+
+.cod-button--primary.cod-button--color-5,
+.cod-button--secondary.cod-button--color-5:hover {
+    color: var(--color-dark);
+    background-color: var(--color-5);
+}
+
+.cod-button--primary.cod-button--color-5.cod-button--not-hover:hover {
+    color: var(--color-dark);
+    background-color: var(--color-5);
+}
+
+.cod-button--primary.cod-button--color-light,
+.cod-button--secondary.cod-button--color-light:hover {
+    color: var(--color-dark);
+    background-color: var(--color-light);
+}
+
+.cod-button--primary.cod-button--color-light.cod-button--not-hover:hover {
+    color: var(--color-dark);
+    background-color: var(--color-light);
+}
+
+.cod-button--primary.cod-button--color-dark,
+.cod-button--secondary.cod-button--color-dark:hover {
+    color: var(--color-light);
+    background-color: var(--color-dark);
+}
+
+.cod-button--primary.cod-button--color-dark.cod-button--not-hover:hover {
+    color: var(--color-light);
+    background-color: var(--color-dark);
+}
+
+.cod-button--secondary.cod-button--color-1,
+.cod-button--primary.cod-button--color-1:hover {
+    color: var(--color-1);
+    background-color: transparent;
+    box-shadow: var(--color-1) 0px 0px 0px 1px inset;
+}
+
+.cod-button--secondary.cod-button--color-2,
+.cod-button--primary.cod-button--color-2:hover {
+    color: var(--color-1);
+    background-color: transparent;
+    box-shadow: var(--color-2) 0px 0px 0px 1px inset;
+}
+
+.cod-button--secondary.cod-button--color-3,
+.cod-button--primary.cod-button--color-3:hover {
+    color: var(--color-dark);
+    background-color: transparent;
+    box-shadow: var(--color-3) 0px 0px 0px 1px inset;
+}
+
+.cod-button--secondary.cod-button--color-4,
+.cod-button--primary.cod-button--color-4:hover {
+    color: var(--color-4);
+    background-color: transparent;
+    box-shadow: var(--color-4) 0px 0px 0px 1px inset;
+}
+
+.cod-button--secondary.cod-button--color-5,
+.cod-button--primary.cod-button--color-5:hover {
+    color: var(--color-dark);
+    background-color: transparent;
+    box-shadow: var(--color-light) 0px 0px 0px 1px inset;
+}
+
+.cod-button--secondary.cod-button--color-light,
+.cod-button--primary.cod-button--color-light:hover {
+    color: var(--color-light);
+    background-color: transparent;
+    box-shadow: var(--color-light) 0px 0px 0px 1px inset;
+}
+
+.cod-button--secondary.cod-button--color-dark,
+.cod-button--primary.cod-button--color-dark:hover {
+    color: var(--color-dark);
+    background-color: transparent;
+    box-shadow: var(--color-dark) 0px 0px 0px 1px inset;
+}
+
+.cod-button--xsmall.cod-button--fluid {
+    font-size: .85em;
+    padding: .25em;
+}
+
+.cod-button--small.cod-button--fluid {
+    font-size: 1em;
+    padding: .8em 1.1em;
+}
+
+.cod-button--medium.cod-button--fluid {
+    font-size: 1.1em;
+    padding: .75em 1.25em;
+}
+
+.cod-button--large.cod-button--fluid {
+    font-size: 1.2em;
+    padding: 1em 2em;
+}
+
+.cod-button--small.cod-button--square {
+    font-size: 1em;
+    height: 2em;
+    width: 2em;
+}
+
+.cod-button--medium.cod-button--square {
+    font-size: 1.1em;
+    height: 2.5em;
+    width: 2.5em;
+}
+
+.cod-button--large.cod-button--square {
+    font-size: 1.2em;
+    height: 3em;
+    width: 3em;
+}
+
+.cod-button--img {
+    display: flex;
+}
+
+.cod-button--img img {
+    height: 1em;
+    margin-left: .5em;
+}
+
+.cod-button--square.cod-button--img img {
+    height: auto;
+    max-width: 100%;
+    margin: auto;
+}

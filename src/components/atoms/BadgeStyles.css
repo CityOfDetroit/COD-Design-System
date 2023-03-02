@@ -1,0 +1,45 @@
+.cod-badge {
+    font-family: var(--font-family);
+    font-weight: 700;
+    padding: .35em .75em;
+    font-size: .75em;
+    display: inline-block;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.cod-badge--color-1 {
+    color: var(--color-light);
+    background-color: var(--color-1);
+}
+
+.cod-badge--color-2 {
+    color: var(--color-1);
+    background-color: var(--color-2);
+}
+
+.cod-badge--color-3 {
+    color: var(--color-dark);
+    background-color: var(--color-3);
+}
+
+.cod-badge--color-4 {
+    color: var(--color-light);
+    background-color: var(--color-4);
+}
+
+.cod-badge--color-5 {
+    color: var(--color-dark);
+    background-color: var(--color-5);
+}
+
+.cod-badge--color-light {
+    color: var(--color-dark);
+    background-color: var(--color-light);
+}
+
+.cod-badge--color-dark {
+    color: var(--color-light);
+    background-color: var(--color-dark);
+}

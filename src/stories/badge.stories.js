@@ -12,15 +12,7 @@ export default {
         control: { type: 'select' },
         options: ['color-1', 'color-2', 'color-3', 'color-4', 'color-5', 'color-light', 'color-dark'],
         defaultValue: 'color-1'
-    },
-    url:  {
-        control: { type: 'string' },
-        defaultValue: '',
-    },
-    content:  {
-        control: { type: 'string' },
-        defaultValue: '',
-    },
+    }
   },
 };
 // Template

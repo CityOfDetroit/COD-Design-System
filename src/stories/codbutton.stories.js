@@ -23,14 +23,6 @@ export default {
       options: ['fluid', 'square'],
       defaultValue: 'fluid',
     },
-    img : {
-      control: { type: 'string' },
-      defaultValue: '',
-    },
-    imgAlt:  {
-      control: { type: 'string' },
-      defaultValue: '',
-    },
     hover: {
       control: {type: 'boolean'},
       defaultValue: true,

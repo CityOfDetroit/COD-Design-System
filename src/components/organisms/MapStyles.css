@@ -1,0 +1,23 @@
+#map-wrapper {
+    position: relative;
+}
+
+#map {
+    width: 100%;
+    min-height: 50em;
+}
+
+cod-button {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+@media all and (min-width: 1024px) {
+    cod-button {
+        top: 0;
+        left: 0;
+        bottom: auto;
+        right: auto;
+    }
+}

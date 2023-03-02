@@ -1,4 +1,5 @@
 'use strict';
+import styles from '!!raw-loader!./GeocoderStyles.css';
 export default class Geocoder extends HTMLElement {
 
     static get observedAttributes() {
@@ -14,11 +15,7 @@ export default class Geocoder extends HTMLElement {
         this.parcelStatus = 'Invalid';
         this.user = null;
         this.styles = document.createElement('style');
-        this.styles.textContent = `
-            @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;700&display=swap')
-            #geocoder {width: 100%}
-            input {width: calc(100% - 2em); padding: 1em; border:.1em solid #e6e6e6;}
-        `;
+        this.styles.textContent = styles;
 
         // Create a shadow root
         const shadow = this.attachShadow({ mode: 'open' });
