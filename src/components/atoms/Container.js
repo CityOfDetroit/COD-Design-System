@@ -1,6 +1,6 @@
 import styles from '!!raw-loader!./ContainerStyles.css';
 import varStyles from '!!raw-loader!../../shared/variables.css';
-import bootstrapStyles from '!!raw-loader!../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import bootstrapStyles from '!!raw-loader!bootstrap/dist/css/bootstrap.min.css';
 export default class Container extends HTMLElement {
     constructor() {
       // Always call super first in constructor
