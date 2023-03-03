@@ -1,0 +1,76 @@
+.container.color-1,
+.container-fluid.color-1,
+.container-xxl.color-1,
+.container-xl.color-1,
+.container-lg.color-1,
+.container-md.color-1,
+.container-sm.color-1 {
+    background-color: var(--color-1);
+    color: var(--color-light)
+}
+
+.container.color-2,
+.container-fluid.color-2,
+.container-xxl.color-2,
+.container-xl.color-2,
+.container-lg.color-2,
+.container-md.color-2,
+.container-sm.color-2 {
+    background-color: var(--color-2);
+    color: var(--color-1)
+}
+
+.container.color-3,
+.container-fluid.color-3,
+.container-xxl.color-3,
+.container-xl.color-3,
+.container-lg.color-3,
+.container-md.color-3,
+.container-sm.color-3 {
+    background-color: var(--color-3);
+    color: var(--color-dark)
+}
+
+.container.color-4,
+.container-fluid.color-4,
+.container-xxl.color-4,
+.container-xl.color-4,
+.container-lg.color-4,
+.container-md.color-4,
+.container-sm.color-4 {
+    background-color: var(--color-4);
+    color: var(--color-light)
+}
+
+.container.color-5,
+.container-fluid.color-5,
+.container-xxl.color-5,
+.container-xl.color-5,
+.container-lg.color-5,
+.container-md.color-5,
+.container-sm.color-5 {
+    background-color: var(--color-5);
+    color: var(--color-dark)
+}
+
+.container.color-light,
+.container-fluid.color-light,
+.container-xxl.color-light,
+.container-xl.color-light,
+.container-lg.color-light,
+.container-md.color-light,
+.container-sm.color-light {
+    background-color: var(--color-light);
+    color: var(--color-dark)
+}
+
+.container.color-dark,
+.container-fluid.color-dark,
+.container-xxl.color-dark,
+.container-xl.color-dark,
+.container-lg.color-dark,
+.container-md.color-dark,
+.container-sm.color-dark {
+    background-color: var(--color-dark);
+    color: var(--color-light)
+}
