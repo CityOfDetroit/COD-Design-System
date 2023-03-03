@@ -29,7 +29,6 @@ export default class Badge extends HTMLElement {
       }
       badge.innerText = content;
       badge.className = ['cod-badge', `cod-badge--${backgroundColor}`].join(' ');
-      console.log(badge);
       this.shadowRoot.appendChild(badge);
     }
   };
