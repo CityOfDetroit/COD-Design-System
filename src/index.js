@@ -1,4 +1,6 @@
-export * from './components/atoms/Badge';
-export * from './components/atoms/Button';
-export * from './components/atoms/Loader';
-export * from './components/atoms/Container';
+import Badge from './components/atoms/Badge';
+import Container from './components/atoms/Container';
+import Alert from './components/atoms/Alert';
+customElements.define('cod-alert', Alert);
+customElements.define('cod-container', Container);
+customElements.define('cod-badge', Badge);

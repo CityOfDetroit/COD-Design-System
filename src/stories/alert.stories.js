@@ -5,11 +5,15 @@ export default {
   argTypes: {
     icon: {
         control: { type: 'select' },
-        options: ['info', 'success', 'warning']
+        options: ['house', 'house-fill', 'exclamation-circle', 'exclamation-circle-fill', 'exclamation-triangle', 'check-circle', 'check-circle-fill']
     },
     iconOrder: {
         control: { type: 'select' },
         options: ['left', 'right']
+    },
+    iconSize: {
+      control: { type: 'select' },
+      options: ['small', 'medium', 'large', 'x-large']
     },
     backgroundColor: { 
         control: { type: 'select' },
@@ -28,6 +32,7 @@ const Template = (args) => {
   }
   alert.setAttribute('data-icon', args.icon);
   alert.setAttribute('data-icon-order', args.iconOrder);
+  alert.setAttribute('data-icon-size', args.iconSize);
   alert.setAttribute('data-extra-classes', args.extraClasses);
   alert.setAttribute('data-background-color', args.backgroundColor);
   return alert;
@@ -51,22 +56,29 @@ AlertElements.args = {
   content: 'Container with Extra Classes',
   backgroundColor: 'primary',
   extraClasses: 'text-center p-3',
-  elements: JSON.stringify(
+  elements: JSON.stringify([
+    {
+      tag: 'p',
+      content: 'Simple paragraph.'
+  },
     {
         tag: 'article',
-        content: 'Article with <a href="#">link</a>'
-    })
+        content: 'Article with <a href="https://google.com">link</a>'
+    }
+  ])
 };
 
 export const AlertIcon = Template.bind({});
 AlertIcon.args = {
   content: 'Container with Extra Classes',
   backgroundColor: 'primary',
-  icon: 'info',
+  icon: 'house',
   iconOrder: 'left',
+  iconSize: 'small',
   elements: JSON.stringify(
     {
         tag: 'article',
         content: 'Article with <a href="#">link</a>'
-    })
+    }
+  )
 };

@@ -1,0 +1,17 @@
+// Custom.scss
+// Option A: Include all of Bootstrap
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;700&display=swap');
+$primary:       #004445 !default;
+$secondary:     #e6e6e6 !default;
+$success:       #9FD5B3 !default;
+$info:          #004445 !default;
+$warning:       #feb70d !default;
+$danger:        #b3393b !default;
+$light:         #fff !default;
+$dark:          #000 !default;
+$font-family-sans-serif: 'Montserrat', sans-serif;
+$font-family-monospace: 'Montserrat', sans-serif;
+
+@import "../../node_modules/bootstrap/scss/bootstrap";
+
+// Then add additional custom code here

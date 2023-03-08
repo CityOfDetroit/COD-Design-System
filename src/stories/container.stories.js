@@ -55,9 +55,14 @@ ContainerElements.args = {
   type: 'container',
   backgroundColor: 'color-1',
   extraClasses: 'text-center p-3',
-  elements: JSON.stringify(
+  elements: JSON.stringify([
     {
-        tag: 'article',
-        content: 'Article with <a href="#">link</a>'
-    })
+        tag: 'p',
+        content: 'Simple paragragh'
+    },
+    {
+      tag: 'article',
+      content: 'Article with <a href="https://google.com">link</a>'
+  }
+  ])
 };

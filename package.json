@@ -34,6 +34,7 @@
     "@turf/turf": "^5.1.6",
     "bootstrap": "^5.2.3",
     "bootstrap-icons": "^1.10.3",
+    "dompurify": "^3.0.1",
     "maplibre-gl": "^2.4.0",
     "terraformer-arcgis-parser": "^1.1.0"
   },
