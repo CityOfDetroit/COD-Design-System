@@ -20,6 +20,18 @@ export default {
       options: ['xsmall', 'small', 'medium', 'large'],
       defaultValue: 'medium',
     },
+    icon: {
+      control: { type: 'select' },
+      options: ['house', 'house-fill', 'exclamation-circle', 'exclamation-circle-fill', 'exclamation-triangle', 'check-circle', 'check-circle-fill']
+    },
+    iconSize: {
+      control: { type: 'select' },
+      options: ['small', 'medium', 'large', 'x-large']
+    },
+    iconOrder: {
+      control: { type: 'select' },
+      options: ['left', 'right']
+    },
     shape: {
       control: { type: 'select' },
       options: ['fluid', 'square'],
@@ -43,6 +55,9 @@ const Template = (args) => {
   btn.setAttribute('data-background-color', args.backgroundColor);
   btn.setAttribute('data-img', (args.img) ? args.img : '');
   btn.setAttribute('data-img-alt', (args.imgAlt) ? args.imgAlt : '');
+  btn.setAttribute('data-icon', (args.icon) ? args.icon : '');
+  btn.setAttribute('data-icon-order', (args.iconOrder) ? args.iconOrder : '');
+  btn.setAttribute('data-icon-size', (args.iconSize) ? args.iconSize : '');
   btn.setAttribute('data-hover', args.hover);
   btn.setAttribute('data-shape', args.shape);
   btn.setAttribute('role', args.role);
@@ -75,6 +90,16 @@ Image.args = {
   backgroundColor: 'color-5',
   img: 'https://detroitmi.gov/sites/detroitmi.localhost/files/2023-02/map.png',
   imgAlt: 'map',
+};
+
+export const Icon = Template.bind({});
+Icon.args = {
+  primary: true,
+  label: 'Image',
+  backgroundColor: 'color-5',
+  icon: 'house',
+  iconSize: 'small',
+  iconOrder: 'left',
 };
 
 export const Square = Template.bind({});

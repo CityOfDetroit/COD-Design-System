@@ -21,6 +21,9 @@ export default class Button extends HTMLElement {
      let shape = this.getAttribute('data-shape');
      let hover = this.getAttribute('data-hover');
      let hoverStatus = (hover == 'false') ? 'cod-button--not-hover' : 'cod-button--hover';
+     let icon = this.getAttribute('data-icon');
+     let iconSize = this.getAttribute('data-icon-size');
+     let iconOrder = this.getAttribute('data-icon-order');
      let imgSrc = this.getAttribute('data-img');
      let imgAlt = this.getAttribute('data-img-alt');
      let img = (imgAlt != '') ? 'img' : 'not-img';
@@ -31,7 +34,19 @@ export default class Button extends HTMLElement {
     const btn = document.createElement('button');
     btn.type = 'button';
     btn.className = ['cod-button', `cod-button--${size || 'medium'}`, `cod-button--${img}`, `cod-button--${backgroundColor}`, `cod-button--${shape || 'fluid'}`, hoverStatus, mode].join(' ');
-    if(imgAlt != ''){
+    if(icon != ''){
+      let iconContainer = document.createElement('span');
+      let activeIcon = document.createElement('cod-icon');
+      activeIcon.setAttribute('data-icon', icon);
+      activeIcon.setAttribute('data-size', iconSize);
+      iconContainer.appendChild(activeIcon);
+      btn.innerText = label;
+      if(iconOrder == 'left'){
+        btn.insertBefore(iconContainer, btn.firstChild);
+      }else{
+        btn.appendChild(iconContainer);
+      }
+    }else if(imgAlt != ''){
       btn.innerText = label;
       const btnIcon = document.createElement('img');
       btnIcon.src = imgSrc;
@@ -40,6 +55,24 @@ export default class Button extends HTMLElement {
     }else{
       btn.innerText = label;
     }
+    // if(icon != ''){
+    //   let iconContainer = document.createElement('span');
+    //   let activeIcon = document.createElement('cod-icon');
+    //   activeIcon.setAttribute('data-icon', icon);
+    //   activeIcon.setAttribute('data-size', iconSize);
+    //   iconContainer.appendChild(activeIcon);
+    // }else{
+
+    // }
+    // if(imgAlt != ''){
+    //   btn.innerText = label;
+    //   const btnIcon = document.createElement('img');
+    //   btnIcon.src = imgSrc;
+    //   btnIcon.setAttribute('alt', imgAlt);
+    //   btn.appendChild(btnIcon);
+    // }else{
+    //   btn.innerText = label;
+    // }
     this.shadowRoot.appendChild(btn);
   }
 };

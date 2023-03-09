@@ -42,6 +42,7 @@ export default class Map extends HTMLElement {
         closeMapBtn.setAttribute('data-background-color', 'color-3');
         closeMapBtn.setAttribute('data-img', '');
         closeMapBtn.setAttribute('data-img-alt', '');
+        closeMapBtn.setAttribute('data-icon', '');
         closeMapBtn.setAttribute('data-shape', 'square');
         shadow.appendChild(mapWrapper);
         mapWrapper.appendChild(closeMapBtn);
