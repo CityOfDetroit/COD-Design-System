@@ -15,6 +15,8 @@ export default class Button extends HTMLElement {
     const btnStyles = document.createElement('style');
     btnStyles.textContent = styles;
      // Button attributes
+     let link = this.getAttribute('data-link');
+     let ariaLabel = this.getAttribute('data-aria-label');
      let primary = this.getAttribute('data-primary');
      let mode = (primary == 'true') ? 'cod-button--primary' : 'cod-button--secondary';
      let backgroundColor = this.getAttribute('data-background-color');
@@ -29,10 +31,12 @@ export default class Button extends HTMLElement {
      let img = (imgAlt != '') ? 'img' : 'not-img';
      let size = this.getAttribute('data-size');
      let label = this.getAttribute('data-label');
+     let disableStatus = this.getAttribute('data-disable');
     this.shadowRoot.appendChild(btnStyles);
-    const btnClick = this.btnClick;
     const btn = document.createElement('button');
     btn.type = 'button';
+    (disableStatus == 'true') ? btn.disabled = true : btn.disabled = false;
+    btn.setAttribute('aria-label', `${ariaLabel || ''}`);
     btn.className = ['cod-button', `cod-button--${size || 'medium'}`, `cod-button--${img}`, `cod-button--${backgroundColor}`, `cod-button--${shape || 'fluid'}`, hoverStatus, mode].join(' ');
     if(icon != ''){
       let iconContainer = document.createElement('span');
@@ -55,24 +59,13 @@ export default class Button extends HTMLElement {
     }else{
       btn.innerText = label;
     }
-    // if(icon != ''){
-    //   let iconContainer = document.createElement('span');
-    //   let activeIcon = document.createElement('cod-icon');
-    //   activeIcon.setAttribute('data-icon', icon);
-    //   activeIcon.setAttribute('data-size', iconSize);
-    //   iconContainer.appendChild(activeIcon);
-    // }else{
-
-    // }
-    // if(imgAlt != ''){
-    //   btn.innerText = label;
-    //   const btnIcon = document.createElement('img');
-    //   btnIcon.src = imgSrc;
-    //   btnIcon.setAttribute('alt', imgAlt);
-    //   btn.appendChild(btnIcon);
-    // }else{
-    //   btn.innerText = label;
-    // }
-    this.shadowRoot.appendChild(btn);
+    if(link == 'undefined' || link == ''){
+      this.shadowRoot.appendChild(btn);
+    }else{
+      const btnLink = document.createElement('a');
+      btnLink.href = link;
+      btnLink.appendChild(btn);
+      this.shadowRoot.appendChild(btnLink);
+    }
   }
 };

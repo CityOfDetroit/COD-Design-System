@@ -40,6 +40,10 @@ export default {
     hover: {
       control: {type: 'boolean'},
       defaultValue: true,
+    },
+    disable: {
+      control: {type: 'boolean'},
+      defaultValue: false,
     }
   },
 };
@@ -61,6 +65,9 @@ const Template = (args) => {
   btn.setAttribute('data-hover', args.hover);
   btn.setAttribute('data-shape', args.shape);
   btn.setAttribute('role', args.role);
+  btn.setAttribute('data-aria-label', (args.ariaLabel) ? args.ariaLabel : '');
+  btn.setAttribute('data-disable', args.disable);
+  btn.setAttribute('data-link', args.link);
   return btn;
 }
 
@@ -74,6 +81,13 @@ export const Secondary = Template.bind({});
 Secondary.args = {
   primary: false,
   label: 'Secondary',
+};
+
+export const Link = Template.bind({});
+Link.args = {
+  primary: false,
+  label: 'Link',
+  link: 'https://detroitmi.gov'
 };
 
 export const NoHover = Template.bind({});
@@ -107,6 +121,7 @@ Square.args = {
   primary: true,
   label: 'x',
   shape: 'square',
+  ariaLabel: 'Close'
 };
 
 export const SquareImage = Template.bind({});
