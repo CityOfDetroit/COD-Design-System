@@ -16,6 +16,7 @@ export default class Button extends HTMLElement {
     btnStyles.textContent = styles;
      // Button attributes
      let link = this.getAttribute('data-link');
+     let btnID = this.getAttribute('data-id');
      let ariaLabel = this.getAttribute('data-aria-label');
      let primary = this.getAttribute('data-primary');
      let mode = (primary == 'true') ? 'cod-button--primary' : 'cod-button--secondary';
@@ -35,6 +36,7 @@ export default class Button extends HTMLElement {
     this.shadowRoot.appendChild(btnStyles);
     const btn = document.createElement('button');
     btn.type = 'button';
+    btn.id = btnID;
     (disableStatus == 'true') ? btn.disabled = true : btn.disabled = false;
     btn.setAttribute('aria-label', `${ariaLabel || ''}`);
     btn.className = ['cod-button', `cod-button--${size || 'medium'}`, `cod-button--${img}`, `cod-button--${backgroundColor}`, `cod-button--${shape || 'fluid'}`, hoverStatus, mode].join(' ');

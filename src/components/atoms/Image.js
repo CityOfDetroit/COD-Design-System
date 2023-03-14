@@ -2,7 +2,6 @@ import styles from '!!raw-loader!./ImageStyles.css';
 import varStyles from '!!raw-loader!../../shared/variables.css';
 import bootstrapStyles from '!!raw-loader!../../shared/themed-bootstrap.css';
 import bootstrapIcons from '!!raw-loader!bootstrap-icons/font/bootstrap-icons.css';
-import * as DOMPurify from 'dompurify';
 export default class Image extends HTMLElement {
   constructor() {
     // Always call super first in constructor

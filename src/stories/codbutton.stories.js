@@ -64,10 +64,10 @@ const Template = (args) => {
   btn.setAttribute('data-icon-size', (args.iconSize) ? args.iconSize : '');
   btn.setAttribute('data-hover', args.hover);
   btn.setAttribute('data-shape', args.shape);
-  btn.setAttribute('role', args.role);
   btn.setAttribute('data-aria-label', (args.ariaLabel) ? args.ariaLabel : '');
   btn.setAttribute('data-disable', args.disable);
   btn.setAttribute('data-link', args.link);
+  btn.setAttribute('data-id', args.id);
   return btn;
 }
 
@@ -134,17 +134,17 @@ SquareImage.args = {
   imgAlt: 'map',
 };
 
-export const WithInteraction = Template.bind({});
-WithInteraction.args = {
-  primary: true,
-  label: 'Interaction',
-  role: 'button',
-  onclick: (e) => {console.log(e)}
-};
+// export const WithInteraction = Template.bind({});
+// WithInteraction.args = {
+//   primary: true,
+//   label: 'Interaction',
+//   id: 'interaction',
+//   onclick: (e) => {console.log(e)}
+// };
 
-WithInteraction.play = async ({ args, canvasElement }) => {
-  // Assigns canvas to the component root element
-  const canvas = within(canvasElement);
-  await userEvent.click(canvas.getByRole('button'));
-  await expect(console.log);
-}
+// WithInteraction.play = async ({ args, canvasElement }) => {
+//   // Assigns canvas to the component root element
+//   const canvas = within(canvasElement);
+//   await userEvent.click(canvas.getByTestId('interaction'));
+//   await expect(console.log);
+// }

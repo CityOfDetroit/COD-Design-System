@@ -47,7 +47,8 @@ ImageSources.args = {
         }
     ]),
     source: 'https://detroitmi.gov/sites/detroitmi.localhost/files/2023-03/SOTC_WebGraphic.jpg',
-    imgAlt: 'Worker'
+    imgAlt: 'Worker',
+    style: 'rounded'
 };
 
 export const ImageOnly = Template.bind({});
