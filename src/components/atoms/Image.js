@@ -1,7 +1,6 @@
 import styles from '!!raw-loader!./ImageStyles.css';
 import varStyles from '!!raw-loader!../../shared/variables.css';
 import bootstrapStyles from '!!raw-loader!../../shared/themed-bootstrap.css';
-import bootstrapIcons from '!!raw-loader!bootstrap-icons/font/bootstrap-icons.css';
 export default class Image extends HTMLElement {
   constructor() {
     // Always call super first in constructor
@@ -12,8 +11,6 @@ export default class Image extends HTMLElement {
 
   connectedCallback() {
     // setting up styles
-    const bootIcons = document.createElement('style');
-    bootIcons.textContent = bootstrapIcons;
     const bootStyles = document.createElement('style');
     bootStyles.textContent = bootstrapStyles;
     const variableStyles = document.createElement('style');
@@ -21,7 +18,6 @@ export default class Image extends HTMLElement {
     const imageStyles = document.createElement('style');
     imageStyles.textContent = styles;
     this.shadowRoot.appendChild(bootStyles);
-    this.shadowRoot.appendChild(bootIcons);
     this.shadowRoot.appendChild(variableStyles);
     this.shadowRoot.appendChild(imageStyles);
     // image attributes
