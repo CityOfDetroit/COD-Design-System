@@ -22,6 +22,11 @@ export default {
         options: ['text', 'number', 'email', 'color', 'tel', 'password'],
         defaultValue: 'text',
     },
+    required: { 
+      control: { type: 'select' },
+      options: ['true', 'false'],
+      defaultValue: 'false'
+    }
   },
 };
 // Template
@@ -37,6 +42,7 @@ const Template = (args) => {
   fcontrol.setAttribute('data-plain-txt', args.plainText);
   fcontrol.setAttribute('data-disabled', args.disabled);
   fcontrol.setAttribute('data-read-only', args.readOnly);
+  fcontrol.setAttribute('data-required', args.required);
   fcontrol.setAttribute('data-placeholder-txt', args.placeholder);
   fcontrol.addEventListener('keydown', (e)=>{
     args.keydown(e)
@@ -45,6 +51,12 @@ const Template = (args) => {
 }
 
 export const Input = Template.bind({});
+Input.args = {
+  id: 'simple-input',
+  placeholder: 'enter text here'
+};
+
+export const SpecialInput = Template.bind({});
 Input.args = {
   id: 'simple-input',
   placeholder: 'enter text here'

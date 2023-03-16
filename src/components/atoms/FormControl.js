@@ -1,4 +1,4 @@
-import styles from '!!raw-loader!./ProgressStyles.css';
+import styles from '!!raw-loader!./FormControlStyles.css';
 import varStyles from '!!raw-loader!../../shared/variables.css';
 import bootstrapStyles from '!!raw-loader!../../shared/themed-bootstrap.css';
 export default class FormControl extends HTMLElement {
@@ -28,6 +28,7 @@ export default class FormControl extends HTMLElement {
     let readOnly = this.getAttribute('data-read-only');
     let disabled = this.getAttribute('data-disabled');
     let plainText = this.getAttribute('data-plain-txt');
+    let required = this.getAttribute('data-required');
     let rows = this.getAttribute('data-rows');
     let size = this.getAttribute('data-size');
     let value = this.getAttribute('data-value');
@@ -35,6 +36,9 @@ export default class FormControl extends HTMLElement {
     const formControl = document.createElement(inputType);
     formControl.id = id;
     formControl.placeholder = placeholderTxt;
+    if(required == 'true'){
+      formControl.setAttribute('required', true);
+    }
     if(inputType != 'textarea'){
         formControl.type = dataType;
     }

@@ -1,0 +1,4 @@
+label.required-field:after{
+    color: var(--bs-danger);
+    content: " *";
+}
