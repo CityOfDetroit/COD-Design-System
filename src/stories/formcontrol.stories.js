@@ -32,6 +32,8 @@ export default {
 // Template
 const Template = (args) => {
   const fcontrol = document.createElement('cod-form-control');
+  fcontrol.setAttribute('data-valid-msg', args.validMsg);
+  fcontrol.setAttribute('data-invalid-msg', args.invalidMsg);
   fcontrol.setAttribute('data-tag', args.tag);
   fcontrol.setAttribute('data-size', args.size);
   fcontrol.setAttribute('data-background-color', args.backgroundColor);
@@ -53,13 +55,17 @@ const Template = (args) => {
 export const Input = Template.bind({});
 Input.args = {
   id: 'simple-input',
-  placeholder: 'enter text here'
+  placeholder: 'enter text here',
+  validMsg: 'Looks good!',
+  invalidMsg: 'Nope!'
 };
 
 export const SpecialInput = Template.bind({});
 Input.args = {
   id: 'simple-input',
-  placeholder: 'enter text here'
+  placeholder: 'enter text here',
+  validMsg: 'Looks good!',
+  invalidMsg: 'Nope!'
 };
 
 export const Textarea = Template.bind({});
@@ -67,21 +73,27 @@ Textarea.args = {
   id: 'simple-textarea',
   placeholder: 'enter text here',
   tag: 'textarea',
-  rows: '5'
+  rows: '5',
+  validMsg: 'Looks good!',
+  invalidMsg: 'Nope!'
 };
 
 export const Disabled = Template.bind({});
 Disabled.args = {
   id: 'disabled-input',
   placeholder: 'This input is disabled',
-  disabled: 'true'
+  disabled: 'true',
+  validMsg: 'Looks good!',
+  invalidMsg: 'Nope!'
 };
 
 export const WithInteraction = Template.bind({});
 WithInteraction.args = {
     id: 'interaction-input',
     placeholder: 'enter text here',
-    keydown: (e) => {console.log(e)}
+    keydown: (e) => {console.log(e)},
+    validMsg: 'Looks good!',
+    invalidMsg: 'Nope!'
 };
 
 // WithInteraction.play = async ({ args, canvasElement }) => {

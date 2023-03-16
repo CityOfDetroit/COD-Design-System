@@ -29,10 +29,18 @@ export default class FormControl extends HTMLElement {
     let disabled = this.getAttribute('data-disabled');
     let plainText = this.getAttribute('data-plain-txt');
     let required = this.getAttribute('data-required');
+    let validMsg = this.getAttribute('data-valid-msg');
+    let invalidMsg = this.getAttribute('data-invalid-msg');
     let rows = this.getAttribute('data-rows');
     let size = this.getAttribute('data-size');
     let value = this.getAttribute('data-value');
     let backgroundColor = this.getAttribute('data-background-color');
+    const invalid = document.createElement('div');
+    invalid.className = 'invalid-feedback';
+    invalid.innerText = invalidMsg;
+    const valid = document.createElement('div');
+    valid.className = 'valid-feedback';
+    valid.innerText = validMsg;
     const formControl = document.createElement(inputType);
     formControl.id = id;
     formControl.placeholder = placeholderTxt;
@@ -58,5 +66,7 @@ export default class FormControl extends HTMLElement {
     (dataType == 'color') ? colorPicker = dataType : colorPicker = '';
     formControl.className = ['form-control', `form-control-${size || ''}`, `form-control-${colorPicker || ''}`, `bg-${backgroundColor || ''}`, `form-control-${plainText || ''}`].join(' ');
     this.shadowRoot.appendChild(formControl);
+    this.shadowRoot.appendChild(valid);
+    this.shadowRoot.appendChild(invalid);
   }
 };
