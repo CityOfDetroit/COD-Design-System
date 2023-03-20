@@ -1,2 +1,32 @@
-<cod-button data-label="Button" data-img-alt="" onclick="(e)=>{console.log(e)}"></cod-button>
-<script src="index.js"></script>
+<cod-form data-id="simple-form">
+    <form id="form-test" slot="form-elements" clas="needs-validation">
+            <cod-form-control
+            type="text"
+            required
+            minlength="5"
+            data-tooShort="Type at least 5 characters"
+            data-valueMissing="This field can't be empty"
+            data-placeholder-txt="Enter text"
+            data-tag="input"></cod-form-control>
+        <cod-button data-label="submit"></cod-button>
+        <div class="error-message"></div>
+    </form>
+    
+</cod-form>
+<script>
+    const errorMessage = document.querySelector('.error-message');
+    let forms = document.getElementsByTagName('form');
+    console.log(forms);
+    forms[1].addEventListener('submit', (ev)=>{
+        ev.preventDefault();
+        return false;
+    });
+    const formControl = document.querySelector('cod-form-control');
+    formControl.addEventListener('invalid', (e)=>{
+        console.log(e);
+    })
+    function testButton(){
+        document.getElementById('form-test').submit();
+    }
+</script>
+<script src="index.js"></script> 

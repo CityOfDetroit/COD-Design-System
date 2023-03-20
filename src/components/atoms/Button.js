@@ -61,8 +61,10 @@ export default class Button extends HTMLElement {
     }else{
       btn.innerText = label;
     }
-    if(link == 'undefined' || link == ''){
+    if(link == undefined || link == 'undefined' || link == ''){
       this.shadowRoot.appendChild(btn);
+      let ghostBtn = this.appendChild(document.createElement('button'));
+      this.onclick = () => ghostBtn.click();
     }else{
       const btnLink = document.createElement('a');
       btnLink.href = link;
