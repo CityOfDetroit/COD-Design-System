@@ -12,61 +12,21 @@ export default class FormControl extends HTMLElement {
     // Always call super first in constructor
     super();
     // Create a shadow root
+    const shadow = this.attachShadow({ mode: 'open'});
+    this.internals = this.attachInternals();
+    this.formControl = null;
     this.invalid = false;
     this.pristine = true;
-    const shadow = this.attachShadow({ mode: 'open' });
-    this.internals = this.attachInternals();
-
-    // setting up styles
-    const bootStyles = document.createElement('style');
-    bootStyles.textContent = bootstrapStyles;
-    const variableStyles = document.createElement('style');
-    variableStyles.textContent = varStyles;
-    const formControlsStyles = document.createElement('style');
-    formControlsStyles.textContent = styles;
-    shadow.appendChild(bootStyles);
-    shadow.appendChild(variableStyles);
-    shadow.appendChild(formControlsStyles);
-    // progress attributes
-    let inputType = this.getAttribute('data-tag');
-    let dataType = this.getAttribute('data-type');
-    let id = this.getAttribute('data-id');
-    let placeholderTxt = this.getAttribute('data-placeholder-txt');
-    let readOnly = this.getAttribute('data-read-only');
-    let plainText = this.getAttribute('data-plain-txt');
-    let rows = this.getAttribute('data-rows');
-    let size = this.getAttribute('data-size');
-    let value = this.getAttribute('data-value');
-    let backgroundColor = this.getAttribute('data-background-color');
-    this.formControl = document.createElement(inputType);
-    this.formControl.id = id;
-    this.formControl.placeholder = placeholderTxt;
-    if(inputType != 'textarea'){
-        this.formControl.type = dataType;
-    }
-    if(rows != 'undefined' && rows != 'null'){
-        this.formControl.setAttribute('rows', rows);
-    }
-    if(value != 'undefined' && value != 'null'){
-        this.formControl.value = value;
-    }
-    if(readOnly == 'true'){
-        this.formControl.setAttribute('readonly', true);
-    }
-    let colorPicker;
-    (dataType == 'color') ? colorPicker = dataType : colorPicker = '';
-    this.formControl.className = ['form-control', `form-control-${size || ''}`, `form-control-${colorPicker || ''}`, `bg-${backgroundColor || ''}`, `form-control-${plainText || ''}`].join(' ');
-    shadow.appendChild(this.formControl);
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
-    console.log(`Name: ${name}, Old: ${oldValue}, New: ${newValue}`);
-    let tempClasses = this.formControl.className.split(' ');
+    let tempClasses = this.select.className.split(' ');
     let popValue = tempClasses.pop();
     (popValue != 'is-invalid') ? tempClasses.push(popValue) : 0;
 
     switch (newValue) {
       case 'true':
+        console.log('invalid input');
         tempClasses.push('is-invalid');
         this.formControl.className = tempClasses.join(' ');
         break;
@@ -82,39 +42,65 @@ export default class FormControl extends HTMLElement {
   }
 
   connectedCallback() {
-    this.formControl = this.shadowRoot.querySelector(this.getAttribute('data-tag'));
-    // set the required properties (constraints) on the internal
-    // <input>
-    [
-      'type',
-      'value',
-      'placeholder',
-      'required',
-      'disabled',
-      'min',
-      'max',
-      'minLength',  // <-- camelCase!
-      'maxLength',  // <-- camelCase!
-      'pattern'
-    ].forEach((attr) => {
-      const attrValue = attr === 'required' ? this.hasAttribute(attr) : ( (attr === 'disabled') ? this.hasAttribute(attr) : this.getAttribute(attr));
-      
-      if(attrValue !== null && attrValue !== undefined) {
-        this.formControl[attr] = attrValue;
-      }
-    });
+    // setting up styles
+    const bootStyles = document.createElement('style');
+    bootStyles.textContent = bootstrapStyles;
+    const variableStyles = document.createElement('style');
+    variableStyles.textContent = varStyles;
+    const formControlsStyles = document.createElement('style');
+    formControlsStyles.textContent = styles;
+    this.shadowRoot.appendChild(bootStyles);
+    this.shadowRoot.appendChild(variableStyles);
+    this.shadowRoot.appendChild(formControlsStyles);
+    // progress attributes
+    let inputType = this.getAttribute('data-tag')
+    let dataType = this.getAttribute('data-type');
+    let id = this.getAttribute('data-id');
+    let minlength = this.getAttribute('data-minlength');
+    let placeholderTxt = this.getAttribute('data-placeholder-txt');
+    let readOnly = this.getAttribute('data-read-only');
+    let disabled = this.getAttribute('data-disabled');
+    let plainText = this.getAttribute('data-plain-txt');
+    let required = this.getAttribute('data-required');
+    let rows = this.getAttribute('data-rows');
+    let size = this.getAttribute('data-size');
+    let value = this.getAttribute('data-value');
+    let backgroundColor = this.getAttribute('data-background-color');
+    const formControl = document.createElement(inputType);
+    formControl.id = id;
+    formControl.placeholder = placeholderTxt;
+    if(required == 'true'){
+      formControl.setAttribute('required', true);
+    }
+    if(inputType != 'textarea'){
+        formControl.type = dataType;
+    }
+    if(minlength != undefined && minlength != null){
+      formControl.setAttribute('minlength', minlength);
+  }
+    if(rows != undefined && rows != null){
+        formControl.setAttribute('rows', rows);
+    }
+    if(value != undefined && value != null){
+        formControl.value = value;
+    }
+    if(readOnly == 'true'){
+        formControl.setAttribute('readonly', true);
+    }
+    if(disabled == 'true'){
+        formControl.setAttribute('disabled', true);
+    }
+    let colorPicker;
+    (dataType == 'color') ? colorPicker = dataType : colorPicker = '';
+    formControl.className = ['form-control', `form-control-${size || ''}`, `form-control-${colorPicker || ''}`, `bg-${backgroundColor || ''}`, `form-control-${plainText || ''}`].join(' ');
 
-    this.formControl.addEventListener('change', (e) => {
-      if(this.validateOnChange) {
-        this.pristine = false;
-      }
-      this.setAttribute('data-invalid', false);
-      // we also want to dispatch a `change` event from
+    formControl.addEventListener('change', (e) => {
+      // we also want to dispatch a `change` event from 
       // our custom element
+      this.setAttribute('data-invalid', false);
       const clone = new e.constructor(e.type, e);
       this.dispatchEvent(clone);
-
-      // set the element's validity whenever the value of the
+      // set the element’s validity whenever the value of the 
       // <input> changes
       this.validateInput();
     });
@@ -130,58 +116,18 @@ export default class FormControl extends HTMLElement {
       }
     });
 
-    this.addEventListener('focus', () => {
-      this.formControl.focus();
-    });
-
+    this.addEventListener('focus', () => formControl.focus());
     if (!this.hasAttribute('tabindex')) {
       this.setAttribute('tabindex', '0');
     }
-
-    // set the initial validity of the component
+    this.shadowRoot.appendChild(formControl);
+    this.formControl = formControl;
     this.validateInput();
   }
 
-  get customErrorDisplay() {
-    return this.hasAttribute('custom-error-display');
-  }
-
-  get validateOnChange() {
-    return this.hasAttribute('validate-on-change');
-  }
-
-  get invalid() {
-    return this.hasAttribute('invalid');
-  }
-
-  set invalid(isInvalid) {
-    isInvalid && this.customErrorDisplay ? this.setAttribute('invalid', '') : this.removeAttribute('invalid');
-  }
-
-  get value() {
-    return this.formControl.value;
-  }
-
-  set value(value) {
-    this.formControl.value = value;
-    this.internals.setFormValue(value);
-  }
-
-  get form() {
-    return this.internals.form;
-  }
-
-  get name() {
-    return this.getAttribute('name');
-  }
-
-  get type() {
-    return this.localName;
-  }
   get validity() {
     return this.internals.validity;
   }
-
   get validationMessage() {
     return this.internals.validationMessage;
   }

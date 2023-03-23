@@ -33,12 +33,16 @@ export default {
 const Template = (args) => {
   const fcontrol = document.createElement('cod-form-control');
   fcontrol.setAttribute('data-tag', args.tag);
-  fcontrol.setAttribute('data-size', args.size);
+  if(args.size != null){
+    fcontrol.setAttribute('data-size', args.size);
+  }
+  if(args.rows != null){
+    fcontrol.setAttribute('data-rows', args.rows);
+  }
   fcontrol.setAttribute('data-background-color', args.backgroundColor);
   fcontrol.setAttribute('data-id', args.id);
   fcontrol.setAttribute('data-type', args.type);
   fcontrol.setAttribute('data-value', args.value);
-  fcontrol.setAttribute('data-rows', args.rows);
   fcontrol.setAttribute('data-plain-txt', args.plainText);
   fcontrol.setAttribute('data-disabled', args.disabled);
   fcontrol.setAttribute('data-read-only', args.readOnly);

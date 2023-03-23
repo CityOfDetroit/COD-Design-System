@@ -30,7 +30,6 @@ export const Form = () => {
     label1.setAttribute('data-required', true);
     return tempForm;
 }
-console.log(document.getElementById('storybook-preview-iframe').contentWindow.document.getElementsByTagName("cod-form"));
 
 export const WithInteraction = Template.bind({});
 WithInteraction.args = {

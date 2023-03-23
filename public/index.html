@@ -1,13 +1,23 @@
 <cod-form data-id="simple-form">
     <form id="form-test" slot="form-elements" clas="needs-validation">
             <cod-form-control
-            type="text"
-            required
-            minlength="5"
+            data-required="true"
+            dat-type="text"
+            data-minlength="5"
+            data-rows="10"
             data-tooShort="Type at least 5 characters"
             data-valueMissing="This field can't be empty"
             data-placeholder-txt="Enter text"
             data-tag="input"></cod-form-control>
+            <cod-form-select 
+            data-required="true" 
+            data-id="simple-select" 
+            data-size="md"  
+            data-valueMissing="Please make a selection"
+            data-aria-label="Simple select example">
+                <option value="">Select something</option>
+                <option value="1">Option 1</option>
+            </cod-form-select>
         <cod-button data-label="submit"></cod-button>
         <div class="error-message"></div>
     </form>

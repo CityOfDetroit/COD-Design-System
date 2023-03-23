@@ -1,8 +1,10 @@
 import Form from "./components/atoms/Form";
 import FormControl from "./components/atoms/FormControl";
 import FormLabel from "./components/atoms/FormLabel";
+import FormSelect from "./components/atoms/FormSelect";
 import Button from "./components/atoms/Button";
 customElements.define('cod-form', Form);
 customElements.define('cod-form-control', FormControl);
 customElements.define('cod-form-label', FormLabel);
+customElements.define('cod-form-select', FormSelect);
 customElements.define('cod-button', Button);

@@ -5,9 +5,8 @@ import bootstrapStyles from '!!raw-loader!../../shared/themed-bootstrap.css';
 const template = document.createElement('template');
 
 template.innerHTML = `
-<form id="form1" onsubmit="testForm">
-<slot name="form-elements"></slot>
-</form>
+<slot name="form-elements">
+</slot>
 `;
 
 
