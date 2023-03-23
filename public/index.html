@@ -1,42 +1,54 @@
 <cod-form data-id="simple-form">
-    <form id="form-test" slot="form-elements" clas="needs-validation">
-            <cod-form-control
-            data-required="true"
-            dat-type="text"
-            data-minlength="5"
-            data-rows="10"
-            data-tooShort="Type at least 5 characters"
-            data-valueMissing="This field can't be empty"
-            data-placeholder-txt="Enter text"
-            data-tag="input"></cod-form-control>
-            <cod-form-select 
-            data-required="true" 
-            data-id="simple-select" 
-            data-size="md"  
-            data-valueMissing="Please make a selection"
-            data-aria-label="Simple select example">
-                <option value="">Select something</option>
-                <option value="1">Option 1</option>
-            </cod-form-select>
-        <cod-button data-label="submit"></cod-button>
-        <div class="error-message"></div>
-    </form>
-    
+  <form id="form-test" slot="form-elements" clas="needs-validation">
+    <cod-form-label
+    data-input-id="first-name"
+    data-required="true"
+    data-text="First Name"
+    ></cod-form-label>
+    <cod-form-control
+      data-id="first-name"
+      data-required="true"
+      dat-type="text"
+      data-minlength="5"
+      data-rows="10"
+      data-tooShort="Type at least 5 characters"
+      data-valueMissing="This field can't be empty"
+      data-placeholder-txt="Enter text"
+      data-tag="input"
+    ></cod-form-control>
+    <cod-form-label
+    data-input-id="simple-select"
+    data-required="true"
+    data-text="Select Option"
+    ></cod-form-label>
+    <cod-form-select
+      data-required="true"
+      data-id="simple-select"
+      data-size="md"
+      data-valueMissing="Please make a selection"
+      data-aria-label="Simple select example"
+    >
+      <option value="">Select something</option>
+      <option value="1">Option 1</option>
+    </cod-form-select>
+    <cod-button data-label="submit"></cod-button>
+    <div class="error-message"></div>
+  </form>
 </cod-form>
 <script>
-    const errorMessage = document.querySelector('.error-message');
-    let forms = document.getElementsByTagName('form');
-    console.log(forms);
-    forms[1].addEventListener('submit', (ev)=>{
-        ev.preventDefault();
-        return false;
-    });
-    const formControl = document.querySelector('cod-form-control');
-    formControl.addEventListener('invalid', (e)=>{
-        console.log(e);
-    })
-    function testButton(){
-        document.getElementById('form-test').submit();
-    }
+  const errorMessage = document.querySelector(".error-message");
+  let forms = document.getElementsByTagName("form");
+  console.log(forms);
+  forms[1].addEventListener("submit", (ev) => {
+    ev.preventDefault();
+    return false;
+  });
+  const formControl = document.querySelector("cod-form-control");
+  formControl.addEventListener("invalid", (e) => {
+    console.log(e);
+  });
+  function testButton() {
+    document.getElementById("form-test").submit();
+  }
 </script>
-<script src="index.js"></script> 
+<script src="index.js"></script>
