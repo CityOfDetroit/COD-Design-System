@@ -1,13 +1,27 @@
 import styles from '!!raw-loader!./ContainerStyles.css';
 import varStyles from '!!raw-loader!../../shared/variables.css';
 import bootstrapStyles from '!!raw-loader!bootstrap/dist/css/bootstrap.min.css';
-import * as DOMPurify from 'dompurify';
+
+const template = document.createElement('template');
+
+template.innerHTML = `
+<slot></slot>
+`;
+
 export default class Container extends HTMLElement {
     constructor() {
       // Always call super first in constructor
       super();
       // Create a shadow root
       const shadow = this.attachShadow({ mode: 'open' });
+      shadow.appendChild(template.content.cloneNode(true));
+      this.container  = document.createElement('div');
+      shadow.addEventListener( 'slotchange', ev => {  
+        let tempElements = Array.from(this.children);  
+        tempElements.forEach((node)=>{
+          this.container.append(node);
+        })
+      });
     }
   
     connectedCallback() {
@@ -23,35 +37,10 @@ export default class Container extends HTMLElement {
       // container attributes
       let type = this.getAttribute('data-type');
       let text = this.getAttribute('data-text');
-      let markup = null;
-      if(this.getAttribute('data-elements') != null && this.getAttribute('data-elements') != undefined){
-        markup = JSON.parse(this.getAttribute('data-elements'));
-      }
       let backgroundColor = this.getAttribute('data-background-color');
       let extraClasses = this.getAttribute('data-extra-classes');
-      const container = document.createElement('div');
-      container.className = [type, `${backgroundColor || ''}`, `${extraClasses || ''}`].join(' ');
-      if(markup != undefined && markup != null){
-        let elemets = this.buildElements(markup, container);
-      }else{
-        container.innerText = text;
-      }
-      this.shadowRoot.appendChild(container);
-    }
-
-    buildElements(element , container) {
-      if(container != null || container != undefined){
-        element.forEach(el => {
-          let tempElement = document.createElement(el.tag);
-          tempElement.className = `${el.classes || ''}`;
-          tempElement.innerHTML = DOMPurify.sanitize(el.content);
-          container.appendChild(tempElement);
-        });
-      }else{
-        let tempElement = document.createElement(element.tag);
-        tempElement.className = `${el.classes || ''}`;
-        tempElement.innerHTML = DOMPurify.sanitize(element.content);
-        return tempElement;
-      }
+      this.container.className = [type, `${backgroundColor || ''}`, `${extraClasses || ''}`].join(' ');
+      this.container.innerText = text;
+      this.shadowRoot.appendChild(this.container);
     }
   };

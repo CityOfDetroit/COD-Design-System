@@ -23,6 +23,9 @@ const Template = (args) => {
   }else{
     container.setAttribute('data-elements', args.elements);
   }
+  if(args.elements != null){
+    container.innerHTML = args.elements;
+  }
   container.setAttribute('data-extra-classes', args.extraClasses);
   container.setAttribute('data-background-color', args.backgroundColor);
   return container;
@@ -55,14 +58,10 @@ ContainerElements.args = {
   type: 'container',
   backgroundColor: 'color-1',
   extraClasses: 'text-center p-3',
-  elements: JSON.stringify([
-    {
-        tag: 'p',
-        content: 'Simple paragragh'
-    },
-    {
-      tag: 'article',
-      content: 'Article with <a href="https://google.com">link</a>'
-  }
-  ])
+  elements: `
+  <div>
+  <p>Paragraph 1</p>
+  <p><strong>Paragraph</strong> 2</p>
+  </div>
+  `
 };

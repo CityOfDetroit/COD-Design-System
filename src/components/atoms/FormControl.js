@@ -20,7 +20,7 @@ export default class FormControl extends HTMLElement {
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
-    let tempClasses = this.select.className.split(' ');
+    let tempClasses = this.formControl.className.split(' ');
     let popValue = tempClasses.pop();
     (popValue != 'is-invalid') ? tempClasses.push(popValue) : 0;
 
