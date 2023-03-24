@@ -57,32 +57,48 @@ export default class FormCheck extends HTMLElement {
     // Checkbox/Radio attributes setup
     let dataType = this.getAttribute('data-type');
     let id = this.getAttribute('data-id');
+    let value = this.getAttribute('data-value');
+    let checkName = this.getAttribute('data-name');
     let disabled = this.getAttribute('data-disabled');
     let required = this.getAttribute('data-required');
     let checked = this.getAttribute('data-checked');
     let mode = this.getAttribute('data-mode');
     let noLabel = this.getAttribute('data-nolabel');
+    let labelTxt = this.getAttribute('data-label');
+    let extraClasses = this.getAttribute('data-extra-classes');
     let backgroundColor = this.getAttribute('data-background-color');
+    let btnColor = this.getAttribute('data-btn-color');
+    // Set formcheck
     this.formCheck.id = id;
-    this.formCheck.placeholder = placeholderTxt;
     this.formCheck.type = dataType;
+    this.formCheck.value = value;
+    this.formCheck.name = checkName;
+    this.formCheck.setAttribute('autocomplete', 'off');
     if(required == 'true'){
       this.formCheck.setAttribute('required', true);
     }
-    if(checked != undefined && checked != null){
+    if(checked == 'true'){
         this.formCheck.setAttribute('checked', true);
     }
     if(disabled == 'true'){
         this.formCheck.setAttribute('disabled', true);
     }
-    this.formCheck.className = ['form-check-input', `bg-${backgroundColor || ''}`].join(' ');
-
-    // Set checkbox/radio label
-    const 
+    if(mode == 'switch'){
+      this.formCheck.setAttribute('role', mode);
+    }
+    if(dataType == 'radio'){
+      this.setAttribute('role', dataType);
+    }
+    if(mode == 'btn' || mode == 'btn-outline'){
+      this.formCheck.className = 'btn-check';
+      mode = null;
+    } else{
+      this.formCheck.className = 'form-check-input';
+    }
 
     // Set checkbox/radio mode
     const checkContainer = document.createElement('div');
-    checkContainer.className = ['form-check', , `form-check-${mode || ''}`].join(' ');
+    checkContainer.className = ['form-check', `form-${mode || ''}`, `bg-${backgroundColor || ''}`, `${extraClasses || ''}`].join(' ');
 
     this.formCheck.addEventListener('change', (e) => {
       // we also want to dispatch a `change` event from 
@@ -108,9 +124,21 @@ export default class FormCheck extends HTMLElement {
 
     this.addEventListener('focus', () => this.formCheck.focus());
     if (!this.hasAttribute('tabindex')) {
-      this.setAttribute('tabindex', '0');
+      this.setAttribute('tabindex', -1);
     }
-    this.shadowRoot.appendChild(this.formCheck);
+
+    checkContainer.appendChild(this.formCheck);
+    // Adding label to check/radio 
+    if(noLabel != 'true'){
+      const checkLabel = document.createElement('label');
+      checkLabel.setAttribute('for', id);
+      checkLabel.innerText = labelTxt;
+      if(this.getAttribute('data-mode') == 'btn' || this.getAttribute('data-mode') == 'btn-outline'){
+        checkLabel.className = `btn ${this.getAttribute('data-mode')}-${btnColor}`;
+      }
+      checkContainer.appendChild(checkLabel);
+    }
+    this.shadowRoot.appendChild(checkContainer);
     this.validateInput();
   }
 

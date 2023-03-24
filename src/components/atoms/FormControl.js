@@ -57,6 +57,8 @@ export default class FormControl extends HTMLElement {
     let dataType = this.getAttribute('data-type');
     let id = this.getAttribute('data-id');
     let minlength = this.getAttribute('data-minlength');
+    let maxlength = this.getAttribute('data-maxlength');
+    let pattern = this.getAttribute('data-pattern');
     let placeholderTxt = this.getAttribute('data-placeholder-txt');
     let readOnly = this.getAttribute('data-read-only');
     let disabled = this.getAttribute('data-disabled');
@@ -77,7 +79,13 @@ export default class FormControl extends HTMLElement {
     }
     if(minlength != undefined && minlength != null){
       formControl.setAttribute('minlength', minlength);
-  }
+    }
+    if(maxlength != undefined && maxlength != null){
+      formControl.setAttribute('maxlength', maxlength);
+    }
+    if(pattern != undefined && pattern != null){
+      formControl.setAttribute('pattern', pattern);
+    }
     if(rows != undefined && rows != null){
         formControl.setAttribute('rows', rows);
     }
