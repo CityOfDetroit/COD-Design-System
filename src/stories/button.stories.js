@@ -1,6 +1,6 @@
 import { userEvent, within } from '@storybook/testing-library';
 import { expect } from '@storybook/jest';
-import './codbutton';
+import './button';
 
 export default {
   title: 'COD/Atoms/Button',

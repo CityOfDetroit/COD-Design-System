@@ -1,4 +1,4 @@
-import './codloader';
+import './loader';
 
 export default {
   title: 'COD/Atoms/Loader',
