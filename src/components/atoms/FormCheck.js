@@ -5,7 +5,7 @@ export default class FormCheck extends HTMLElement {
   static formAssociated = true;
 
   static get observedAttributes() {
-    return ['data-invalid'];
+    return ['data-invalid', 'data-checked'];
   }
 
   constructor() {
@@ -27,13 +27,22 @@ export default class FormCheck extends HTMLElement {
 
     switch (newValue) {
       case 'true':
-        console.log('invalid input');
-        tempClasses.push('is-invalid');
-        this.formCheck.className = tempClasses.join(' ');
+        if(name == 'data-invalid'){
+          tempClasses.push('is-invalid');
+          this.formCheck.className = tempClasses.join(' ');
+        }else{
+          this.formCheck.checked = true;
+          this.formCheck.setAttribute('aria-checked', "true");
+        }
         break;
       
       case 'false':
-        this.formCheck.className = tempClasses.join(' ');
+        if(name == 'data-invalid'){
+          this.formCheck.className = tempClasses.join(' ');
+        }else{
+          this.formCheck.checked = false;
+          this.formCheck.setAttribute('aria-checked', "false");
+        }
         break;
     
       default:
@@ -78,16 +87,16 @@ export default class FormCheck extends HTMLElement {
       this.formCheck.setAttribute('required', true);
     }
     if(checked == 'true'){
-        this.formCheck.setAttribute('checked', true);
+      this.formCheck.checked = true;
+      this.formCheck.setAttribute('aria-checked', "true");
+    }else{
+      this.formCheck.setAttribute('aria-checked', "false");
     }
     if(disabled == 'true'){
         this.formCheck.setAttribute('disabled', true);
     }
     if(mode == 'switch'){
       this.formCheck.setAttribute('role', mode);
-    }
-    if(dataType == 'radio'){
-      this.setAttribute('role', dataType);
     }
     if(mode == 'btn' || mode == 'btn-outline'){
       this.formCheck.className = 'btn-check';
