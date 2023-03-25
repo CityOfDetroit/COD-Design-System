@@ -34,10 +34,10 @@ export default class FormCheckGroup extends HTMLElement {
         this.setAttribute('role', 'group');
       }
     }
-    let firstCheckedButton = this.checkedRadioButton;
-    if (firstCheckedButton) {
+    let firstFormCheck = this.checkedFormCheck;
+    if (firstFormCheck) {
       this._uncheckAll();
-      this._checkNode(firstCheckedButton);
+      this._checkNode(firstFormCheck);
     } else {
       this.querySelector('cod-form-check').setAttribute('tabindex', 0);
     }
@@ -67,12 +67,12 @@ export default class FormCheckGroup extends HTMLElement {
 
       case KEYCODE.HOME:
         e.preventDefault();
-        this._setChecked(this.firstRadioButton);
+        this._setChecked(this.firstFormCheck);
         break;
 
       case KEYCODE.END:
         e.preventDefault();
-        this._setChecked(this.lastRadioButton);
+        this._setChecked(this.lastFormCheck);
         break;
 
       case KEYCODE.SPACE:
@@ -87,22 +87,22 @@ export default class FormCheckGroup extends HTMLElement {
     }
   }
 
-  get checkedRadioButton() {
+  get checkedFormCheck() {
     return this.querySelector('[data-checked="true"]');
   }
 
-  get firstRadioButton() {
+  get firstFormCheck() {
     return this.querySelector('cod-form-check:first-of-type');
   }
 
-  get lastRadioButton() {
+  get lastFormCheck() {
     return this.querySelector('cod-form-check:last-of-type');
   }
 
-  _prevRadioButton(node) {
+  _prevFormCheck(node) {
     let prev = node.previousElementSibling;
     while (prev) {
-      if (prev.getAttribute('data-type') === 'radio') {
+      if (prev.getAttribute('data-type') === 'radio' || prev.getAttribute('data-type') === 'checkbox') {
         return prev;
       }
       prev = prev.previousElementSibling;
@@ -110,10 +110,10 @@ export default class FormCheckGroup extends HTMLElement {
     return null;
   }
 
-  _nextRadioButton(node) {
+  _nextFormCheck(node) {
     let next = node.nextElementSibling;
     while (next) {
-      if (next.getAttribute('data-type') === 'radio') {
+      if (next.getAttribute('data-type') === 'radio' || prev.getAttribute('data-type') === 'checkbox') {
         return next;
       }
       next = next.nextElementSibling;
@@ -122,20 +122,20 @@ export default class FormCheckGroup extends HTMLElement {
   }
 
   _setCheckedToPrevButton() {
-    let checkedButton = this.checkedRadioButton || this.firstRadioButton;
-    if (checkedButton === this.firstRadioButton) {
-      this._setChecked(this.lastRadioButton);
+    let checkedButton = this.checkedFormCheck || this.firstFormCheck;
+    if (checkedButton === this.firstFormCheck) {
+      this._setChecked(this.lastFormCheck);
     } else {
-      this._setChecked(this._prevRadioButton(checkedButton));
+      this._setChecked(this._prevFormCheck(checkedButton));
     }
   }
 
   _setCheckedToNextButton() {
-    let checkedButton = this.checkedRadioButton || this.firstRadioButton;
-    if (checkedButton === this.lastRadioButton) {
-      this._setChecked(this.firstRadioButton);
+    let checkedButton = this.checkedRadioButton || this.firstFormCheck;
+    if (checkedButton === this.lastFormCheck) {
+      this._setChecked(this.firstFormCheck);
     } else {
-      this._setChecked(this._nextRadioButton(checkedButton));
+      this._setChecked(this._nextFormCheck(checkedButton));
     }
   }
 
@@ -146,10 +146,12 @@ export default class FormCheckGroup extends HTMLElement {
   }
 
   _uncheckAll() {
-    const radioButtons = this.querySelectorAll('cod-form-check');
-    for (let i = 0; i < radioButtons.length; i++) {
-      let btn = radioButtons[i];
-      btn.setAttribute('data-checked', 'false');
+    const formCheck = this.querySelectorAll('cod-form-check');
+    for (let i = 0; i < formCheck.length; i++) {
+      let btn = formCheck[i];
+      if(btn.getAttribute('data-type') == 'radio'){
+        btn.setAttribute('data-checked', 'false');
+      }
       btn.setAttribute('data-required', 'false');
       btn.tabIndex = -1;
     }
@@ -166,7 +168,7 @@ export default class FormCheckGroup extends HTMLElement {
   }
 
   _onClick(e) {
-    if (e.target.getAttribute('data-type') === 'radio') {
+    if (e.target.getAttribute('data-type') === 'radio' || e.target.getAttribute('data-type') === 'checkbox') {
       this._setChecked(e.target);
     }
   }
