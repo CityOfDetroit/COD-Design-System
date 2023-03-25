@@ -1,7 +1,3 @@
-import styles from '!!raw-loader!./FormCheckGroupStyles.css';
-import varStyles from '!!raw-loader!../../shared/variables.css';
-import bootstrapStyles from '!!raw-loader!../../shared/themed-bootstrap.css';
-
 const template = document.createElement('template');
 
 template.innerHTML = `
@@ -31,19 +27,23 @@ export default class FormCheckGroup extends HTMLElement {
 
   connectedCallback() {
     // setting up styles
-    if (!this.hasAttribute('role'))
+    if (!this.hasAttribute('role')) {
+      if(this.getAttribute('data-type') == 'radio'){
         this.setAttribute('role', 'radiogroup');
-
-      let firstCheckedButton = this.checkedRadioButton;
-      if (firstCheckedButton) {
-        this._uncheckAll();
-        this._checkNode(firstCheckedButton);
-      } else {
-        this.querySelector('cod-form-check').setAttribute('tabindex', 0);
+      }else{
+        this.setAttribute('role', 'group');
       }
+    }
+    let firstCheckedButton = this.checkedRadioButton;
+    if (firstCheckedButton) {
+      this._uncheckAll();
+      this._checkNode(firstCheckedButton);
+    } else {
+      this.querySelector('cod-form-check').setAttribute('tabindex', 0);
+    }
 
-      this.addEventListener('keydown', this._onKeyDown);
-      this.addEventListener('click', this._onClick);
+    this.addEventListener('keydown', this._onKeyDown);
+    this.addEventListener('click', this._onClick);
   }
 
   disconnectedCallback() {
@@ -77,7 +77,7 @@ export default class FormCheckGroup extends HTMLElement {
 
       case KEYCODE.SPACE:
         e.preventDefault();
-        if (e.target.tagName.toLowerCase() === 'cod-form-check'){
+        if (e.target.tagName.toLowerCase() === 'cod-form-check') {
           this._setChecked(e.target);
         }
         break;
@@ -150,12 +150,14 @@ export default class FormCheckGroup extends HTMLElement {
     for (let i = 0; i < radioButtons.length; i++) {
       let btn = radioButtons[i];
       btn.setAttribute('data-checked', 'false');
+      btn.setAttribute('data-required', 'false');
       btn.tabIndex = -1;
     }
   }
 
   _checkNode(node) {
     node.setAttribute('data-checked', 'true');
+    node.setAttribute('data-required', 'true');
     node.tabIndex = 0;
   }
 

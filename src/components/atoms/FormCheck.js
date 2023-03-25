@@ -5,7 +5,7 @@ export default class FormCheck extends HTMLElement {
   static formAssociated = true;
 
   static get observedAttributes() {
-    return ['data-invalid', 'data-checked'];
+    return ['data-invalid', 'data-checked', 'data-required'];
   }
 
   constructor() {
@@ -27,21 +27,45 @@ export default class FormCheck extends HTMLElement {
 
     switch (newValue) {
       case 'true':
-        if(name == 'data-invalid'){
-          tempClasses.push('is-invalid');
-          this.formCheck.className = tempClasses.join(' ');
-        }else{
-          this.formCheck.checked = true;
-          this.formCheck.setAttribute('aria-checked', "true");
+        switch (name) {
+          case 'data-invalid':
+            tempClasses.push('is-invalid');
+            this.formCheck.className = tempClasses.join(' ');
+            break;
+
+          case 'data-checked':
+            this.formCheck.checked = true;
+            this.formCheck.setAttribute('aria-checked', "true");
+            break;
+
+          case 'data-required':
+            this.formCheck.required = true;
+            this.validateInput();
+            break;
+        
+          default:
+            break;
         }
         break;
       
       case 'false':
-        if(name == 'data-invalid'){
-          this.formCheck.className = tempClasses.join(' ');
-        }else{
-          this.formCheck.checked = false;
-          this.formCheck.setAttribute('aria-checked', "false");
+        switch (name) {
+          case 'data-invalid':
+            this.formCheck.className = tempClasses.join(' ');
+            break;
+
+          case 'data-checked':
+            this.formCheck.checked = false;
+            this.formCheck.setAttribute('aria-checked', "false");
+            break;
+
+          case 'data-required':
+            this.formCheck.required = false;
+            this.validateInput();
+            break;
+        
+          default:
+            break;
         }
         break;
     
@@ -170,7 +194,6 @@ export default class FormCheck extends HTMLElement {
   validateInput() {
     // get the validity of the internal <input>
     const validState = this.formCheck.validity;
-
     // reset this.invalid before validating again
     this.invalid = false;
 
@@ -208,6 +231,7 @@ export default class FormCheck extends HTMLElement {
     }
     else {
       this.internals.setValidity({});
+      this.setAttribute('data-invalid', false);
     }
   }
 };
