@@ -1,4 +1,4 @@
-import './alert';
+import '../components/atoms/Alert/cod-alert';
 
 export default {
   title: 'COD/Atoms/Alert',
@@ -24,12 +24,8 @@ export default {
 // Template
 const Template = (args) => {
   const alert = document.createElement('cod-alert');
+  alert.innerHTML = args.elements;
   alert.setAttribute('data-type', args.type);
-  if(args.elements == undefined){
-    alert.setAttribute('data-text', args.content);
-  }else{
-    alert.setAttribute('data-elements', args.elements);
-  }
   alert.setAttribute('data-icon', args.icon);
   alert.setAttribute('data-icon-order', args.iconOrder);
   alert.setAttribute('data-icon-size', args.iconSize);
@@ -40,45 +36,38 @@ const Template = (args) => {
 
 export const Alert = Template.bind({});
 Alert.args = {
-  content: 'Basic alert',
-  backgroundColor: 'primary'
+  backgroundColor: 'primary',
+  elements: `
+    <span>Basic Alert</span>
+  `,
 };
 
 export const AlertExtras = Template.bind({});
 AlertExtras.args = {
-  content: 'Alert with Extra Classes',
+  elements: `
+    <span>Basic Alert</span>
+  `,
   backgroundColor: 'primary',
   extraClasses: 'text-center p-3'
 };
 
 export const AlertElements = Template.bind({});
 AlertElements.args = {
-  content: 'Container with Extra Classes',
   backgroundColor: 'primary',
   extraClasses: 'text-center p-3',
-  elements: JSON.stringify([
-    {
-      tag: 'p',
-      content: 'Simple paragraph.'
-  },
-    {
-        tag: 'article',
-        content: 'Article with <a href="https://google.com">link</a>'
-    }
-  ])
+  elements: `
+    <p>Simple paragraph</p>
+    <article>Article with <a href="https://google.com">link</a></article>
+  `,
 };
 
 export const AlertIcon = Template.bind({});
 AlertIcon.args = {
-  content: 'Container with Extra Classes',
   backgroundColor: 'primary',
   icon: 'house',
   iconOrder: 'left',
   iconSize: 'small',
-  elements: JSON.stringify(
-    {
-        tag: 'article',
-        content: 'Article with <a href="#">link</a>'
-    }
-  )
+  elements: `
+    <article>Article with <a href="https://google.com">link</a></article>
+  `,
 };

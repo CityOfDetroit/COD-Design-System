@@ -149,11 +149,35 @@ export default class FormCheckGroup extends HTMLElement {
     const formCheck = this.querySelectorAll('cod-form-check');
     for (let i = 0; i < formCheck.length; i++) {
       let btn = formCheck[i];
-      if(btn.getAttribute('data-type') == 'radio'){
-        btn.setAttribute('data-checked', 'false');
-      }
+      btn.setAttribute('data-checked', 'false');
       btn.setAttribute('data-required', 'false');
       btn.tabIndex = -1;
+    }
+  }
+
+  _validateRequired(){
+    const formCheck = this.querySelectorAll('cod-form-check');
+    let isValid = false;
+    for (let i = 0; i < formCheck.length; i++) {
+      let checkbox = formCheck[i];
+      (checkbox.formCheck.checked) ? isValid = true : 0;
+    }
+    (isValid) ? this._unRequiredAll() : this._requiredAll();
+  }
+
+  _requiredAll(){
+    const formCheck = this.querySelectorAll('cod-form-check');
+    for (let i = 0; i < formCheck.length; i++) {
+      let btn = formCheck[i];
+      btn.setAttribute('data-required', 'true');
+    }
+  }
+
+  _unRequiredAll(){
+    const formCheck = this.querySelectorAll('cod-form-check');
+    for (let i = 0; i < formCheck.length; i++) {
+      let btn = formCheck[i];
+      btn.setAttribute('data-required', 'false');
     }
   }
 
@@ -168,8 +192,13 @@ export default class FormCheckGroup extends HTMLElement {
   }
 
   _onClick(e) {
-    if (e.target.getAttribute('data-type') === 'radio' || e.target.getAttribute('data-type') === 'checkbox') {
+    if (e.target.getAttribute('data-type') === 'radio') {
       this._setChecked(e.target);
+    }
+    if (e.target.getAttribute('data-type') === 'checkbox') {
+      if(this.getAttribute('data-required') == 'true'){
+        this._validateRequired(e.target);
+      }
     }
   }
 };

@@ -178,15 +178,19 @@ export default class FormCheck extends HTMLElement {
   get validity() {
     return this.internals.validity;
   }
+
   get validationMessage() {
     return this.internals.validationMessage;
   }
+
   get willValidate() {
     return this.internals.willValidate;
   }
+
   checkValidity() {
     return this.internals.checkValidity();
   }
+  
   reportValidity() {
     return this.internals.reportValidity();
   }
