@@ -1,4 +1,4 @@
-import styles from '!!raw-loader!./AlertStyles.css';
+import styles from '!!raw-loader!./Alert.css';
 import varStyles from '!!raw-loader!../../../shared/variables.css';
 import bootstrapStyles from '!!raw-loader!../../../shared/themed-bootstrap.css';
 import bootstrapIcons from '!!raw-loader!bootstrap-icons/font/bootstrap-icons.css';
