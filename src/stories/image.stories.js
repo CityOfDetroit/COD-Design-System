@@ -1,4 +1,4 @@
-import './image';
+import '../components/atoms/Image/cod-image';
 
 export default {
     title: 'COD/Atoms/Image',

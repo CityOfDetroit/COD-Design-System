@@ -1,4 +1,4 @@
-import './spinner';
+import '../components/atoms/Spinner/cod-spinner';
 
 export default {
   title: 'COD/Atoms/Spinner',

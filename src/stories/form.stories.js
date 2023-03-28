@@ -1,7 +1,7 @@
-import './form';
+import '../components/organisms/Form/cod-form';
 
 export default {
-  title: 'COD/Atoms/Forms/FormValidation',
+  title: 'COD/Organisms/FormValidation',
   argTypes: {
     backgroundColor: { 
         control: { type: 'select' },

@@ -1,4 +1,4 @@
-import './formlabel';
+import '../components/atoms/FormLabel/cod-formlabel';
 
 export default {
   title: 'COD/Atoms/Forms/FormLabel',

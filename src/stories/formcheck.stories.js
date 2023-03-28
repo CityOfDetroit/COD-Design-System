@@ -1,4 +1,4 @@
-import './formcheck';
+import '../components/atoms/FormCheck/cod-formcheck';
 
 export default {
   title: 'COD/Atoms/Forms/FormCheck',

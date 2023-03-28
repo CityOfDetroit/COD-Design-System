@@ -1,4 +1,4 @@
-import './container';
+import '../components/atoms/Container/cod-container';
 
 export default {
   title: 'COD/Atoms/Container',

@@ -1,8 +1,8 @@
 import { html } from 'lit-html';
-import './geocoder';
+import '../components/organisms/Geocoder/cod-geocoder';
 
 export default {
     title: 'COD/Organisms/geocoder',
 };
 
-export const loaded = () => html`<app-geocoder></app-geocoder>`;
+export const loaded = () => html`<cod-geocoder></cod-geocoder>`;

@@ -1,4 +1,4 @@
-import './icon';
+import '../components/atoms/Icon/cod-icon';
 
 export default {
   title: 'COD/Atoms/Icon',

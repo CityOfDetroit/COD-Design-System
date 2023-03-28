@@ -1,4 +1,4 @@
-import './progress';
+import '../components/atoms/Progress/cod-progress';
 
 export default {
   title: 'COD/Atoms/Progress',

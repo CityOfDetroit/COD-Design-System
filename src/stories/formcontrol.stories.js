@@ -1,4 +1,4 @@
-import './formcontrol';
+import '../components/atoms/FormControl/cod-formcontrol';
 
 export default {
   title: 'COD/Atoms/Forms/FormControl',

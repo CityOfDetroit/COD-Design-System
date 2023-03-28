@@ -1,4 +1,4 @@
-import './formselect';
+import '../components/atoms/FormSelect/cod-formselect';
 
 export default {
   title: 'COD/Atoms/Forms/FormSelect',
