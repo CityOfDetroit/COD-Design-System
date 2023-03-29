@@ -1,5 +1,5 @@
 {
-  "name": "@cityofdetroit/cod-design-system",
+  "name": "cod-design-system",
   "version": "0.0.1",
   "description": "City of Detroit design system",
   "main": "dist/index.js",

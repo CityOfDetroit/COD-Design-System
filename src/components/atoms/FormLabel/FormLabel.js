@@ -10,16 +10,6 @@ export default class FormLabel extends HTMLElement {
   }
 
   connectedCallback() {
-    // setting up styles
-    const bootStyles = document.createElement('style');
-    bootStyles.textContent = bootstrapStyles;
-    const variableStyles = document.createElement('style');
-    variableStyles.textContent = varStyles;
-    const formLabelStyles = document.createElement('style');
-    formLabelStyles.textContent = styles;
-    this.shadowRoot.appendChild(bootStyles);
-    this.shadowRoot.appendChild(variableStyles);
-    this.shadowRoot.appendChild(formLabelStyles);
     // progress attributes
     let inputID = this.getAttribute('data-input-id')
     let hidden = this.getAttribute('data-hidden');
@@ -39,6 +29,18 @@ export default class FormLabel extends HTMLElement {
     label.innerText = text;
     label.setAttribute('for', inputID);
     label.className = ['form-label', hidden, required, `${extraClasses || ''}`, `text-${textColor || ''}`].join(' ');
-    this.shadowRoot.appendChild(label);
+    if(!this.shadowRoot.querySelector('label')){
+      // setting up styles
+      const bootStyles = document.createElement('style');
+      bootStyles.textContent = bootstrapStyles;
+      const variableStyles = document.createElement('style');
+      variableStyles.textContent = varStyles;
+      const formLabelStyles = document.createElement('style');
+      formLabelStyles.textContent = styles;
+      this.shadowRoot.appendChild(bootStyles);
+      this.shadowRoot.appendChild(variableStyles);
+      this.shadowRoot.appendChild(formLabelStyles);
+      this.shadowRoot.appendChild(label);
+    }
   }
 };

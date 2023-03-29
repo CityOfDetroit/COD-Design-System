@@ -14,6 +14,7 @@ export default class FormCheck extends HTMLElement {
     // Create a shadow root
     const shadow = this.attachShadow({ mode: 'open'});
     this.internals = this.attachInternals();
+    this.container = document.createElement('div');
     this.formCheck = document.createElement('input');
     this.formCheckLabel = null;
     this.invalid = false;
@@ -76,17 +77,6 @@ export default class FormCheck extends HTMLElement {
   }
 
   connectedCallback() {
-    // setting up styles
-    const bootStyles = document.createElement('style');
-    bootStyles.textContent = bootstrapStyles;
-    const variableStyles = document.createElement('style');
-    variableStyles.textContent = varStyles;
-    const formCheckStyles = document.createElement('style');
-    formCheckStyles.textContent = styles;
-    this.shadowRoot.appendChild(bootStyles);
-    this.shadowRoot.appendChild(variableStyles);
-    this.shadowRoot.appendChild(formCheckStyles);
-    
     // Checkbox/Radio attributes setup
     let dataType = this.getAttribute('data-type');
     let id = this.getAttribute('data-id');
@@ -130,9 +120,34 @@ export default class FormCheck extends HTMLElement {
     }
 
     // Set checkbox/radio mode
-    const checkContainer = document.createElement('div');
-    checkContainer.className = ['form-check', `form-${mode || ''}`, `bg-${backgroundColor || ''}`, `${extraClasses || ''}`].join(' ');
+    this.container.className = ['form-check', `form-${mode || ''}`, `bg-${backgroundColor || ''}`, `${extraClasses || ''}`].join(' ');
+    this.container.appendChild(this.formCheck);
+    if(!this.shadowRoot.querySelector('div')){
+      // setting up styles
+      const bootStyles = document.createElement('style');
+      bootStyles.textContent = bootstrapStyles;
+      const variableStyles = document.createElement('style');
+      variableStyles.textContent = varStyles;
+      const formCheckStyles = document.createElement('style');
+      formCheckStyles.textContent = styles;
+      this.shadowRoot.appendChild(bootStyles);
+      this.shadowRoot.appendChild(variableStyles);
+      this.shadowRoot.appendChild(formCheckStyles);
+      
+      // Adding label to check/radio 
+      if(noLabel != 'true'){
+        const checkLabel = document.createElement('label');
+        checkLabel.setAttribute('for', id);
+        checkLabel.innerText = labelTxt;
+        if(this.getAttribute('data-mode') == 'btn' || this.getAttribute('data-mode') == 'btn-outline'){
+          checkLabel.className = `btn ${this.getAttribute('data-mode')}-${btnColor}`;
+        }
+        this.container.appendChild(checkLabel);
+      }
 
+      // Adding container to root
+      this.shadowRoot.appendChild(this.container);
+    }
     this.formCheck.addEventListener('change', (e) => {
       // we also want to dispatch a `change` event from 
       // our custom element
@@ -160,18 +175,6 @@ export default class FormCheck extends HTMLElement {
       this.setAttribute('tabindex', -1);
     }
 
-    checkContainer.appendChild(this.formCheck);
-    // Adding label to check/radio 
-    if(noLabel != 'true'){
-      const checkLabel = document.createElement('label');
-      checkLabel.setAttribute('for', id);
-      checkLabel.innerText = labelTxt;
-      if(this.getAttribute('data-mode') == 'btn' || this.getAttribute('data-mode') == 'btn-outline'){
-        checkLabel.className = `btn ${this.getAttribute('data-mode')}-${btnColor}`;
-      }
-      checkContainer.appendChild(checkLabel);
-    }
-    this.shadowRoot.appendChild(checkContainer);
     this.validateInput();
   }
 

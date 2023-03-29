@@ -42,16 +42,6 @@ export default class FormControl extends HTMLElement {
   }
 
   connectedCallback() {
-    // setting up styles
-    const bootStyles = document.createElement('style');
-    bootStyles.textContent = bootstrapStyles;
-    const variableStyles = document.createElement('style');
-    variableStyles.textContent = varStyles;
-    const formControlsStyles = document.createElement('style');
-    formControlsStyles.textContent = styles;
-    this.shadowRoot.appendChild(bootStyles);
-    this.shadowRoot.appendChild(variableStyles);
-    this.shadowRoot.appendChild(formControlsStyles);
     // progress attributes
     let inputType = this.getAttribute('data-tag')
     let dataType = this.getAttribute('data-type');
@@ -128,8 +118,24 @@ export default class FormControl extends HTMLElement {
     if (!this.hasAttribute('tabindex')) {
       this.setAttribute('tabindex', '0');
     }
-    this.shadowRoot.appendChild(formControl);
-    this.formControl = formControl;
+
+    if(!this.shadowRoot.querySelector(inputType)){
+      // setting up styles
+      const bootStyles = document.createElement('style');
+      bootStyles.textContent = bootstrapStyles;
+      const variableStyles = document.createElement('style');
+      variableStyles.textContent = varStyles;
+      const formControlsStyles = document.createElement('style');
+      formControlsStyles.textContent = styles;
+      this.shadowRoot.appendChild(bootStyles);
+      this.shadowRoot.appendChild(variableStyles);
+      this.shadowRoot.appendChild(formControlsStyles);
+
+      // Loading formcontrol to dom
+      this.shadowRoot.appendChild(formControl);
+      this.formControl = formControl;
+    }
+    
     this.validateInput();
   }
 

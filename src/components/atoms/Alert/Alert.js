@@ -75,20 +75,4 @@ export default class Alert extends HTMLElement {
     this.alert.className = ['alert', `alert-${backgroundColor || ''}`, `${extraClasses || ''}`, iconClass].join(' ');
     this.shadowRoot.appendChild(this.alert);
   }
-
-  buildElements(element , alert) {
-    if(alert != null || alert != undefined){
-      element.forEach(el => {
-        let tempElement = document.createElement(el.tag);
-        tempElement.className = `${el.classes || ''}`;
-        tempElement.innerHTML = DOMPurify.sanitize(el.content);
-        alert.appendChild(tempElement);
-      });
-    }else{
-      let tempElement = document.createElement(element.tag);
-      tempElement.className = `${element.classes || ''}`;
-      tempElement.innerHTML = DOMPurify.sanitize(element.content);
-      return tempElement;
-    }
-  }
 };
