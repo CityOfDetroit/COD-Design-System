@@ -20,6 +20,7 @@
 
 #### 🐛 Bug Fix
 
+- Fixing double rendering issue when nested. ([@jedgar1mx](https://github.com/jedgar1mx))
 - GitHub.actions [#1](https://github.com/jedgar1mx/COD-Design-System/pull/1) ([@jedgar1mx](https://github.com/jedgar1mx))
 - Fixing error styles on formcontrol, add slots to container. ([@jedgar1mx](https://github.com/jedgar1mx))
 - Fix FormCheckGroup required bug with radio groups. ([@jedgar1mx](https://github.com/jedgar1mx))
