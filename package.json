@@ -16,7 +16,7 @@
   "bugs": {
     "url": "https://github.com/jedgar1mx/COD-Design-System/issues"
   },
-  "homepage": "https://github.com/jedgar1mx/COD-Design-System#readme",
+  "homepage": "https://jedgar1mx.github.io/COD-Design-System",
   "scripts": {
     "build": "webpack --mode production",
     "build-package": "cross-env BABEL_ENV=production babel src -d dist",
