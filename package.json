@@ -30,14 +30,9 @@
   "author": "Edgar Montes",
   "license": "MIT",
   "dependencies": {
-    "@popperjs/core": "^2.11.6",
-    "@turf/simplify": "^5.1.5",
-    "@turf/turf": "^5.1.6",
-    "bootstrap": "^5.3.0",
+    "bootstrap": "5.3.0-alpha2",
     "bootstrap-icons": "^1.10.3",
-    "dompurify": "^3.0.1",
-    "maplibre-gl": "^2.4.0",
-    "terraformer-arcgis-parser": "^1.1.0"
+    "maplibre-gl": "^2.4.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.21.0",
