@@ -18,11 +18,6 @@ export default {
 const Template = (args) => {
   const container = document.createElement('cod-container');
   container.setAttribute('data-type', args.type);
-  if(args.elements == undefined){
-    container.setAttribute('data-text', args.content);
-  }else{
-    container.setAttribute('data-elements', args.elements);
-  }
   if(args.elements != null){
     container.innerHTML = args.elements;
   }
@@ -54,7 +49,6 @@ ContainerExtras.args = {
 
 export const ContainerElements = Template.bind({});
 ContainerElements.args = {
-  content: 'Container with Extra Classes',
   type: 'container',
   backgroundColor: 'color-1',
   extraClasses: 'text-center p-3',

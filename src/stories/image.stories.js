@@ -20,42 +20,22 @@ export default {
 // Template
 const Template = (args) => {
     const image = document.createElement('cod-image');
-    image.setAttribute('data-background-color', args.backgroundColor);
-    image.setAttribute('data-size', args.size);
-    image.setAttribute('data-align', args.align);
-    image.setAttribute('data-alt', args.imgAlt);
-    image.setAttribute('data-sources', args.sources);
-    image.setAttribute('data-source', args.source);
-    image.setAttribute('data-style', (args.style) ? args.style : '');
+    image.innerHTML = args.sources;
     return image;
 }
 
 export const ImageSources = Template.bind({});
 ImageSources.args = {
-    backgroundColor: 'primary',
-    size: 'fluid',
-    sources: JSON.stringify([
-        {
-            srcset: 'https://detroitmi.gov/sites/detroitmi.localhost/files/2022-07/Detroit-Housing-Plans_1920.jpg',
-            type: 'image/jpg',
-            media: '(min-width: 1200px)'
-        },
-        {
-            srcset: 'https://detroitmi.gov/sites/detroitmi.localhost/files/2023-02/HardHat_515x380_0.jpg',
-            type: 'image/jpg',
-            media: '(min-width: 600px)'
-        }
-    ]),
-    source: 'https://detroitmi.gov/sites/detroitmi.localhost/files/2023-03/SOTC_WebGraphic.jpg',
-    imgAlt: 'Worker',
-    style: 'rounded'
+    sources : `
+    <source srcset="https://detroitmi.gov/sites/detroitmi.localhost/files/2022-07/Detroit-Housing-Plans_1920.jpg" type="image/jpg" media="(min-width: 1200px)">
+    <source srcset="https://detroitmi.gov/sites/detroitmi.localhost/files/2023-02/HardHat_515x380_0.jpg" type="image/jpg" media="(min-width: 600px)">
+    <img class="img-fluid rounded float-undefined bg-secondary" alt="Worker" src="https://detroitmi.gov/sites/detroitmi.localhost/files/2023-03/SOTC_WebGraphic.jpg" loading="lazy">
+    `,
 };
 
 export const ImageOnly = Template.bind({});
 ImageOnly.args = {
-    backgroundColor: 'primary',
-    size: 'thumbnail',
-    sources: JSON.stringify([]),
-    imgAlt: 'SOTC',
-    source: 'https://detroitmi.gov/sites/detroitmi.localhost/files/2023-03/SOTC_WebGraphic.jpg',
+    sources : `
+    <img class="img-thumbnail  float-undefined bg-primary" alt="SOTC" src="https://detroitmi.gov/sites/detroitmi.localhost/files/2023-03/SOTC_WebGraphic.jpg" loading="lazy"></img>
+    `,
 };
