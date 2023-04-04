@@ -179,6 +179,7 @@ CheckboxButton.args = {
 export const RadioButton = Template.bind({});
 RadioButton.args = {
   id: 'radio-button',
+  type: 'radio',
   label: 'Radio Button',
   name: 'radio-button',
   value: 'radio-button',
