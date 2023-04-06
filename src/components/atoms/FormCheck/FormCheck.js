@@ -119,9 +119,6 @@ export default class FormCheck extends HTMLElement {
       this.formCheck.className = 'form-check-input';
     }
 
-    // Set checkbox/radio mode
-    this.container.className = ['form-check', `form-${mode || ''}`, `bg-${backgroundColor || ''}`, `${extraClasses || ''}`].join(' ');
-    this.container.appendChild(this.formCheck);
     if(!this.shadowRoot.querySelector('div')){
       // setting up styles
       const bootStyles = document.createElement('style');
@@ -133,6 +130,10 @@ export default class FormCheck extends HTMLElement {
       this.shadowRoot.appendChild(bootStyles);
       this.shadowRoot.appendChild(variableStyles);
       this.shadowRoot.appendChild(formCheckStyles);
+      
+      // Set checkbox/radio mode
+      this.container.className = ['form-check', `form-${mode || ''}`, `bg-${backgroundColor || ''}`, `${extraClasses || ''}`].join(' ');
+      this.container.appendChild(this.formCheck);
       
       // Adding label to check/radio 
       if(noLabel != 'true'){
