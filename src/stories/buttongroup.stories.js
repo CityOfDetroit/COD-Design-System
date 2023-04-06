@@ -39,9 +39,9 @@ export const CheckboxButtonGroup = () => html`
 <cod-button-group
   data-type="group"
   data-label="basic example">
-  <cod-form-check data-id="checkbox-button-1" data-name="checkbox-button" data-value="checkbox-button-1" data-type="checkbox" data-btn-color="primary" data-checked="false" data-label="Checkbox 1" data-mode="btn" data-disabled="false" data-required="false" data-invalid="false"></cod-form-check>
-  <cod-form-check data-id="checkbox-button-2" data-name="checkbox-button" data-value="checkbox-button-2" data-type="checkbox" data-btn-color="primary" data-checked="false" data-label="Checkbox 2" data-mode="btn" data-disabled="false" data-required="false" data-invalid="false"></cod-form-check>
-  <cod-form-check data-id="checkbox-button-3" data-name="checkbox-button" data-value="checkbox-button-3" data-type="checkbox" data-btn-color="primary" data-checked="false" data-label="Checkbox 3" data-mode="btn" data-disabled="false" data-required="false" data-invalid="false"></cod-form-check>
+  <cod-form-check data-id="check-button-1" data-name="check-button" data-value="check-button" data-type="checkbox" data-btn-color="danger" data-checked="false" data-label="Check Button 1" data-mode="btn-outline" data-disabled="false" data-required="false" data-invalid="false" data-extra-classes="ps-0"></cod-form-check>
+  <cod-form-check data-id="check-button-2" data-name="check-button" data-value="check-button" data-type="checkbox" data-btn-color="danger" data-checked="false" data-label="Check Button 2" data-mode="btn-outline" data-disabled="false" data-required="false" data-invalid="false" data-extra-classes="ps-0"></cod-form-check>
+  <cod-form-check data-id="check-button-3" data-name="check-button" data-value="check-button" data-type="checkbox" data-btn-color="danger" data-checked="false" data-label="Check Button 3" data-mode="btn-outline" data-disabled="false" data-required="false" data-invalid="false" data-extra-classes="ps-0"></cod-form-check>
 </cod-button-group>
 <br>
 <cod-button-group
@@ -49,9 +49,9 @@ export const CheckboxButtonGroup = () => html`
   data-label="basic example">
   <cod-form-check-group
   data-type="radio">
-  <cod-form-check data-id="radio-button-1" data-name="radio-button" data-value="radio-button-1" data-type="radio" data-btn-color="primary" data-checked="false" data-label="Radio 1" data-mode="btn-outline" data-disabled="false" data-required="false" data-invalid="false"></cod-form-check>
-  <cod-form-check data-id="radio-button-2" data-name="radio-button" data-value="radio-button-2" data-type="radio" data-btn-color="primary" data-checked="false" data-label="Radio 2" data-mode="btn-outline" data-disabled="false" data-required="false" data-invalid="false"></cod-form-check>
-  <cod-form-check data-id="radio-button-3" data-name="radio-button" data-value="radio-button-3" data-type="radio" data-btn-color="primary" data-checked="false" data-label="Radio 3" data-mode="btn-outline" data-disabled="false" data-required="false" data-invalid="false"></cod-form-check>
+    <cod-form-check data-id="radio-button-1" data-name="radio-button" data-value="radio-button-1" data-type="radio" data-btn-color="primary" data-checked="false" data-label="Radio 1" data-mode="btn-outline" data-disabled="false" data-required="false" data-invalid="false"></cod-form-check>
+    <cod-form-check data-id="radio-button-2" data-name="radio-button" data-value="radio-button-2" data-type="radio" data-btn-color="primary" data-checked="false" data-label="Radio 2" data-mode="btn-outline" data-disabled="false" data-required="false" data-invalid="false"></cod-form-check>
+    <cod-form-check data-id="radio-button-3" data-name="radio-button" data-value="radio-button-3" data-type="radio" data-btn-color="primary" data-checked="false" data-label="Radio 3" data-mode="btn-outline" data-disabled="false" data-required="false" data-invalid="false"></cod-form-check>
   </cod-form-check-group>
 </cod-button-group>
 `;
