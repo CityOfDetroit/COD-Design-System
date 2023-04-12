@@ -43,6 +43,8 @@ export default class Badge extends HTMLElement {
         badge.appendChild(hiddenBadge);
       }
       badge.className = ['badge', `text-bg-${backgroundColor || ''}`, `${pill || ''}`, `${extraClasses || ''}`].join(' ');
-      this.shadowRoot.appendChild(badge);
+      if(!this.shadowRoot.querySelector(tag)){
+        this.shadowRoot.appendChild(badge);
+      }
     }
   };
