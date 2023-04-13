@@ -166,3 +166,26 @@ export const Variants = () => html`
     </cod-listgroup-item>
 </cod-listgroup>
 `;
+
+export const VariantsActions = () => html`
+<cod-listgroup data-tag="ul">
+    <cod-listgroup-item data-tag="a" data-url="#" data-text="A simple default list group item">
+    </cod-listgroup-item>
+    <cod-listgroup-item data-tag="a" data-url="#" data-background-color="primary" data-text="A simple primary list group item">
+    </cod-listgroup-item>
+    <cod-listgroup-item data-tag="a" data-url="#" data-background-color="secondary" data-text="A simple secondary list group item">
+    </cod-listgroup-item>
+    <cod-listgroup-item data-tag="a" data-url="#" data-background-color="success" data-text="A simple success list group item">
+    </cod-listgroup-item>
+    <cod-listgroup-item data-tag="a" data-url="#" data-background-color="danger" data-text="A simple danger list group item">
+    </cod-listgroup-item>
+    <cod-listgroup-item data-tag="a" data-url="#" data-background-color="warning" data-text="A simple warning list group item">
+    </cod-listgroup-item>
+    <cod-listgroup-item data-tag="a" data-url="#" data-background-color="info" data-text="A simple info list group item">
+    </cod-listgroup-item>
+    <cod-listgroup-item data-tag="a" data-url="#" data-background-color="light" data-text="A simple light list group item">
+    </cod-listgroup-item>
+    <cod-listgroup-item data-tag="a" data-url="#" data-background-color="dark" data-text="A simple dark list group item">
+    </cod-listgroup-item>
+</cod-listgroup>
+`;
