@@ -1,0 +1,12 @@
+.list-group-item.first {
+    border-top-left-radius: inherit;
+    border-top-right-radius: inherit;
+}
+
+.list-group-flush.list-group-item {
+    border-width: 0 0 var(--bs-list-group-border-width);
+}
+
+.list-group-flush.list-group-item.last{
+    border-bottom-width: 0;
+}

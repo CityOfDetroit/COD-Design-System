@@ -10,6 +10,11 @@ template.innerHTML = `
 
 
 export default class ListGroupItem extends HTMLElement {
+
+    static get observedAttributes() {
+        return ['data-order', 'data-parent-classes', 'data-order-index'];
+    }
+
     constructor() {
       // Always call super first in constructor
       super();
@@ -28,6 +33,37 @@ export default class ListGroupItem extends HTMLElement {
       shadow.appendChild(bootStyles);
       shadow.appendChild(variableStyles);
       shadow.appendChild(itemStyles);
+    }
+
+    attributeChangedCallback(name, oldValue, newValue) {
+        switch (name) {
+          case 'data-order':
+            if(newValue != null){
+                this.listGroupItem.className = `${this.listGroupItem.className} ${newValue}`;
+            }
+            break;
+          
+          case 'data-parent-classes':
+            if(newValue != null){
+                this.listGroupItem.className = `${this.listGroupItem.className} ${newValue}`;
+            }
+            break;
+
+          case 'data-order-index':
+            console.log(newValue);
+            if(newValue != null){
+              this.listGroupItem.innerHTML = `${newValue}. ${this.listGroupItem.innerHTML}`;
+              let tempElements = Array.from(this.children);  
+              tempElements.forEach((node)=>{
+                this.listGroupItem.append(node);
+              });
+            }
+            break;
+        
+          default:
+            break;
+        }
+        
     }
   
     connectedCallback() {
@@ -56,7 +92,7 @@ export default class ListGroupItem extends HTMLElement {
         this.listGroupItem.setAttribute('aria-disabled', 'true');
         disabled = 'disabled'
       }
-      this.listGroupItem.className = ['list-group-item', `list-group-item-${backgroundColor || ''}`, `${current || ''}`, `${disabled || ''}`, `${extraClasses || ''}`].join(' ');
+      this.listGroupItem.className = ['list-group-item', `list-group-item-${backgroundColor || ''}`, `${current || ''}`, `${disabled || ''}`, `${actionItem || ''}`, `${extraClasses || ''}`].join(' ');
       
       if(!this.shadowRoot.querySelector(tag)){
         this.shadowRoot.addEventListener( 'slotchange', ev => {  

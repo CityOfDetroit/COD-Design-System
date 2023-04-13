@@ -45,7 +45,35 @@ export default class FormCheckGroup extends HTMLElement {
       if(!this.shadowRoot.querySelector(tag)){
         this.shadowRoot.addEventListener( 'slotchange', ev => {  
             let tempElements = Array.from(this.children);  
-            tempElements.forEach((node)=>{
+            let tempLength = tempElements.length;
+            tempElements.forEach((node, index)=>{
+                let pClasses = null;
+                switch (index) {
+                    case 0:
+                        node.setAttribute('data-order', 'first');
+                        break;
+
+                    case (tempLength - 1):
+                        node.setAttribute('data-order', 'last');
+                        break;
+                
+                    default:
+                        node.setAttribute('data-order', 'middle');
+                        break;
+                }
+                if(flushed){
+                    pClasses = `${flushed} `;
+                }
+                if(numbered){
+                    pClasses = `${numbered} `;
+                    node.setAttribute('data-order-index', (index + 1));
+                }
+                if(horizontal){
+                    pClasses = `${horizontal} `;
+                }
+                if(pClasses){
+                    node.setAttribute('data-parent-classes', pClasses);
+                }
                 this.listGroup.append(node);
             });
         });
