@@ -8,106 +8,126 @@ export default {
 
 export const Basic = () => html`
 <cod-listgroup data-tag="ul">
-<li class="list-group-item">An item</li>
-<li class="list-group-item">A second item</li>
-<li class="list-group-item">A third item</li>
-<li class="list-group-item">A fourth item</li>
-<li class="list-group-item">And a fifth one</li>
+    <cod-listgroup-item data-tag="li" data-text="An item">
+    </cod-listgroup-item>
+    <cod-listgroup-item data-tag="li" data-text="A second item">
+    </cod-listgroup-item>
+    <cod-listgroup-item data-tag="li" data-text="A third item">
+    </cod-listgroup-item>
+    <cod-listgroup-item data-tag="li" data-text="A fourth item">
+    </cod-listgroup-item>
+    <cod-listgroup-item data-tag="li" data-text="And a fifth one">
+    </cod-listgroup-item>
 </cod-listgroup>
 `;
 
 export const Active = () => html`
 <cod-listgroup data-tag="ul">
-<li class="list-group-item active" aria-current="true">An active item</li>
-<li class="list-group-item">A second item</li>
-<li class="list-group-item">A third item</li>
-<li class="list-group-item">A fourth item</li>
-<li class="list-group-item">And a fifth one</li>
+    <cod-listgroup-item data-tag="li" data-text="An active item" data-current="true">
+    </cod-listgroup-item>
+    <cod-listgroup-item data-tag="li" data-text="A second item">
+    </cod-listgroup-item>
+    <cod-listgroup-item data-tag="li" data-text="A third item">
+    </cod-listgroup-item>
+    <cod-listgroup-item data-tag="li" data-text="A fourth item">
+    </cod-listgroup-item>
+    <cod-listgroup-item data-tag="li" data-text="And a fifth one">
+    </cod-listgroup-item>
 </cod-listgroup>
 `;
 
 export const Disabled = () => html`
 <cod-listgroup data-tag="ul">
-<li class="list-group-item disabled" aria-disabled="true">A disabled item</li>
-<li class="list-group-item">A second item</li>
-<li class="list-group-item">A third item</li>
-<li class="list-group-item">A fourth item</li>
-<li class="list-group-item">And a fifth one</li>
+    <cod-listgroup-item data-tag="li" data-text="A disabled item" data-disabled="true">
+    </cod-listgroup-item>
+    <cod-listgroup-item data-tag="li" data-text="A second item">
+    </cod-listgroup-item>
+    <cod-listgroup-item data-tag="li" data-text="A third item">
+    </cod-listgroup-item>
+    <cod-listgroup-item data-tag="li" data-text="A fourth item">
+    </cod-listgroup-item>
+    <cod-listgroup-item data-tag="li" data-text="And a fifth one">
+    </cod-listgroup-item>
 </cod-listgroup>
 `;
 
 export const Links = () => html`
 <cod-listgroup data-tag="div">
-<a href="#" class="list-group-item list-group-item-action active" aria-current="true">
-The current link item
-</a>
-<a href="#" class="list-group-item list-group-item-action">A second link item</a>
-<a href="#" class="list-group-item list-group-item-action">A third link item</a>
-<a href="#" class="list-group-item list-group-item-action">A fourth link item</a>
-<a class="list-group-item list-group-item-action disabled">A disabled link item</a>
+    <cod-listgroup-item data-tag="a" data-url="#" data-text="The current link item" data-current="true">
+    </cod-listgroup-item>
+    <cod-listgroup-item data-tag="a" data-url="#" data-text="A second link item">
+    </cod-listgroup-item>
+    <cod-listgroup-item data-tag="a" data-url="#" data-text="A third link item">
+    </cod-listgroup-item>
+    <cod-listgroup-item data-tag="a" data-url="#" data-text="A fourth link item">
+    </cod-listgroup-item>
+    <cod-listgroup-item data-tag="a" data-url="#" data-text="A disabled link item" data-disabled="true">
+    </cod-listgroup-item>
 </cod-listgroup>
 `;
 
 export const Button = () => html`
 <cod-listgroup data-tag="div">
-<button type="button" class="list-group-item list-group-item-action active" aria-current="true">
-The current button
-</button>
-<button type="button" class="list-group-item list-group-item-action">A second button item</button>
-<button type="button" class="list-group-item list-group-item-action">A third button item</button>
-<button type="button" class="list-group-item list-group-item-action">A fourth button item</button>
-<button type="button" class="list-group-item list-group-item-action" disabled>A disabled button item</button>
+    <cod-listgroup-item data-tag="button" data-text="The current button" data-current="true">
+    </cod-listgroup-item>
+    <cod-listgroup-item data-tag="button" data-text="A second button item">
+    </cod-listgroup-item>
+    <cod-listgroup-item data-tag="button" data-text="A third button item">
+    </cod-listgroup-item>
+    <cod-listgroup-item data-tag="button" data-text="A fourth button item">
+    </cod-listgroup-item>
+    <cod-listgroup-item data-tag="button" data-text="A disabled button item" data-disabled="true">
+    </cod-listgroup-item>
 </cod-listgroup>
 `;
 
 export const Flushed = () => html`
 <cod-listgroup data-tag="ul" data-flushed="true">
-<li class="list-group-item">An item</li>
-<li class="list-group-item">A second item</li>
-<li class="list-group-item">A third item</li>
-<li class="list-group-item">A fourth item</li>
-<li class="list-group-item">And a fifth one</li>
+    <cod-listgroup-item data-tag="li" data-text="An item">
+    </cod-listgroup-item>
+    <cod-listgroup-item data-tag="li" data-text="A second item">
+    </cod-listgroup-item>
+    <cod-listgroup-item data-tag="li" data-text="A third item">
+    </cod-listgroup-item>
+    <cod-listgroup-item data-tag="li" data-text="A fourth item">
+    </cod-listgroup-item>
+    <cod-listgroup-item data-tag="li" data-text="And a fifth one">
+    </cod-listgroup-item>
 </cod-listgroup>
 `;
 
 export const Numbered = () => html`
-<cod-listgroup data-tag="ul" data-numbered="true">
-<li class="list-group-item">A list item</li>
-<li class="list-group-item">A list item</li>
-<li class="list-group-item">A list item</li>
+<cod-listgroup data-tag="ol" data-numbered="true">
+    <cod-listgroup-item data-tag="li" data-text="A list item">
+    </cod-listgroup-item>
+    <cod-listgroup-item data-tag="li" data-text="A list item">
+    </cod-listgroup-item>
+    <cod-listgroup-item data-tag="li" data-text="A list item">
+    </cod-listgroup-item>
 </cod-listgroup>
 `;
 
 export const NumberedCustom = () => html`
-<cod-listgroup data-tag="ul" data-numbered="true">
-<li class="list-group-item d-flex justify-content-between align-items-start">
+<cod-listgroup data-tag="ol" data-numbered="true">
+    <cod-listgroup-item data-tag="li" data-extra-classes="d-flex justify-content-between align-items-start">
     <div class="ms-2 me-auto">
       <div class="fw-bold">Subheading</div>
       Content for list item
     </div>
-    <cod-badge data-tag="span" data-background-color="primary" data-text="14"></cod-badge>
-  </li>
-  <li class="list-group-item d-flex justify-content-between align-items-start">
+    <span class="badge bg-primary rounded-pill">14</span>
+    </cod-listgroup-item>
+    <cod-listgroup-item data-tag="li" data-extra-classes="d-flex justify-content-between align-items-start">
     <div class="ms-2 me-auto">
       <div class="fw-bold">Subheading</div>
       Content for list item
     </div>
-    <cod-badge data-tag="span" data-background-color="primary" data-text="14"></cod-badge>
-  </li>
-  <li class="list-group-item d-flex justify-content-between align-items-start">
+    </cod-listgroup-item>
+    <cod-listgroup-item data-tag="li" data-extra-classes="d-flex justify-content-between align-items-start">
     <div class="ms-2 me-auto">
       <div class="fw-bold">Subheading</div>
       Content for list item
     </div>
-    <cod-badge data-tag="span" data-background-color="primary" data-text="14"></cod-badge>
-  </li>
-</cod-listgroup>
-`;
-
-export const Horizontal = () => html`
-<cod-listgroup data-tag="ul" data-horizontal="true">
-<li class="list-group-item">An item</li>
-  <li class="list-group-item">A second item</li>
-  <li class="list-group-item">A third item</li>
+    <span class="badge bg-primary rounded-pill">14</span>
+    </cod-listgroup-item>
 </cod-listgroup>
 `;
