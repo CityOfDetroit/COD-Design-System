@@ -50,8 +50,13 @@ export default class ListGroupItem extends HTMLElement {
             break;
 
           case 'data-order-index':
+            console.log(newValue);
             if(newValue != null){
-                this.listGroupItem.innerHTML = `${newValue}. ${this.listGroupItem.innerHTML}`;
+              this.listGroupItem.innerHTML = `${newValue}. ${this.listGroupItem.innerHTML}`;
+              let tempElements = Array.from(this.children);  
+              tempElements.forEach((node)=>{
+                this.listGroupItem.append(node);
+              });
             }
             break;
         
