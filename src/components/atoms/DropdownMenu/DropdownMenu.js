@@ -43,6 +43,13 @@ export default class DropdownMenu extends HTMLElement {
 
     attributeChangedCallback(name, oldValue, newValue) {
       console.log(newValue);
+      let tempClasses = this.dropdownMenu.className.split(' ');
+      let popValue = tempClasses.pop();
+      (popValue != 'show') ? tempClasses.push(popValue) : 0;
+      if(newValue == 'true'){
+        tempClasses.push('show');
+        this.dropdownMenu.className = tempClasses.join(' ');
+      }
     }
   
     connectedCallback() {
