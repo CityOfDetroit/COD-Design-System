@@ -46,10 +46,11 @@ export default class DropdownMenu extends HTMLElement {
       let tempClasses = this.dropdownMenu.className.split(' ');
       let popValue = tempClasses.pop();
       (popValue != 'show') ? tempClasses.push(popValue) : 0;
+      console.log(tempClasses);
       if(newValue == 'true'){
         tempClasses.push('show');
-        this.dropdownMenu.className = tempClasses.join(' ');
       }
+      this.dropdownMenu.className = tempClasses.join(' ');
     }
   
     connectedCallback() {
@@ -57,14 +58,11 @@ export default class DropdownMenu extends HTMLElement {
       let darkMode = this.getAttribute('data-dark-mode');
       let direction = this.getAttribute('data-direction');
       let show = this.getAttribute('data-show');
-      (darkMode == 'true') ? darkMode = 'dropdown-menu-dark' : darkMode = null;
-      (show == 'true') ? show = 'show' : show = null;
-      if(direction != undefined && direction != null){
-        direction = `dropdown-menu-${direction}`;
-      }else{
-        direction = null;
-      }
-      this.dropdownMenu.className = ['dropdown-menu', `${show || ''}`, `${direction || ''}`, `${show || ''}`,].join(' ');
+      let classList = ['dropdown-menu'];
+      (darkMode == 'true') ? classList.push('dropdown-menu-dark') : 0;
+      (direction != undefined && direction != null) ? classList.push(`dropdown-menu-${direction}`) : 0;
+      (show == 'true') ? classList.push('show') : 0;
+      this.dropdownMenu.className = classList.join(' ');
       
       if(!this.shadowRoot.querySelector('ul')){
         this.shadowRoot.appendChild(this.dropdownMenu);
