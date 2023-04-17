@@ -9,16 +9,19 @@ export default {
       control: { type: 'boolean'},
       defaultValue: true,
     },
+    disable: {
+      control: {type: 'boolean'},
+      defaultValue: false,
+    },
     backgroundColor: { 
       control: { type: 'select' },
-      options: ['color-1', 'color-2', 'color-3', 'color-4', 'color-5', 'color-light', 'color-dark'],
-      defaultValue: 'color-1'
+      options: ['primary', 'secondary', 'success', 'info', 'warning', 'danger', 'light', 'dark'],
+      defaultValue: 'primary',
     },
     onClick: { action: 'onClick' },
     size: {
       control: { type: 'select' },
-      options: ['xsmall', 'small', 'medium', 'large'],
-      defaultValue: 'medium',
+      options: ['sm', 'lg'],
     },
     icon: {
       control: { type: 'select' },
@@ -37,14 +40,6 @@ export default {
       options: ['fluid', 'square'],
       defaultValue: 'fluid',
     },
-    hover: {
-      control: {type: 'boolean'},
-      defaultValue: true,
-    },
-    disable: {
-      control: {type: 'boolean'},
-      defaultValue: false,
-    }
   },
 };
 // Template
@@ -54,20 +49,31 @@ const Template = (args) => {
     args.onclick(e)
   })
   btn.setAttribute('data-primary', args.primary);
+  btn.setAttribute('data-disable', args.disable);
   btn.setAttribute('data-label', args.label);
-  btn.setAttribute('data-size', args.size);
   btn.setAttribute('data-background-color', args.backgroundColor);
   btn.setAttribute('data-img', (args.img) ? args.img : '');
   btn.setAttribute('data-img-alt', (args.imgAlt) ? args.imgAlt : '');
   btn.setAttribute('data-icon', (args.icon) ? args.icon : '');
   btn.setAttribute('data-icon-order', (args.iconOrder) ? args.iconOrder : '');
   btn.setAttribute('data-icon-size', (args.iconSize) ? args.iconSize : '');
-  btn.setAttribute('data-hover', args.hover);
   btn.setAttribute('data-shape', args.shape);
   btn.setAttribute('data-aria-label', (args.ariaLabel) ? args.ariaLabel : '');
-  btn.setAttribute('data-disable', args.disable);
-  btn.setAttribute('data-link', args.link);
-  btn.setAttribute('data-id', args.id);
+  if(args.hLabel){
+    btn.setAttribute('data-hidden-label', args.hLabel);
+  }
+  if(args.size){
+    btn.setAttribute('data-id', args.size);
+  }
+  if(args.id){
+    btn.setAttribute('data-id', args.id);
+  }
+  if(args.link){
+    btn.setAttribute('data-link', args.link);
+  }
+  if(args.extraClasses){
+    btn.setAttribute('data-extra-classes', args.extraClasses);
+  }
   return btn;
 }
 
@@ -90,18 +96,11 @@ Link.args = {
   link: 'https://detroitmi.gov'
 };
 
-export const NoHover = Template.bind({});
-NoHover.args = {
-  primary: true,
-  label: 'Primary',
-  hover: false
-};
-
 export const Image = Template.bind({});
 Image.args = {
   primary: true,
   label: 'Image',
-  backgroundColor: 'color-5',
+  backgroundColor: 'secondary',
   img: 'https://detroitmi.gov/sites/detroitmi.localhost/files/2023-02/map.png',
   imgAlt: 'map',
 };
@@ -110,7 +109,7 @@ export const Icon = Template.bind({});
 Icon.args = {
   primary: true,
   label: 'Image',
-  backgroundColor: 'color-5',
+  backgroundColor: 'secondary',
   icon: 'house',
   iconSize: 'small',
   iconOrder: 'left',
@@ -121,17 +120,26 @@ Square.args = {
   primary: true,
   label: 'x',
   shape: 'square',
-  ariaLabel: 'Close'
+  ariaLabel: 'Close',
+  extraClasses: 'fw-bold'
 };
 
 export const SquareImage = Template.bind({});
 SquareImage.args = {
   primary: true,
   label: '',
-  backgroundColor: 'color-2',
+  backgroundColor: 'secondary',
   shape: 'square',
   img: 'https://detroitmi.gov/sites/detroitmi.localhost/files/2023-02/map.png',
   imgAlt: 'map',
+};
+
+export const HiddenLabel = Template.bind({});
+HiddenLabel.args = {
+  primary: true,
+  label: '',
+  hLabel: 'Toggle Dropdown',
+  extraClasses: 'dropdown-toggle dropdown-toggle-split'
 };
 
 // export const WithInteraction = Template.bind({});
