@@ -1,5 +1,7 @@
 import styles from '!!raw-loader!./Button.css';
 import varStyles from '!!raw-loader!../../../shared/variables.css';
+import bootstrapStyles from '!!raw-loader!../../../shared/themed-bootstrap.css';
+
 export default class Button extends HTMLElement {
   constructor() {
     // Always call super first in constructor
@@ -14,27 +16,41 @@ export default class Button extends HTMLElement {
     let btnID = this.getAttribute('data-id');
     let ariaLabel = this.getAttribute('data-aria-label');
     let primary = this.getAttribute('data-primary');
-    let mode = (primary == 'true') ? 'cod-button--primary' : 'cod-button--secondary';
     let backgroundColor = this.getAttribute('data-background-color');
     let shape = this.getAttribute('data-shape');
-    let hover = this.getAttribute('data-hover');
-    let hoverStatus = (hover == 'false') ? 'cod-button--not-hover' : 'cod-button--hover';
     let icon = this.getAttribute('data-icon');
     let iconSize = this.getAttribute('data-icon-size');
     let iconOrder = this.getAttribute('data-icon-order');
+    let hiddenLabel = this.getAttribute('data-hidden-label');
     let imgSrc = this.getAttribute('data-img');
     let imgAlt = this.getAttribute('data-img-alt');
     let img = (imgAlt != '') ? 'img' : 'not-img';
     let size = this.getAttribute('data-size');
+    let extraClasses = this.getAttribute('data-extra-classes');
     let label = this.getAttribute('data-label');
     let disableStatus = this.getAttribute('data-disable');
+    // Building Button component
     const btn = document.createElement('button');
+    let btnClasses = ['btn'];
     btn.type = 'button';
-    btn.id = btnID;
+    if(btnID != null && btnID != undefined){
+      btn.id = btnID;
+    }
     (disableStatus == 'true') ? btn.disabled = true : btn.disabled = false;
     btn.setAttribute('aria-label', `${ariaLabel || ''}`);
-    btn.className = ['cod-button', `cod-button--${size || 'medium'}`, `cod-button--${img}`, `cod-button--${backgroundColor}`, `cod-button--${shape || 'fluid'}`, hoverStatus, mode].join(' ');
+    if(primary == 'true'){
+      btnClasses.push(`btn-${backgroundColor}`);
+    }else if(primary == 'false'){
+      btnClasses.push(`btn-outline-${backgroundColor}`);
+    }
+    (shape == 'square') ? btnClasses.push('cod-button--square') : btnClasses.push('cod-button-fluid');
+    (size != undefined && size != null) ? btnClasses.push(`btn-${size}`) : 0;
+    (extraClasses != undefined && extraClasses != null) ? btnClasses.push(extraClasses) : 0;
+    (imgAlt != '') ? btnClasses.push('cod-button--img') : btnClasses.push('cod-button--not-img');
+    btn.className = btnClasses.join(' ');
+
     if(icon != ''){
+      // Loading icon
       let iconContainer = document.createElement('span');
       let activeIcon = document.createElement('cod-icon');
       activeIcon.setAttribute('data-icon', icon);
@@ -47,6 +63,7 @@ export default class Button extends HTMLElement {
         btn.appendChild(iconContainer);
       }
     }else if(imgAlt != ''){
+      // Loading image
       btn.innerText = label;
       const btnIcon = document.createElement('img');
       btnIcon.src = imgSrc;
@@ -55,15 +72,25 @@ export default class Button extends HTMLElement {
     }else{
       btn.innerText = label;
     }
+    // Create hidden label
+    if(hiddenLabel != undefined && hiddenLabel != null){
+      let hLabel = document.createElement('span');
+      hLabel.className = 'visually-hidden';
+      hLabel.innerText = hiddenLabel;
+      btn.appendChild(hLabel);
+    }
     if(!this.shadowRoot.querySelector('button')){
       // Inserting styles
+      const bootStyles = document.createElement('style');
+      bootStyles.textContent = bootstrapStyles;
+      this.shadowRoot.appendChild(bootStyles);
       const variableStyles = document.createElement('style');
       variableStyles.textContent = varStyles;
       this.shadowRoot.appendChild(variableStyles);
       const btnStyles = document.createElement('style');
       btnStyles.textContent = styles;
       this.shadowRoot.appendChild(btnStyles);
-      if(link == undefined || link == 'undefined' || link == ''){
+      if(link == undefined || link == null){
         this.shadowRoot.appendChild(btn);
         let ghostBtn = this.appendChild(document.createElement('button'));
         this.onclick = () => ghostBtn.click();
