@@ -56,11 +56,11 @@ export default class DropdownMenu extends HTMLElement {
     connectedCallback() {
       // badge attributes
       let darkMode = this.getAttribute('data-dark-mode');
-      let direction = this.getAttribute('data-direction');
+      let alignment = this.getAttribute('data-alignment');
       let show = this.getAttribute('data-show');
       let classList = ['dropdown-menu'];
       (darkMode == 'true') ? classList.push('dropdown-menu-dark') : 0;
-      (direction != undefined && direction != null) ? classList.push(`dropdown-menu-${direction}`) : 0;
+      (alignment != undefined && alignment != null) ? classList.push(`dropdown-menu-${alignment}`) : 0;
       (show == 'true') ? classList.push('show') : 0;
       this.dropdownMenu.className = classList.join(' ');
       
