@@ -30,7 +30,7 @@
   "author": "Edgar Montes",
   "license": "MIT",
   "dependencies": {
-    "bootstrap": "5.3.0-alpha2",
+    "bootstrap": "5.3.0-alpha3",
     "bootstrap-icons": "^1.10.3",
     "maplibre-gl": "^2.4.0"
   },
