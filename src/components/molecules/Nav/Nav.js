@@ -64,18 +64,4 @@ export default class Nav extends HTMLElement {
         this.shadowRoot.appendChild(this.nav);
       }
     }
-
-    _onClick(e) {
-        console.log(this.parentElement.querySelector('cod-dropdown-menu'));
-        if (e.target.getAttribute('data-bs-toggle') === 'dropdown') {
-          console.log('changing dropdown state');
-          if(this.getAttribute('aria-expanded') == 'true'){
-            this.setAttribute('aria-expanded', 'false');
-            this.parentElement.querySelector('cod-dropdown-menu').setAttribute('data-show', 'false');
-          }else{
-            this.setAttribute('aria-expanded', 'true');
-            this.parentElement.querySelector('cod-dropdown-menu').setAttribute('data-show', 'true');
-          }
-        }
-    }
 };
