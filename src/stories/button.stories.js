@@ -59,6 +59,9 @@ const Template = (args) => {
   btn.setAttribute('data-icon-size', (args.iconSize) ? args.iconSize : '');
   btn.setAttribute('data-shape', args.shape);
   btn.setAttribute('data-aria-label', (args.ariaLabel) ? args.ariaLabel : '');
+  if(args.close){
+    btn.setAttribute('data-close', args.close);
+  }
   if(args.hLabel){
     btn.setAttribute('data-hidden-label', args.hLabel);
   }
@@ -115,8 +118,16 @@ Icon.args = {
   iconOrder: 'left',
 };
 
-export const Square = Template.bind({});
-Square.args = {
+export const Close = Template.bind({});
+Close.args = {
+  primary: true,
+  label: '',
+  ariaLabel: 'Close',
+  close: 'true'
+};
+
+export const SquareClose = Template.bind({});
+SquareClose.args = {
   primary: true,
   label: 'x',
   shape: 'square',
