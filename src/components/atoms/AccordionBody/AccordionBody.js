@@ -10,19 +10,13 @@ template.innerHTML = `
 
 
 export default class AccordionBody extends HTMLElement {
-    static get observedAttributes() {
-        return ['data-expanded'];
-    }
-
     constructor() {
       // Always call super first in constructor
       super();
       // Create a shadow root
       const shadow = this.attachShadow({ mode: 'open' });
       shadow.appendChild(template.content.cloneNode(true));
-      this.accordionBodyContainer = document.createElement('div');
       this.accordionBody = document.createElement('div');
-      this.accordionBodyContainer.appendChild(this.accordionBody);
       this.shadowRoot.addEventListener( 'slotchange', ev => {  
         let tempElements = Array.from(this.children);  
         tempElements.forEach((node)=>{
@@ -44,24 +38,12 @@ export default class AccordionBody extends HTMLElement {
   
     connectedCallback() {
       // Nav attributes
-      let parentID = this.getAttribute('data-parent-id');
-      let expanded = this.getAttribute('data-expanded');
       let extraClasses = this.getAttribute('data-header-extra-classes');
-      let accordionBtnClasses = ['accordion-button'];
-      this.accordionBtn.setAttribute('type', 'button');
-      this.accordionBtn.setAttribute('data-bs-toggle', 'collapse');
-      this.accordionBtn.setAttribute('aria-controls', parentID);
-      this.accordionBtn.setAttribute('data-bs-target', `#${parentID}`);
-      if(expanded == 'true'){
-        this.accordionBtn.setAttribute('aria-expanded', 'true');
-      }else{
-        accordionBtnClasses.push('collapsed');
-        this.accordionBtn.setAttribute('aria-expanded', 'false');
-      }
-      (extraClasses != undefined && extraClasses != null) ? accordionBtnClasses.push(extraClasses): 0;
-      this.accordionBtn.className = accordionBtnClasses.join(' ');
+      let accordionBodyClasses = ['accordion-body'];
+      (extraClasses != undefined && extraClasses != null) ? accordionBodyClasses.push(extraClasses): 0;
+      this.accordionBody.className = accordionBodyClasses.join(' ');
       if(!this.shadowRoot.querySelector('div')){
-        this.shadowRoot.appendChild(this.accordionHeader);
+        this.shadowRoot.appendChild(this.accordionBody);
       }
     }
 };

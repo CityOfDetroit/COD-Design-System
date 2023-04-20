@@ -23,8 +23,8 @@ export default class Accordion extends HTMLElement {
         tempElements.forEach((node, index)=>{
           let accordionItem = document.createElement('div');
           accordionItem.className = 'accordion-item';
-          accordionItem.setAttribute('data-parent-id', this.getAttribute('data-id'));
-          accordionItem.setAttribute('data-index', this.getAttribute(index));
+          node.setAttribute('data-parent-id', this.getAttribute('data-id'));
+          node.setAttribute('data-index', index);
           accordionItem.appendChild(node);
           this.accordion.append(accordionItem);
         });
