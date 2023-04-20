@@ -12,6 +12,7 @@ export default class Button extends HTMLElement {
 
   connectedCallback() {
     // Button attributes
+    let close = this.getAttribute('data-close');
     let link = this.getAttribute('data-link');
     let btnID = this.getAttribute('data-id');
     let ariaLabel = this.getAttribute('data-aria-label');
@@ -47,6 +48,7 @@ export default class Button extends HTMLElement {
     (size != undefined && size != null) ? btnClasses.push(`btn-${size}`) : 0;
     (extraClasses != undefined && extraClasses != null) ? btnClasses.push(extraClasses) : 0;
     (imgAlt != '') ? btnClasses.push('cod-button--img') : btnClasses.push('cod-button--not-img');
+    (close == 'true') ? btnClasses.push('btn-close') : 0;
     btn.className = btnClasses.join(' ');
 
     if(icon != ''){
