@@ -9,9 +9,9 @@ export const Basic = () => html`
 <cod-button-group
   data-type="group"
   data-label="basic example">
-  <cod-button data-label="Left" data-background-color="color-1" data-primary="true" data-img-alt="" data-icon=""></cod-button>
-  <cod-button data-label="Middle" data-background-color="color-1" data-primary="true" data-img-alt="" data-icon=""></cod-button>
-  <cod-button data-label="Right" data-background-color="color-1" data-primary="true" data-img-alt="" data-icon=""></cod-button>
+  <cod-button data-label="Left" data-background-color="primary" data-primary="true" data-img-alt="" data-icon=""></cod-button>
+  <cod-button data-label="Middle" data-background-color="primary" data-primary="true" data-img-alt="" data-icon=""></cod-button>
+  <cod-button data-label="Right" data-background-color="primary" data-primary="true" data-img-alt="" data-icon=""></cod-button>
 </cod-button-group>
 `;
 
@@ -19,9 +19,9 @@ export const Mixed = () => html`
 <cod-button-group
   data-type="group"
   data-label="basic example">
-  <cod-button data-label="Left" data-background-color="color-1" data-primary="true" data-img-alt="" data-icon=""></cod-button>
-  <cod-button data-label="Middle" data-background-color="color-3" data-primary="true" data-img-alt="" data-icon=""></cod-button>
-  <cod-button data-label="Right" data-background-color="color-4" data-primary="true" data-img-alt="" data-icon=""></cod-button>
+  <cod-button data-label="Left" data-background-color="primary" data-primary="true" data-img-alt="" data-icon=""></cod-button>
+  <cod-button data-label="Middle" data-background-color="warning" data-primary="true" data-img-alt="" data-icon=""></cod-button>
+  <cod-button data-label="Right" data-background-color="danger" data-primary="true" data-img-alt="" data-icon=""></cod-button>
 </cod-button-group>
 `;
 
@@ -29,9 +29,9 @@ export const Outlined = () => html`
 <cod-button-group
   data-type="group"
   data-label="basic example">
-  <cod-button data-label="Left" data-background-color="color-1" data-primary="false" data-img-alt="" data-icon=""></cod-button>
-  <cod-button data-label="Middle" data-background-color="color-1" data-primary="false" data-img-alt="" data-icon=""></cod-button>
-  <cod-button data-label="Right" data-background-color="color-1" data-primary="false" data-img-alt="" data-icon=""></cod-button>
+  <cod-button data-label="Left" data-background-color="primary" data-primary="false" data-img-alt="" data-icon=""></cod-button>
+  <cod-button data-label="Middle" data-background-color="primary" data-primary="false" data-img-alt="" data-icon=""></cod-button>
+  <cod-button data-label="Right" data-background-color="primary" data-primary="false" data-img-alt="" data-icon=""></cod-button>
 </cod-button-group>
 `;
 
@@ -65,9 +65,9 @@ export const ButtonToolbar = () => html`
   data-type="group"
   data-label="group 1"
   data-extra-classes="me-2">
-    <cod-button data-label="1" data-background-color="color-1" data-primary="false" data-img-alt="" data-icon=""></cod-button>
-    <cod-button data-label="2" data-background-color="color-1" data-primary="false" data-img-alt="" data-icon=""></cod-button>
-    <cod-button data-label="3" data-background-color="color-1" data-primary="false" data-img-alt="" data-icon=""></cod-button>
+    <cod-button data-label="1" data-background-color="primary" data-primary="false" data-img-alt="" data-icon=""></cod-button>
+    <cod-button data-label="2" data-background-color="primary" data-primary="false" data-img-alt="" data-icon=""></cod-button>
+    <cod-button data-label="3" data-background-color="primary" data-primary="false" data-img-alt="" data-icon=""></cod-button>
   </cod-button-group>
   <cod-form-control data-tag="input" data-size="md" data-read-only="false" data-background-color="undefined" data-id="simple-input" data-type="text" data-plain-txt="undefined" data-disabled="undefined" data-required="false" data-placeholder-txt="enter text here"></cod-form-control>
 </cod-button-group>
@@ -78,10 +78,10 @@ export const Vertical = () => html`
   data-type="group"
   data-label="Vertical button group"
   data-vertical="true">
-    <cod-button data-label="Button" data-background-color="color-1" data-primary="true" data-img-alt="" data-icon=""></cod-button>
-    <cod-button data-label="Button" data-background-color="color-1" data-primary="true" data-img-alt="" data-icon=""></cod-button>
-    <cod-button data-label="Button" data-background-color="color-1" data-primary="true" data-img-alt="" data-icon=""></cod-button>
-    <cod-button data-label="Button" data-background-color="color-1" data-primary="true" data-img-alt="" data-icon=""></cod-button>
-    <cod-button data-label="Button" data-background-color="color-1" data-primary="true" data-img-alt="" data-icon=""></cod-button>
+    <cod-button data-label="Button" data-background-color="primary" data-primary="true" data-img-alt="" data-icon=""></cod-button>
+    <cod-button data-label="Button" data-background-color="primary" data-primary="true" data-img-alt="" data-icon=""></cod-button>
+    <cod-button data-label="Button" data-background-color="primary" data-primary="true" data-img-alt="" data-icon=""></cod-button>
+    <cod-button data-label="Button" data-background-color="primary" data-primary="true" data-img-alt="" data-icon=""></cod-button>
+    <cod-button data-label="Button" data-background-color="primary" data-primary="true" data-img-alt="" data-icon=""></cod-button>
   </cod-button-group>
 `;
