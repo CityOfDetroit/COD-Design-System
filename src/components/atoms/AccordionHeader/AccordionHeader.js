@@ -57,7 +57,7 @@ export default class AccordionHeader extends HTMLElement {
     // Nav attributes
     let parentID = this.getAttribute('data-parent-id');
     let expanded = this.getAttribute('data-expanded');
-    let extraClasses = this.getAttribute('data-header-extra-classes');
+    let extraClasses = this.getAttribute('data-extra-classes');
     let accordionBtnClasses = ['accordion-button'];
     this.accordionBtn.setAttribute('type', 'button');
     this.accordionBtn.setAttribute('data-bs-toggle', 'collapse');

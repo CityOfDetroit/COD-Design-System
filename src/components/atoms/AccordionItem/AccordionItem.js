@@ -71,6 +71,7 @@ export default class AccordionItem extends HTMLElement {
     (expanded == 'true') ? accordionBodyClasses.push('show'): 0;
     (headerExtraClasses != undefined && headerExtraClasses != null) ? accordionHeaderClasses.push(headerExtraClasses): 0;
     (bodyExtraClasses != undefined && bodyExtraClasses != null) ? accordionBodyClasses.push(bodyExtraClasses): 0;
+    this.accordionBody.id = `${parentID}-${index}`;
     this.accordionHeader.className = accordionHeaderClasses.join(' ');
     this.accordionBody.className = accordionBodyClasses.join(' ');
     if(this.querySelector('cod-accordion-header')){

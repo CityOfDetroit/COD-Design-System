@@ -48,8 +48,8 @@ export default class Accordion extends HTMLElement {
       let id = this.getAttribute('data-id');
       let extraClasses = this.getAttribute('data-extra-classes');
       let accordionClasses = ['accordion'];
-      (flush == 'true') ? navClasses.push('accordion-flush'): 0;
-      (extraClasses != undefined && extraClasses != null) ? navClasses.push(extraClasses): 0;
+      (flush == 'true') ? accordionClasses.push('accordion-flush'): 0;
+      (extraClasses != undefined && extraClasses != null) ? accordionClasses.push(extraClasses): 0;
       this.accordion.className = accordionClasses.join(' ');
       this.accordion.id = id;
       if(!this.shadowRoot.querySelector('div')){
