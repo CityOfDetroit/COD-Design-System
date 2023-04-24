@@ -41,7 +41,8 @@ export default class PaginationItem extends HTMLElement {
             tag = 'span';
         }else{
             paginationItem = document.createElement('a');
-            paginationItem.href = url;
+            let cleanURL = encodeURI(url);
+            paginationItem.href = decodeURI(cleanURL);
             tag = 'a';
         }
       }else{
