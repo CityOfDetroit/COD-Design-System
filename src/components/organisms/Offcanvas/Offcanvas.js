@@ -21,23 +21,17 @@ export default class Offcanvas extends HTMLElement {
     const shadow = this.attachShadow({ mode: 'open' });
     shadow.appendChild(template.content.cloneNode(true));
     this.offcanvas = document.createElement('div');
-    this.offcanvasHeader = document.createElement('div');
-    this.offcanvasBody = document.createElement('div');
-    this.shadowRoot.addEventListener( 'slotchange', ev => {  
+    shadow.addEventListener( 'slotchange', ev => {  
       let tempElements = Array.from(this.children);  
       tempElements.forEach((node)=>{
         (this.getAttribute('data-show') == 'true') ? node.setAttribute('data-show', true) : 0;
         if(node.tagName == 'COD-OFFCANVAS-HEADER'){
-          this.offcanvasHeader.append(node);
           (this.getAttribute('data-button-dark') == 'true') ? node.setAttribute('data-button-dark', true) : 0;
           node.setAttribute('data-parent-id', this.getAttribute('data-id'));
-        }else{
-          this.offcanvasBody.append(node);
         }
+        this.offcanvas.appendChild(node);
       });
     });
-    this.offcanvas.appendChild(this.offcanvasHeader);
-    this.offcanvas.appendChild(this.offcanvasBody);
 
     // Add styles   
     const bootStyles = document.createElement('style');
@@ -71,8 +65,6 @@ export default class Offcanvas extends HTMLElement {
     let bStatic = this.getAttribute('data-static');
     let extraClasses = this.getAttribute('data-extra-classes');
     let offcanvasClasses = ['offcanvas'];
-    let offcanvasHeaderClasses = ['offcanvas-header'];
-    let offcanvasBodyClasses = ['offcanvas-body'];
     (show == 'true') ? offcanvasClasses.push('show'): 0;
     (scroll == 'true') ? this.offcanvas.setAttribute('data-bs-scroll', true) : 0;
     (bStatic == 'true') ? this.offcanvas.setAttribute('data-bs-backdrop', 'static') : 0;
@@ -89,8 +81,6 @@ export default class Offcanvas extends HTMLElement {
     }
     this.offcanvas.setAttribute('tabindex', -1);
     this.offcanvas.className = offcanvasClasses.join(' ');
-    this.offcanvasHeader.className = offcanvasHeaderClasses.join(' ');
-    this.offcanvasBody.className = offcanvasBodyClasses.join(' ');
     if(!this.shadowRoot.querySelector('div')){
       this.shadowRoot.appendChild(this.offcanvas);
     }

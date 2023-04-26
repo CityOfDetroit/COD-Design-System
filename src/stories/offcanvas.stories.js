@@ -12,7 +12,7 @@ export const Basic = () => html`
   Button with data-bs-target
 </button>
 <cod-offcanvas data-id="offcanvasExample">
-    <cod-offcanvas-header data-parent-id="offcanvasExample">
+    <cod-offcanvas-header>
     <h5>Offcanvas</h5>
     </cod-offcanvas-header>
     <cod-offcanvas-body>

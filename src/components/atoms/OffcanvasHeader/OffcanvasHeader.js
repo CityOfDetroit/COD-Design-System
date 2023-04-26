@@ -17,6 +17,7 @@ export default class OffcanvasHeader extends HTMLElement {
     // Create a shadow root
     const shadow = this.attachShadow({ mode: 'open' });
     shadow.appendChild(template.content.cloneNode(true));
+    this.offcanvasHeader = document.createElement('div');
     this.offcanvasTitle = document.createElement('div');
     this.closeBtn = document.createElement('cod-button');
     this.shadowRoot.addEventListener( 'slotchange', ev => {  
@@ -25,6 +26,8 @@ export default class OffcanvasHeader extends HTMLElement {
           this.offcanvasTitle.appendChild(node);
       });
     });
+    this.offcanvasHeader.appendChild(this.offcanvasTitle);
+    this.offcanvasHeader.appendChild(this.closeBtn);
 
     // Add styles   
     const bootStyles = document.createElement('style');
@@ -41,22 +44,29 @@ export default class OffcanvasHeader extends HTMLElement {
   connectedCallback() {
     // Nav attributes
     let parentID = this.getAttribute('data-parent-id');
-    console.log(this.getAttribute('data-parent-id'));
     let btnDark = this.getAttribute('data-button-dark');
     let extraClasses = this.getAttribute('data-extra-classes');
-    let titleClasses = ['offcanvas-title'];
+    let offcanvasHeaderClasses = ['offcanvas-header'];
+    this.offcanvasTitle.className = 'offcanvas-title';
     this.offcanvasTitle.id = `${parentID}-label`;
     this.closeBtn.setAttribute('data-img-alt', '');
     this.closeBtn.setAttribute('data-icon', '');
     this.closeBtn.setAttribute('data-close', 'true');
     this.closeBtn.setAttribute('data-bs-dismiss', parentID);
-    (extraClasses != undefined && extraClasses != null) ? titleClasses.push(extraClasses): 0;
+    (extraClasses != undefined && extraClasses != null) ? offcanvasHeaderClasses.push(extraClasses): 0;
     (btnDark == 'true') ? this.closeBtn.setAttribute('data-extra-classes', 'btn-close-white'): 0;
-    this.offcanvasTitle.className = titleClasses.join(' ');
+    this.offcanvasHeader.className = offcanvasHeaderClasses.join(' ');
+    this.closeBtn.addEventListener('click', this._onClick);
     if(!this.shadowRoot.querySelector('div')){
-        console.log(this.getAttribute('data-parent-id'));
-      this.shadowRoot.appendChild(this.offcanvasTitle);
-      this.shadowRoot.appendChild(this.closeBtn);
+      this.shadowRoot.appendChild(this.offcanvasHeader);
     }
+  }
+
+  disconnectedCallback() {
+    this.removeEventListener('click', this._onClick.bind(this));
+  }
+
+  _onClick(e) {
+    this.getRootNode().host.getRootNode().host.setAttribute('data-show', 'false');
   }
 };
