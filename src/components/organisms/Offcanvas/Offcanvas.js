@@ -21,6 +21,7 @@ export default class Offcanvas extends HTMLElement {
     const shadow = this.attachShadow({ mode: 'open' });
     shadow.appendChild(template.content.cloneNode(true));
     this.offcanvas = document.createElement('div');
+    this.offcanvasBackdrop = document.createElement('div');
     shadow.addEventListener( 'slotchange', ev => {  
       let tempElements = Array.from(this.children);  
       tempElements.forEach((node)=>{
@@ -51,6 +52,16 @@ export default class Offcanvas extends HTMLElement {
     (popValue != 'show') ? tempClasses.push(popValue) : 0;
     if(newValue == 'true'){
       tempClasses.push('show');
+      if(this.getAttribute('data-backdrop') != 'false'){
+        if(this.getAttribute('data-static') != 'true'){
+          this.offcanvasBackdrop.addEventListener('click', this._onClick);
+        }
+        this.shadowRoot.appendChild(this.offcanvasBackdrop);
+      }
+    }else{
+      if(this.shadowRoot.querySelector('div.offcanvas-backdrop')){
+        this.shadowRoot.removeChild(this.offcanvasBackdrop);
+      }
     }
     this.offcanvas.className = tempClasses.join(' ');
   }
@@ -61,14 +72,17 @@ export default class Offcanvas extends HTMLElement {
     let placement = this.getAttribute('data-placement');
     let id = this.getAttribute('data-id');
     let backdrop = this.getAttribute('data-backdrop');
+    let backdropExtraClasses = this.getAttribute('data-backdrop-extra-classes');
     let scroll = this.getAttribute('data-scroll');
     let bStatic = this.getAttribute('data-static');
     let extraClasses = this.getAttribute('data-extra-classes');
     let offcanvasClasses = ['offcanvas'];
+    let backdropClasses = ['offcanvas-backdrop fade show'];
     (show == 'true') ? offcanvasClasses.push('show'): 0;
+    (backdrop == 'false') ? this.offcanvas.setAttribute('data-bs-backdrop', false) : 0;
     (scroll == 'true') ? this.offcanvas.setAttribute('data-bs-scroll', true) : 0;
     (bStatic == 'true') ? this.offcanvas.setAttribute('data-bs-backdrop', 'static') : 0;
-    (backdrop == 'false') ? this.offcanvas.setAttribute('data-bs-backdrop', false) : 0;
+    (backdropExtraClasses != undefined && backdropExtraClasses != null) ? backdropClasses.push(backdropExtraClasses): 0;
     (extraClasses != undefined && extraClasses != null) ? offcanvasClasses.push(extraClasses): 0;
     if(placement != undefined && placement != null){
       offcanvasClasses.push(`offcanvas-${placement}`);
@@ -81,8 +95,17 @@ export default class Offcanvas extends HTMLElement {
     }
     this.offcanvas.setAttribute('tabindex', -1);
     this.offcanvas.className = offcanvasClasses.join(' ');
+    this.offcanvasBackdrop.className = backdropClasses.join(' ');
     if(!this.shadowRoot.querySelector('div')){
       this.shadowRoot.appendChild(this.offcanvas);
     }
+  }
+
+  disconnectedCallback() {
+    this.removeEventListener('click', this._onClick.bind(this));
+  }
+
+  _onClick(e) {
+    this.getRootNode().host.setAttribute('data-show', 'false');
   }
 };
