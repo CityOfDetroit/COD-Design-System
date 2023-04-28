@@ -32,13 +32,13 @@ export default class NavbarToggle extends HTMLElement {
     if(mode == 'default'){
         (darkBtn == 'true') ? toggleBtn.setAttribute('data-bs-theme', 'dark') : 0;
         let toggleIcon = document.createElement('span');
-        toggleIcon.className = 'navbar-toggler-icon';
+        navbarToggleClasses.push('navbar-toggler-icon');
         toggleBtn.appendChild(toggleIcon);
     }
     (extraClasses != undefined && extraClasses != null) ? navbarToggleClasses.push(extraClasses): 0;
     toggleBtn.className = navbarToggleClasses.join(' ');
     if(!this.shadowRoot.querySelector('button')){
-        toggleBtn.addEventListener('click', this._onClick);
+        toggleBtn.addEventListener('click', this._onClick.bind(this));
         this.shadowRoot.appendChild(toggleBtn);
     }
   }
@@ -48,11 +48,12 @@ export default class NavbarToggle extends HTMLElement {
   }
 
   _onClick(e) {
-    console.log(this.getRootNode().host.getRootNode().host);
+    console.log(this);
+    console.log(this.getRootNode().host);
     if(this.getAttribute('data-show') == 'true'){
-        this.getRootNode().host.getRootNode().host.setAttribute('data-show', 'false');
+        this.getRootNode().host.setAttribute('data-show', 'false');
     }else{
-        this.getRootNode().host.getRootNode().host.setAttribute('data-show', 'true');
+        this.getRootNode().host.setAttribute('data-show', 'true');
     }
   }
 };

@@ -30,7 +30,8 @@ export default class Navbar extends HTMLElement {
       tempElements.forEach((node)=>{
         switch (node.tagName) {
             case 'COD-NAVBAR-TOGGLE':
-                node.setAttribute('data-show', true);
+                (this.getAttribute('data-target-toggle') == 'offcanvas') ? node.setAttribute('data-target-toggle', 'offcanvas') : 0;
+                (this.getAttribute('data-show') == 'true') ? node.setAttribute('data-show', true) : 0;
                 (this.getAttribute('data-button-dark') == 'true') ? node.setAttribute('data-button-dark', true) : 0;
                 this.navbarToggle.appendChild(node);
                 break;
@@ -44,6 +45,7 @@ export default class Navbar extends HTMLElement {
                 break;
         
             default:
+                this.appendChild(node);
                 break;
         }
       });
@@ -67,24 +69,26 @@ export default class Navbar extends HTMLElement {
 
   attributeChangedCallback(name, oldValue, newValue) {
     console.log(newValue);
-    // this.accordionHeader.querySelector('cod-accordion-header').setAttribute('data-expanded', newValue);
-    // this.accordionBody.querySelector('cod-accordion-body').setAttribute('data-expanded', newValue);
-    // let tempClasses = this.accordionBody.className.split(' ');
-    // let popValue = tempClasses.pop();
-    // (popValue != 'show') ? tempClasses.push(popValue) : 0;
-    // if(newValue == 'true'){
-    //   tempClasses.push('show');
-    // }
-    // this.accordionBody.className = tempClasses.join(' ');
+    this.navbarToggle.querySelector('cod-navbar-toggle').setAttribute('data-show', newValue);
+    this.navbarToggle.setAttribute('aria-expanded', newValue);
+    let tempClasses = this.navbarCollapse.className.split(' ');
+    let popValue = tempClasses.pop();
+    (popValue != 'show') ? tempClasses.push(popValue) : 0;
+    if(newValue == 'true'){
+      tempClasses.push('show');
+    }
+    this.navbarCollapse.className = tempClasses.join(' ');
   }
 
   connectedCallback() {
     // Navbar attributes
+    let expand = this.getAttribute('data-expand');
     let id = this.getAttribute('data-id');
     let show = this.getAttribute('data-show');
     let placement = this.getAttribute('data-position');
     let extraClasses = this.getAttribute('data-extra-classes');
     let containerClasses = this.getAttribute('data-container-classes');
+    let collapseClasses = this.getAttribute('data-collapse-classes');
     let navbarClasses = ['navbar'];
     let navbarContainerClasses = [''];
     let navbarCollapseClasses = ['collapse navbar-collapse'];
@@ -92,9 +96,13 @@ export default class Navbar extends HTMLElement {
     let navbarToogleClasses = ['navbar-toggler'];
     (containerClasses != undefined && containerClasses != null) ? navbarContainerClasses.push(containerClasses): 0;
     (extraClasses != undefined && extraClasses != null) ? navbarClasses.push(extraClasses): 0;
+    (collapseClasses != undefined && collapseClasses != null) ? navbarCollapseClasses.push(collapseClasses): 0;
     (placement != undefined && placement != null) ? navbarClasses.push(placement) : 0;
+    if(expand != undefined && expand != null){
+        (expand == 'always') ? navbarClasses.push('navbar-expand') : navbarClasses.push(`navbar-expand-${expand}`);
+    }
     if(show == 'true'){
-        this.navbarCollapse.push('show');
+        this.navbarCollapseClasses.push('show');
         this.navbarToggle.setAttribute('aria-expanded', `true`);
     }else{
         this.navbarToggle.setAttribute('aria-expanded', `false`);

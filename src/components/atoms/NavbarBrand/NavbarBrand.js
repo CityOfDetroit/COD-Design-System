@@ -28,6 +28,9 @@ export default class NavbarBrand extends HTMLElement {
     let text = this.getAttribute('data-text');
     let brandImgURL = this.getAttribute('data-img');
     let brandImgAlt = this.getAttribute('data-img-alt');
+    let textClasses = this.getAttribute('data-text-classes');
+    let imgClasses = this.getAttribute('data-img-classes');
+    let imgSize = this.getAttribute('data-img-size');
     let extraClasses = this.getAttribute('data-extra-classes');
     let brandClasses = [''];
     let brandLink = document.createElement('a');
@@ -35,11 +38,14 @@ export default class NavbarBrand extends HTMLElement {
     if(brandImgURL != undefined && brandImgURL != null){
         let brandImg = document.createElement('img');
         brandImg.src = brandImgURL;
+        (imgSize != undefined && imgSize != null) ? brandImg.setAttribute('width', imgSize) : 0;
+        (imgClasses != undefined && imgClasses != null) ? brandImg.className = imgClasses : 0;
         brandImg.setAttribute('alt', brandImgAlt);
         brandLink.appendChild(brandImg);
     }
     if(text != undefined && text != null){
         let brandText = document.createElement('span');
+        (textClasses != undefined && textClasses != null) ? brandText.className = textClasses : 0;
         brandText.innerText = text;
         brandLink.appendChild(brandText);
     }
