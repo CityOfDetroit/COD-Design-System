@@ -25,6 +25,7 @@ export default class Navbar extends HTMLElement {
     this.navbarToggle = document.createElement('div');
     this.navbarBrand = document.createElement('div');
     this.navbarCollapse = document.createElement('div');
+  
     shadow.addEventListener('slotchange', e => {
       let tempElements = Array.from(this.children);
       tempElements.forEach((node) => {
@@ -34,14 +35,17 @@ export default class Navbar extends HTMLElement {
             (this.getAttribute('data-show') == 'true') ? node.setAttribute('data-show', true) : 0;
             (this.getAttribute('data-button-dark') == 'true') ? node.setAttribute('data-button-dark', true) : 0;
             this.navbarToggle.appendChild(node);
+            this.navbarContainer.appendChild(this.navbarToggle);
             break;
 
           case 'COD-NAVBAR-COLLAPSE':
             this.navbarCollapse.appendChild(node);
+            this.navbarContainer.appendChild(this.navbarCollapse);
             break;
 
           case 'COD-NAVBAR-BRAND':
             this.navbarBrand.appendChild(node);
+            this.navbarContainer.appendChild(this.navbarBrand);
             break;
 
           case 'COD-OFFCANVAS':
@@ -53,10 +57,6 @@ export default class Navbar extends HTMLElement {
         }
       });
     });
-    this.navbarContainer.appendChild(this.navbarBrand);
-    this.navbarContainer.appendChild(this.navbarToggle);
-
-    this.navbarContainer.appendChild(this.navbarCollapse);
     this.navbar.appendChild(this.navbarContainer);
 
     // Add styles   

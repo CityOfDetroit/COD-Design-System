@@ -254,8 +254,6 @@ export const Offcanvas = () => html`
 <cod-navbar data-id="navbarSupportedContent" data-container-classes="container-fluid"  data-target-toggle="offcanvas">
     <cod-navbar-brand data-url="#" data-text="Navbar">
     </cod-navbar-brand>
-    <cod-navbar-toggle data-mode="default">
-    </cod-navbar-toggle>
     <cod-offcanvas data-id="offcanvasExample">
         <cod-offcanvas-header>
             <h5>Offcanvas</h5>
@@ -272,9 +270,46 @@ export const Offcanvas = () => html`
                         <li><a class="dropdown-item" href="#">Something else here</a></li>
                     </cod-dropdown-menu>
                 </cod-dropdown>
-                <a class="nav-link disabled">Disabled</a>
+                <form class="d-flex mt-3" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
             </cod-nav>
         </cod-offcanvas-body>
     </cod-offcanvas>
+    <cod-navbar-toggle data-mode="default">
+    </cod-navbar-toggle>
+</cod-navbar>
+`;
+
+export const OffcanvasColor = () => html`
+<cod-navbar data-id="navbarSupportedContent" data-container-classes="container-fluid"  data-target-toggle="offcanvas" data-extra-classes="bg-dark">
+    <cod-navbar-brand data-url="#" data-text="Navbar" data-text-classes="text-light">
+    </cod-navbar-brand>
+    <cod-offcanvas data-id="offcanvasExample" data-extra-classes="bg-dark">
+        <cod-offcanvas-header data-extra-classes="bg-dark text-light">
+            <h5>Offcanvas</h5>
+        </cod-offcanvas-header>
+        <cod-offcanvas-body data-extra-classes="bg-dark">
+            <cod-nav data-vertical="true" data-extra-classes="text-light">
+                <a class="nav-link active text-light" aria-current="page" href="#">Home</a>
+                <a class="nav-link text-light" href="#">Link</a>
+                <cod-dropdown data-split="false">
+                    <cod-button data-label="Dropdown" data-primary="true" data-img-alt="" data-icon="" data-bs-toggle="dropdown" aria-expanded="false" data-extra-classes="dropdown-toggle text-light"></cod-button>
+                    <cod-dropdown-menu>
+                        <li><a class="dropdown-item" href="#">Link</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </cod-dropdown-menu>
+                </cod-dropdown>
+                <form class="d-flex mt-3" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </cod-nav>
+        </cod-offcanvas-body>
+    </cod-offcanvas>
+    <cod-navbar-toggle data-mode="default" data-button-dark="true">
+    </cod-navbar-toggle>
 </cod-navbar>
 `;
