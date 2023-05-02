@@ -48,12 +48,10 @@ export default class NavbarToggle extends HTMLElement {
   }
 
   _onClick(e) {
-    console.log(this);
-    console.log(this.getRootNode().host);
     if(this.getAttribute('data-show') == 'true'){
-        this.getRootNode().host.setAttribute('data-show', 'false');
+      (this.getAttribute('data-target-toggle') == 'offcanvas') ? this.getRootNode().querySelector('cod-offcanvas').setAttribute('data-show', 'false') : this.getRootNode().host.setAttribute('data-show', 'false');
     }else{
-        this.getRootNode().host.setAttribute('data-show', 'true');
+      (this.getAttribute('data-target-toggle') == 'offcanvas') ? this.getRootNode().querySelector('cod-offcanvas').setAttribute('data-show', 'true') : this.getRootNode().host.setAttribute('data-show', 'true');
     }
   }
 };

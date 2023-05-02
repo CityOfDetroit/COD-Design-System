@@ -261,16 +261,16 @@ export const Offcanvas = () => html`
             <h5>Offcanvas</h5>
         </cod-offcanvas-header>
         <cod-offcanvas-body>
-            <cod-nav>
+            <cod-nav data-vertical="true">
                 <a class="nav-link active" aria-current="page" href="#">Home</a>
                 <a class="nav-link" href="#">Link</a>
                 <cod-dropdown data-split="false">
                     <cod-button data-label="Dropdown" data-primary="true" data-img-alt="" data-icon="" data-bs-toggle="dropdown" aria-expanded="false" data-extra-classes="dropdown-toggle text-primary"></cod-button>
                     <cod-dropdown-menu>
-                    <li><a class="dropdown-item" href="#">Link</a></li>
-                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                </cod-dropdown-menu>
+                        <li><a class="dropdown-item" href="#">Link</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </cod-dropdown-menu>
                 </cod-dropdown>
                 <a class="nav-link disabled">Disabled</a>
             </cod-nav>
