@@ -34,10 +34,12 @@ export default class NavbarBrand extends HTMLElement {
     let extraClasses = this.getAttribute('data-extra-classes');
     let brandClasses = [''];
     let brandLink = document.createElement('a');
-    brandLink.href = url;
+    let cleanURL = encodeURI(url);
+    brandLink.href = decodeURI(cleanURL);
     if(brandImgURL != undefined && brandImgURL != null){
         let brandImg = document.createElement('img');
-        brandImg.src = brandImgURL;
+        let cleanImgURL = encodeURI(brandImgURL);
+        brandImg.src = decodeURI(cleanImgURL);
         (imgSize != undefined && imgSize != null) ? brandImg.setAttribute('width', imgSize) : 0;
         (imgClasses != undefined && imgClasses != null) ? brandImg.className = imgClasses : 0;
         brandImg.setAttribute('alt', brandImgAlt);
