@@ -1,4 +1,4 @@
-import styles from '!!raw-loader!./ModalHeader.css';
+import styles from '!!raw-loader!./ModalFooter.css';
 import varStyles from '!!raw-loader!../../../shared/variables.css';
 import bootstrapStyles from '!!raw-loader!../../../shared/themed-bootstrap.css';
 
@@ -9,7 +9,7 @@ template.innerHTML = `
 `;
 
 
-export default class ModalHeader extends HTMLElement {
+export default class ModalFooter extends HTMLElement {
 
   constructor() {
     // Always call super first in constructor
@@ -17,17 +17,15 @@ export default class ModalHeader extends HTMLElement {
     // Create a shadow root
     const shadow = this.attachShadow({ mode: 'open' });
     shadow.appendChild(template.content.cloneNode(true));
-    this.modalHeader = document.createElement('div');
-    this.modalTitle = document.createElement('div');
+    this.modalFooter = document.createElement('div');
     this.closeBtn = document.createElement('cod-button');
     this.shadowRoot.addEventListener( 'slotchange', ev => {  
       let tempElements = Array.from(this.children);  
       tempElements.forEach((node)=>{
-          this.modalTitle.appendChild(node);
+          this.modalFooter.appendChild(node);
       });
     });
-    this.modalHeader.appendChild(this.modalTitle);
-    this.modalHeader.appendChild(this.closeBtn);
+    this.modalFooter.appendChild(this.closeBtn);
 
     // Add styles   
     const bootStyles = document.createElement('style');
@@ -43,22 +41,19 @@ export default class ModalHeader extends HTMLElement {
 
   connectedCallback() {
     // Nav attributes
-    let parentID = this.getAttribute('data-parent-id');
-    let btnDark = this.getAttribute('data-button-dark');
+    let btnExtraClasses = this.getAttribute('data-button-extra-classes');
     let extraClasses = this.getAttribute('data-extra-classes');
-    let modalHeaderClasses = ['modal-header'];
-    this.modalTitle.className = 'modal-title';
-    this.modalTitle.id = `${parentID}-label`;
+    let modalFooterClasses = ['modal-footer'];
     this.closeBtn.setAttribute('data-img-alt', '');
     this.closeBtn.setAttribute('data-icon', '');
-    this.closeBtn.setAttribute('data-close', 'true');
+    this.closeBtn.setAttribute('data-label', 'Close');
     this.closeBtn.setAttribute('data-bs-dismiss', 'modal');
-    (extraClasses != undefined && extraClasses != null) ? modalHeaderClasses.push(extraClasses): 0;
-    (btnDark == 'true') ? this.closeBtn.setAttribute('data-extra-classes', 'btn-close-white'): 0;
-    this.modalHeader.className = modalHeaderClasses.join(' ');
+    (extraClasses != undefined && extraClasses != null) ? modalFooterClasses.push(extraClasses): 0;
+    (btnExtraClasses != undefined && btnExtraClasses != null) ? this.closeBtn.setAttribute('data-extra-classes', btnExtraClasses): 0;
+    this.modalFooter.className = modalFooterClasses.join(' ');
     this.closeBtn.addEventListener('click', this._onClick);
     if(!this.shadowRoot.querySelector('div')){
-      this.shadowRoot.appendChild(this.modalHeader);
+      this.shadowRoot.appendChild(this.modalFooter);
     }
   }
 

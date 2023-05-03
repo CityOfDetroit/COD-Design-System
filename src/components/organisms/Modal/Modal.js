@@ -69,22 +69,26 @@ export default class Modal extends HTMLElement {
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
-    this.navbarToggle.querySelector('cod-navbar-toggle').setAttribute('data-show', newValue);
-    this.navbarToggle.setAttribute('aria-expanded', newValue);
-    if(this.navbarCollapse.querySelector('cod-navbar-collapse')){
-      let tempClasses = this.navbarCollapse.className.split(' ');
-      let popValue = tempClasses.pop();
-      (popValue != 'show') ? tempClasses.push(popValue) : 0;
-      if (newValue == 'true') {
-        tempClasses.push('show');
+    let tempClasses = this.modal.className.split(' ');
+    let popValue = tempClasses.pop();
+    (popValue != 'show') ? tempClasses.push(popValue) : 0;
+    if(newValue == 'true'){
+      tempClasses.push('show');
+      this.modal.style.display = 'block';
+      if(this.getAttribute('data-static') != 'true'){
+        this.modal.addEventListener('click', this._onClick);
       }
-      this.navbarCollapse.className = tempClasses.join(' ');
+      this.modal.className = tempClasses.join(' ');
+    }else{
+      this.modal.className = tempClasses.join(' ');
+      setTimeout(() => {  this.modal.style.display = 'none'; }, 500);
     }
+    
   }
 
   connectedCallback() {
     // Navbar attributes
-    let static = this.getAttribute('data-static');
+    let bStatic = this.getAttribute('data-static');
     let id = this.getAttribute('data-id');
     let show = this.getAttribute('data-show');
     let verticalCentered = this.getAttribute('data-vertical-centered');
@@ -100,15 +104,15 @@ export default class Modal extends HTMLElement {
     if (fullScreen != undefined && fullScreen != null){
         (fullScreen == 'always') ? modalDialogClasses.push('modal-fullscreen') : modalDialogClasses.push(`modal-fullscreen-${fullScreen}-down`);
     }
-    if (static == 'true'){
+    if (bStatic == 'true'){
         this.modal.setAttribute('data-bs-backdrop', 'static');
         this.modal.setAttribute('data-bs-keyboard', 'false');
     }
     if (show == 'true') {
       this.modalClasses.push('show');
-      this.navbarToggle.setAttribute('aria-hidden', `true`);
+      this.modal.setAttribute('aria-modal', `true`);
     } else {
-      this.navbarToggle.setAttribute('aria-hidden', `false`);
+      this.modal.setAttribute('aria-modal', `false`);
     }
     (id != undefined && id != null) ? this.modal.id = id : 0;
     this.modal.setAttribute('tabindex', -1);
@@ -118,5 +122,13 @@ export default class Modal extends HTMLElement {
     if (!this.shadowRoot.querySelector('div')) {
       this.shadowRoot.appendChild(this.modal);
     }
+  }
+
+  disconnectedCallback() {
+    this.removeEventListener('click', this._onClick.bind(this));
+  }
+
+  _onClick(e) {
+    this.getRootNode().host.setAttribute('data-show', 'false');
   }
 };
