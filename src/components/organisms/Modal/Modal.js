@@ -25,6 +25,7 @@ export default class Modal extends HTMLElement {
     this.modalContent = document.createElement('div');
     this.modalHeader = document.createElement('div');
     this.modalBody = document.createElement('div');
+    this.modalBody.className = 'modal-body';
     this.modalFooter = document.createElement('div');
     this.modalDialog.appendChild(this.modalContent);
     this.modal.appendChild(this.modalDialog);
