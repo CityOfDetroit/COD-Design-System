@@ -1,4 +1,4 @@
-import styles from '!!raw-loader!./OffcanvasBody.css';
+import styles from '!!raw-loader!./ModalBody.css';
 import varStyles from '!!raw-loader!../../../shared/variables.css';
 import bootstrapStyles from '!!raw-loader!../../../shared/themed-bootstrap.css';
 
@@ -9,7 +9,7 @@ template.innerHTML = `
 `;
 
 
-export default class OffcanvasBody extends HTMLElement {
+export default class ModalBody extends HTMLElement {
 
   constructor() {
     // Always call super first in constructor
@@ -40,7 +40,7 @@ export default class OffcanvasBody extends HTMLElement {
   connectedCallback() {
     // OffcanvasBody attributes
     let extraClasses = this.getAttribute('data-extra-classes');
-    let bodyClasses = ['offcanvas-body'];
+    let bodyClasses = ['modal-body'];
     (extraClasses != undefined && extraClasses != null) ? bodyClasses.push(extraClasses): 0;
     this.body.className = bodyClasses.join(' ');
     if(!this.shadowRoot.querySelector('div')){
