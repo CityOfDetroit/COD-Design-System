@@ -88,7 +88,7 @@ export default class Modal extends HTMLElement {
   }
 
   connectedCallback() {
-    // Navbar attributes
+    // Modal attributes
     let bStatic = this.getAttribute('data-static');
     let id = this.getAttribute('data-id');
     let show = this.getAttribute('data-show');
@@ -99,7 +99,7 @@ export default class Modal extends HTMLElement {
     let modalClasses = ['modal fade'];
     let modalDialogClasses = ['modal-dialog'];
     let modalContentClasses = ['modal-content'];
-    (extraClasses != undefined && extraClasses != null) ? navbarClasses.push(extraClasses) : 0;
+    (extraClasses != undefined && extraClasses != null) ? modalClasses.push(extraClasses) : 0;
     (size != undefined && size != null) ? modalDialogClasses.push(`modal-${size}`) : 0;
     (verticalCentered == 'true') ? modalDialogClasses.push('modal-dialog-centered') : 0;
     if (fullScreen != undefined && fullScreen != null){
