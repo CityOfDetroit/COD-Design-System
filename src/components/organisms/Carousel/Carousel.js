@@ -23,25 +23,71 @@ export default class Carousel extends HTMLElement {
     this.carousel = document.createElement('div');
     this.carouselIndicators = document.createElement('div');
     this.carouselInner = document.createElement('div');
+    this.carouselInner.className = 'carousel-inner';
     this.carouselPrev = document.createElement('button');
     this.carouselNext = document.createElement('button');
-    this.carousel.appendChild(this.carouselIndicators);
     this.carousel.appendChild(this.carouselInner);
-    this.carousel.appendChild(this.carouselPrev);
-    this.carousel.appendChild(this.carouselNext);
+    if(this.getAttribute('data-no-controls') != 'true'){
+        this.carouselPrev.className = 'carousel-control-prev';
+        this.carouselPrev.type = 'button';
+        this.carouselPrev.setAttribute('data-bs-target', `#${this.getAttribute('data-id')}`);
+        this.carouselPrev.setAttribute('data-bs-slide', 'prev');
+        let prevIcon = document.createElement('span');
+        prevIcon.className = 'carousel-control-prev-icon';
+        prevIcon.setAttribute('aria-hidden', 'true');
+        this.carouselPrev.appendChild(prevIcon);
+        let prevText = document.createElement('span');
+        prevText.className = 'visually-hidden';
+        prevText.innerText = 'Previous';
+        this.carouselPrev.appendChild(prevText);
+        this.carouselNext.className = 'carousel-control-next';
+        this.carouselNext.type = 'button';
+        this.carouselNext.setAttribute('data-bs-target', `#${this.getAttribute('data-id')}`);
+        this.carouselNext.setAttribute('data-bs-slide', 'next');
+        let nextIcon = document.createElement('span');
+        nextIcon.className = 'carousel-control-next-icon';
+        nextIcon.setAttribute('aria-hidden', 'true');
+        this.carouselNext.appendChild(nextIcon);
+        let nextText = document.createElement('span');
+        nextText.className = 'visually-hidden';
+        nextText.innerText = 'Next';
+        this.carouselNext.appendChild(nextText);
+
+        // Adding event listener to controls
+        this.carouselPrev.addEventListener('click', this._onClick);
+        this.carouselNext.addEventListener('click', this._onClick);
+        this.carousel.appendChild(this.carouselPrev);
+        this.carousel.appendChild(this.carouselNext);
+    }
   
     shadow.addEventListener('slotchange', e => {
       let tempElements = Array.from(this.children);
+      (tempElements.length) ? this.setAttribute('data-total-items', tempElements.length) : 0;
       tempElements.forEach((node, index) => {
-        if('COD-CAROUSEL-ITEM'){
+        if(node.tagName == 'COD-CAROUSEL-ITEM'){
             let tempItem = document.createElement('div');
             tempItem.setAttribute('data-index', index);
-            (node.getAttribute('data-active') == 'true') ? tempItem.className = 'carousel-item active' : tempItem.className = 'carousel-item';
+            if(node.getAttribute('data-active') == 'true'){
+                tempItem.className = 'carousel-item active';
+                this.setAttribute('data-active-item', index);
+            }else{
+                tempItem.className = 'carousel-item';
+            }
+            (node.getAttribute('data-interval') != undefined && node.getAttribute('data-interval') != null) ? tempItem.setAttribute('data-bs-interval', node.getAttribute('data-interval')) : 0;
             tempItem.appendChild(node);
-            this.carouselInner.appendChild(this.tempItem);
+            this.carouselInner.appendChild(tempItem);
             if(this.getAttribute('data-indicator') == 'true'){
                 let tempIndicator = document.createElement('button');
-
+                tempIndicator.type = 'button';
+                tempIndicator.setAttribute('data-bs-target', `#${this.getAttribute('data-id')}`);
+                tempIndicator.setAttribute('data-bs-slide-to', index);
+                tempIndicator.setAttribute('aria-label', `Slide ${index}`);
+                if(node.getAttribute('data-active') == 'true'){
+                    tempIndicator.className = 'active';
+                    tempIndicator.setAttribute('aria-current', 'true');
+                }
+                this.carouselIndicators.appendChild(tempIndicator);
+                this.carousel.appendChild(this.carouselIndicators);
             }
         }
       });
@@ -60,58 +106,41 @@ export default class Carousel extends HTMLElement {
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
-    let tempClasses = this.modal.className.split(' ');
-    let popValue = tempClasses.pop();
-    (popValue != 'show') ? tempClasses.push(popValue) : 0;
-    if(newValue == 'true'){
-      tempClasses.push('show');
-      this.modal.style.display = 'block';
-      if(this.getAttribute('data-static') != 'true'){
-        this.modal.addEventListener('click', this._onClick);
-      }
-      this.modal.className = tempClasses.join(' ');
-    }else{
-      this.modal.className = tempClasses.join(' ');
-      setTimeout(() => {  this.modal.style.display = 'none'; }, 500);
+    console.log(oldValue);
+    console.log(newValue);
+    if(oldValue != null){
+        let oldItem = this.carouselInner.querySelector(`[data-index="${oldValue}"`);
+        oldItem.querySelector('cod-carousel-item').setAttribute('data-active', 'false');
+        oldItem.className = 'carousel-item active carousel-item-start';
+        let newItem = this.carouselInner.querySelector(`[data-index="${newValue}"`);
+        newItem.querySelector('cod-carousel-item').setAttribute('data-active', 'true');
+        newItem.className = 'carousel-item carousel-item-next';
+        setTimeout(() => {  
+            oldItem.className = 'carousel-item';
+            newItem.className = 'carousel-item active';
+        }, 1000);
     }
-    
   }
 
   connectedCallback() {
     // Modal attributes
-    let bStatic = this.getAttribute('data-static');
+    let captions = this.getAttribute('data-captions');
     let id = this.getAttribute('data-id');
-    let show = this.getAttribute('data-show');
-    let verticalCentered = this.getAttribute('data-vertical-centered');
-    let size = this.getAttribute('data-size');
-    let fullScreen = this.getAttribute('data-full-screen');
+    let crossfade = this.getAttribute('data-crossfade');
+    let autoplay = this.getAttribute('data-autoplay');
+    let noTouch = this.getAttribute('data-no-touch');
     let extraClasses = this.getAttribute('data-extra-classes');
-    let modalClasses = ['modal fade'];
-    let modalDialogClasses = ['modal-dialog'];
-    let modalContentClasses = ['modal-content'];
-    (extraClasses != undefined && extraClasses != null) ? modalClasses.push(extraClasses) : 0;
-    (size != undefined && size != null) ? modalDialogClasses.push(`modal-${size}`) : 0;
-    (verticalCentered == 'true') ? modalDialogClasses.push('modal-dialog-centered') : 0;
-    if (fullScreen != undefined && fullScreen != null){
-        (fullScreen == 'always') ? modalDialogClasses.push('modal-fullscreen') : modalDialogClasses.push(`modal-fullscreen-${fullScreen}-down`);
+    let carouselClasses = ['carousel slide'];
+    (extraClasses != undefined && extraClasses != null) ? carouselClasses.push(extraClasses) : 0;
+    (crossfade == 'true') ? carouselClasses.push('carousel-fade') : 0;
+    (noTouch == 'false') ? this.carousel.setAttribute('data-bs-touch', 'false') : 0;
+    if(autoplay != undefined && autoplay != null){
+        (autoplay == 'true') ? this.carousel.setAttribute('data-bs-ride', autoplay) : this.carousel.setAttribute('data-bs-ride', 'carousel');
     }
-    if (bStatic == 'true'){
-        this.modal.setAttribute('data-bs-backdrop', 'static');
-        this.modal.setAttribute('data-bs-keyboard', 'false');
-    }
-    if (show == 'true') {
-      this.modalClasses.push('show');
-      this.modal.setAttribute('aria-modal', `true`);
-    } else {
-      this.modal.setAttribute('aria-modal', `false`);
-    }
-    (id != undefined && id != null) ? this.modal.id = id : 0;
-    this.modal.setAttribute('tabindex', -1);
-    this.modal.className = modalClasses.join(' ');
-    this.modalDialog.className = modalDialogClasses.join(' ');
-    this.modalContent.className = modalContentClasses.join(' ');
+    (id != undefined && id != null) ? this.carousel.id = id : 0;
+    this.carousel.className = carouselClasses.join(' ');
     if (!this.shadowRoot.querySelector('div')) {
-      this.shadowRoot.appendChild(this.modal);
+      this.shadowRoot.appendChild(this.carousel);
     }
   }
 
@@ -120,6 +149,15 @@ export default class Carousel extends HTMLElement {
   }
 
   _onClick(e) {
-    this.getRootNode().host.setAttribute('data-show', 'false');
+    console.log(this);
+    console.log(this.getRootNode().host);
+    let activeItem = this.getRootNode().host.getAttribute('data-active-item');
+    let totalItems = this.getRootNode().host.getAttribute('data-total-items');
+    if(this.getAttribute('data-bs-slide') == 'prev'){
+        ((parseInt(activeItem) - 1) >= 0) ? this.getRootNode().host.setAttribute('data-active-item', (parseInt(activeItem) - 1)) : this.getRootNode().host.setAttribute('data-active-item', (parseInt(totalItems) - 1));
+    }else{
+        ((parseInt(activeItem) + 1) < parseInt(totalItems)) ? this.getRootNode().host.setAttribute('data-active-item', (parseInt(activeItem) + 1)) : this.getRootNode().host.setAttribute('data-active-item', 0);
+    }
+    // this.getRootNode().host.setAttribute('data-show', 'false');
   }
 };
