@@ -10,13 +10,93 @@ export default {
 export const Basic = () => html`
 <cod-carousel data-id="carouselExample">
     <cod-carousel-item data-active="true">
-        <svg class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="800" height="400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: First slide" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"></rect><text x="50%" y="50%" fill="#555" dy=".3em">First slide</text></svg>
+        <img src="https://placehold.co/800x400/000000/FFF" class="d-block w-100" alt="...">
     </cod-carousel-item>
     <cod-carousel-item>
-        <svg class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="800" height="400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Second slide" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#666"></rect><text x="50%" y="50%" fill="#444" dy=".3em">Second slide</text></svg>
+        <img src="https://placehold.co/800x400/a9a9a9/fff" class="d-block w-100" alt="...">
     </cod-carousel-item>
     <cod-carousel-item>
-        <svg class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="800" height="400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Third slide" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#555"></rect><text x="50%" y="50%" fill="#333" dy=".3em">Third slide</text></svg>
+        <img src="https://placehold.co/800x400/a3a3a3/000" class="d-block w-100" alt="...">
+    </cod-carousel-item>
+</cod-carousel>
+`;
+
+export const indicator = () => html`
+<cod-carousel data-id="carouselExampleIndicators" data-indicator="true">
+    <cod-carousel-item data-active="true">
+        <img src="https://placehold.co/800x400/000000/FFF" class="d-block w-100" alt="...">
+    </cod-carousel-item>
+    <cod-carousel-item>
+        <img src="https://placehold.co/800x400/a9a9a9/fff" class="d-block w-100" alt="...">
+    </cod-carousel-item>
+    <cod-carousel-item>
+        <img src="https://placehold.co/800x400/a3a3a3/000" class="d-block w-100" alt="...">
+    </cod-carousel-item>
+</cod-carousel>
+`;
+
+export const Caption = () => html`
+<cod-carousel data-id="carouselExampleCaptions" data-indicator="true">
+    <cod-carousel-item data-active="true">
+        <img src="https://placehold.co/800x400/000000/FFF" class="d-block w-100" alt="...">
+        <cod-carousel-caption>
+            <h5>First slide label</h5>
+            <p>Some representative placeholder content for the first slide.</p>
+        </cod-carousel-caption>
+    </cod-carousel-item>
+    <cod-carousel-item>
+        <img src="https://placehold.co/800x400/a9a9a9/fff" class="d-block w-100" alt="...">
+        <cod-carousel-caption>
+            <h5>Second slide label</h5>
+            <p>Some representative placeholder content for the second slide.</p>
+        </cod-carousel-caption>
+    </cod-carousel-item>
+    <cod-carousel-item>
+        <img src="https://placehold.co/800x400/a3a3a3/000" class="d-block w-100" alt="...">
+        <cod-carousel-caption>
+            <h5>Third slide label</h5>
+            <p>Some representative placeholder content for the third slide.</p>
+        </cod-carousel-caption>
+    </cod-carousel-item>
+</cod-carousel>
+`;
+
+export const Crossfade = () => html`
+<cod-carousel data-id="carouselExampleFade" data-crossfade="true">
+    <cod-carousel-item data-active="true">
+        <img src="https://placehold.co/800x400/000000/FFF" class="d-block w-100" alt="...">
+    </cod-carousel-item>
+    <cod-carousel-item>
+        <img src="https://placehold.co/800x400/a9a9a9/fff" class="d-block w-100" alt="...">
+    </cod-carousel-item>
+    <cod-carousel-item>
+        <img src="https://placehold.co/800x400/a3a3a3/000" class="d-block w-100" alt="...">
+    </cod-carousel-item>
+</cod-carousel>
+`;
+
+export const Dark = () => html`
+<cod-carousel data-id="carouselExampleDark" data-extra-classes="carousel-dark">
+    <cod-carousel-item data-active="true">
+    <img src="https://placehold.co/800x400/a3a3a3/FFF" class="d-block w-100" alt="...">
+    <cod-carousel-caption data-extra-classes="text-dark">
+        <h5>First slide label</h5>
+        <p>Some representative placeholder content for the first slide.</p>
+    </cod-carousel-caption>
+    </cod-carousel-item>
+    <cod-carousel-item>
+    <img src="https://placehold.co/800x400/a9a9a9/fff" class="d-block w-100" alt="...">
+    <cod-carousel-caption data-extra-classes="text-dark">
+        <h5>Second slide label</h5>
+        <p>Some representative placeholder content for the second slide.</p>
+    </cod-carousel-caption>
+    </cod-carousel-item>
+    <cod-carousel-item>
+    <img src="https://placehold.co/800x400/a3a3a3/000" class="d-block w-100" alt="...">
+    <cod-carousel-caption data-extra-classes="text-dark">
+        <h5>Third slide label</h5>
+        <p>Some representative placeholder content for the third slide.</p>
+    </cod-carousel-caption>
     </cod-carousel-item>
 </cod-carousel>
 `;

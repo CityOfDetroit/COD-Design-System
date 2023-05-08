@@ -18,7 +18,6 @@ export default class CarouselCaption extends HTMLElement {
     const shadow = this.attachShadow({ mode: 'open' });
     shadow.appendChild(template.content.cloneNode(true));
     this.carouselCaption = document.createElement('div');
-    this.carouselCaption.className = 'carousel-caption d-none d-md-block';
     shadow.addEventListener( 'slotchange', ev => {  
       let tempElements = Array.from(this.children);  
       tempElements.forEach((node)=>{
@@ -36,7 +35,16 @@ export default class CarouselCaption extends HTMLElement {
     shadow.appendChild(bootStyles);
     shadow.appendChild(variableStyles);
     shadow.appendChild(itemStyles);
+  }
 
-    shadow.appendChild(this.carouselCaption);
+  connectedCallback() {
+    // Modal attributes
+    let extraClasses = this.getAttribute('data-extra-classes');
+    let carouselCaptionClasses = ['carousel-caption d-none d-md-block'];
+    (extraClasses != undefined && extraClasses != null) ? carouselCaptionClasses.push(extraClasses) : 0;
+    this.carouselCaption.className = carouselCaptionClasses.join(' ');
+    if (!this.shadowRoot.querySelector('div')) {
+      this.shadowRoot.appendChild(this.carouselCaption);
+    }
   }
 };
