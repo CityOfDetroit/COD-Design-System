@@ -20,27 +20,18 @@ export default class Table extends HTMLElement {
     this.tableContainer = document.createElement('div');
     this.table = document.createElement('div');
     this.table.role = 'table';
-    this.tableHeader = document.createElement('div');
-    this.tableHeader.role = 'rowgroup';
-    this.tableHeader.className = 'table-header';
-    this.tableBody = document.createElement('div');
-    this.tableBody.role = 'rowgroup';
-    this.table.appendChild(this.tableHeader);
-    this.table.appendChild(this.tableBody);
     this.tableContainer.appendChild(this.table);
   
     shadow.addEventListener('slotchange', e => {
       let tempElements = Array.from(this.children);
       tempElements.forEach((node) => {
         switch (node.tagName) {
-          case 'COD-TABLE-HEAD':
-            this.tableHeader.appendChild(node);
-            this.table.appendChild(this.tableHeader);
+          case 'COD-TABLE-HEADER':
+            this.table.appendChild(node);
             break;
 
           case 'COD-TABLE-BODY':
-            this.tableBody.appendChild(node);
-            this.table.appendChild(this.tableBody);
+            this.table.appendChild(node);
             break;
 
           default:

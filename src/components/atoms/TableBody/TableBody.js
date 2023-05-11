@@ -18,6 +18,7 @@ export default class TableBody extends HTMLElement {
     const shadow = this.attachShadow({ mode: 'open' });
     shadow.appendChild(template.content.cloneNode(true));
     this.tableBody = document.createElement('div');
+    this.tableBody.role = 'rowgroup';
     shadow.addEventListener( 'slotchange', ev => {  
       let tempElements = Array.from(this.children);  
       tempElements.forEach((node)=>{
