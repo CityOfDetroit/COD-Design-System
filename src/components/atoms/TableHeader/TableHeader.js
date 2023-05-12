@@ -24,6 +24,7 @@ export default class TableHeader extends HTMLElement {
       tempElements.forEach((node)=>{
         (this.getAttribute('data-striped-col') == 'true') ? node.setAttribute('data-striped-col', 'true') : 0;
         (this.getAttribute('data-vertical-align') == 'true') ? node.setAttribute('data-vertical-align', 'true') : 0;
+        (this.getAttribute('data-legacy-responsive') == 'true') ? node.setAttribute('data-legacy-responsive', 'true') : 0;
         this.tableHeader.append(node);
       });
     });

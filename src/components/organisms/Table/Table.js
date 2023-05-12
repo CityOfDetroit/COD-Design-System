@@ -29,13 +29,16 @@ export default class Table extends HTMLElement {
           case 'COD-TABLE-HEADER':
             (this.getAttribute('data-striped-col') == 'true') ? node.setAttribute('data-striped-col', 'true') : 0;
             (this.getAttribute('data-vertical-align') == 'true') ? node.setAttribute('data-vertical-align', 'true') : 0;
+            (this.getAttribute('data-legacy-responsive') == 'true') ? node.setAttribute('data-legacy-responsive', 'true') : 0;
             this.table.appendChild(node);
             break;
 
           case 'COD-TABLE-BODY':
+            (this.getAttribute('data-hover') == 'true') ? node.setAttribute('data-hover', 'true') : 0;
             (this.getAttribute('data-striped-row') == 'true') ? node.setAttribute('data-striped-row', 'true') : 0;
             (this.getAttribute('data-striped-col') == 'true') ? node.setAttribute('data-striped-col', 'true') : 0;
             (this.getAttribute('data-vertical-align') == 'true') ? node.setAttribute('data-vertical-align', 'true') : 0;
+            (this.getAttribute('data-legacy-responsive') == 'true') ? node.setAttribute('data-legacy-responsive', 'true') : 0;
             this.table.appendChild(node);
             break;
 
@@ -61,17 +64,9 @@ export default class Table extends HTMLElement {
     // Table attributes
     let legacyResponsive = this.getAttribute('data-legacy-responsive');
     let id = this.getAttribute('data-id');
-    let stripedRow = this.getAttribute('data-striped-row');
-    let stripedCol = this.getAttribute('data-striped-col');
-    let size = this.getAttribute('data-size');
-    let verticalAlign = this.getAttribute('data-vertical-align');
     let extraClasses = this.getAttribute('data-extra-classes');
     let tableClasses = ['table'];
-    (stripedRow == 'true') ? tableClasses.push('table-striped') : 0;
-    (stripedCol == 'true') ? tableClasses.push('table-striped-columns') : 0;
     (extraClasses != undefined && extraClasses != null) ? tableClasses.push(extraClasses) : 0;
-    (size != undefined && size != null) ? tableClasses.push(`table-${size}`) : 0;
-    (verticalAlign != undefined && verticalAlign != null) ? tableClasses.push(verticalAlign) : 0;
     (id != undefined && id != null) ? this.table.id = id : 0;
     (legacyResponsive == 'true') ? this.tableContainer.className = 'table-responsive' : 0;
     this.table.className = tableClasses.join(' ');

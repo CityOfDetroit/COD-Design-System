@@ -21,8 +21,11 @@ export default class TableBody extends HTMLElement {
     this.tableRow.role = 'row';
     shadow.addEventListener( 'slotchange', ev => {  
       let tempElements = Array.from(this.children);  
-      tempElements.forEach((node)=>{
+      tempElements.forEach((node, index)=>{
         (this.getAttribute('data-striped-row') == 'true') ? node.setAttribute('data-striped-row', 'true') : 0;
+        (this.getAttribute('data-striped-col') == 'true'  && (index % 2 != 0)) ? node.setAttribute('data-striped-col', 'true') : 0;
+        (this.getAttribute('data-vertical-align') == 'true') ? node.setAttribute('data-vertical-align', 'true') : 0;
+        (this.getAttribute('data-legacy-responsive') == 'true') ? node.setAttribute('data-legacy-responsive', 'true') : 0;
         this.tableRow.append(node);
       });
     });
@@ -43,10 +46,10 @@ export default class TableBody extends HTMLElement {
 
   connectedCallback() {
     // TableRow attributes
-    let stripedRow = this.getAttribute('data-striped-row');
     let extraClasses = this.getAttribute('data-extra-classes');
+    let hover = this.getAttribute('data-hover');
     let tableRowClasses = ['table-row'];
-    (stripedRow == 'true') ? tableRowClasses.push('table-striped') : 0;
+    (hover == 'true') ? tableRowClasses.push('table-hover') : 0;
     (extraClasses != undefined && extraClasses != null) ? tableRowClasses.push(extraClasses) : 0;
     this.tableRow.className = tableRowClasses.join(' ');
   }

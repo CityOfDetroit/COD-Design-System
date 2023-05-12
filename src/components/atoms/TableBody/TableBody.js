@@ -23,8 +23,10 @@ export default class TableBody extends HTMLElement {
       let tempElements = Array.from(this.children);  
       tempElements.forEach((node, index)=>{
         (this.getAttribute('data-striped-row') == 'true'  && (index % 2 == 0)) ? node.setAttribute('data-striped-row', 'true') : 0;
+        (this.getAttribute('data-hover') == 'true') ? node.setAttribute('data-hover', 'true') : 0;
         (this.getAttribute('data-striped-col') == 'true') ? node.setAttribute('data-striped-col', 'true') : 0;
         (this.getAttribute('data-vertical-align') == 'true') ? node.setAttribute('data-vertical-align', 'true') : 0;
+        (this.getAttribute('data-legacy-responsive') == 'true') ? node.setAttribute('data-legacy-responsive', 'true') : 0;
         this.tableBody.append(node);
       });
     });

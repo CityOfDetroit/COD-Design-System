@@ -3,6 +3,7 @@
     border-style: solid;
     border-width: 0;
     display: flex;
+    align-items: stretch;
 }
 
 .table-row cod-table-cell, .table-row cod-table-cell-header{
@@ -23,4 +24,8 @@
 
 .table-row cod-table-cell[colspan="5"], .table-row cod-table-cell-header[colspan="5"]{
     flex: 5;
+}
+
+.table-row.table-hover:hover{
+    --bs-table-accent-bg: var(--bs-table-hover-bg);
 }

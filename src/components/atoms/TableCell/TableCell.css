@@ -3,9 +3,13 @@
     background-color: var(--bs-table-bg);
     border-bottom: solid var(--bs-border-width) var(--bs-secondary);
     box-shadow: inset 0 0 0 9999px var(--bs-table-accent-bg);
+    height: 100%;
 }
 
-.table-cell.table-striped{
+.table-cell.table-striped, .table-cell.table-striped-columns{
     --bs-table-accent-bg: var(--bs-table-striped-bg);
-    color: var(--bs-table-striped-color);
+}
+
+.table-cell.table-legacy-responsive{
+    width: 5em;
 }
