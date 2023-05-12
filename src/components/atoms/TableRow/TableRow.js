@@ -22,7 +22,8 @@ export default class TableBody extends HTMLElement {
     shadow.addEventListener( 'slotchange', ev => {  
       let tempElements = Array.from(this.children);  
       tempElements.forEach((node)=>{
-          this.tableRow.append(node);
+        (this.getAttribute('data-striped-row') == 'true') ? node.setAttribute('data-striped-row', 'true') : 0;
+        this.tableRow.append(node);
       });
     });
 

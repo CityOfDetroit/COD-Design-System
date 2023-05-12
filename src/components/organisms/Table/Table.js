@@ -27,10 +27,15 @@ export default class Table extends HTMLElement {
       tempElements.forEach((node) => {
         switch (node.tagName) {
           case 'COD-TABLE-HEADER':
+            (this.getAttribute('data-striped-col') == 'true') ? node.setAttribute('data-striped-col', 'true') : 0;
+            (this.getAttribute('data-vertical-align') == 'true') ? node.setAttribute('data-vertical-align', 'true') : 0;
             this.table.appendChild(node);
             break;
 
           case 'COD-TABLE-BODY':
+            (this.getAttribute('data-striped-row') == 'true') ? node.setAttribute('data-striped-row', 'true') : 0;
+            (this.getAttribute('data-striped-col') == 'true') ? node.setAttribute('data-striped-col', 'true') : 0;
+            (this.getAttribute('data-vertical-align') == 'true') ? node.setAttribute('data-vertical-align', 'true') : 0;
             this.table.appendChild(node);
             break;
 

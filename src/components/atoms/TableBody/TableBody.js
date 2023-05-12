@@ -21,8 +21,11 @@ export default class TableBody extends HTMLElement {
     this.tableBody.role = 'rowgroup';
     shadow.addEventListener( 'slotchange', ev => {  
       let tempElements = Array.from(this.children);  
-      tempElements.forEach((node)=>{
-          this.tableBody.append(node);
+      tempElements.forEach((node, index)=>{
+        (this.getAttribute('data-striped-row') == 'true'  && (index % 2 == 0)) ? node.setAttribute('data-striped-row', 'true') : 0;
+        (this.getAttribute('data-striped-col') == 'true') ? node.setAttribute('data-striped-col', 'true') : 0;
+        (this.getAttribute('data-vertical-align') == 'true') ? node.setAttribute('data-vertical-align', 'true') : 0;
+        this.tableBody.append(node);
       });
     });
 
