@@ -5,7 +5,7 @@ import '../components/atoms/NavbarToggle/cod-navbar-toggle';
 import '../components/organisms/Navbar/cod-navbar';
 
 export default {
-  title: 'COD/Organisms/Navbar',
+  title: 'Components/Organisms/Navbar',
 };
 
 export const Basic = () => html`

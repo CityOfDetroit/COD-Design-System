@@ -5,7 +5,7 @@ import '../components/atoms/ModalFooter/cod-modal-footer';
 import '../components/organisms/Modal/cod-modal';
 
 export default {
-  title: 'COD/Organisms/Modal',
+  title: 'Components/Organisms/Modal',
 };
 
 export const Basic = () => html`

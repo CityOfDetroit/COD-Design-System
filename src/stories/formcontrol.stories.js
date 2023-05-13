@@ -1,7 +1,7 @@
 import '../components/atoms/FormControl/cod-formcontrol';
 
 export default {
-  title: 'COD/Atoms/Forms/FormControl',
+  title: 'Forms/FormControl',
   argTypes: {
     tag: {
         control: { type: 'select' },

@@ -5,7 +5,7 @@ import '../components/atoms/AccordionItem/cod-accordion-item';
 import '../components/molecules/Accordion/cod-accordion';
 
 export default {
-  title: 'COD/Molecules/Accordion',
+  title: 'Components/Molecules/Accordion',
 };
 
 export const Basic = () => html`

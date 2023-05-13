@@ -1,7 +1,7 @@
 import '../components/atoms/Progress/cod-progress';
 
 export default {
-  title: 'COD/Atoms/Progress',
+  title: 'Components/Atoms/Progress',
   argTypes: {
     backgroundColor: { 
         control: { type: 'select' },

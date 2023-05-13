@@ -1,7 +1,7 @@
 import '../components/atoms/FormCheck/cod-formcheck';
 
 export default {
-  title: 'COD/Atoms/Forms/FormCheck',
+  title: 'Forms/FormCheck',
   argTypes: {
     backgroundColor: { 
         control: { type: 'select' },

@@ -1,7 +1,7 @@
 import '../components/atoms/Image/cod-image';
 
 export default {
-    title: 'COD/Atoms/Image',
+    title: 'Components/Atoms/Image',
     argTypes: {
         align: {
             control: { type: 'select' },

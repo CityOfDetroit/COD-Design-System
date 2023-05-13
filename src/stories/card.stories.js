@@ -6,7 +6,7 @@ import '../components/atoms/CardOverlay/cod-card-overlay';
 import '../components/organisms/Card/cod-card';
 
 export default {
-  title: 'COD/Organisms/Card',
+  title: 'Components/Organisms/Card',
 };
 
 export const Basic = () => html`

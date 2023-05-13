@@ -4,7 +4,7 @@ import '../components/atoms/OffcanvasBody/cod-offcanvas-body';
 import '../components/organisms/Offcanvas/cod-offcanvas';
 
 export default {
-  title: 'COD/Organisms/Offcanvas',
+  title: 'Components/Organisms/Offcanvas',
 };
 
 export const Basic = () => html`

@@ -1,7 +1,7 @@
 import '../components/atoms/FormLabel/cod-formlabel';
 
 export default {
-  title: 'COD/Atoms/Forms/FormLabel',
+  title: 'Forms/FormLabel',
   argTypes: {
     required: { 
         control: { type: 'select' },

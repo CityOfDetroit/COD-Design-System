@@ -1,7 +1,7 @@
 import '../components/atoms/Container/cod-container';
 
 export default {
-  title: 'COD/Atoms/Container',
+  title: 'Components/Atoms/Container',
   argTypes: {
     type: {
         control: { type: 'select' },

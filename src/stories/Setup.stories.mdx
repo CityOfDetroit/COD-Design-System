@@ -1,0 +1,36 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="COD UXDS/Setup" />
+
+<h1 class="text-center">Setup</h1>
+
+## Installation
+
+COD Web Components make use of Stencil's automatic lazy loader which only loads components that are actually used on the page.
+
+### CDN
+
+Add the following inside your head tag
+
+```html
+<link rel="stylesheet" href="https://unpkg.com/cod-design-system/dist/COD-web-components/COD-web-components.css"/>
+<script type="module" src="https://unpkg.com/cod-design-system/dist/COD-web-components/COD-web-components.esm.js"></script>
+```
+
+### NPM
+
+`npm i @cityofdetroit/cod-design-system`
+
+```js
+  import { defineCustomElements } from '@astrouxds/COD-web-components/dist/loader';
+  defineCustomElements();
+```
+
+### Yarn
+
+`yarn add @cityofdetroit/cod-design-system`
+
+```js
+  import { defineCustomElements } from '@astrouxds/COD-web-components/dist/loader';
+  defineCustomElements();
+```

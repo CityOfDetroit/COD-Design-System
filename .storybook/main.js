@@ -17,4 +17,5 @@ module.exports = {
   features: {
     interactionsDebugger: true,
   },
+  staticDirs: ['../public'],
 }

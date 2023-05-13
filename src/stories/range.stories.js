@@ -1,7 +1,7 @@
 import '../components/atoms/Range/cod-range';
 
 export default {
-  title: 'COD/Atoms/Forms/Range',
+  title: 'Components/Atoms/Forms/Range',
   argTypes: {
     disable: {
       control: { type: 'select' },

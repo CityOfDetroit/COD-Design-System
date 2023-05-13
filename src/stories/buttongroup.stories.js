@@ -2,7 +2,7 @@ import { html } from 'lit-html';
 import '../components/molecules/ButtonGroup/cod-button-group';
 
 export default {
-  title: 'COD/Molecules/Forms/ButtonGroup',
+  title: 'Components/Molecules/ButtonGroup',
 };
 
 export const Basic = () => html`
