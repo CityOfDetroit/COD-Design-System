@@ -1,7 +1,7 @@
 import '../components/atoms/Alert/cod-alert';
 
 export default {
-  title: 'COD/Atoms/Alert',
+  title: 'Components/Atoms/Alert',
   argTypes: {
     icon: {
         control: { type: 'select' },

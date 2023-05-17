@@ -4,7 +4,7 @@ import '../components/atoms/CarouselCaption/cod-carousel-caption';
 import '../components/organisms/Carousel/cod-carousel';
 
 export default {
-  title: 'COD/Organisms/Carousel',
+  title: 'Components/Organisms/Carousel',
 };
 
 export const Basic = () => html`

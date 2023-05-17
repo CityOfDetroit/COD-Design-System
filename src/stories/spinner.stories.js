@@ -1,7 +1,7 @@
 import '../components/atoms/Spinner/cod-spinner';
 
 export default {
-  title: 'COD/Atoms/Spinner',
+  title: 'Components/Atoms/Spinner',
   argTypes: {
     type: {
         control: { type: 'select' },

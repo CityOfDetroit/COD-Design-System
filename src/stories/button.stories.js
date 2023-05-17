@@ -3,7 +3,7 @@ import { expect } from '@storybook/jest';
 import '../components/atoms/Button/cod-button';
 
 export default {
-  title: 'COD/Atoms/Button',
+  title: 'Components/Atoms/Button',
   argTypes: {
     primary: {
       control: { type: 'boolean'},

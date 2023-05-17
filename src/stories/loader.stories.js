@@ -1,7 +1,7 @@
 import '../components/atoms/Loader/cod-loader';
 
 export default {
-  title: 'COD/Atoms/Loader',
+  title: 'Components/Atoms/Loader',
   argTypes: {
     backgroundColor: { 
       control: { type: 'select' },

@@ -3,7 +3,7 @@ import '../components/atoms/ListGroupItem/cod-listgroup-item';
 import '../components/molecules/ListGroup/cod-listgroup';
 
 export default {
-  title: 'COD/Molecules/ListGroup',
+  title: 'Components/Molecules/ListGroup',
 };
 
 export const Basic = () => html`

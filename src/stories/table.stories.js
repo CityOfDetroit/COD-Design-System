@@ -7,7 +7,7 @@ import '../components/atoms/TableCellHeader/cod-table-cell-header';
 import '../components/organisms/Table/cod-table';
 
 export default {
-  title: 'COD/Organisms/Table',
+  title: 'Components/Organisms/Table',
 };
 
 export const Basic = () => html`

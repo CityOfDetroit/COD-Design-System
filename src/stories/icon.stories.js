@@ -1,7 +1,7 @@
 import '../components/atoms/Icon/cod-icon';
 
 export default {
-  title: 'COD/Atoms/Icon',
+  title: 'Components/Atoms/Icon',
   argTypes: {
     icon: {
         control: { type: 'select' },

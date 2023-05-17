@@ -3,7 +3,7 @@ import '../components/molecules/Dropdown/cod-dropdown';
 import '../components/atoms/DropdownMenu/cod-dropdown-menu';
 
 export default {
-  title: 'COD/Molecules/Dropdown',
+  title: 'Components/Molecules/Dropdown',
 };
 
 export const Basic = () => html`

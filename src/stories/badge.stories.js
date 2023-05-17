@@ -2,7 +2,7 @@ import { html } from 'lit-html';
 import '../components/atoms/Badge/cod-badge';
 
 export default {
-  title: 'COD/Atoms/Badge',
+  title: 'Components/Atoms/Badge',
   argTypes: {
     tag: {
         control: { type: 'select' },

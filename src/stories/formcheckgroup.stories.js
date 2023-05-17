@@ -2,7 +2,7 @@ import { html } from 'lit-html';
 import '../components/molecules/FormCheckGroup/cod-form-check-group';
 
 export default {
-  title: 'COD/Molecules/Forms/FormCheckGroup',
+  title: 'Forms/FormCheckGroup',
 };
 
 export const RadioGroup = () => html`

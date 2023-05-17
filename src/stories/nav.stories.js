@@ -2,7 +2,7 @@ import { html } from 'lit-html';
 import '../components/molecules/Nav/cod-nav';
 
 export default {
-  title: 'COD/Molecules/Nav',
+  title: 'Components/Molecules/Nav',
 };
 
 export const Basic = () => html`

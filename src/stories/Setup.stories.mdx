@@ -1,0 +1,58 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="COD UXDS/Setup" />
+
+<h1 class="text-center">Setup</h1>
+
+## Installation
+
+COD Web Components make use of Stencil's automatic lazy loader which only loads components that are actually used on the page.
+
+### CDN
+
+Add the following inside your head tag
+
+```html
+<script src="https://www.unpkg.com/browse/cod-design-system@0.1.1/build/assets/js/main.js"></script>
+<script src="https://www.unpkg.com/browse/cod-design-system@0.1.1/build/assets/js/runtime.js"></script>
+<script src="https://www.unpkg.com/browse/cod-design-system@0.1.1/build/assets/js/vendors.babel.js"></script>
+<script src="https://www.unpkg.com/browse/cod-design-system@0.1.1/build/assets/js/vendors.bootstrap-icons.js"></script>
+```
+
+### NPM
+
+`npm i @cityofdetroit/cod-design-system`
+
+### Yarn
+
+`yarn add @cityofdetroit/cod-design-system`
+
+```js
+  import 'cod-design-system/src/components/atoms/Loader/cod-loader';
+  import 'cod-design-system/src/components/atoms/Button/cod-button';
+```
+
+## Setting Props
+
+### Basic Data
+
+For basic primitive types like `string`, `boolean`, `number`, set the attribute on the element:
+
+```js
+<cod-loader data-color="color-1"></cod-loader>
+```
+
+## Using Slots
+
+Slots give you full control over the contents of a component. Some components may have multiple slots.
+
+> Web Component Concept:
+> Slotted content lives outside of the shadow DOM and as a result, you are free to style them however you want.
+
+
+```html
+<cod-breadcrumb>
+<li class="breadcrumb-item"><a href="#">Home</a></li>
+<li class="breadcrumb-item active" aria-current="page">Library</li>
+</cod-breadcrumb>
+```
