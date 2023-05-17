@@ -35,6 +35,6 @@ export default create({
     // Brand assets
     brandTitle: 'City of Detroit',
     brandUrl: 'https://detroitmi.gov',
-    // brandImage: 'https://detroitmi.gov/themes/custom/detroitmi/css/theme/../../logo-white.png',
+    brandImage: './city-of-detroit-logo-1.png',
     brandTarget: '_self',
 });
