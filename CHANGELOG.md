@@ -1,3 +1,20 @@
+# (Tue May 23 2023)
+
+#### ⚠️ Pushed to `master`
+
+- Updating documentation. ([@jedgar1mx](https://github.com/jedgar1mx))
+- Updating changelog and updating version on package.json ([@jedgar1mx](https://github.com/jedgar1mx))
+
+#### 📝 Documentation
+
+- Adding all components to build, Update setup storie to match new upco… [#52](https://github.com/jedgar1mx/COD-Design-System/pull/52) ([@jedgar1mx](https://github.com/jedgar1mx))
+
+#### Authors: 1
+
+- J Edgar Montes ([@jedgar1mx](https://github.com/jedgar1mx))
+
+---
+
 # v1.0.0 (Wed May 17 2023)
 
 #### 🚀 Enhancement
