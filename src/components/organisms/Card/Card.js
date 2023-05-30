@@ -60,7 +60,8 @@ export default class Card extends HTMLElement {
             break;
 
           default:
-            this.card.appendChild(node);
+            let nodeClasses = node.className.split(' ');
+            (nodeClasses.includes('no-wc')) ? node.remove() : this.card.appendChild(node);
             break;
         }
       });

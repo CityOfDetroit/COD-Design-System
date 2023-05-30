@@ -11,7 +11,15 @@ export default {
 
 export const Basic = () => html`
 <cod-card data-id="card-example" data-width="18em">
-<svg class="bd-placeholder-img card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="35%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text></svg>
+<div class="card no-wc" style="width: 18rem;">
+  <img src="..." class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+<img src="https://placehold.co/800x400/000000/FFF" class="card-img-top w-100" alt="...">
     <cod-card-body>
     <h5 class="card-title">Card title</h5>
     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -42,7 +50,7 @@ export const TitleTextLinks = () => html`
 
 export const KitchenSink = () => html`
 <cod-card data-id="card-body-only" data-width="18em">
-<svg class="bd-placeholder-img card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="35%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text></svg>
+<img src="https://placehold.co/800x400/000000/FFF" class="card-img-top w-100" alt="...">
 <cod-card-body>
 <h5 class="card-title">Card title</h5>
     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -84,19 +92,19 @@ export const HeaderFooter = () => html`
 `;
 
 export const ImageBottom = () => html`
-<cod-card data-id="card-image-bottom">
+<cod-card data-id="card-image-bottom" data-width="18em">
     <cod-card-body>
     <h5 class="card-title">Card title</h5>
     <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
     <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
     </cod-card-body>
-    <svg class="bd-placeholder-img card-img-bottom" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="35%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text></svg>
+    <img src="https://placehold.co/800x400/000000/FFF" class="card-img-bottom w-100" alt="...">
 </cod-card>
 `;
 
 export const ImageOverlay = () => html`
 <cod-card data-id="card-image-bottom">
-<svg class="bd-placeholder-img card-img" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="35%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text></svg>
+    <img src="https://placehold.co/800x400/000000/FFF" class="card-img-top w-100" alt="...">
     <cod-card-overlay>
     <h5 class="card-title">Card title</h5>
     <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
@@ -309,7 +317,7 @@ export const CardGrid = () => html`
 <div class="row row-cols-1 row-cols-md-2 g-4">
     <div class="col">
         <cod-card data-id="card-grid-1">
-        <svg class="bd-placeholder-img card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="35%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text></svg>
+        <img src="https://placehold.co/800x400/000000/FFF" class="card-img-top w-100" alt="...">
             <cod-card-body>
             <h5 class="card-title">Card title</h5>
             <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
@@ -318,7 +326,7 @@ export const CardGrid = () => html`
     </div>
     <div class="col">
         <cod-card data-id="card-grid-2">
-        <svg class="bd-placeholder-img card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="35%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text></svg>
+        <img src="https://placehold.co/800x400/000000/FFF" class="card-img-top w-100" alt="...">
             <cod-card-body>
             <h5 class="card-title">Card title</h5>
             <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
@@ -327,7 +335,7 @@ export const CardGrid = () => html`
     </div>
     <div class="col">
         <cod-card data-id="card-grid-3">
-        <svg class="bd-placeholder-img card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="35%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text></svg>
+        <img src="https://placehold.co/800x400/000000/FFF" class="card-img-top w-100" alt="...">
             <cod-card-body>
             <h5 class="card-title">Card title</h5>
             <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
@@ -336,7 +344,7 @@ export const CardGrid = () => html`
     </div>
     <div class="col">
         <cod-card data-id="card-grid-4">
-        <svg class="bd-placeholder-img card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="35%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text></svg>
+        <img src="https://placehold.co/800x400/000000/FFF" class="card-img-top w-100" alt="...">
             <cod-card-body>
             <h5 class="card-title">Card title</h5>
             <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>

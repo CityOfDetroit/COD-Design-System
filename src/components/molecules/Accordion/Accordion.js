@@ -32,7 +32,8 @@ export default class Accordion extends HTMLElement {
               break;
 
             default:
-              (node.className == 'no-wc') ? node.remove() : 0;
+              let nodeClasses = node.className.split(' ');
+              (nodeClasses.includes('no-wc')) ? node.remove() : this.card.appendChild(node);
               break;
           }
         });
