@@ -11,6 +11,7 @@ export default {
 export const Basic = () => html`
 <cod-accordion
   data-id="accordionExample">
+  <p class="no-wc">Testing default markup</p>
   <cod-accordion-item>
     <cod-accordion-header>
         <span>Accordion Item #1</span>
@@ -41,6 +42,7 @@ export const Basic = () => html`
 export const Flush = () => html`
 <cod-accordion
   data-id="accordionFlushExample" data-flush="true">
+  <p class="no-wc">Testing default markup</p>
   <cod-accordion-item>
     <cod-accordion-header>
         <span>Accordion Item #1</span>
