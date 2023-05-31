@@ -103,7 +103,7 @@ export const ImageBottom = () => html`
 `;
 
 export const ImageOverlay = () => html`
-<cod-card data-id="card-image-bottom">
+<cod-card data-id="card-image-bottom" data-extra-classes="text-bg-dark">
     <img src="https://placehold.co/800x400/000000/FFF" class="card-img-top w-100" alt="...">
     <cod-card-overlay>
     <h5 class="card-title">Card title</h5>
