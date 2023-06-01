@@ -21,12 +21,21 @@ export default class Accordion extends HTMLElement {
       this.shadowRoot.addEventListener( 'slotchange', ev => {  
         let tempElements = Array.from(this.children);  
         tempElements.forEach((node, index)=>{
-          let accordionItem = document.createElement('div');
-          accordionItem.className = 'accordion-item';
-          node.setAttribute('data-parent-id', this.getAttribute('data-id'));
-          node.setAttribute('data-index', index);
-          accordionItem.appendChild(node);
-          this.accordion.append(accordionItem);
+          switch (node.tagName) {
+            case 'COD-ACCORDION-ITEM':
+              let accordionItem = document.createElement('div');
+              accordionItem.className = 'accordion-item';
+              node.setAttribute('data-parent-id', this.getAttribute('data-id'));
+              node.setAttribute('data-index', index);
+              accordionItem.appendChild(node);
+              this.accordion.append(accordionItem);
+              break;
+
+            default:
+              let nodeClasses = node.className.split(' ');
+              (nodeClasses.includes('no-wc')) ? node.remove() : this.card.appendChild(node);
+              break;
+          }
         });
       });
 
