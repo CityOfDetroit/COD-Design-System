@@ -1,22 +1,20 @@
 import { userEvent, within } from '@storybook/testing-library';
 import { expect } from '@storybook/jest';
 import '../components/atoms/Button/cod-button';
+import '../components/atoms/Icon/cod-icon';
 
 export default {
   title: 'Components/Atoms/Button',
   argTypes: {
     primary: {
       control: { type: 'boolean'},
-      defaultValue: true,
     },
     disable: {
       control: {type: 'boolean'},
-      defaultValue: false,
     },
     backgroundColor: { 
       control: { type: 'select' },
       options: ['primary', 'secondary', 'success', 'info', 'warning', 'danger', 'light', 'dark'],
-      defaultValue: 'primary',
     },
     onClick: { action: 'onClick' },
     size: {
@@ -38,7 +36,6 @@ export default {
     shape: {
       control: { type: 'select' },
       options: ['fluid', 'square'],
-      defaultValue: 'fluid',
     },
   },
 };
@@ -51,7 +48,6 @@ const Template = (args) => {
   btn.setAttribute('data-primary', args.primary);
   btn.setAttribute('data-disable', args.disable);
   btn.setAttribute('data-label', args.label);
-  btn.setAttribute('data-background-color', args.backgroundColor);
   btn.setAttribute('data-img', (args.img) ? args.img : '');
   btn.setAttribute('data-img-alt', (args.imgAlt) ? args.imgAlt : '');
   btn.setAttribute('data-icon', (args.icon) ? args.icon : '');
@@ -59,6 +55,7 @@ const Template = (args) => {
   btn.setAttribute('data-icon-size', (args.iconSize) ? args.iconSize : '');
   btn.setAttribute('data-shape', args.shape);
   btn.setAttribute('data-aria-label', (args.ariaLabel) ? args.ariaLabel : '');
+  (args.backgroundColor) ? btn.setAttribute('data-background-color', args.backgroundColor) : btn.setAttribute('data-background-color', 'primary');
   if(args.close){
     btn.setAttribute('data-close', args.close);
   }

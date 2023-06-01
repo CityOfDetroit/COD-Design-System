@@ -6,7 +6,6 @@ export default {
     type: {
         control: { type: 'select' },
         options: ['container', 'container-sm', 'container-md', 'container-lg', 'container-xl', 'container-xxl', 'container-fluid'],
-        defaultValue: 'container'
     },
     backgroundColor: { 
         control: { type: 'select' },
@@ -20,6 +19,9 @@ const Template = (args) => {
   container.setAttribute('data-type', args.type);
   if(args.elements != null){
     container.innerHTML = args.elements;
+  }
+  if(args.content){
+    container.setAttribute('data-text', args.content);
   }
   container.setAttribute('data-extra-classes', args.extraClasses);
   container.setAttribute('data-background-color', args.backgroundColor);

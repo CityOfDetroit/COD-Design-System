@@ -38,23 +38,28 @@ const Template = (args) => {
 export const Badge = Template.bind({});
 Badge.args = {
   text: 'Badge',
+  tag: 'span',
+  backgroundColor: 'primary',
 };
 
 export const Pill = Template.bind({});
 Pill.args = {
   text: 'Pill Badge',
   pill: true,
+  tag: 'span',
+  backgroundColor: 'primary',
 };
 
 export const BadgeHidden = Template.bind({});
 BadgeHidden.args = {
   text: '99+',
   hiddenText: 'Unread Messages',
-  backgroundColor: 'danger'
+  backgroundColor: 'danger',
+  tag: 'span',
 };
 
 export const BadgePosition =  (args) => html`
-<button style="position: relative; margin: 0.25rem 0.125rem; padding: 1em;">
+<button type="button" class="btn btn-primary position-relative">
 Inbox
 <cod-badge data-tag="span" data-background-color="${args.backgroundColor}" data-hidden-text="${args.hiddenText}" data-text="${args.text}" data-extra-classes="${args.extraClasses}"></cod-badge>
 </button>
@@ -63,11 +68,14 @@ BadgePosition.args = {
   text: '99+',
   hiddenText: 'Unread Messages',
   backgroundColor: 'danger',
-  extraClasses: 'position-absolute top-0 start-100 translate-middle'
+  extraClasses: 'position-absolute top-0 start-100 translate-middle',
+  tag: 'span',
 }
 
 export const BadgeLink = Template.bind({});
 BadgeLink.args = {
   text: 'Badge Link',
-  url: 'https://google.com'
+  url: 'https://google.com',
+  tag: 'span',
+  backgroundColor: 'primary',
 };
