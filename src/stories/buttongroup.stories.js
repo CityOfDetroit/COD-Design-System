@@ -1,5 +1,6 @@
 import { html } from 'lit-html';
 import '../components/molecules/ButtonGroup/cod-button-group';
+import '../components/atoms/Button/cod-button';
 
 export default {
   title: 'Components/Molecules/ButtonGroup',
