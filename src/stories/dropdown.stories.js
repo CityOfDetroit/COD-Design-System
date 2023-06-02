@@ -1,6 +1,7 @@
 import { html } from 'lit-html';
 import '../components/molecules/Dropdown/cod-dropdown';
 import '../components/atoms/DropdownMenu/cod-dropdown-menu';
+import '../components/atoms/Button/cod-button';
 
 export default {
   title: 'Components/Molecules/Dropdown',
