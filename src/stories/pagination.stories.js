@@ -9,6 +9,15 @@ export default {
 export const Basic = () => html`
 <cod-pagination
   data-label="Page navigation example">
+  <nav class="no-wc" aria-label="Page navigation example">
+    <ul class="pagination">
+      <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+      <li class="page-item"><a class="page-link" href="#">1</a></li>
+      <li class="page-item"><a class="page-link" href="#">2</a></li>
+      <li class="page-item"><a class="page-link" href="#">3</a></li>
+      <li class="page-item"><a class="page-link" href="#">Next</a></li>
+    </ul>
+  </nav>
   <cod-pagination-item data-url="#" data-text="Previous">
   </cod-pagination-item>
   <cod-pagination-item data-url="#" data-text="1">
