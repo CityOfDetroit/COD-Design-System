@@ -25,7 +25,8 @@ export default class Dropdown extends HTMLElement {
       this.shadowRoot.addEventListener( 'slotchange', ev => {  
         let tempElements = Array.from(this.children);  
         tempElements.forEach((node)=>{
-          this.dropdown.append(node);
+          let nodeClasses = node.className.split(' ');
+          (nodeClasses.includes('no-wc')) ? node.remove() : this.dropdown.append(node);
         });
       });
 

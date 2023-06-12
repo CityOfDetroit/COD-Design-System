@@ -1,6 +1,7 @@
 import { html } from 'lit-html';
 import '../components/molecules/Dropdown/cod-dropdown';
 import '../components/atoms/DropdownMenu/cod-dropdown-menu';
+import '../components/atoms/Button/cod-button';
 
 export default {
   title: 'Components/Molecules/Dropdown',
@@ -9,6 +10,16 @@ export default {
 export const Basic = () => html`
 <cod-dropdown
   data-split="false">
+  <div class="no-wc dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+      Dropdown button
+    </button>
+    <ul class="dropdown-menu">
+      <li><a class="dropdown-item" href="#">Action</a></li>
+      <li><a class="dropdown-item" href="#">Another action</a></li>
+      <li><a class="dropdown-item" href="#">Something else here</a></li>
+    </ul>
+  </div>
   <cod-button data-label="Dropdown button" data-background-color="primary" data-primary="true" data-img-alt="" data-icon="" data-bs-toggle="dropdown" aria-expanded="false" data-extra-classes="dropdown-toggle"></cod-button>
   <cod-dropdown-menu>
   <li><a class="dropdown-item" href="#">Action</a></li>
