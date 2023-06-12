@@ -20,21 +20,22 @@ export default class FormCheckGroup extends HTMLElement {
       shadow.appendChild(template.content.cloneNode(true));
       this.btnGroup = shadow.querySelector('div');
       shadow.addEventListener( 'slotchange', ev => {  
-      let tempElements = Array.from(this.children);  
-      tempElements.forEach((node)=>{
-        this.btnGroup.append(node);
-      });
+        let tempElements = Array.from(this.children);  
+        tempElements.forEach((node)=>{
+          let nodeClasses = node.className.split(' ');
+          (nodeClasses.includes('no-wc')) ? node.remove() : this.btnGroup.append(node);
+        });
       });
       // setting up styles
-        const bootStyles = document.createElement('style');
-        bootStyles.textContent = bootstrapStyles;
-        const variableStyles = document.createElement('style');
-        variableStyles.textContent = varStyles;
-        const formSelectStyles = document.createElement('style');
-        formSelectStyles.textContent = styles;
-        shadow.appendChild(bootStyles);
-        shadow.appendChild(variableStyles);
-        shadow.appendChild(formSelectStyles);
+      const bootStyles = document.createElement('style');
+      bootStyles.textContent = bootstrapStyles;
+      const variableStyles = document.createElement('style');
+      variableStyles.textContent = varStyles;
+      const formSelectStyles = document.createElement('style');
+      formSelectStyles.textContent = styles;
+      shadow.appendChild(bootStyles);
+      shadow.appendChild(variableStyles);
+      shadow.appendChild(formSelectStyles);
     }
   
     connectedCallback() {
