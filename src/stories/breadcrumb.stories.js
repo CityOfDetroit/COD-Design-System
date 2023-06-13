@@ -14,6 +14,13 @@ export const Basic = () => html`
 <li class="breadcrumb-item active" aria-current="page">Library</li>
 </cod-breadcrumb>
 <cod-breadcrumb>
+<nav aria-label="breadcrumb" class="no-wc">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="#">Home</a></li>
+    <li class="breadcrumb-item"><a href="#">Library</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Data</li>
+  </ol>
+</nav>
 <li class="breadcrumb-item"><a href="#">Home</a></li>
 <li class="breadcrumb-item"><a href="#">Library</a></li>
 <li class="breadcrumb-item active" aria-current="page">Data</li>

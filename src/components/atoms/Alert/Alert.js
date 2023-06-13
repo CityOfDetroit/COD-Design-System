@@ -23,7 +23,8 @@ export default class Alert extends HTMLElement {
     shadow.addEventListener( 'slotchange', ev => {  
       let tempElements = Array.from(this.children);  
       tempElements.forEach((node)=>{
-        this.alert.querySelector('#alert-content').append(node);
+        let nodeClasses = node.className.split(' ');
+        (nodeClasses.includes('no-wc')) ? node.remove() : this.alert.querySelector('#alert-content').append(node);
       })
     });
   }

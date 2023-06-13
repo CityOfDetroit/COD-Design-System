@@ -8,6 +8,13 @@ export default {
 
 export const Basic = () => html`
 <cod-listgroup data-tag="ul">
+    <ul class="no-wc list-group">
+        <li class="list-group-item">An item</li>
+        <li class="list-group-item">A second item</li>
+        <li class="list-group-item">A third item</li>
+        <li class="list-group-item">A fourth item</li>
+        <li class="list-group-item">And a fifth one</li>
+    </ul>
     <cod-listgroup-item data-tag="li" data-text="An item">
     </cod-listgroup-item>
     <cod-listgroup-item data-tag="li" data-text="A second item">

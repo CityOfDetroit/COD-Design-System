@@ -35,7 +35,8 @@ export default class Pagination extends HTMLElement {
           paginationItem.className = paginationItemClasses.join(' ');
           node.setAttribute('data-index', index);
           paginationItem.appendChild(node);
-          this.pagination.append(paginationItem);
+          let nodeClasses = node.className.split(' ');
+          (nodeClasses.includes('no-wc')) ? node.remove() : this.pagination.append(paginationItem);
         });
       });
       this.paginationContainer.appendChild(this.pagination);

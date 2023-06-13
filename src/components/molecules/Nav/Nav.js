@@ -25,6 +25,8 @@ export default class Nav extends HTMLElement {
           navItem.className = 'nav-item';
           navItem.appendChild(node);
           this.nav.append(navItem);
+          let nodeClasses = node.className.split(' ');
+          (nodeClasses.includes('no-wc')) ? node.remove() : this.nav.append(navItem);
         });
       });
 

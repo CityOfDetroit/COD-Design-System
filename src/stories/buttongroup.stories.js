@@ -1,6 +1,7 @@
 import { html } from 'lit-html';
 import '../components/molecules/ButtonGroup/cod-button-group';
 import '../components/atoms/Button/cod-button';
+import '../components/atoms/FormCheck/cod-formcheck';
 
 export default {
   title: 'Components/Molecules/ButtonGroup',
@@ -10,6 +11,11 @@ export const Basic = () => html`
 <cod-button-group
   data-type="group"
   data-label="basic example">
+  <div class="no-wc btn-group" role="group" aria-label="Basic example">
+    <button type="button" class="btn btn-primary">Left</button>
+    <button type="button" class="btn btn-primary">Middle</button>
+    <button type="button" class="btn btn-primary">Right</button>
+  </div>
   <cod-button data-label="Left" data-background-color="primary" data-primary="true" data-img-alt="" data-icon=""></cod-button>
   <cod-button data-label="Middle" data-background-color="primary" data-primary="true" data-img-alt="" data-icon=""></cod-button>
   <cod-button data-label="Right" data-background-color="primary" data-primary="true" data-img-alt="" data-icon=""></cod-button>

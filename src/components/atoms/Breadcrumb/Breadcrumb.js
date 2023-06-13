@@ -21,10 +21,18 @@ export default class Container extends HTMLElement {
       shadow.appendChild(template.content.cloneNode(true));
       this.nav = shadow.querySelector('nav');
       this.breadcrumb = shadow.querySelector('ol');
-        shadow.addEventListener( 'slotchange', ev => {      
-        let node = this.querySelector( 'li' )
-        node && this.breadcrumb.append( node )
+      shadow.addEventListener( 'slotchange', ev => {   
+        let tempElements = Array.from(this.children);  
+        tempElements.forEach((node)=>{
+          let nodeClasses = node.className.split(' ');
+          if(nodeClasses.includes('no-wc')){
+            node.remove();
+          }else{
+            let crumb = this.querySelector( 'li' );
+            crumb && this.breadcrumb.append( crumb );
+          }
         });
+      });
       const bootStyles = document.createElement('style');
       bootStyles.textContent = bootstrapStyles;
       const variableStyles = document.createElement('style');
