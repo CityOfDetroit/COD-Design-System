@@ -30,7 +30,8 @@ export default class Offcanvas extends HTMLElement {
           (this.getAttribute('data-button-dark') == 'true') ? node.setAttribute('data-button-dark', true) : 0;
           node.setAttribute('data-parent-id', this.getAttribute('data-id'));
         }
-        this.offcanvas.appendChild(node);
+        let nodeClasses = node.className.split(' ');
+        (nodeClasses.includes('no-wc')) ? node.remove() : this.offcanvas.appendChild(node);
       });
     });
 
