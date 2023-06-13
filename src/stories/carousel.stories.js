@@ -2,6 +2,7 @@ import { html } from 'lit-html';
 import '../components/atoms/CarouselItem/cod-carousel-item';
 import '../components/atoms/CarouselCaption/cod-carousel-caption';
 import '../components/organisms/Carousel/cod-carousel';
+import '../components/atoms/Button/cod-button';
 
 export default {
   title: 'Components/Organisms/Carousel',
