@@ -53,6 +53,8 @@ export default class Navbar extends HTMLElement {
             break;
 
           default:
+            let nodeClasses = node.className.split(' ');
+            (nodeClasses.includes('no-wc')) ? node.remove() : 0;
             break;
         }
       });
