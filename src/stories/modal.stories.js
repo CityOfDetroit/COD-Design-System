@@ -3,6 +3,7 @@ import '../components/atoms/ModalHeader/cod-modal-header';
 import '../components/atoms/ModalBody/cod-modal-body';
 import '../components/atoms/ModalFooter/cod-modal-footer';
 import '../components/organisms/Modal/cod-modal';
+import '../components/atoms/Button/cod-button';
 
 export default {
   title: 'Components/Organisms/Modal',
@@ -13,14 +14,31 @@ export const Basic = () => html`
   Launch demo modal
 </button>
 <cod-modal data-id="exampleModal">
-    <cod-modal-header>
+  <div class="no-wc modal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Modal title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>Modal body text goes here.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <cod-modal-header>
     <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-    </cod-modal-header>
-    <cod-modal-body>
+  </cod-modal-header>
+  <cod-modal-body>
     <p>Woo-hoo, you're reading this text in a modal!</p>
-    </cod-modal-body>
-    <cod-modal-footer data-button-extra-classes="btn-primary">
-    </cod-modal-footer>
+  </cod-modal-body>
+  <cod-modal-footer data-button-extra-classes="btn-primary">
+  </cod-modal-footer>
 </cod-offcanvas>
 `;
 
