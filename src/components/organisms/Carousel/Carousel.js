@@ -27,9 +27,14 @@ export default class Carousel extends HTMLElement {
     this.carouselInner.className = 'carousel-inner';
     this.carouselPrev = document.createElement('button');
     this.carouselNext = document.createElement('button');
-    this.carousel.appendChild(this.carouselInner);
     if (this.getAttribute('data-no-controls') != 'true') {
-      this.carouselPrev.className = 'carousel-control-prev';
+      if (this.getAttribute('data-external-controls') == 'true'){
+        this.carouselPrev.className = 'carousel-control-prev position-relative';
+        this.carouselNext.className = 'carousel-control-next position-relative';
+      }else{
+        this.carouselPrev.className = 'carousel-control-prev';
+        this.carouselNext.className = 'carousel-control-next';
+      }
       this.carouselPrev.type = 'button';
       this.carouselPrev.setAttribute('data-bs-target', `#${this.getAttribute('data-id')}`);
       this.carouselPrev.setAttribute('data-bs-slide', 'prev');
@@ -41,7 +46,6 @@ export default class Carousel extends HTMLElement {
       prevText.className = 'visually-hidden';
       prevText.innerText = 'Previous';
       this.carouselPrev.appendChild(prevText);
-      this.carouselNext.className = 'carousel-control-next';
       this.carouselNext.type = 'button';
       this.carouselNext.setAttribute('data-bs-target', `#${this.getAttribute('data-id')}`);
       this.carouselNext.setAttribute('data-bs-slide', 'next');
@@ -58,7 +62,10 @@ export default class Carousel extends HTMLElement {
       this.carouselPrev.addEventListener('click', this._onClick);
       this.carouselNext.addEventListener('click', this._onClick);
       this.carousel.appendChild(this.carouselPrev);
+      this.carousel.appendChild(this.carouselInner);
       this.carousel.appendChild(this.carouselNext);
+    }else{
+      this.carousel.appendChild(this.carouselInner);
     }
 
     shadow.addEventListener('slotchange', e => {
@@ -135,15 +142,16 @@ export default class Carousel extends HTMLElement {
 
   connectedCallback() {
     // Modal attributes
-    let captions = this.getAttribute('data-captions');
     let id = this.getAttribute('data-id');
     let crossfade = this.getAttribute('data-crossfade');
     let autoplay = this.getAttribute('data-autoplay');
     let noTouch = this.getAttribute('data-no-touch');
     let extraClasses = this.getAttribute('data-extra-classes');
+    let externalControls = this.getAttribute('data-external-controls');
     let carouselClasses = ['carousel slide'];
     (extraClasses != undefined && extraClasses != null) ? carouselClasses.push(extraClasses) : 0;
     (crossfade == 'true') ? carouselClasses.push('carousel-fade') : 0;
+    (externalControls == 'true') ? carouselClasses.push('d-flex') : 0;
     (noTouch == 'false') ? this.carousel.setAttribute('data-bs-touch', 'false') : 0;
     if (autoplay != undefined && autoplay != null) {
       (autoplay == 'true') ? this.carousel.setAttribute('data-bs-ride', autoplay) : this.carousel.setAttribute('data-bs-ride', 'carousel');
