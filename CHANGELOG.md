@@ -1,3 +1,27 @@
+# v1.0.2 (Thu Aug 03 2023)
+
+#### 🐛 Bug Fix
+
+- Issue.63 [#64](https://github.com/jedgar1mx/COD-Design-System/pull/64) ([@jedgar1mx](https://github.com/jedgar1mx))
+- Fixing size controls for button story. [#62](https://github.com/jedgar1mx/COD-Design-System/pull/62) ([@jedgar1mx](https://github.com/jedgar1mx))
+- Issue.53 [#60](https://github.com/jedgar1mx/COD-Design-System/pull/60) ([@jedgar1mx](https://github.com/jedgar1mx))
+- Fixing undeclared components not loading on stories. [#59](https://github.com/jedgar1mx/COD-Design-System/pull/59) ([@jedgar1mx](https://github.com/jedgar1mx))
+
+#### 🏠 Internal
+
+- fixing npm-publish workflow. [#66](https://github.com/jedgar1mx/COD-Design-System/pull/66) ([@jedgar1mx](https://github.com/jedgar1mx))
+
+#### 📝 Documentation
+
+- Issue.56 [#57](https://github.com/jedgar1mx/COD-Design-System/pull/57) ([@jedgar1mx](https://github.com/jedgar1mx))
+- Issue.54 [#55](https://github.com/jedgar1mx/COD-Design-System/pull/55) ([@jedgar1mx](https://github.com/jedgar1mx))
+
+#### Authors: 1
+
+- J Edgar Montes ([@jedgar1mx](https://github.com/jedgar1mx))
+
+---
+
 # v1.0.1 (Tue May 23 2023)
 
 #### 📝 Documentation
