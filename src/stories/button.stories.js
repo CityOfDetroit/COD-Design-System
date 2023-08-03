@@ -19,7 +19,7 @@ export default {
     onClick: { action: 'onClick' },
     size: {
       control: { type: 'select' },
-      options: ['sm', 'lg'],
+      options: ['sm', 'md', 'lg'],
     },
     icon: {
       control: { type: 'select' },
@@ -63,7 +63,7 @@ const Template = (args) => {
     btn.setAttribute('data-hidden-label', args.hLabel);
   }
   if(args.size){
-    btn.setAttribute('data-id', args.size);
+    btn.setAttribute('data-size', args.size);
   }
   if(args.id){
     btn.setAttribute('data-id', args.id);
