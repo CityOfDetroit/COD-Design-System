@@ -1,3 +1,15 @@
+# v1.0.3 (Thu Aug 03 2023)
+
+#### 🐛 Bug Fix
+
+- Fixing syntax on workflow. [#68](https://github.com/jedgar1mx/COD-Design-System/pull/68) ([@jedgar1mx](https://github.com/jedgar1mx))
+
+#### Authors: 1
+
+- J Edgar Montes ([@jedgar1mx](https://github.com/jedgar1mx))
+
+---
+
 # v1.0.2 (Thu Aug 03 2023)
 
 #### 🐛 Bug Fix
