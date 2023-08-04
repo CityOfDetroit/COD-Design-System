@@ -46,8 +46,8 @@ jobs:
           node-version: 16
       - run: yarn install --frozen-lockfile
       - run: yarn deploy-storybook
-        with:
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   publish-npm:
     needs: build
@@ -62,4 +62,4 @@ jobs:
       - run: yarn build-package
       - run: yarn publish
         env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+          NPM_TOKEN: ${{secrets.NPM_TOKEN}}
