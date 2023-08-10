@@ -65,20 +65,23 @@ export const Input = Template.bind({});
 Input.args = {
   id: 'simple-input',
   placeholder: 'enter text here',
+  tag: 'input'
 };
 
 export const ReadOnly = Template.bind({});
 ReadOnly.args = {
   id: 'read-only-input',
   placeholder: 'Not editable',
-  readOnly: 'true'
+  readOnly: 'true',
+  tag: 'input'
 };
 
 export const SpecialInput = Template.bind({});
 SpecialInput.args = {
   id: 'special-input',
   placeholder: 'enter text here',
-  type: 'color'
+  type: 'color',
+  tag: 'input'
 };
 
 export const Textarea = Template.bind({});
@@ -94,12 +97,14 @@ Disabled.args = {
   id: 'disabled-input',
   placeholder: 'This input is disabled',
   disabled: 'true',
+  tag: 'input'
 };
 
 export const WithInteraction = Template.bind({});
 WithInteraction.args = {
     id: 'interaction-input',
     placeholder: 'enter text here',
+    tag: 'input',
     keydown: (e) => {console.log(e)},
 };
 
