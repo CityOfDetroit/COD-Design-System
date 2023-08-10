@@ -1,3 +1,23 @@
+# (Thu Aug 10 2023)
+
+#### 🐛 Bug Fix
+
+- Issue.69 [#71](https://github.com/jedgar1mx/COD-Design-System/pull/71) ([@jedgar1mx](https://github.com/jedgar1mx))
+
+#### 📝 Documentation
+
+- Create new Modal story to show case how to create a color modal. [#72](https://github.com/jedgar1mx/COD-Design-System/pull/72) ([@jedgar1mx](https://github.com/jedgar1mx))
+
+#### 🧪 Tests
+
+- Add missing default values for form.control component. [#74](https://github.com/jedgar1mx/COD-Design-System/pull/74) ([@jedgar1mx](https://github.com/jedgar1mx))
+
+#### Authors: 1
+
+- J Edgar Montes ([@jedgar1mx](https://github.com/jedgar1mx))
+
+---
+
 # v1.0.3 (Thu Aug 03 2023)
 
 #### 🐛 Bug Fix
