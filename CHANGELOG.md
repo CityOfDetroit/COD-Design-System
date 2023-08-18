@@ -1,6 +1,20 @@
-# v1.0.5 (Thu Aug 10 2023)
+# v1.0.5 (Fri Aug 18 2023)
 
+#### 🐛 Bug Fix
 
+- Switching bootstrap variables from rem to em. [#76](https://github.com/jedgar1mx/COD-Design-System/pull/76) ([@jedgar1mx](https://github.com/jedgar1mx))
+
+#### ⚠️ Pushed to `dev`
+
+- Updating version. ([@jedgar1mx](https://github.com/jedgar1mx))
+
+#### 🔩 Dependency Updates
+
+- Upgrading storybook version. [#78](https://github.com/jedgar1mx/COD-Design-System/pull/78) ([@jedgar1mx](https://github.com/jedgar1mx))
+
+#### Authors: 1
+
+- J Edgar Montes ([@jedgar1mx](https://github.com/jedgar1mx))
 
 ---
 
