@@ -23,7 +23,7 @@ export default {
     },
     icon: {
       control: { type: 'select' },
-      options: ['house', 'house-fill', 'exclamation-circle', 'exclamation-circle-fill', 'exclamation-triangle', 'check-circle', 'check-circle-fill']
+      options: ['house', 'house-fill', 'exclamation-circle', 'exclamation-circle-fill', 'exclamation-triangle', 'check-circle', 'check-circle-fill', 'calendar', 'calendar-fill', 'calendar-date', 'calendar-date-fill']
     },
     iconSize: {
       control: { type: 'select' },
