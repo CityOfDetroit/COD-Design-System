@@ -2,6 +2,27 @@
 
 #### 🐛 Bug Fix
 
+- Feature.81 [#82](https://github.com/jedgar1mx/COD-Design-System/pull/82) ([@jedgar1mx](https://github.com/jedgar1mx))
+- Fix.issue.79 [#80](https://github.com/jedgar1mx/COD-Design-System/pull/80) ([@jedgar1mx](https://github.com/jedgar1mx))
+
+#### ⚠️ Pushed to `master`
+
+- Merge branch 'dev' of github.com:jedgar1mx/COD-Design-System into dev ([@jedgar1mx](https://github.com/jedgar1mx))
+
+#### 📝 Documentation
+
+- Adding story to show how to use extra classes. [#84](https://github.com/jedgar1mx/COD-Design-System/pull/84) ([@jedgar1mx](https://github.com/jedgar1mx))
+
+#### Authors: 1
+
+- J Edgar Montes ([@jedgar1mx](https://github.com/jedgar1mx))
+
+---
+
+# v1.0.6 (Tue Aug 29 2023)
+
+#### 🐛 Bug Fix
+
 - Fix.issue.79 [#80](https://github.com/jedgar1mx/COD-Design-System/pull/80) ([@jedgar1mx](https://github.com/jedgar1mx))
 
 #### Authors: 1
