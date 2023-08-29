@@ -89,6 +89,13 @@ Secondary.args = {
   label: 'Secondary',
 };
 
+export const Extras = Template.bind({});
+Extras.args = {
+  primary: false,
+  label: 'Extras',
+  extraClasses: 'w-100'
+};
+
 export const Link = Template.bind({});
 Link.args = {
   primary: false,
