@@ -1,3 +1,15 @@
+# v1.0.6 (Tue Aug 29 2023)
+
+#### 🐛 Bug Fix
+
+- Fix.issue.79 [#80](https://github.com/jedgar1mx/COD-Design-System/pull/80) ([@jedgar1mx](https://github.com/jedgar1mx))
+
+#### Authors: 1
+
+- J Edgar Montes ([@jedgar1mx](https://github.com/jedgar1mx))
+
+---
+
 # v1.0.5 (Fri Aug 18 2023)
 
 #### 🐛 Bug Fix
