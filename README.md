@@ -7,9 +7,9 @@ This project was created using:
  - [Webpack](https://webpack.js.org/) as a web application bundler.
  - [Yarn](https://classic.yarnpkg.com/en/) to manage project dependencies.
  - [MapLibre](https://maplibre.org/) for map framework.
- - [Storybook](https://www.cypress.io/) for UI component management.
+ - [Storybook](https://storybook.js.org/) for UI component management.
 
-## Implenentation
+## Using in Your Project
 1. Load package into your project
     ```
     yarn add @cityofdetroit/cod-design-system
@@ -18,14 +18,15 @@ This project was created using:
     npm i @cityofdetroit/cod-design-system
     ```
 
-## Setup Local Environment.
+## Contributing 
+
+### Setup Local Environment
 
 1. Download the repo.
     ```
     $ git clone git@github.com:jedgar1mx/COD-Design-System.git
     ```
 2. Install node dependencies.
-
     ```
     $ yarn
     ```
