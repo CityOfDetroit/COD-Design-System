@@ -74,7 +74,6 @@ export default class AccordionItem extends HTMLElement {
     let parentID = this.getAttribute('data-parent-id');
     let index = this.getAttribute('data-index');
     let expanded = this.getAttribute('data-expanded');
-    let alwaysOpen = this.getAttribute('data-always-open');
     let headerExtraClasses = this.getAttribute('data-header-extra-classes');
     let bodyExtraClasses = this.getAttribute('data-body-extra-classes');
     let accordionHeaderClasses = ['accordion-header'];
