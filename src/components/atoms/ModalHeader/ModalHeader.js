@@ -8,9 +8,7 @@ template.innerHTML = `
 <slot></slot>
 `;
 
-
 export default class ModalHeader extends HTMLElement {
-
   constructor() {
     // Always call super first in constructor
     super();
@@ -20,16 +18,16 @@ export default class ModalHeader extends HTMLElement {
     this.modalHeader = document.createElement('div');
     this.modalTitle = document.createElement('div');
     this.closeBtn = document.createElement('cod-button');
-    this.shadowRoot.addEventListener( 'slotchange', ev => {  
-      let tempElements = Array.from(this.children);  
-      tempElements.forEach((node)=>{
-          this.modalTitle.appendChild(node);
+    this.shadowRoot.addEventListener('slotchange', (ev) => {
+      let tempElements = Array.from(this.children);
+      tempElements.forEach((node) => {
+        this.modalTitle.appendChild(node);
       });
     });
     this.modalHeader.appendChild(this.modalTitle);
     this.modalHeader.appendChild(this.closeBtn);
 
-    // Add styles   
+    // Add styles
     const bootStyles = document.createElement('style');
     bootStyles.textContent = bootstrapStyles;
     const variableStyles = document.createElement('style');
@@ -53,11 +51,15 @@ export default class ModalHeader extends HTMLElement {
     this.closeBtn.setAttribute('data-icon', '');
     this.closeBtn.setAttribute('data-close', 'true');
     this.closeBtn.setAttribute('data-bs-dismiss', 'modal');
-    (extraClasses != undefined && extraClasses != null) ? modalHeaderClasses.push(extraClasses): 0;
-    (btnDark == 'true') ? this.closeBtn.setAttribute('data-extra-classes', 'btn-close-white'): 0;
+    extraClasses != undefined && extraClasses != null
+      ? modalHeaderClasses.push(extraClasses)
+      : 0;
+    btnDark == 'true'
+      ? this.closeBtn.setAttribute('data-extra-classes', 'btn-close-white')
+      : 0;
     this.modalHeader.className = modalHeaderClasses.join(' ');
     this.closeBtn.addEventListener('click', this._onClick);
-    if(!this.shadowRoot.querySelector('div')){
+    if (!this.shadowRoot.querySelector('div')) {
       this.shadowRoot.appendChild(this.modalHeader);
     }
   }
@@ -67,6 +69,8 @@ export default class ModalHeader extends HTMLElement {
   }
 
   _onClick(e) {
-    this.getRootNode().host.getRootNode().host.setAttribute('data-show', 'false');
+    this.getRootNode()
+      .host.getRootNode()
+      .host.setAttribute('data-show', 'false');
   }
-};
+}

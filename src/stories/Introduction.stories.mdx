@@ -119,19 +119,20 @@ import StackAlt from './assets/stackalt.svg';
 This is the COD UXDS Storybook, a sandbox for demonstrating and developing components and patterns built for the City of Detroit UX Design System ("COD UXDS"). This demonstration is built using the open source tool Storybook using JavaScript and Node.js. All COD components are built using **ONLY JAVASCRIPT** to deliver standards-compliant web components. COD web components are platform-agnostic and can be used in any JavaScript framework of your choice or directly in the browser using static HTML.
 
 **Why no framework?**
-* Frameworks can increase the learning curve due to specific syntax or particular methodologies dictated by the creators.
-* Support and maintenance are heavily influence by the developer community which can change often.
+
+- Frameworks can increase the learning curve due to specific syntax or particular methodologies dictated by the creators.
+- Support and maintenance are heavily influence by the developer community which can change often.
 
 In the Sidebar to the left, you can browse the components and patterns within COD. Each example will be demonstrated in what is called a "story" within the Canvas (the area of the window you're reading now). Across the top of the Canvas area, you will see a Docs tab, zoom controls, a color blindness simulator, and a light/dark theme toggle.
 
-* **Docs tab** - includes all of the developer documentation for each component, including guidelines and usage, the full API, any variants, and instructions for cherry picking.
+- **Docs tab** - includes all of the developer documentation for each component, including guidelines and usage, the full API, any variants, and instructions for cherry picking.
 
 While viewing a component, to the right of the Canvas there is a tabbed Panel which displays Controls, any Action outputs associated with that demonstration, and an Accessibility audit:
 
-* **Control** - options allow you to change content in the demonstration area by altering the data given to the component via its properties.
-* **Actions** - provides console output where user actions like clicking or selecting should produce event target information.
-* **Accessibilty** - displays a11y violations of WCAG 2.0 Levels A and AA, WCAG 2.1 Level AA, Section 508, and other best practices through the aXe accessibilty engine.
-Display options and keyboard shortcuts are available via the Ellipsis Menu Icon next to the COD UXDS logo at the top of the sidebar.
+- **Control** - options allow you to change content in the demonstration area by altering the data given to the component via its properties.
+- **Actions** - provides console output where user actions like clicking or selecting should produce event target information.
+- **Accessibilty** - displays a11y violations of WCAG 2.0 Levels A and AA, WCAG 2.1 Level AA, Section 508, and other best practices through the aXe accessibilty engine.
+  Display options and keyboard shortcuts are available via the Ellipsis Menu Icon next to the COD UXDS logo at the top of the sidebar.
 
 <div className="subheading">Configure</div>
 
@@ -149,7 +150,6 @@ Display options and keyboard shortcuts are available via the Ellipsis Menu Icon 
   <a
     className="link-item"
     href="https://jedgar1mx.github.io/COD-Design-System/?path=/story/cod-uxds-customization--page"
-    
   >
     <img src={StackAlt} alt="Build" />
     <span>
@@ -168,7 +168,11 @@ Display options and keyboard shortcuts are available via the Ellipsis Menu Icon 
       Learn about our style guide.
     </span>
   </a>
-  <a className="link-item" href="https://github.com/jedgar1mx/COD-Design-System" target="_blank">
+  <a
+    className="link-item"
+    href="https://github.com/jedgar1mx/COD-Design-System"
+    target="_blank"
+  >
     <img src={Code} alt="code" />
     <span>
       <strong>GitHub project</strong>
@@ -176,5 +180,3 @@ Display options and keyboard shortcuts are available via the Ellipsis Menu Icon 
     </span>
   </a>
 </div>
-
-

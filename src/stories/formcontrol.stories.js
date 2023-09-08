@@ -4,47 +4,56 @@ export default {
   title: 'Forms/FormControl',
   argTypes: {
     tag: {
-        control: { type: 'select' },
-        options: ['input', 'textarea'],
-        defaultValue: 'input',
+      control: { type: 'select' },
+      options: ['input', 'textarea'],
+      defaultValue: 'input',
     },
-    backgroundColor: { 
-        control: { type: 'select' },
-        options: ['primary', 'secondary', 'success', 'info', 'warning', 'danger', 'light', 'dark'],
+    backgroundColor: {
+      control: { type: 'select' },
+      options: [
+        'primary',
+        'secondary',
+        'success',
+        'info',
+        'warning',
+        'danger',
+        'light',
+        'dark',
+      ],
     },
     size: {
       control: { type: 'select' },
       options: ['sm', 'md', 'lg'],
-      defaultValue: 'md'
+      defaultValue: 'md',
     },
     type: {
-        control: { type: 'select' },
-        options: ['text', 'number', 'email', 'color', 'tel', 'password'],
-        defaultValue: 'text',
+      control: { type: 'select' },
+      options: ['text', 'number', 'email', 'color', 'tel', 'password'],
+      defaultValue: 'text',
     },
-    required: { 
+    required: {
       control: { type: 'select' },
       options: ['true', 'false'],
-      defaultValue: 'false'
+      defaultValue: 'false',
     },
-    readOnly: { 
+    readOnly: {
       control: { type: 'select' },
       options: ['true', 'false'],
-      defaultValue: 'false'
-    }
+      defaultValue: 'false',
+    },
   },
 };
 // Template
 const Template = (args) => {
   const fcontrol = document.createElement('cod-form-control');
   fcontrol.setAttribute('data-tag', args.tag);
-  if(args.size != null){
+  if (args.size != null) {
     fcontrol.setAttribute('data-size', args.size);
   }
-  if(args.rows != null){
+  if (args.rows != null) {
     fcontrol.setAttribute('data-rows', args.rows);
   }
-  if(args.value != null){
+  if (args.value != null) {
     fcontrol.setAttribute('data-value', args.value);
   }
   fcontrol.setAttribute('data-read-only', args.readOnly);
@@ -55,17 +64,17 @@ const Template = (args) => {
   fcontrol.setAttribute('data-disabled', args.disabled);
   fcontrol.setAttribute('data-required', args.required);
   fcontrol.setAttribute('data-placeholder-txt', args.placeholder);
-  fcontrol.addEventListener('keydown', (e)=>{
-    args.keydown(e)
-  })
+  fcontrol.addEventListener('keydown', (e) => {
+    args.keydown(e);
+  });
   return fcontrol;
-}
+};
 
 export const Input = Template.bind({});
 Input.args = {
   id: 'simple-input',
   placeholder: 'enter text here',
-  tag: 'input'
+  tag: 'input',
 };
 
 export const ReadOnly = Template.bind({});
@@ -73,7 +82,7 @@ ReadOnly.args = {
   id: 'read-only-input',
   placeholder: 'Not editable',
   readOnly: 'true',
-  tag: 'input'
+  tag: 'input',
 };
 
 export const SpecialInput = Template.bind({});
@@ -81,7 +90,7 @@ SpecialInput.args = {
   id: 'special-input',
   placeholder: 'enter text here',
   type: 'color',
-  tag: 'input'
+  tag: 'input',
 };
 
 export const Textarea = Template.bind({});
@@ -97,15 +106,17 @@ Disabled.args = {
   id: 'disabled-input',
   placeholder: 'This input is disabled',
   disabled: 'true',
-  tag: 'input'
+  tag: 'input',
 };
 
 export const WithInteraction = Template.bind({});
 WithInteraction.args = {
-    id: 'interaction-input',
-    placeholder: 'enter text here',
-    tag: 'input',
-    keydown: (e) => {console.log(e)},
+  id: 'interaction-input',
+  placeholder: 'enter text here',
+  tag: 'input',
+  keydown: (e) => {
+    console.log(e);
+  },
 };
 
 // WithInteraction.play = async ({ args, canvasElement }) => {

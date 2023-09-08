@@ -118,7 +118,6 @@
 - Moving image sources to slot. [#8](https://github.com/jedgar1mx/COD-Design-System/pull/8) ([@jedgar1mx](https://github.com/jedgar1mx))
 - GitHub.actions [#1](https://github.com/jedgar1mx/COD-Design-System/pull/1) ([@jedgar1mx](https://github.com/jedgar1mx))
 
-
 #### 📝 Documentation
 
 - Issue.49 [#50](https://github.com/jedgar1mx/COD-Design-System/pull/50) ([@jedgar1mx](https://github.com/jedgar1mx))

@@ -11,260 +11,272 @@ export default {
 };
 
 export const Basic = () => html`
-<cod-table data-id="basicTable">
+  <cod-table data-id="basicTable">
     <table class="table no-wc">
-        <thead>
+      <thead>
         <tr>
-            <th scope="col">#</th>
-            <th scope="col">First</th>
-            <th scope="col">Last</th>
-            <th scope="col">Handle</th>
+          <th scope="col">#</th>
+          <th scope="col">First</th>
+          <th scope="col">Last</th>
+          <th scope="col">Handle</th>
         </tr>
-        </thead>
-        <tbody>
+      </thead>
+      <tbody>
         <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-        </tr>
-        <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
+          <th scope="row">1</th>
+          <td>Mark</td>
+          <td>Otto</td>
+          <td>@mdo</td>
         </tr>
         <tr>
-            <th scope="row">3</th>
-            <td colspan="2">Larry the Bird</td>
-            <td>@twitter</td>
+          <th scope="row">2</th>
+          <td>Jacob</td>
+          <td>Thornton</td>
+          <td>@fat</td>
         </tr>
-        </tbody>
+        <tr>
+          <th scope="row">3</th>
+          <td colspan="2">Larry the Bird</td>
+          <td>@twitter</td>
+        </tr>
+      </tbody>
     </table>
     <cod-table-header>
-        <cod-table-row>
+      <cod-table-row>
         <cod-table-cell-header scope="col">#</cod-table-cell-header>
         <cod-table-cell-header scope="col">First</cod-table-cell-header>
         <cod-table-cell-header scope="col">Last</cod-table-cell-header>
         <cod-table-cell-header scope="col">Handle</cod-table-cell-header>
-        </cod-table-row>
+      </cod-table-row>
     </cod-table-header>
     <cod-table-body>
-        <cod-table-row>
+      <cod-table-row>
         <cod-table-cell scope="row">1</cod-table-cell>
         <cod-table-cell>Mark</cod-table-cell>
         <cod-table-cell>Otto</cod-table-cell>
         <cod-table-cell>@mdo</cod-table-cell>
-        </cod-table-row>
-        <cod-table-row>
+      </cod-table-row>
+      <cod-table-row>
         <cod-table-cell scope="row">2</cod-table-cell>
         <cod-table-cell>Jacob</cod-table-cell>
         <cod-table-cell>Thornton</cod-table-cell>
         <cod-table-cell>@fat</cod-table-cell>
-        </cod-table-row>
-        <cod-table-row>
+      </cod-table-row>
+      <cod-table-row>
         <cod-table-cell scope="row">3</cod-table-cell>
         <cod-table-cell colspan="2">Larry the Bird</cod-table-cell>
         <cod-table-cell>@twitter</cod-table-cell>
-        </cod-table-row>
+      </cod-table-row>
     </cod-table-body>
-</cod-table>
+  </cod-table>
 `;
 
 export const StripedRows = () => html`
-<cod-table data-id="striped-row" data-striped-row="true">
+  <cod-table data-id="striped-row" data-striped-row="true">
     <cod-table-header>
-        <cod-table-row>
+      <cod-table-row>
         <cod-table-cell-header scope="col">#</cod-table-cell-header>
         <cod-table-cell-header scope="col">First</cod-table-cell-header>
         <cod-table-cell-header scope="col">Last</cod-table-cell-header>
         <cod-table-cell-header scope="col">Handle</cod-table-cell-header>
-        </cod-table-row>
+      </cod-table-row>
     </cod-table-header>
     <cod-table-body>
-        <cod-table-row>
+      <cod-table-row>
         <cod-table-cell scope="row">1</cod-table-cell>
         <cod-table-cell>Mark</cod-table-cell>
         <cod-table-cell>Otto</cod-table-cell>
         <cod-table-cell>@mdo</cod-table-cell>
-        </cod-table-row>
-        <cod-table-row>
+      </cod-table-row>
+      <cod-table-row>
         <cod-table-cell scope="row">2</cod-table-cell>
         <cod-table-cell>Jacob</cod-table-cell>
         <cod-table-cell>Thornton</cod-table-cell>
         <cod-table-cell>@fat</cod-table-cell>
-        </cod-table-row>
-        <cod-table-row>
+      </cod-table-row>
+      <cod-table-row>
         <cod-table-cell scope="row">3</cod-table-cell>
         <cod-table-cell colspan="2">Larry the Bird</cod-table-cell>
         <cod-table-cell>@twitter</cod-table-cell>
-        </cod-table-row>
+      </cod-table-row>
     </cod-table-body>
-</cod-table>
+  </cod-table>
 `;
 
 export const StripedColumns = () => html`
-<cod-table data-id="striped-col" data-striped-col="true">
+  <cod-table data-id="striped-col" data-striped-col="true">
     <cod-table-header>
-        <cod-table-row>
+      <cod-table-row>
         <cod-table-cell-header scope="col">#</cod-table-cell-header>
         <cod-table-cell-header scope="col">First</cod-table-cell-header>
         <cod-table-cell-header scope="col">Last</cod-table-cell-header>
         <cod-table-cell-header scope="col">Handle</cod-table-cell-header>
-        </cod-table-row>
+      </cod-table-row>
     </cod-table-header>
     <cod-table-body>
-        <cod-table-row>
+      <cod-table-row>
         <cod-table-cell scope="row">1</cod-table-cell>
         <cod-table-cell>Mark</cod-table-cell>
         <cod-table-cell>Otto</cod-table-cell>
         <cod-table-cell>@mdo</cod-table-cell>
-        </cod-table-row>
-        <cod-table-row>
+      </cod-table-row>
+      <cod-table-row>
         <cod-table-cell scope="row">2</cod-table-cell>
         <cod-table-cell>Jacob</cod-table-cell>
         <cod-table-cell>Thornton</cod-table-cell>
         <cod-table-cell>@fat</cod-table-cell>
-        </cod-table-row>
-        <cod-table-row>
+      </cod-table-row>
+      <cod-table-row>
         <cod-table-cell scope="row">3</cod-table-cell>
         <cod-table-cell colspan="2">Larry the Bird</cod-table-cell>
         <cod-table-cell>@twitter</cod-table-cell>
-        </cod-table-row>
+      </cod-table-row>
     </cod-table-body>
-</cod-table>
+  </cod-table>
 `;
 
 export const Hover = () => html`
-<cod-table data-id="table-hover" data-hover="true">
+  <cod-table data-id="table-hover" data-hover="true">
     <cod-table-header>
-        <cod-table-row>
+      <cod-table-row>
         <cod-table-cell-header scope="col">#</cod-table-cell-header>
         <cod-table-cell-header scope="col">First</cod-table-cell-header>
         <cod-table-cell-header scope="col">Last</cod-table-cell-header>
         <cod-table-cell-header scope="col">Handle</cod-table-cell-header>
-        </cod-table-row>
+      </cod-table-row>
     </cod-table-header>
     <cod-table-body>
-        <cod-table-row>
+      <cod-table-row>
         <cod-table-cell scope="row">1</cod-table-cell>
         <cod-table-cell>Mark</cod-table-cell>
         <cod-table-cell>Otto</cod-table-cell>
         <cod-table-cell>@mdo</cod-table-cell>
-        </cod-table-row>
-        <cod-table-row>
+      </cod-table-row>
+      <cod-table-row>
         <cod-table-cell scope="row">2</cod-table-cell>
         <cod-table-cell>Jacob</cod-table-cell>
         <cod-table-cell>Thornton</cod-table-cell>
         <cod-table-cell>@fat</cod-table-cell>
-        </cod-table-row>
-        <cod-table-row>
+      </cod-table-row>
+      <cod-table-row>
         <cod-table-cell scope="row">3</cod-table-cell>
         <cod-table-cell colspan="2">Larry the Bird</cod-table-cell>
         <cod-table-cell>@twitter</cod-table-cell>
-        </cod-table-row>
+      </cod-table-row>
     </cod-table-body>
-</cod-table>
+  </cod-table>
 `;
 
 export const Dark = () => html`
-<cod-table data-id="table-dark" data-hover="true" data-extra-classes="table-dark">
+  <cod-table
+    data-id="table-dark"
+    data-hover="true"
+    data-extra-classes="table-dark"
+  >
     <cod-table-header>
-        <cod-table-row>
+      <cod-table-row>
         <cod-table-cell-header scope="col">#</cod-table-cell-header>
         <cod-table-cell-header scope="col">First</cod-table-cell-header>
         <cod-table-cell-header scope="col">Last</cod-table-cell-header>
         <cod-table-cell-header scope="col">Handle</cod-table-cell-header>
-        </cod-table-row>
+      </cod-table-row>
     </cod-table-header>
     <cod-table-body>
-        <cod-table-row>
+      <cod-table-row>
         <cod-table-cell scope="row">1</cod-table-cell>
         <cod-table-cell>Mark</cod-table-cell>
         <cod-table-cell>Otto</cod-table-cell>
         <cod-table-cell>@mdo</cod-table-cell>
-        </cod-table-row>
-        <cod-table-row>
+      </cod-table-row>
+      <cod-table-row>
         <cod-table-cell scope="row">2</cod-table-cell>
         <cod-table-cell>Jacob</cod-table-cell>
         <cod-table-cell>Thornton</cod-table-cell>
         <cod-table-cell>@fat</cod-table-cell>
-        </cod-table-row>
-        <cod-table-row>
+      </cod-table-row>
+      <cod-table-row>
         <cod-table-cell scope="row">3</cod-table-cell>
         <cod-table-cell colspan="2">Larry the Bird</cod-table-cell>
         <cod-table-cell>@twitter</cod-table-cell>
-        </cod-table-row>
+      </cod-table-row>
     </cod-table-body>
-</cod-table>
+  </cod-table>
 `;
 
 export const Custom = () => html`
-<cod-table data-id="table-custom-1" data-hover="true" data-extra-classes="bg-success">
+  <cod-table
+    data-id="table-custom-1"
+    data-hover="true"
+    data-extra-classes="bg-success"
+  >
     <cod-table-header>
-        <cod-table-row>
+      <cod-table-row>
         <cod-table-cell-header scope="col">#</cod-table-cell-header>
         <cod-table-cell-header scope="col">First</cod-table-cell-header>
         <cod-table-cell-header scope="col">Last</cod-table-cell-header>
         <cod-table-cell-header scope="col">Handle</cod-table-cell-header>
-        </cod-table-row>
+      </cod-table-row>
     </cod-table-header>
     <cod-table-body>
-        <cod-table-row>
+      <cod-table-row>
         <cod-table-cell scope="row">1</cod-table-cell>
         <cod-table-cell>Mark</cod-table-cell>
         <cod-table-cell>Otto</cod-table-cell>
         <cod-table-cell>@mdo</cod-table-cell>
-        </cod-table-row>
-        <cod-table-row>
+      </cod-table-row>
+      <cod-table-row>
         <cod-table-cell scope="row">2</cod-table-cell>
         <cod-table-cell>Jacob</cod-table-cell>
         <cod-table-cell>Thornton</cod-table-cell>
         <cod-table-cell>@fat</cod-table-cell>
-        </cod-table-row>
-        <cod-table-row>
+      </cod-table-row>
+      <cod-table-row>
         <cod-table-cell scope="row">3</cod-table-cell>
         <cod-table-cell colspan="2">Larry the Bird</cod-table-cell>
         <cod-table-cell>@twitter</cod-table-cell>
-        </cod-table-row>
+      </cod-table-row>
     </cod-table-body>
-</cod-table>
+  </cod-table>
 
-<cod-table data-id="table-custom-2" data-hover="true" data-extra-classes="bg-warning">
+  <cod-table
+    data-id="table-custom-2"
+    data-hover="true"
+    data-extra-classes="bg-warning"
+  >
     <cod-table-header>
-        <cod-table-row>
+      <cod-table-row>
         <cod-table-cell-header scope="col">#</cod-table-cell-header>
         <cod-table-cell-header scope="col">First</cod-table-cell-header>
         <cod-table-cell-header scope="col">Last</cod-table-cell-header>
         <cod-table-cell-header scope="col">Handle</cod-table-cell-header>
-        </cod-table-row>
+      </cod-table-row>
     </cod-table-header>
     <cod-table-body>
-        <cod-table-row>
+      <cod-table-row>
         <cod-table-cell scope="row">1</cod-table-cell>
         <cod-table-cell>Mark</cod-table-cell>
         <cod-table-cell>Otto</cod-table-cell>
         <cod-table-cell>@mdo</cod-table-cell>
-        </cod-table-row>
-        <cod-table-row>
+      </cod-table-row>
+      <cod-table-row>
         <cod-table-cell scope="row">2</cod-table-cell>
         <cod-table-cell>Jacob</cod-table-cell>
         <cod-table-cell>Thornton</cod-table-cell>
         <cod-table-cell>@fat</cod-table-cell>
-        </cod-table-row>
-        <cod-table-row>
+      </cod-table-row>
+      <cod-table-row>
         <cod-table-cell scope="row">3</cod-table-cell>
         <cod-table-cell colspan="2">Larry the Bird</cod-table-cell>
         <cod-table-cell>@twitter</cod-table-cell>
-        </cod-table-row>
+      </cod-table-row>
     </cod-table-body>
-</cod-table>
+  </cod-table>
 `;
 
 export const Responsive = () => html`
-<cod-table data-id="table-responsive" data-legacy-responsive="true">
+  <cod-table data-id="table-responsive" data-legacy-responsive="true">
     <cod-table-header>
-        <cod-table-row>
+      <cod-table-row>
         <cod-table-cell-header scope="col">#</cod-table-cell-header>
         <cod-table-cell-header scope="col">Table heading</cod-table-cell-header>
         <cod-table-cell-header scope="col">Table heading</cod-table-cell-header>
@@ -278,10 +290,10 @@ export const Responsive = () => html`
         <cod-table-cell-header scope="col">Table heading</cod-table-cell-header>
         <cod-table-cell-header scope="col">Table heading</cod-table-cell-header>
         <cod-table-cell-header scope="col">Table heading</cod-table-cell-header>
-        </cod-table-row>
+      </cod-table-row>
     </cod-table-header>
     <cod-table-body>
-        <cod-table-row>
+      <cod-table-row>
         <cod-table-cell scope="row">1</cod-table-cell>
         <cod-table-cell>Table cell 1</cod-table-cell>
         <cod-table-cell>Table cell 2</cod-table-cell>
@@ -295,8 +307,8 @@ export const Responsive = () => html`
         <cod-table-cell>Table cell 10</cod-table-cell>
         <cod-table-cell>Table cell 11</cod-table-cell>
         <cod-table-cell>Table cell 12</cod-table-cell>
-        </cod-table-row>
-        <cod-table-row>
+      </cod-table-row>
+      <cod-table-row>
         <cod-table-cell scope="row">2</cod-table-cell>
         <cod-table-cell>Table cell 1</cod-table-cell>
         <cod-table-cell>Table cell 2</cod-table-cell>
@@ -310,8 +322,8 @@ export const Responsive = () => html`
         <cod-table-cell>Table cell 10</cod-table-cell>
         <cod-table-cell>Table cell 11</cod-table-cell>
         <cod-table-cell>Table cell 12</cod-table-cell>
-        </cod-table-row>
-        <cod-table-row>
+      </cod-table-row>
+      <cod-table-row>
         <cod-table-cell scope="row">3</cod-table-cell>
         <cod-table-cell>Table cell 1</cod-table-cell>
         <cod-table-cell>Table cell 2</cod-table-cell>
@@ -325,7 +337,7 @@ export const Responsive = () => html`
         <cod-table-cell>Table cell 10</cod-table-cell>
         <cod-table-cell>Table cell 11</cod-table-cell>
         <cod-table-cell>Table cell 12</cod-table-cell>
-        </cod-table-row>
+      </cod-table-row>
     </cod-table-body>
-</cod-table>
+  </cod-table>
 `;

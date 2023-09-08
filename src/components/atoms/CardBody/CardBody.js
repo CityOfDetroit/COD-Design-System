@@ -8,9 +8,7 @@ template.innerHTML = `
 <slot></slot>
 `;
 
-
 export default class CardBody extends HTMLElement {
-
   constructor() {
     // Always call super first in constructor
     super();
@@ -18,14 +16,14 @@ export default class CardBody extends HTMLElement {
     const shadow = this.attachShadow({ mode: 'open' });
     shadow.appendChild(template.content.cloneNode(true));
     this.cardBody = document.createElement('div');
-    shadow.addEventListener( 'slotchange', ev => {  
-      let tempElements = Array.from(this.children);  
-      tempElements.forEach((node)=>{
-          this.cardBody.append(node);
+    shadow.addEventListener('slotchange', (ev) => {
+      let tempElements = Array.from(this.children);
+      tempElements.forEach((node) => {
+        this.cardBody.append(node);
       });
     });
 
-    // Add styles   
+    // Add styles
     const bootStyles = document.createElement('style');
     bootStyles.textContent = bootstrapStyles;
     const variableStyles = document.createElement('style');
@@ -38,4 +36,4 @@ export default class CardBody extends HTMLElement {
 
     shadow.appendChild(this.cardBody);
   }
-};
+}

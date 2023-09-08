@@ -8,10 +8,9 @@ template.innerHTML = `
 <slot></slot>
 `;
 
-
 export default class AccordionHeader extends HTMLElement {
   static get observedAttributes() {
-      return ['data-expanded'];
+    return ['data-expanded'];
   }
 
   constructor() {
@@ -23,14 +22,14 @@ export default class AccordionHeader extends HTMLElement {
     this.accordionHeader = document.createElement('div');
     this.accordionBtn = document.createElement('button');
     this.accordionHeader.appendChild(this.accordionBtn);
-    this.shadowRoot.addEventListener( 'slotchange', ev => {  
-      let tempElements = Array.from(this.children);  
-      tempElements.forEach((node)=>{
-          this.accordionBtn.append(node);
+    this.shadowRoot.addEventListener('slotchange', (ev) => {
+      let tempElements = Array.from(this.children);
+      tempElements.forEach((node) => {
+        this.accordionBtn.append(node);
       });
     });
 
-    // Add styles   
+    // Add styles
     const bootStyles = document.createElement('style');
     bootStyles.textContent = bootstrapStyles;
     const variableStyles = document.createElement('style');
@@ -46,8 +45,8 @@ export default class AccordionHeader extends HTMLElement {
     this.accordionBtn.setAttribute('aria-expanded', newValue);
     let tempClasses = this.accordionBtn.className.split(' ');
     let popValue = tempClasses.pop();
-    (popValue != 'collapsed') ? tempClasses.push(popValue) : 0;
-    if(newValue == 'false'){
+    popValue != 'collapsed' ? tempClasses.push(popValue) : 0;
+    if (newValue == 'false') {
       tempClasses.push('collapsed');
     }
     this.accordionBtn.className = tempClasses.join(' ');
@@ -63,16 +62,18 @@ export default class AccordionHeader extends HTMLElement {
     this.accordionBtn.setAttribute('data-bs-toggle', 'collapse');
     this.accordionBtn.setAttribute('aria-controls', parentID);
     this.accordionBtn.setAttribute('data-bs-target', `#${parentID}`);
-    if(expanded == 'true'){
+    if (expanded == 'true') {
       this.accordionBtn.setAttribute('aria-expanded', 'true');
-    }else{
+    } else {
       accordionBtnClasses.push('collapsed');
       this.accordionBtn.setAttribute('aria-expanded', 'false');
     }
-    (extraClasses != undefined && extraClasses != null) ? accordionBtnClasses.push(extraClasses): 0;
+    extraClasses != undefined && extraClasses != null
+      ? accordionBtnClasses.push(extraClasses)
+      : 0;
     this.accordionBtn.className = accordionBtnClasses.join(' ');
-    if(!this.shadowRoot.querySelector('div')){
+    if (!this.shadowRoot.querySelector('div')) {
       this.shadowRoot.appendChild(this.accordionHeader);
     }
   }
-};
+}

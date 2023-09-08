@@ -25,31 +25,30 @@ export default class FormSelect extends HTMLElement {
     this.internals = this.attachInternals();
     // Create select and move options from slot to select
     this.select = shadow.querySelector('select');
-    shadow.addEventListener( 'slotchange', ev => {      
-      let node = this.querySelector( 'option' )
-      node && this.select.append( node )
+    shadow.addEventListener('slotchange', (ev) => {
+      let node = this.querySelector('option');
+      node && this.select.append(node);
     });
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
     let tempClasses = this.select.className.split(' ');
     let popValue = tempClasses.pop();
-    (popValue != 'is-invalid') ? tempClasses.push(popValue) : 0;
+    popValue != 'is-invalid' ? tempClasses.push(popValue) : 0;
 
     switch (newValue) {
       case 'true':
         tempClasses.push('is-invalid');
         this.select.className = tempClasses.join(' ');
         break;
-      
+
       case 'false':
         this.select.className = tempClasses.join(' ');
         break;
-    
+
       default:
         break;
     }
-    
   }
 
   connectedCallback() {
@@ -64,7 +63,7 @@ export default class FormSelect extends HTMLElement {
     this.shadowRoot.appendChild(variableStyles);
     this.shadowRoot.appendChild(formSelectStyles);
     // progress attributes
-    let id = this.getAttribute('data-id')
+    let id = this.getAttribute('data-id');
     let size = this.getAttribute('data-size');
     let multiple = this.getAttribute('data-multiple');
     let displayMultiple = this.getAttribute('data-display-multiple');
@@ -74,47 +73,51 @@ export default class FormSelect extends HTMLElement {
     let extraClasses = this.getAttribute('data-extra-classes');
 
     this.select.addEventListener('change', (e) => {
-      // we also want to dispatch a `change` event from 
+      // we also want to dispatch a `change` event from
       // our custom element
       this.setAttribute('data-invalid', false);
       const clone = new e.constructor(e.type, e);
       this.dispatchEvent(clone);
-      // set the element’s validity whenever the value of the 
+      // set the element’s validity whenever the value of the
       // <input> changes
       this.validateSelect();
-   });
+    });
 
-   this.addEventListener('invalid', (e) => {
-    this.invalid = true;
-    this.pristine = false;
-    this.setAttribute('data-invalid', true);
-    // when a custom error needs to be displayed, 
-    // prevent the native error from showing
-    if(this.customErrorDisplay) {
-      e.preventDefault();
+    this.addEventListener('invalid', (e) => {
+      this.invalid = true;
+      this.pristine = false;
+      this.setAttribute('data-invalid', true);
+      // when a custom error needs to be displayed,
+      // prevent the native error from showing
+      if (this.customErrorDisplay) {
+        e.preventDefault();
+      }
+    });
+
+    this.addEventListener('focus', () => this.select.focus());
+    if (!this.hasAttribute('tabindex')) {
+      this.setAttribute('tabindex', '0');
     }
-  });
 
-   this.addEventListener('focus', () => this.select.focus());
-   if (!this.hasAttribute('tabindex')) {
-    this.setAttribute('tabindex', '0');
-  }
-    
-    if(required == 'true') {
+    if (required == 'true') {
       this.select.setAttribute('required', true);
     }
-    if(disabled == 'true') {
+    if (disabled == 'true') {
       this.select.setAttribute('disabled', true);
     }
-    if(multiple == 'true') {
+    if (multiple == 'true') {
       this.select.setAttribute('multiple', true);
     }
-    if(displayMultiple != undefined && displayMultiple != null){
+    if (displayMultiple != undefined && displayMultiple != null) {
       this.select.setAttribute('size', displayMultiple);
     }
     this.select.setAttribute('aria-label', ariaLabel);
     this.select.id = id;
-    this.select.className = ['form-select', `${extraClasses || ''}`, `form-select-${size || ''}`].join(' ');
+    this.select.className = [
+      'form-select',
+      `${extraClasses || ''}`,
+      `form-select-${size || ''}`,
+    ].join(' ');
     // this.buildOptions(JSON.parse(options), this.select);
     this.validateSelect();
   }
@@ -143,39 +146,39 @@ export default class FormSelect extends HTMLElement {
     this.invalid = false;
 
     // if the input is invalid, show the correct error
-    if(!validState.valid) {
+    if (!validState.valid) {
       // loop through the error reasons
-      for(let state in validState) {
+      for (let state in validState) {
         // get the name of the data attribute that holds the
         //error message
         const attr = `data-${state.toString()}`;
         // if there is an error and corresponding attribute holding
         // the message
-        if(validState[state]) {
+        if (validState[state]) {
           this.validationError = state.toString();
           this.invalid = !this.pristine && !validState.valid;
 
           // get the correct error message
-          const errorMessage = this.hasAttribute(attr) ?
-            this.getAttribute(attr) : this.select.validationMessage;
+          const errorMessage = this.hasAttribute(attr)
+            ? this.getAttribute(attr)
+            : this.select.validationMessage;
           // set the validity error reason and the corresponding
           // message
           this.internals.setValidity(
-            {[this.validationError]: true},
-            errorMessage
+            { [this.validationError]: true },
+            errorMessage,
           );
-          // when a custom error needs to be displayed, 
+          // when a custom error needs to be displayed,
           // dispatch the 'invalid' event manually so consuming code
-          // can use this as a hook to get the correct error message 
+          // can use this as a hook to get the correct error message
           // and display it
-          if(this.invalid && this.customErrorDisplay) {
+          if (this.invalid && this.customErrorDisplay) {
             this.dispatchEvent(new Event('invalid'));
           }
         }
       }
-    }
-    else {
+    } else {
       this.internals.setValidity({});
     }
   }
-};
+}

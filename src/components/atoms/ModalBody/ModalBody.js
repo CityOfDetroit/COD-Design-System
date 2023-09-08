@@ -8,9 +8,7 @@ template.innerHTML = `
 <slot></slot>
 `;
 
-
 export default class ModalBody extends HTMLElement {
-
   constructor() {
     // Always call super first in constructor
     super();
@@ -18,14 +16,14 @@ export default class ModalBody extends HTMLElement {
     const shadow = this.attachShadow({ mode: 'open' });
     shadow.appendChild(template.content.cloneNode(true));
     this.body = document.createElement('div');
-    this.shadowRoot.addEventListener( 'slotchange', ev => {  
-      let tempElements = Array.from(this.children);  
-      tempElements.forEach((node)=>{
-          this.body.append(node);
+    this.shadowRoot.addEventListener('slotchange', (ev) => {
+      let tempElements = Array.from(this.children);
+      tempElements.forEach((node) => {
+        this.body.append(node);
       });
     });
 
-    // Add styles   
+    // Add styles
     const bootStyles = document.createElement('style');
     bootStyles.textContent = bootstrapStyles;
     const variableStyles = document.createElement('style');
@@ -41,10 +39,12 @@ export default class ModalBody extends HTMLElement {
     // OffcanvasBody attributes
     let extraClasses = this.getAttribute('data-extra-classes');
     let bodyClasses = ['modal-body'];
-    (extraClasses != undefined && extraClasses != null) ? bodyClasses.push(extraClasses): 0;
+    extraClasses != undefined && extraClasses != null
+      ? bodyClasses.push(extraClasses)
+      : 0;
     this.body.className = bodyClasses.join(' ');
-    if(!this.shadowRoot.querySelector('div')){
+    if (!this.shadowRoot.querySelector('div')) {
       this.shadowRoot.appendChild(this.body);
     }
   }
-};
+}

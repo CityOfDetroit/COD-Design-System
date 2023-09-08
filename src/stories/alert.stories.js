@@ -4,20 +4,37 @@ export default {
   title: 'Components/Atoms/Alert',
   argTypes: {
     icon: {
-        control: { type: 'select' },
-        options: ['house', 'house-fill', 'exclamation-circle', 'exclamation-circle-fill', 'exclamation-triangle', 'check-circle', 'check-circle-fill']
+      control: { type: 'select' },
+      options: [
+        'house',
+        'house-fill',
+        'exclamation-circle',
+        'exclamation-circle-fill',
+        'exclamation-triangle',
+        'check-circle',
+        'check-circle-fill',
+      ],
     },
     iconOrder: {
-        control: { type: 'select' },
-        options: ['left', 'right']
+      control: { type: 'select' },
+      options: ['left', 'right'],
     },
     iconSize: {
       control: { type: 'select' },
-      options: ['small', 'medium', 'large', 'x-large']
+      options: ['small', 'medium', 'large', 'x-large'],
     },
-    backgroundColor: { 
-        control: { type: 'select' },
-        options: ['primary', 'secondary', 'success', 'info', 'warning', 'danger', 'light', 'dark'],
+    backgroundColor: {
+      control: { type: 'select' },
+      options: [
+        'primary',
+        'secondary',
+        'success',
+        'info',
+        'warning',
+        'danger',
+        'light',
+        'dark',
+      ],
     },
   },
 };
@@ -32,7 +49,7 @@ const Template = (args) => {
   alert.setAttribute('data-extra-classes', args.extraClasses);
   alert.setAttribute('data-background-color', args.backgroundColor);
   return alert;
-}
+};
 
 export const Alert = Template.bind({});
 Alert.args = {
@@ -48,7 +65,7 @@ AlertExtras.args = {
     <span>Basic Alert</span>
   `,
   backgroundColor: 'primary',
-  extraClasses: 'text-center p-3'
+  extraClasses: 'text-center p-3',
 };
 
 export const AlertElements = Template.bind({});

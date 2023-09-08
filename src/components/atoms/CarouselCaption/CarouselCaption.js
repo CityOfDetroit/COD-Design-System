@@ -8,9 +8,7 @@ template.innerHTML = `
 <slot></slot>
 `;
 
-
 export default class CarouselCaption extends HTMLElement {
-
   constructor() {
     // Always call super first in constructor
     super();
@@ -18,14 +16,14 @@ export default class CarouselCaption extends HTMLElement {
     const shadow = this.attachShadow({ mode: 'open' });
     shadow.appendChild(template.content.cloneNode(true));
     this.carouselCaption = document.createElement('div');
-    shadow.addEventListener( 'slotchange', ev => {  
-      let tempElements = Array.from(this.children);  
-      tempElements.forEach((node)=>{
-          this.carouselCaption.append(node);
+    shadow.addEventListener('slotchange', (ev) => {
+      let tempElements = Array.from(this.children);
+      tempElements.forEach((node) => {
+        this.carouselCaption.append(node);
       });
     });
 
-    // Add styles   
+    // Add styles
     const bootStyles = document.createElement('style');
     bootStyles.textContent = bootstrapStyles;
     const variableStyles = document.createElement('style');
@@ -41,10 +39,12 @@ export default class CarouselCaption extends HTMLElement {
     // Modal attributes
     let extraClasses = this.getAttribute('data-extra-classes');
     let carouselCaptionClasses = ['carousel-caption d-none d-md-block'];
-    (extraClasses != undefined && extraClasses != null) ? carouselCaptionClasses.push(extraClasses) : 0;
+    extraClasses != undefined && extraClasses != null
+      ? carouselCaptionClasses.push(extraClasses)
+      : 0;
     this.carouselCaption.className = carouselCaptionClasses.join(' ');
     if (!this.shadowRoot.querySelector('div')) {
       this.shadowRoot.appendChild(this.carouselCaption);
     }
   }
-};
+}

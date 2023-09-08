@@ -12,7 +12,7 @@ export default class FormControl extends HTMLElement {
     // Always call super first in constructor
     super();
     // Create a shadow root
-    const shadow = this.attachShadow({ mode: 'open'});
+    const shadow = this.attachShadow({ mode: 'open' });
     this.internals = this.attachInternals();
     this.formControl = null;
     this.invalid = false;
@@ -22,7 +22,7 @@ export default class FormControl extends HTMLElement {
   attributeChangedCallback(name, oldValue, newValue) {
     let tempClasses = this.formControl.className.split(' ');
     let popValue = tempClasses.pop();
-    (popValue != 'is-invalid') ? tempClasses.push(popValue) : 0;
+    popValue != 'is-invalid' ? tempClasses.push(popValue) : 0;
 
     switch (newValue) {
       case 'true':
@@ -30,20 +30,19 @@ export default class FormControl extends HTMLElement {
         tempClasses.push('is-invalid');
         this.formControl.className = tempClasses.join(' ');
         break;
-      
+
       case 'false':
         this.formControl.className = tempClasses.join(' ');
         break;
-    
+
       default:
         break;
     }
-    
   }
 
   connectedCallback() {
     // progress attributes
-    let inputType = this.getAttribute('data-tag')
+    let inputType = this.getAttribute('data-tag');
     let dataType = this.getAttribute('data-type');
     let id = this.getAttribute('data-id');
     let minlength = this.getAttribute('data-minlength');
@@ -61,44 +60,50 @@ export default class FormControl extends HTMLElement {
     const formControl = document.createElement(inputType);
     formControl.id = id;
     formControl.placeholder = placeholderTxt;
-    if(required == 'true'){
+    if (required == 'true') {
       formControl.setAttribute('required', true);
     }
-    if(inputType != 'textarea'){
-        formControl.type = dataType;
+    if (inputType != 'textarea') {
+      formControl.type = dataType;
     }
-    if(minlength != undefined && minlength != null){
+    if (minlength != undefined && minlength != null) {
       formControl.setAttribute('minlength', minlength);
     }
-    if(maxlength != undefined && maxlength != null){
+    if (maxlength != undefined && maxlength != null) {
       formControl.setAttribute('maxlength', maxlength);
     }
-    if(pattern != undefined && pattern != null){
+    if (pattern != undefined && pattern != null) {
       formControl.setAttribute('pattern', pattern);
     }
-    if(rows != undefined && rows != null){
-        formControl.setAttribute('rows', rows);
+    if (rows != undefined && rows != null) {
+      formControl.setAttribute('rows', rows);
     }
-    if(value != undefined && value != null){
-        formControl.value = value;
+    if (value != undefined && value != null) {
+      formControl.value = value;
     }
-    if(readOnly == 'true'){
-        formControl.setAttribute('readonly', true);
+    if (readOnly == 'true') {
+      formControl.setAttribute('readonly', true);
     }
-    if(disabled == 'true'){
-        formControl.setAttribute('disabled', true);
+    if (disabled == 'true') {
+      formControl.setAttribute('disabled', true);
     }
     let colorPicker;
-    (dataType == 'color') ? colorPicker = dataType : colorPicker = '';
-    formControl.className = ['form-control', `form-control-${size || ''}`, `form-control-${colorPicker || ''}`, `bg-${backgroundColor || ''}`, `form-control-${plainText || ''}`].join(' ');
+    dataType == 'color' ? (colorPicker = dataType) : (colorPicker = '');
+    formControl.className = [
+      'form-control',
+      `form-control-${size || ''}`,
+      `form-control-${colorPicker || ''}`,
+      `bg-${backgroundColor || ''}`,
+      `form-control-${plainText || ''}`,
+    ].join(' ');
 
     formControl.addEventListener('change', (e) => {
-      // we also want to dispatch a `change` event from 
+      // we also want to dispatch a `change` event from
       // our custom element
       this.setAttribute('data-invalid', false);
       const clone = new e.constructor(e.type, e);
       this.dispatchEvent(clone);
-      // set the element’s validity whenever the value of the 
+      // set the element’s validity whenever the value of the
       // <input> changes
       this.validateInput();
     });
@@ -107,9 +112,9 @@ export default class FormControl extends HTMLElement {
       this.invalid = true;
       this.pristine = false;
       this.setAttribute('data-invalid', true);
-      // when a custom error needs to be displayed, 
+      // when a custom error needs to be displayed,
       // prevent the native error from showing
-      if(this.customErrorDisplay) {
+      if (this.customErrorDisplay) {
         e.preventDefault();
       }
     });
@@ -119,7 +124,7 @@ export default class FormControl extends HTMLElement {
       this.setAttribute('tabindex', '0');
     }
 
-    if(!this.shadowRoot.querySelector(inputType)){
+    if (!this.shadowRoot.querySelector(inputType)) {
       // setting up styles
       const bootStyles = document.createElement('style');
       bootStyles.textContent = bootstrapStyles;
@@ -135,7 +140,7 @@ export default class FormControl extends HTMLElement {
       this.shadowRoot.appendChild(formControl);
       this.formControl = formControl;
     }
-    
+
     this.validateInput();
   }
 
@@ -163,39 +168,39 @@ export default class FormControl extends HTMLElement {
     this.invalid = false;
 
     // if the input is invalid, show the correct error
-    if(!validState.valid) {
+    if (!validState.valid) {
       // loop through the error reasons
-      for(let state in validState) {
+      for (let state in validState) {
         // get the name of the data attribute that holds the
         //error message
         const attr = `data-${state.toString()}`;
         // if there is an error and corresponding attribute holding
         // the message
-        if(validState[state]) {
+        if (validState[state]) {
           this.validationError = state.toString();
           this.invalid = !this.pristine && !validState.valid;
 
           // get the correct error message
-          const errorMessage = this.hasAttribute(attr) ?
-            this.getAttribute(attr) : this.formControl.validationMessage;
+          const errorMessage = this.hasAttribute(attr)
+            ? this.getAttribute(attr)
+            : this.formControl.validationMessage;
           // set the validity error reason and the corresponding
           // message
           this.internals.setValidity(
-            {[this.validationError]: true},
-            errorMessage
+            { [this.validationError]: true },
+            errorMessage,
           );
-          // when a custom error needs to be displayed, 
+          // when a custom error needs to be displayed,
           // dispatch the 'invalid' event manually so consuming code
-          // can use this as a hook to get the correct error message 
+          // can use this as a hook to get the correct error message
           // and display it
-          if(this.invalid && this.customErrorDisplay) {
+          if (this.invalid && this.customErrorDisplay) {
             this.dispatchEvent(new Event('invalid'));
           }
         }
       }
-    }
-    else {
+    } else {
       this.internals.setValidity({});
     }
   }
-};
+}

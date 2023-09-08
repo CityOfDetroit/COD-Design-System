@@ -3,14 +3,13 @@ import varStyles from '!!raw-loader!../../../shared/variables.css';
 import bootstrapStyles from '!!raw-loader!../../../shared/themed-bootstrap.css';
 
 export default class NavbarToggle extends HTMLElement {
-  
   constructor() {
     // Always call super first in constructor
     super();
     // Create a shadow root
     const shadow = this.attachShadow({ mode: 'open' });
 
-    // Add styles   
+    // Add styles
     const bootStyles = document.createElement('style');
     bootStyles.textContent = bootstrapStyles;
     const variableStyles = document.createElement('style');
@@ -29,17 +28,19 @@ export default class NavbarToggle extends HTMLElement {
     let extraClasses = this.getAttribute('data-extra-classes');
     let toggleBtn = document.createElement('button');
     let navbarToggleClasses = [''];
-    if(mode == 'default'){
-        (darkBtn == 'true') ? toggleBtn.setAttribute('data-bs-theme', 'dark') : 0;
-        let toggleIcon = document.createElement('span');
-        navbarToggleClasses.push('navbar-toggler-icon');
-        toggleBtn.appendChild(toggleIcon);
+    if (mode == 'default') {
+      darkBtn == 'true' ? toggleBtn.setAttribute('data-bs-theme', 'dark') : 0;
+      let toggleIcon = document.createElement('span');
+      navbarToggleClasses.push('navbar-toggler-icon');
+      toggleBtn.appendChild(toggleIcon);
     }
-    (extraClasses != undefined && extraClasses != null) ? navbarToggleClasses.push(extraClasses): 0;
+    extraClasses != undefined && extraClasses != null
+      ? navbarToggleClasses.push(extraClasses)
+      : 0;
     toggleBtn.className = navbarToggleClasses.join(' ');
-    if(!this.shadowRoot.querySelector('button')){
-        toggleBtn.addEventListener('click', this._onClick.bind(this));
-        this.shadowRoot.appendChild(toggleBtn);
+    if (!this.shadowRoot.querySelector('button')) {
+      toggleBtn.addEventListener('click', this._onClick.bind(this));
+      this.shadowRoot.appendChild(toggleBtn);
     }
   }
 
@@ -48,10 +49,18 @@ export default class NavbarToggle extends HTMLElement {
   }
 
   _onClick(e) {
-    if(this.getAttribute('data-show') == 'true'){
-      (this.getAttribute('data-target-toggle') == 'offcanvas') ? this.getRootNode().querySelector('cod-offcanvas').setAttribute('data-show', 'false') : this.getRootNode().host.setAttribute('data-show', 'false');
-    }else{
-      (this.getAttribute('data-target-toggle') == 'offcanvas') ? this.getRootNode().querySelector('cod-offcanvas').setAttribute('data-show', 'true') : this.getRootNode().host.setAttribute('data-show', 'true');
+    if (this.getAttribute('data-show') == 'true') {
+      this.getAttribute('data-target-toggle') == 'offcanvas'
+        ? this.getRootNode()
+            .querySelector('cod-offcanvas')
+            .setAttribute('data-show', 'false')
+        : this.getRootNode().host.setAttribute('data-show', 'false');
+    } else {
+      this.getAttribute('data-target-toggle') == 'offcanvas'
+        ? this.getRootNode()
+            .querySelector('cod-offcanvas')
+            .setAttribute('data-show', 'true')
+        : this.getRootNode().host.setAttribute('data-show', 'true');
     }
   }
-};
+}

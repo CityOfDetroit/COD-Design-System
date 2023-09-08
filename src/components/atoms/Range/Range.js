@@ -29,19 +29,19 @@ export default class Range extends HTMLElement {
     const range = document.createElement('input');
     range.type = 'range';
     range.className = 'form-range';
-    if(disabled == 'true'){
-        range.disabled = true;
+    if (disabled == 'true') {
+      range.disabled = true;
     }
     console.log(min);
-    if(min != undefined || min != null){
-        range.setAttribute('min', min);
+    if (min != undefined || min != null) {
+      range.setAttribute('min', min);
     }
-    if(max != undefined || max != null){
-        range.setAttribute('max', max);
+    if (max != undefined || max != null) {
+      range.setAttribute('max', max);
     }
-    if(step != undefined || step != null){
-        range.setAttribute('step', step);
+    if (step != undefined || step != null) {
+      range.setAttribute('step', step);
     }
     this.shadowRoot.appendChild(range);
   }
-};
+}

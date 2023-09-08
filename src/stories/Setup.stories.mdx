@@ -26,8 +26,8 @@ Add the following inside your head tag
 `yarn add @cityofdetroit/cod-design-system`
 
 ```js
-  import 'cod-design-system/src/components/atoms/Loader/cod-loader';
-  import 'cod-design-system/src/components/atoms/Button/cod-button';
+import 'cod-design-system/src/components/atoms/Loader/cod-loader';
+import 'cod-design-system/src/components/atoms/Button/cod-button';
 ```
 
 ## Setting Props
@@ -47,10 +47,9 @@ Slots give you full control over the contents of a component. Some components ma
 > Web Component Concept:
 > Slotted content lives outside of the shadow DOM and as a result, you are free to style them however you want.
 
-
 ```html
 <cod-breadcrumb>
-<li class="breadcrumb-item"><a href="#">Home</a></li>
-<li class="breadcrumb-item active" aria-current="page">Library</li>
+  <li class="breadcrumb-item"><a href="#">Home</a></li>
+  <li class="breadcrumb-item active" aria-current="page">Library</li>
 </cod-breadcrumb>
 ```
