@@ -34,6 +34,9 @@ export default class AccordionItem extends HTMLElement {
           ? node.setAttribute('data-expanded', true)
           : 0;
         if (node.tagName == 'COD-ACCORDION-HEADER') {
+          if (this.getAttribute('data-li') !== null) {
+            node.addListNumber(Number(this.getAttribute('data-index')));
+          }
           this.accordionHeader.append(node);
         } else {
           this.accordionBody.append(node);

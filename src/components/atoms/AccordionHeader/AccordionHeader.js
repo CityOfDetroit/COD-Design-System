@@ -76,4 +76,11 @@ export default class AccordionHeader extends HTMLElement {
       this.shadowRoot.appendChild(this.accordionHeader);
     }
   }
+
+  addListNumber(index) {
+    const numberBox = document.createElement('div');
+    numberBox.innerText = `${index + 1}`;
+    numberBox.className = ['li-num-box'];
+    this.accordionBtn.prepend(numberBox);
+  }
 }

@@ -25,6 +25,9 @@ export default class Accordion extends HTMLElement {
             accordionItem.className = 'accordion-item';
             node.setAttribute('data-parent-id', this.getAttribute('data-id'));
             node.setAttribute('data-index', index);
+            if (this.getAttribute('data-ol') !== null) {
+              node.setAttribute('data-li', '');
+            }
             accordionItem.appendChild(node);
             this.accordion.append(accordionItem);
             break;
