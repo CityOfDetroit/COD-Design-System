@@ -57,7 +57,11 @@ export default class AccordionHeader extends HTMLElement {
     let parentID = this.getAttribute('data-parent-id');
     let expanded = this.getAttribute('data-expanded');
     let extraClasses = this.getAttribute('data-extra-classes');
+    const isListItem = this.getAttribute('data-li');
     let accordionBtnClasses = ['accordion-button'];
+    if (isListItem !== null) {
+      accordionBtnClasses.push('data-li');
+    }
     this.accordionBtn.setAttribute('type', 'button');
     this.accordionBtn.setAttribute('data-bs-toggle', 'collapse');
     this.accordionBtn.setAttribute('aria-controls', parentID);

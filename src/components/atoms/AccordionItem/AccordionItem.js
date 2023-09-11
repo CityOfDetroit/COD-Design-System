@@ -35,10 +35,14 @@ export default class AccordionItem extends HTMLElement {
           : 0;
         if (node.tagName == 'COD-ACCORDION-HEADER') {
           if (this.getAttribute('data-li') !== null) {
+            node.setAttribute('data-li', '');
             node.addListNumber(Number(this.getAttribute('data-index')));
           }
           this.accordionHeader.append(node);
         } else {
+          if (this.getAttribute('data-li') !== null) {
+            node.setAttribute('data-li', '');
+          }
           this.accordionBody.append(node);
         }
       });
