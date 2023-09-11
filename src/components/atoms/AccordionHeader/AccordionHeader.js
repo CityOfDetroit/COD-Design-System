@@ -23,7 +23,7 @@ export default class AccordionHeader extends HTMLElement {
     this.accordionBtn = document.createElement('button');
     this.accordionHeader.appendChild(this.accordionBtn);
     this.shadowRoot.addEventListener('slotchange', (ev) => {
-      let tempElements = Array.from(this.children);
+      let tempElements = ev.target.assignedElements();
       tempElements.forEach((node) => {
         this.accordionBtn.append(node);
       });

@@ -22,7 +22,7 @@ export default class AccordionItem extends HTMLElement {
     this.accordionHeader = document.createElement('div');
     this.accordionBody = document.createElement('div');
     this.shadowRoot.addEventListener('slotchange', (ev) => {
-      let tempElements = Array.from(this.children);
+      let tempElements = ev.target.assignedElements();
       tempElements.forEach((node) => {
         node.setAttribute(
           'data-parent-id',

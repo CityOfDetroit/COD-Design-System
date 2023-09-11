@@ -17,7 +17,7 @@ export default class Accordion extends HTMLElement {
     shadow.appendChild(template.content.cloneNode(true));
     this.accordion = document.createElement('div');
     this.shadowRoot.addEventListener('slotchange', (ev) => {
-      let tempElements = Array.from(this.children);
+      let tempElements = ev.target.assignedElements();
       tempElements.forEach((node, index) => {
         switch (node.tagName) {
           case 'COD-ACCORDION-ITEM':
