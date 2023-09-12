@@ -16,16 +16,18 @@ export default class Alert extends HTMLElement {
     // Create a shadow root
     const shadow = this.attachShadow({ mode: 'open' });
     shadow.appendChild(template.content.cloneNode(true));
-    this.alert  = document.createElement('div');
+    this.alert = document.createElement('div');
     const alertContent = document.createElement('div');
-    alertContent.id="alert-content";
+    alertContent.id = 'alert-content';
     this.alert.appendChild(alertContent);
-    shadow.addEventListener( 'slotchange', ev => {  
-      let tempElements = Array.from(this.children);  
-      tempElements.forEach((node)=>{
+    shadow.addEventListener('slotchange', (ev) => {
+      let tempElements = Array.from(this.children);
+      tempElements.forEach((node) => {
         let nodeClasses = node.className.split(' ');
-        (nodeClasses.includes('no-wc')) ? node.remove() : this.alert.querySelector('#alert-content').append(node);
-      })
+        nodeClasses.includes('no-wc')
+          ? node.remove()
+          : this.alert.querySelector('#alert-content').append(node);
+      });
     });
   }
 
@@ -60,12 +62,15 @@ export default class Alert extends HTMLElement {
       iconClass = 'd-flex';
       switch (iconOrder) {
         case 'left':
-          iconContainer.className = 'pe-2 m-0'
-          this.alert.insertBefore(iconContainer, this.alert.querySelector('#alert-content'))
+          iconContainer.className = 'pe-2 m-0';
+          this.alert.insertBefore(
+            iconContainer,
+            this.alert.querySelector('#alert-content'),
+          );
           break;
 
         case 'right':
-          iconContainer.className = 'ps-2 m-0'
+          iconContainer.className = 'ps-2 m-0';
           this.alert.appendChild(iconContainer);
           break;
 
@@ -73,7 +78,12 @@ export default class Alert extends HTMLElement {
           break;
       }
     }
-    this.alert.className = ['alert', `alert-${backgroundColor || ''}`, `${extraClasses || ''}`, iconClass].join(' ');
+    this.alert.className = [
+      'alert',
+      `alert-${backgroundColor || ''}`,
+      `${extraClasses || ''}`,
+      iconClass,
+    ].join(' ');
     this.shadowRoot.appendChild(this.alert);
   }
-};
+}

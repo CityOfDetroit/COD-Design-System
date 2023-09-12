@@ -8,7 +8,6 @@ template.innerHTML = `
 <slot></slot>
 `;
 
-
 export default class Navbar extends HTMLElement {
   static get observedAttributes() {
     return ['data-show'];
@@ -25,15 +24,21 @@ export default class Navbar extends HTMLElement {
     this.navbarToggle = document.createElement('div');
     this.navbarBrand = document.createElement('div');
     this.navbarCollapse = document.createElement('div');
-  
-    shadow.addEventListener('slotchange', e => {
+
+    shadow.addEventListener('slotchange', (e) => {
       let tempElements = Array.from(this.children);
       tempElements.forEach((node) => {
         switch (node.tagName) {
           case 'COD-NAVBAR-TOGGLE':
-            (this.getAttribute('data-target-toggle') == 'offcanvas') ? node.setAttribute('data-target-toggle', 'offcanvas') : 0;
-            (this.getAttribute('data-show') == 'true') ? node.setAttribute('data-show', true) : 0;
-            (this.getAttribute('data-button-dark') == 'true') ? node.setAttribute('data-button-dark', true) : 0;
+            this.getAttribute('data-target-toggle') == 'offcanvas'
+              ? node.setAttribute('data-target-toggle', 'offcanvas')
+              : 0;
+            this.getAttribute('data-show') == 'true'
+              ? node.setAttribute('data-show', true)
+              : 0;
+            this.getAttribute('data-button-dark') == 'true'
+              ? node.setAttribute('data-button-dark', true)
+              : 0;
             this.navbarToggle.appendChild(node);
             this.navbarContainer.appendChild(this.navbarToggle);
             break;
@@ -54,14 +59,14 @@ export default class Navbar extends HTMLElement {
 
           default:
             let nodeClasses = node.className.split(' ');
-            (nodeClasses.includes('no-wc')) ? node.remove() : 0;
+            nodeClasses.includes('no-wc') ? node.remove() : 0;
             break;
         }
       });
     });
     this.navbar.appendChild(this.navbarContainer);
 
-    // Add styles   
+    // Add styles
     const bootStyles = document.createElement('style');
     bootStyles.textContent = bootstrapStyles;
     const variableStyles = document.createElement('style');
@@ -74,12 +79,14 @@ export default class Navbar extends HTMLElement {
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
-    this.navbarToggle.querySelector('cod-navbar-toggle').setAttribute('data-show', newValue);
+    this.navbarToggle
+      .querySelector('cod-navbar-toggle')
+      .setAttribute('data-show', newValue);
     this.navbarToggle.setAttribute('aria-expanded', newValue);
-    if(this.navbarCollapse.querySelector('cod-navbar-collapse')){
+    if (this.navbarCollapse.querySelector('cod-navbar-collapse')) {
       let tempClasses = this.navbarCollapse.className.split(' ');
       let popValue = tempClasses.pop();
-      (popValue != 'show') ? tempClasses.push(popValue) : 0;
+      popValue != 'show' ? tempClasses.push(popValue) : 0;
       if (newValue == 'true') {
         tempClasses.push('show');
       }
@@ -101,12 +108,22 @@ export default class Navbar extends HTMLElement {
     let navbarCollapseClasses = ['collapse navbar-collapse'];
     let navbarBrandClasses = ['navbar-brand'];
     let navbarToogleClasses = ['navbar-toggler'];
-    (containerClasses != undefined && containerClasses != null) ? navbarContainerClasses.push(containerClasses) : 0;
-    (extraClasses != undefined && extraClasses != null) ? navbarClasses.push(extraClasses) : 0;
-    (collapseClasses != undefined && collapseClasses != null) ? navbarCollapseClasses.push(collapseClasses) : 0;
-    (placement != undefined && placement != null) ? navbarClasses.push(placement) : 0;
+    containerClasses != undefined && containerClasses != null
+      ? navbarContainerClasses.push(containerClasses)
+      : 0;
+    extraClasses != undefined && extraClasses != null
+      ? navbarClasses.push(extraClasses)
+      : 0;
+    collapseClasses != undefined && collapseClasses != null
+      ? navbarCollapseClasses.push(collapseClasses)
+      : 0;
+    placement != undefined && placement != null
+      ? navbarClasses.push(placement)
+      : 0;
     if (expand != undefined && expand != null) {
-      (expand == 'always') ? navbarClasses.push('navbar-expand') : navbarClasses.push(`navbar-expand-${expand}`);
+      expand == 'always'
+        ? navbarClasses.push('navbar-expand')
+        : navbarClasses.push(`navbar-expand-${expand}`);
     }
     if (show == 'true') {
       this.navbarCollapseClasses.push('show');
@@ -131,4 +148,4 @@ export default class Navbar extends HTMLElement {
       this.shadowRoot.appendChild(this.navbar);
     }
   }
-};
+}

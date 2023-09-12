@@ -3,9 +3,18 @@ import '../components/atoms/Progress/cod-progress';
 export default {
   title: 'Components/Atoms/Progress',
   argTypes: {
-    backgroundColor: { 
-        control: { type: 'select' },
-        options: ['primary', 'secondary', 'success', 'info', 'warning', 'danger', 'light', 'dark'],
+    backgroundColor: {
+      control: { type: 'select' },
+      options: [
+        'primary',
+        'secondary',
+        'success',
+        'info',
+        'warning',
+        'danger',
+        'light',
+        'dark',
+      ],
     },
   },
 };
@@ -20,13 +29,13 @@ const Template = (args) => {
   progress.setAttribute('data-animated', args.animated);
   progress.setAttribute('data-multi-bars', args.multiBars);
   return progress;
-}
+};
 
 export const ProgressBar = Template.bind({});
 ProgressBar.args = {
   backgroundColor: 'primary',
   value: '25',
-  ariaLabel: 'simple test'
+  ariaLabel: 'simple test',
 };
 
 export const StripedBar = Template.bind({});
@@ -34,7 +43,7 @@ StripedBar.args = {
   backgroundColor: 'primary',
   value: '25',
   ariaLabel: 'simple test',
-  type: 'striped'
+  type: 'striped',
 };
 
 export const StripedBarAnimated = Template.bind({});
@@ -43,7 +52,7 @@ StripedBarAnimated.args = {
   value: '25',
   ariaLabel: 'simple test',
   type: 'striped',
-  animated: 'animated'
+  animated: 'animated',
 };
 
 export const StripedBarLabel = Template.bind({});
@@ -53,7 +62,7 @@ StripedBarLabel.args = {
   ariaLabel: 'simple test',
   type: 'striped',
   animated: 'animated',
-  label: 'this 25%'
+  label: 'this 25%',
 };
 
 export const StripedBarStacked = Template.bind({});
@@ -65,19 +74,19 @@ StripedBarStacked.args = {
       label: 'Something 30%',
       animated: 'animated',
       striped: 'striped',
-      backgroundColor: 'info'
+      backgroundColor: 'info',
     },
     {
       ariaLabel: 'second stacked bar',
       value: '15',
       animated: 'animated',
       striped: 'striped',
-      backgroundColor: 'warning'
+      backgroundColor: 'warning',
     },
     {
       ariaLabel: 'second stacked bar',
       value: '20',
-      backgroundColor: 'success'
-    }
-  ])
+      backgroundColor: 'success',
+    },
+  ]),
 };

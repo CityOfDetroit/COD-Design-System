@@ -8,9 +8,7 @@ template.innerHTML = `
 <slot></slot>
 `;
 
-
 export default class Table extends HTMLElement {
-
   constructor() {
     // Always call super first in constructor
     super();
@@ -21,36 +19,52 @@ export default class Table extends HTMLElement {
     this.table = document.createElement('div');
     this.table.role = 'table';
     this.tableContainer.appendChild(this.table);
-  
-    shadow.addEventListener('slotchange', e => {
+
+    shadow.addEventListener('slotchange', (e) => {
       let tempElements = Array.from(this.children);
       tempElements.forEach((node) => {
         switch (node.tagName) {
           case 'COD-TABLE-HEADER':
-            (this.getAttribute('data-striped-col') == 'true') ? node.setAttribute('data-striped-col', 'true') : 0;
-            (this.getAttribute('data-vertical-align') == 'true') ? node.setAttribute('data-vertical-align', 'true') : 0;
-            (this.getAttribute('data-legacy-responsive') == 'true') ? node.setAttribute('data-legacy-responsive', 'true') : 0;
+            this.getAttribute('data-striped-col') == 'true'
+              ? node.setAttribute('data-striped-col', 'true')
+              : 0;
+            this.getAttribute('data-vertical-align') == 'true'
+              ? node.setAttribute('data-vertical-align', 'true')
+              : 0;
+            this.getAttribute('data-legacy-responsive') == 'true'
+              ? node.setAttribute('data-legacy-responsive', 'true')
+              : 0;
             this.table.appendChild(node);
             break;
 
           case 'COD-TABLE-BODY':
-            (this.getAttribute('data-hover') == 'true') ? node.setAttribute('data-hover', 'true') : 0;
-            (this.getAttribute('data-striped-row') == 'true') ? node.setAttribute('data-striped-row', 'true') : 0;
-            (this.getAttribute('data-striped-col') == 'true') ? node.setAttribute('data-striped-col', 'true') : 0;
-            (this.getAttribute('data-vertical-align') == 'true') ? node.setAttribute('data-vertical-align', 'true') : 0;
-            (this.getAttribute('data-legacy-responsive') == 'true') ? node.setAttribute('data-legacy-responsive', 'true') : 0;
+            this.getAttribute('data-hover') == 'true'
+              ? node.setAttribute('data-hover', 'true')
+              : 0;
+            this.getAttribute('data-striped-row') == 'true'
+              ? node.setAttribute('data-striped-row', 'true')
+              : 0;
+            this.getAttribute('data-striped-col') == 'true'
+              ? node.setAttribute('data-striped-col', 'true')
+              : 0;
+            this.getAttribute('data-vertical-align') == 'true'
+              ? node.setAttribute('data-vertical-align', 'true')
+              : 0;
+            this.getAttribute('data-legacy-responsive') == 'true'
+              ? node.setAttribute('data-legacy-responsive', 'true')
+              : 0;
             this.table.appendChild(node);
             break;
 
           default:
             let nodeClasses = node.className.split(' ');
-            (nodeClasses.includes('no-wc')) ? node.remove() : 0;
+            nodeClasses.includes('no-wc') ? node.remove() : 0;
             break;
         }
       });
     });
 
-    // Add styles   
+    // Add styles
     const bootStyles = document.createElement('style');
     bootStyles.textContent = bootstrapStyles;
     const variableStyles = document.createElement('style');
@@ -68,12 +82,16 @@ export default class Table extends HTMLElement {
     let id = this.getAttribute('data-id');
     let extraClasses = this.getAttribute('data-extra-classes');
     let tableClasses = ['table'];
-    (extraClasses != undefined && extraClasses != null) ? tableClasses.push(extraClasses) : 0;
-    (id != undefined && id != null) ? this.table.id = id : 0;
-    (legacyResponsive == 'true') ? this.tableContainer.className = 'table-responsive' : 0;
+    extraClasses != undefined && extraClasses != null
+      ? tableClasses.push(extraClasses)
+      : 0;
+    id != undefined && id != null ? (this.table.id = id) : 0;
+    legacyResponsive == 'true'
+      ? (this.tableContainer.className = 'table-responsive')
+      : 0;
     this.table.className = tableClasses.join(' ');
     if (!this.shadowRoot.querySelector('div')) {
       this.shadowRoot.appendChild(this.tableContainer);
     }
   }
-};
+}

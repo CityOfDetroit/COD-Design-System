@@ -26,14 +26,20 @@ export default class Image extends HTMLElement {
     let backgroundColor = this.getAttribute('data-background-color');
     let displayType = this.getAttribute('data-display-type');
     let spinnerSizeClass;
-    if(spinnerSize == 'sm'){
+    if (spinnerSize == 'sm') {
       spinnerSizeClass = `spinner-${spinnerType}-${spinnerSize}`;
-    }else{
+    } else {
       spinnerSizeClass = '';
     }
     let spinner;
-    (displayType == 'inline') ? spinner = document.createElement('span') : spinner = document.createElement('div');
-    spinner.className = [`spinner-${spinnerType || ''}`, spinnerSizeClass, `text-${backgroundColor || ''}`].join(' ');
+    displayType == 'inline'
+      ? (spinner = document.createElement('span'))
+      : (spinner = document.createElement('div'));
+    spinner.className = [
+      `spinner-${spinnerType || ''}`,
+      spinnerSizeClass,
+      `text-${backgroundColor || ''}`,
+    ].join(' ');
     spinner.role = 'status';
     let pLoading = document.createElement('span');
     pLoading.innerText = 'Loading...';
@@ -41,4 +47,4 @@ export default class Image extends HTMLElement {
     spinner.appendChild(pLoading);
     this.shadowRoot.appendChild(spinner);
   }
-};
+}

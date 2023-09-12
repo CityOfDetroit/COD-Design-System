@@ -11,25 +11,31 @@ export default class FormLabel extends HTMLElement {
 
   connectedCallback() {
     // progress attributes
-    let inputID = this.getAttribute('data-input-id')
+    let inputID = this.getAttribute('data-input-id');
     let hidden = this.getAttribute('data-hidden');
     let textColor = this.getAttribute('data-color');
     let required = this.getAttribute('data-required');
     let text = this.getAttribute('data-text');
     let extraClasses = this.getAttribute('data-extra-classes');
-    if(hidden == 'true') {
-        hidden = 'visually-hidden';
-    }else{
-        hidden = '';
+    if (hidden == 'true') {
+      hidden = 'visually-hidden';
+    } else {
+      hidden = '';
     }
-    if(required == 'true') {
-        required = 'required-field';
+    if (required == 'true') {
+      required = 'required-field';
     }
     const label = document.createElement('label');
     label.innerText = text;
     label.setAttribute('for', inputID);
-    label.className = ['form-label', hidden, required, `${extraClasses || ''}`, `text-${textColor || ''}`].join(' ');
-    if(!this.shadowRoot.querySelector('label')){
+    label.className = [
+      'form-label',
+      hidden,
+      required,
+      `${extraClasses || ''}`,
+      `text-${textColor || ''}`,
+    ].join(' ');
+    if (!this.shadowRoot.querySelector('label')) {
       // setting up styles
       const bootStyles = document.createElement('style');
       bootStyles.textContent = bootstrapStyles;
@@ -43,4 +49,4 @@ export default class FormLabel extends HTMLElement {
       this.shadowRoot.appendChild(label);
     }
   }
-};
+}

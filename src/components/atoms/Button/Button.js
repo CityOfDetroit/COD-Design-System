@@ -25,7 +25,7 @@ export default class Button extends HTMLElement {
     let hiddenLabel = this.getAttribute('data-hidden-label');
     let imgSrc = this.getAttribute('data-img');
     let imgAlt = this.getAttribute('data-img-alt');
-    let img = (imgAlt != '') ? 'img' : 'not-img';
+    let img = imgAlt != '' ? 'img' : 'not-img';
     let size = this.getAttribute('data-size');
     let extraClasses = this.getAttribute('data-extra-classes');
     let label = this.getAttribute('data-label');
@@ -34,24 +34,30 @@ export default class Button extends HTMLElement {
     const btn = document.createElement('button');
     let btnClasses = ['btn'];
     btn.type = 'button';
-    if(btnID != null && btnID != undefined){
+    if (btnID != null && btnID != undefined) {
       btn.id = btnID;
     }
-    (disableStatus == 'true') ? btn.disabled = true : btn.disabled = false;
+    disableStatus == 'true' ? (btn.disabled = true) : (btn.disabled = false);
     btn.setAttribute('aria-label', `${ariaLabel || ''}`);
-    if(primary == 'true'){
+    if (primary == 'true') {
       btnClasses.push(`btn-${backgroundColor}`);
-    }else if(primary == 'false'){
+    } else if (primary == 'false') {
       btnClasses.push(`btn-outline-${backgroundColor}`);
     }
-    (shape == 'square') ? btnClasses.push('cod-button--square') : btnClasses.push('cod-button-fluid');
-    (size != undefined && size != null) ? btnClasses.push(`btn-${size}`) : 0;
-    (extraClasses != undefined && extraClasses != null) ? btnClasses.push(extraClasses) : 0;
-    (imgAlt != '') ? btnClasses.push('cod-button--img') : btnClasses.push('cod-button--not-img');
-    (close == 'true') ? btnClasses.push('btn-close') : 0;
+    shape == 'square'
+      ? btnClasses.push('cod-button--square')
+      : btnClasses.push('cod-button-fluid');
+    size != undefined && size != null ? btnClasses.push(`btn-${size}`) : 0;
+    extraClasses != undefined && extraClasses != null
+      ? btnClasses.push(extraClasses)
+      : 0;
+    imgAlt != ''
+      ? btnClasses.push('cod-button--img')
+      : btnClasses.push('cod-button--not-img');
+    close == 'true' ? btnClasses.push('btn-close') : 0;
     btn.className = btnClasses.join(' ');
 
-    if(icon != ''){
+    if (icon != '') {
       // Loading icon
       let iconContainer = document.createElement('span');
       let activeIcon = document.createElement('cod-icon');
@@ -59,29 +65,29 @@ export default class Button extends HTMLElement {
       activeIcon.setAttribute('data-size', iconSize);
       iconContainer.appendChild(activeIcon);
       btn.innerText = label;
-      if(iconOrder == 'left'){
+      if (iconOrder == 'left') {
         btn.insertBefore(iconContainer, btn.firstChild);
-      }else{
+      } else {
         btn.appendChild(iconContainer);
       }
-    }else if(imgAlt != ''){
+    } else if (imgAlt != '') {
       // Loading image
       btn.innerText = label;
       const btnIcon = document.createElement('img');
       btnIcon.src = imgSrc;
       btnIcon.setAttribute('alt', imgAlt);
       btn.appendChild(btnIcon);
-    }else{
+    } else {
       btn.innerText = label;
     }
     // Create hidden label
-    if(hiddenLabel != undefined && hiddenLabel != null){
+    if (hiddenLabel != undefined && hiddenLabel != null) {
       let hLabel = document.createElement('span');
       hLabel.className = 'visually-hidden';
       hLabel.innerText = hiddenLabel;
       btn.appendChild(hLabel);
     }
-    if(!this.shadowRoot.querySelector('button')){
+    if (!this.shadowRoot.querySelector('button')) {
       // Inserting styles
       const bootStyles = document.createElement('style');
       bootStyles.textContent = bootstrapStyles;
@@ -92,11 +98,11 @@ export default class Button extends HTMLElement {
       const btnStyles = document.createElement('style');
       btnStyles.textContent = styles;
       this.shadowRoot.appendChild(btnStyles);
-      if(link == undefined || link == null){
+      if (link == undefined || link == null) {
         this.shadowRoot.appendChild(btn);
         let ghostBtn = this.appendChild(document.createElement('button'));
         this.onclick = () => ghostBtn.click();
-      }else{
+      } else {
         const btnLink = document.createElement('a');
         btnLink.href = link;
         btnLink.appendChild(btn);
@@ -104,4 +110,4 @@ export default class Button extends HTMLElement {
       }
     }
   }
-};
+}

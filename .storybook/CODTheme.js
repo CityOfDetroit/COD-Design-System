@@ -1,40 +1,41 @@
 import { create } from '@storybook/theming';
 
 export default create({
-    base: 'light',
-    
-    colorPrimary: 'white',
-    colorSecondary: '#004445',
+  base: 'light',
 
-    // UI
-    appBg: 'white',
-    appContentBg: '#e6e6e6',
-    appBorderColor: '#004445',
-    appBorderRadius: 6,
+  colorPrimary: 'white',
+  colorSecondary: '#004445',
 
-    // Typography
-    fontBase: '"Montserrat", sans-serif',
-    fontCode: '"Montserrat", monospace',
+  // UI
+  appBg: 'white',
+  appContentBg: '#e6e6e6',
+  appBorderColor: '#004445',
+  appBorderRadius: 6,
 
-    // Text colors
-    textColor: 'black',
-    textInverseColor: 'white',
-    textMutedColor: '#666666',
+  // Typography
+  fontBase: '"Montserrat", sans-serif',
+  fontCode: '"Montserrat", monospace',
 
-    // Toolbar default and active colors
-    barTextColor: 'white',
-    barSelectedColor: '#9FD5B3',
-    barBg: '#004445',
+  // Text colors
+  textColor: 'black',
+  textInverseColor: 'white',
+  textMutedColor: '#666666',
 
-    // Form colors
-    inputBg: 'white',
-    inputBorder: '#004445',
-    inputTextColor: 'black',
-    inputBorderRadius: 4,
+  // Toolbar default and active colors
+  barTextColor: 'white',
+  barSelectedColor: '#9FD5B3',
+  barBg: '#004445',
 
-    // Brand assets
-    brandTitle: 'City of Detroit',
-    brandUrl: 'https://detroitmi.gov',
-    brandImage: 'https://detroitmi.gov/sites/detroitmi.localhost/files/2023-05/city-of-detroit-logo-1.png',
-    brandTarget: '_self',
+  // Form colors
+  inputBg: 'white',
+  inputBorder: '#004445',
+  inputTextColor: 'black',
+  inputBorderRadius: 4,
+
+  // Brand assets
+  brandTitle: 'City of Detroit',
+  brandUrl: 'https://detroitmi.gov',
+  brandImage:
+    'https://detroitmi.gov/sites/detroitmi.localhost/files/2023-05/city-of-detroit-logo-1.png',
+  brandTarget: '_self',
 });

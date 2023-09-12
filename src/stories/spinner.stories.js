@@ -4,16 +4,25 @@ export default {
   title: 'Components/Atoms/Spinner',
   argTypes: {
     type: {
-        control: { type: 'select' },
-        options: ['border', 'grow']
+      control: { type: 'select' },
+      options: ['border', 'grow'],
     },
     size: {
-        control: { type: 'select' },
-        options: ['sm', '']
+      control: { type: 'select' },
+      options: ['sm', ''],
     },
-    backgroundColor: { 
-        control: { type: 'select' },
-        options: ['primary', 'secondary', 'success', 'info', 'warning', 'danger', 'light', 'dark'],
+    backgroundColor: {
+      control: { type: 'select' },
+      options: [
+        'primary',
+        'secondary',
+        'success',
+        'info',
+        'warning',
+        'danger',
+        'light',
+        'dark',
+      ],
     },
   },
 };
@@ -25,10 +34,10 @@ const Template = (args) => {
   spinner.setAttribute('data-size', args.size);
   spinner.setAttribute('data-display-type', args.displayType);
   return spinner;
-}
+};
 
 export const Spinner = Template.bind({});
 Spinner.args = {
   type: 'border',
-  backgroundColor: 'primary'
+  backgroundColor: 'primary',
 };

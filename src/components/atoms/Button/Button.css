@@ -1,75 +1,78 @@
 .btn {
-    font-family: var(--font-family);
-    border-radius: 0;
+  font-family: var(--font-family);
+  border-radius: 0;
 }
 
 .cod-button--xsmall.cod-button--fluid {
-    font-size: .85em;
-    padding: .25em;
+  font-size: 0.85em;
+  padding: 0.25em;
 }
 
 .cod-button--small.cod-button--fluid {
-    font-size: 1em;
-    padding: .8em 1.1em;
+  font-size: 1em;
+  padding: 0.8em 1.1em;
 }
 
 .cod-button--medium.cod-button--fluid {
-    font-size: 1.1em;
-    padding: .75em 1.25em;
+  font-size: 1.1em;
+  padding: 0.75em 1.25em;
 }
 
 .cod-button--large.cod-button--fluid {
-    font-size: 1.2em;
-    padding: 1em 2em;
+  font-size: 1.2em;
+  padding: 1em 2em;
 }
 
 .btn.cod-button--square {
-    font-size: 1.1em;
-    height: 2.5em;
-    width: 2.5em;
+  font-size: 1.1em;
+  height: 2.5em;
+  width: 2.5em;
 }
 
 .btn.cod-button--square.close {
-    --bs-btn-close-bg: url(data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23000'%3e%3cpath d='M.293.293a1 1 0 0 1 1.414 0L8 6.586 14.293.293a1 1 0 1 1 1.414 1.414L9.414 8l6.293 6.293a1 1 0 0 1-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 0 1-1.414-1.414L6.586 8 .293 1.707a1 1 0 0 1 0-1.414z'/%3e%3c/svg%3e);
-    background: transparent var(--bs-btn-close-bg) center/1em auto no-repeat;
+  --bs-btn-close-bg: url(
+    data:image/svg + xml,
+    %3csvgxmlns='http://www.w3.org/2000/svg'viewBox='0 0 16 16'fill='%23000'%3e%3cpathd='M.293.293a1 1 0 0 1 1.414 0L8 6.586 14.293.293a1 1 0 1 1 1.414 1.414L9.414 8l6.293 6.293a1 1 0 0 1-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 0 1-1.414-1.414L6.586 8 .293 1.707a1 1 0 0 1 0-1.414z'/%3e%3c/svg%3e
+  );
+  background: transparent var(--bs-btn-close-bg) center/1em auto no-repeat;
 }
 
 .btn-sm.cod-button--square {
-    font-size: 1em;
-    height: 2em;
-    width: 2em;
+  font-size: 1em;
+  height: 2em;
+  width: 2em;
 }
 
 .btn-lg.cod-button--square {
-    font-size: 1.2em;
-    height: 3em;
-    width: 3em;
+  font-size: 1.2em;
+  height: 3em;
+  width: 3em;
 }
 
 .cod-button--img {
-    display: flex;
+  display: flex;
 }
 
 .cod-button--square.cod-button--img {
-    padding: 1px 6px;
+  padding: 1px 6px;
 }
 
 .cod-button--img img {
-    height: 1em;
-    margin-left: .5em;
-    position: relative;
-    top: 0.1em;
+  height: 1em;
+  margin-left: 0.5em;
+  position: relative;
+  top: 0.1em;
 }
 
 .cod-button--square.cod-button--img img {
-    height: auto;
-    max-width: 100%;
-    margin: auto;
-    top: 0;
+  height: auto;
+  max-width: 100%;
+  margin: auto;
+  top: 0;
 }
 
 cod-icon {
-    position: relative;
-    top: .1em;
-    margin: 0 .5em;
+  position: relative;
+  top: 0.1em;
+  margin: 0 0.5em;
 }

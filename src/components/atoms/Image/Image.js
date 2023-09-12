@@ -18,11 +18,11 @@ export default class Image extends HTMLElement {
     shadow.appendChild(template.content.cloneNode(true));
     // Create select and move options from slot to select
     this.picture = shadow.querySelector('picture');
-    shadow.addEventListener( 'slotchange', ev => {      
-      let tempElements = Array.from(this.children);  
-      tempElements.forEach((node)=>{
+    shadow.addEventListener('slotchange', (ev) => {
+      let tempElements = Array.from(this.children);
+      tempElements.forEach((node) => {
         this.picture.append(node);
-      })
+      });
     });
     // setting up styles
     const bootStyles = document.createElement('style');
@@ -35,4 +35,4 @@ export default class Image extends HTMLElement {
     this.shadowRoot.appendChild(variableStyles);
     this.shadowRoot.appendChild(imageStyles);
   }
-};
+}

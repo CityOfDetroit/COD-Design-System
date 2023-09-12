@@ -1,0 +1,8 @@
+# Ignore artifacts:
+.yarn/
+build
+node_modules
+public
+
+# Ignore yml files for now
+*.yml

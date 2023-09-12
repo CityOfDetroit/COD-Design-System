@@ -3,10 +3,19 @@ import '../components/organisms/Form/cod-form';
 export default {
   title: 'Forms/FormValidation',
   argTypes: {
-    backgroundColor: { 
-        control: { type: 'select' },
-        options: ['primary', 'secondary', 'success', 'info', 'warning', 'danger', 'light', 'dark'],
-    }
+    backgroundColor: {
+      control: { type: 'select' },
+      options: [
+        'primary',
+        'secondary',
+        'success',
+        'info',
+        'warning',
+        'danger',
+        'light',
+        'dark',
+      ],
+    },
   },
 };
 // Template
@@ -15,14 +24,14 @@ const Template = (args) => {
   form.setAttribute('data-background-color', args.backgroundColor);
   form.setAttribute('data-id', args.id);
   form.setAttribute('data-extra-classes', args.extraClasses);
-  if(args.submit){
-    form.form.addEventListener('submit', (e)=>{
-      args.submit(e)
-    })
+  if (args.submit) {
+    form.form.addEventListener('submit', (e) => {
+      args.submit(e);
+    });
   }
   form.innerHTML = args.elements;
   return form;
-}
+};
 
 export const Form = Template.bind({});
 Form.args = {
@@ -65,8 +74,11 @@ Form.args = {
     data-valueMissing="Please sign off your rights to proceed lol"></cod-form-check>
   <cod-button data-label="submit" data-background-color="color-1" data-primary="true" data-img-alt="" data-icon=""></cod-button>
   `,
-  submit: (e) => {e.preventDefault(); alert('submitted');}
-}
+  submit: (e) => {
+    e.preventDefault();
+    alert('submitted');
+  },
+};
 
 // WithInteraction.play = async ({ args, canvasElement }) => {
 //   // Assigns canvas to the component root element

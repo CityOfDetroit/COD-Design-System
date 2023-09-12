@@ -1,4 +1,4 @@
-const template = document.createElement("template");
+const template = document.createElement('template');
 
 template.innerHTML = `
 <slot></slot>
@@ -20,17 +20,17 @@ export default class FormCheckGroup extends HTMLElement {
     super();
     // Create a shadow root
     // Create a shadow root
-    const shadow = this.attachShadow({ mode: "open" });
+    const shadow = this.attachShadow({ mode: 'open' });
     shadow.appendChild(template.content.cloneNode(true));
   }
 
   connectedCallback() {
     // setting up styles
-    if (!this.hasAttribute("role")) {
-      if (this.getAttribute("data-type") == "radio") {
-        this.setAttribute("role", "radiogroup");
+    if (!this.hasAttribute('role')) {
+      if (this.getAttribute('data-type') == 'radio') {
+        this.setAttribute('role', 'radiogroup');
       } else {
-        this.setAttribute("role", "group");
+        this.setAttribute('role', 'group');
       }
     }
     let firstFormCheck = this.checkedFormCheck;
@@ -38,16 +38,16 @@ export default class FormCheckGroup extends HTMLElement {
       this._uncheckAll();
       this._checkNode(firstFormCheck);
     } else {
-      this.querySelector("cod-form-check").setAttribute("tabindex", 0);
+      this.querySelector('cod-form-check').setAttribute('tabindex', 0);
     }
 
-    this.addEventListener("keydown", this._onKeyDown);
-    this.addEventListener("click", this._onClick);
+    this.addEventListener('keydown', this._onKeyDown);
+    this.addEventListener('click', this._onClick);
   }
 
   disconnectedCallback() {
-    this.removeEventListener("keydown", this._onKeyDown);
-    this.removeEventListener("click", this._onClick);
+    this.removeEventListener('keydown', this._onKeyDown);
+    this.removeEventListener('click', this._onClick);
   }
 
   _onKeyDown(e) {
@@ -76,7 +76,7 @@ export default class FormCheckGroup extends HTMLElement {
 
       case KEYCODE.SPACE:
         e.preventDefault();
-        if (e.target.tagName.toLowerCase() === "cod-form-check") {
+        if (e.target.tagName.toLowerCase() === 'cod-form-check') {
           this._setChecked(e.target);
         }
         break;
@@ -91,19 +91,19 @@ export default class FormCheckGroup extends HTMLElement {
   }
 
   get firstFormCheck() {
-    return this.querySelector("cod-form-check:first-of-type");
+    return this.querySelector('cod-form-check:first-of-type');
   }
 
   get lastFormCheck() {
-    return this.querySelector("cod-form-check:last-of-type");
+    return this.querySelector('cod-form-check:last-of-type');
   }
 
   _prevFormCheck(node) {
     let prev = node.previousElementSibling;
     while (prev) {
       if (
-        prev.getAttribute("data-type") === "radio" ||
-        prev.getAttribute("data-type") === "checkbox"
+        prev.getAttribute('data-type') === 'radio' ||
+        prev.getAttribute('data-type') === 'checkbox'
       ) {
         return prev;
       }
@@ -116,8 +116,8 @@ export default class FormCheckGroup extends HTMLElement {
     let next = node.nextElementSibling;
     while (next) {
       if (
-        next.getAttribute("data-type") === "radio" ||
-        prev.getAttribute("data-type") === "checkbox"
+        next.getAttribute('data-type') === 'radio' ||
+        prev.getAttribute('data-type') === 'checkbox'
       ) {
         return next;
       }
@@ -151,17 +151,17 @@ export default class FormCheckGroup extends HTMLElement {
   }
 
   _uncheckAll() {
-    const formCheck = this.querySelectorAll("cod-form-check");
+    const formCheck = this.querySelectorAll('cod-form-check');
     for (let i = 0; i < formCheck.length; i++) {
       let btn = formCheck[i];
-      btn.setAttribute("data-checked", "false");
-      btn.setAttribute("data-required", "false");
+      btn.setAttribute('data-checked', 'false');
+      btn.setAttribute('data-required', 'false');
       btn.tabIndex = -1;
     }
   }
 
   _validateRequired() {
-    const formCheck = this.querySelectorAll("cod-form-check");
+    const formCheck = this.querySelectorAll('cod-form-check');
     let isValid = false;
     for (let i = 0; i < formCheck.length; i++) {
       let checkbox = formCheck[i];
@@ -171,24 +171,24 @@ export default class FormCheckGroup extends HTMLElement {
   }
 
   _requiredAll() {
-    const formCheck = this.querySelectorAll("cod-form-check");
+    const formCheck = this.querySelectorAll('cod-form-check');
     for (let i = 0; i < formCheck.length; i++) {
       let btn = formCheck[i];
-      btn.setAttribute("data-required", "true");
+      btn.setAttribute('data-required', 'true');
     }
   }
 
   _unRequiredAll() {
-    const formCheck = this.querySelectorAll("cod-form-check");
+    const formCheck = this.querySelectorAll('cod-form-check');
     for (let i = 0; i < formCheck.length; i++) {
       let btn = formCheck[i];
-      btn.setAttribute("data-required", "false");
+      btn.setAttribute('data-required', 'false');
     }
   }
 
   _checkNode(node) {
-    node.setAttribute("data-checked", "true");
-    node.setAttribute("data-required", "true");
+    node.setAttribute('data-checked', 'true');
+    node.setAttribute('data-required', 'true');
     node.tabIndex = 0;
   }
 
@@ -197,11 +197,11 @@ export default class FormCheckGroup extends HTMLElement {
   }
 
   _onClick(e) {
-    if (e.target.getAttribute("data-type") === "radio") {
+    if (e.target.getAttribute('data-type') === 'radio') {
       this._setChecked(e.target);
     }
-    if (e.target.getAttribute("data-type") === "checkbox") {
-      if (this.getAttribute("data-required") == "true") {
+    if (e.target.getAttribute('data-type') === 'checkbox') {
+      if (this.getAttribute('data-required') == 'true') {
         this._validateRequired(e.target);
       }
     }

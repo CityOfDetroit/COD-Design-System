@@ -3,14 +3,13 @@ import varStyles from '!!raw-loader!../../../shared/variables.css';
 import bootstrapStyles from '!!raw-loader!../../../shared/themed-bootstrap.css';
 
 export default class NavbarBrand extends HTMLElement {
-  
   constructor() {
     // Always call super first in constructor
     super();
     // Create a shadow root
     const shadow = this.attachShadow({ mode: 'open' });
 
-    // Add styles   
+    // Add styles
     const bootStyles = document.createElement('style');
     bootStyles.textContent = bootstrapStyles;
     const variableStyles = document.createElement('style');
@@ -36,25 +35,33 @@ export default class NavbarBrand extends HTMLElement {
     let brandLink = document.createElement('a');
     let cleanURL = encodeURI(url);
     brandLink.href = decodeURI(cleanURL);
-    if(brandImgURL != undefined && brandImgURL != null){
-        let brandImg = document.createElement('img');
-        let cleanImgURL = encodeURI(brandImgURL);
-        brandImg.src = decodeURI(cleanImgURL);
-        (imgSize != undefined && imgSize != null) ? brandImg.setAttribute('width', imgSize) : 0;
-        (imgClasses != undefined && imgClasses != null) ? brandImg.className = imgClasses : 0;
-        brandImg.setAttribute('alt', brandImgAlt);
-        brandLink.appendChild(brandImg);
+    if (brandImgURL != undefined && brandImgURL != null) {
+      let brandImg = document.createElement('img');
+      let cleanImgURL = encodeURI(brandImgURL);
+      brandImg.src = decodeURI(cleanImgURL);
+      imgSize != undefined && imgSize != null
+        ? brandImg.setAttribute('width', imgSize)
+        : 0;
+      imgClasses != undefined && imgClasses != null
+        ? (brandImg.className = imgClasses)
+        : 0;
+      brandImg.setAttribute('alt', brandImgAlt);
+      brandLink.appendChild(brandImg);
     }
-    if(text != undefined && text != null){
-        let brandText = document.createElement('span');
-        (textClasses != undefined && textClasses != null) ? brandText.className = textClasses : 0;
-        brandText.innerText = text;
-        brandLink.appendChild(brandText);
+    if (text != undefined && text != null) {
+      let brandText = document.createElement('span');
+      textClasses != undefined && textClasses != null
+        ? (brandText.className = textClasses)
+        : 0;
+      brandText.innerText = text;
+      brandLink.appendChild(brandText);
     }
-    (extraClasses != undefined && extraClasses != null) ? brandClasses.push(extraClasses): 0;
+    extraClasses != undefined && extraClasses != null
+      ? brandClasses.push(extraClasses)
+      : 0;
     brandLink.className = brandClasses.join(' ');
-    if(!this.shadowRoot.querySelector('a')){
+    if (!this.shadowRoot.querySelector('a')) {
       this.shadowRoot.appendChild(brandLink);
     }
   }
-};
+}

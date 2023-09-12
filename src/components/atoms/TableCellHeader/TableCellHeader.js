@@ -8,9 +8,7 @@ template.innerHTML = `
 <slot></slot>
 `;
 
-
 export default class TableCellHeader extends HTMLElement {
-
   constructor() {
     // Always call super first in constructor
     super();
@@ -19,14 +17,14 @@ export default class TableCellHeader extends HTMLElement {
     shadow.appendChild(template.content.cloneNode(true));
     this.tableCellHeader = document.createElement('div');
     this.tableCellHeader.role = 'columnheader';
-    shadow.addEventListener( 'slotchange', ev => {  
+    shadow.addEventListener('slotchange', (ev) => {
       let tempElements = Array.from(this.childNodes);
-      tempElements.forEach((node)=>{
-          this.tableCellHeader.appendChild(node);
+      tempElements.forEach((node) => {
+        this.tableCellHeader.appendChild(node);
       });
     });
 
-    // Add styles   
+    // Add styles
     const bootStyles = document.createElement('style');
     bootStyles.textContent = bootstrapStyles;
     const variableStyles = document.createElement('style');
@@ -48,11 +46,19 @@ export default class TableCellHeader extends HTMLElement {
     let verticalAlign = this.getAttribute('data-vertical-align');
     let extraClasses = this.getAttribute('data-extra-classes');
     let tableCellHeaderClasses = ['table-cell-header'];
-    (verticalAlign != undefined && verticalAlign != null) ? tableCellHeaderClasses.push(verticalAlign) : 0;
-    (legacyResponsive == 'true') ? tableCellHeaderClasses.push('table-legacy-responsive') : 0;
-    (stripedRow == 'true') ? tableCellHeaderClasses.push('table-striped') : 0;
-    (stripedCol == 'true') ? tableCellHeaderClasses.push('table-striped-columns') : 0;
-    (extraClasses != undefined && extraClasses != null) ? tableCellHeaderClasses.push(extraClasses) : 0;
+    verticalAlign != undefined && verticalAlign != null
+      ? tableCellHeaderClasses.push(verticalAlign)
+      : 0;
+    legacyResponsive == 'true'
+      ? tableCellHeaderClasses.push('table-legacy-responsive')
+      : 0;
+    stripedRow == 'true' ? tableCellHeaderClasses.push('table-striped') : 0;
+    stripedCol == 'true'
+      ? tableCellHeaderClasses.push('table-striped-columns')
+      : 0;
+    extraClasses != undefined && extraClasses != null
+      ? tableCellHeaderClasses.push(extraClasses)
+      : 0;
     this.tableCellHeader.className = tableCellHeaderClasses.join(' ');
   }
-};
+}

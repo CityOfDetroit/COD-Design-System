@@ -29,30 +29,34 @@ export default class Progress extends HTMLElement {
     let backgroundColor = this.getAttribute('data-background-color');
     let stacked = this.getAttribute('data-multi-bars');
     const progressContainer = document.createElement('div');
-    if(stacked == 'undefined' || stacked == 'null'){
+    if (stacked == 'undefined' || stacked == 'null') {
       const bar = document.createElement('div');
       bar.role = 'progressbar';
       bar.setAttribute('aria-label', ariaLabel);
       bar.setAttribute('aria-valuenow', value);
       bar.className = 'progress';
       const barBody = document.createElement('div');
-      barBody.style =`width: ${value}%`;
-      if(label != 'undefined' && label != 'null'){
+      barBody.style = `width: ${value}%`;
+      if (label != 'undefined' && label != 'null') {
         barBody.innerText = label;
       }
-      barBody.className = ['progress-bar', `progress-bar-${animated || ''}`, `progress-bar-${striped || ''}`, `bg-${backgroundColor || ''}`].join(' ');
+      barBody.className = [
+        'progress-bar',
+        `progress-bar-${animated || ''}`,
+        `progress-bar-${striped || ''}`,
+        `bg-${backgroundColor || ''}`,
+      ].join(' ');
       bar.appendChild(barBody);
       progressContainer.appendChild(bar);
-    }else{
+    } else {
       progressContainer.className = 'progress-stacked';
       this.buildBar(JSON.parse(stacked), progressContainer);
-      
     }
     this.shadowRoot.appendChild(progressContainer);
   }
 
-  buildBar(bars , barContainer) {
-    bars.forEach(bar => {
+  buildBar(bars, barContainer) {
+    bars.forEach((bar) => {
       let tempBar = document.createElement('div');
       tempBar.role = 'progressbar';
       tempBar.setAttribute('aria-label', bar.ariaLabel);
@@ -61,11 +65,18 @@ export default class Progress extends HTMLElement {
       tempBar.setAttribute('aria-valuemax', '100');
       tempBar.className = 'progress';
       const barBody = document.createElement('div');
-      tempBar.style =`width: ${bar.value}%`;
-      (bar.label == undefined || bar.label == null) ? '' : barBody.innerText = bar.label;
-      barBody.className = ['progress-bar', `progress-bar-${bar.animated || ''}`, `progress-bar-${bar.striped || ''}`, `bg-${bar.backgroundColor || ''}`].join(' ');
+      tempBar.style = `width: ${bar.value}%`;
+      bar.label == undefined || bar.label == null
+        ? ''
+        : (barBody.innerText = bar.label);
+      barBody.className = [
+        'progress-bar',
+        `progress-bar-${bar.animated || ''}`,
+        `progress-bar-${bar.striped || ''}`,
+        `bg-${bar.backgroundColor || ''}`,
+      ].join(' ');
       tempBar.appendChild(barBody);
       barContainer.appendChild(tempBar);
     });
   }
-};
+}

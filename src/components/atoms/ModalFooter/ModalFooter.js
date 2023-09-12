@@ -8,9 +8,7 @@ template.innerHTML = `
 <slot></slot>
 `;
 
-
 export default class ModalFooter extends HTMLElement {
-
   constructor() {
     // Always call super first in constructor
     super();
@@ -19,15 +17,15 @@ export default class ModalFooter extends HTMLElement {
     shadow.appendChild(template.content.cloneNode(true));
     this.modalFooter = document.createElement('div');
     this.closeBtn = document.createElement('cod-button');
-    this.shadowRoot.addEventListener( 'slotchange', ev => {  
-      let tempElements = Array.from(this.children);  
-      tempElements.forEach((node)=>{
-          this.modalFooter.appendChild(node);
+    this.shadowRoot.addEventListener('slotchange', (ev) => {
+      let tempElements = Array.from(this.children);
+      tempElements.forEach((node) => {
+        this.modalFooter.appendChild(node);
       });
     });
     this.modalFooter.appendChild(this.closeBtn);
 
-    // Add styles   
+    // Add styles
     const bootStyles = document.createElement('style');
     bootStyles.textContent = bootstrapStyles;
     const variableStyles = document.createElement('style');
@@ -48,11 +46,15 @@ export default class ModalFooter extends HTMLElement {
     this.closeBtn.setAttribute('data-icon', '');
     this.closeBtn.setAttribute('data-label', 'Close');
     this.closeBtn.setAttribute('data-bs-dismiss', 'modal');
-    (extraClasses != undefined && extraClasses != null) ? modalFooterClasses.push(extraClasses): 0;
-    (btnExtraClasses != undefined && btnExtraClasses != null) ? this.closeBtn.setAttribute('data-extra-classes', btnExtraClasses): 0;
+    extraClasses != undefined && extraClasses != null
+      ? modalFooterClasses.push(extraClasses)
+      : 0;
+    btnExtraClasses != undefined && btnExtraClasses != null
+      ? this.closeBtn.setAttribute('data-extra-classes', btnExtraClasses)
+      : 0;
     this.modalFooter.className = modalFooterClasses.join(' ');
     this.closeBtn.addEventListener('click', this._onClick);
-    if(!this.shadowRoot.querySelector('div')){
+    if (!this.shadowRoot.querySelector('div')) {
       this.shadowRoot.appendChild(this.modalFooter);
     }
   }
@@ -62,6 +64,8 @@ export default class ModalFooter extends HTMLElement {
   }
 
   _onClick(e) {
-    this.getRootNode().host.getRootNode().host.setAttribute('data-show', 'false');
+    this.getRootNode()
+      .host.getRootNode()
+      .host.setAttribute('data-show', 'false');
   }
-};
+}

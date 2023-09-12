@@ -7,14 +7,23 @@ export default {
   title: 'Components/Atoms/Button',
   argTypes: {
     primary: {
-      control: { type: 'boolean'},
+      control: { type: 'boolean' },
     },
     disable: {
-      control: {type: 'boolean'},
+      control: { type: 'boolean' },
     },
-    backgroundColor: { 
+    backgroundColor: {
       control: { type: 'select' },
-      options: ['primary', 'secondary', 'success', 'info', 'warning', 'danger', 'light', 'dark'],
+      options: [
+        'primary',
+        'secondary',
+        'success',
+        'info',
+        'warning',
+        'danger',
+        'light',
+        'dark',
+      ],
     },
     onClick: { action: 'onClick' },
     size: {
@@ -23,15 +32,27 @@ export default {
     },
     icon: {
       control: { type: 'select' },
-      options: ['house', 'house-fill', 'exclamation-circle', 'exclamation-circle-fill', 'exclamation-triangle', 'check-circle', 'check-circle-fill', 'calendar', 'calendar-fill', 'calendar-date', 'calendar-date-fill']
+      options: [
+        'house',
+        'house-fill',
+        'exclamation-circle',
+        'exclamation-circle-fill',
+        'exclamation-triangle',
+        'check-circle',
+        'check-circle-fill',
+        'calendar',
+        'calendar-fill',
+        'calendar-date',
+        'calendar-date-fill',
+      ],
     },
     iconSize: {
       control: { type: 'select' },
-      options: ['small', 'medium', 'large', 'x-large']
+      options: ['small', 'medium', 'large', 'x-large'],
     },
     iconOrder: {
       control: { type: 'select' },
-      options: ['left', 'right']
+      options: ['left', 'right'],
     },
     shape: {
       control: { type: 'select' },
@@ -42,40 +63,42 @@ export default {
 // Template
 const Template = (args) => {
   const btn = document.createElement('cod-button');
-  btn.addEventListener('click', (e)=>{
-    args.onclick(e)
-  })
+  btn.addEventListener('click', (e) => {
+    args.onclick(e);
+  });
   btn.setAttribute('data-primary', args.primary);
   btn.setAttribute('data-disable', args.disable);
   btn.setAttribute('data-label', args.label);
-  btn.setAttribute('data-img', (args.img) ? args.img : '');
-  btn.setAttribute('data-img-alt', (args.imgAlt) ? args.imgAlt : '');
-  btn.setAttribute('data-icon', (args.icon) ? args.icon : '');
-  btn.setAttribute('data-icon-order', (args.iconOrder) ? args.iconOrder : '');
-  btn.setAttribute('data-icon-size', (args.iconSize) ? args.iconSize : '');
+  btn.setAttribute('data-img', args.img ? args.img : '');
+  btn.setAttribute('data-img-alt', args.imgAlt ? args.imgAlt : '');
+  btn.setAttribute('data-icon', args.icon ? args.icon : '');
+  btn.setAttribute('data-icon-order', args.iconOrder ? args.iconOrder : '');
+  btn.setAttribute('data-icon-size', args.iconSize ? args.iconSize : '');
   btn.setAttribute('data-shape', args.shape);
-  btn.setAttribute('data-aria-label', (args.ariaLabel) ? args.ariaLabel : '');
-  (args.backgroundColor) ? btn.setAttribute('data-background-color', args.backgroundColor) : btn.setAttribute('data-background-color', 'primary');
-  if(args.close){
+  btn.setAttribute('data-aria-label', args.ariaLabel ? args.ariaLabel : '');
+  args.backgroundColor
+    ? btn.setAttribute('data-background-color', args.backgroundColor)
+    : btn.setAttribute('data-background-color', 'primary');
+  if (args.close) {
     btn.setAttribute('data-close', args.close);
   }
-  if(args.hLabel){
+  if (args.hLabel) {
     btn.setAttribute('data-hidden-label', args.hLabel);
   }
-  if(args.size){
+  if (args.size) {
     btn.setAttribute('data-size', args.size);
   }
-  if(args.id){
+  if (args.id) {
     btn.setAttribute('data-id', args.id);
   }
-  if(args.link){
+  if (args.link) {
     btn.setAttribute('data-link', args.link);
   }
-  if(args.extraClasses){
+  if (args.extraClasses) {
     btn.setAttribute('data-extra-classes', args.extraClasses);
   }
   return btn;
-}
+};
 
 export const Primary = Template.bind({});
 Primary.args = {
@@ -93,14 +116,14 @@ export const Extras = Template.bind({});
 Extras.args = {
   primary: false,
   label: 'Extras',
-  extraClasses: 'w-100'
+  extraClasses: 'w-100',
 };
 
 export const Link = Template.bind({});
 Link.args = {
   primary: false,
   label: 'Link',
-  link: 'https://detroitmi.gov'
+  link: 'https://detroitmi.gov',
 };
 
 export const Image = Template.bind({});
@@ -127,7 +150,7 @@ Close.args = {
   primary: true,
   label: '',
   ariaLabel: 'Close',
-  close: 'true'
+  close: 'true',
 };
 
 export const SquareClose = Template.bind({});
@@ -136,7 +159,7 @@ SquareClose.args = {
   label: 'x',
   shape: 'square',
   ariaLabel: 'Close',
-  extraClasses: 'fw-bold'
+  extraClasses: 'fw-bold',
 };
 
 export const SquareImage = Template.bind({});
@@ -154,7 +177,7 @@ HiddenLabel.args = {
   primary: true,
   label: '',
   hLabel: 'Toggle Dropdown',
-  extraClasses: 'dropdown-toggle dropdown-toggle-split'
+  extraClasses: 'dropdown-toggle dropdown-toggle-split',
 };
 
 // export const WithInteraction = Template.bind({});

@@ -8,9 +8,7 @@ template.innerHTML = `
 <slot></slot>
 `;
 
-
 export default class TableCell extends HTMLElement {
-
   constructor() {
     // Always call super first in constructor
     super();
@@ -19,14 +17,14 @@ export default class TableCell extends HTMLElement {
     shadow.appendChild(template.content.cloneNode(true));
     this.tableCell = document.createElement('div');
     this.tableCell.role = 'cell';
-    shadow.addEventListener( 'slotchange', ev => {  
+    shadow.addEventListener('slotchange', (ev) => {
       let tempElements = Array.from(this.childNodes);
-      tempElements.forEach((node)=>{
-          this.tableCell.appendChild(node);
+      tempElements.forEach((node) => {
+        this.tableCell.appendChild(node);
       });
     });
 
-    // Add styles   
+    // Add styles
     const bootStyles = document.createElement('style');
     bootStyles.textContent = bootstrapStyles;
     const variableStyles = document.createElement('style');
@@ -48,11 +46,17 @@ export default class TableCell extends HTMLElement {
     let verticalAlign = this.getAttribute('data-vertical-align');
     let extraClasses = this.getAttribute('data-extra-classes');
     let tableCellClasses = ['table-cell'];
-    (verticalAlign != undefined && verticalAlign != null) ? tableCellClasses.push(verticalAlign) : 0;
-    (legacyResponsive == 'true') ? tableCellClasses.push('table-legacy-responsive') : 0;
-    (stripedRow == 'true') ? tableCellClasses.push('table-striped') : 0;
-    (stripedCol == 'true') ? tableCellClasses.push('table-striped-columns') : 0;
-    (extraClasses != undefined && extraClasses != null) ? tableCellClasses.push(extraClasses) : 0;
+    verticalAlign != undefined && verticalAlign != null
+      ? tableCellClasses.push(verticalAlign)
+      : 0;
+    legacyResponsive == 'true'
+      ? tableCellClasses.push('table-legacy-responsive')
+      : 0;
+    stripedRow == 'true' ? tableCellClasses.push('table-striped') : 0;
+    stripedCol == 'true' ? tableCellClasses.push('table-striped-columns') : 0;
+    extraClasses != undefined && extraClasses != null
+      ? tableCellClasses.push(extraClasses)
+      : 0;
     this.tableCell.className = tableCellClasses.join(' ');
   }
-};
+}

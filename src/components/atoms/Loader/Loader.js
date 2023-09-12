@@ -18,7 +18,9 @@ export default class Loader extends HTMLElement {
     this.shadowRoot.appendChild(loaderStyles);
     const loader = document.createElement('article');
     let color = this.getAttribute('data-color');
-    loader.className = ['cod-loader', `cod-loader--${color || 'color-1'}`].join(' ');
+    loader.className = ['cod-loader', `cod-loader--${color || 'color-1'}`].join(
+      ' ',
+    );
     loader.innerHTML = `
     <article class="cod-loader-container">
         <article>
@@ -35,4 +37,4 @@ export default class Loader extends HTMLElement {
     </article>`;
     this.shadowRoot.appendChild(loader);
   }
-};
+}

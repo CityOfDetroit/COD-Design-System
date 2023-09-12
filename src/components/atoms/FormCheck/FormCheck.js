@@ -12,7 +12,7 @@ export default class FormCheck extends HTMLElement {
     // Always call super first in constructor
     super();
     // Create a shadow root
-    const shadow = this.attachShadow({ mode: 'open'});
+    const shadow = this.attachShadow({ mode: 'open' });
     this.internals = this.attachInternals();
     this.container = document.createElement('div');
     this.formCheck = document.createElement('input');
@@ -24,7 +24,7 @@ export default class FormCheck extends HTMLElement {
   attributeChangedCallback(name, oldValue, newValue) {
     let tempClasses = this.formCheck.className.split(' ');
     let popValue = tempClasses.pop();
-    (popValue != 'is-invalid') ? tempClasses.push(popValue) : 0;
+    popValue != 'is-invalid' ? tempClasses.push(popValue) : 0;
 
     switch (newValue) {
       case 'true':
@@ -36,19 +36,19 @@ export default class FormCheck extends HTMLElement {
 
           case 'data-checked':
             this.formCheck.checked = true;
-            this.formCheck.setAttribute('aria-checked', "true");
+            this.formCheck.setAttribute('aria-checked', 'true');
             break;
 
           case 'data-required':
             this.formCheck.required = true;
             this.validateInput();
             break;
-        
+
           default:
             break;
         }
         break;
-      
+
       case 'false':
         switch (name) {
           case 'data-invalid':
@@ -57,23 +57,22 @@ export default class FormCheck extends HTMLElement {
 
           case 'data-checked':
             this.formCheck.checked = false;
-            this.formCheck.setAttribute('aria-checked', "false");
+            this.formCheck.setAttribute('aria-checked', 'false');
             break;
 
           case 'data-required':
             this.formCheck.required = false;
             this.validateInput();
             break;
-        
+
           default:
             break;
         }
         break;
-    
+
       default:
         break;
     }
-    
   }
 
   connectedCallback() {
@@ -97,29 +96,29 @@ export default class FormCheck extends HTMLElement {
     this.formCheck.value = value;
     this.formCheck.name = checkName;
     this.formCheck.setAttribute('autocomplete', 'off');
-    if(required == 'true'){
+    if (required == 'true') {
       this.formCheck.setAttribute('required', true);
     }
-    if(checked == 'true'){
+    if (checked == 'true') {
       this.formCheck.checked = true;
-      this.formCheck.setAttribute('aria-checked', "true");
-    }else{
-      this.formCheck.setAttribute('aria-checked', "false");
+      this.formCheck.setAttribute('aria-checked', 'true');
+    } else {
+      this.formCheck.setAttribute('aria-checked', 'false');
     }
-    if(disabled == 'true'){
-        this.formCheck.setAttribute('disabled', true);
+    if (disabled == 'true') {
+      this.formCheck.setAttribute('disabled', true);
     }
-    if(mode == 'switch'){
+    if (mode == 'switch') {
       this.formCheck.setAttribute('role', mode);
     }
-    if(mode == 'btn' || mode == 'btn-outline'){
+    if (mode == 'btn' || mode == 'btn-outline') {
       this.formCheck.className = 'btn-check';
       mode = null;
-    } else{
+    } else {
       this.formCheck.className = 'form-check-input';
     }
 
-    if(!this.shadowRoot.querySelector('div')){
+    if (!this.shadowRoot.querySelector('div')) {
       // setting up styles
       const bootStyles = document.createElement('style');
       bootStyles.textContent = bootstrapStyles;
@@ -130,18 +129,28 @@ export default class FormCheck extends HTMLElement {
       this.shadowRoot.appendChild(bootStyles);
       this.shadowRoot.appendChild(variableStyles);
       this.shadowRoot.appendChild(formCheckStyles);
-      
+
       // Set checkbox/radio mode
-      this.container.className = ['form-check', `form-${mode || ''}`, `bg-${backgroundColor || ''}`, `${extraClasses || ''}`].join(' ');
+      this.container.className = [
+        'form-check',
+        `form-${mode || ''}`,
+        `bg-${backgroundColor || ''}`,
+        `${extraClasses || ''}`,
+      ].join(' ');
       this.container.appendChild(this.formCheck);
-      
-      // Adding label to check/radio 
-      if(noLabel != 'true'){
+
+      // Adding label to check/radio
+      if (noLabel != 'true') {
         const checkLabel = document.createElement('label');
         checkLabel.setAttribute('for', id);
         checkLabel.innerText = labelTxt;
-        if(this.getAttribute('data-mode') == 'btn' || this.getAttribute('data-mode') == 'btn-outline'){
-          checkLabel.className = `btn ${this.getAttribute('data-mode')}-${btnColor}`;
+        if (
+          this.getAttribute('data-mode') == 'btn' ||
+          this.getAttribute('data-mode') == 'btn-outline'
+        ) {
+          checkLabel.className = `btn ${this.getAttribute(
+            'data-mode',
+          )}-${btnColor}`;
         }
         this.container.appendChild(checkLabel);
       }
@@ -150,12 +159,12 @@ export default class FormCheck extends HTMLElement {
       this.shadowRoot.appendChild(this.container);
     }
     this.formCheck.addEventListener('change', (e) => {
-      // we also want to dispatch a `change` event from 
+      // we also want to dispatch a `change` event from
       // our custom element
       this.setAttribute('data-invalid', false);
       const clone = new e.constructor(e.type, e);
       this.dispatchEvent(clone);
-      // set the element’s validity whenever the value of the 
+      // set the element’s validity whenever the value of the
       // <input> changes
       this.validateInput();
     });
@@ -164,9 +173,9 @@ export default class FormCheck extends HTMLElement {
       this.invalid = true;
       this.pristine = false;
       this.setAttribute('data-invalid', true);
-      // when a custom error needs to be displayed, 
+      // when a custom error needs to be displayed,
       // prevent the native error from showing
-      if(this.customErrorDisplay) {
+      if (this.customErrorDisplay) {
         e.preventDefault();
       }
     });
@@ -194,7 +203,7 @@ export default class FormCheck extends HTMLElement {
   checkValidity() {
     return this.internals.checkValidity();
   }
-  
+
   reportValidity() {
     return this.internals.reportValidity();
   }
@@ -206,40 +215,40 @@ export default class FormCheck extends HTMLElement {
     this.invalid = false;
 
     // if the input is invalid, show the correct error
-    if(!validState.valid) {
+    if (!validState.valid) {
       // loop through the error reasons
-      for(let state in validState) {
+      for (let state in validState) {
         // get the name of the data attribute that holds the
         //error message
         const attr = `data-${state.toString()}`;
         // if there is an error and corresponding attribute holding
         // the message
-        if(validState[state]) {
+        if (validState[state]) {
           this.validationError = state.toString();
           this.invalid = !this.pristine && !validState.valid;
 
           // get the correct error message
-          const errorMessage = this.hasAttribute(attr) ?
-            this.getAttribute(attr) : this.formCheck.validationMessage;
+          const errorMessage = this.hasAttribute(attr)
+            ? this.getAttribute(attr)
+            : this.formCheck.validationMessage;
           // set the validity error reason and the corresponding
           // message
           this.internals.setValidity(
-            {[this.validationError]: true},
-            errorMessage
+            { [this.validationError]: true },
+            errorMessage,
           );
-          // when a custom error needs to be displayed, 
+          // when a custom error needs to be displayed,
           // dispatch the 'invalid' event manually so consuming code
-          // can use this as a hook to get the correct error message 
+          // can use this as a hook to get the correct error message
           // and display it
-          if(this.invalid && this.customErrorDisplay) {
+          if (this.invalid && this.customErrorDisplay) {
             this.dispatchEvent(new Event('invalid'));
           }
         }
       }
-    }
-    else {
+    } else {
       this.internals.setValidity({});
       this.setAttribute('data-invalid', false);
     }
   }
-};
+}

@@ -3,11 +3,19 @@ import '../components/atoms/Loader/cod-loader';
 export default {
   title: 'Components/Atoms/Loader',
   argTypes: {
-    backgroundColor: { 
+    backgroundColor: {
       control: { type: 'select' },
-      options: ['color-1', 'color-2', 'color-3', 'color-4', 'color-5', 'color-light', 'color-dark'],
+      options: [
+        'color-1',
+        'color-2',
+        'color-3',
+        'color-4',
+        'color-5',
+        'color-light',
+        'color-dark',
+      ],
     },
-  }
+  },
 };
 
 // Template
@@ -15,6 +23,6 @@ const Template = (args) => {
   const loader = document.createElement('cod-loader');
   loader.setAttribute('data-color', args.backgroundColor);
   return loader;
-}
+};
 
 export const Loader = Template.bind({});
