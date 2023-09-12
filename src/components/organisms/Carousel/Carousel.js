@@ -26,7 +26,11 @@ export default class Carousel extends HTMLElement {
     this.carouselInner.className = 'carousel-inner';
     this.carouselPrev = document.createElement('button');
     this.carouselNext = document.createElement('button');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     if (this.getAttribute('data-no-controls') != 'true') {
+      // See CityOfDetroit/detroitmi#1099
+      // eslint-disable-next-line eqeqeq
       if (this.getAttribute('data-external-controls') == 'true') {
         this.carouselPrev.className = 'carousel-control-prev position-relative';
         this.carouselNext.className = 'carousel-control-next position-relative';
@@ -73,21 +77,31 @@ export default class Carousel extends HTMLElement {
       this.carousel.appendChild(this.carouselInner);
     }
 
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line no-unused-vars
     shadow.addEventListener('slotchange', (e) => {
       let tempElements = Array.from(this.children);
       let tempElementsCount = 0;
       tempElements.forEach((node, index) => {
+        // See CityOfDetroit/detroitmi#1099
+        // eslint-disable-next-line eqeqeq
         if (node.tagName == 'COD-CAROUSEL-ITEM') {
           tempElementsCount += 1;
           let tempItem = document.createElement('div');
           tempItem.setAttribute('data-index', index);
+          // See CityOfDetroit/detroitmi#1099
+          // eslint-disable-next-line eqeqeq
           if (node.getAttribute('data-active') == 'true') {
             tempItem.className = 'carousel-item active';
             this.setAttribute('data-active-item', index);
           } else {
             tempItem.className = 'carousel-item';
           }
+          // See CityOfDetroit/detroitmi#1099
+          // eslint-disable-next-line eqeqeq
           node.getAttribute('data-interval') != undefined &&
+          // See CityOfDetroit/detroitmi#1099
+          // eslint-disable-next-line eqeqeq
           node.getAttribute('data-interval') != null
             ? tempItem.setAttribute(
                 'data-bs-interval',
@@ -96,6 +110,8 @@ export default class Carousel extends HTMLElement {
             : 0;
           tempItem.appendChild(node);
           this.carouselInner.appendChild(tempItem);
+          // See CityOfDetroit/detroitmi#1099
+          // eslint-disable-next-line eqeqeq
           if (this.getAttribute('data-indicator') == 'true') {
             let tempIndicator = document.createElement('button');
             tempIndicator.type = 'button';
@@ -105,6 +121,8 @@ export default class Carousel extends HTMLElement {
             );
             tempIndicator.setAttribute('data-bs-slide-to', index);
             tempIndicator.setAttribute('aria-label', `Slide ${index}`);
+            // See CityOfDetroit/detroitmi#1099
+            // eslint-disable-next-line eqeqeq
             if (node.getAttribute('data-active') == 'true') {
               tempIndicator.className = 'active';
               tempIndicator.setAttribute('aria-current', 'true');
@@ -135,6 +153,8 @@ export default class Carousel extends HTMLElement {
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     if (oldValue != null) {
       let oldItem = this.carouselInner.querySelector(
         `[data-index="${oldValue}"`,
@@ -142,6 +162,8 @@ export default class Carousel extends HTMLElement {
       let newItem = this.carouselInner.querySelector(
         `[data-index="${newValue}"`,
       );
+      // See CityOfDetroit/detroitmi#1099
+      // eslint-disable-next-line eqeqeq
       if (this.getAttribute('data-indicator') == 'true') {
         this.carouselIndicators.querySelector(
           `[data-bs-slide-to="${oldValue}"`,
@@ -150,6 +172,8 @@ export default class Carousel extends HTMLElement {
           `[data-bs-slide-to="${newValue}"`,
         ).className = 'active';
       }
+      // See CityOfDetroit/detroitmi#1099
+      // eslint-disable-next-line eqeqeq
       if (this.getAttribute('data-direction') == 'next') {
         oldItem.className = 'carousel-item active carousel-item-start';
         newItem.className =
@@ -175,19 +199,33 @@ export default class Carousel extends HTMLElement {
     let extraClasses = this.getAttribute('data-extra-classes');
     let externalControls = this.getAttribute('data-external-controls');
     let carouselClasses = ['carousel slide'];
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     extraClasses != undefined && extraClasses != null
       ? carouselClasses.push(extraClasses)
       : 0;
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     crossfade == 'true' ? carouselClasses.push('carousel-fade') : 0;
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     externalControls == 'true' ? carouselClasses.push('d-flex') : 0;
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     noTouch == 'false'
       ? this.carousel.setAttribute('data-bs-touch', 'false')
       : 0;
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     if (autoplay != undefined && autoplay != null) {
+      // See CityOfDetroit/detroitmi#1099
+      // eslint-disable-next-line eqeqeq
       autoplay == 'true'
         ? this.carousel.setAttribute('data-bs-ride', autoplay)
         : this.carousel.setAttribute('data-bs-ride', 'carousel');
     }
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     id != undefined && id != null ? (this.carousel.id = id) : 0;
     this.carousel.className = carouselClasses.join(' ');
     if (!this.shadowRoot.querySelector('div')) {
@@ -199,9 +237,15 @@ export default class Carousel extends HTMLElement {
     this.removeEventListener('click', this._onClick.bind(this));
   }
 
+  // See CityOfDetroit/detroitmi#1099
+  // eslint-disable-next-line no-unused-vars
   _onClick(e) {
     let activeItem = this.getRootNode().host.getAttribute('data-active-item');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line no-unused-vars
     let totalItems = this.getRootNode().host.getAttribute('data-total-items');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     if (this.getAttribute('data-bs-slide') == undefined) {
       if (this.getAttribute('data-bs-slide-to') > activeItem) {
         this.getRootNode().host.setAttribute('data-direction', 'prev');
@@ -219,6 +263,8 @@ export default class Carousel extends HTMLElement {
     } else {
       let activeItem = this.getRootNode().host.getAttribute('data-active-item');
       let totalItems = this.getRootNode().host.getAttribute('data-total-items');
+      // See CityOfDetroit/detroitmi#1099
+      // eslint-disable-next-line eqeqeq
       if (this.getAttribute('data-bs-slide') == 'prev') {
         this.getRootNode().host.setAttribute('data-direction', 'prev');
         parseInt(activeItem) - 1 >= 0

@@ -33,7 +33,11 @@ export default class PaginationItem extends HTMLElement {
     let paginationItemClasses = ['page-link'];
     let paginationItem = null;
     let tag = null;
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     if (url != undefined && url != null) {
+      // See CityOfDetroit/detroitmi#1099
+      // eslint-disable-next-line eqeqeq
       if (disabled == 'true') {
         paginationItemClasses.push('disabled');
         paginationItem = document.createElement('span');
@@ -48,14 +52,24 @@ export default class PaginationItem extends HTMLElement {
       paginationItem = document.createElement('span');
       tag = 'span';
     }
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     active == 'true' ? paginationItemClasses.push('active') : 0;
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     extraClasses != undefined && extraClasses != null
       ? paginationItemClasses.push(extraClasses)
       : 0;
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     special != undefined && special != null
       ? this.setSpecialItem(special, paginationItem)
       : 0;
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     text != undefined && text != null ? (paginationItem.innerText = text) : 0;
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     label != undefined && label != null
       ? paginationItem.setAttribute('aria-label', label)
       : 0;

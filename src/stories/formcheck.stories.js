@@ -61,24 +61,38 @@ const Template = (args) => {
   formCheck.setAttribute('data-type', args.type);
   formCheck.setAttribute('data-btn-color', args.btnColor);
   formCheck.setAttribute('data-checked', args.checked);
+  // See CityOfDetroit/detroitmi#1099
+  // eslint-disable-next-line eqeqeq
   if (args.extraClasses != null) {
     formCheck.setAttribute('data-extra-classes', args.extraClasses);
   }
+  // See CityOfDetroit/detroitmi#1099
+  // eslint-disable-next-line eqeqeq
   if (args.backgroundColor != null) {
     formCheck.setAttribute('data-background-color', args.backgroundColor);
   }
+  // See CityOfDetroit/detroitmi#1099
+  // eslint-disable-next-line eqeqeq
   if (args.label != null) {
     formCheck.setAttribute('data-label', args.label);
   }
+  // See CityOfDetroit/detroitmi#1099
+  // eslint-disable-next-line eqeqeq
   if (args.nolabel != null) {
     formCheck.setAttribute('data-nolabel', args.nolabel);
   }
+  // See CityOfDetroit/detroitmi#1099
+  // eslint-disable-next-line eqeqeq
   if (args.mode != null) {
     formCheck.setAttribute('data-mode', args.mode);
   }
+  // See CityOfDetroit/detroitmi#1099
+  // eslint-disable-next-line eqeqeq
   if (args.disabled != null) {
     formCheck.setAttribute('data-disabled', args.disabled);
   }
+  // See CityOfDetroit/detroitmi#1099
+  // eslint-disable-next-line eqeqeq
   if (args.required != null) {
     formCheck.setAttribute('data-required', args.required);
   }

@@ -25,17 +25,25 @@ export default class Navbar extends HTMLElement {
     this.navbarBrand = document.createElement('div');
     this.navbarCollapse = document.createElement('div');
 
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line no-unused-vars
     shadow.addEventListener('slotchange', (e) => {
       let tempElements = Array.from(this.children);
       tempElements.forEach((node) => {
         switch (node.tagName) {
           case 'COD-NAVBAR-TOGGLE':
+            // See CityOfDetroit/detroitmi#1099
+            // eslint-disable-next-line eqeqeq
             this.getAttribute('data-target-toggle') == 'offcanvas'
               ? node.setAttribute('data-target-toggle', 'offcanvas')
               : 0;
+            // See CityOfDetroit/detroitmi#1099
+            // eslint-disable-next-line eqeqeq
             this.getAttribute('data-show') == 'true'
               ? node.setAttribute('data-show', true)
               : 0;
+            // See CityOfDetroit/detroitmi#1099
+            // eslint-disable-next-line eqeqeq
             this.getAttribute('data-button-dark') == 'true'
               ? node.setAttribute('data-button-dark', true)
               : 0;
@@ -58,6 +66,8 @@ export default class Navbar extends HTMLElement {
             break;
 
           default:
+            // See CityOfDetroit/detroitmi#1099
+            // eslint-disable-next-line no-case-declarations
             let nodeClasses = node.className.split(' ');
             nodeClasses.includes('no-wc') ? node.remove() : 0;
             break;
@@ -86,7 +96,11 @@ export default class Navbar extends HTMLElement {
     if (this.navbarCollapse.querySelector('cod-navbar-collapse')) {
       let tempClasses = this.navbarCollapse.className.split(' ');
       let popValue = tempClasses.pop();
+      // See CityOfDetroit/detroitmi#1099
+      // eslint-disable-next-line eqeqeq
       popValue != 'show' ? tempClasses.push(popValue) : 0;
+      // See CityOfDetroit/detroitmi#1099
+      // eslint-disable-next-line eqeqeq
       if (newValue == 'true') {
         tempClasses.push('show');
       }
@@ -108,29 +122,45 @@ export default class Navbar extends HTMLElement {
     let navbarCollapseClasses = ['collapse navbar-collapse'];
     let navbarBrandClasses = ['navbar-brand'];
     let navbarToogleClasses = ['navbar-toggler'];
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     containerClasses != undefined && containerClasses != null
       ? navbarContainerClasses.push(containerClasses)
       : 0;
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     extraClasses != undefined && extraClasses != null
       ? navbarClasses.push(extraClasses)
       : 0;
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     collapseClasses != undefined && collapseClasses != null
       ? navbarCollapseClasses.push(collapseClasses)
       : 0;
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     placement != undefined && placement != null
       ? navbarClasses.push(placement)
       : 0;
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     if (expand != undefined && expand != null) {
+      // See CityOfDetroit/detroitmi#1099
+      // eslint-disable-next-line eqeqeq
       expand == 'always'
         ? navbarClasses.push('navbar-expand')
         : navbarClasses.push(`navbar-expand-${expand}`);
     }
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     if (show == 'true') {
       this.navbarCollapseClasses.push('show');
       this.navbarToggle.setAttribute('aria-expanded', `true`);
     } else {
       this.navbarToggle.setAttribute('aria-expanded', `false`);
     }
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     if (id != undefined && id != null) {
       this.navbar.id = id;
       this.navbarCollapse.id = `${id}-collapse`;

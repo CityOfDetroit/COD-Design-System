@@ -18,6 +18,8 @@
   },
   "homepage": "https://jedgar1mx.github.io/COD-Design-System",
   "scripts": {
+    "check-lint-config": "npx eslint-config-prettier src/index.js",
+    "lint": "eslint src && prettier --check src/*",
     "build": "webpack --mode production",
     "build-package": "cross-env BABEL_ENV=production babel src -d dist",
     "start": "webpack-dev-server --mode development",

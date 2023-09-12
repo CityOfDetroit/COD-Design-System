@@ -7,6 +7,8 @@ export default class Button extends HTMLElement {
     // Always call super first in constructor
     super();
     // Create a shadow root
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line no-unused-vars
     const shadow = this.attachShadow({ mode: 'open' });
   }
 
@@ -25,6 +27,8 @@ export default class Button extends HTMLElement {
     let hiddenLabel = this.getAttribute('data-hidden-label');
     let imgSrc = this.getAttribute('data-img');
     let imgAlt = this.getAttribute('data-img-alt');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line no-unused-vars, eqeqeq
     let img = imgAlt != '' ? 'img' : 'not-img';
     let size = this.getAttribute('data-size');
     let extraClasses = this.getAttribute('data-extra-classes');
@@ -34,29 +38,49 @@ export default class Button extends HTMLElement {
     const btn = document.createElement('button');
     let btnClasses = ['btn'];
     btn.type = 'button';
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     if (btnID != null && btnID != undefined) {
       btn.id = btnID;
     }
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     disableStatus == 'true' ? (btn.disabled = true) : (btn.disabled = false);
     btn.setAttribute('aria-label', `${ariaLabel || ''}`);
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     if (primary == 'true') {
       btnClasses.push(`btn-${backgroundColor}`);
+      // See CityOfDetroit/detroitmi#1099
+      // eslint-disable-next-line eqeqeq
     } else if (primary == 'false') {
       btnClasses.push(`btn-outline-${backgroundColor}`);
     }
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     shape == 'square'
       ? btnClasses.push('cod-button--square')
       : btnClasses.push('cod-button-fluid');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     size != undefined && size != null ? btnClasses.push(`btn-${size}`) : 0;
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     extraClasses != undefined && extraClasses != null
       ? btnClasses.push(extraClasses)
       : 0;
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     imgAlt != ''
       ? btnClasses.push('cod-button--img')
       : btnClasses.push('cod-button--not-img');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     close == 'true' ? btnClasses.push('btn-close') : 0;
     btn.className = btnClasses.join(' ');
 
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     if (icon != '') {
       // Loading icon
       let iconContainer = document.createElement('span');
@@ -65,11 +89,15 @@ export default class Button extends HTMLElement {
       activeIcon.setAttribute('data-size', iconSize);
       iconContainer.appendChild(activeIcon);
       btn.innerText = label;
+      // See CityOfDetroit/detroitmi#1099
+      // eslint-disable-next-line eqeqeq
       if (iconOrder == 'left') {
         btn.insertBefore(iconContainer, btn.firstChild);
       } else {
         btn.appendChild(iconContainer);
       }
+      // See CityOfDetroit/detroitmi#1099
+      // eslint-disable-next-line eqeqeq
     } else if (imgAlt != '') {
       // Loading image
       btn.innerText = label;
@@ -81,6 +109,8 @@ export default class Button extends HTMLElement {
       btn.innerText = label;
     }
     // Create hidden label
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     if (hiddenLabel != undefined && hiddenLabel != null) {
       let hLabel = document.createElement('span');
       hLabel.className = 'visually-hidden';
@@ -98,6 +128,8 @@ export default class Button extends HTMLElement {
       const btnStyles = document.createElement('style');
       btnStyles.textContent = styles;
       this.shadowRoot.appendChild(btnStyles);
+      // See CityOfDetroit/detroitmi#1099
+      // eslint-disable-next-line eqeqeq
       if (link == undefined || link == null) {
         this.shadowRoot.appendChild(btn);
         let ghostBtn = this.appendChild(document.createElement('button'));

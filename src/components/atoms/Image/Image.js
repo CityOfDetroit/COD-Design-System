@@ -18,6 +18,8 @@ export default class Image extends HTMLElement {
     shadow.appendChild(template.content.cloneNode(true));
     // Create select and move options from slot to select
     this.picture = shadow.querySelector('picture');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line no-unused-vars
     shadow.addEventListener('slotchange', (ev) => {
       let tempElements = Array.from(this.children);
       tempElements.forEach((node) => {

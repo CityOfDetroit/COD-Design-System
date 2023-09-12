@@ -28,14 +28,20 @@ export default class Modal extends HTMLElement {
     this.modalDialog.appendChild(this.modalContent);
     this.modal.appendChild(this.modalDialog);
 
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line no-unused-vars
     shadow.addEventListener('slotchange', (e) => {
       let tempElements = Array.from(this.children);
       tempElements.forEach((node) => {
         switch (node.tagName) {
           case 'COD-MODAL-HEADER':
+            // See CityOfDetroit/detroitmi#1099
+            // eslint-disable-next-line eqeqeq
             this.getAttribute('data-show') == 'true'
               ? node.setAttribute('data-show', true)
               : 0;
+            // See CityOfDetroit/detroitmi#1099
+            // eslint-disable-next-line eqeqeq
             this.getAttribute('data-button-dark') == 'true'
               ? node.setAttribute('data-button-dark', true)
               : 0;
@@ -74,10 +80,16 @@ export default class Modal extends HTMLElement {
   attributeChangedCallback(name, oldValue, newValue) {
     let tempClasses = this.modal.className.split(' ');
     let popValue = tempClasses.pop();
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     popValue != 'show' ? tempClasses.push(popValue) : 0;
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     if (newValue == 'true') {
       tempClasses.push('show');
       this.modal.style.display = 'block';
+      // See CityOfDetroit/detroitmi#1099
+      // eslint-disable-next-line eqeqeq
       if (this.getAttribute('data-static') != 'true') {
         this.modal.addEventListener('click', this._onClick);
       }
@@ -102,30 +114,46 @@ export default class Modal extends HTMLElement {
     let modalClasses = ['modal fade'];
     let modalDialogClasses = ['modal-dialog'];
     let modalContentClasses = ['modal-content'];
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     extraClasses != undefined && extraClasses != null
       ? modalClasses.push(extraClasses)
       : 0;
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     size != undefined && size != null
       ? modalDialogClasses.push(`modal-${size}`)
       : 0;
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     verticalCentered == 'true'
       ? modalDialogClasses.push('modal-dialog-centered')
       : 0;
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     if (fullScreen != undefined && fullScreen != null) {
+      // See CityOfDetroit/detroitmi#1099
+      // eslint-disable-next-line eqeqeq
       fullScreen == 'always'
         ? modalDialogClasses.push('modal-fullscreen')
         : modalDialogClasses.push(`modal-fullscreen-${fullScreen}-down`);
     }
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     if (bStatic == 'true') {
       this.modal.setAttribute('data-bs-backdrop', 'static');
       this.modal.setAttribute('data-bs-keyboard', 'false');
     }
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     if (show == 'true') {
       this.modalClasses.push('show');
       this.modal.setAttribute('aria-modal', `true`);
     } else {
       this.modal.setAttribute('aria-modal', `false`);
     }
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     id != undefined && id != null ? (this.modal.id = id) : 0;
     this.modal.setAttribute('tabindex', -1);
     this.modal.className = modalClasses.join(' ');
@@ -140,6 +168,8 @@ export default class Modal extends HTMLElement {
     this.removeEventListener('click', this._onClick.bind(this));
   }
 
+  // See CityOfDetroit/detroitmi#1099
+  // eslint-disable-next-line no-unused-vars
   _onClick(e) {
     this.getRootNode().host.setAttribute('data-show', 'false');
   }

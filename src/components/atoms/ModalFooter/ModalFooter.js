@@ -17,6 +17,8 @@ export default class ModalFooter extends HTMLElement {
     shadow.appendChild(template.content.cloneNode(true));
     this.modalFooter = document.createElement('div');
     this.closeBtn = document.createElement('cod-button');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line no-unused-vars
     this.shadowRoot.addEventListener('slotchange', (ev) => {
       let tempElements = Array.from(this.children);
       tempElements.forEach((node) => {
@@ -46,9 +48,13 @@ export default class ModalFooter extends HTMLElement {
     this.closeBtn.setAttribute('data-icon', '');
     this.closeBtn.setAttribute('data-label', 'Close');
     this.closeBtn.setAttribute('data-bs-dismiss', 'modal');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     extraClasses != undefined && extraClasses != null
       ? modalFooterClasses.push(extraClasses)
       : 0;
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     btnExtraClasses != undefined && btnExtraClasses != null
       ? this.closeBtn.setAttribute('data-extra-classes', btnExtraClasses)
       : 0;
@@ -63,6 +69,8 @@ export default class ModalFooter extends HTMLElement {
     this.removeEventListener('click', this._onClick.bind(this));
   }
 
+  // See CityOfDetroit/detroitmi#1099
+  // eslint-disable-next-line no-unused-vars
   _onClick(e) {
     this.getRootNode()
       .host.getRootNode()

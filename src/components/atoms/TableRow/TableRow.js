@@ -17,18 +17,28 @@ export default class TableBody extends HTMLElement {
     shadow.appendChild(template.content.cloneNode(true));
     this.tableRow = document.createElement('div');
     this.tableRow.role = 'row';
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line no-unused-vars
     shadow.addEventListener('slotchange', (ev) => {
       let tempElements = Array.from(this.children);
       tempElements.forEach((node, index) => {
+        // See CityOfDetroit/detroitmi#1099
+        // eslint-disable-next-line eqeqeq
         this.getAttribute('data-striped-row') == 'true'
           ? node.setAttribute('data-striped-row', 'true')
           : 0;
+        // See CityOfDetroit/detroitmi#1099
+        // eslint-disable-next-line eqeqeq
         this.getAttribute('data-striped-col') == 'true' && index % 2 != 0
           ? node.setAttribute('data-striped-col', 'true')
           : 0;
+        // See CityOfDetroit/detroitmi#1099
+        // eslint-disable-next-line eqeqeq
         this.getAttribute('data-vertical-align') == 'true'
           ? node.setAttribute('data-vertical-align', 'true')
           : 0;
+        // See CityOfDetroit/detroitmi#1099
+        // eslint-disable-next-line eqeqeq
         this.getAttribute('data-legacy-responsive') == 'true'
           ? node.setAttribute('data-legacy-responsive', 'true')
           : 0;
@@ -55,7 +65,11 @@ export default class TableBody extends HTMLElement {
     let extraClasses = this.getAttribute('data-extra-classes');
     let hover = this.getAttribute('data-hover');
     let tableRowClasses = ['table-row'];
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     hover == 'true' ? tableRowClasses.push('table-hover') : 0;
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     extraClasses != undefined && extraClasses != null
       ? tableRowClasses.push(extraClasses)
       : 0;

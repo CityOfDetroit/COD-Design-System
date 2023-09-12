@@ -28,6 +28,8 @@ export default class Geocoder extends HTMLElement {
     label.style.fontFamily = 'Montserrat, sans-serif';
     label.style.fontWeight = 'bold';
     let input = document.createElement('input');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line no-unused-vars
     let suggestions = document.createElement('ul');
     let list = document.createElement('datalist');
     let icon = document.createElement('i');
@@ -40,11 +42,16 @@ export default class Geocoder extends HTMLElement {
     label.innerText = 'Property Address:';
     try {
       if (app[0].getAttribute('data-geocoder-label')) {
+        // See CityOfDetroit/detroitmi#1099
+        // eslint-disable-next-line eqeqeq
         if (app[0].getAttribute('data-geocoder-label') != '') {
           label.innerText = app[0].getAttribute('data-geocoder-label');
         }
       }
-    } catch (error) {}
+    } catch (error) {
+      // See CityOfDetroit/detroitmi#1099
+      // eslint-disable-next-line no-empty
+    }
     label.setAttribute('for', 'geocoder-input');
     input.type = 'text';
     input.setAttribute('list', 'addresses-list');
@@ -119,6 +126,8 @@ export default class Geocoder extends HTMLElement {
                           }
                         }
                       });
+                      // See CityOfDetroit/detroitmi#1099
+                      // eslint-disable-next-line eqeqeq
                       parcel == null
                         ? (location = data.candidates[0].location)
                         : (location = null);
@@ -192,6 +201,8 @@ export default class Geocoder extends HTMLElement {
   inputChange(ev, geocoder) {
     switch (ev.key) {
       case 'Enter':
+        // See CityOfDetroit/detroitmi#1099
+        // eslint-disable-next-line eqeqeq
         ev.target.value != '' && ev.target.value != undefined
           ? geocoder.supplementGeocoder(ev.target.value, geocoder, 'submit')
           : 0;
@@ -210,6 +221,8 @@ export default class Geocoder extends HTMLElement {
         break;
 
       case undefined:
+        // See CityOfDetroit/detroitmi#1099
+        // eslint-disable-next-line eqeqeq
         ev.target.value != '' && ev.target.value != undefined
           ? geocoder.supplementGeocoder(ev.target.value, geocoder, 'submit')
           : 0;
@@ -249,6 +262,8 @@ export default class Geocoder extends HTMLElement {
             },
           },
         ];
+        // See CityOfDetroit/detroitmi#1099
+        // eslint-disable-next-line eqeqeq
         if (location != null) {
           params[0].geometry.x = location.x;
           params[0].geometry.y = location.y;
@@ -265,6 +280,8 @@ export default class Geocoder extends HTMLElement {
             cache: 'default',
           },
         );
+        // See CityOfDetroit/detroitmi#1099
+        // eslint-disable-next-line no-unused-vars
         fetch(request).then((res) => {
           // console.log(res);
         });

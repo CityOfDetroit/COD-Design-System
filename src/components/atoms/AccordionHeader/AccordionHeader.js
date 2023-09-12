@@ -22,6 +22,8 @@ export default class AccordionHeader extends HTMLElement {
     this.accordionHeader = document.createElement('div');
     this.accordionBtn = document.createElement('button');
     this.accordionHeader.appendChild(this.accordionBtn);
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line no-unused-vars
     this.shadowRoot.addEventListener('slotchange', (ev) => {
       let tempElements = Array.from(this.children);
       tempElements.forEach((node) => {
@@ -45,7 +47,11 @@ export default class AccordionHeader extends HTMLElement {
     this.accordionBtn.setAttribute('aria-expanded', newValue);
     let tempClasses = this.accordionBtn.className.split(' ');
     let popValue = tempClasses.pop();
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     popValue != 'collapsed' ? tempClasses.push(popValue) : 0;
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     if (newValue == 'false') {
       tempClasses.push('collapsed');
     }
@@ -62,12 +68,16 @@ export default class AccordionHeader extends HTMLElement {
     this.accordionBtn.setAttribute('data-bs-toggle', 'collapse');
     this.accordionBtn.setAttribute('aria-controls', parentID);
     this.accordionBtn.setAttribute('data-bs-target', `#${parentID}`);
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     if (expanded == 'true') {
       this.accordionBtn.setAttribute('aria-expanded', 'true');
     } else {
       accordionBtnClasses.push('collapsed');
       this.accordionBtn.setAttribute('aria-expanded', 'false');
     }
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     extraClasses != undefined && extraClasses != null
       ? accordionBtnClasses.push(extraClasses)
       : 0;

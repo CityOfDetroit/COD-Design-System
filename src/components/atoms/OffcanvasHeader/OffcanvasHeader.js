@@ -18,6 +18,8 @@ export default class OffcanvasHeader extends HTMLElement {
     this.offcanvasHeader = document.createElement('div');
     this.offcanvasTitle = document.createElement('div');
     this.closeBtn = document.createElement('cod-button');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line no-unused-vars
     this.shadowRoot.addEventListener('slotchange', (ev) => {
       let tempElements = Array.from(this.children);
       tempElements.forEach((node) => {
@@ -51,9 +53,13 @@ export default class OffcanvasHeader extends HTMLElement {
     this.closeBtn.setAttribute('data-icon', '');
     this.closeBtn.setAttribute('data-close', 'true');
     this.closeBtn.setAttribute('data-bs-dismiss', parentID);
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     extraClasses != undefined && extraClasses != null
       ? offcanvasHeaderClasses.push(extraClasses)
       : 0;
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     btnDark == 'true'
       ? this.closeBtn.setAttribute('data-extra-classes', 'btn-close-white')
       : 0;
@@ -68,6 +74,8 @@ export default class OffcanvasHeader extends HTMLElement {
     this.removeEventListener('click', this._onClick.bind(this));
   }
 
+  // See CityOfDetroit/detroitmi#1099
+  // eslint-disable-next-line no-unused-vars
   _onClick(e) {
     this.getRootNode()
       .host.getRootNode()

@@ -18,6 +18,8 @@ export default class FormCheckGroup extends HTMLElement {
     const shadow = this.attachShadow({ mode: 'open' });
     shadow.appendChild(template.content.cloneNode(true));
     this.btnGroup = shadow.querySelector('div');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line no-unused-vars
     shadow.addEventListener('slotchange', (ev) => {
       let tempElements = Array.from(this.children);
       tempElements.forEach((node) => {
@@ -46,14 +48,20 @@ export default class FormCheckGroup extends HTMLElement {
     let size = this.getAttribute('data-size');
     let vertical = this.getAttribute('data-vertical');
     let extraClasses = this.getAttribute('data-extra-classes');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     if (type == 'group') {
       this.btnGroup.role = 'group';
     } else {
       this.btnGroup.role = 'toolbar';
     }
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     if (size != undefined && size != null) {
       size = `btn-group-${size}`;
     }
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     if (vertical == 'true') {
       vertical = 'btn-group-vertical';
     }

@@ -16,6 +16,8 @@ export default class Nav extends HTMLElement {
     const shadow = this.attachShadow({ mode: 'open' });
     shadow.appendChild(template.content.cloneNode(true));
     this.nav = document.createElement('ul');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line no-unused-vars
     this.shadowRoot.addEventListener('slotchange', (ev) => {
       let tempElements = Array.from(this.children);
       tempElements.forEach((node) => {
@@ -53,15 +55,31 @@ export default class Nav extends HTMLElement {
     let justified = this.getAttribute('data-justified');
     let extraClasses = this.getAttribute('data-extra-classes');
     let navClasses = ['nav'];
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     vertical == 'true' ? navClasses.push('flex-column') : 0;
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     tabs == 'true' ? navClasses.push('nav-tabs') : 0;
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     pills == 'true' ? navClasses.push('nav-pills') : 0;
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     underline == 'true' ? navClasses.push('nav-underline') : 0;
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     fill == 'true' ? navClasses.push('nav-fill') : 0;
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     justified == 'true' ? navClasses.push('nav-justified') : 0;
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     hAlignment != undefined && hAlignment != null
       ? navClasses.push(`justify-content-${hAlignment}`)
       : 0;
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     extraClasses != undefined && extraClasses != null
       ? navClasses.push(extraClasses)
       : 0;

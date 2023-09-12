@@ -21,6 +21,8 @@ export default class Container extends HTMLElement {
     shadow.appendChild(template.content.cloneNode(true));
     this.nav = shadow.querySelector('nav');
     this.breadcrumb = shadow.querySelector('ol');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line no-unused-vars
     shadow.addEventListener('slotchange', (ev) => {
       let tempElements = Array.from(this.children);
       tempElements.forEach((node) => {
@@ -48,9 +50,13 @@ export default class Container extends HTMLElement {
     // Breadcrumb attributes
     let noDivider = this.getAttribute('data-no-divider');
     let svg = this.getAttribute('data-svg-divider');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     if (noDivider == 'true') {
       this.nav.style.cssText = "--bs-breadcrumb-divider: '';";
     }
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     if (svg != undefined || svg != null) {
       this.nav.style.cssText = `--bs-breadcrumb-divider: url(${svg});`;
     }

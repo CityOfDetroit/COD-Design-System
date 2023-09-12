@@ -21,13 +21,21 @@ export default class Offcanvas extends HTMLElement {
     shadow.appendChild(template.content.cloneNode(true));
     this.offcanvas = document.createElement('div');
     this.offcanvasBackdrop = document.createElement('div');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line no-unused-vars
     shadow.addEventListener('slotchange', (ev) => {
       let tempElements = Array.from(this.children);
       tempElements.forEach((node) => {
+        // See CityOfDetroit/detroitmi#1099
+        // eslint-disable-next-line eqeqeq
         this.getAttribute('data-show') == 'true'
           ? node.setAttribute('data-show', true)
           : 0;
+        // See CityOfDetroit/detroitmi#1099
+        // eslint-disable-next-line eqeqeq
         if (node.tagName == 'COD-OFFCANVAS-HEADER') {
+          // See CityOfDetroit/detroitmi#1099
+          // eslint-disable-next-line eqeqeq
           this.getAttribute('data-button-dark') == 'true'
             ? node.setAttribute('data-button-dark', true)
             : 0;
@@ -55,10 +63,18 @@ export default class Offcanvas extends HTMLElement {
   attributeChangedCallback(name, oldValue, newValue) {
     let tempClasses = this.offcanvas.className.split(' ');
     let popValue = tempClasses.pop();
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     popValue != 'show' ? tempClasses.push(popValue) : 0;
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     if (newValue == 'true') {
       tempClasses.push('show');
+      // See CityOfDetroit/detroitmi#1099
+      // eslint-disable-next-line eqeqeq
       if (this.getAttribute('data-backdrop') != 'false') {
+        // See CityOfDetroit/detroitmi#1099
+        // eslint-disable-next-line eqeqeq
         if (this.getAttribute('data-static') != 'true') {
           this.offcanvasBackdrop.addEventListener('click', this._onClick);
         }
@@ -84,25 +100,41 @@ export default class Offcanvas extends HTMLElement {
     let extraClasses = this.getAttribute('data-extra-classes');
     let offcanvasClasses = ['offcanvas'];
     let backdropClasses = ['offcanvas-backdrop fade show'];
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     show == 'true' ? offcanvasClasses.push('show') : 0;
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     backdrop == 'false'
       ? this.offcanvas.setAttribute('data-bs-backdrop', false)
       : 0;
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     scroll == 'true' ? this.offcanvas.setAttribute('data-bs-scroll', true) : 0;
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     bStatic == 'true'
       ? this.offcanvas.setAttribute('data-bs-backdrop', 'static')
       : 0;
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     backdropExtraClasses != undefined && backdropExtraClasses != null
       ? backdropClasses.push(backdropExtraClasses)
       : 0;
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     extraClasses != undefined && extraClasses != null
       ? offcanvasClasses.push(extraClasses)
       : 0;
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     if (placement != undefined && placement != null) {
       offcanvasClasses.push(`offcanvas-${placement}`);
     } else {
       offcanvasClasses.push('offcanvas-start');
     }
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     if (id != undefined && id != null) {
       this.offcanvas.id = id;
       this.offcanvas.setAttribute('aria-labelledby', `${id}-label`);
@@ -119,6 +151,8 @@ export default class Offcanvas extends HTMLElement {
     this.removeEventListener('click', this._onClick.bind(this));
   }
 
+  // See CityOfDetroit/detroitmi#1099
+  // eslint-disable-next-line no-unused-vars
   _onClick(e) {
     this.getRootNode().host.setAttribute('data-show', 'false');
   }

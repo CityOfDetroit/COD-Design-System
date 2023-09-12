@@ -17,15 +17,21 @@ export default class Pagination extends HTMLElement {
     shadow.appendChild(template.content.cloneNode(true));
     this.paginationContainer = document.createElement('nav');
     this.pagination = document.createElement('ul');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line no-unused-vars
     this.shadowRoot.addEventListener('slotchange', (ev) => {
       let tempElements = Array.from(this.children);
       tempElements.forEach((node, index) => {
         let paginationItem = document.createElement('li');
         let paginationItemClasses = ['page-item'];
+        // See CityOfDetroit/detroitmi#1099
+        // eslint-disable-next-line eqeqeq
         if (node.getAttribute('data-active') == 'true') {
           paginationItemClasses.push('active');
           paginationItem.setAttribute('aria-current', 'page');
         }
+        // See CityOfDetroit/detroitmi#1099
+        // eslint-disable-next-line eqeqeq
         if (node.getAttribute('data-disabled') == 'true') {
           paginationItemClasses.push('disabled');
           paginationItem.setAttribute('tabindex', '-1');
@@ -60,12 +66,18 @@ export default class Pagination extends HTMLElement {
     let size = this.getAttribute('data-size');
     let extraClasses = this.getAttribute('data-extra-classes');
     let paginationClasses = ['pagination'];
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     size != undefined && size != null
       ? paginationClasses.push(`pagination-${size}`)
       : 0;
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     extraClasses != undefined && extraClasses != null
       ? paginationClasses.push(extraClasses)
       : 0;
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     id != undefined && id != null ? (this.paginationContainer.id = id) : 0;
     this.paginationContainer.setAttribute('aria-label', label);
     this.pagination.className = paginationClasses.join(' ');

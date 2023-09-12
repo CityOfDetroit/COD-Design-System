@@ -20,6 +20,8 @@ export default class DropdownMenu extends HTMLElement {
     const shadow = this.attachShadow({ mode: 'open' });
     shadow.appendChild(template.content.cloneNode(true));
     this.dropdownMenu = document.createElement('ul');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line no-unused-vars
     this.shadowRoot.addEventListener('slotchange', (ev) => {
       let tempElements = Array.from(this.children);
       tempElements.forEach((node) => {
@@ -43,8 +45,12 @@ export default class DropdownMenu extends HTMLElement {
     console.log(newValue);
     let tempClasses = this.dropdownMenu.className.split(' ');
     let popValue = tempClasses.pop();
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     popValue != 'show' ? tempClasses.push(popValue) : 0;
     console.log(tempClasses);
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     if (newValue == 'true') {
       tempClasses.push('show');
     }
@@ -57,10 +63,16 @@ export default class DropdownMenu extends HTMLElement {
     let alignment = this.getAttribute('data-alignment');
     let show = this.getAttribute('data-show');
     let classList = ['dropdown-menu'];
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     darkMode == 'true' ? classList.push('dropdown-menu-dark') : 0;
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     alignment != undefined && alignment != null
       ? classList.push(`dropdown-menu-${alignment}`)
       : 0;
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     show == 'true' ? classList.push('show') : 0;
     this.dropdownMenu.className = classList.join(' ');
 

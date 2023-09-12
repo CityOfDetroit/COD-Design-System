@@ -16,6 +16,8 @@ export default class AccordionBody extends HTMLElement {
     const shadow = this.attachShadow({ mode: 'open' });
     shadow.appendChild(template.content.cloneNode(true));
     this.accordionBody = document.createElement('div');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line no-unused-vars
     this.shadowRoot.addEventListener('slotchange', (ev) => {
       let tempElements = Array.from(this.children);
       tempElements.forEach((node) => {
@@ -39,6 +41,8 @@ export default class AccordionBody extends HTMLElement {
     // Nav attributes
     let extraClasses = this.getAttribute('data-extra-classes');
     let accordionBodyClasses = ['accordion-body'];
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     extraClasses != undefined && extraClasses != null
       ? accordionBodyClasses.push(extraClasses)
       : 0;

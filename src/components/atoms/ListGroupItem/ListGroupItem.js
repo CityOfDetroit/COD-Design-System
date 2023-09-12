@@ -36,12 +36,16 @@ export default class ListGroupItem extends HTMLElement {
   attributeChangedCallback(name, oldValue, newValue) {
     switch (name) {
       case 'data-order':
+        // See CityOfDetroit/detroitmi#1099
+        // eslint-disable-next-line eqeqeq
         if (newValue != null) {
           this.listGroupItem.className = `${this.listGroupItem.className} ${newValue}`;
         }
         break;
 
       case 'data-parent-classes':
+        // See CityOfDetroit/detroitmi#1099
+        // eslint-disable-next-line eqeqeq
         if (newValue != null) {
           this.listGroupItem.className = `${this.listGroupItem.className} ${newValue}`;
         }
@@ -49,6 +53,8 @@ export default class ListGroupItem extends HTMLElement {
 
       case 'data-order-index':
         console.log(newValue);
+        // See CityOfDetroit/detroitmi#1099
+        // eslint-disable-next-line eqeqeq
         if (newValue != null) {
           this.listGroupItem.innerHTML = `${newValue}. ${this.listGroupItem.innerHTML}`;
           let tempElements = Array.from(this.children);
@@ -74,17 +80,27 @@ export default class ListGroupItem extends HTMLElement {
     let url = this.getAttribute('data-url');
     this.listGroupItem = document.createElement(tag);
     let actionItem = '';
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     tag == 'a' || tag == 'button' ? (actionItem = 'list-group-item-action') : 0;
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     if (text != undefined || text != null) {
       this.listGroupItem.innerText = text;
     }
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     if (url != undefined || url != null) {
       this.listGroupItem.href = url;
     }
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     if (current == 'true') {
       this.listGroupItem.setAttribute('aria-current', 'true');
       current = 'active';
     }
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     if (disabled == 'true') {
       this.listGroupItem.setAttribute('aria-disabled', 'true');
       disabled = 'disabled';
@@ -99,6 +115,8 @@ export default class ListGroupItem extends HTMLElement {
     ].join(' ');
 
     if (!this.shadowRoot.querySelector(tag)) {
+      // See CityOfDetroit/detroitmi#1099
+      // eslint-disable-next-line no-unused-vars
       this.shadowRoot.addEventListener('slotchange', (ev) => {
         let tempElements = Array.from(this.children);
         tempElements.forEach((node) => {

@@ -6,6 +6,8 @@ export default class Image extends HTMLElement {
     // Always call super first in constructor
     super();
     // Create a shadow root
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line no-unused-vars
     const shadow = this.attachShadow({ mode: 'open' });
   }
 
@@ -26,12 +28,16 @@ export default class Image extends HTMLElement {
     let backgroundColor = this.getAttribute('data-background-color');
     let displayType = this.getAttribute('data-display-type');
     let spinnerSizeClass;
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     if (spinnerSize == 'sm') {
       spinnerSizeClass = `spinner-${spinnerType}-${spinnerSize}`;
     } else {
       spinnerSizeClass = '';
     }
     let spinner;
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     displayType == 'inline'
       ? (spinner = document.createElement('span'))
       : (spinner = document.createElement('div'));

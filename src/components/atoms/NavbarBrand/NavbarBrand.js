@@ -35,27 +35,39 @@ export default class NavbarBrand extends HTMLElement {
     let brandLink = document.createElement('a');
     let cleanURL = encodeURI(url);
     brandLink.href = decodeURI(cleanURL);
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     if (brandImgURL != undefined && brandImgURL != null) {
       let brandImg = document.createElement('img');
       let cleanImgURL = encodeURI(brandImgURL);
       brandImg.src = decodeURI(cleanImgURL);
+      // See CityOfDetroit/detroitmi#1099
+      // eslint-disable-next-line eqeqeq
       imgSize != undefined && imgSize != null
         ? brandImg.setAttribute('width', imgSize)
         : 0;
+      // See CityOfDetroit/detroitmi#1099
+      // eslint-disable-next-line eqeqeq
       imgClasses != undefined && imgClasses != null
         ? (brandImg.className = imgClasses)
         : 0;
       brandImg.setAttribute('alt', brandImgAlt);
       brandLink.appendChild(brandImg);
     }
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     if (text != undefined && text != null) {
       let brandText = document.createElement('span');
+      // See CityOfDetroit/detroitmi#1099
+      // eslint-disable-next-line eqeqeq
       textClasses != undefined && textClasses != null
         ? (brandText.className = textClasses)
         : 0;
       brandText.innerText = text;
       brandLink.appendChild(brandText);
     }
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     extraClasses != undefined && extraClasses != null
       ? brandClasses.push(extraClasses)
       : 0;

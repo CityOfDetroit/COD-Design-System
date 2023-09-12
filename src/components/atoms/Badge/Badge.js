@@ -6,6 +6,8 @@ export default class Badge extends HTMLElement {
     // Always call super first in constructor
     super();
     // Create a shadow root
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line no-unused-vars
     const shadow = this.attachShadow({ mode: 'open' });
   }
 
@@ -28,7 +30,11 @@ export default class Badge extends HTMLElement {
     let url = this.getAttribute('data-url');
     let extraClasses = this.getAttribute('data-extra-classes');
     let badge = null;
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     pill == 'true' ? (pill = 'rounded-pill') : (pill = '');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     if (url != undefined || url != null) {
       badge = document.createElement('a');
       badge.href = url;
@@ -36,6 +42,8 @@ export default class Badge extends HTMLElement {
       badge = document.createElement(tag);
     }
     badge.innerText = text;
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     if (hiddenText != undefined || hiddenText != null) {
       const hiddenBadge = document.createElement('span');
       hiddenBadge.className = 'visually-hidden';

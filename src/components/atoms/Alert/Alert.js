@@ -20,6 +20,8 @@ export default class Alert extends HTMLElement {
     const alertContent = document.createElement('div');
     alertContent.id = 'alert-content';
     this.alert.appendChild(alertContent);
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line no-unused-vars
     shadow.addEventListener('slotchange', (ev) => {
       let tempElements = Array.from(this.children);
       tempElements.forEach((node) => {
@@ -52,6 +54,8 @@ export default class Alert extends HTMLElement {
     let extraClasses = this.getAttribute('data-extra-classes');
     this.alert.role = 'alert';
     let iconClass = '';
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     if (icon != undefined && icon != null) {
       this.alert.querySelector('#alert-content').className = 'col';
       let activeIcon = document.createElement('cod-icon');

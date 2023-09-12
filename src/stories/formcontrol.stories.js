@@ -47,12 +47,18 @@ export default {
 const Template = (args) => {
   const fcontrol = document.createElement('cod-form-control');
   fcontrol.setAttribute('data-tag', args.tag);
+  // See CityOfDetroit/detroitmi#1099
+  // eslint-disable-next-line eqeqeq
   if (args.size != null) {
     fcontrol.setAttribute('data-size', args.size);
   }
+  // See CityOfDetroit/detroitmi#1099
+  // eslint-disable-next-line eqeqeq
   if (args.rows != null) {
     fcontrol.setAttribute('data-rows', args.rows);
   }
+  // See CityOfDetroit/detroitmi#1099
+  // eslint-disable-next-line eqeqeq
   if (args.value != null) {
     fcontrol.setAttribute('data-value', args.value);
   }

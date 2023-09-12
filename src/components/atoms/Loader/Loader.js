@@ -5,6 +5,8 @@ export default class Loader extends HTMLElement {
     // Always call super first in constructor
     super();
     // Create a shadow root
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line no-unused-vars
     const shadow = this.attachShadow({ mode: 'open' });
   }
 

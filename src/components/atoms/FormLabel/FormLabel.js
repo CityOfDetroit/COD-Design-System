@@ -6,6 +6,8 @@ export default class FormLabel extends HTMLElement {
     // Always call super first in constructor
     super();
     // Create a shadow root
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line no-unused-vars
     const shadow = this.attachShadow({ mode: 'open' });
   }
 
@@ -17,11 +19,15 @@ export default class FormLabel extends HTMLElement {
     let required = this.getAttribute('data-required');
     let text = this.getAttribute('data-text');
     let extraClasses = this.getAttribute('data-extra-classes');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     if (hidden == 'true') {
       hidden = 'visually-hidden';
     } else {
       hidden = '';
     }
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     if (required == 'true') {
       required = 'required-field';
     }

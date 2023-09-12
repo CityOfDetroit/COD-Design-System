@@ -16,11 +16,15 @@ export default class Accordion extends HTMLElement {
     const shadow = this.attachShadow({ mode: 'open' });
     shadow.appendChild(template.content.cloneNode(true));
     this.accordion = document.createElement('div');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line no-unused-vars
     this.shadowRoot.addEventListener('slotchange', (ev) => {
       let tempElements = Array.from(this.children);
       tempElements.forEach((node, index) => {
         switch (node.tagName) {
           case 'COD-ACCORDION-ITEM':
+            // See CityOfDetroit/detroitmi#1099
+            // eslint-disable-next-line no-case-declarations
             let accordionItem = document.createElement('div');
             accordionItem.className = 'accordion-item';
             node.setAttribute('data-parent-id', this.getAttribute('data-id'));
@@ -30,6 +34,8 @@ export default class Accordion extends HTMLElement {
             break;
 
           default:
+            // See CityOfDetroit/detroitmi#1099
+            // eslint-disable-next-line no-case-declarations
             let nodeClasses = node.className.split(' ');
             nodeClasses.includes('no-wc')
               ? node.remove()
@@ -57,7 +63,11 @@ export default class Accordion extends HTMLElement {
     let id = this.getAttribute('data-id');
     let extraClasses = this.getAttribute('data-extra-classes');
     let accordionClasses = ['accordion'];
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     flush == 'true' ? accordionClasses.push('accordion-flush') : 0;
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     extraClasses != undefined && extraClasses != null
       ? accordionClasses.push(extraClasses)
       : 0;

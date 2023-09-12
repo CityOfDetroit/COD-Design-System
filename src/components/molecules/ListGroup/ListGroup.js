@@ -36,8 +36,14 @@ export default class FormCheckGroup extends HTMLElement {
     let horizontal = this.getAttribute('data-horizontal');
     let extraClasses = this.getAttribute('data-extra-classes');
     this.listGroup = document.createElement(tag);
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     flushed == 'true' ? (flushed = 'list-group-flush') : (flushed = null);
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     numbered == 'true' ? (numbered = 'list-group-numbered') : (numbered = null);
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     horizontal == 'true'
       ? (horizontal = 'list-group-horizontal')
       : (horizontal = null);
@@ -50,6 +56,8 @@ export default class FormCheckGroup extends HTMLElement {
     ].join(' ');
 
     if (!this.shadowRoot.querySelector(tag)) {
+      // See CityOfDetroit/detroitmi#1099
+      // eslint-disable-next-line no-unused-vars
       this.shadowRoot.addEventListener('slotchange', (ev) => {
         let tempElements = Array.from(this.children);
         let tempLength = tempElements.length;

@@ -17,6 +17,8 @@ export default class Form extends HTMLElement {
     const shadow = this.attachShadow({ mode: 'open' });
     shadow.appendChild(template.content.cloneNode(true));
     this.form = document.createElement('form');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line no-unused-vars
     shadow.addEventListener('slotchange', (ev) => {
       let tempElements = Array.from(this.children);
       if (tempElements.length) {
@@ -44,6 +46,8 @@ export default class Form extends HTMLElement {
     let backgroundColor = this.getAttribute('data-background-color');
     let extraClasses = this.getAttribute('data-extra-classes');
     this.form.id = id;
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     if (customValidation == 'true') {
       this.form.novalidate = true;
       customValidation = 'needs-validation';

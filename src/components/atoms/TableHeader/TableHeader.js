@@ -17,15 +17,23 @@ export default class TableHeader extends HTMLElement {
     shadow.appendChild(template.content.cloneNode(true));
     this.tableHeader = document.createElement('div');
     this.tableHeader.role = 'rowgroup';
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line no-unused-vars
     shadow.addEventListener('slotchange', (ev) => {
       let tempElements = Array.from(this.children);
       tempElements.forEach((node) => {
+        // See CityOfDetroit/detroitmi#1099
+        // eslint-disable-next-line eqeqeq
         this.getAttribute('data-striped-col') == 'true'
           ? node.setAttribute('data-striped-col', 'true')
           : 0;
+        // See CityOfDetroit/detroitmi#1099
+        // eslint-disable-next-line eqeqeq
         this.getAttribute('data-vertical-align') == 'true'
           ? node.setAttribute('data-vertical-align', 'true')
           : 0;
+        // See CityOfDetroit/detroitmi#1099
+        // eslint-disable-next-line eqeqeq
         this.getAttribute('data-legacy-responsive') == 'true'
           ? node.setAttribute('data-legacy-responsive', 'true')
           : 0;

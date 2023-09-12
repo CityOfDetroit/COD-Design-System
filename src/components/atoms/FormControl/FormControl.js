@@ -12,6 +12,8 @@ export default class FormControl extends HTMLElement {
     // Always call super first in constructor
     super();
     // Create a shadow root
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line no-unused-vars
     const shadow = this.attachShadow({ mode: 'open' });
     this.internals = this.attachInternals();
     this.formControl = null;
@@ -22,6 +24,8 @@ export default class FormControl extends HTMLElement {
   attributeChangedCallback(name, oldValue, newValue) {
     let tempClasses = this.formControl.className.split(' ');
     let popValue = tempClasses.pop();
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     popValue != 'is-invalid' ? tempClasses.push(popValue) : 0;
 
     switch (newValue) {
@@ -60,34 +64,54 @@ export default class FormControl extends HTMLElement {
     const formControl = document.createElement(inputType);
     formControl.id = id;
     formControl.placeholder = placeholderTxt;
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     if (required == 'true') {
       formControl.setAttribute('required', true);
     }
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     if (inputType != 'textarea') {
       formControl.type = dataType;
     }
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     if (minlength != undefined && minlength != null) {
       formControl.setAttribute('minlength', minlength);
     }
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     if (maxlength != undefined && maxlength != null) {
       formControl.setAttribute('maxlength', maxlength);
     }
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     if (pattern != undefined && pattern != null) {
       formControl.setAttribute('pattern', pattern);
     }
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     if (rows != undefined && rows != null) {
       formControl.setAttribute('rows', rows);
     }
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     if (value != undefined && value != null) {
       formControl.value = value;
     }
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     if (readOnly == 'true') {
       formControl.setAttribute('readonly', true);
     }
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     if (disabled == 'true') {
       formControl.setAttribute('disabled', true);
     }
     let colorPicker;
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     dataType == 'color' ? (colorPicker = dataType) : (colorPicker = '');
     formControl.className = [
       'form-control',

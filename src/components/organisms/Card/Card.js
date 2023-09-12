@@ -17,14 +17,24 @@ export default class Card extends HTMLElement {
     shadow.appendChild(template.content.cloneNode(true));
     this.card = document.createElement('div');
 
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line no-unused-vars
     shadow.addEventListener('slotchange', (e) => {
       let tempElements = Array.from(this.children);
       tempElements.forEach((node) => {
         switch (node.tagName) {
           case 'COD-CARD-HEADER':
+            // See CityOfDetroit/detroitmi#1099
+            // eslint-disable-next-line no-case-declarations
             let tempHeader = document.createElement('div');
+            // See CityOfDetroit/detroitmi#1099
+            // eslint-disable-next-line no-case-declarations
             let tempHeaderClasses = ['card-header'];
+            // See CityOfDetroit/detroitmi#1099
+            // eslint-disable-next-line eqeqeq
             node.getAttribute('data-extra-classes') != undefined &&
+            // See CityOfDetroit/detroitmi#1099
+            // eslint-disable-next-line eqeqeq
             node.getAttribute('data-extra-classes') != null
               ? tempHeaderClasses.push(node.getAttribute('data-extra-classes'))
               : 0;
@@ -34,9 +44,17 @@ export default class Card extends HTMLElement {
             break;
 
           case 'COD-CARD-BODY':
+            // See CityOfDetroit/detroitmi#1099
+            // eslint-disable-next-line no-case-declarations
             let tempBody = document.createElement('div');
+            // See CityOfDetroit/detroitmi#1099
+            // eslint-disable-next-line no-case-declarations
             let tempBodyClasses = ['card-body'];
+            // See CityOfDetroit/detroitmi#1099
+            // eslint-disable-next-line eqeqeq
             node.getAttribute('data-extra-classes') != undefined &&
+            // See CityOfDetroit/detroitmi#1099
+            // eslint-disable-next-line eqeqeq
             node.getAttribute('data-extra-classes') != null
               ? tempHeaderClasses.push(node.getAttribute('data-extra-classes'))
               : 0;
@@ -46,9 +64,17 @@ export default class Card extends HTMLElement {
             break;
 
           case 'COD-CARD-FOOTER':
+            // See CityOfDetroit/detroitmi#1099
+            // eslint-disable-next-line no-case-declarations
             let tempFooter = document.createElement('div');
+            // See CityOfDetroit/detroitmi#1099
+            // eslint-disable-next-line no-case-declarations
             let tempFooterClasses = ['card-footer'];
+            // See CityOfDetroit/detroitmi#1099
+            // eslint-disable-next-line eqeqeq
             node.getAttribute('data-extra-classes') != undefined &&
+            // See CityOfDetroit/detroitmi#1099
+            // eslint-disable-next-line eqeqeq
             node.getAttribute('data-extra-classes') != null
               ? tempFooterClasses.push(node.getAttribute('data-extra-classes'))
               : 0;
@@ -58,9 +84,17 @@ export default class Card extends HTMLElement {
             break;
 
           case 'COD-CARD-OVERLAY':
+            // See CityOfDetroit/detroitmi#1099
+            // eslint-disable-next-line no-case-declarations
             let tempOverlay = document.createElement('div');
+            // See CityOfDetroit/detroitmi#1099
+            // eslint-disable-next-line no-case-declarations
             let tempOverlayClasses = ['card-img-overlay'];
+            // See CityOfDetroit/detroitmi#1099
+            // eslint-disable-next-line eqeqeq
             node.getAttribute('data-extra-classes') != undefined &&
+            // See CityOfDetroit/detroitmi#1099
+            // eslint-disable-next-line eqeqeq
             node.getAttribute('data-extra-classes') != null
               ? tempOverlayClasses.push(node.getAttribute('data-extra-classes'))
               : 0;
@@ -70,6 +104,8 @@ export default class Card extends HTMLElement {
             break;
 
           default:
+            // See CityOfDetroit/detroitmi#1099
+            // eslint-disable-next-line no-case-declarations
             let nodeClasses = node.className.split(' ');
             nodeClasses.includes('no-wc')
               ? node.remove()
@@ -97,10 +133,16 @@ export default class Card extends HTMLElement {
     let id = this.getAttribute('data-id');
     let extraClasses = this.getAttribute('data-extra-classes');
     let cardClasses = ['card'];
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     extraClasses != undefined && extraClasses != null
       ? cardClasses.push(extraClasses)
       : 0;
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     width != undefined && width != null ? (this.card.style.width = width) : 0;
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     id != undefined && id != null ? (this.card.id = id) : 0;
     this.card.className = cardClasses.join(' ');
     if (!this.shadowRoot.querySelector('div')) {

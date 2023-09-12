@@ -17,6 +17,8 @@ export default class TableCellHeader extends HTMLElement {
     shadow.appendChild(template.content.cloneNode(true));
     this.tableCellHeader = document.createElement('div');
     this.tableCellHeader.role = 'columnheader';
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line no-unused-vars
     shadow.addEventListener('slotchange', (ev) => {
       let tempElements = Array.from(this.childNodes);
       tempElements.forEach((node) => {
@@ -46,16 +48,26 @@ export default class TableCellHeader extends HTMLElement {
     let verticalAlign = this.getAttribute('data-vertical-align');
     let extraClasses = this.getAttribute('data-extra-classes');
     let tableCellHeaderClasses = ['table-cell-header'];
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     verticalAlign != undefined && verticalAlign != null
       ? tableCellHeaderClasses.push(verticalAlign)
       : 0;
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     legacyResponsive == 'true'
       ? tableCellHeaderClasses.push('table-legacy-responsive')
       : 0;
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     stripedRow == 'true' ? tableCellHeaderClasses.push('table-striped') : 0;
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     stripedCol == 'true'
       ? tableCellHeaderClasses.push('table-striped-columns')
       : 0;
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     extraClasses != undefined && extraClasses != null
       ? tableCellHeaderClasses.push(extraClasses)
       : 0;

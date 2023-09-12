@@ -20,6 +20,8 @@ export default class Dropdown extends HTMLElement {
     const shadow = this.attachShadow({ mode: 'open' });
     shadow.appendChild(template.content.cloneNode(true));
     this.dropdown = document.createElement('div');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line no-unused-vars
     this.shadowRoot.addEventListener('slotchange', (ev) => {
       let tempElements = Array.from(this.children);
       tempElements.forEach((node) => {
@@ -49,8 +51,12 @@ export default class Dropdown extends HTMLElement {
 
   connectedCallback() {
     // badge attributes
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line no-unused-vars
     let show = this.getAttribute('data-show');
     let split = this.getAttribute('data-split');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     split == 'true' ? (split = 'btn-group') : (split = 'dropdown');
     this.dropdown.className = split;
     if (this.querySelector('cod-button[data-bs-toggle="dropdown"]')) {
@@ -71,6 +77,8 @@ export default class Dropdown extends HTMLElement {
     console.log(this.parentElement.querySelector('cod-dropdown-menu'));
     if (e.target.getAttribute('data-bs-toggle') === 'dropdown') {
       console.log('changing dropdown state');
+      // See CityOfDetroit/detroitmi#1099
+      // eslint-disable-next-line eqeqeq
       if (this.getAttribute('aria-expanded') == 'true') {
         this.setAttribute('aria-expanded', 'false');
         this.parentElement
