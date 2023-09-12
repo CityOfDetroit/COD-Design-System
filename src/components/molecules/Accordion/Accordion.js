@@ -19,6 +19,7 @@ export default class Accordion extends HTMLElement {
     this.shadowRoot.addEventListener('slotchange', (ev) => {
       let tempElements = ev.target.assignedElements();
       tempElements.forEach((node, index) => {
+        // TODO: Refactor attribute and class handling for children.
         switch (node.tagName) {
           case 'COD-ACCORDION-ITEM':
             let accordionItem = document.createElement('div');
@@ -56,6 +57,7 @@ export default class Accordion extends HTMLElement {
 
   connectedCallback() {
     // Nav attributes
+    // TODO: Refactor attribute and class handling.
     let flush = this.getAttribute('data-flush');
     const isOrderedList = this.getAttribute('data-ol');
     let id = this.getAttribute('data-id');

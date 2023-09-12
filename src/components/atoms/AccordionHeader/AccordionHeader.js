@@ -54,6 +54,7 @@ export default class AccordionHeader extends HTMLElement {
 
   connectedCallback() {
     // Nav attributes
+    // TODO: Refactor attribute and class handling.
     let parentID = this.getAttribute('data-parent-id');
     let expanded = this.getAttribute('data-expanded');
     let extraClasses = this.getAttribute('data-extra-classes');

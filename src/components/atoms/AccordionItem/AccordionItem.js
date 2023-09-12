@@ -24,6 +24,7 @@ export default class AccordionItem extends HTMLElement {
     this.shadowRoot.addEventListener('slotchange', (ev) => {
       let tempElements = ev.target.assignedElements();
       tempElements.forEach((node) => {
+        // TODO: Refactor attribute and class handling.
         node.setAttribute(
           'data-parent-id',
           `${this.getAttribute('data-parent-id')}-${this.getAttribute(
@@ -78,6 +79,7 @@ export default class AccordionItem extends HTMLElement {
 
   connectedCallback() {
     // Nav attributes
+    // TODO: Refactor attribute and class handling.
     let parentID = this.getAttribute('data-parent-id');
     let index = this.getAttribute('data-index');
     let expanded = this.getAttribute('data-expanded');
