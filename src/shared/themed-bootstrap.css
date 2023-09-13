@@ -9524,6 +9524,129 @@ fieldset:disabled .btn {
   z-index: 3 !important;
 }
 
+.li-bg-primary {
+  --bs-bg-opacity: 1;
+  background-color: rgba(
+    var(--bs-primary-rgb),
+    var(--bs-bg-opacity)
+  ) !important;
+}
+
+.li-bg-secondary {
+  --bs-bg-opacity: 1;
+  background-color: rgba(
+    var(--bs-secondary-rgb),
+    var(--bs-bg-opacity)
+  ) !important;
+}
+
+.li-bg-success {
+  --bs-bg-opacity: 1;
+  background-color: rgba(
+    var(--bs-success-rgb),
+    var(--bs-bg-opacity)
+  ) !important;
+}
+
+.li-bg-info {
+  --bs-bg-opacity: 1;
+  background-color: rgba(var(--bs-info-rgb), var(--bs-bg-opacity)) !important;
+}
+
+.li-bg-warning {
+  --bs-bg-opacity: 1;
+  background-color: rgba(
+    var(--bs-warning-rgb),
+    var(--bs-bg-opacity)
+  ) !important;
+}
+
+.li-bg-danger {
+  --bs-bg-opacity: 1;
+  background-color: rgba(var(--bs-danger-rgb), var(--bs-bg-opacity)) !important;
+}
+
+.li-bg-light {
+  --bs-bg-opacity: 1;
+  background-color: rgba(var(--bs-light-rgb), var(--bs-bg-opacity)) !important;
+}
+
+.li-bg-dark {
+  --bs-bg-opacity: 1;
+  background-color: rgba(var(--bs-dark-rgb), var(--bs-bg-opacity)) !important;
+}
+
+.li-bg-black {
+  --bs-bg-opacity: 1;
+  background-color: rgba(var(--bs-black-rgb), var(--bs-bg-opacity)) !important;
+}
+
+.li-bg-white {
+  --bs-bg-opacity: 1;
+  background-color: rgba(var(--bs-white-rgb), var(--bs-bg-opacity)) !important;
+}
+
+.li-bg-body {
+  --bs-bg-opacity: 1;
+  background-color: rgba(
+    var(--bs-body-bg-rgb),
+    var(--bs-bg-opacity)
+  ) !important;
+}
+
+.li-bg-transparent {
+  --bs-bg-opacity: 1;
+  background-color: transparent !important;
+}
+
+.li-bg-body-secondary {
+  --bs-bg-opacity: 1;
+  background-color: rgba(
+    var(--bs-secondary-bg-rgb),
+    var(--bs-bg-opacity)
+  ) !important;
+}
+
+.li-bg-body-tertiary {
+  --bs-bg-opacity: 1;
+  background-color: rgba(
+    var(--bs-tertiary-bg-rgb),
+    var(--bs-bg-opacity)
+  ) !important;
+}
+
+.li-bg-primary-subtle {
+  background-color: var(--bs-primary-bg-subtle) !important;
+}
+
+.li-bg-secondary-subtle {
+  background-color: var(--bs-secondary-bg-subtle) !important;
+}
+
+.li-bg-success-subtle {
+  background-color: var(--bs-success-bg-subtle) !important;
+}
+
+.li-bg-info-subtle {
+  background-color: var(--bs-info-bg-subtle) !important;
+}
+
+.li-bg-warning-subtle {
+  background-color: var(--bs-warning-bg-subtle) !important;
+}
+
+.li-bg-danger-subtle {
+  background-color: var(--bs-danger-bg-subtle) !important;
+}
+
+.li-bg-light-subtle {
+  background-color: var(--bs-light-bg-subtle) !important;
+}
+
+.li-bg-dark-subtle {
+  background-color: var(--bs-dark-bg-subtle) !important;
+}
+
 @media (min-width: 576px) {
   .float-sm-start {
     float: left !important;

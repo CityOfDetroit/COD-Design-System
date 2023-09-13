@@ -82,10 +82,11 @@ export default class AccordionHeader extends HTMLElement {
     }
   }
 
-  addListNumber(index) {
+  addListNumber(index, extraClasses) {
     const numberBox = document.createElement('div');
     numberBox.innerText = `${index + 1}`;
-    numberBox.className = ['li-num-box'];
+    extraClasses.push('li-num-box');
+    numberBox.className = extraClasses.join(' ');
     this.accordionBtn.prepend(numberBox);
   }
 }

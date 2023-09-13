@@ -1,3 +1,5 @@
+// Redefine the root bootstrap SASS so it's attached to the
+// Shadow DOM root (using :host), instead of the DOM root.
 :host,
 [data-bs-theme='light'] {
   // Note: Custom variable values only support SassScript inside `#{}`.

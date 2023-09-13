@@ -221,7 +221,7 @@ export const List = () => html`
         </p>
       </cod-accordion-body>
     </cod-accordion-item>
-    <cod-accordion-item>
+    <cod-accordion-item data-li-bg="success" data-li-text="dark">
       <cod-accordion-header>
         <span>Accordion Item</span>
       </cod-accordion-header>
@@ -238,7 +238,7 @@ export const List = () => html`
         </p>
       </cod-accordion-body>
     </cod-accordion-item>
-    <cod-accordion-item>
+    <cod-accordion-item data-li-bg="warning" data-li-text="dark">
       <cod-accordion-header>
         <span>Accordion Item</span>
       </cod-accordion-header>
