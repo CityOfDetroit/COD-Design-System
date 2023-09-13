@@ -23,6 +23,8 @@ export default class DropdownMenu extends HTMLElement {
     // See CityOfDetroit/detroitmi#1099
     // eslint-disable-next-line no-unused-vars
     this.shadowRoot.addEventListener('slotchange', (ev) => {
+      // See CityOfDetroit/detroitmi#1099
+      // eslint-disable-next-line prefer-const
       let tempElements = Array.from(this.children);
       tempElements.forEach((node) => {
         this.dropdownMenu.append(node);
@@ -42,12 +44,20 @@ export default class DropdownMenu extends HTMLElement {
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line no-console
     console.log(newValue);
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let tempClasses = this.dropdownMenu.className.split(' ');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let popValue = tempClasses.pop();
     // See CityOfDetroit/detroitmi#1099
     // eslint-disable-next-line eqeqeq
     popValue != 'show' ? tempClasses.push(popValue) : 0;
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line no-console
     console.log(tempClasses);
     // See CityOfDetroit/detroitmi#1099
     // eslint-disable-next-line eqeqeq
@@ -59,9 +69,17 @@ export default class DropdownMenu extends HTMLElement {
 
   connectedCallback() {
     // badge attributes
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let darkMode = this.getAttribute('data-dark-mode');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let alignment = this.getAttribute('data-alignment');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let show = this.getAttribute('data-show');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let classList = ['dropdown-menu'];
     // See CityOfDetroit/detroitmi#1099
     // eslint-disable-next-line eqeqeq

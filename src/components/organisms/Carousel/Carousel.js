@@ -44,10 +44,14 @@ export default class Carousel extends HTMLElement {
         `#${this.getAttribute('data-id')}`,
       );
       this.carouselPrev.setAttribute('data-bs-slide', 'prev');
+      // See CityOfDetroit/detroitmi#1099
+      // eslint-disable-next-line prefer-const
       let prevIcon = document.createElement('span');
       prevIcon.className = 'carousel-control-prev-icon';
       prevIcon.setAttribute('aria-hidden', 'true');
       this.carouselPrev.appendChild(prevIcon);
+      // See CityOfDetroit/detroitmi#1099
+      // eslint-disable-next-line prefer-const
       let prevText = document.createElement('span');
       prevText.className = 'visually-hidden';
       prevText.innerText = 'Previous';
@@ -58,10 +62,14 @@ export default class Carousel extends HTMLElement {
         `#${this.getAttribute('data-id')}`,
       );
       this.carouselNext.setAttribute('data-bs-slide', 'next');
+      // See CityOfDetroit/detroitmi#1099
+      // eslint-disable-next-line prefer-const
       let nextIcon = document.createElement('span');
       nextIcon.className = 'carousel-control-next-icon';
       nextIcon.setAttribute('aria-hidden', 'true');
       this.carouselNext.appendChild(nextIcon);
+      // See CityOfDetroit/detroitmi#1099
+      // eslint-disable-next-line prefer-const
       let nextText = document.createElement('span');
       nextText.className = 'visually-hidden';
       nextText.innerText = 'Next';
@@ -80,6 +88,8 @@ export default class Carousel extends HTMLElement {
     // See CityOfDetroit/detroitmi#1099
     // eslint-disable-next-line no-unused-vars
     shadow.addEventListener('slotchange', (e) => {
+      // See CityOfDetroit/detroitmi#1099
+      // eslint-disable-next-line prefer-const
       let tempElements = Array.from(this.children);
       let tempElementsCount = 0;
       tempElements.forEach((node, index) => {
@@ -87,6 +97,8 @@ export default class Carousel extends HTMLElement {
         // eslint-disable-next-line eqeqeq
         if (node.tagName == 'COD-CAROUSEL-ITEM') {
           tempElementsCount += 1;
+          // See CityOfDetroit/detroitmi#1099
+          // eslint-disable-next-line prefer-const
           let tempItem = document.createElement('div');
           tempItem.setAttribute('data-index', index);
           // See CityOfDetroit/detroitmi#1099
@@ -113,6 +125,8 @@ export default class Carousel extends HTMLElement {
           // See CityOfDetroit/detroitmi#1099
           // eslint-disable-next-line eqeqeq
           if (this.getAttribute('data-indicator') == 'true') {
+            // See CityOfDetroit/detroitmi#1099
+            // eslint-disable-next-line prefer-const
             let tempIndicator = document.createElement('button');
             tempIndicator.type = 'button';
             tempIndicator.setAttribute(
@@ -135,6 +149,8 @@ export default class Carousel extends HTMLElement {
         tempElementsCount
           ? this.setAttribute('data-total-items', tempElementsCount)
           : 0;
+        // See CityOfDetroit/detroitmi#1099
+        // eslint-disable-next-line prefer-const
         let nodeClasses = node.className.split(' ');
         nodeClasses.includes('no-wc') ? node.remove() : 0;
       });
@@ -156,9 +172,13 @@ export default class Carousel extends HTMLElement {
     // See CityOfDetroit/detroitmi#1099
     // eslint-disable-next-line eqeqeq
     if (oldValue != null) {
+      // See CityOfDetroit/detroitmi#1099
+      // eslint-disable-next-line prefer-const
       let oldItem = this.carouselInner.querySelector(
         `[data-index="${oldValue}"`,
       );
+      // See CityOfDetroit/detroitmi#1099
+      // eslint-disable-next-line prefer-const
       let newItem = this.carouselInner.querySelector(
         `[data-index="${newValue}"`,
       );
@@ -192,12 +212,26 @@ export default class Carousel extends HTMLElement {
 
   connectedCallback() {
     // Modal attributes
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let id = this.getAttribute('data-id');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let crossfade = this.getAttribute('data-crossfade');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let autoplay = this.getAttribute('data-autoplay');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let noTouch = this.getAttribute('data-no-touch');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let extraClasses = this.getAttribute('data-extra-classes');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let externalControls = this.getAttribute('data-external-controls');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let carouselClasses = ['carousel slide'];
     // See CityOfDetroit/detroitmi#1099
     // eslint-disable-next-line eqeqeq
@@ -240,9 +274,11 @@ export default class Carousel extends HTMLElement {
   // See CityOfDetroit/detroitmi#1099
   // eslint-disable-next-line no-unused-vars
   _onClick(e) {
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let activeItem = this.getRootNode().host.getAttribute('data-active-item');
     // See CityOfDetroit/detroitmi#1099
-    // eslint-disable-next-line no-unused-vars
+    // eslint-disable-next-line no-unused-vars, prefer-const
     let totalItems = this.getRootNode().host.getAttribute('data-total-items');
     // See CityOfDetroit/detroitmi#1099
     // eslint-disable-next-line eqeqeq
@@ -261,7 +297,11 @@ export default class Carousel extends HTMLElement {
         );
       }
     } else {
+      // See CityOfDetroit/detroitmi#1099
+      // eslint-disable-next-line prefer-const
       let activeItem = this.getRootNode().host.getAttribute('data-active-item');
+      // See CityOfDetroit/detroitmi#1099
+      // eslint-disable-next-line prefer-const
       let totalItems = this.getRootNode().host.getAttribute('data-total-items');
       // See CityOfDetroit/detroitmi#1099
       // eslint-disable-next-line eqeqeq

@@ -19,12 +19,18 @@ export default class Nav extends HTMLElement {
     // See CityOfDetroit/detroitmi#1099
     // eslint-disable-next-line no-unused-vars
     this.shadowRoot.addEventListener('slotchange', (ev) => {
+      // See CityOfDetroit/detroitmi#1099
+      // eslint-disable-next-line prefer-const
       let tempElements = Array.from(this.children);
       tempElements.forEach((node) => {
+        // See CityOfDetroit/detroitmi#1099
+        // eslint-disable-next-line prefer-const
         let navItem = document.createElement('li');
         navItem.className = 'nav-item';
         navItem.appendChild(node);
         this.nav.append(navItem);
+        // See CityOfDetroit/detroitmi#1099
+        // eslint-disable-next-line prefer-const
         let nodeClasses = node.className.split(' ');
         nodeClasses.includes('no-wc')
           ? node.remove()
@@ -46,14 +52,32 @@ export default class Nav extends HTMLElement {
 
   connectedCallback() {
     // Nav attributes
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let vertical = this.getAttribute('data-vertical');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let hAlignment = this.getAttribute('data-horizontal-alignment');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let tabs = this.getAttribute('data-tabs');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let pills = this.getAttribute('data-pills');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let underline = this.getAttribute('data-underline');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let fill = this.getAttribute('data-fill');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let justified = this.getAttribute('data-justified');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let extraClasses = this.getAttribute('data-extra-classes');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let navClasses = ['nav'];
     // See CityOfDetroit/detroitmi#1099
     // eslint-disable-next-line eqeqeq

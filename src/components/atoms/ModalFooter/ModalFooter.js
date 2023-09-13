@@ -20,6 +20,8 @@ export default class ModalFooter extends HTMLElement {
     // See CityOfDetroit/detroitmi#1099
     // eslint-disable-next-line no-unused-vars
     this.shadowRoot.addEventListener('slotchange', (ev) => {
+      // See CityOfDetroit/detroitmi#1099
+      // eslint-disable-next-line prefer-const
       let tempElements = Array.from(this.children);
       tempElements.forEach((node) => {
         this.modalFooter.appendChild(node);
@@ -41,8 +43,14 @@ export default class ModalFooter extends HTMLElement {
 
   connectedCallback() {
     // Nav attributes
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let btnExtraClasses = this.getAttribute('data-button-extra-classes');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let extraClasses = this.getAttribute('data-extra-classes');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let modalFooterClasses = ['modal-footer'];
     this.closeBtn.setAttribute('data-img-alt', '');
     this.closeBtn.setAttribute('data-icon', '');

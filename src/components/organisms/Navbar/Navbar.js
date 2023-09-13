@@ -28,6 +28,8 @@ export default class Navbar extends HTMLElement {
     // See CityOfDetroit/detroitmi#1099
     // eslint-disable-next-line no-unused-vars
     shadow.addEventListener('slotchange', (e) => {
+      // See CityOfDetroit/detroitmi#1099
+      // eslint-disable-next-line prefer-const
       let tempElements = Array.from(this.children);
       tempElements.forEach((node) => {
         switch (node.tagName) {
@@ -67,7 +69,7 @@ export default class Navbar extends HTMLElement {
 
           default:
             // See CityOfDetroit/detroitmi#1099
-            // eslint-disable-next-line no-case-declarations
+            // eslint-disable-next-line no-case-declarations, prefer-const
             let nodeClasses = node.className.split(' ');
             nodeClasses.includes('no-wc') ? node.remove() : 0;
             break;
@@ -94,7 +96,11 @@ export default class Navbar extends HTMLElement {
       .setAttribute('data-show', newValue);
     this.navbarToggle.setAttribute('aria-expanded', newValue);
     if (this.navbarCollapse.querySelector('cod-navbar-collapse')) {
+      // See CityOfDetroit/detroitmi#1099
+      // eslint-disable-next-line prefer-const
       let tempClasses = this.navbarCollapse.className.split(' ');
+      // See CityOfDetroit/detroitmi#1099
+      // eslint-disable-next-line prefer-const
       let popValue = tempClasses.pop();
       // See CityOfDetroit/detroitmi#1099
       // eslint-disable-next-line eqeqeq
@@ -110,17 +116,41 @@ export default class Navbar extends HTMLElement {
 
   connectedCallback() {
     // Navbar attributes
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let expand = this.getAttribute('data-expand');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let id = this.getAttribute('data-id');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let show = this.getAttribute('data-show');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let placement = this.getAttribute('data-position');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let extraClasses = this.getAttribute('data-extra-classes');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let containerClasses = this.getAttribute('data-container-classes');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let collapseClasses = this.getAttribute('data-collapse-classes');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let navbarClasses = ['navbar'];
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let navbarContainerClasses = [''];
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let navbarCollapseClasses = ['collapse navbar-collapse'];
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let navbarBrandClasses = ['navbar-brand'];
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let navbarToogleClasses = ['navbar-toggler'];
     // See CityOfDetroit/detroitmi#1099
     // eslint-disable-next-line eqeqeq

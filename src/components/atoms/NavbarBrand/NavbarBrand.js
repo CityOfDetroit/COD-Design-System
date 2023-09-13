@@ -23,22 +23,48 @@ export default class NavbarBrand extends HTMLElement {
 
   connectedCallback() {
     // Navbar Brand attributes
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let url = this.getAttribute('data-url');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let text = this.getAttribute('data-text');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let brandImgURL = this.getAttribute('data-img');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let brandImgAlt = this.getAttribute('data-img-alt');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let textClasses = this.getAttribute('data-text-classes');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let imgClasses = this.getAttribute('data-img-classes');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let imgSize = this.getAttribute('data-img-size');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let extraClasses = this.getAttribute('data-extra-classes');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let brandClasses = [''];
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let brandLink = document.createElement('a');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let cleanURL = encodeURI(url);
     brandLink.href = decodeURI(cleanURL);
     // See CityOfDetroit/detroitmi#1099
     // eslint-disable-next-line eqeqeq
     if (brandImgURL != undefined && brandImgURL != null) {
+      // See CityOfDetroit/detroitmi#1099
+      // eslint-disable-next-line prefer-const
       let brandImg = document.createElement('img');
+      // See CityOfDetroit/detroitmi#1099
+      // eslint-disable-next-line prefer-const
       let cleanImgURL = encodeURI(brandImgURL);
       brandImg.src = decodeURI(cleanImgURL);
       // See CityOfDetroit/detroitmi#1099
@@ -57,6 +83,8 @@ export default class NavbarBrand extends HTMLElement {
     // See CityOfDetroit/detroitmi#1099
     // eslint-disable-next-line eqeqeq
     if (text != undefined && text != null) {
+      // See CityOfDetroit/detroitmi#1099
+      // eslint-disable-next-line prefer-const
       let brandText = document.createElement('span');
       // See CityOfDetroit/detroitmi#1099
       // eslint-disable-next-line eqeqeq

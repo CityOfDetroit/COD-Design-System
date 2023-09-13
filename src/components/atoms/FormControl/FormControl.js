@@ -22,7 +22,11 @@ export default class FormControl extends HTMLElement {
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let tempClasses = this.formControl.className.split(' ');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let popValue = tempClasses.pop();
     // See CityOfDetroit/detroitmi#1099
     // eslint-disable-next-line eqeqeq
@@ -30,6 +34,8 @@ export default class FormControl extends HTMLElement {
 
     switch (newValue) {
       case 'true':
+        // See CityOfDetroit/detroitmi#1099
+        // eslint-disable-next-line no-console
         console.log('invalid input');
         tempClasses.push('is-invalid');
         this.formControl.className = tempClasses.join(' ');
@@ -46,20 +52,50 @@ export default class FormControl extends HTMLElement {
 
   connectedCallback() {
     // progress attributes
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let inputType = this.getAttribute('data-tag');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let dataType = this.getAttribute('data-type');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let id = this.getAttribute('data-id');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let minlength = this.getAttribute('data-minlength');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let maxlength = this.getAttribute('data-maxlength');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let pattern = this.getAttribute('data-pattern');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let placeholderTxt = this.getAttribute('data-placeholder-txt');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let readOnly = this.getAttribute('data-read-only');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let disabled = this.getAttribute('data-disabled');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let plainText = this.getAttribute('data-plain-txt');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let required = this.getAttribute('data-required');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let rows = this.getAttribute('data-rows');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let size = this.getAttribute('data-size');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let value = this.getAttribute('data-value');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let backgroundColor = this.getAttribute('data-background-color');
     const formControl = document.createElement(inputType);
     formControl.id = id;
@@ -194,6 +230,8 @@ export default class FormControl extends HTMLElement {
     // if the input is invalid, show the correct error
     if (!validState.valid) {
       // loop through the error reasons
+      // See CityOfDetroit/detroitmi#1099
+      // eslint-disable-next-line prefer-const
       for (let state in validState) {
         // get the name of the data attribute that holds the
         //error message

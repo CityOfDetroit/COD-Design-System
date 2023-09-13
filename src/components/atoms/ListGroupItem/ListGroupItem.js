@@ -52,11 +52,15 @@ export default class ListGroupItem extends HTMLElement {
         break;
 
       case 'data-order-index':
+        // See CityOfDetroit/detroitmi#1099
+        // eslint-disable-next-line no-console
         console.log(newValue);
         // See CityOfDetroit/detroitmi#1099
         // eslint-disable-next-line eqeqeq
         if (newValue != null) {
           this.listGroupItem.innerHTML = `${newValue}. ${this.listGroupItem.innerHTML}`;
+          // See CityOfDetroit/detroitmi#1099
+          // eslint-disable-next-line prefer-const
           let tempElements = Array.from(this.children);
           tempElements.forEach((node) => {
             this.listGroupItem.append(node);
@@ -71,12 +75,22 @@ export default class ListGroupItem extends HTMLElement {
 
   connectedCallback() {
     // badge attributes
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let tag = this.getAttribute('data-tag');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let backgroundColor = this.getAttribute('data-background-color');
     let current = this.getAttribute('data-current');
     let disabled = this.getAttribute('data-disabled');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let text = this.getAttribute('data-text');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let extraClasses = this.getAttribute('data-extra-classes');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let url = this.getAttribute('data-url');
     this.listGroupItem = document.createElement(tag);
     let actionItem = '';
@@ -118,6 +132,8 @@ export default class ListGroupItem extends HTMLElement {
       // See CityOfDetroit/detroitmi#1099
       // eslint-disable-next-line no-unused-vars
       this.shadowRoot.addEventListener('slotchange', (ev) => {
+        // See CityOfDetroit/detroitmi#1099
+        // eslint-disable-next-line prefer-const
         let tempElements = Array.from(this.children);
         tempElements.forEach((node) => {
           this.listGroupItem.append(node);

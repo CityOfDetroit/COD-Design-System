@@ -13,11 +13,19 @@ export default class FormLabel extends HTMLElement {
 
   connectedCallback() {
     // progress attributes
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let inputID = this.getAttribute('data-input-id');
     let hidden = this.getAttribute('data-hidden');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let textColor = this.getAttribute('data-color');
     let required = this.getAttribute('data-required');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let text = this.getAttribute('data-text');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let extraClasses = this.getAttribute('data-extra-classes');
     // See CityOfDetroit/detroitmi#1099
     // eslint-disable-next-line eqeqeq

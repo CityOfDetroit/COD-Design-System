@@ -19,6 +19,8 @@ export default class CarouselCaption extends HTMLElement {
     // See CityOfDetroit/detroitmi#1099
     // eslint-disable-next-line no-unused-vars
     shadow.addEventListener('slotchange', (ev) => {
+      // See CityOfDetroit/detroitmi#1099
+      // eslint-disable-next-line prefer-const
       let tempElements = Array.from(this.children);
       tempElements.forEach((node) => {
         this.carouselCaption.append(node);
@@ -39,7 +41,11 @@ export default class CarouselCaption extends HTMLElement {
 
   connectedCallback() {
     // Modal attributes
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let extraClasses = this.getAttribute('data-extra-classes');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let carouselCaptionClasses = ['carousel-caption d-none d-md-block'];
     // See CityOfDetroit/detroitmi#1099
     // eslint-disable-next-line eqeqeq

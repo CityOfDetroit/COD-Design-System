@@ -20,6 +20,8 @@ export default class TableCellHeader extends HTMLElement {
     // See CityOfDetroit/detroitmi#1099
     // eslint-disable-next-line no-unused-vars
     shadow.addEventListener('slotchange', (ev) => {
+      // See CityOfDetroit/detroitmi#1099
+      // eslint-disable-next-line prefer-const
       let tempElements = Array.from(this.childNodes);
       tempElements.forEach((node) => {
         this.tableCellHeader.appendChild(node);
@@ -42,11 +44,23 @@ export default class TableCellHeader extends HTMLElement {
 
   connectedCallback() {
     // tableCellHeader attributes
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let stripedRow = this.getAttribute('data-striped-row');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let stripedCol = this.getAttribute('data-striped-col');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let legacyResponsive = this.getAttribute('data-legacy-responsive');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let verticalAlign = this.getAttribute('data-vertical-align');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let extraClasses = this.getAttribute('data-extra-classes');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let tableCellHeaderClasses = ['table-cell-header'];
     // See CityOfDetroit/detroitmi#1099
     // eslint-disable-next-line eqeqeq

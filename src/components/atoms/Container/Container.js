@@ -19,6 +19,8 @@ export default class Container extends HTMLElement {
     // See CityOfDetroit/detroitmi#1099
     // eslint-disable-next-line no-unused-vars
     shadow.addEventListener('slotchange', (ev) => {
+      // See CityOfDetroit/detroitmi#1099
+      // eslint-disable-next-line prefer-const
       let tempElements = Array.from(this.children);
       tempElements.forEach((node) => {
         this.container.append(node);
@@ -37,9 +39,17 @@ export default class Container extends HTMLElement {
     this.shadowRoot.appendChild(variableStyles);
     this.shadowRoot.appendChild(containerStyles);
     // container attributes
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let type = this.getAttribute('data-type');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let text = this.getAttribute('data-text');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let backgroundColor = this.getAttribute('data-background-color');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let extraClasses = this.getAttribute('data-extra-classes');
     this.container.className = [
       type,

@@ -20,15 +20,17 @@ export default class Card extends HTMLElement {
     // See CityOfDetroit/detroitmi#1099
     // eslint-disable-next-line no-unused-vars
     shadow.addEventListener('slotchange', (e) => {
+      // See CityOfDetroit/detroitmi#1099
+      // eslint-disable-next-line prefer-const
       let tempElements = Array.from(this.children);
       tempElements.forEach((node) => {
         switch (node.tagName) {
           case 'COD-CARD-HEADER':
             // See CityOfDetroit/detroitmi#1099
-            // eslint-disable-next-line no-case-declarations
+            // eslint-disable-next-line no-case-declarations, prefer-const
             let tempHeader = document.createElement('div');
             // See CityOfDetroit/detroitmi#1099
-            // eslint-disable-next-line no-case-declarations
+            // eslint-disable-next-line no-case-declarations, prefer-const
             let tempHeaderClasses = ['card-header'];
             // See CityOfDetroit/detroitmi#1099
             // eslint-disable-next-line eqeqeq
@@ -45,10 +47,10 @@ export default class Card extends HTMLElement {
 
           case 'COD-CARD-BODY':
             // See CityOfDetroit/detroitmi#1099
-            // eslint-disable-next-line no-case-declarations
+            // eslint-disable-next-line no-case-declarations, prefer-const
             let tempBody = document.createElement('div');
             // See CityOfDetroit/detroitmi#1099
-            // eslint-disable-next-line no-case-declarations
+            // eslint-disable-next-line no-case-declarations, prefer-const
             let tempBodyClasses = ['card-body'];
             // See CityOfDetroit/detroitmi#1099
             // eslint-disable-next-line eqeqeq
@@ -65,10 +67,10 @@ export default class Card extends HTMLElement {
 
           case 'COD-CARD-FOOTER':
             // See CityOfDetroit/detroitmi#1099
-            // eslint-disable-next-line no-case-declarations
+            // eslint-disable-next-line no-case-declarations, prefer-const
             let tempFooter = document.createElement('div');
             // See CityOfDetroit/detroitmi#1099
-            // eslint-disable-next-line no-case-declarations
+            // eslint-disable-next-line no-case-declarations, prefer-const
             let tempFooterClasses = ['card-footer'];
             // See CityOfDetroit/detroitmi#1099
             // eslint-disable-next-line eqeqeq
@@ -85,10 +87,10 @@ export default class Card extends HTMLElement {
 
           case 'COD-CARD-OVERLAY':
             // See CityOfDetroit/detroitmi#1099
-            // eslint-disable-next-line no-case-declarations
+            // eslint-disable-next-line no-case-declarations, prefer-const
             let tempOverlay = document.createElement('div');
             // See CityOfDetroit/detroitmi#1099
-            // eslint-disable-next-line no-case-declarations
+            // eslint-disable-next-line no-case-declarations, prefer-const
             let tempOverlayClasses = ['card-img-overlay'];
             // See CityOfDetroit/detroitmi#1099
             // eslint-disable-next-line eqeqeq
@@ -105,7 +107,7 @@ export default class Card extends HTMLElement {
 
           default:
             // See CityOfDetroit/detroitmi#1099
-            // eslint-disable-next-line no-case-declarations
+            // eslint-disable-next-line no-case-declarations, prefer-const
             let nodeClasses = node.className.split(' ');
             nodeClasses.includes('no-wc')
               ? node.remove()
@@ -129,9 +131,17 @@ export default class Card extends HTMLElement {
 
   connectedCallback() {
     // Card attributes
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let width = this.getAttribute('data-width');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let id = this.getAttribute('data-id');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let extraClasses = this.getAttribute('data-extra-classes');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let cardClasses = ['card'];
     // See CityOfDetroit/detroitmi#1099
     // eslint-disable-next-line eqeqeq

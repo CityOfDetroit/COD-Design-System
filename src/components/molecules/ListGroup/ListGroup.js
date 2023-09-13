@@ -30,10 +30,14 @@ export default class FormCheckGroup extends HTMLElement {
 
   connectedCallback() {
     // setting up styles
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let tag = this.getAttribute('data-tag');
     let flushed = this.getAttribute('data-flushed');
     let numbered = this.getAttribute('data-numbered');
     let horizontal = this.getAttribute('data-horizontal');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let extraClasses = this.getAttribute('data-extra-classes');
     this.listGroup = document.createElement(tag);
     // See CityOfDetroit/detroitmi#1099
@@ -59,7 +63,11 @@ export default class FormCheckGroup extends HTMLElement {
       // See CityOfDetroit/detroitmi#1099
       // eslint-disable-next-line no-unused-vars
       this.shadowRoot.addEventListener('slotchange', (ev) => {
+        // See CityOfDetroit/detroitmi#1099
+        // eslint-disable-next-line prefer-const
         let tempElements = Array.from(this.children);
+        // See CityOfDetroit/detroitmi#1099
+        // eslint-disable-next-line prefer-const
         let tempLength = tempElements.length;
         tempElements.forEach((node, index) => {
           let pClasses = null;
@@ -89,6 +97,8 @@ export default class FormCheckGroup extends HTMLElement {
           if (pClasses) {
             node.setAttribute('data-parent-classes', pClasses);
           }
+          // See CityOfDetroit/detroitmi#1099
+          // eslint-disable-next-line prefer-const
           let nodeClasses = node.className.split(' ');
           nodeClasses.includes('no-wc')
             ? node.remove()

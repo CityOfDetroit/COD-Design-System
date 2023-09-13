@@ -23,10 +23,20 @@ export default class NavbarToggle extends HTMLElement {
 
   connectedCallback() {
     // Navbar Brand attributes
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let darkBtn = this.getAttribute('data-button-dark');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let mode = this.getAttribute('data-mode');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let extraClasses = this.getAttribute('data-extra-classes');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let toggleBtn = document.createElement('button');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let navbarToggleClasses = [''];
     // See CityOfDetroit/detroitmi#1099
     // eslint-disable-next-line eqeqeq
@@ -34,6 +44,8 @@ export default class NavbarToggle extends HTMLElement {
       // See CityOfDetroit/detroitmi#1099
       // eslint-disable-next-line eqeqeq
       darkBtn == 'true' ? toggleBtn.setAttribute('data-bs-theme', 'dark') : 0;
+      // See CityOfDetroit/detroitmi#1099
+      // eslint-disable-next-line prefer-const
       let toggleIcon = document.createElement('span');
       navbarToggleClasses.push('navbar-toggler-icon');
       toggleBtn.appendChild(toggleIcon);

@@ -35,6 +35,8 @@ export default class FormCheckGroup extends HTMLElement {
         this.setAttribute('role', 'group');
       }
     }
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let firstFormCheck = this.checkedFormCheck;
     if (firstFormCheck) {
       this._uncheckAll();
@@ -131,6 +133,8 @@ export default class FormCheckGroup extends HTMLElement {
   }
 
   _setCheckedToPrevButton() {
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let checkedButton = this.checkedFormCheck || this.firstFormCheck;
     if (checkedButton === this.firstFormCheck) {
       this._setChecked(this.lastFormCheck);
@@ -140,6 +144,8 @@ export default class FormCheckGroup extends HTMLElement {
   }
 
   _setCheckedToNextButton() {
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let checkedButton = this.checkedRadioButton || this.firstFormCheck;
     if (checkedButton === this.lastFormCheck) {
       this._setChecked(this.firstFormCheck);
@@ -157,6 +163,8 @@ export default class FormCheckGroup extends HTMLElement {
   _uncheckAll() {
     const formCheck = this.querySelectorAll('cod-form-check');
     for (let i = 0; i < formCheck.length; i++) {
+      // See CityOfDetroit/detroitmi#1099
+      // eslint-disable-next-line prefer-const
       let btn = formCheck[i];
       btn.setAttribute('data-checked', 'false');
       btn.setAttribute('data-required', 'false');
@@ -168,6 +176,8 @@ export default class FormCheckGroup extends HTMLElement {
     const formCheck = this.querySelectorAll('cod-form-check');
     let isValid = false;
     for (let i = 0; i < formCheck.length; i++) {
+      // See CityOfDetroit/detroitmi#1099
+      // eslint-disable-next-line prefer-const
       let checkbox = formCheck[i];
       checkbox.formCheck.checked ? (isValid = true) : 0;
     }
@@ -177,6 +187,8 @@ export default class FormCheckGroup extends HTMLElement {
   _requiredAll() {
     const formCheck = this.querySelectorAll('cod-form-check');
     for (let i = 0; i < formCheck.length; i++) {
+      // See CityOfDetroit/detroitmi#1099
+      // eslint-disable-next-line prefer-const
       let btn = formCheck[i];
       btn.setAttribute('data-required', 'true');
     }
@@ -185,6 +197,8 @@ export default class FormCheckGroup extends HTMLElement {
   _unRequiredAll() {
     const formCheck = this.querySelectorAll('cod-form-check');
     for (let i = 0; i < formCheck.length; i++) {
+      // See CityOfDetroit/detroitmi#1099
+      // eslint-disable-next-line prefer-const
       let btn = formCheck[i];
       btn.setAttribute('data-required', 'false');
     }

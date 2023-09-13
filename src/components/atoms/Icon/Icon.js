@@ -10,6 +10,8 @@ export default class Icon extends HTMLElement {
 
   connectedCallback() {
     // Icon attributes
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let icon = this.getAttribute('data-icon');
     let size = this.getAttribute('data-size');
     switch (size) {

@@ -21,6 +21,8 @@ export default class ModalHeader extends HTMLElement {
     // See CityOfDetroit/detroitmi#1099
     // eslint-disable-next-line no-unused-vars
     this.shadowRoot.addEventListener('slotchange', (ev) => {
+      // See CityOfDetroit/detroitmi#1099
+      // eslint-disable-next-line prefer-const
       let tempElements = Array.from(this.children);
       tempElements.forEach((node) => {
         this.modalTitle.appendChild(node);
@@ -43,9 +45,17 @@ export default class ModalHeader extends HTMLElement {
 
   connectedCallback() {
     // Nav attributes
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let parentID = this.getAttribute('data-parent-id');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let btnDark = this.getAttribute('data-button-dark');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let extraClasses = this.getAttribute('data-extra-classes');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let modalHeaderClasses = ['modal-header'];
     this.modalTitle.className = 'modal-title';
     this.modalTitle.id = `${parentID}-label`;

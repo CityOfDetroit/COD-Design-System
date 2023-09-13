@@ -19,6 +19,8 @@ export default class AccordionBody extends HTMLElement {
     // See CityOfDetroit/detroitmi#1099
     // eslint-disable-next-line no-unused-vars
     this.shadowRoot.addEventListener('slotchange', (ev) => {
+      // See CityOfDetroit/detroitmi#1099
+      // eslint-disable-next-line prefer-const
       let tempElements = Array.from(this.children);
       tempElements.forEach((node) => {
         this.accordionBody.append(node);
@@ -39,7 +41,11 @@ export default class AccordionBody extends HTMLElement {
 
   connectedCallback() {
     // Nav attributes
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let extraClasses = this.getAttribute('data-extra-classes');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let accordionBodyClasses = ['accordion-body'];
     // See CityOfDetroit/detroitmi#1099
     // eslint-disable-next-line eqeqeq

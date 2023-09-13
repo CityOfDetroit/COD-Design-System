@@ -22,12 +22,24 @@ export default class Badge extends HTMLElement {
     this.shadowRoot.appendChild(variableStyles);
     this.shadowRoot.appendChild(badgeStyles);
     // badge attributes
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let tag = this.getAttribute('data-tag');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let backgroundColor = this.getAttribute('data-background-color');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let text = this.getAttribute('data-text');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let hiddenText = this.getAttribute('data-hidden-text');
     let pill = this.getAttribute('data-pill');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let url = this.getAttribute('data-url');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let extraClasses = this.getAttribute('data-extra-classes');
     let badge = null;
     // See CityOfDetroit/detroitmi#1099

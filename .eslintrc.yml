@@ -9,5 +9,7 @@ parserOptions:
 rules: {
   eqeqeq: [error, always],
   no-else-return: [error],
-  no-implicit-coercion: [warn]
+  no-implicit-coercion: [warn],
+  prefer-const: [error],
+  no-console: [error]
 }

@@ -24,7 +24,11 @@ export default class FormCheck extends HTMLElement {
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let tempClasses = this.formCheck.className.split(' ');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let popValue = tempClasses.pop();
     // See CityOfDetroit/detroitmi#1099
     // eslint-disable-next-line eqeqeq
@@ -81,18 +85,42 @@ export default class FormCheck extends HTMLElement {
 
   connectedCallback() {
     // Checkbox/Radio attributes setup
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let dataType = this.getAttribute('data-type');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let id = this.getAttribute('data-id');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let value = this.getAttribute('data-value');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let checkName = this.getAttribute('data-name');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let disabled = this.getAttribute('data-disabled');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let required = this.getAttribute('data-required');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let checked = this.getAttribute('data-checked');
     let mode = this.getAttribute('data-mode');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let noLabel = this.getAttribute('data-nolabel');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let labelTxt = this.getAttribute('data-label');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let extraClasses = this.getAttribute('data-extra-classes');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let backgroundColor = this.getAttribute('data-background-color');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let btnColor = this.getAttribute('data-btn-color');
     // Set formcheck
     this.formCheck.id = id;
@@ -236,6 +264,8 @@ export default class FormCheck extends HTMLElement {
     // if the input is invalid, show the correct error
     if (!validState.valid) {
       // loop through the error reasons
+      // See CityOfDetroit/detroitmi#1099
+      // eslint-disable-next-line prefer-const
       for (let state in validState) {
         // get the name of the data attribute that holds the
         //error message

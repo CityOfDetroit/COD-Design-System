@@ -23,13 +23,29 @@ export default class PaginationItem extends HTMLElement {
 
   connectedCallback() {
     // Nav attributes
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let url = this.getAttribute('data-url');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let special = this.getAttribute('data-special');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let label = this.getAttribute('data-label');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let text = this.getAttribute('data-text');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let disabled = this.getAttribute('data-disabled');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let active = this.getAttribute('data-active');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let extraClasses = this.getAttribute('data-extra-classes');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let paginationItemClasses = ['page-link'];
     let paginationItem = null;
     let tag = null;
@@ -44,6 +60,8 @@ export default class PaginationItem extends HTMLElement {
         tag = 'span';
       } else {
         paginationItem = document.createElement('a');
+        // See CityOfDetroit/detroitmi#1099
+        // eslint-disable-next-line prefer-const
         let cleanURL = encodeURI(url);
         paginationItem.href = decodeURI(cleanURL);
         tag = 'a';

@@ -99,6 +99,8 @@ WithInteraction.args = {
   id: 'interaction-input',
   ariaLabel: 'Interaction select example',
   selectChange: (e) => {
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line no-console
     console.log(e.target.shadowRoot.querySelector('select').value);
   },
 };

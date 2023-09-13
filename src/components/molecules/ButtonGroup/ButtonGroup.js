@@ -21,8 +21,12 @@ export default class FormCheckGroup extends HTMLElement {
     // See CityOfDetroit/detroitmi#1099
     // eslint-disable-next-line no-unused-vars
     shadow.addEventListener('slotchange', (ev) => {
+      // See CityOfDetroit/detroitmi#1099
+      // eslint-disable-next-line prefer-const
       let tempElements = Array.from(this.children);
       tempElements.forEach((node) => {
+        // See CityOfDetroit/detroitmi#1099
+        // eslint-disable-next-line prefer-const
         let nodeClasses = node.className.split(' ');
         nodeClasses.includes('no-wc')
           ? node.remove()
@@ -43,10 +47,16 @@ export default class FormCheckGroup extends HTMLElement {
 
   connectedCallback() {
     // setting up styles
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let type = this.getAttribute('data-type');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let label = this.getAttribute('data-label');
     let size = this.getAttribute('data-size');
     let vertical = this.getAttribute('data-vertical');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let extraClasses = this.getAttribute('data-extra-classes');
     // See CityOfDetroit/detroitmi#1099
     // eslint-disable-next-line eqeqeq

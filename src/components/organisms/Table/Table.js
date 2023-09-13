@@ -23,6 +23,8 @@ export default class Table extends HTMLElement {
     // See CityOfDetroit/detroitmi#1099
     // eslint-disable-next-line no-unused-vars
     shadow.addEventListener('slotchange', (e) => {
+      // See CityOfDetroit/detroitmi#1099
+      // eslint-disable-next-line prefer-const
       let tempElements = Array.from(this.children);
       tempElements.forEach((node) => {
         switch (node.tagName) {
@@ -76,7 +78,7 @@ export default class Table extends HTMLElement {
 
           default:
             // See CityOfDetroit/detroitmi#1099
-            // eslint-disable-next-line no-case-declarations
+            // eslint-disable-next-line no-case-declarations, prefer-const
             let nodeClasses = node.className.split(' ');
             nodeClasses.includes('no-wc') ? node.remove() : 0;
             break;
@@ -98,9 +100,17 @@ export default class Table extends HTMLElement {
 
   connectedCallback() {
     // Table attributes
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let legacyResponsive = this.getAttribute('data-legacy-responsive');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let id = this.getAttribute('data-id');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let extraClasses = this.getAttribute('data-extra-classes');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let tableClasses = ['table'];
     // See CityOfDetroit/detroitmi#1099
     // eslint-disable-next-line eqeqeq

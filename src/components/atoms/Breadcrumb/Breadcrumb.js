@@ -24,12 +24,18 @@ export default class Container extends HTMLElement {
     // See CityOfDetroit/detroitmi#1099
     // eslint-disable-next-line no-unused-vars
     shadow.addEventListener('slotchange', (ev) => {
+      // See CityOfDetroit/detroitmi#1099
+      // eslint-disable-next-line prefer-const
       let tempElements = Array.from(this.children);
       tempElements.forEach((node) => {
+        // See CityOfDetroit/detroitmi#1099
+        // eslint-disable-next-line prefer-const
         let nodeClasses = node.className.split(' ');
         if (nodeClasses.includes('no-wc')) {
           node.remove();
         } else {
+          // See CityOfDetroit/detroitmi#1099
+          // eslint-disable-next-line prefer-const
           let crumb = this.querySelector('li');
           crumb && this.breadcrumb.append(crumb);
         }
@@ -48,7 +54,11 @@ export default class Container extends HTMLElement {
 
   connectedCallback() {
     // Breadcrumb attributes
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let noDivider = this.getAttribute('data-no-divider');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let svg = this.getAttribute('data-svg-divider');
     // See CityOfDetroit/detroitmi#1099
     // eslint-disable-next-line eqeqeq

@@ -31,6 +31,8 @@ export default class Modal extends HTMLElement {
     // See CityOfDetroit/detroitmi#1099
     // eslint-disable-next-line no-unused-vars
     shadow.addEventListener('slotchange', (e) => {
+      // See CityOfDetroit/detroitmi#1099
+      // eslint-disable-next-line prefer-const
       let tempElements = Array.from(this.children);
       tempElements.forEach((node) => {
         switch (node.tagName) {
@@ -78,7 +80,11 @@ export default class Modal extends HTMLElement {
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let tempClasses = this.modal.className.split(' ');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let popValue = tempClasses.pop();
     // See CityOfDetroit/detroitmi#1099
     // eslint-disable-next-line eqeqeq
@@ -104,15 +110,35 @@ export default class Modal extends HTMLElement {
 
   connectedCallback() {
     // Modal attributes
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let bStatic = this.getAttribute('data-static');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let id = this.getAttribute('data-id');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let show = this.getAttribute('data-show');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let verticalCentered = this.getAttribute('data-vertical-centered');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let size = this.getAttribute('data-size');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let fullScreen = this.getAttribute('data-full-screen');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let extraClasses = this.getAttribute('data-extra-classes');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let modalClasses = ['modal fade'];
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let modalDialogClasses = ['modal-dialog'];
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let modalContentClasses = ['modal-content'];
     // See CityOfDetroit/detroitmi#1099
     // eslint-disable-next-line eqeqeq

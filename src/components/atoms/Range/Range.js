@@ -24,11 +24,19 @@ export default class Range extends HTMLElement {
     this.shadowRoot.appendChild(rangeStyles);
     // progress attributes
     // See CityOfDetroit/detroitmi#1099
-    // eslint-disable-next-line no-unused-vars
+    // eslint-disable-next-line no-unused-vars, prefer-const
     let id = this.getAttribute('data-id');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let disabled = this.getAttribute('data-disabled');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let min = this.getAttribute('data-min');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let max = this.getAttribute('data-max');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let step = this.getAttribute('data-step');
     const range = document.createElement('input');
     range.type = 'range';
@@ -38,6 +46,8 @@ export default class Range extends HTMLElement {
     if (disabled == 'true') {
       range.disabled = true;
     }
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line no-console
     console.log(min);
     // See CityOfDetroit/detroitmi#1099
     // eslint-disable-next-line eqeqeq

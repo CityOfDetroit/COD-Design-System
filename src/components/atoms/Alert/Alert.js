@@ -23,8 +23,12 @@ export default class Alert extends HTMLElement {
     // See CityOfDetroit/detroitmi#1099
     // eslint-disable-next-line no-unused-vars
     shadow.addEventListener('slotchange', (ev) => {
+      // See CityOfDetroit/detroitmi#1099
+      // eslint-disable-next-line prefer-const
       let tempElements = Array.from(this.children);
       tempElements.forEach((node) => {
+        // See CityOfDetroit/detroitmi#1099
+        // eslint-disable-next-line prefer-const
         let nodeClasses = node.className.split(' ');
         nodeClasses.includes('no-wc')
           ? node.remove()
@@ -47,10 +51,20 @@ export default class Alert extends HTMLElement {
     this.shadowRoot.appendChild(variableStyles);
     this.shadowRoot.appendChild(alertStyles);
     // alert attributes
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let icon = this.getAttribute('data-icon');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let iconOrder = this.getAttribute('data-icon-order');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let iconSize = this.getAttribute('data-icon-size');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let backgroundColor = this.getAttribute('data-background-color');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let extraClasses = this.getAttribute('data-extra-classes');
     this.alert.role = 'alert';
     let iconClass = '';
@@ -58,9 +72,13 @@ export default class Alert extends HTMLElement {
     // eslint-disable-next-line eqeqeq
     if (icon != undefined && icon != null) {
       this.alert.querySelector('#alert-content').className = 'col';
+      // See CityOfDetroit/detroitmi#1099
+      // eslint-disable-next-line prefer-const
       let activeIcon = document.createElement('cod-icon');
       activeIcon.setAttribute('data-icon', icon);
       activeIcon.setAttribute('data-size', iconSize);
+      // See CityOfDetroit/detroitmi#1099
+      // eslint-disable-next-line prefer-const
       let iconContainer = document.createElement('div');
       iconContainer.appendChild(activeIcon);
       iconClass = 'd-flex';

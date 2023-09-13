@@ -24,6 +24,8 @@ export default class AccordionItem extends HTMLElement {
     // See CityOfDetroit/detroitmi#1099
     // eslint-disable-next-line no-unused-vars
     this.shadowRoot.addEventListener('slotchange', (ev) => {
+      // See CityOfDetroit/detroitmi#1099
+      // eslint-disable-next-line prefer-const
       let tempElements = Array.from(this.children);
       tempElements.forEach((node) => {
         node.setAttribute(
@@ -66,7 +68,11 @@ export default class AccordionItem extends HTMLElement {
     this.accordionBody
       .querySelector('cod-accordion-body')
       .setAttribute('data-expanded', newValue);
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let tempClasses = this.accordionBody.className.split(' ');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let popValue = tempClasses.pop();
     // See CityOfDetroit/detroitmi#1099
     // eslint-disable-next-line eqeqeq
@@ -81,15 +87,29 @@ export default class AccordionItem extends HTMLElement {
 
   connectedCallback() {
     // Nav attributes
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let parentID = this.getAttribute('data-parent-id');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let index = this.getAttribute('data-index');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let expanded = this.getAttribute('data-expanded');
     // See CityOfDetroit/detroitmi#1099
-    // eslint-disable-next-line no-unused-vars
+    // eslint-disable-next-line no-unused-vars, prefer-const
     let alwaysOpen = this.getAttribute('data-always-open');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let headerExtraClasses = this.getAttribute('data-header-extra-classes');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let bodyExtraClasses = this.getAttribute('data-body-extra-classes');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let accordionHeaderClasses = ['accordion-header'];
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let accordionBodyClasses = ['accordion-collapse collapse'];
     // See CityOfDetroit/detroitmi#1099
     // eslint-disable-next-line eqeqeq

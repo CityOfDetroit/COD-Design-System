@@ -235,6 +235,8 @@ WithInteraction.args = {
   name: 'interaction-checkbox',
   value: 'interaction-checkbox',
   clicked: (e) => {
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line no-console
     console.log(e);
   },
 };

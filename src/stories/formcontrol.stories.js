@@ -121,6 +121,8 @@ WithInteraction.args = {
   placeholder: 'enter text here',
   tag: 'input',
   keydown: (e) => {
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line no-console
     console.log(e);
   },
 };

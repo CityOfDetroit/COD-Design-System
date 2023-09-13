@@ -23,9 +23,17 @@ export default class Image extends HTMLElement {
     this.shadowRoot.appendChild(variableStyles);
     this.shadowRoot.appendChild(spinnerStyles);
     // image attributes
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let spinnerType = this.getAttribute('data-type');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let spinnerSize = this.getAttribute('data-size');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let backgroundColor = this.getAttribute('data-background-color');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let displayType = this.getAttribute('data-display-type');
     let spinnerSizeClass;
     // See CityOfDetroit/detroitmi#1099
@@ -47,6 +55,8 @@ export default class Image extends HTMLElement {
       `text-${backgroundColor || ''}`,
     ].join(' ');
     spinner.role = 'status';
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let pLoading = document.createElement('span');
     pLoading.innerText = 'Loading...';
     pLoading.className = 'visually-hidden';

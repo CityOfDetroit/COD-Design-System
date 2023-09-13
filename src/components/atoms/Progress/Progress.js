@@ -23,12 +23,26 @@ export default class Progress extends HTMLElement {
     this.shadowRoot.appendChild(variableStyles);
     this.shadowRoot.appendChild(progressStyles);
     // progress attributes
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let striped = this.getAttribute('data-type');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let label = this.getAttribute('data-label');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let ariaLabel = this.getAttribute('data-aria-label');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let animated = this.getAttribute('data-animated');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let value = this.getAttribute('data-value');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let backgroundColor = this.getAttribute('data-background-color');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let stacked = this.getAttribute('data-multi-bars');
     const progressContainer = document.createElement('div');
     // See CityOfDetroit/detroitmi#1099
@@ -63,6 +77,8 @@ export default class Progress extends HTMLElement {
 
   buildBar(bars, barContainer) {
     bars.forEach((bar) => {
+      // See CityOfDetroit/detroitmi#1099
+      // eslint-disable-next-line prefer-const
       let tempBar = document.createElement('div');
       tempBar.role = 'progressbar';
       tempBar.setAttribute('aria-label', bar.ariaLabel);

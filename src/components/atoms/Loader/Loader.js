@@ -19,6 +19,8 @@ export default class Loader extends HTMLElement {
     // Loader attributes
     this.shadowRoot.appendChild(loaderStyles);
     const loader = document.createElement('article');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let color = this.getAttribute('data-color');
     loader.className = ['cod-loader', `cod-loader--${color || 'color-1'}`].join(
       ' ',

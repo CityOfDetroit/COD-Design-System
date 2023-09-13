@@ -23,8 +23,12 @@ export default class Dropdown extends HTMLElement {
     // See CityOfDetroit/detroitmi#1099
     // eslint-disable-next-line no-unused-vars
     this.shadowRoot.addEventListener('slotchange', (ev) => {
+      // See CityOfDetroit/detroitmi#1099
+      // eslint-disable-next-line prefer-const
       let tempElements = Array.from(this.children);
       tempElements.forEach((node) => {
+        // See CityOfDetroit/detroitmi#1099
+        // eslint-disable-next-line prefer-const
         let nodeClasses = node.className.split(' ');
         nodeClasses.includes('no-wc')
           ? node.remove()
@@ -45,14 +49,18 @@ export default class Dropdown extends HTMLElement {
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line no-console
     console.log(newValue);
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line no-console
     console.log(this.dropdownMenu);
   }
 
   connectedCallback() {
     // badge attributes
     // See CityOfDetroit/detroitmi#1099
-    // eslint-disable-next-line no-unused-vars
+    // eslint-disable-next-line no-unused-vars, prefer-const
     let show = this.getAttribute('data-show');
     let split = this.getAttribute('data-split');
     // See CityOfDetroit/detroitmi#1099
@@ -74,8 +82,12 @@ export default class Dropdown extends HTMLElement {
   }
 
   _onClick(e) {
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line no-console
     console.log(this.parentElement.querySelector('cod-dropdown-menu'));
     if (e.target.getAttribute('data-bs-toggle') === 'dropdown') {
+      // See CityOfDetroit/detroitmi#1099
+      // eslint-disable-next-line no-console
       console.log('changing dropdown state');
       // See CityOfDetroit/detroitmi#1099
       // eslint-disable-next-line eqeqeq

@@ -20,6 +20,8 @@ export default class TableBody extends HTMLElement {
     // See CityOfDetroit/detroitmi#1099
     // eslint-disable-next-line no-unused-vars
     shadow.addEventListener('slotchange', (ev) => {
+      // See CityOfDetroit/detroitmi#1099
+      // eslint-disable-next-line prefer-const
       let tempElements = Array.from(this.children);
       tempElements.forEach((node, index) => {
         // See CityOfDetroit/detroitmi#1099
@@ -62,8 +64,14 @@ export default class TableBody extends HTMLElement {
 
   connectedCallback() {
     // TableRow attributes
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let extraClasses = this.getAttribute('data-extra-classes');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let hover = this.getAttribute('data-hover');
+    // See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let tableRowClasses = ['table-row'];
     // See CityOfDetroit/detroitmi#1099
     // eslint-disable-next-line eqeqeq
