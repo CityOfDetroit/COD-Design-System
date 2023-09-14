@@ -1,5 +1,3 @@
-// Custom.scss
-// Option A: Include all of Bootstrap
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;700&display=swap');
 $primary: #004445 !default;
 $secondary: #e6e6e6 !default;
@@ -12,7 +10,53 @@ $dark: #000 !default;
 $font-family-sans-serif: 'Montserrat', sans-serif;
 $font-family-monospace: 'Montserrat', sans-serif;
 
-@import '../../node_modules/bootstrap/scss/bootstrap';
-@import './host';
+@import '../../node_modules/bootstrap/scss/functions';
+@import '../../node_modules/bootstrap/scss/variables';
+@import '../../node_modules/bootstrap/scss/variables-dark';
+@import '../../node_modules/bootstrap/scss/maps';
+@import '../../node_modules/bootstrap/scss/mixins';
+@import '../../node_modules/bootstrap/scss/utilities';
 
-// Then add additional custom code here
+// See: https://getbootstrap.com/docs/5.0/utilities/api/
+$utilities: map-merge(
+  $utilities,
+  (
+    // Create specific bg classes for stylized list items.
+    'li-background-color':
+      (
+        property: background-color,
+        class: li-bg,
+        local-vars: (
+          'bg-opacity': 1,
+        ),
+        values:
+          map-merge(
+            $utilities-bg-colors,
+            (
+              'transparent': transparent,
+              'body-secondary':
+                rgba(
+                  var(--#{$prefix}secondary-bg-rgb),
+                  var(--#{$prefix}bg-opacity)
+                ),
+              'body-tertiary':
+                rgba(
+                  var(--#{$prefix}tertiary-bg-rgb),
+                  var(--#{$prefix}bg-opacity)
+                ),
+            )
+          ),
+      ),
+    // Create specific subtle bg classes for stylized list items.
+    'li-subtle-background-color':
+      (
+        property: background-color,
+        class: li-bg,
+        values: $utilities-bg-subtle,
+      )
+  )
+);
+
+@import '../../node_modules/bootstrap/scss/bootstrap';
+// Override bootstrap _root.scss.
+@import './host';

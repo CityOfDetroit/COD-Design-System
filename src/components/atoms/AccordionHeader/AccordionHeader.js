@@ -23,7 +23,7 @@ export default class AccordionHeader extends HTMLElement {
     this.accordionBtn = document.createElement('button');
     this.accordionHeader.appendChild(this.accordionBtn);
     this.shadowRoot.addEventListener('slotchange', (ev) => {
-      let tempElements = Array.from(this.children);
+      let tempElements = ev.target.assignedElements();
       tempElements.forEach((node) => {
         this.accordionBtn.append(node);
       });
@@ -54,10 +54,15 @@ export default class AccordionHeader extends HTMLElement {
 
   connectedCallback() {
     // Nav attributes
+    // TODO: Refactor attribute and class handling.
     let parentID = this.getAttribute('data-parent-id');
     let expanded = this.getAttribute('data-expanded');
     let extraClasses = this.getAttribute('data-extra-classes');
+    const isListItem = this.getAttribute('data-li');
     let accordionBtnClasses = ['accordion-button'];
+    if (isListItem !== null) {
+      accordionBtnClasses.push('data-li');
+    }
     this.accordionBtn.setAttribute('type', 'button');
     this.accordionBtn.setAttribute('data-bs-toggle', 'collapse');
     this.accordionBtn.setAttribute('aria-controls', parentID);
@@ -75,5 +80,13 @@ export default class AccordionHeader extends HTMLElement {
     if (!this.shadowRoot.querySelector('div')) {
       this.shadowRoot.appendChild(this.accordionHeader);
     }
+  }
+
+  addListNumber(index, extraClasses) {
+    const numberBox = document.createElement('div');
+    numberBox.innerText = `${index + 1}`;
+    extraClasses.push('li-num-box');
+    numberBox.className = extraClasses.join(' ');
+    this.accordionBtn.prepend(numberBox);
   }
 }

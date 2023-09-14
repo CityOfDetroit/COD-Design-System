@@ -22,8 +22,9 @@ export default class AccordionItem extends HTMLElement {
     this.accordionHeader = document.createElement('div');
     this.accordionBody = document.createElement('div');
     this.shadowRoot.addEventListener('slotchange', (ev) => {
-      let tempElements = Array.from(this.children);
+      let tempElements = ev.target.assignedElements();
       tempElements.forEach((node) => {
+        // TODO: Refactor attribute and class handling.
         node.setAttribute(
           'data-parent-id',
           `${this.getAttribute('data-parent-id')}-${this.getAttribute(
@@ -34,6 +35,14 @@ export default class AccordionItem extends HTMLElement {
           ? node.setAttribute('data-expanded', true)
           : 0;
         if (node.tagName == 'COD-ACCORDION-HEADER') {
+          if (this.getAttribute('data-li') !== null) {
+            node.setAttribute('data-li', '');
+            const extraClasses = this.getHeaderListItemClasses();
+            node.addListNumber(
+              Number(this.getAttribute('data-index')),
+              extraClasses,
+            );
+          }
           this.accordionHeader.append(node);
         } else {
           this.accordionBody.append(node);
@@ -71,21 +80,18 @@ export default class AccordionItem extends HTMLElement {
 
   connectedCallback() {
     // Nav attributes
+    // TODO: Refactor attribute and class handling.
     let parentID = this.getAttribute('data-parent-id');
     let index = this.getAttribute('data-index');
     let expanded = this.getAttribute('data-expanded');
-    let alwaysOpen = this.getAttribute('data-always-open');
-    let headerExtraClasses = this.getAttribute('data-header-extra-classes');
-    let bodyExtraClasses = this.getAttribute('data-body-extra-classes');
     let accordionHeaderClasses = ['accordion-header'];
     let accordionBodyClasses = ['accordion-collapse collapse'];
     expanded == 'true' ? accordionBodyClasses.push('show') : 0;
-    headerExtraClasses != undefined && headerExtraClasses != null
-      ? accordionHeaderClasses.push(headerExtraClasses)
-      : 0;
-    bodyExtraClasses != undefined && bodyExtraClasses != null
-      ? accordionBodyClasses.push(bodyExtraClasses)
-      : 0;
+    if (this.getAttribute('data-li') !== null) {
+      accordionBodyClasses = accordionBodyClasses.concat(
+        this.getBodyListItemClasses(),
+      );
+    }
     this.accordionBody.id = `${parentID}-${index}`;
     this.accordionHeader.className = accordionHeaderClasses.join(' ');
     this.accordionBody.className = accordionBodyClasses.join(' ');
@@ -103,6 +109,27 @@ export default class AccordionItem extends HTMLElement {
 
   disconnectedCallback() {
     this.removeEventListener('click', this._onClick.bind(this));
+  }
+
+  getListItemBackgroundColor() {
+    const customColor = this.getAttribute('data-li-bg');
+    return customColor !== null ? customColor : 'primary';
+  }
+
+  getListItemTextColor() {
+    const customColor = this.getAttribute('data-li-text');
+    return customColor !== null ? customColor : 'light';
+  }
+
+  getHeaderListItemClasses() {
+    const bgColor = this.getListItemBackgroundColor();
+    const textColor = this.getListItemTextColor();
+    return ['li-bg-' + bgColor, 'text-' + textColor];
+  }
+
+  getBodyListItemClasses() {
+    const bgColor = this.getListItemBackgroundColor();
+    return ['border-start', 'border-' + bgColor];
   }
 
   _onClick(e) {

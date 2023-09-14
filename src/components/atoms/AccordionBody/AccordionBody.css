@@ -1,0 +1,4 @@
+.accordion-body.data-li {
+  border-left: 3px solid;
+  border-color: var(--color-1);
+}

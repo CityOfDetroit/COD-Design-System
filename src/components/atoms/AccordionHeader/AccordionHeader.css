@@ -1,0 +1,14 @@
+.li-num-box {
+  /* TODO: Dynamically update list numbers to match accordion
+    header text styles */
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 2rem;
+}
+
+.accordion-button.data-li {
+  padding-right: 1rem;
+}

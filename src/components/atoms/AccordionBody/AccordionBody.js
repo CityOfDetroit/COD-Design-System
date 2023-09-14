@@ -37,8 +37,12 @@ export default class AccordionBody extends HTMLElement {
 
   connectedCallback() {
     // Nav attributes
+    // TODO: Refactor attribute and class handling.
     let extraClasses = this.getAttribute('data-extra-classes');
     let accordionBodyClasses = ['accordion-body'];
+    if (this.getAttribute('data-li') !== null) {
+      accordionBodyClasses.push('data-li');
+    }
     extraClasses != undefined && extraClasses != null
       ? accordionBodyClasses.push(extraClasses)
       : 0;
