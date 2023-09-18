@@ -1,3 +1,23 @@
+# v1.0.8 (Mon Sep 18 2023)
+
+#### 🐛 Bug Fix
+
+- Updating build files. [#95](https://github.com/jedgar1mx/COD-Design-System/pull/95) ([@jedgar1mx](https://github.com/jedgar1mx))
+- Fix.issue.92 [#93](https://github.com/jedgar1mx/COD-Design-System/pull/93) ([@jedgar1mx](https://github.com/jedgar1mx))
+- Add Accordion list style option [#90](https://github.com/jedgar1mx/COD-Design-System/pull/90) ([@maxatdetroit](https://github.com/maxatdetroit))
+- Format repository [#87](https://github.com/jedgar1mx/COD-Design-System/pull/87) ([@maxatdetroit](https://github.com/maxatdetroit))
+- Remove duplicate web component definition [#89](https://github.com/jedgar1mx/COD-Design-System/pull/89) ([@maxatdetroit](https://github.com/maxatdetroit))
+- Ignore yarn local yarn state [#86](https://github.com/jedgar1mx/COD-Design-System/pull/86) ([@maxatdetroit](https://github.com/maxatdetroit))
+- Add testing docs [#88](https://github.com/jedgar1mx/COD-Design-System/pull/88) ([@maxatdetroit](https://github.com/maxatdetroit))
+- Update README [#85](https://github.com/jedgar1mx/COD-Design-System/pull/85) ([@maxatdetroit](https://github.com/maxatdetroit))
+
+#### Authors: 2
+
+- J Edgar Montes ([@jedgar1mx](https://github.com/jedgar1mx))
+- Max Morgan ([@maxatdetroit](https://github.com/maxatdetroit))
+
+---
+
 # v1.0.7 (Tue Aug 29 2023)
 
 #### 🐛 Bug Fix
