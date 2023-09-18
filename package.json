@@ -1,6 +1,6 @@
 {
   "name": "cod-design-system",
-  "version": "1.0.5",
+  "version": "1.0.7",
   "description": "City of Detroit design system",
   "main": "dist/index.js",
   "repository": "https://github.com/jedgar1mx/COD-Design-System",
@@ -16,6 +16,7 @@
   "bugs": {
     "url": "https://github.com/jedgar1mx/COD-Design-System/issues"
   },
+  "readmeFilename": "README.md",
   "homepage": "https://jedgar1mx.github.io/COD-Design-System",
   "scripts": {
     "build": "webpack --mode production",
