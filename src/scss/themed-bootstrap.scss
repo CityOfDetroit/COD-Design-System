@@ -1,3 +1,13 @@
+// This SASS file customizes base bootstrap to meet the needs of the UXDS. The compiled output 
+// should be stored in src/shared/themed-bootstrap.css.
+
+// The next comment line will be included in the compiled output and is only intended for readers
+// of the compiled output. Please ignore in this file.
+/**
+ * GENERATED CSS. DO NOT MODIFY.
+ * This file is generated from source SASS in src/scss/themed-bootstrap.scss. If you'd like to make
+ * changes please change the source file or the code generation script at scripts/compile_bootstrap.sh.
+ */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;700&display=swap');
 $primary: #004445 !default;
 $secondary: #e6e6e6 !default;
