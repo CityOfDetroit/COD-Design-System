@@ -56,3 +56,19 @@ Use Storybooks [built-in test-runner](https://storybook.js.org/docs/react/writin
    ```
    $ yarn test-storybook
    ```
+
+### Formatting and Linting
+
+The remote repository will enforce ESLint rules and Prettier formatting.
+
+To check ESLint and Prettier formatting locally:
+
+```
+$ yarn lint
+```
+
+To format the code in `./src/`:
+
+```
+$ yarn prettier -w ./src
+```
