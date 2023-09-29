@@ -1,3 +1,19 @@
+# v1.0.9 (Fri Sep 29 2023)
+
+#### 🐛 Bug Fix
+
+- Enable ESLint; add ESLint/Prettier to CI [#99](https://github.com/CityOfDetroit/COD-Design-System/pull/99) ([@maxatdetroit](https://github.com/maxatdetroit))
+- Fixes CityOfDetroit/detroitmi#1112 [#98](https://github.com/CityOfDetroit/COD-Design-System/pull/98) ([@maxatdetroit](https://github.com/maxatdetroit))
+- Fix.issue.94 [#96](https://github.com/CityOfDetroit/COD-Design-System/pull/96) ([@jedgar1mx](https://github.com/jedgar1mx))
+- Updating build files. [#95](https://github.com/CityOfDetroit/COD-Design-System/pull/95) ([@jedgar1mx](https://github.com/jedgar1mx))
+
+#### Authors: 2
+
+- J Edgar Montes ([@jedgar1mx](https://github.com/jedgar1mx))
+- Max Morgan ([@maxatdetroit](https://github.com/maxatdetroit))
+
+---
+
 # v1.0.8 (Mon Sep 18 2023)
 
 #### 🐛 Bug Fix
