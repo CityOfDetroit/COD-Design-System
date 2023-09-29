@@ -25,17 +25,27 @@ export default class Navbar extends HTMLElement {
     this.navbarBrand = document.createElement('div');
     this.navbarCollapse = document.createElement('div');
 
+    // TODO: See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line no-unused-vars
     shadow.addEventListener('slotchange', (e) => {
+      // TODO: See CityOfDetroit/detroitmi#1099
+      // eslint-disable-next-line prefer-const
       let tempElements = Array.from(this.children);
       tempElements.forEach((node) => {
         switch (node.tagName) {
           case 'COD-NAVBAR-TOGGLE':
+            // TODO: See CityOfDetroit/detroitmi#1099
+            // eslint-disable-next-line eqeqeq
             this.getAttribute('data-target-toggle') == 'offcanvas'
               ? node.setAttribute('data-target-toggle', 'offcanvas')
               : 0;
+            // TODO: See CityOfDetroit/detroitmi#1099
+            // eslint-disable-next-line eqeqeq
             this.getAttribute('data-show') == 'true'
               ? node.setAttribute('data-show', true)
               : 0;
+            // TODO: See CityOfDetroit/detroitmi#1099
+            // eslint-disable-next-line eqeqeq
             this.getAttribute('data-button-dark') == 'true'
               ? node.setAttribute('data-button-dark', true)
               : 0;
@@ -58,6 +68,8 @@ export default class Navbar extends HTMLElement {
             break;
 
           default:
+            // TODO: See CityOfDetroit/detroitmi#1099
+            // eslint-disable-next-line no-case-declarations, prefer-const
             let nodeClasses = node.className.split(' ');
             nodeClasses.includes('no-wc') ? node.remove() : 0;
             break;
@@ -84,9 +96,17 @@ export default class Navbar extends HTMLElement {
       .setAttribute('data-show', newValue);
     this.navbarToggle.setAttribute('aria-expanded', newValue);
     if (this.navbarCollapse.querySelector('cod-navbar-collapse')) {
+      // TODO: See CityOfDetroit/detroitmi#1099
+      // eslint-disable-next-line prefer-const
       let tempClasses = this.navbarCollapse.className.split(' ');
+      // TODO: See CityOfDetroit/detroitmi#1099
+      // eslint-disable-next-line prefer-const
       let popValue = tempClasses.pop();
+      // TODO: See CityOfDetroit/detroitmi#1099
+      // eslint-disable-next-line eqeqeq
       popValue != 'show' ? tempClasses.push(popValue) : 0;
+      // TODO: See CityOfDetroit/detroitmi#1099
+      // eslint-disable-next-line eqeqeq
       if (newValue == 'true') {
         tempClasses.push('show');
       }
@@ -96,41 +116,81 @@ export default class Navbar extends HTMLElement {
 
   connectedCallback() {
     // Navbar attributes
+    // TODO: See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let expand = this.getAttribute('data-expand');
+    // TODO: See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let id = this.getAttribute('data-id');
+    // TODO: See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let show = this.getAttribute('data-show');
+    // TODO: See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let placement = this.getAttribute('data-position');
+    // TODO: See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let extraClasses = this.getAttribute('data-extra-classes');
+    // TODO: See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let containerClasses = this.getAttribute('data-container-classes');
+    // TODO: See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let collapseClasses = this.getAttribute('data-collapse-classes');
+    // TODO: See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let navbarClasses = ['navbar'];
+    // TODO: See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let navbarContainerClasses = [''];
+    // TODO: See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let navbarCollapseClasses = ['collapse navbar-collapse'];
+    // TODO: See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let navbarBrandClasses = ['navbar-brand'];
+    // TODO: See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let navbarToogleClasses = ['navbar-toggler'];
+    // TODO: See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     containerClasses != undefined && containerClasses != null
       ? navbarContainerClasses.push(containerClasses)
       : 0;
+    // TODO: See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     extraClasses != undefined && extraClasses != null
       ? navbarClasses.push(extraClasses)
       : 0;
+    // TODO: See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     collapseClasses != undefined && collapseClasses != null
       ? navbarCollapseClasses.push(collapseClasses)
       : 0;
+    // TODO: See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     placement != undefined && placement != null
       ? navbarClasses.push(placement)
       : 0;
+    // TODO: See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     if (expand != undefined && expand != null) {
+      // TODO: See CityOfDetroit/detroitmi#1099
+      // eslint-disable-next-line eqeqeq
       expand == 'always'
         ? navbarClasses.push('navbar-expand')
         : navbarClasses.push(`navbar-expand-${expand}`);
     }
+    // TODO: See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     if (show == 'true') {
       this.navbarCollapseClasses.push('show');
       this.navbarToggle.setAttribute('aria-expanded', `true`);
     } else {
       this.navbarToggle.setAttribute('aria-expanded', `false`);
     }
+    // TODO: See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     if (id != undefined && id != null) {
       this.navbar.id = id;
       this.navbarCollapse.id = `${id}-collapse`;

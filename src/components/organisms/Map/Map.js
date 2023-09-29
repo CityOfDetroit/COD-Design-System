@@ -32,6 +32,8 @@ export default class Map extends HTMLElement {
     mapContainer.id = 'map';
     mapWrapper.appendChild(mapContainer);
     const closeMapBtn = document.createElement('cod-button');
+    // TODO: See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line no-unused-vars
     closeMapBtn.addEventListener('click', (ev) => {
       app[0].setAttribute('data-app-state', 'results');
     });
@@ -55,6 +57,8 @@ export default class Map extends HTMLElement {
     app[0].setAttribute('data-map-state', 'init');
   }
 
+  // TODO: See CityOfDetroit/detroitmi#1099
+  // eslint-disable-next-line no-unused-vars
   attributeChangedCallback(name, oldValue, newValue) {
     const app = document.getElementsByTagName('my-home-info');
     const parcel = JSON.parse(app[0].getAttribute('data-parcel-id'));
@@ -64,6 +68,8 @@ export default class Map extends HTMLElement {
         this.map.addControl(new maplibregl.NavigationControl());
         this.map.on('style.load', () => {
           this.map.resize();
+          // TODO: See CityOfDetroit/detroitmi#1099
+          // eslint-disable-next-line no-unused-vars
           const marker = new maplibregl.Marker()
             .setLngLat(coord)
             .addTo(this.map);
@@ -115,6 +121,8 @@ export default class Map extends HTMLElement {
           });
         });
         // Creating this temp variable for workaround with dealing with "this" encapsulation
+        // TODO: See CityOfDetroit/detroitmi#1099
+        // eslint-disable-next-line no-case-declarations
         const tempMap = this;
         this.map.on('click', 'data-points', function (e) {
           const app = document.getElementsByTagName('my-home-info');

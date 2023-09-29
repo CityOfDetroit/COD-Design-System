@@ -17,7 +17,11 @@ export default class TableCell extends HTMLElement {
     shadow.appendChild(template.content.cloneNode(true));
     this.tableCell = document.createElement('div');
     this.tableCell.role = 'cell';
+    // TODO: See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line no-unused-vars
     shadow.addEventListener('slotchange', (ev) => {
+      // TODO: See CityOfDetroit/detroitmi#1099
+      // eslint-disable-next-line prefer-const
       let tempElements = Array.from(this.childNodes);
       tempElements.forEach((node) => {
         this.tableCell.appendChild(node);
@@ -40,20 +44,42 @@ export default class TableCell extends HTMLElement {
 
   connectedCallback() {
     // TableCell attributes
+    // TODO: See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let stripedRow = this.getAttribute('data-striped-row');
+    // TODO: See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let stripedCol = this.getAttribute('data-striped-col');
+    // TODO: See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let legacyResponsive = this.getAttribute('data-legacy-responsive');
+    // TODO: See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let verticalAlign = this.getAttribute('data-vertical-align');
+    // TODO: See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let extraClasses = this.getAttribute('data-extra-classes');
+    // TODO: See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let tableCellClasses = ['table-cell'];
+    // TODO: See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     verticalAlign != undefined && verticalAlign != null
       ? tableCellClasses.push(verticalAlign)
       : 0;
+    // TODO: See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     legacyResponsive == 'true'
       ? tableCellClasses.push('table-legacy-responsive')
       : 0;
+    // TODO: See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     stripedRow == 'true' ? tableCellClasses.push('table-striped') : 0;
+    // TODO: See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     stripedCol == 'true' ? tableCellClasses.push('table-striped-columns') : 0;
+    // TODO: See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     extraClasses != undefined && extraClasses != null
       ? tableCellClasses.push(extraClasses)
       : 0;

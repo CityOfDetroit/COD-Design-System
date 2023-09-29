@@ -27,12 +27,16 @@ export default class FormCheckGroup extends HTMLElement {
   connectedCallback() {
     // setting up styles
     if (!this.hasAttribute('role')) {
+      // TODO: See CityOfDetroit/detroitmi#1099
+      // eslint-disable-next-line eqeqeq
       if (this.getAttribute('data-type') == 'radio') {
         this.setAttribute('role', 'radiogroup');
       } else {
         this.setAttribute('role', 'group');
       }
     }
+    // TODO: See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let firstFormCheck = this.checkedFormCheck;
     if (firstFormCheck) {
       this._uncheckAll();
@@ -117,6 +121,8 @@ export default class FormCheckGroup extends HTMLElement {
     while (next) {
       if (
         next.getAttribute('data-type') === 'radio' ||
+        // TODO: See CityOfDetroit/detroitmi#1099
+        // eslint-disable-next-line no-undef
         prev.getAttribute('data-type') === 'checkbox'
       ) {
         return next;
@@ -127,6 +133,8 @@ export default class FormCheckGroup extends HTMLElement {
   }
 
   _setCheckedToPrevButton() {
+    // TODO: See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let checkedButton = this.checkedFormCheck || this.firstFormCheck;
     if (checkedButton === this.firstFormCheck) {
       this._setChecked(this.lastFormCheck);
@@ -136,6 +144,8 @@ export default class FormCheckGroup extends HTMLElement {
   }
 
   _setCheckedToNextButton() {
+    // TODO: See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let checkedButton = this.checkedRadioButton || this.firstFormCheck;
     if (checkedButton === this.lastFormCheck) {
       this._setChecked(this.firstFormCheck);
@@ -153,6 +163,8 @@ export default class FormCheckGroup extends HTMLElement {
   _uncheckAll() {
     const formCheck = this.querySelectorAll('cod-form-check');
     for (let i = 0; i < formCheck.length; i++) {
+      // TODO: See CityOfDetroit/detroitmi#1099
+      // eslint-disable-next-line prefer-const
       let btn = formCheck[i];
       btn.setAttribute('data-checked', 'false');
       btn.setAttribute('data-required', 'false');
@@ -164,6 +176,8 @@ export default class FormCheckGroup extends HTMLElement {
     const formCheck = this.querySelectorAll('cod-form-check');
     let isValid = false;
     for (let i = 0; i < formCheck.length; i++) {
+      // TODO: See CityOfDetroit/detroitmi#1099
+      // eslint-disable-next-line prefer-const
       let checkbox = formCheck[i];
       checkbox.formCheck.checked ? (isValid = true) : 0;
     }
@@ -173,6 +187,8 @@ export default class FormCheckGroup extends HTMLElement {
   _requiredAll() {
     const formCheck = this.querySelectorAll('cod-form-check');
     for (let i = 0; i < formCheck.length; i++) {
+      // TODO: See CityOfDetroit/detroitmi#1099
+      // eslint-disable-next-line prefer-const
       let btn = formCheck[i];
       btn.setAttribute('data-required', 'true');
     }
@@ -181,6 +197,8 @@ export default class FormCheckGroup extends HTMLElement {
   _unRequiredAll() {
     const formCheck = this.querySelectorAll('cod-form-check');
     for (let i = 0; i < formCheck.length; i++) {
+      // TODO: See CityOfDetroit/detroitmi#1099
+      // eslint-disable-next-line prefer-const
       let btn = formCheck[i];
       btn.setAttribute('data-required', 'false');
     }
@@ -201,6 +219,8 @@ export default class FormCheckGroup extends HTMLElement {
       this._setChecked(e.target);
     }
     if (e.target.getAttribute('data-type') === 'checkbox') {
+      // TODO: See CityOfDetroit/detroitmi#1099
+      // eslint-disable-next-line eqeqeq
       if (this.getAttribute('data-required') == 'true') {
         this._validateRequired(e.target);
       }
