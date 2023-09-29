@@ -1,0 +1,15 @@
+env:
+  browser: true
+  commonjs: true
+  es2021: true
+extends: [eslint:recommended, prettier]
+parserOptions:
+  ecmaVersion: latest
+  sourceType: module
+rules: {
+  eqeqeq: [error, always],
+  no-else-return: [error],
+  no-implicit-coercion: [warn],
+  prefer-const: [error],
+  no-console: [error]
+}

@@ -20,9 +20,15 @@ export default class Dropdown extends HTMLElement {
     const shadow = this.attachShadow({ mode: 'open' });
     shadow.appendChild(template.content.cloneNode(true));
     this.dropdown = document.createElement('div');
+    // TODO: See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line no-unused-vars
     this.shadowRoot.addEventListener('slotchange', (ev) => {
+      // TODO: See CityOfDetroit/detroitmi#1099
+      // eslint-disable-next-line prefer-const
       let tempElements = Array.from(this.children);
       tempElements.forEach((node) => {
+        // TODO: See CityOfDetroit/detroitmi#1099
+        // eslint-disable-next-line prefer-const
         let nodeClasses = node.className.split(' ');
         nodeClasses.includes('no-wc')
           ? node.remove()
@@ -43,14 +49,22 @@ export default class Dropdown extends HTMLElement {
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
+    // TODO: See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line no-console
     console.log(newValue);
+    // TODO: See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line no-console
     console.log(this.dropdownMenu);
   }
 
   connectedCallback() {
     // badge attributes
+    // TODO: See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const, no-unused-vars
     let show = this.getAttribute('data-show');
     let split = this.getAttribute('data-split');
+    // TODO: See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     split == 'true' ? (split = 'btn-group') : (split = 'dropdown');
     this.dropdown.className = split;
     if (this.querySelector('cod-button[data-bs-toggle="dropdown"]')) {
@@ -68,9 +82,15 @@ export default class Dropdown extends HTMLElement {
   }
 
   _onClick(e) {
+    // TODO: See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line no-console
     console.log(this.parentElement.querySelector('cod-dropdown-menu'));
     if (e.target.getAttribute('data-bs-toggle') === 'dropdown') {
+      // TODO: See CityOfDetroit/detroitmi#1099
+      // eslint-disable-next-line no-console
       console.log('changing dropdown state');
+      // TODO: See CityOfDetroit/detroitmi#1099
+      // eslint-disable-next-line eqeqeq
       if (this.getAttribute('aria-expanded') == 'true') {
         this.setAttribute('aria-expanded', 'false');
         this.parentElement

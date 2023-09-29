@@ -7,69 +7,137 @@ export default class Button extends HTMLElement {
     // Always call super first in constructor
     super();
     // Create a shadow root
+    // TODO: See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line no-unused-vars
     const shadow = this.attachShadow({ mode: 'open' });
   }
 
   connectedCallback() {
     // Button attributes
+    // TODO: See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let close = this.getAttribute('data-close');
+    // TODO: See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let link = this.getAttribute('data-link');
+    // TODO: See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let btnID = this.getAttribute('data-id');
+    // TODO: See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let ariaLabel = this.getAttribute('data-aria-label');
+    // TODO: See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let primary = this.getAttribute('data-primary');
+    // TODO: See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let backgroundColor = this.getAttribute('data-background-color');
+    // TODO: See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let shape = this.getAttribute('data-shape');
+    // TODO: See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let icon = this.getAttribute('data-icon');
+    // TODO: See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let iconSize = this.getAttribute('data-icon-size');
+    // TODO: See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let iconOrder = this.getAttribute('data-icon-order');
+    // TODO: See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let hiddenLabel = this.getAttribute('data-hidden-label');
+    // TODO: See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let imgSrc = this.getAttribute('data-img');
+    // TODO: See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let imgAlt = this.getAttribute('data-img-alt');
+    // TODO: See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const, no-unused-vars, eqeqeq
     let img = imgAlt != '' ? 'img' : 'not-img';
+    // TODO: See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let size = this.getAttribute('data-size');
+    // TODO: See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let extraClasses = this.getAttribute('data-extra-classes');
+    // TODO: See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let label = this.getAttribute('data-label');
+    // TODO: See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let disableStatus = this.getAttribute('data-disable');
     // Building Button component
     const btn = document.createElement('button');
+    // TODO: See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let btnClasses = ['btn'];
     btn.type = 'button';
+    // TODO: See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     if (btnID != null && btnID != undefined) {
       btn.id = btnID;
     }
+    // TODO: See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     disableStatus == 'true' ? (btn.disabled = true) : (btn.disabled = false);
     btn.setAttribute('aria-label', `${ariaLabel || ''}`);
+    // TODO: See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     if (primary == 'true') {
       btnClasses.push(`btn-${backgroundColor}`);
+      // TODO: See CityOfDetroit/detroitmi#1099
+      // eslint-disable-next-line eqeqeq
     } else if (primary == 'false') {
       btnClasses.push(`btn-outline-${backgroundColor}`);
     }
+    // TODO: See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     shape == 'square'
       ? btnClasses.push('cod-button--square')
       : btnClasses.push('cod-button-fluid');
+    // TODO: See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     size != undefined && size != null ? btnClasses.push(`btn-${size}`) : 0;
+    // TODO: See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     extraClasses != undefined && extraClasses != null
       ? btnClasses.push(extraClasses)
       : 0;
+    // TODO: See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     imgAlt != ''
       ? btnClasses.push('cod-button--img')
       : btnClasses.push('cod-button--not-img');
+    // TODO: See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     close == 'true' ? btnClasses.push('btn-close') : 0;
     btn.className = btnClasses.join(' ');
 
+    // TODO: See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     if (icon != '') {
       // Loading icon
+      // TODO: See CityOfDetroit/detroitmi#1099
+      // eslint-disable-next-line prefer-const
       let iconContainer = document.createElement('span');
+      // TODO: See CityOfDetroit/detroitmi#1099
+      // eslint-disable-next-line prefer-const
       let activeIcon = document.createElement('cod-icon');
       activeIcon.setAttribute('data-icon', icon);
       activeIcon.setAttribute('data-size', iconSize);
       iconContainer.appendChild(activeIcon);
       btn.innerText = label;
+      // TODO: See CityOfDetroit/detroitmi#1099
+      // eslint-disable-next-line eqeqeq
       if (iconOrder == 'left') {
         btn.insertBefore(iconContainer, btn.firstChild);
       } else {
         btn.appendChild(iconContainer);
       }
+      // TODO: See CityOfDetroit/detroitmi#1099
+      // eslint-disable-next-line eqeqeq
     } else if (imgAlt != '') {
       // Loading image
       btn.innerText = label;
@@ -81,7 +149,11 @@ export default class Button extends HTMLElement {
       btn.innerText = label;
     }
     // Create hidden label
+    // TODO: See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line eqeqeq
     if (hiddenLabel != undefined && hiddenLabel != null) {
+      // TODO: See CityOfDetroit/detroitmi#1099
+      // eslint-disable-next-line prefer-const
       let hLabel = document.createElement('span');
       hLabel.className = 'visually-hidden';
       hLabel.innerText = hiddenLabel;
@@ -98,8 +170,12 @@ export default class Button extends HTMLElement {
       const btnStyles = document.createElement('style');
       btnStyles.textContent = styles;
       this.shadowRoot.appendChild(btnStyles);
+      // TODO: See CityOfDetroit/detroitmi#1099
+      // eslint-disable-next-line eqeqeq
       if (link == undefined || link == null) {
         this.shadowRoot.appendChild(btn);
+        // TODO: See CityOfDetroit/detroitmi#1099
+        // eslint-disable-next-line prefer-const
         let ghostBtn = this.appendChild(document.createElement('button'));
         this.onclick = () => ghostBtn.click();
       } else {

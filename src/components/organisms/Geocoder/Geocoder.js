@@ -23,13 +23,25 @@ export default class Geocoder extends HTMLElement {
     shadow.appendChild(this.styles);
     const geocoderWraper = document.createElement('article');
     geocoderWraper.id = 'geocoder';
+    // TODO: See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let form = document.createElement('form');
+    // TODO: See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let label = document.createElement('label');
     label.style.fontFamily = 'Montserrat, sans-serif';
     label.style.fontWeight = 'bold';
+    // TODO: See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let input = document.createElement('input');
+    // TODO: See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const, no-unused-vars
     let suggestions = document.createElement('ul');
+    // TODO: See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let list = document.createElement('datalist');
+    // TODO: See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let icon = document.createElement('i');
     form.addEventListener('submit', (ev) => {
       this.submit(ev, this);
@@ -40,11 +52,16 @@ export default class Geocoder extends HTMLElement {
     label.innerText = 'Property Address:';
     try {
       if (app[0].getAttribute('data-geocoder-label')) {
+        // TODO: See CityOfDetroit/detroitmi#1099
+        // eslint-disable-next-line eqeqeq
         if (app[0].getAttribute('data-geocoder-label') != '') {
           label.innerText = app[0].getAttribute('data-geocoder-label');
         }
       }
-    } catch (error) {}
+    } catch (error) {
+      // TODO: See CityOfDetroit/detroitmi#1099
+      // eslint-disable-next-line no-empty
+    }
     label.setAttribute('for', 'geocoder-input');
     input.type = 'text';
     input.setAttribute('list', 'addresses-list');
@@ -72,11 +89,15 @@ export default class Geocoder extends HTMLElement {
     tempAddr = tempAddr[0];
     tempAddr = tempAddr.split(' ');
     let newTempAddr = '';
+    // TODO: See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let size = tempAddr.length;
     tempAddr.forEach(function (item, index) {
       newTempAddr += item;
       index < size && index + 1 !== size ? (newTempAddr += '+') : 0;
     });
+    // TODO: See CityOfDetroit/detroitmi#1099
+    // eslint-disable-next-line prefer-const
     let url = `https://opengis.detroitmi.gov/opengis/rest/services/BaseUnits/BaseUnitGeocoder/GeocodeServer/findAddressCandidates?Address=&Address2=&Address3=&Neighborhood=&City=&Subregion=&Region=&Postal=&PostalExt=&CountryCode=&SingleLine=${newTempAddr}&outFields=*&maxLocations=&matchOutOfRange=true&langCode=&locationType=&sourceCountry=&category=&location=&distance=&searchExtent=&outSR=&magicKey=&f=json`;
 
     try {
@@ -86,6 +107,8 @@ export default class Geocoder extends HTMLElement {
           // console.log(data);
           if (type === 'suggestions') {
             data.candidates.forEach((item) => {
+              // TODO: See CityOfDetroit/detroitmi#1099
+              // eslint-disable-next-line prefer-const
               let sugg = document.createElement('option');
               if (item.attributes.parcel_id === '') {
                 sugg.value = item.address;
@@ -102,6 +125,8 @@ export default class Geocoder extends HTMLElement {
             });
           } else {
             if (data.candidates.length) {
+              // TODO: See CityOfDetroit/detroitmi#1099
+              // eslint-disable-next-line prefer-const
               let url = `https://services2.arcgis.com/qvkbeam7Wirps6zC/arcgis/rest/services/City_of_Detroit_Boundary/FeatureServer/0/query?where=&objectIds=&time=&geometry=${data.candidates[0].location.x}%2C+${data.candidates[0].location.y}&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&resultType=none&distance=0.0&units=esriSRUnit_Meter&returnGeodetic=false&outFields=4326&returnGeometry=true&returnCentroid=false&multipatchOption=xyFootprint&maxAllowableOffset=&geometryPrecision=&outSR=&datumTransformation=&applyVCSProjection=false&returnIdsOnly=false&returnUniqueIdsOnly=false&returnCountOnly=false&returnExtentOnly=false&returnDistinctValues=false&orderByFields=&groupByFieldsForStatistics=&outStatistics=&having=&resultOffset=&resultRecordCount=&returnZ=false&returnM=false&returnExceededLimitFeatures=true&quantizationParameters=&sqlFormat=none&f=geojson&token=`;
               try {
                 fetch(url)
@@ -119,6 +144,8 @@ export default class Geocoder extends HTMLElement {
                           }
                         }
                       });
+                      // TODO: See CityOfDetroit/detroitmi#1099
+                      // eslint-disable-next-line eqeqeq
                       parcel == null
                         ? (location = data.candidates[0].location)
                         : (location = null);
@@ -192,6 +219,8 @@ export default class Geocoder extends HTMLElement {
   inputChange(ev, geocoder) {
     switch (ev.key) {
       case 'Enter':
+        // TODO: See CityOfDetroit/detroitmi#1099
+        // eslint-disable-next-line eqeqeq
         ev.target.value != '' && ev.target.value != undefined
           ? geocoder.supplementGeocoder(ev.target.value, geocoder, 'submit')
           : 0;
@@ -210,6 +239,8 @@ export default class Geocoder extends HTMLElement {
         break;
 
       case undefined:
+        // TODO: See CityOfDetroit/detroitmi#1099
+        // eslint-disable-next-line eqeqeq
         ev.target.value != '' && ev.target.value != undefined
           ? geocoder.supplementGeocoder(ev.target.value, geocoder, 'submit')
           : 0;
@@ -236,7 +267,11 @@ export default class Geocoder extends HTMLElement {
     )
       .then((resp) => resp.json()) // Transform the data into json
       .then(function (data) {
+        // TODO: See CityOfDetroit/detroitmi#1099
+        // eslint-disable-next-line prefer-const
         let cleanAddress = address.split(' RECOMMENDED')[0];
+        // TODO: See CityOfDetroit/detroitmi#1099
+        // eslint-disable-next-line prefer-const
         let params = [
           {
             attributes: {
@@ -249,10 +284,14 @@ export default class Geocoder extends HTMLElement {
             },
           },
         ];
+        // TODO: See CityOfDetroit/detroitmi#1099
+        // eslint-disable-next-line eqeqeq
         if (location != null) {
           params[0].geometry.x = location.x;
           params[0].geometry.y = location.y;
         }
+        // TODO: See CityOfDetroit/detroitmi#1099
+        // eslint-disable-next-line prefer-const
         let request = new Request(
           `https://services2.arcgis.com/qvkbeam7Wirps6zC/ArcGIS/rest/services/addressvalidator/FeatureServer/0/addFeatures?token=${
             data.access_token
@@ -265,6 +304,8 @@ export default class Geocoder extends HTMLElement {
             cache: 'default',
           },
         );
+        // TODO: See CityOfDetroit/detroitmi#1099
+        // eslint-disable-next-line no-unused-vars
         fetch(request).then((res) => {
           // console.log(res);
         });
