@@ -2,13 +2,16 @@ export default class Icon extends HTMLElement {
   constructor() {
     // Always call super first in constructor
     super();
-    // Create a shadow root
-    // TODO: See CityOfDetroit/detroitmi#1099
-    // eslint-disable-next-line no-unused-vars
-    const shadow = this.attachShadow({ mode: 'open' });
+
+    // Create a shadow root.
+    this.attachShadow({ mode: 'open' });
   }
 
   connectedCallback() {
+    if (this.isIconConnected()) {
+      return;
+    }
+
     // Icon attributes
     // TODO: See CityOfDetroit/detroitmi#1099
     // eslint-disable-next-line prefer-const
@@ -37,6 +40,10 @@ export default class Icon extends HTMLElement {
     const iconContainer = document.createElement('span');
     iconContainer.innerHTML = this.getIcon(icon, size);
     this.shadowRoot.appendChild(iconContainer);
+  }
+
+  isIconConnected() {
+    return this.shadowRoot.querySelector('span') !== null;
   }
 
   getIcon(icon, size) {
