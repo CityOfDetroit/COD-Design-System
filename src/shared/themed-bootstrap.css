@@ -113,11 +113,11 @@
   --bs-border-style: solid;
   --bs-border-color: #dee2e6;
   --bs-border-color-translucent: rgba(0, 0, 0, 0.175);
-  --bs-border-radius: 0.375em;
-  --bs-border-radius-sm: 0.25em;
-  --bs-border-radius-lg: 0.5em;
-  --bs-border-radius-xl: 1em;
-  --bs-border-radius-xxl: 2em;
+  --bs-border-radius: 0;
+  --bs-border-radius-sm: 0;
+  --bs-border-radius-lg: 0;
+  --bs-border-radius-xl: 0;
+  --bs-border-radius-xxl: 0;
   --bs-border-radius-2xl: var(--bs-border-radius-xxl);
   --bs-border-radius-pill: 50em;
   --bs-box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.15);
@@ -422,7 +422,7 @@ kbd {
   font-size: 0.875em;
   color: var(--bs-body-bg);
   background-color: var(--bs-body-color);
-  border-radius: 0.25em;
+  border-radius: 0;
 }
 kbd kbd {
   padding: 0;
@@ -5484,7 +5484,7 @@ fieldset:disabled .btn {
   color: var(--bs-btn-close-color);
   background: transparent var(--bs-btn-close-bg) center/1em auto no-repeat;
   border: 0;
-  border-radius: 0.375em;
+  border-radius: 0;
   opacity: var(--bs-btn-close-opacity);
 }
 .btn-close:hover {
@@ -12554,11 +12554,11 @@ fieldset:disabled .btn {
   --bs-border-style: solid;
   --bs-border-color: #dee2e6;
   --bs-border-color-translucent: rgba(0, 0, 0, 0.175);
-  --bs-border-radius: 0.375em;
-  --bs-border-radius-sm: 0.25em;
-  --bs-border-radius-lg: 0.5em;
-  --bs-border-radius-xl: 1em;
-  --bs-border-radius-xxl: 2em;
+  --bs-border-radius: 0;
+  --bs-border-radius-sm: 0;
+  --bs-border-radius-lg: 0;
+  --bs-border-radius-xl: 0;
+  --bs-border-radius-xxl: 0;
   --bs-border-radius-2xl: var(--bs-border-radius-xxl);
   --bs-border-radius-pill: 50em;
   --bs-box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.15);
