@@ -20,6 +20,13 @@ $dark: #000 !default;
 $font-family-sans-serif: 'Montserrat', sans-serif;
 $font-family-monospace: 'Montserrat', sans-serif;
 
+// Override border radius to let all components have right angle corners.
+$border-radius: 0;
+$border-radius-sm: 0;
+$border-radius-lg: 0;
+$border-radius-xl: 0;
+$border-radius-xxl: 0;
+
 @import '../../node_modules/bootstrap/scss/functions';
 @import '../../node_modules/bootstrap/scss/variables';
 @import '../../node_modules/bootstrap/scss/variables-dark';
