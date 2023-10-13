@@ -6,6 +6,10 @@ export default {
     icon: {
       control: { type: 'select' },
       options: [
+        'chevron-right',
+        'chevron-left',
+        'chevron-up',
+        'chevron-down',
         'house',
         'house-fill',
         'exclamation-circle',
