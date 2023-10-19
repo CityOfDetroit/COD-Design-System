@@ -33,10 +33,8 @@ export default class TableHeader extends HTMLElement {
         this.getAttribute('data-vertical-align') == 'true'
           ? node.setAttribute('data-vertical-align', 'true')
           : 0;
-        // TODO: See CityOfDetroit/detroitmi#1099
-        // eslint-disable-next-line eqeqeq
-        this.getAttribute('data-legacy-responsive') == 'true'
-          ? node.setAttribute('data-legacy-responsive', 'true')
+        this.getAttribute('data-scrollable') === 'true'
+          ? node.setAttribute('data-scrollable', 'true')
           : 0;
         this.tableHeader.append(node);
       });

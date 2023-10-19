@@ -273,8 +273,8 @@ export const Custom = () => html`
   </cod-table>
 `;
 
-export const Responsive = () => html`
-  <cod-table data-id="table-responsive" data-legacy-responsive="true">
+export const Scrollable = () => html`
+  <cod-table data-id="table-scrollable" data-scrollable="true">
     <cod-table-header>
       <cod-table-row>
         <cod-table-cell-header scope="col">#</cod-table-cell-header>

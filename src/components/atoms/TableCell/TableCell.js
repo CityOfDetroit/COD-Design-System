@@ -51,9 +51,6 @@ export default class TableCell extends HTMLElement {
     let stripedCol = this.getAttribute('data-striped-col');
     // TODO: See CityOfDetroit/detroitmi#1099
     // eslint-disable-next-line prefer-const
-    let legacyResponsive = this.getAttribute('data-legacy-responsive');
-    // TODO: See CityOfDetroit/detroitmi#1099
-    // eslint-disable-next-line prefer-const
     let verticalAlign = this.getAttribute('data-vertical-align');
     // TODO: See CityOfDetroit/detroitmi#1099
     // eslint-disable-next-line prefer-const
@@ -66,10 +63,8 @@ export default class TableCell extends HTMLElement {
     verticalAlign != undefined && verticalAlign != null
       ? tableCellClasses.push(verticalAlign)
       : 0;
-    // TODO: See CityOfDetroit/detroitmi#1099
-    // eslint-disable-next-line eqeqeq
-    legacyResponsive == 'true'
-      ? tableCellClasses.push('table-legacy-responsive')
+    this.getAttribute('data-scrollable') === 'true'
+      ? tableCellClasses.push('table-scrollable')
       : 0;
     // TODO: See CityOfDetroit/detroitmi#1099
     // eslint-disable-next-line eqeqeq
