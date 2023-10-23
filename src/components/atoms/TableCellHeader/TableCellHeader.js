@@ -15,8 +15,7 @@ export default class TableCellHeader extends HTMLElement {
     // Create a shadow root
     const shadow = this.attachShadow({ mode: 'open' });
     shadow.appendChild(template.content.cloneNode(true));
-    this.tableCellHeader = document.createElement('div');
-    this.tableCellHeader.role = 'columnheader';
+    this.tableCellHeader = document.createElement('th');
     // TODO: See CityOfDetroit/detroitmi#1099
     // eslint-disable-next-line no-unused-vars
     shadow.addEventListener('slotchange', (ev) => {
@@ -61,7 +60,7 @@ export default class TableCellHeader extends HTMLElement {
     let extraClasses = this.getAttribute('data-extra-classes');
     // TODO: See CityOfDetroit/detroitmi#1099
     // eslint-disable-next-line prefer-const
-    let tableCellHeaderClasses = ['table-cell-header'];
+    let tableCellHeaderClasses = [];
     // TODO: See CityOfDetroit/detroitmi#1099
     // eslint-disable-next-line eqeqeq
     verticalAlign != undefined && verticalAlign != null

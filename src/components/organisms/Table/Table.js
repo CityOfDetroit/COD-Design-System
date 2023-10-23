@@ -16,8 +16,7 @@ export default class Table extends HTMLElement {
     const shadow = this.attachShadow({ mode: 'open' });
     shadow.appendChild(template.content.cloneNode(true));
     this.tableContainer = document.createElement('div');
-    this.table = document.createElement('div');
-    this.table.role = 'table';
+    this.table = document.createElement('table');
     this.tableContainer.appendChild(this.table);
 
     // TODO: See CityOfDetroit/detroitmi#1099

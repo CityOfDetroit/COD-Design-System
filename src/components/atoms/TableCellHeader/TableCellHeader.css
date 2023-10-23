@@ -1,4 +1,5 @@
-.table-cell-header {
+th {
+  display: block;
   padding: 0.5rem 0.5rem;
   background-color: var(--bs-table-bg);
   border-bottom: solid var(--bs-border-width) var(--bs-secondary);
@@ -7,10 +8,10 @@
   height: 100%;
 }
 
-.table-cell-header.table-striped-columns {
+th.table-striped-columns {
   --bs-table-accent-bg: var(--bs-table-striped-bg);
 }
 
-.table-cell-header.table-legacy-responsive {
+th.table-legacy-responsive {
   width: 5em;
 }

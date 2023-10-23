@@ -15,8 +15,7 @@ export default class TableBody extends HTMLElement {
     // Create a shadow root
     const shadow = this.attachShadow({ mode: 'open' });
     shadow.appendChild(template.content.cloneNode(true));
-    this.tableRow = document.createElement('div');
-    this.tableRow.role = 'row';
+    this.tableRow = document.createElement('tr');
     // TODO: See CityOfDetroit/detroitmi#1099
     // eslint-disable-next-line no-unused-vars
     shadow.addEventListener('slotchange', (ev) => {
@@ -72,7 +71,7 @@ export default class TableBody extends HTMLElement {
     let hover = this.getAttribute('data-hover');
     // TODO: See CityOfDetroit/detroitmi#1099
     // eslint-disable-next-line prefer-const
-    let tableRowClasses = ['table-row'];
+    let tableRowClasses = [];
     // TODO: See CityOfDetroit/detroitmi#1099
     // eslint-disable-next-line eqeqeq
     hover == 'true' ? tableRowClasses.push('table-hover') : 0;

@@ -15,8 +15,7 @@ export default class TableHeader extends HTMLElement {
     // Create a shadow root
     const shadow = this.attachShadow({ mode: 'open' });
     shadow.appendChild(template.content.cloneNode(true));
-    this.tableHeader = document.createElement('div');
-    this.tableHeader.role = 'rowgroup';
+    this.tableHeader = document.createElement('thead');
     // TODO: See CityOfDetroit/detroitmi#1099
     // eslint-disable-next-line no-unused-vars
     shadow.addEventListener('slotchange', (ev) => {

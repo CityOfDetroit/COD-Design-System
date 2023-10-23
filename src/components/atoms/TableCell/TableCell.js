@@ -15,8 +15,7 @@ export default class TableCell extends HTMLElement {
     // Create a shadow root
     const shadow = this.attachShadow({ mode: 'open' });
     shadow.appendChild(template.content.cloneNode(true));
-    this.tableCell = document.createElement('div');
-    this.tableCell.role = 'cell';
+    this.tableCell = document.createElement('td');
     // TODO: See CityOfDetroit/detroitmi#1099
     // eslint-disable-next-line no-unused-vars
     shadow.addEventListener('slotchange', (ev) => {
@@ -61,7 +60,7 @@ export default class TableCell extends HTMLElement {
     let extraClasses = this.getAttribute('data-extra-classes');
     // TODO: See CityOfDetroit/detroitmi#1099
     // eslint-disable-next-line prefer-const
-    let tableCellClasses = ['table-cell'];
+    let tableCellClasses = [];
     // TODO: See CityOfDetroit/detroitmi#1099
     // eslint-disable-next-line eqeqeq
     verticalAlign != undefined && verticalAlign != null
