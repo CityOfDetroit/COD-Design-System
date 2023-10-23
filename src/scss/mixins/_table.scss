@@ -1,0 +1,19 @@
+@mixin th-td-stacked-styles {
+  border-bottom-width: 0;
+  display: block;
+  width: 100%;
+}
+
+@mixin th-td-labeled-stacked-styles {
+  padding-bottom: 0.5em;
+
+  &:before {
+    // TODO: Darken text backgound to call attention to pseudo-header here.
+    content: attr(data-label);
+    display: block;
+    font-weight: bold;
+    background-color: var(--bs-success-bg-subtle);
+    margin: -0.45em -0.5em 0.45em;
+    padding: 0.5em 0.5em 0.2em;
+  }
+}

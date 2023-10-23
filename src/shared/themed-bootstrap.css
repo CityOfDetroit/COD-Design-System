@@ -12627,4 +12627,62 @@ fieldset:disabled .btn {
   --bs-form-invalid-border-color: #ea868f;
 }
 
+@media (max-width: 991.98px) {
+  thead.table-stacked {
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  }
+}
+@media (max-width: 991.98px) {
+  tr.table-stacked {
+    display: block;
+    border-bottom: 0.3em solid var(--bs-border-color);
+    border-top-width: 0;
+    width: 100%;
+  }
+  tr.table-stacked.first {
+    border-top: 0.3em solid var(--bs-border-color);
+  }
+}
+@media (max-width: 991.98px) {
+  th.table-stacked {
+    border-bottom-width: 0;
+    display: block;
+    width: 100%;
+  }
+  th[data-label].table-stacked {
+    padding-bottom: 0.5em;
+  }
+  th[data-label].table-stacked:before {
+    content: attr(data-label);
+    display: block;
+    font-weight: bold;
+    background-color: var(--bs-success-bg-subtle);
+    margin: -0.45em -0.5em 0.45em;
+    padding: 0.5em 0.5em 0.2em;
+  }
+}
+@media (max-width: 991.98px) {
+  td.table-stacked {
+    border-bottom-width: 0;
+    display: block;
+    width: 100%;
+  }
+  td[data-label].table-stacked {
+    padding-bottom: 0.5em;
+  }
+  td[data-label].table-stacked:before {
+    content: attr(data-label);
+    display: block;
+    font-weight: bold;
+    background-color: var(--bs-success-bg-subtle);
+    margin: -0.45em -0.5em 0.45em;
+    padding: 0.5em 0.5em 0.2em;
+  }
+}
+
 /*# sourceMappingURL=themed-bootstrap.css.map */

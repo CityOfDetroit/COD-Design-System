@@ -1,0 +1,13 @@
+@use '../../../scss/mixins/table';
+@import '../../../../node_modules/bootstrap/scss/mixins/breakpoints';
+@import '../../../../node_modules/bootstrap/scss/variables';
+
+@include media-breakpoint-down(lg) {
+  th.table-stacked {
+    @include table.th-td-stacked-styles;
+  }
+
+  th[data-label].table-stacked {
+    @include table.th-td-labeled-stacked-styles;
+  }
+}
