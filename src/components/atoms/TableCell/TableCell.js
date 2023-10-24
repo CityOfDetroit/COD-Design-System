@@ -1,6 +1,7 @@
 import styles from '!!raw-loader!./TableCell.css';
 import varStyles from '!!raw-loader!../../../shared/variables.css';
 import bootstrapStyles from '!!raw-loader!../../../shared/themed-bootstrap.css';
+import { stackedTableClass } from '../../../shared/js/utilities';
 
 const template = document.createElement('template');
 
@@ -56,27 +57,42 @@ export default class TableCell extends HTMLElement {
     // eslint-disable-next-line prefer-const
     let extraClasses = this.getAttribute('data-extra-classes');
     // TODO: See CityOfDetroit/detroitmi#1099
-    // eslint-disable-next-line prefer-const
-    let tableCellClasses = [];
-    // TODO: See CityOfDetroit/detroitmi#1099
     // eslint-disable-next-line eqeqeq
     verticalAlign != undefined && verticalAlign != null
-      ? tableCellClasses.push(verticalAlign)
+      ? this.tableCell.classList.add(verticalAlign)
       : 0;
     this.getAttribute('data-scrollable') === 'true'
-      ? tableCellClasses.push('table-scrollable')
+      ? this.tableCell.classList.add('table-scrollable')
       : 0;
     // TODO: See CityOfDetroit/detroitmi#1099
     // eslint-disable-next-line eqeqeq
-    stripedRow == 'true' ? tableCellClasses.push('table-striped') : 0;
+    stripedRow == 'true' ? this.tableCell.classList.add('table-striped') : 0;
     // TODO: See CityOfDetroit/detroitmi#1099
     // eslint-disable-next-line eqeqeq
-    stripedCol == 'true' ? tableCellClasses.push('table-striped-columns') : 0;
+    stripedCol == 'true'
+      ? this.tableCell.classList.add('table-striped-columns')
+      : 0;
     // TODO: See CityOfDetroit/detroitmi#1099
     // eslint-disable-next-line eqeqeq
     extraClasses != undefined && extraClasses != null
-      ? tableCellClasses.push(extraClasses)
+      ? this.tableCell.classList.add(extraClasses)
       : 0;
-    this.tableCell.className = tableCellClasses.join(' ');
+
+    const dataLabel = this.getAttribute('data-label');
+    if (dataLabel) {
+      this.tableCell.setAttribute('data-label', dataLabel);
+    }
+  }
+
+  setIsStacked(isStacked = true) {
+    if (isStacked) {
+      this.tableCell.classList.add(stackedTableClass);
+    } else {
+      this.tableCell.classList.remove(stackedTableClass);
+    }
+  }
+
+  isStacked() {
+    return this.tableCell.classList.contains(stackedTableClass);
   }
 }

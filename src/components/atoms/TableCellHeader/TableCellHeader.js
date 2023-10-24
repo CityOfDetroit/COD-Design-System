@@ -1,6 +1,7 @@
 import styles from '!!raw-loader!./TableCellHeader.css';
 import varStyles from '!!raw-loader!../../../shared/variables.css';
 import bootstrapStyles from '!!raw-loader!../../../shared/themed-bootstrap.css';
+import { stackedTableClass } from '../../../shared/js/utilities';
 
 const template = document.createElement('template');
 
@@ -56,29 +57,39 @@ export default class TableCellHeader extends HTMLElement {
     // eslint-disable-next-line prefer-const
     let extraClasses = this.getAttribute('data-extra-classes');
     // TODO: See CityOfDetroit/detroitmi#1099
-    // eslint-disable-next-line prefer-const
-    let tableCellHeaderClasses = [];
-    // TODO: See CityOfDetroit/detroitmi#1099
     // eslint-disable-next-line eqeqeq
     verticalAlign != undefined && verticalAlign != null
-      ? tableCellHeaderClasses.push(verticalAlign)
+      ? this.tableCellHeader.classList.add(verticalAlign)
       : 0;
     this.getAttribute('data-scrollable') === 'true'
-      ? tableCellHeaderClasses.push('table-scrollable')
+      ? this.tableCellHeader.classList.add('table-scrollable')
       : 0;
     // TODO: See CityOfDetroit/detroitmi#1099
     // eslint-disable-next-line eqeqeq
-    stripedRow == 'true' ? tableCellHeaderClasses.push('table-striped') : 0;
+    stripedRow == 'true'
+      ? this.tableCellHeader.classList.add('table-striped')
+      : 0;
     // TODO: See CityOfDetroit/detroitmi#1099
     // eslint-disable-next-line eqeqeq
     stripedCol == 'true'
-      ? tableCellHeaderClasses.push('table-striped-columns')
+      ? this.tableCellHeader.classList.add('table-striped-columns')
       : 0;
     // TODO: See CityOfDetroit/detroitmi#1099
     // eslint-disable-next-line eqeqeq
     extraClasses != undefined && extraClasses != null
-      ? tableCellHeaderClasses.push(extraClasses)
+      ? this.tableCellHeader.classList.add(extraClasses)
       : 0;
-    this.tableCellHeader.className = tableCellHeaderClasses.join(' ');
+  }
+
+  setIsStacked(isStacked = true) {
+    if (isStacked) {
+      this.tableCellHeader.classList.add(stackedTableClass);
+    } else {
+      this.tableCellHeader.classList.remove(stackedTableClass);
+    }
+  }
+
+  isStacked() {
+    return this.tableCellHeader.classList.contains(stackedTableClass);
   }
 }

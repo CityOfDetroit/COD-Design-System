@@ -1,6 +1,7 @@
 import styles from '!!raw-loader!./TableHeader.css';
 import varStyles from '!!raw-loader!../../../shared/variables.css';
 import bootstrapStyles from '!!raw-loader!../../../shared/themed-bootstrap.css';
+import { stackedTableClass } from '../../../shared/js/utilities';
 
 const template = document.createElement('template');
 
@@ -22,7 +23,10 @@ export default class TableHeader extends HTMLElement {
       // TODO: See CityOfDetroit/detroitmi#1099
       // eslint-disable-next-line prefer-const
       let tempElements = Array.from(this.children);
-      tempElements.forEach((node) => {
+      tempElements.forEach((node, index) => {
+        if (index === 0) {
+          node.setIsFirst();
+        }
         // TODO: See CityOfDetroit/detroitmi#1099
         // eslint-disable-next-line eqeqeq
         this.getAttribute('data-striped-col') == 'true'
@@ -36,6 +40,11 @@ export default class TableHeader extends HTMLElement {
         this.getAttribute('data-scrollable') === 'true'
           ? node.setAttribute('data-scrollable', 'true')
           : 0;
+
+        if (this.isStacked()) {
+          node.setIsStacked();
+        }
+
         this.tableHeader.append(node);
       });
     });
@@ -52,5 +61,17 @@ export default class TableHeader extends HTMLElement {
     shadow.appendChild(itemStyles);
 
     shadow.appendChild(this.tableHeader);
+  }
+
+  setIsStacked(isStacked = true) {
+    if (isStacked) {
+      this.tableHeader.classList.add(stackedTableClass);
+    } else {
+      this.tableHeader.classList.remove(stackedTableClass);
+    }
+  }
+
+  isStacked() {
+    return this.tableHeader.classList.contains(stackedTableClass);
   }
 }

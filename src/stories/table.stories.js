@@ -341,3 +341,54 @@ export const Scrollable = () => html`
     </cod-table-body>
   </cod-table>
 `;
+
+export const Stacked = () => html`
+  <cod-table data-id="table-stacked" data-stacked="true">
+    <cod-table-header>
+      <cod-table-row>
+        <cod-table-cell-header scope="col"
+          >Bus Route Number</cod-table-cell-header
+        >
+        <cod-table-cell-header scope="col"
+          >Bus Route Name</cod-table-cell-header
+        >
+        <cod-table-cell-header scope="col">Route Viewer</cod-table-cell-header>
+        <cod-table-cell-header scope="col"
+          >Downloadable Schedule</cod-table-cell-header
+        >
+      </cod-table-row>
+    </cod-table-header>
+    <cod-table-body>
+      <cod-table-row>
+        <cod-table-cell data-label="Bus Route Number">1</cod-table-cell>
+        <cod-table-cell data-label="Bus Route Name">Vernor</cod-table-cell>
+        <cod-table-cell data-label="Route Viewer">
+          <a href="https://example.com">View Route</a>
+        </cod-table-cell>
+        <cod-table-cell data-label="Downloadable Schedule">
+          <a href="https://example.com">Download Schedule</a>
+        </cod-table-cell>
+      </cod-table-row>
+      <cod-table-row>
+        <cod-table-cell data-label="Bus Route Number">2</cod-table-cell>
+        <cod-table-cell data-label="Bus Route Name">Michigan</cod-table-cell>
+        <cod-table-cell data-label="Route Viewer">
+          <a href="https://example.com">View Route</a>
+        </cod-table-cell>
+        <cod-table-cell data-label="Downloadable Schedule">
+          <a href="https://example.com">Download Schedule</a>
+        </cod-table-cell>
+      </cod-table-row>
+      <cod-table-row>
+        <cod-table-cell data-label="Bus Route Number">3</cod-table-cell>
+        <cod-table-cell data-label="Bus Route Name">Grand River</cod-table-cell>
+        <cod-table-cell data-label="Route Viewer">
+          <a href="https://example.com">View Route</a>
+        </cod-table-cell>
+        <cod-table-cell data-label="Downloadable Schedule">
+          <a href="https://example.com">Download Schedule</a>
+        </cod-table-cell>
+      </cod-table-row>
+    </cod-table-body>
+  </cod-table>
+`;
