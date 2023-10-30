@@ -7,7 +7,7 @@
     @include table.th-td-stacked-styles;
   }
 
-  th[data-label].table-stacked {
-    @include table.th-td-labeled-stacked-styles;
+  th[data-label].table-stacked.cell-header-block {
+    @include table.th-td-labeled-stacked-block-styles;
   }
 }

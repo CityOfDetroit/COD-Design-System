@@ -43,7 +43,10 @@ export default class Table extends HTMLElement {
               : 0;
 
             this.getAttribute('data-stacked') === 'true'
-              ? node.setIsStacked()
+              ? node.setIsStacked(
+                  true /* isStacked */,
+                  this.getAttribute('data-label-block') === 'true',
+                )
               : 0;
 
             this.table.appendChild(node);
@@ -74,7 +77,10 @@ export default class Table extends HTMLElement {
               ? node.setAttribute('data-scrollable', 'true')
               : 0;
             this.getAttribute('data-stacked') === 'true'
-              ? node.setIsStacked()
+              ? node.setIsStacked(
+                  true /* isStacked */,
+                  this.getAttribute('data-label-block') === 'true',
+                )
               : 0;
 
             this.table.appendChild(node);

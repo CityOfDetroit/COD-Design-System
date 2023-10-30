@@ -1,7 +1,12 @@
 import styles from '!!raw-loader!./TableRow.css';
 import varStyles from '!!raw-loader!../../../shared/variables.css';
 import bootstrapStyles from '!!raw-loader!../../../shared/themed-bootstrap.css';
-import { firstClass, oddClass, stackedTableClass } from '../../../shared/js/utilities';
+import {
+  cellHeaderBlockClass,
+  firstClass,
+  oddClass,
+  stackedTableClass,
+} from '../../../shared/js/utilities';
 
 const template = document.createElement('template');
 
@@ -44,7 +49,7 @@ export default class TableBody extends HTMLElement {
           : 0;
 
         if (this.isStacked()) {
-          node.setIsStacked();
+          node.setIsStacked(true /* isStacked */, this.isCellHeaderBlock());
         }
 
         this.tableRow.append(node);
@@ -83,16 +88,26 @@ export default class TableBody extends HTMLElement {
       : 0;
   }
 
-  setIsStacked(isStacked = true) {
+  setIsStacked(isStacked, isCellHeaderBlock) {
     if (isStacked) {
       this.tableRow.classList.add(stackedTableClass);
     } else {
       this.tableRow.classList.remove(stackedTableClass);
     }
+
+    if (isCellHeaderBlock) {
+      this.tableRow.classList.add(cellHeaderBlockClass);
+    } else {
+      this.tableRow.classList.remove(cellHeaderBlockClass);
+    }
   }
 
   isStacked() {
     return this.tableRow.classList.contains(stackedTableClass);
+  }
+
+  isCellHeaderBlock() {
+    return this.tableRow.classList.contains(cellHeaderBlockClass);
   }
 
   setIsFirst(isFirst = true) {

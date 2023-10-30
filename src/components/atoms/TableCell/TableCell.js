@@ -1,7 +1,10 @@
 import styles from '!!raw-loader!./TableCell.css';
 import varStyles from '!!raw-loader!../../../shared/variables.css';
 import bootstrapStyles from '!!raw-loader!../../../shared/themed-bootstrap.css';
-import { stackedTableClass } from '../../../shared/js/utilities';
+import {
+  cellHeaderBlockClass,
+  stackedTableClass,
+} from '../../../shared/js/utilities';
 
 const template = document.createElement('template');
 
@@ -84,11 +87,17 @@ export default class TableCell extends HTMLElement {
     }
   }
 
-  setIsStacked(isStacked = true) {
+  setIsStacked(isStacked, isCellHeaderBlock) {
     if (isStacked) {
       this.tableCell.classList.add(stackedTableClass);
     } else {
       this.tableCell.classList.remove(stackedTableClass);
+    }
+
+    if (isCellHeaderBlock) {
+      this.tableCell.classList.add(cellHeaderBlockClass);
+    } else {
+      this.tableCell.classList.remove(cellHeaderBlockClass);
     }
   }
 

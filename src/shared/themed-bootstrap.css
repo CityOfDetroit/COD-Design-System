@@ -12640,15 +12640,17 @@ fieldset:disabled .btn {
 @media (max-width: 991.98px) {
   tr.table-stacked {
     display: block;
-    border-bottom: 2px solid var(--bs-border-color);
     border-top-width: 0;
     width: 100%;
   }
-  tr.table-stacked.first {
+  tr.table-stacked:not(.cell-header-block) {
+    border-bottom: 2px solid var(--bs-border-color);
+  }
+  tr.table-stacked.first:not(.cell-header-block) {
     border-top: 2px solid var(--bs-border-color);
   }
-  tr.table-stacked.odd {
-    border-left: 1px solid var(--bs-border-color);
+  tr.table-stacked.odd.cell-header-block {
+    border-left: 2px solid var(--bs-border-color);
   }
 }
 @media (max-width: 991.98px) {
@@ -12657,14 +12659,14 @@ fieldset:disabled .btn {
     display: block;
     width: 100%;
   }
-  th[data-label].table-stacked {
+  th[data-label].table-stacked.cell-header-block {
     padding-bottom: 0.5em;
   }
-  th[data-label].table-stacked:before {
+  th[data-label].table-stacked.cell-header-block:before {
     content: attr(data-label);
     display: block;
     font-weight: bold;
-    background-color: var(--bs-success);
+    background-color: var(--bs-primary-bg-subtle);
     margin: -0.45em -0.5em 0.45em;
     padding: 0.5em 0.5em 0.2em;
   }
@@ -12675,14 +12677,14 @@ fieldset:disabled .btn {
     display: block;
     width: 100%;
   }
-  td[data-label].table-stacked {
+  td[data-label].table-stacked.cell-header-block {
     padding-bottom: 0.5em;
   }
-  td[data-label].table-stacked:before {
+  td[data-label].table-stacked.cell-header-block:before {
     content: attr(data-label);
     display: block;
     font-weight: bold;
-    background-color: var(--bs-success);
+    background-color: var(--bs-primary-bg-subtle);
     margin: -0.45em -0.5em 0.45em;
     padding: 0.5em 0.5em 0.2em;
   }

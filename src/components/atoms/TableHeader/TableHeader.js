@@ -1,7 +1,10 @@
 import styles from '!!raw-loader!./TableHeader.css';
 import varStyles from '!!raw-loader!../../../shared/variables.css';
 import bootstrapStyles from '!!raw-loader!../../../shared/themed-bootstrap.css';
-import { stackedTableClass } from '../../../shared/js/utilities';
+import {
+  cellHeaderBlockClass,
+  stackedTableClass,
+} from '../../../shared/js/utilities';
 
 const template = document.createElement('template');
 
@@ -42,7 +45,7 @@ export default class TableHeader extends HTMLElement {
           : 0;
 
         if (this.isStacked()) {
-          node.setIsStacked();
+          node.setIsStacked(true /* isStacked */, this.isCellHeaderBlock());
         }
 
         this.tableHeader.append(node);
@@ -63,15 +66,25 @@ export default class TableHeader extends HTMLElement {
     shadow.appendChild(this.tableHeader);
   }
 
-  setIsStacked(isStacked = true) {
+  setIsStacked(isStacked, isCellHeaderBlock) {
     if (isStacked) {
       this.tableHeader.classList.add(stackedTableClass);
     } else {
       this.tableHeader.classList.remove(stackedTableClass);
     }
+
+    if (isCellHeaderBlock) {
+      this.tableHeader.classList.add(cellHeaderBlockClass);
+    } else {
+      this.tableHeader.classList.remove(cellHeaderBlockClass);
+    }
   }
 
   isStacked() {
     return this.tableHeader.classList.contains(stackedTableClass);
+  }
+
+  isCellHeaderBlock() {
+    return this.tableHeader.classList.contains(cellHeaderBlockClass);
   }
 }
