@@ -399,10 +399,7 @@ export const StackedBlock = () => html`
 `;
 
 export const StackedInline = () => html`
-  <cod-table
-    data-id="table-stacked"
-    data-stacked="true"
-  >
+  <cod-table data-id="table-stacked" data-stacked="true">
     <cod-table-header>
       <cod-table-row>
         <cod-table-cell-header scope="col">Bus Route</cod-table-cell-header>

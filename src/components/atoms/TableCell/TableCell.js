@@ -23,11 +23,18 @@ export default class TableCell extends HTMLElement {
     // TODO: See CityOfDetroit/detroitmi#1099
     // eslint-disable-next-line no-unused-vars
     shadow.addEventListener('slotchange', (ev) => {
-      // TODO: See CityOfDetroit/detroitmi#1099
-      // eslint-disable-next-line prefer-const
-      let tempElements = Array.from(this.childNodes);
+      const tempElements = ev.target.assignedNodes();
       tempElements.forEach((node) => {
-        this.tableCell.appendChild(node);
+        // Only accept HTMLElements or non-empty text nodes.
+        if (
+          node.nodeType !== Node.TEXT_NODE ||
+          !/^\s*$/.test(node.textContent)
+        ) {
+          const contentDiv = document.createElement('div');
+          contentDiv.classList.add('content');
+          contentDiv.appendChild(node);
+          this.tableCell.appendChild(contentDiv);
+        }
       });
     });
 

@@ -12654,10 +12654,19 @@ fieldset:disabled .btn {
   }
 }
 @media (max-width: 991.98px) {
-  th.table-stacked {
+  th.table-stacked.cell-header-block {
     border-bottom-width: 0;
     display: block;
     width: 100%;
+  }
+  th.table-stacked:not(.cell-header-block) {
+    padding: 0;
+    border-bottom-width: 0;
+    display: flex;
+  }
+  th.table-stacked:not(.cell-header-block) div.content {
+    flex: 1 1 0px;
+    padding: 0.5em 0.5em;
   }
   th[data-label].table-stacked.cell-header-block {
     padding-bottom: 0.5em;
@@ -12666,16 +12675,34 @@ fieldset:disabled .btn {
     content: attr(data-label);
     display: block;
     font-weight: bold;
-    background-color: var(--bs-primary-bg-subtle);
+    background-color: #f2f2f2;
     margin: -0.45em -0.5em 0.45em;
     padding: 0.5em 0.5em 0.2em;
   }
+  th[data-label].table-stacked:not(.cell-header-block):before {
+    content: attr(data-label);
+    font-weight: bold;
+    background-color: #f2f2f2;
+    height: 100%;
+    width: 100%;
+    flex: 1 1 0px;
+    padding: 0.5em 0.5em;
+  }
 }
 @media (max-width: 991.98px) {
-  td.table-stacked {
+  td.table-stacked.cell-header-block {
     border-bottom-width: 0;
     display: block;
     width: 100%;
+  }
+  td.table-stacked:not(.cell-header-block) {
+    padding: 0;
+    border-bottom-width: 0;
+    display: flex;
+  }
+  td.table-stacked:not(.cell-header-block) div.content {
+    flex: 1 1 0px;
+    padding: 0.5em 0.5em;
   }
   td[data-label].table-stacked.cell-header-block {
     padding-bottom: 0.5em;
@@ -12684,9 +12711,18 @@ fieldset:disabled .btn {
     content: attr(data-label);
     display: block;
     font-weight: bold;
-    background-color: var(--bs-primary-bg-subtle);
+    background-color: #f2f2f2;
     margin: -0.45em -0.5em 0.45em;
     padding: 0.5em 0.5em 0.2em;
+  }
+  td[data-label].table-stacked:not(.cell-header-block):before {
+    content: attr(data-label);
+    font-weight: bold;
+    background-color: #f2f2f2;
+    height: 100%;
+    width: 100%;
+    flex: 1 1 0px;
+    padding: 0.5em 0.5em;
   }
 }
 
