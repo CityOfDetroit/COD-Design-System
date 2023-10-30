@@ -8,7 +8,6 @@
   padding-bottom: 0.5em;
 
   &:before {
-    // TODO: Darken text backgound to call attention to pseudo-header here.
     content: attr(data-label);
     display: block;
     font-weight: bold;

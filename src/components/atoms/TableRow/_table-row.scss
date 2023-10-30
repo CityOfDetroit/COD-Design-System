@@ -4,12 +4,16 @@
 @include media-breakpoint-down(lg) {
   tr.table-stacked {
     display: block;
-    border-bottom: 0.3em solid var(--bs-border-color);
+    border-bottom: 4px solid var(--bs-border-color);
     border-top-width: 0;
     width: 100%;
 
     &.first {
-      border-top: 0.3em solid var(--bs-border-color);
+      border-top: 4px solid var(--bs-border-color);
+    }
+
+    &.odd {
+      border-left: 2px solid var(--bs-border-color);
     }
   }
 }

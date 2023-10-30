@@ -26,6 +26,8 @@ export default class TableBody extends HTMLElement {
       tempElements.forEach((node, index) => {
         if (index === 0) {
           node.setIsFirst();
+        } else if (index % 2 !== 0) {
+          node.setIsOdd();
         }
         // TODO: See CityOfDetroit/detroitmi#1099
         // eslint-disable-next-line eqeqeq

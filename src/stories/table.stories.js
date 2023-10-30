@@ -389,6 +389,16 @@ export const Stacked = () => html`
           <a href="https://example.com">Download Schedule</a>
         </cod-table-cell>
       </cod-table-row>
+      <cod-table-row>
+        <cod-table-cell data-label="Bus Route Number">4</cod-table-cell>
+        <cod-table-cell data-label="Bus Route Name">Gunston</cod-table-cell>
+        <cod-table-cell data-label="Route Viewer">
+          <a href="https://example.com">View Route</a>
+        </cod-table-cell>
+        <cod-table-cell data-label="Downloadable Schedule">
+          <a href="https://example.com">Download Schedule</a>
+        </cod-table-cell>
+      </cod-table-row>
     </cod-table-body>
   </cod-table>
 `;

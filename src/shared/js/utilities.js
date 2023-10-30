@@ -5,3 +5,4 @@
 
 export const stackedTableClass = 'table-stacked';
 export const firstClass = 'first';
+export const oddClass = 'odd';

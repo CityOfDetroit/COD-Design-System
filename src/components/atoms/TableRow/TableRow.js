@@ -1,7 +1,7 @@
 import styles from '!!raw-loader!./TableRow.css';
 import varStyles from '!!raw-loader!../../../shared/variables.css';
 import bootstrapStyles from '!!raw-loader!../../../shared/themed-bootstrap.css';
-import { firstClass, stackedTableClass } from '../../../shared/js/utilities';
+import { firstClass, oddClass, stackedTableClass } from '../../../shared/js/utilities';
 
 const template = document.createElement('template');
 
@@ -100,6 +100,14 @@ export default class TableBody extends HTMLElement {
       this.tableRow.classList.add(firstClass);
     } else {
       this.tableRow.classList.remove(firstClass);
+    }
+  }
+
+  setIsOdd(isOdd = true) {
+    if (isOdd) {
+      this.tableRow.classList.add(oddClass);
+    } else {
+      this.tableRow.classList.remove(oddClass);
     }
   }
 }
