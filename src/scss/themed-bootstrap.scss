@@ -32,6 +32,7 @@ $light: #fff !default;
 $dark: #000 !default;
 $font-family-sans-serif: 'Montserrat', sans-serif;
 $font-family-monospace: 'Montserrat', sans-serif;
+$border-color: $dark;
 
 // Override border radius to let all components have right angle corners.
 $border-radius: 0;
