@@ -8,15 +8,15 @@
     width: 100%;
 
     &:not(.cell-header-block) {
-      border-bottom: 2px solid var(--bs-border-color);
+      border-bottom: 2px solid var(--bs-black);
     }
 
     &.first:not(.cell-header-block) {
-      border-top: 2px solid var(--bs-border-color);
+      border-top: 2px solid var(--bs-black);
     }
 
     &.odd.cell-header-block {
-      border-left: 2px solid var(--bs-border-color);
+      border-left: 2px solid var(--bs-black);
     }
   }
 }

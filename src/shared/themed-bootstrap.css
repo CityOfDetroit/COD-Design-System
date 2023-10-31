@@ -111,7 +111,7 @@
   --bs-highlight-bg: #fff3cd;
   --bs-border-width: 1px;
   --bs-border-style: solid;
-  --bs-border-color: #000;
+  --bs-border-color: #dee2e6;
   --bs-border-color-translucent: rgba(0, 0, 0, 0.175);
   --bs-border-radius: 0;
   --bs-border-radius-sm: 0;
@@ -12552,7 +12552,7 @@ fieldset:disabled .btn {
   --bs-highlight-bg: #fff3cd;
   --bs-border-width: 1px;
   --bs-border-style: solid;
-  --bs-border-color: #000;
+  --bs-border-color: #dee2e6;
   --bs-border-color-translucent: rgba(0, 0, 0, 0.175);
   --bs-border-radius: 0;
   --bs-border-radius-sm: 0;
@@ -12644,13 +12644,13 @@ fieldset:disabled .btn {
     width: 100%;
   }
   tr.table-stacked:not(.cell-header-block) {
-    border-bottom: 2px solid var(--bs-border-color);
+    border-bottom: 2px solid var(--bs-black);
   }
   tr.table-stacked.first:not(.cell-header-block) {
-    border-top: 2px solid var(--bs-border-color);
+    border-top: 2px solid var(--bs-black);
   }
   tr.table-stacked.odd.cell-header-block {
-    border-left: 2px solid var(--bs-border-color);
+    border-left: 2px solid var(--bs-black);
   }
 }
 @media (max-width: 991.98px) {
