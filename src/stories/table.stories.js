@@ -360,37 +360,37 @@ export const StackedBlock = () => html`
     <cod-table-body>
       <cod-table-row>
         <cod-table-cell data-label="Bus Route">1 Vernor</cod-table-cell>
-        <cod-table-cell data-label="Route Viewer">
+        <cod-table-cell>
           <a href="https://example.com">View Route</a>
         </cod-table-cell>
-        <cod-table-cell data-label="Downloadable Schedule">
+        <cod-table-cell>
           <a href="https://example.com">Download Schedule</a>
         </cod-table-cell>
       </cod-table-row>
       <cod-table-row>
         <cod-table-cell data-label="Bus Route">2 Michigan</cod-table-cell>
-        <cod-table-cell data-label="Route Viewer">
+        <cod-table-cell>
           <a href="https://example.com">View Route</a>
         </cod-table-cell>
-        <cod-table-cell data-label="Downloadable Schedule">
+        <cod-table-cell>
           <a href="https://example.com">Download Schedule</a>
         </cod-table-cell>
       </cod-table-row>
       <cod-table-row>
         <cod-table-cell data-label="Bus Route">3 Grand River</cod-table-cell>
-        <cod-table-cell data-label="Route Viewer">
+        <cod-table-cell>
           <a href="https://example.com">View Route</a>
         </cod-table-cell>
-        <cod-table-cell data-label="Downloadable Schedule">
+        <cod-table-cell>
           <a href="https://example.com">Download Schedule</a>
         </cod-table-cell>
       </cod-table-row>
       <cod-table-row>
         <cod-table-cell data-label="Bus Route">4 Gunston</cod-table-cell>
-        <cod-table-cell data-label="Route Viewer">
+        <cod-table-cell>
           <a href="https://example.com">View Route</a>
         </cod-table-cell>
-        <cod-table-cell data-label="Downloadable Schedule">
+        <cod-table-cell>
           <a href="https://example.com">Download Schedule</a>
         </cod-table-cell>
       </cod-table-row>
