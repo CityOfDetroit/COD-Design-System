@@ -3,7 +3,7 @@ module.exports = {
   addons: [
     '@storybook/addon-links',
     '@storybook/addon-essentials',
-    '@storybook/addon-a12y',
+    '@storybook/addon-a11y',
     '@storybook/addon-coverage',
     '@storybook/addon-interactions',
     '@storybook/addon-mdx-gfm',
