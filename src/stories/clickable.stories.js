@@ -1,7 +1,6 @@
 import { html } from 'lit-html';
 import '../components/atoms/Clickable/cod-clickable';
 import '../components/organisms/Card/cod-card';
-import '../components/atoms/CardIconContainer/cod-card-icon-container';
 import '../components/atoms/Icon/cod-icon';
 import '../components/atoms/CardBody/cod-card-body';
 
@@ -15,9 +14,9 @@ export const ActionButton = () => html`
       data-id="card-as-action-button"
       data-width="18em"
     >
-      <cod-card-icon-container>
+      <div class="w-100 top-icon">
         <cod-icon data-icon="house" data-size="x-large" />
-      </cod-card-icon-container>
+      </div>
       <cod-card-body>
         <h5 class="card-title">Do Something</h5>
         <p class="card-text">Like click on this card.</p>
@@ -32,9 +31,9 @@ export const ActionButtonSuccess = () => html`
       data-id="card-as-action-button"
       data-width="18em"
     >
-      <cod-card-icon-container>
+      <div class="w-100 top-icon">
         <cod-icon data-icon="house" data-size="x-large" />
-      </cod-card-icon-container>
+      </div>
       <cod-card-body>
         <h5 class="card-title">Do Something</h5>
         <p class="card-text">Like click on this card.</p>
