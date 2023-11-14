@@ -16,8 +16,7 @@ export default class Table extends HTMLElement {
     const shadow = this.attachShadow({ mode: 'open' });
     shadow.appendChild(template.content.cloneNode(true));
     this.tableContainer = document.createElement('div');
-    this.table = document.createElement('div');
-    this.table.role = 'table';
+    this.table = document.createElement('table');
     this.tableContainer.appendChild(this.table);
 
     // TODO: See CityOfDetroit/detroitmi#1099
@@ -39,11 +38,17 @@ export default class Table extends HTMLElement {
             this.getAttribute('data-vertical-align') == 'true'
               ? node.setAttribute('data-vertical-align', 'true')
               : 0;
-            // TODO: See CityOfDetroit/detroitmi#1099
-            // eslint-disable-next-line eqeqeq
-            this.getAttribute('data-legacy-responsive') == 'true'
-              ? node.setAttribute('data-legacy-responsive', 'true')
+            this.getAttribute('data-scrollable') === 'true'
+              ? node.setAttribute('data-scrollable', 'true')
               : 0;
+
+            this.getAttribute('data-stacked') === 'true'
+              ? node.setIsStacked(
+                  true /* isStacked */,
+                  this.getAttribute('data-label-block') === 'true',
+                )
+              : 0;
+
             this.table.appendChild(node);
             break;
 
@@ -68,11 +73,16 @@ export default class Table extends HTMLElement {
             this.getAttribute('data-vertical-align') == 'true'
               ? node.setAttribute('data-vertical-align', 'true')
               : 0;
-            // TODO: See CityOfDetroit/detroitmi#1099
-            // eslint-disable-next-line eqeqeq
-            this.getAttribute('data-legacy-responsive') == 'true'
-              ? node.setAttribute('data-legacy-responsive', 'true')
+            this.getAttribute('data-scrollable') === 'true'
+              ? node.setAttribute('data-scrollable', 'true')
               : 0;
+            this.getAttribute('data-stacked') === 'true'
+              ? node.setIsStacked(
+                  true /* isStacked */,
+                  this.getAttribute('data-label-block') === 'true',
+                )
+              : 0;
+
             this.table.appendChild(node);
             break;
 
@@ -102,9 +112,6 @@ export default class Table extends HTMLElement {
     // Table attributes
     // TODO: See CityOfDetroit/detroitmi#1099
     // eslint-disable-next-line prefer-const
-    let legacyResponsive = this.getAttribute('data-legacy-responsive');
-    // TODO: See CityOfDetroit/detroitmi#1099
-    // eslint-disable-next-line prefer-const
     let id = this.getAttribute('data-id');
     // TODO: See CityOfDetroit/detroitmi#1099
     // eslint-disable-next-line prefer-const
@@ -120,9 +127,10 @@ export default class Table extends HTMLElement {
     // TODO: See CityOfDetroit/detroitmi#1099
     // eslint-disable-next-line eqeqeq
     id != undefined && id != null ? (this.table.id = id) : 0;
-    // TODO: See CityOfDetroit/detroitmi#1099
-    // eslint-disable-next-line eqeqeq
-    legacyResponsive == 'true'
+    // Use bootstraps 'table-responsive' utility which styles the table as a
+    // horizontally scrollable table.
+    // https://getbootstrap.com/docs/5.3/content/tables/#responsive-tables
+    this.getAttribute('data-scrollable') === 'true'
       ? (this.tableContainer.className = 'table-responsive')
       : 0;
     this.table.className = tableClasses.join(' ');

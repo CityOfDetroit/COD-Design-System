@@ -1,6 +1,10 @@
 import styles from '!!raw-loader!./TableHeader.css';
 import varStyles from '!!raw-loader!../../../shared/variables.css';
 import bootstrapStyles from '!!raw-loader!../../../shared/themed-bootstrap.css';
+import {
+  cellHeaderBlockClass,
+  stackedTableClass,
+} from '../../../shared/js/utilities';
 
 const template = document.createElement('template');
 
@@ -15,15 +19,17 @@ export default class TableHeader extends HTMLElement {
     // Create a shadow root
     const shadow = this.attachShadow({ mode: 'open' });
     shadow.appendChild(template.content.cloneNode(true));
-    this.tableHeader = document.createElement('div');
-    this.tableHeader.role = 'rowgroup';
+    this.tableHeader = document.createElement('thead');
     // TODO: See CityOfDetroit/detroitmi#1099
     // eslint-disable-next-line no-unused-vars
     shadow.addEventListener('slotchange', (ev) => {
       // TODO: See CityOfDetroit/detroitmi#1099
       // eslint-disable-next-line prefer-const
       let tempElements = Array.from(this.children);
-      tempElements.forEach((node) => {
+      tempElements.forEach((node, index) => {
+        if (index === 0) {
+          node.setIsFirst();
+        }
         // TODO: See CityOfDetroit/detroitmi#1099
         // eslint-disable-next-line eqeqeq
         this.getAttribute('data-striped-col') == 'true'
@@ -34,11 +40,14 @@ export default class TableHeader extends HTMLElement {
         this.getAttribute('data-vertical-align') == 'true'
           ? node.setAttribute('data-vertical-align', 'true')
           : 0;
-        // TODO: See CityOfDetroit/detroitmi#1099
-        // eslint-disable-next-line eqeqeq
-        this.getAttribute('data-legacy-responsive') == 'true'
-          ? node.setAttribute('data-legacy-responsive', 'true')
+        this.getAttribute('data-scrollable') === 'true'
+          ? node.setAttribute('data-scrollable', 'true')
           : 0;
+
+        if (this.isStacked()) {
+          node.setIsStacked(true /* isStacked */, this.isCellHeaderBlock());
+        }
+
         this.tableHeader.append(node);
       });
     });
@@ -55,5 +64,27 @@ export default class TableHeader extends HTMLElement {
     shadow.appendChild(itemStyles);
 
     shadow.appendChild(this.tableHeader);
+  }
+
+  setIsStacked(isStacked, isCellHeaderBlock) {
+    if (isStacked) {
+      this.tableHeader.classList.add(stackedTableClass);
+    } else {
+      this.tableHeader.classList.remove(stackedTableClass);
+    }
+
+    if (isCellHeaderBlock) {
+      this.tableHeader.classList.add(cellHeaderBlockClass);
+    } else {
+      this.tableHeader.classList.remove(cellHeaderBlockClass);
+    }
+  }
+
+  isStacked() {
+    return this.tableHeader.classList.contains(stackedTableClass);
+  }
+
+  isCellHeaderBlock() {
+    return this.tableHeader.classList.contains(cellHeaderBlockClass);
   }
 }
