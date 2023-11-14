@@ -12,6 +12,6 @@ th.table-striped-columns {
   --bs-table-accent-bg: var(--bs-table-striped-bg);
 }
 
-th.table-legacy-responsive {
+th.table-scrollable {
   width: 5em;
 }

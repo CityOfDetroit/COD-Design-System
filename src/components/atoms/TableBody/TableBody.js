@@ -1,6 +1,10 @@
 import styles from '!!raw-loader!./TableBody.css';
 import varStyles from '!!raw-loader!../../../shared/variables.css';
 import bootstrapStyles from '!!raw-loader!../../../shared/themed-bootstrap.css';
+import {
+  cellHeaderBlockClass,
+  stackedTableClass,
+} from '../../../shared/js/utilities';
 
 const template = document.createElement('template');
 
@@ -23,6 +27,11 @@ export default class TableBody extends HTMLElement {
       // eslint-disable-next-line prefer-const
       let tempElements = Array.from(this.children);
       tempElements.forEach((node, index) => {
+        if (index === 0) {
+          node.setIsFirst();
+        } else if (index % 2 !== 0) {
+          node.setIsOdd();
+        }
         // TODO: See CityOfDetroit/detroitmi#1099
         // eslint-disable-next-line eqeqeq
         this.getAttribute('data-striped-row') == 'true' && index % 2 == 0
@@ -43,11 +52,14 @@ export default class TableBody extends HTMLElement {
         this.getAttribute('data-vertical-align') == 'true'
           ? node.setAttribute('data-vertical-align', 'true')
           : 0;
-        // TODO: See CityOfDetroit/detroitmi#1099
-        // eslint-disable-next-line eqeqeq
-        this.getAttribute('data-legacy-responsive') == 'true'
-          ? node.setAttribute('data-legacy-responsive', 'true')
+        this.getAttribute('data-scrollable') === 'true'
+          ? node.setAttribute('data-scrollable', 'true')
           : 0;
+
+        if (this.isStacked()) {
+          node.setIsStacked(true /* isStacked */, this.isCellHeaderBlock());
+        }
+
         this.tableBody.append(node);
       });
     });
@@ -64,5 +76,27 @@ export default class TableBody extends HTMLElement {
     shadow.appendChild(itemStyles);
 
     shadow.appendChild(this.tableBody);
+  }
+
+  setIsStacked(isStacked, isCellHeaderBlock) {
+    if (isStacked) {
+      this.tableBody.classList.add(stackedTableClass);
+    } else {
+      this.tableBody.classList.remove(stackedTableClass);
+    }
+
+    if (isCellHeaderBlock) {
+      this.tableBody.classList.add(cellHeaderBlockClass);
+    } else {
+      this.tableBody.classList.remove(cellHeaderBlockClass);
+    }
+  }
+
+  isStacked() {
+    return this.tableBody.classList.contains(stackedTableClass);
+  }
+
+  isCellHeaderBlock() {
+    return this.tableBody.classList.contains(cellHeaderBlockClass);
   }
 }

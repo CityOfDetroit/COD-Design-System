@@ -273,8 +273,8 @@ export const Custom = () => html`
   </cod-table>
 `;
 
-export const Responsive = () => html`
-  <cod-table data-id="table-responsive" data-legacy-responsive="true">
+export const Scrollable = () => html`
+  <cod-table data-id="table-scrollable" data-scrollable="true">
     <cod-table-header>
       <cod-table-row>
         <cod-table-cell-header scope="col">#</cod-table-cell-header>
@@ -337,6 +337,114 @@ export const Responsive = () => html`
         <cod-table-cell>Table cell 10</cod-table-cell>
         <cod-table-cell>Table cell 11</cod-table-cell>
         <cod-table-cell>Table cell 12</cod-table-cell>
+      </cod-table-row>
+    </cod-table-body>
+  </cod-table>
+`;
+
+export const StackedBlock = () => html`
+  <cod-table
+    data-id="table-stacked"
+    data-stacked="true"
+    data-label-block="true"
+  >
+    <cod-table-header>
+      <cod-table-row>
+        <cod-table-cell-header scope="col">Bus Route</cod-table-cell-header>
+        <cod-table-cell-header scope="col">Route Viewer</cod-table-cell-header>
+        <cod-table-cell-header scope="col"
+          >Downloadable Schedule</cod-table-cell-header
+        >
+      </cod-table-row>
+    </cod-table-header>
+    <cod-table-body>
+      <cod-table-row>
+        <cod-table-cell data-label="Bus Route">1 Vernor</cod-table-cell>
+        <cod-table-cell>
+          <a href="https://example.com">View Route</a>
+        </cod-table-cell>
+        <cod-table-cell>
+          <a href="https://example.com">Download Schedule</a>
+        </cod-table-cell>
+      </cod-table-row>
+      <cod-table-row>
+        <cod-table-cell data-label="Bus Route">2 Michigan</cod-table-cell>
+        <cod-table-cell>
+          <a href="https://example.com">View Route</a>
+        </cod-table-cell>
+        <cod-table-cell>
+          <a href="https://example.com">Download Schedule</a>
+        </cod-table-cell>
+      </cod-table-row>
+      <cod-table-row>
+        <cod-table-cell data-label="Bus Route">3 Grand River</cod-table-cell>
+        <cod-table-cell>
+          <a href="https://example.com">View Route</a>
+        </cod-table-cell>
+        <cod-table-cell>
+          <a href="https://example.com">Download Schedule</a>
+        </cod-table-cell>
+      </cod-table-row>
+      <cod-table-row>
+        <cod-table-cell data-label="Bus Route">4 Gunston</cod-table-cell>
+        <cod-table-cell>
+          <a href="https://example.com">View Route</a>
+        </cod-table-cell>
+        <cod-table-cell>
+          <a href="https://example.com">Download Schedule</a>
+        </cod-table-cell>
+      </cod-table-row>
+    </cod-table-body>
+  </cod-table>
+`;
+
+export const StackedInline = () => html`
+  <cod-table data-id="table-stacked" data-stacked="true">
+    <cod-table-header>
+      <cod-table-row>
+        <cod-table-cell-header scope="col">Bus Route</cod-table-cell-header>
+        <cod-table-cell-header scope="col">Route Viewer</cod-table-cell-header>
+        <cod-table-cell-header scope="col"
+          >Downloadable Schedule</cod-table-cell-header
+        >
+      </cod-table-row>
+    </cod-table-header>
+    <cod-table-body>
+      <cod-table-row>
+        <cod-table-cell data-label="Bus Route">1 Vernor</cod-table-cell>
+        <cod-table-cell data-label="Route Viewer">
+          <a href="https://example.com">View Route</a>
+        </cod-table-cell>
+        <cod-table-cell data-label="Downloadable Schedule">
+          <a href="https://example.com">Download Schedule</a>
+        </cod-table-cell>
+      </cod-table-row>
+      <cod-table-row>
+        <cod-table-cell data-label="Bus Route">2 Michigan</cod-table-cell>
+        <cod-table-cell data-label="Route Viewer">
+          <a href="https://example.com">View Route</a>
+        </cod-table-cell>
+        <cod-table-cell data-label="Downloadable Schedule">
+          <a href="https://example.com">Download Schedule</a>
+        </cod-table-cell>
+      </cod-table-row>
+      <cod-table-row>
+        <cod-table-cell data-label="Bus Route">3 Grand River</cod-table-cell>
+        <cod-table-cell data-label="Route Viewer">
+          <a href="https://example.com">View Route</a>
+        </cod-table-cell>
+        <cod-table-cell data-label="Downloadable Schedule">
+          <a href="https://example.com">Download Schedule</a>
+        </cod-table-cell>
+      </cod-table-row>
+      <cod-table-row>
+        <cod-table-cell data-label="Bus Route">4 Gunston</cod-table-cell>
+        <cod-table-cell data-label="Route Viewer">
+          <a href="https://example.com">View Route</a>
+        </cod-table-cell>
+        <cod-table-cell data-label="Downloadable Schedule">
+          <a href="https://example.com">Download Schedule</a>
+        </cod-table-cell>
       </cod-table-row>
     </cod-table-body>
   </cod-table>

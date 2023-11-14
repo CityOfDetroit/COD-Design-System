@@ -1,5 +1,18 @@
-// This SASS file customizes base bootstrap to meet the needs of the UXDS. The compiled output
-// should be stored in src/shared/themed-bootstrap.css.
+//  _____  _   _  _____ ___  ___ _____ ______
+// |_   _|| | | ||  ___||  \/  ||  ___||  _  \
+//   | |  | |_| || |__  | .  . || |__  | | | |
+//   | |  |  _  ||  __| | |\/| ||  __| | | | |
+//   | |  | | | || |___ | |  | || |___ | |/ /
+//   \_/  \_| |_/\____/ \_|  |_/\____/ |___/
+// ______  _____  _____  _____  _____  _____ ______   ___  ______
+// | ___ \|  _  ||  _  ||_   _|/  ___||_   _|| ___ \ / _ \ | ___ \
+// | |_/ /| | | || | | |  | |  \ `--.   | |  | |_/ // /_\ \| |_/ /
+// | ___ \| | | || | | |  | |   `--. \  | |  |    / |  _  ||  __/
+// | |_/ /\ \_/ /\ \_/ /  | |  /\__/ /  | |  | |\ \ | | | || |
+// \____/  \___/  \___/   \_/  \____/   \_/  \_| \_|\_| |_/\_|
+//
+// This section customizes base bootstrap to meet the needs of the UXDS.
+// The compiled output should be stored in src/shared/themed-bootstrap.css.
 
 // The next comment line will be included in the compiled output and is only intended for readers
 // of the compiled output. Please ignore in this file.
@@ -77,3 +90,22 @@ $utilities: map-merge(
 @import '../../node_modules/bootstrap/scss/bootstrap';
 // Override bootstrap _root.scss.
 @import './host';
+
+// _____  _   _  _____  _____  _____ ___  ___
+// /  __ \| | | |/  ___||_   _||  _  ||  \/  |
+// | /  \/| | | |\ `--.   | |  | | | || .  . |
+// | |    | | | | `--. \  | |  | | | || |\/| |
+// | \__/\| |_| |/\__/ /  | |  \ \_/ /| |  | |
+//  \____/ \___/ \____/   \_/   \___/ \_|  |_/
+//  _____  _____ __   __ _      _____  _____
+// /  ___||_   _|\ \ / /| |    |  ___|/  ___|
+// \ `--.   | |   \ V / | |    | |__  \ `--.
+//  `--. \  | |    \ /  | |    |  __|  `--. \
+// /\__/ /  | |    | |  | |____| |___ /\__/ /
+// \____/   \_/    \_/  \_____/\____/ \____/
+//
+// This section contains component specific SASS styles.
+@import '../components/atoms/TableHeader/table-header';
+@import '../components/atoms/TableRow/table-row';
+@import '../components/atoms/TableCellHeader/table-cell-header';
+@import '../components/atoms/TableCell/table-cell';
