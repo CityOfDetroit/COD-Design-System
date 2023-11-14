@@ -1,0 +1,27 @@
+@use '../../../scss/mixins/table';
+@import '../../../../node_modules/bootstrap/scss/mixins/breakpoints';
+@import '../../../../node_modules/bootstrap/scss/variables';
+
+@include media-breakpoint-down(lg) {
+  th.table-stacked.cell-header-block {
+    @include table.th-td-stacked-block-styles;
+  }
+
+  th.table-stacked:not(.cell-header-block) {
+    @include table.th-td-stacked-inline-styles;
+
+    & div.content {
+      @include table.cell-content-stacked-inline-styles;
+    }
+  }
+
+  th[data-label].table-stacked {
+    &.cell-header-block {
+      @include table.th-td-labeled-stacked-block-styles;
+    }
+
+    &:not(.cell-header-block) {
+      @include table.th-td-labeled-stacked-inline-styles;
+    }
+  }
+}

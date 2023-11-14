@@ -1,6 +1,12 @@
 import styles from '!!raw-loader!./TableRow.css';
 import varStyles from '!!raw-loader!../../../shared/variables.css';
 import bootstrapStyles from '!!raw-loader!../../../shared/themed-bootstrap.css';
+import {
+  cellHeaderBlockClass,
+  firstClass,
+  oddClass,
+  stackedTableClass,
+} from '../../../shared/js/utilities';
 
 const template = document.createElement('template');
 
@@ -15,8 +21,7 @@ export default class TableBody extends HTMLElement {
     // Create a shadow root
     const shadow = this.attachShadow({ mode: 'open' });
     shadow.appendChild(template.content.cloneNode(true));
-    this.tableRow = document.createElement('div');
-    this.tableRow.role = 'row';
+    this.tableRow = document.createElement('tr');
     // TODO: See CityOfDetroit/detroitmi#1099
     // eslint-disable-next-line no-unused-vars
     shadow.addEventListener('slotchange', (ev) => {
@@ -39,11 +44,14 @@ export default class TableBody extends HTMLElement {
         this.getAttribute('data-vertical-align') == 'true'
           ? node.setAttribute('data-vertical-align', 'true')
           : 0;
-        // TODO: See CityOfDetroit/detroitmi#1099
-        // eslint-disable-next-line eqeqeq
-        this.getAttribute('data-legacy-responsive') == 'true'
-          ? node.setAttribute('data-legacy-responsive', 'true')
+        this.getAttribute('data-scrollable') === 'true'
+          ? node.setAttribute('data-scrollable', 'true')
           : 0;
+
+        if (this.isStacked()) {
+          node.setIsStacked(true /* isStacked */, this.isCellHeaderBlock());
+        }
+
         this.tableRow.append(node);
       });
     });
@@ -71,16 +79,50 @@ export default class TableBody extends HTMLElement {
     // eslint-disable-next-line prefer-const
     let hover = this.getAttribute('data-hover');
     // TODO: See CityOfDetroit/detroitmi#1099
-    // eslint-disable-next-line prefer-const
-    let tableRowClasses = ['table-row'];
-    // TODO: See CityOfDetroit/detroitmi#1099
     // eslint-disable-next-line eqeqeq
-    hover == 'true' ? tableRowClasses.push('table-hover') : 0;
+    hover == 'true' ? this.tableRow.classList.add('table-hover') : 0;
     // TODO: See CityOfDetroit/detroitmi#1099
     // eslint-disable-next-line eqeqeq
     extraClasses != undefined && extraClasses != null
-      ? tableRowClasses.push(extraClasses)
+      ? this.tableRow.classList.add(extraClasses)
       : 0;
-    this.tableRow.className = tableRowClasses.join(' ');
+  }
+
+  setIsStacked(isStacked, isCellHeaderBlock) {
+    if (isStacked) {
+      this.tableRow.classList.add(stackedTableClass);
+    } else {
+      this.tableRow.classList.remove(stackedTableClass);
+    }
+
+    if (isCellHeaderBlock) {
+      this.tableRow.classList.add(cellHeaderBlockClass);
+    } else {
+      this.tableRow.classList.remove(cellHeaderBlockClass);
+    }
+  }
+
+  isStacked() {
+    return this.tableRow.classList.contains(stackedTableClass);
+  }
+
+  isCellHeaderBlock() {
+    return this.tableRow.classList.contains(cellHeaderBlockClass);
+  }
+
+  setIsFirst(isFirst = true) {
+    if (isFirst) {
+      this.tableRow.classList.add(firstClass);
+    } else {
+      this.tableRow.classList.remove(firstClass);
+    }
+  }
+
+  setIsOdd(isOdd = true) {
+    if (isOdd) {
+      this.tableRow.classList.add(oddClass);
+    } else {
+      this.tableRow.classList.remove(oddClass);
+    }
   }
 }
