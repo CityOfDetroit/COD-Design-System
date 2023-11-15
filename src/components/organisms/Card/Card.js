@@ -98,12 +98,21 @@ export default class Card extends HTMLElement {
     const id = this.getAttribute('data-id');
     const extraClasses = this.getAttribute('data-extra-classes');
     const cardClasses = ['card'];
-    extraClasses !== null ? cardClasses.push(extraClasses) : 0;
+    extraClasses !== null ? cardClasses.push(extraClasses.split(' ')) : 0;
     width !== null ? (this.card.style.width = width) : 0;
     id !== null ? (this.card.id = id) : 0;
-    this.card.className = cardClasses.join(' ');
+    // Include any existing classes from the element.
+    this.card.classList.add(...cardClasses);
     if (!this.shadowRoot.querySelector('div')) {
       this.shadowRoot.appendChild(this.card);
+    }
+  }
+
+  setIsClickable(isClickable = true, color = null) {
+    if (isClickable) {
+      this.card.classList.add('btn', color);
+    } else {
+      this.card.classList.remove('btn', color);
     }
   }
 }
