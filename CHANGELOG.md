@@ -1,3 +1,25 @@
+# v1.0.10 (Wed Nov 15 2023)
+
+#### 🐛 Bug Fix
+
+- Support action buttons in UXDS [#103](https://github.com/CityOfDetroit/COD-Design-System/pull/103) ([@maxatdetroit](https://github.com/maxatdetroit))
+- Fixing a11y plugin typo. [#117](https://github.com/CityOfDetroit/COD-Design-System/pull/117) ([@jedgar1mx](https://github.com/jedgar1mx))
+- Use table HTML elements for a11y [#111](https://github.com/CityOfDetroit/COD-Design-System/pull/111) ([@maxatdetroit](https://github.com/maxatdetroit) [@jedgar1mx](https://github.com/jedgar1mx))
+- Create responsive stacked table [#112](https://github.com/CityOfDetroit/COD-Design-System/pull/112) ([@maxatdetroit](https://github.com/maxatdetroit))
+- Fix lints in icon element [#108](https://github.com/CityOfDetroit/COD-Design-System/pull/108) ([@maxatdetroit](https://github.com/maxatdetroit))
+- Fix lints in button component [#113](https://github.com/CityOfDetroit/COD-Design-System/pull/113) ([@maxatdetroit](https://github.com/maxatdetroit))
+- Add chevron icons to `<cod-icon/>` [#107](https://github.com/CityOfDetroit/COD-Design-System/pull/107) ([@maxatdetroit](https://github.com/maxatdetroit))
+- Fix card component lints & bug [#101](https://github.com/CityOfDetroit/COD-Design-System/pull/101) ([@maxatdetroit](https://github.com/maxatdetroit))
+- Prevent duplicate icons rendered [#102](https://github.com/CityOfDetroit/COD-Design-System/pull/102) ([@maxatdetroit](https://github.com/maxatdetroit))
+- Remove rounded corners in design system [#106](https://github.com/CityOfDetroit/COD-Design-System/pull/106) ([@maxatdetroit](https://github.com/maxatdetroit))
+
+#### Authors: 2
+
+- J Edgar Montes ([@jedgar1mx](https://github.com/jedgar1mx))
+- Max Morgan ([@maxatdetroit](https://github.com/maxatdetroit))
+
+---
+
 # v1.0.9 (Fri Sep 29 2023)
 
 #### 🐛 Bug Fix
