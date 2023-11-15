@@ -62,4 +62,3 @@ import './components/organisms/Modal/cod-modal';
 import './components/organisms/Navbar/cod-navbar';
 import './components/organisms/Offcanvas/cod-offcanvas';
 import './components/organisms/Table/cod-table';
-
