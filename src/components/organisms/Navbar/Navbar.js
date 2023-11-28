@@ -25,28 +25,18 @@ export default class Navbar extends HTMLElement {
     this.navbarBrand = document.createElement('div');
     this.navbarCollapse = document.createElement('div');
 
-    // TODO: See CityOfDetroit/detroitmi#1099
-    // eslint-disable-next-line no-unused-vars
-    shadow.addEventListener('slotchange', (e) => {
-      // TODO: See CityOfDetroit/detroitmi#1099
-      // eslint-disable-next-line prefer-const
-      let tempElements = Array.from(this.children);
+    shadow.addEventListener('slotchange', () => {
+      const tempElements = Array.from(this.children);
       tempElements.forEach((node) => {
         switch (node.tagName) {
           case 'COD-NAVBAR-TOGGLE':
-            // TODO: See CityOfDetroit/detroitmi#1099
-            // eslint-disable-next-line eqeqeq
-            this.getAttribute('data-target-toggle') == 'offcanvas'
+            this.getAttribute('data-target-toggle') === 'offcanvas'
               ? node.setAttribute('data-target-toggle', 'offcanvas')
               : 0;
-            // TODO: See CityOfDetroit/detroitmi#1099
-            // eslint-disable-next-line eqeqeq
-            this.getAttribute('data-show') == 'true'
+            this.getAttribute('data-show') === 'true'
               ? node.setAttribute('data-show', true)
               : 0;
-            // TODO: See CityOfDetroit/detroitmi#1099
-            // eslint-disable-next-line eqeqeq
-            this.getAttribute('data-button-dark') == 'true'
+            this.getAttribute('data-button-dark') === 'true'
               ? node.setAttribute('data-button-dark', true)
               : 0;
             this.navbarToggle.appendChild(node);
@@ -66,13 +56,11 @@ export default class Navbar extends HTMLElement {
           case 'COD-OFFCANVAS':
             this.navbarContainer.appendChild(node);
             break;
-
-          default:
-            // TODO: See CityOfDetroit/detroitmi#1099
-            // eslint-disable-next-line no-case-declarations, prefer-const
-            let nodeClasses = node.className.split(' ');
+          default: {
+            const nodeClasses = node.className.split(' ');
             nodeClasses.includes('no-wc') ? node.remove() : 0;
             break;
+          }
         }
       });
     });
@@ -96,18 +84,10 @@ export default class Navbar extends HTMLElement {
       .setAttribute('data-show', newValue);
     this.navbarToggle.setAttribute('aria-expanded', newValue);
     if (this.navbarCollapse.querySelector('cod-navbar-collapse')) {
-      // TODO: See CityOfDetroit/detroitmi#1099
-      // eslint-disable-next-line prefer-const
-      let tempClasses = this.navbarCollapse.className.split(' ');
-      // TODO: See CityOfDetroit/detroitmi#1099
-      // eslint-disable-next-line prefer-const
-      let popValue = tempClasses.pop();
-      // TODO: See CityOfDetroit/detroitmi#1099
-      // eslint-disable-next-line eqeqeq
-      popValue != 'show' ? tempClasses.push(popValue) : 0;
-      // TODO: See CityOfDetroit/detroitmi#1099
-      // eslint-disable-next-line eqeqeq
-      if (newValue == 'true') {
+      const tempClasses = this.navbarCollapse.className.split(' ');
+      const popValue = tempClasses.pop();
+      popValue !== 'show' ? tempClasses.push(popValue) : 0;
+      if (newValue === 'true') {
         tempClasses.push('show');
       }
       this.navbarCollapse.className = tempClasses.join(' ');
@@ -116,82 +96,34 @@ export default class Navbar extends HTMLElement {
 
   connectedCallback() {
     // Navbar attributes
-    // TODO: See CityOfDetroit/detroitmi#1099
-    // eslint-disable-next-line prefer-const
-    let expand = this.getAttribute('data-expand');
-    // TODO: See CityOfDetroit/detroitmi#1099
-    // eslint-disable-next-line prefer-const
-    let id = this.getAttribute('data-id');
-    // TODO: See CityOfDetroit/detroitmi#1099
-    // eslint-disable-next-line prefer-const
-    let show = this.getAttribute('data-show');
-    // TODO: See CityOfDetroit/detroitmi#1099
-    // eslint-disable-next-line prefer-const
-    let placement = this.getAttribute('data-position');
-    // TODO: See CityOfDetroit/detroitmi#1099
-    // eslint-disable-next-line prefer-const
-    let extraClasses = this.getAttribute('data-extra-classes');
-    // TODO: See CityOfDetroit/detroitmi#1099
-    // eslint-disable-next-line prefer-const
-    let containerClasses = this.getAttribute('data-container-classes');
-    // TODO: See CityOfDetroit/detroitmi#1099
-    // eslint-disable-next-line prefer-const
-    let collapseClasses = this.getAttribute('data-collapse-classes');
-    // TODO: See CityOfDetroit/detroitmi#1099
-    // eslint-disable-next-line prefer-const
-    let navbarClasses = ['navbar'];
-    // TODO: See CityOfDetroit/detroitmi#1099
-    // eslint-disable-next-line prefer-const
-    let navbarContainerClasses = [''];
-    // TODO: See CityOfDetroit/detroitmi#1099
-    // eslint-disable-next-line prefer-const
-    let navbarCollapseClasses = ['collapse navbar-collapse'];
-    // TODO: See CityOfDetroit/detroitmi#1099
-    // eslint-disable-next-line prefer-const
-    let navbarBrandClasses = ['navbar-brand'];
-    // TODO: See CityOfDetroit/detroitmi#1099
-    // eslint-disable-next-line prefer-const
-    let navbarToogleClasses = ['navbar-toggler'];
-    // TODO: See CityOfDetroit/detroitmi#1099
-    // eslint-disable-next-line eqeqeq
-    containerClasses != undefined && containerClasses != null
-      ? navbarContainerClasses.push(containerClasses)
-      : 0;
-    // TODO: See CityOfDetroit/detroitmi#1099
-    // eslint-disable-next-line eqeqeq
-    extraClasses != undefined && extraClasses != null
-      ? navbarClasses.push(extraClasses)
-      : 0;
-    // TODO: See CityOfDetroit/detroitmi#1099
-    // eslint-disable-next-line eqeqeq
-    collapseClasses != undefined && collapseClasses != null
-      ? navbarCollapseClasses.push(collapseClasses)
-      : 0;
-    // TODO: See CityOfDetroit/detroitmi#1099
-    // eslint-disable-next-line eqeqeq
-    placement != undefined && placement != null
-      ? navbarClasses.push(placement)
-      : 0;
-    // TODO: See CityOfDetroit/detroitmi#1099
-    // eslint-disable-next-line eqeqeq
-    if (expand != undefined && expand != null) {
-      // TODO: See CityOfDetroit/detroitmi#1099
-      // eslint-disable-next-line eqeqeq
-      expand == 'always'
+    const expand = this.getAttribute('data-expand');
+    const id = this.getAttribute('data-id');
+    const show = this.getAttribute('data-show');
+    const placement = this.getAttribute('data-position');
+    const extraClasses = this.getAttribute('data-extra-classes');
+    const containerClasses = this.getAttribute('data-container-classes');
+    const collapseClasses = this.getAttribute('data-collapse-classes');
+    const navbarClasses = ['navbar'];
+    const navbarContainerClasses = [''];
+    const navbarCollapseClasses = ['collapse navbar-collapse'];
+    const navbarBrandClasses = ['navbar-brand'];
+    const navbarToogleClasses = ['navbar-toggler'];
+    containerClasses ? navbarContainerClasses.push(containerClasses) : 0;
+    extraClasses ? navbarClasses.push(extraClasses) : 0;
+    collapseClasses ? navbarCollapseClasses.push(collapseClasses) : 0;
+    placement ? navbarClasses.push(placement) : 0;
+    if (expand) {
+      expand === 'always'
         ? navbarClasses.push('navbar-expand')
         : navbarClasses.push(`navbar-expand-${expand}`);
     }
-    // TODO: See CityOfDetroit/detroitmi#1099
-    // eslint-disable-next-line eqeqeq
-    if (show == 'true') {
+    if (show === 'true') {
       this.navbarCollapseClasses.push('show');
       this.navbarToggle.setAttribute('aria-expanded', `true`);
     } else {
       this.navbarToggle.setAttribute('aria-expanded', `false`);
     }
-    // TODO: See CityOfDetroit/detroitmi#1099
-    // eslint-disable-next-line eqeqeq
-    if (id != undefined && id != null) {
+    if (id) {
       this.navbar.id = id;
       this.navbarCollapse.id = `${id}-collapse`;
       this.navbarToggle.setAttribute('data-bs-target', `#${id}-collapse`);
