@@ -23,13 +23,11 @@ export default class NavbarToggle extends HTMLElement {
 
   connectedCallback() {
     // Navbar Brand attributes
-    const darkBtn = this.getAttribute('data-button-dark');
     const mode = this.getAttribute('data-mode');
     const extraClasses = this.getAttribute('data-extra-classes');
     const toggleBtn = document.createElement('button');
     const navbarToggleClasses = [''];
     if (mode === 'default') {
-      darkBtn === 'true' ? toggleBtn.setAttribute('data-bs-theme', 'dark') : 0;
       const toggleIcon = document.createElement('span');
       navbarToggleClasses.push('navbar-toggler-icon');
       toggleBtn.appendChild(toggleIcon);

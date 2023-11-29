@@ -36,9 +36,6 @@ export default class Navbar extends HTMLElement {
             this.getAttribute('data-show') === 'true'
               ? node.setAttribute('data-show', true)
               : 0;
-            this.getAttribute('data-button-dark') === 'true'
-              ? node.setAttribute('data-button-dark', true)
-              : 0;
             this.navbarToggle.appendChild(node);
             this.navbarContainer.appendChild(this.navbarToggle);
             break;
