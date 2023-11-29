@@ -43,6 +43,10 @@ export default class Offcanvas extends HTMLElement {
             : 0;
           node.setAttribute('data-parent-id', this.getAttribute('data-id'));
         }
+        const expand = this.getAttribute('data-expand');
+        if (expand) {
+          node.setAttribute('data-expand', expand);
+        }
         // TODO: See CityOfDetroit/detroitmi#1099
         // eslint-disable-next-line prefer-const
         let nodeClasses = node.className.split(' ');
@@ -160,6 +164,12 @@ export default class Offcanvas extends HTMLElement {
       offcanvasClasses.push(`offcanvas-${placement}`);
     } else {
       offcanvasClasses.push('offcanvas-start');
+    }
+    const expand = this.getAttribute('data-expand');
+    if (expand) {
+      expand === 'always'
+        ? offcanvasClasses.push('navbar-expand')
+        : offcanvasClasses.push(`navbar-expand-${expand}`);
     }
     // TODO: See CityOfDetroit/detroitmi#1099
     // eslint-disable-next-line eqeqeq

@@ -22,6 +22,10 @@ export default class OffcanvasBody extends HTMLElement {
         if (node.tagName === 'COD-NAV') {
           node.setAttribute('data-offcanvas-nav', true);
         }
+        const expand = this.getAttribute('data-expand');
+        if (expand) {
+          node.setAttribute('data-expand', expand);
+        }
         this.body.append(node);
       });
     });
@@ -43,6 +47,12 @@ export default class OffcanvasBody extends HTMLElement {
     const extraClasses = this.getAttribute('data-extra-classes');
     const bodyClasses = ['offcanvas-body'];
     extraClasses ? bodyClasses.push(extraClasses) : 0;
+    const expand = this.getAttribute('data-expand');
+    if (expand) {
+      expand === 'always'
+        ? bodyClasses.push('navbar-expand')
+        : bodyClasses.push(`navbar-expand-${expand}`);
+    }
     this.body.className = bodyClasses.join(' ');
     if (!this.shadowRoot.querySelector('div')) {
       this.shadowRoot.appendChild(this.body);

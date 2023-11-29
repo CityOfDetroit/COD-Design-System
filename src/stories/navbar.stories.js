@@ -490,6 +490,65 @@ export const Offcanvas = () => html`
   </cod-navbar>
 `;
 
+export const OffcanvasResponsive = () => html`
+  <cod-navbar
+    data-id="navbarSupportedContent"
+    data-container-classes="container-fluid"
+    data-target-toggle="offcanvas"
+    data-extra-classes="bg-dark"
+    data-expand="md"
+    data-navbar-dark="true"
+  >
+    <cod-navbar-brand
+      data-url="#"
+      data-text="Navbar"
+      data-text-classes="text-light"
+    >
+    </cod-navbar-brand>
+    <cod-navbar-toggle data-mode="default"> </cod-navbar-toggle>
+    <cod-offcanvas
+      data-id="offcanvasExample"
+      data-extra-classes="bg-dark"
+      data-placement="end"
+    >
+      <cod-offcanvas-header
+        data-extra-classes="bg-dark text-light"
+        data-button-dark="true"
+      >
+        <h5>Offcanvas</h5>
+      </cod-offcanvas-header>
+      <cod-offcanvas-body data-extra-classes="bg-dark">
+        <cod-nav data-extra-classes="text-dark">
+          <a class="nav-link active text-light" aria-current="page" href="#"
+            >Home</a
+          >
+          <a class="nav-link text-light" href="#">Link</a>
+          <cod-dropdown data-split="false">
+            <cod-button
+              data-label="Dropdown"
+              data-primary="true"
+              data-img-alt=""
+              data-icon=""
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+              data-extra-classes="dropdown-toggle text-light"
+            ></cod-button>
+            <cod-dropdown-menu>
+              <li><a class="dropdown-item" href="#">Link</a></li>
+              <li>
+                <a class="dropdown-item" href="#">Another action</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="#">Something else here</a>
+              </li>
+            </cod-dropdown-menu>
+          </cod-dropdown>
+        </cod-nav>
+      </cod-offcanvas-body>
+    </cod-offcanvas>
+  </cod-navbar>
+`;
+
 export const OffcanvasColor = () => html`
   <cod-navbar
     data-id="navbarSupportedContent"

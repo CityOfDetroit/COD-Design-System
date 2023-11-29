@@ -55,6 +55,12 @@ export default class OffcanvasHeader extends HTMLElement {
     btnDark === 'true'
       ? this.closeBtn.setAttribute('data-extra-classes', 'btn-close-white')
       : 0;
+    const expand = this.getAttribute('data-expand');
+    if (expand) {
+      expand === 'always'
+        ? offcanvasHeaderClasses.push('navbar-expand')
+        : offcanvasHeaderClasses.push(`navbar-expand-${expand}`);
+    }
     this.offcanvasHeader.className = offcanvasHeaderClasses.join(' ');
     this.closeBtn.addEventListener('click', this._onClick);
     if (!this.shadowRoot.querySelector('div')) {
