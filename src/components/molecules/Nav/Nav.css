@@ -1,3 +1,7 @@
 .nav-item {
   font-family: var(--font-family);
 }
+
+.offcanvas-nav {
+  flex-direction: column;
+}

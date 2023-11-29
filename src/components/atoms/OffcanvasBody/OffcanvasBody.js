@@ -19,6 +19,9 @@ export default class OffcanvasBody extends HTMLElement {
     this.shadowRoot.addEventListener('slotchange', () => {
       const tempElements = Array.from(this.children);
       tempElements.forEach((node) => {
+        if (node.tagName === 'COD-NAV') {
+          node.setAttribute('data-offcanvas-nav', true);
+        }
         this.body.append(node);
       });
     });
