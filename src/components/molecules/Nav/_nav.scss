@@ -1,0 +1,8 @@
+@import '../../../../node_modules/bootstrap/scss/mixins/breakpoints';
+
+// TODO: Use SASS to support all breakpoint sizes for exanded nav.
+@include media-breakpoint-up(md) {
+  .navbar-expand-md.nav {
+    flex-direction: row;
+  }
+}

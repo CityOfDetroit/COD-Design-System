@@ -9,6 +9,8 @@ template.innerHTML = `
 `;
 
 export default class OffcanvasBody extends HTMLElement {
+  static observedAttributes = ['data-expand'];
+
   constructor() {
     // Always call super first in constructor
     super();
@@ -40,6 +42,18 @@ export default class OffcanvasBody extends HTMLElement {
     shadow.appendChild(bootStyles);
     shadow.appendChild(variableStyles);
     shadow.appendChild(itemStyles);
+  }
+
+  attributeChangedCallback(name, oldValue, newValue) {
+    switch (name) {
+      case 'data-expand': {
+        if (newValue) {
+          this.shadowRoot
+            .querySelector('cod-nav')
+            .setAttribute('data-expand', newValue);
+        }
+      }
+    }
   }
 
   connectedCallback() {
