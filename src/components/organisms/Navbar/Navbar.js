@@ -112,6 +112,10 @@ export default class Navbar extends HTMLElement {
     extraClasses ? navbarClasses.push(extraClasses) : 0;
     collapseClasses ? navbarCollapseClasses.push(collapseClasses) : 0;
     placement ? navbarClasses.push(placement) : 0;
+    const isDark = this.getAttribute('data-navbar-dark') === 'true';
+    if (isDark) {
+      navbarClasses.push(['navbar-dark']);
+    }
     if (expand) {
       expand === 'always'
         ? navbarClasses.push('navbar-expand')

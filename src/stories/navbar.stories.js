@@ -287,6 +287,7 @@ export const Color = () => html`
     data-container-classes="container-fluid"
     data-expand="md"
     data-extra-classes="bg-dark"
+    data-navbar-dark="true"
   >
     <cod-navbar-brand
       data-url="#"
