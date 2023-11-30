@@ -505,7 +505,6 @@ export const OffcanvasResponsive = () => html`
       data-text-classes="text-light"
     >
     </cod-navbar-brand>
-    <cod-navbar-toggle data-mode="default"> </cod-navbar-toggle>
     <cod-offcanvas
       data-id="offcanvasExample"
       data-extra-classes="bg-dark"
@@ -546,6 +545,7 @@ export const OffcanvasResponsive = () => html`
         </cod-nav>
       </cod-offcanvas-body>
     </cod-offcanvas>
+    <cod-navbar-toggle data-mode="default"> </cod-navbar-toggle>
   </cod-navbar>
 `;
 
