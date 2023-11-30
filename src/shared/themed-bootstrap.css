@@ -12730,5 +12730,27 @@ fieldset:disabled .btn {
     flex-direction: row;
   }
 }
+@media (min-width: 768px) {
+  .navbar-expand-md.offcanvas-body {
+    display: flex;
+    flex-grow: 0;
+    padding: 0;
+    overflow-y: visible;
+  }
+}
+@media (min-width: 768px) {
+  .navbar-expand-md.offcanvas {
+    position: static;
+    z-index: auto;
+    flex-grow: 1;
+    width: auto !important;
+    height: auto !important;
+    visibility: visible !important;
+    background-color: transparent !important;
+    border: 0 !important;
+    transform: none !important;
+    transition: none;
+  }
+}
 
 /*# sourceMappingURL=themed-bootstrap.css.map */
