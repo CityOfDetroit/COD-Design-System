@@ -110,5 +110,6 @@ $utilities: map-merge(
 @import '../components/atoms/TableCellHeader/table-cell-header';
 @import '../components/atoms/TableCell/table-cell';
 @import '../components/molecules/Nav/nav';
-@import '../components/atoms/OffcanvasBody/offcanvasbody';
 @import '../components/organisms/Offcanvas/offcanvas';
+@import '../components/atoms/OffcanvasHeader/offcanvasheader';
+@import '../components/atoms/OffcanvasBody/offcanvasbody';

@@ -12731,14 +12731,6 @@ fieldset:disabled .btn {
   }
 }
 @media (min-width: 768px) {
-  .navbar-expand-md.offcanvas-body {
-    display: flex;
-    flex-grow: 0;
-    padding: 0;
-    overflow-y: visible;
-  }
-}
-@media (min-width: 768px) {
   .navbar-expand-md.offcanvas {
     position: static;
     z-index: auto;
@@ -12750,6 +12742,19 @@ fieldset:disabled .btn {
     border: 0 !important;
     transform: none !important;
     transition: none;
+  }
+}
+@media (min-width: 768px) {
+  .navbar-expand-md.offcanvas-header {
+    display: none;
+  }
+}
+@media (min-width: 768px) {
+  .navbar-expand-md.offcanvas-body {
+    display: flex;
+    flex-grow: 0;
+    padding: 0;
+    overflow-y: visible;
   }
 }
 
