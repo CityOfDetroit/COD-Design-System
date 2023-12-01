@@ -23,82 +23,34 @@ export default class NavbarBrand extends HTMLElement {
 
   connectedCallback() {
     // Navbar Brand attributes
-    // TODO: See CityOfDetroit/detroitmi#1099
-    // eslint-disable-next-line prefer-const
-    let url = this.getAttribute('data-url');
-    // TODO: See CityOfDetroit/detroitmi#1099
-    // eslint-disable-next-line prefer-const
-    let text = this.getAttribute('data-text');
-    // TODO: See CityOfDetroit/detroitmi#1099
-    // eslint-disable-next-line prefer-const
-    let brandImgURL = this.getAttribute('data-img');
-    // TODO: See CityOfDetroit/detroitmi#1099
-    // eslint-disable-next-line prefer-const
-    let brandImgAlt = this.getAttribute('data-img-alt');
-    // TODO: See CityOfDetroit/detroitmi#1099
-    // eslint-disable-next-line prefer-const
-    let textClasses = this.getAttribute('data-text-classes');
-    // TODO: See CityOfDetroit/detroitmi#1099
-    // eslint-disable-next-line prefer-const
-    let imgClasses = this.getAttribute('data-img-classes');
-    // TODO: See CityOfDetroit/detroitmi#1099
-    // eslint-disable-next-line prefer-const
-    let imgSize = this.getAttribute('data-img-size');
-    // TODO: See CityOfDetroit/detroitmi#1099
-    // eslint-disable-next-line prefer-const
-    let extraClasses = this.getAttribute('data-extra-classes');
-    // TODO: See CityOfDetroit/detroitmi#1099
-    // eslint-disable-next-line prefer-const
-    let brandClasses = [''];
-    // TODO: See CityOfDetroit/detroitmi#1099
-    // eslint-disable-next-line prefer-const
-    let brandLink = document.createElement('a');
-    // TODO: See CityOfDetroit/detroitmi#1099
-    // eslint-disable-next-line prefer-const
-    let cleanURL = encodeURI(url);
+    const url = this.getAttribute('data-url');
+    const text = this.getAttribute('data-text');
+    const brandImgURL = this.getAttribute('data-img');
+    const brandImgAlt = this.getAttribute('data-img-alt');
+    const textClasses = this.getAttribute('data-text-classes');
+    const imgClasses = this.getAttribute('data-img-classes');
+    const imgSize = this.getAttribute('data-img-size');
+    const extraClasses = this.getAttribute('data-extra-classes');
+    const brandClasses = [''];
+    const brandLink = document.createElement('a');
+    const cleanURL = encodeURI(url);
     brandLink.href = decodeURI(cleanURL);
-    // TODO: See CityOfDetroit/detroitmi#1099
-    // eslint-disable-next-line eqeqeq
-    if (brandImgURL != undefined && brandImgURL != null) {
-      // TODO: See CityOfDetroit/detroitmi#1099
-      // eslint-disable-next-line prefer-const
-      let brandImg = document.createElement('img');
-      // TODO: See CityOfDetroit/detroitmi#1099
-      // eslint-disable-next-line prefer-const
-      let cleanImgURL = encodeURI(brandImgURL);
+    if (brandImgURL) {
+      const brandImg = document.createElement('img');
+      const cleanImgURL = encodeURI(brandImgURL);
       brandImg.src = decodeURI(cleanImgURL);
-      // TODO: See CityOfDetroit/detroitmi#1099
-      // eslint-disable-next-line eqeqeq
-      imgSize != undefined && imgSize != null
-        ? brandImg.setAttribute('width', imgSize)
-        : 0;
-      // TODO: See CityOfDetroit/detroitmi#1099
-      // eslint-disable-next-line eqeqeq
-      imgClasses != undefined && imgClasses != null
-        ? (brandImg.className = imgClasses)
-        : 0;
+      imgSize ? brandImg.setAttribute('width', imgSize) : 0;
+      imgClasses ? (brandImg.className = imgClasses) : 0;
       brandImg.setAttribute('alt', brandImgAlt);
       brandLink.appendChild(brandImg);
     }
-    // TODO: See CityOfDetroit/detroitmi#1099
-    // eslint-disable-next-line eqeqeq
-    if (text != undefined && text != null) {
-      // TODO: See CityOfDetroit/detroitmi#1099
-      // eslint-disable-next-line prefer-const
-      let brandText = document.createElement('span');
-      // TODO: See CityOfDetroit/detroitmi#1099
-      // eslint-disable-next-line eqeqeq
-      textClasses != undefined && textClasses != null
-        ? (brandText.className = textClasses)
-        : 0;
+    if (text) {
+      const brandText = document.createElement('span');
+      textClasses ? (brandText.className = textClasses) : 0;
       brandText.innerText = text;
       brandLink.appendChild(brandText);
     }
-    // TODO: See CityOfDetroit/detroitmi#1099
-    // eslint-disable-next-line eqeqeq
-    extraClasses != undefined && extraClasses != null
-      ? brandClasses.push(extraClasses)
-      : 0;
+    extraClasses ? brandClasses.push(extraClasses) : 0;
     brandLink.className = brandClasses.join(' ');
     if (!this.shadowRoot.querySelector('a')) {
       this.shadowRoot.appendChild(brandLink);
