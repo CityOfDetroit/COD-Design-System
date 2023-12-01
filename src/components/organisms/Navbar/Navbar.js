@@ -36,9 +36,6 @@ export default class Navbar extends HTMLElement {
             this.getAttribute('data-show') === 'true'
               ? node.setAttribute('data-show', true)
               : 0;
-            this.getAttribute('data-button-dark') === 'true'
-              ? node.setAttribute('data-button-dark', true)
-              : 0;
             this.navbarToggle.appendChild(node);
             this.navbarContainer.appendChild(this.navbarToggle);
             break;
@@ -112,6 +109,10 @@ export default class Navbar extends HTMLElement {
     extraClasses ? navbarClasses.push(extraClasses) : 0;
     collapseClasses ? navbarCollapseClasses.push(collapseClasses) : 0;
     placement ? navbarClasses.push(placement) : 0;
+    const isDark = this.getAttribute('data-navbar-dark') === 'true';
+    if (isDark) {
+      navbarClasses.push(['navbar-dark']);
+    }
     if (expand) {
       expand === 'always'
         ? navbarClasses.push('navbar-expand')

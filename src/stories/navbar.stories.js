@@ -287,6 +287,7 @@ export const Color = () => html`
     data-container-classes="container-fluid"
     data-expand="md"
     data-extra-classes="bg-dark"
+    data-navbar-dark="true"
   >
     <cod-navbar-brand
       data-url="#"
@@ -294,8 +295,7 @@ export const Color = () => html`
       data-text-classes="text-light"
     >
     </cod-navbar-brand>
-    <cod-navbar-toggle data-mode="default" data-button-dark="true">
-    </cod-navbar-toggle>
+    <cod-navbar-toggle data-mode="default"> </cod-navbar-toggle>
     <cod-navbar-collapse>
       <cod-nav>
         <a class="nav-link text-light" href="#">Home</a>
@@ -317,8 +317,7 @@ export const Color = () => html`
       data-text-classes="text-light"
     >
     </cod-navbar-brand>
-    <cod-navbar-toggle data-mode="default" data-button-dark="true">
-    </cod-navbar-toggle>
+    <cod-navbar-toggle data-mode="default"> </cod-navbar-toggle>
     <cod-navbar-collapse>
       <cod-nav>
         <a class="nav-link text-light" href="#">Home</a>
@@ -505,7 +504,10 @@ export const OffcanvasColor = () => html`
     >
     </cod-navbar-brand>
     <cod-offcanvas data-id="offcanvasExample" data-extra-classes="bg-dark">
-      <cod-offcanvas-header data-extra-classes="bg-dark text-light">
+      <cod-offcanvas-header
+        data-extra-classes="bg-dark text-light"
+        data-button-dark="true"
+      >
         <h5>Offcanvas</h5>
       </cod-offcanvas-header>
       <cod-offcanvas-body data-extra-classes="bg-dark">
@@ -548,7 +550,6 @@ export const OffcanvasColor = () => html`
         </cod-nav>
       </cod-offcanvas-body>
     </cod-offcanvas>
-    <cod-navbar-toggle data-mode="default" data-button-dark="true">
-    </cod-navbar-toggle>
+    <cod-navbar-toggle data-mode="default"> </cod-navbar-toggle>
   </cod-navbar>
 `;
