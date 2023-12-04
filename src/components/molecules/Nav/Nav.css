@@ -1,3 +1,8 @@
 .nav-item {
   font-family: var(--font-family);
 }
+
+.navbar-nav .nav-link {
+  --bs-nav-link-padding-x: 0.75em;
+  --bs-btn-padding-x: var(--bs-nav-link-padding-x);
+}
