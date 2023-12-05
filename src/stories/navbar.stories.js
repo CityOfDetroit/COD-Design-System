@@ -449,7 +449,7 @@ export const Offcanvas = () => html`
         <h5>Offcanvas</h5>
       </cod-offcanvas-header>
       <cod-offcanvas-body>
-        <cod-nav data-vertical="true">
+        <cod-nav>
           <a class="nav-link active" aria-current="page" href="#">Home</a>
           <a class="nav-link" href="#">Link</a>
           <cod-dropdown data-split="false">
@@ -511,7 +511,7 @@ export const OffcanvasColor = () => html`
         <h5>Offcanvas</h5>
       </cod-offcanvas-header>
       <cod-offcanvas-body data-extra-classes="bg-dark">
-        <cod-nav data-vertical="true" data-extra-classes="text-light">
+        <cod-nav data-extra-classes="text-light">
           <a class="nav-link active text-light" aria-current="page" href="#"
             >Home</a
           >
