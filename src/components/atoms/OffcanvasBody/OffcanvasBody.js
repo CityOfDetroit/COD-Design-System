@@ -9,6 +9,8 @@ template.innerHTML = `
 `;
 
 export default class OffcanvasBody extends HTMLElement {
+  static observedAttributes = ['data-expand'];
+
   constructor() {
     // Always call super first in constructor
     super();
@@ -21,6 +23,10 @@ export default class OffcanvasBody extends HTMLElement {
       tempElements.forEach((node) => {
         if (node.tagName === 'COD-NAV') {
           node.setAttribute('data-extra-classes', 'navbar-nav');
+        }
+        const expand = this.getAttribute('data-expand');
+        if (expand) {
+          node.setAttribute('data-expand', expand);
         }
         this.body.append(node);
       });
@@ -38,11 +44,29 @@ export default class OffcanvasBody extends HTMLElement {
     shadow.appendChild(itemStyles);
   }
 
+  attributeChangedCallback(name, oldValue, newValue) {
+    switch (name) {
+      case 'data-expand': {
+        if (newValue) {
+          this.shadowRoot
+            .querySelector('cod-nav')
+            .setAttribute('data-expand', newValue);
+        }
+      }
+    }
+  }
+
   connectedCallback() {
     // OffcanvasBody attributes
     const extraClasses = this.getAttribute('data-extra-classes');
     const bodyClasses = ['offcanvas-body'];
     extraClasses ? bodyClasses.push(extraClasses) : 0;
+    const expand = this.getAttribute('data-expand');
+    if (expand) {
+      expand === 'always'
+        ? bodyClasses.push('navbar-expand')
+        : bodyClasses.push(`navbar-expand-${expand}`);
+    }
     this.body.className = bodyClasses.join(' ');
     if (!this.shadowRoot.querySelector('div')) {
       this.shadowRoot.appendChild(this.body);

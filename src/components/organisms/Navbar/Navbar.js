@@ -50,9 +50,14 @@ export default class Navbar extends HTMLElement {
             this.navbarContainer.appendChild(this.navbarBrand);
             break;
 
-          case 'COD-OFFCANVAS':
+          case 'COD-OFFCANVAS': {
+            const expand = this.getAttribute('data-expand');
+            if (expand) {
+              node.setAttribute('data-expand', expand);
+            }
             this.navbarContainer.appendChild(node);
             break;
+          }
           default: {
             const nodeClasses = node.className.split(' ');
             nodeClasses.includes('no-wc') ? node.remove() : 0;
