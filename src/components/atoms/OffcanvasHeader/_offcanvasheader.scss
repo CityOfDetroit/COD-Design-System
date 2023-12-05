@@ -1,8 +1,9 @@
 @import '../../../../node_modules/bootstrap/scss/mixins/breakpoints';
 
-// TODO: Use SASS to support all breakpoint sizes for expanded nav.
-@include media-breakpoint-up(md) {
-  .navbar-expand-md.offcanvas-header {
-    display: none;
+@each $breakpoint-name, $_ in $grid-breakpoints {
+  @include media-breakpoint-up($breakpoint-name) {
+    .navbar-expand-#{$breakpoint-name}.offcanvas-header {
+      display: none;
+    }
   }
 }
