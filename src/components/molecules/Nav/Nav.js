@@ -53,10 +53,6 @@ export default class Nav extends HTMLElement {
     const justified = this.getAttribute('data-justified');
     const extraClasses = this.getAttribute('data-extra-classes');
     const navClasses = ['nav'];
-    const isOffcanvasNav = this.getAttribute('data-offcanvas-nav') === 'true';
-    if (isOffcanvasNav) {
-      navClasses.push('offcanvas-nav');
-    }
     const expand = this.getAttribute('data-expand');
     if (expand) {
       expand === 'always'
