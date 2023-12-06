@@ -1,3 +1,21 @@
+# v1.0.11 (Wed Dec 06 2023)
+
+#### 🐛 Bug Fix
+
+- Support exandable offcanvas navbar [#128](https://github.com/CityOfDetroit/COD-Design-System/pull/128) ([@maxatdetroit](https://github.com/maxatdetroit))
+- Use BS nav classes to set offcanvas nav direction [#125](https://github.com/CityOfDetroit/COD-Design-System/pull/125) ([@maxatdetroit](https://github.com/maxatdetroit))
+- Fix dark navbar theming [#124](https://github.com/CityOfDetroit/COD-Design-System/pull/124) ([@maxatdetroit](https://github.com/maxatdetroit))
+
+#### 🏠 Internal
+
+- Resolve lints in all nav components [#123](https://github.com/CityOfDetroit/COD-Design-System/pull/123) ([@maxatdetroit](https://github.com/maxatdetroit))
+
+#### Authors: 1
+
+- Max Morgan ([@maxatdetroit](https://github.com/maxatdetroit))
+
+---
+
 # v1.0.10 (Wed Nov 15 2023)
 
 #### 🐛 Bug Fix
