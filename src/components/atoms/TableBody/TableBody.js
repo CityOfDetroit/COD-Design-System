@@ -56,6 +56,7 @@ export default class TableBody extends HTMLElement {
           ? node.setAttribute('data-scrollable', 'true')
           : 0;
 
+        console.log('checking body stacked: ', this.isStacked());
         if (this.isStacked()) {
           node.setIsStacked(true /* isStacked */, this.isCellHeaderBlock());
         }

@@ -14,7 +14,7 @@ template.innerHTML = `
 <slot></slot>
 `;
 
-export default class TableBody extends HTMLElement {
+export default class TableRow extends HTMLElement {
   constructor() {
     // Always call super first in constructor
     super();
@@ -48,6 +48,7 @@ export default class TableBody extends HTMLElement {
           ? node.setAttribute('data-scrollable', 'true')
           : 0;
 
+        console.log('checking row stacked: ', this.isStacked());
         if (this.isStacked()) {
           node.setIsStacked(true /* isStacked */, this.isCellHeaderBlock());
         }

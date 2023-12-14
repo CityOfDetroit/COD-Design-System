@@ -76,6 +76,8 @@ export default class Table extends HTMLElement {
             this.getAttribute('data-scrollable') === 'true'
               ? node.setAttribute('data-scrollable', 'true')
               : 0;
+
+            console.log('checking table stacked: ', this.getAttribute('data-stacked'));
             this.getAttribute('data-stacked') === 'true'
               ? node.setIsStacked(
                   true /* isStacked */,
