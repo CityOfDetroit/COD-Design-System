@@ -19,6 +19,7 @@ export default class TableBody extends HTMLElement {
     // Create a shadow root
     const shadow = this.attachShadow({ mode: 'open' });
     shadow.appendChild(template.content.cloneNode(true));
+    console.log("Creating new body element.")
     this.tableBody = document.createElement('tbody');
     // TODO: See CityOfDetroit/detroitmi#1099
     // eslint-disable-next-line no-unused-vars
