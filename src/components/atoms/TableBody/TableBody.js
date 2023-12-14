@@ -80,6 +80,7 @@ export default class TableBody extends HTMLElement {
   }
 
   setIsStacked(isStacked, isCellHeaderBlock) {
+    console.log("Setting body as stacked: ", isStacked);
     if (isStacked) {
       this.tableBody.classList.add(stackedTableClass);
     } else {
@@ -91,6 +92,7 @@ export default class TableBody extends HTMLElement {
     } else {
       this.tableBody.classList.remove(cellHeaderBlockClass);
     }
+    console.log("Body classes after field set: ", this.tableBody.classList.toString());
   }
 
   isStacked() {
