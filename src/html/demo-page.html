@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Web Component Style Demo</title>
+  <script defer="defer" src="../../build/assets/js/runtime.js"></script><script defer="defer" src="../../build/assets/js/vendors.babel.js"></script><script defer="defer" src="../../build/assets/js/vendors.bootstrap-icons.js"></script><script defer="defer" src="../../build/assets/js/main.js"></script>
+  <!-- BOOTSTRAP -->
+  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"> -->
+  <!-- CUSTOM STYLES -->
+  <!-- <style>
+    .container {display: flex;}
+    .btn-primary {background-color: #000;}
+  </style> -->
+</head>
+
+<body>
+<h1>Demo Page</h1>
+<br /> <br />
+<cod-table data-id="table-stacked" data-stacked="true">
+  <cod-table-header>
+    <cod-table-row>
+      <cod-table-cell-header scope="col">Bus Route</cod-table-cell-header>
+      <cod-table-cell-header scope="col">Route Viewer</cod-table-cell-header>
+      <cod-table-cell-header scope="col"
+        >Downloadable Schedule</cod-table-cell-header
+      >
+    </cod-table-row>
+  </cod-table-header>
+  <cod-table-body>
+    <cod-table-row>
+      <cod-table-cell data-label="Bus Route">1 Vernor</cod-table-cell>
+      <cod-table-cell data-label="Route Viewer">
+        <a href="https://example.com">View Route</a>
+      </cod-table-cell>
+      <cod-table-cell data-label="Downloadable Schedule">
+        <a href="https://example.com">Download Schedule</a>
+      </cod-table-cell>
+    </cod-table-row>
+    <cod-table-row>
+      <cod-table-cell data-label="Bus Route">2 Michigan</cod-table-cell>
+      <cod-table-cell data-label="Route Viewer">
+        <a href="https://example.com">View Route</a>
+      </cod-table-cell>
+      <cod-table-cell data-label="Downloadable Schedule">
+        <a href="https://example.com">Download Schedule</a>
+      </cod-table-cell>
+    </cod-table-row>
+    <cod-table-row>
+      <cod-table-cell data-label="Bus Route">3 Grand River</cod-table-cell>
+      <cod-table-cell data-label="Route Viewer">
+        <a href="https://example.com">View Route</a>
+      </cod-table-cell>
+      <cod-table-cell data-label="Downloadable Schedule">
+        <a href="https://example.com">Download Schedule</a>
+      </cod-table-cell>
+    </cod-table-row>
+    <cod-table-row>
+      <cod-table-cell data-label="Bus Route">4 Gunston</cod-table-cell>
+      <cod-table-cell data-label="Route Viewer">
+        <a href="https://example.com">View Route</a>
+      </cod-table-cell>
+      <cod-table-cell data-label="Downloadable Schedule">
+        <a href="https://example.com">Download Schedule</a>
+      </cod-table-cell>
+    </cod-table-row>
+  </cod-table-body>
+</cod-table>
+
+
+  <!-- BOOTSTRAP -->
+  <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script> -->
+</body>
+</html>
