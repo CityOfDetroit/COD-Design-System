@@ -21,6 +21,7 @@ export default class TableRow extends HTMLElement {
     // Create a shadow root
     const shadow = this.attachShadow({ mode: 'open' });
     shadow.appendChild(template.content.cloneNode(true));
+    console.log(`TableRow.js | constructor() | Creating table row...`);
     this.tableRow = document.createElement('tr');
     // TODO: See CityOfDetroit/detroitmi#1099
     // eslint-disable-next-line no-unused-vars
@@ -48,7 +49,7 @@ export default class TableRow extends HTMLElement {
           ? node.setAttribute('data-scrollable', 'true')
           : 0;
 
-        console.log('checking row stacked: ', this.isStacked());
+        console.log(`TableRow.js | slotchange() | tableStacked=${this.isStacked()}`);
         if (this.isStacked()) {
           node.setIsStacked(true /* isStacked */, this.isCellHeaderBlock());
         }
@@ -90,6 +91,7 @@ export default class TableRow extends HTMLElement {
   }
 
   setIsStacked(isStacked, isCellHeaderBlock) {
+    console.log(`TableRow.js | setIsStacked() | isStacked=${isStacked}`);
     if (isStacked) {
       this.tableRow.classList.add(stackedTableClass);
     } else {

@@ -18,6 +18,7 @@ export default class Table extends HTMLElement {
     this.tableContainer = document.createElement('div');
     this.table = document.createElement('table');
     this.tableContainer.appendChild(this.table);
+    console.log("Table.js | constructor() | Creating table...");
 
     // TODO: See CityOfDetroit/detroitmi#1099
     // eslint-disable-next-line no-unused-vars
@@ -77,7 +78,7 @@ export default class Table extends HTMLElement {
               ? node.setAttribute('data-scrollable', 'true')
               : 0;
 
-            console.log('checking table stacked: ', this.getAttribute('data-stacked'));
+            console.log(`Table.js | slotchange() | Table stacked=${this.getAttribute('data-stacked')} | tagName=${node.tagName}`);
             this.getAttribute('data-stacked') === 'true'
               ? node.setIsStacked(
                   true /* isStacked */,
