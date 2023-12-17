@@ -1,6 +1,3 @@
-import styles from '!!raw-loader!./TableBody.css';
-import varStyles from '!!raw-loader!../../../shared/variables.css';
-import bootstrapStyles from '!!raw-loader!../../../shared/themed-bootstrap.css';
 import {
   cellHeaderBlockClass,
   stackedTableClass,
@@ -16,10 +13,10 @@ export default class TableBody extends HTMLElement {
   constructor() {
     // Always call super first in constructor
     super();
+    console.log(`TableBody.js | constructor() | Creating table body...`);
     // Create a shadow root
     const shadow = this.attachShadow({ mode: 'open' });
     shadow.appendChild(template.content.cloneNode(true));
-    console.log(`TableBody.js | constructor() | Creating table body...`);
     this.tableBody = document.createElement('tbody');
     // TODO: See CityOfDetroit/detroitmi#1099
     // eslint-disable-next-line no-unused-vars
@@ -27,6 +24,8 @@ export default class TableBody extends HTMLElement {
       // TODO: See CityOfDetroit/detroitmi#1099
       // eslint-disable-next-line prefer-const
       let tempElements = Array.from(this.children);
+      console.log(`TableBody.js | slotchange()`);
+      console.log(tempElements);
       tempElements.forEach((node, index) => {
         if (index === 0) {
           node.setIsFirst();
@@ -65,19 +64,10 @@ export default class TableBody extends HTMLElement {
         this.tableBody.append(node);
       });
     });
+  }
 
-    // Add styles
-    const bootStyles = document.createElement('style');
-    bootStyles.textContent = bootstrapStyles;
-    const variableStyles = document.createElement('style');
-    variableStyles.textContent = varStyles;
-    const itemStyles = document.createElement('style');
-    itemStyles.textContent = styles;
-    shadow.appendChild(bootStyles);
-    shadow.appendChild(variableStyles);
-    shadow.appendChild(itemStyles);
-
-    shadow.appendChild(this.tableBody);
+  connectedCallback() {
+    this.shadowRoot.appendChild(this.tableBody);
   }
 
   setIsStacked(isStacked, isCellHeaderBlock) {

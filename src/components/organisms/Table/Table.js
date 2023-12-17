@@ -1,7 +1,3 @@
-import styles from '!!raw-loader!./Table.css';
-import varStyles from '!!raw-loader!../../../shared/variables.css';
-import bootstrapStyles from '!!raw-loader!../../../shared/themed-bootstrap.css';
-
 const template = document.createElement('template');
 
 template.innerHTML = `
@@ -12,13 +8,13 @@ export default class Table extends HTMLElement {
   constructor() {
     // Always call super first in constructor
     super();
+    console.log("Table.js | constructor() | Creating table...");
     // Create a shadow root
     const shadow = this.attachShadow({ mode: 'open' });
     shadow.appendChild(template.content.cloneNode(true));
     this.tableContainer = document.createElement('div');
     this.table = document.createElement('table');
     this.tableContainer.appendChild(this.table);
-    console.log("Table.js | constructor() | Creating table...");
 
     // TODO: See CityOfDetroit/detroitmi#1099
     // eslint-disable-next-line no-unused-vars
@@ -26,6 +22,8 @@ export default class Table extends HTMLElement {
       // TODO: See CityOfDetroit/detroitmi#1099
       // eslint-disable-next-line prefer-const
       let tempElements = Array.from(this.children);
+      console.log(`Table.js | slotchange()`);
+      console.log(tempElements);
       tempElements.forEach((node) => {
         switch (node.tagName) {
           case 'COD-TABLE-HEADER':
@@ -98,17 +96,6 @@ export default class Table extends HTMLElement {
         }
       });
     });
-
-    // Add styles
-    const bootStyles = document.createElement('style');
-    bootStyles.textContent = bootstrapStyles;
-    const variableStyles = document.createElement('style');
-    variableStyles.textContent = varStyles;
-    const itemStyles = document.createElement('style');
-    itemStyles.textContent = styles;
-    shadow.appendChild(bootStyles);
-    shadow.appendChild(variableStyles);
-    shadow.appendChild(itemStyles);
   }
 
   connectedCallback() {

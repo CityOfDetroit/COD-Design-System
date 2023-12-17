@@ -1,6 +1,3 @@
-import styles from '!!raw-loader!./TableCell.css';
-import varStyles from '!!raw-loader!../../../shared/variables.css';
-import bootstrapStyles from '!!raw-loader!../../../shared/themed-bootstrap.css';
 import {
   cellHeaderBlockClass,
   stackedTableClass,
@@ -37,18 +34,6 @@ export default class TableCell extends HTMLElement {
         }
       });
     });
-
-    // Add styles
-    const bootStyles = document.createElement('style');
-    bootStyles.textContent = bootstrapStyles;
-    const variableStyles = document.createElement('style');
-    variableStyles.textContent = varStyles;
-    const itemStyles = document.createElement('style');
-    itemStyles.textContent = styles;
-    shadow.appendChild(bootStyles);
-    shadow.appendChild(variableStyles);
-    shadow.appendChild(itemStyles);
-
     shadow.appendChild(this.tableCell);
   }
 
