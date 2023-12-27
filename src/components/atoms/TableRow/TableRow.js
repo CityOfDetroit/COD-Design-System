@@ -59,6 +59,7 @@ export default class TableRow extends HTMLElement {
   }
 
   connectedCallback() {
+    console.log(`TableRow.js | connectedCallback()`);
     // TableRow attributes
     // TODO: See CityOfDetroit/detroitmi#1099
     // eslint-disable-next-line prefer-const

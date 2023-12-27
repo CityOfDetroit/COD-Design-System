@@ -99,6 +99,7 @@ export default class Table extends HTMLElement {
   }
 
   connectedCallback() {
+    console.log(`Table.js | connectedCallback()`);
     // Table attributes
     // TODO: See CityOfDetroit/detroitmi#1099
     // eslint-disable-next-line prefer-const

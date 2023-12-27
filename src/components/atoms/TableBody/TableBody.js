@@ -67,6 +67,7 @@ export default class TableBody extends HTMLElement {
   }
 
   connectedCallback() {
+    console.log(`TableBody.js | connectedCallback()`);
     this.shadowRoot.appendChild(this.tableBody);
   }
 
