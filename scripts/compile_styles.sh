@@ -9,7 +9,7 @@ then
     exit 1
 fi
 
-compile_sass () {
+compile_bootstrap () {
     echo "Compiling bootstrap SASS..."
     yarn sass ${PROJECT_ROOT}src/scss/themed-bootstrap.scss ${PROJECT_ROOT}src/shared/themed-bootstrap.css
     if [ $? -ne 0 ];
