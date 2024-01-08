@@ -1,7 +1,6 @@
 @import '../../../../node_modules/bootstrap/scss/mixins/breakpoints';
 @import '../../../../node_modules/bootstrap/scss/variables';
 
-
 tr {
   border-color: inherit;
   border-style: solid;
@@ -38,7 +37,6 @@ tr cod-table-cell-header[colspan='5'] {
 tr.table-hover:hover {
   --bs-table-accent-bg: var(--bs-table-hover-bg);
 }
-
 
 @include media-breakpoint-down(lg) {
   tr.table-stacked {

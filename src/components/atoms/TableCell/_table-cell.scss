@@ -20,7 +20,6 @@ td.table-scrollable {
   width: 5em;
 }
 
-
 @include media-breakpoint-down(lg) {
   td.table-stacked.cell-header-block {
     @include table.th-td-stacked-block-styles;
