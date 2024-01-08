@@ -1,6 +1,45 @@
 @import '../../../../node_modules/bootstrap/scss/mixins/breakpoints';
 @import '../../../../node_modules/bootstrap/scss/variables';
 
+
+tr {
+  border-color: inherit;
+  border-style: solid;
+  border-width: 0;
+  display: flex;
+  align-items: stretch;
+}
+
+tr cod-table-cell,
+tr cod-table-cell-header {
+  flex: 1;
+}
+
+tr cod-table-cell[colspan='2'],
+tr cod-table-cell-header[colspan='2'] {
+  flex: 2;
+}
+
+tr cod-table-cell[colspan='3'],
+tr cod-table-cell-header[colspan='3'] {
+  flex: 3;
+}
+
+tr cod-table-cell[colspan='4'],
+tr cod-table-cell-header[colspan='4'] {
+  flex: 4;
+}
+
+tr cod-table-cell[colspan='5'],
+tr cod-table-cell-header[colspan='5'] {
+  flex: 5;
+}
+
+tr.table-hover:hover {
+  --bs-table-accent-bg: var(--bs-table-hover-bg);
+}
+
+
 @include media-breakpoint-down(lg) {
   tr.table-stacked {
     display: block;

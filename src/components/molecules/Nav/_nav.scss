@@ -1,5 +1,15 @@
 @import '../../../../node_modules/bootstrap/scss/mixins/breakpoints';
 
+.nav-item {
+  font-family: var(--font-family);
+}
+
+.navbar-nav .nav-link {
+  --bs-nav-link-padding-x: 0.75em;
+  --bs-btn-padding-x: var(--bs-nav-link-padding-x);
+}
+
+
 @each $breakpoint-name, $_ in $grid-breakpoints {
   @include media-breakpoint-up($breakpoint-name) {
     .navbar-expand-#{$breakpoint-name}.nav {

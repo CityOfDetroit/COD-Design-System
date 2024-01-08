@@ -1,6 +1,10 @@
 @import '../../../../node_modules/bootstrap/scss/mixins/breakpoints';
 @import '../../../../node_modules/bootstrap/scss/variables';
 
+thead {
+  display: block;
+}
+
 @include media-breakpoint-down(lg) {
   thead.table-stacked {
     // Move table header off the screen to hide from
