@@ -1,3 +1,15 @@
+# v1.0.12 (Fri Jan 12 2024)
+
+#### 🐛 Bug Fix
+
+- Import components top down instead of bottom up [#135](https://github.com/CityOfDetroit/COD-Design-System/pull/135) ([@maxatdetroit](https://github.com/maxatdetroit))
+
+#### Authors: 1
+
+- Max Morgan ([@maxatdetroit](https://github.com/maxatdetroit))
+
+---
+
 # v1.0.11 (Wed Dec 06 2023)
 
 #### 🐛 Bug Fix
