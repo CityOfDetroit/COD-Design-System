@@ -96,9 +96,13 @@ class TableRow extends HTMLElement {
   attributeChangedCallback(name, oldValue, newValue) {
     if (name in TableRow.observedClassAttributes) {
       this.handleObservedClassAttribute(
+        name,
         newValue,
         this.tableRow,
         TableRow.observedClassAttributes[name],
+        () => {
+          return this.shadowRoot.querySelectorAll('cod-table-cell');
+        },
       );
     }
   }

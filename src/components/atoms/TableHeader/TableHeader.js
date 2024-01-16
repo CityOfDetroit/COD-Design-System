@@ -75,9 +75,13 @@ class TableHeader extends HTMLElement {
   attributeChangedCallback(name, oldValue, newValue) {
     if (name in TableHeader.observedClassAttributes) {
       this.handleObservedClassAttribute(
+        name,
         newValue,
         this.tableHeader,
         TableHeader.observedClassAttributes[name],
+        () => {
+          return this.shadowRoot.querySelectorAll('cod-table-row');
+        },
       );
     }
   }

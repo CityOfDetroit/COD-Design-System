@@ -105,6 +105,7 @@ class TableCell extends HTMLElement {
   attributeChangedCallback(name, oldValue, newValue) {
     if (name in TableCell.observedClassAttributes) {
       this.handleObservedClassAttribute(
+        name,
         newValue,
         this.tableCell,
         TableCell.observedClassAttributes[name],

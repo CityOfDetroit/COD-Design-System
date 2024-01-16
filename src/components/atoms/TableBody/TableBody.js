@@ -86,9 +86,13 @@ class TableBody extends HTMLElement {
   attributeChangedCallback(name, oldValue, newValue) {
     if (name in TableBody.observedClassAttributes) {
       this.handleObservedClassAttribute(
+        name,
         newValue,
         this.tableBody,
         TableBody.observedClassAttributes[name],
+        () => {
+          return this.shadowRoot.querySelectorAll('cod-table-row');
+        },
       );
     }
   }

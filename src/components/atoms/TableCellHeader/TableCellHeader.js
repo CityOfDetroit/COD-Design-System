@@ -95,6 +95,7 @@ class TableCellHeader extends HTMLElement {
   attributeChangedCallback(name, oldValue, newValue) {
     if (name in TableCellHeader.observedClassAttributes) {
       this.handleObservedClassAttribute(
+        name,
         newValue,
         this.tableCellHeader,
         TableCellHeader.observedClassAttributes[name],
