@@ -7,6 +7,8 @@ import {
   oddClass,
   stackedTableClass,
 } from '../../../shared/js/utilities';
+import tableStackedMixin from '../../../shared/js/table-stacked-mixin';
+import observedAttributeMixin from '../../../shared/js/observed-attribute-mixin';
 
 const template = document.createElement('template');
 
@@ -14,7 +16,13 @@ template.innerHTML = `
 <slot></slot>
 `;
 
-export default class TableBody extends HTMLElement {
+class TableRow extends HTMLElement {
+  static observedClassAttributes = {
+    'data-stacked': stackedTableClass,
+    'data-label-block': cellHeaderBlockClass,
+  };
+  static observedAttributes = Object.keys(this.observedClassAttributes);
+
   constructor() {
     // Always call super first in constructor
     super();
@@ -47,10 +55,7 @@ export default class TableBody extends HTMLElement {
         this.getAttribute('data-scrollable') === 'true'
           ? node.setAttribute('data-scrollable', 'true')
           : 0;
-
-        if (this.isStacked()) {
-          node.setIsStacked(true /* isStacked */, this.isCellHeaderBlock());
-        }
+        this.handleTableStacked(this, node);
 
         this.tableRow.append(node);
       });
@@ -88,26 +93,14 @@ export default class TableBody extends HTMLElement {
       : 0;
   }
 
-  setIsStacked(isStacked, isCellHeaderBlock) {
-    if (isStacked) {
-      this.tableRow.classList.add(stackedTableClass);
-    } else {
-      this.tableRow.classList.remove(stackedTableClass);
+  attributeChangedCallback(name, oldValue, newValue) {
+    if (name in TableRow.observedClassAttributes) {
+      this.handleObservedClassAttribute(
+        newValue,
+        this.tableRow,
+        TableRow.observedClassAttributes[name],
+      );
     }
-
-    if (isCellHeaderBlock) {
-      this.tableRow.classList.add(cellHeaderBlockClass);
-    } else {
-      this.tableRow.classList.remove(cellHeaderBlockClass);
-    }
-  }
-
-  isStacked() {
-    return this.tableRow.classList.contains(stackedTableClass);
-  }
-
-  isCellHeaderBlock() {
-    return this.tableRow.classList.contains(cellHeaderBlockClass);
   }
 
   setIsFirst(isFirst = true) {
@@ -126,3 +119,9 @@ export default class TableBody extends HTMLElement {
     }
   }
 }
+
+// Apply mixins.
+Object.assign(TableRow.prototype, tableStackedMixin);
+Object.assign(TableRow.prototype, observedAttributeMixin);
+
+export { TableRow as default };

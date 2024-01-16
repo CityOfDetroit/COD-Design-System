@@ -5,6 +5,8 @@ import {
   cellHeaderBlockClass,
   stackedTableClass,
 } from '../../../shared/js/utilities';
+import tableStackedMixin from '../../../shared/js/table-stacked-mixin';
+import observedAttributeMixin from '../../../shared/js/observed-attribute-mixin';
 
 const template = document.createElement('template');
 
@@ -12,7 +14,13 @@ template.innerHTML = `
 <slot></slot>
 `;
 
-export default class TableCell extends HTMLElement {
+class TableCell extends HTMLElement {
+  static observedClassAttributes = {
+    'data-stacked': stackedTableClass,
+    'data-label-block': cellHeaderBlockClass,
+  };
+  static observedAttributes = Object.keys(this.observedClassAttributes);
+
   constructor() {
     // Always call super first in constructor
     super();
@@ -94,21 +102,19 @@ export default class TableCell extends HTMLElement {
     }
   }
 
-  setIsStacked(isStacked, isCellHeaderBlock) {
-    if (isStacked) {
-      this.tableCell.classList.add(stackedTableClass);
-    } else {
-      this.tableCell.classList.remove(stackedTableClass);
+  attributeChangedCallback(name, oldValue, newValue) {
+    if (name in TableCell.observedClassAttributes) {
+      this.handleObservedClassAttribute(
+        newValue,
+        this.tableCell,
+        TableCell.observedClassAttributes[name],
+      );
     }
-
-    if (isCellHeaderBlock) {
-      this.tableCell.classList.add(cellHeaderBlockClass);
-    } else {
-      this.tableCell.classList.remove(cellHeaderBlockClass);
-    }
-  }
-
-  isStacked() {
-    return this.tableCell.classList.contains(stackedTableClass);
   }
 }
+
+// Apply mixins.
+Object.assign(TableCell.prototype, tableStackedMixin);
+Object.assign(TableCell.prototype, observedAttributeMixin);
+
+export { TableCell as default };
