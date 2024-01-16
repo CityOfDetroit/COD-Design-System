@@ -1,4 +1,4 @@
-const observedAttributeMixin = {
+export default observedAttributeMixin = {
   /**
    * Handle an observed attribute change that controls a class on an
    * HTML element:
