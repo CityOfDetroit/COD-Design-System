@@ -2,13 +2,15 @@ import styles from '!!raw-loader!./Table.css';
 import varStyles from '!!raw-loader!../../../shared/variables.css';
 import bootstrapStyles from '!!raw-loader!../../../shared/themed-bootstrap.css';
 
+import tableStackedMixin from '../../../shared/js/table-stacked-mixin';
+
 const template = document.createElement('template');
 
 template.innerHTML = `
 <slot></slot>
 `;
 
-export default class Table extends HTMLElement {
+class Table extends HTMLElement {
   constructor() {
     // Always call super first in constructor
     super();
@@ -41,13 +43,7 @@ export default class Table extends HTMLElement {
             this.getAttribute('data-scrollable') === 'true'
               ? node.setAttribute('data-scrollable', 'true')
               : 0;
-
-            this.getAttribute('data-stacked') === 'true'
-              ? node.setIsStacked(
-                  true /* isStacked */,
-                  this.getAttribute('data-label-block') === 'true',
-                )
-              : 0;
+            this.handleTableStacked(this, node);
 
             this.table.appendChild(node);
             break;
@@ -76,12 +72,7 @@ export default class Table extends HTMLElement {
             this.getAttribute('data-scrollable') === 'true'
               ? node.setAttribute('data-scrollable', 'true')
               : 0;
-            this.getAttribute('data-stacked') === 'true'
-              ? node.setIsStacked(
-                  true /* isStacked */,
-                  this.getAttribute('data-label-block') === 'true',
-                )
-              : 0;
+            this.handleTableStacked(this, node);
 
             this.table.appendChild(node);
             break;
@@ -139,3 +130,8 @@ export default class Table extends HTMLElement {
     }
   }
 }
+
+// Apply mixins.
+Object.assign(Table.prototype, tableStackedMixin);
+
+export { Table as default };
