@@ -1,4 +1,4 @@
-export default tableStackedMixin = {
+const tableStackedMixin = {
   /**
    * Handle attribute propagation for a stacked table.
    *  codElement.handleTableStacked(
@@ -15,3 +15,5 @@ export default tableStackedMixin = {
     }
   },
 };
+
+export { tableStackedMixin as default };

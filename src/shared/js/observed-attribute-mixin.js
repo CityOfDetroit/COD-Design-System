@@ -1,4 +1,4 @@
-export default observedAttributeMixin = {
+const observedAttributeMixin = {
   /**
    * Handle an observed attribute change that controls a class on an
    * HTML element:
@@ -9,10 +9,12 @@ export default observedAttributeMixin = {
    *  )
    */
   handleObservedClassAttribute(newValue, htmlElement, className) {
-    if (newValue) {
+    if (newValue !== null) {
       htmlElement.classList.add(className);
     } else {
       htmlElement.classList.remove(className);
     }
   },
 };
+
+export { observedAttributeMixin as default };
