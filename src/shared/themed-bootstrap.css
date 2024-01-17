@@ -4,7 +4,7 @@
  * This file is generated from source SASS in src/scss/themed-bootstrap.scss. If you'd like to make
  * changes please change the source file or the code generation script at scripts/compile_bootstrap.sh.
  */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap');
 /*!
  * Bootstrap  v5.3.0-alpha3 (https://getbootstrap.com/)
  * Copyright 2011-2023 The Bootstrap Authors
@@ -12625,6 +12625,11 @@ fieldset:disabled .btn {
   --bs-form-valid-border-color: #75b798;
   --bs-form-invalid-color: #ea868f;
   --bs-form-invalid-border-color: #ea868f;
+}
+
+b,
+strong {
+  font-weight: 700;
 }
 
 @media (max-width: 991.98px) {
