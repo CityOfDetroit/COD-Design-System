@@ -1,9 +1,12 @@
 {
   "name": "cod-design-system",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "City of Detroit design system",
   "main": "dist/index.js",
-  "repository": "https://github.com/jedgar1mx/COD-Design-System",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jedgar1mx/COD-Design-System.git"
+  },
   "keywords": [
     "components",
     "web components",
@@ -28,9 +31,12 @@
     "build-storybook": "storybook build",
     "deploy-storybook": "storybook-to-ghpages",
     "test-storybook": "test-storybook",
-    "release": "auto shipit --base-branch=dev"
+    "release": "auto shipit --base-branch=dev",
+    "chromatic": "chromatic --exit-zero-on-changes"
   },
-  "author": "Edgar Montes",
+  "author": {
+    "name": "Edgar Montes"
+  },
   "license": "MIT",
   "dependencies": {
     "bootstrap": "5.3.0-alpha3",
@@ -66,6 +72,7 @@
     "auto": "^10.43.0",
     "babel-loader": "^8.2.3",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
+    "chromatic": "^10.3.1",
     "concurrently": "^7.0.0",
     "cross-env": "^7.0.3",
     "css-loader": "^6.5.0",
@@ -108,5 +115,7 @@
       ]
     ]
   },
-  "packageManager": "yarn@3.6.2"
+  "packageManager": "yarn@3.6.2",
+  "readme": "ERROR: No README data found!",
+  "_id": "cod-design-system@1.0.12"
 }

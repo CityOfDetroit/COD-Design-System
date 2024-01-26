@@ -21,7 +21,7 @@
  * This file is generated from source SASS in src/scss/themed-bootstrap.scss. If you'd like to make
  * changes please change the source file or the code generation script at scripts/compile_bootstrap.sh.
  */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap');
 $primary: #004445 !default;
 $secondary: #e6e6e6 !default;
 $success: #9fd5b3 !default;
@@ -90,6 +90,11 @@ $utilities: map-merge(
 @import '../../node_modules/bootstrap/scss/bootstrap';
 // Override bootstrap _root.scss.
 @import './host';
+
+b,
+strong {
+  font-weight: 700;
+}
 
 // _____  _   _  _____  _____  _____ ___  ___
 // /  __ \| | | |/  ___||_   _||  _  ||  \/  |
