@@ -50,7 +50,7 @@ compile_components() {
 
         while read -r scss_file; do
             found_scss_files+=("$scss_file")
-        done < <(find "$current_path" -type f -name '_*.scss')
+        done < <(find "$current_path" -type f -name '*.scss')
     done
 
     # Display found .scss files
@@ -99,7 +99,7 @@ compile_components() {
 
 replace_rem_w_em () {
     echo "Replacing REMs with EMs..."
-    sed -i -r "s|([0-9])rem|\1em|g" "$1"
+    sed -i -r "s|([0-9])rem|\1em|g" "$1" 
     if [ $? -ne 0 ]; then
         echo "Failed to replace REMs with EMs in $1... Aborting."
         exit 1

@@ -1,40 +1,40 @@
-th {
+td {
   display: block;
   padding: 0.5em 0.5em;
   background-color: var(--bs-table-bg);
   border-bottom: solid var(--bs-border-width) var(--bs-secondary);
   box-shadow: inset 0 0 0 9999px var(--bs-table-accent-bg);
-  font-weight: bold;
   height: 100%;
 }
 
-th.table-striped-columns {
+td.table-striped,
+td.table-striped-columns {
   --bs-table-accent-bg: var(--bs-table-striped-bg);
 }
 
-th.table-scrollable {
+td.table-scrollable {
   width: 5em;
 }
 
 @media (max-width: 991.98px) {
-  th.table-stacked.cell-header-block {
+  td.table-stacked.cell-header-block {
     border-bottom-width: 0;
     display: block;
     width: 100%;
   }
-  th.table-stacked:not(.cell-header-block) {
+  td.table-stacked:not(.cell-header-block) {
     padding: 0;
     border-bottom-width: 0;
     display: flex;
   }
-  th.table-stacked:not(.cell-header-block) div.content {
+  td.table-stacked:not(.cell-header-block) div.content {
     flex: 1 1 0px;
     padding: 0.5em 0.5em;
   }
-  th[data-label].table-stacked.cell-header-block {
+  td[data-label].table-stacked.cell-header-block {
     padding-bottom: 0.5em;
   }
-  th[data-label].table-stacked.cell-header-block:before {
+  td[data-label].table-stacked.cell-header-block:before {
     content: attr(data-label);
     display: block;
     font-weight: bold;
@@ -42,7 +42,7 @@ th.table-scrollable {
     margin: -0.45em -0.5em 0.45em;
     padding: 0.5em 0.5em 0.2em;
   }
-  th[data-label].table-stacked:not(.cell-header-block):before {
+  td[data-label].table-stacked:not(.cell-header-block):before {
     content: attr(data-label);
     font-weight: bold;
     background-color: #f2f2f2;
@@ -53,4 +53,4 @@ th.table-scrollable {
   }
 }
 
-/*# sourceMappingURL=_table-cell-header.css.map */
+/*# sourceMappingURL=table-cell.css.map */
