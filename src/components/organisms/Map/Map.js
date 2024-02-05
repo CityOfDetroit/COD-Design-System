@@ -5,7 +5,7 @@ import styles from '!!raw-loader!./Map.css';
 import maplibreStyles from '!!raw-loader!../../../../node_modules/maplibre-gl/dist/maplibre-gl.css';
 export default class Map extends HTMLElement {
   static get observedAttributes() {
-    return ['data-map-state'];
+    return ['data-map-state','data-map-mode'];
   }
 
   constructor() {
@@ -25,84 +25,65 @@ export default class Map extends HTMLElement {
     shadow.appendChild(this.styles);
 
     // Attach the created element to the shadow DOM
-    const app = document.getElementsByTagName('my-home-info');
-    const mapWrapper = document.createElement('section');
-    mapWrapper.id = 'map-wrapper';
+    this.mapWrapper = document.createElement('section');
+    this.mapWrapper.id = 'map-wrapper';
     const mapContainer = document.createElement('article');
     mapContainer.id = 'map';
-    mapWrapper.appendChild(mapContainer);
-    const closeMapBtn = document.createElement('cod-button');
-    // TODO: See CityOfDetroit/detroitmi#1099
-    // eslint-disable-next-line no-unused-vars
-    closeMapBtn.addEventListener('click', (ev) => {
-      app[0].setAttribute('data-app-state', 'results');
-    });
-    closeMapBtn.setAttribute('data-primary', true);
-    closeMapBtn.setAttribute('data-label', 'x');
-    closeMapBtn.setAttribute('data-size', 'large');
-    closeMapBtn.setAttribute('data-hover', false);
-    closeMapBtn.setAttribute('data-background-color', 'color-3');
-    closeMapBtn.setAttribute('data-img', '');
-    closeMapBtn.setAttribute('data-img-alt', '');
-    closeMapBtn.setAttribute('data-icon', '');
-    closeMapBtn.setAttribute('data-shape', 'square');
-    shadow.appendChild(mapWrapper);
-    mapWrapper.appendChild(closeMapBtn);
+    this.mapWrapper.appendChild(mapContainer);
+    shadow.appendChild(this.mapWrapper);
+    
     this.map = new maplibregl.Map({
       container: mapContainer,
       style: mapStyle,
       center: [-83.1, 42.36],
       zoom: 9,
     });
-    app[0].setAttribute('data-map-state', 'init');
+    
   }
 
   // TODO: See CityOfDetroit/detroitmi#1099
   // eslint-disable-next-line no-unused-vars
   attributeChangedCallback(name, oldValue, newValue) {
-    const app = document.getElementsByTagName('my-home-info');
-    const parcel = JSON.parse(app[0].getAttribute('data-parcel-id'));
-    const coord = [parcel.location.x, parcel.location.y];
     switch (name) {
       case 'data-map-state':
+        const locationPoint = JSON.parse(this.getAttribute('data-location'));
+        const coord = [locationPoint.location.x, locationPoint.location.y];
         this.map.addControl(new maplibregl.NavigationControl());
         this.map.on('style.load', () => {
           this.map.resize();
-          // TODO: See CityOfDetroit/detroitmi#1099
-          // eslint-disable-next-line no-unused-vars
-          const marker = new maplibregl.Marker()
+
+          if(locationPoint){
+            const marker = new maplibregl.Marker()
             .setLngLat(coord)
             .addTo(this.map);
-          this.map.flyTo({
-            // These options control the ending camera position: centered at
-            // the target, at zoom level 9, and north up.
-            center: coord,
-            zoom: 12,
-            bearing: 0,
+            this.map.flyTo({
+              // These options control the ending camera position: centered at
+              // the target, at zoom level 9, and north up.
+              center: coord,
+              zoom: 12,
+              bearing: 0,
 
-            // These options control the flight curve, making it move
-            // slowly and zoom out almost completely before starting
-            // to pan.
-            speed: 1.5, // make the flying slow
-            curve: 1, // change the speed at which it zooms out
+              // These options control the flight curve, making it move
+              // slowly and zoom out almost completely before starting
+              // to pan.
+              speed: 1.5, // make the flying slow
+              curve: 1, // change the speed at which it zooms out
 
-            // This can be any easing function: it takes a number between
-            // 0 and 1 and returns another number between 0 and 1.
-            easing: function (t) {
-              return t;
-            },
+              // This can be any easing function: it takes a number between
+              // 0 and 1 and returns another number between 0 and 1.
+              easing: function (t) {
+                return t;
+              },
 
-            // this animation is considered essential with respect to prefers-reduced-motion
-            essential: true,
-          });
-          const app = document.getElementsByTagName('my-home-info');
-          const apiData = JSON.parse(
-            app[0].getAttribute('data-api-active-datasets'),
-          );
-          const mapData = app[0].getAttribute('data-map-active-data');
+              // this animation is considered essential with respect to prefers-reduced-motion
+              essential: true,
+            });
+          }
+          
+          const mapData = JSON.parse(this.getAttribute('data-map-data'));
           this.map.addSource('data-points', {
             type: 'geojson',
-            data: apiData[mapData].data,
+            data: mapData.data,
           });
           this.map.addLayer({
             id: 'data-points',
@@ -125,9 +106,8 @@ export default class Map extends HTMLElement {
         // eslint-disable-next-line no-case-declarations
         const tempMap = this;
         this.map.on('click', 'data-points', function (e) {
-          const app = document.getElementsByTagName('my-home-info');
-          const mapData = app[0].getAttribute('data-map-active-data');
-          tempMap.buildPointData(mapData, e.features[0], tempMap, e);
+          const activeData = tempMap.getAttribute('data-map-active-data');
+          tempMap.buildPopup(activeData, e.features[0], tempMap, e);
         });
         this.map.on('mouseenter', 'data-points', function () {
           tempMap.map.getCanvas().style.cursor = 'pointer';
@@ -139,14 +119,46 @@ export default class Map extends HTMLElement {
         });
         break;
 
+      case 'data-map-mode':
+        // Get map mode
+        const mapMode = this.getAttribute('data-map-mode');
+        switch (mapMode) {
+          case 'my-home-info':
+            const app = document.getElementsByTagName('my-home-info');
+            const closeMapBtn = document.createElement('cod-button');
+            closeMapBtn.addEventListener('click', (ev) => {
+              app[0].setAttribute('data-app-state', 'results');
+            });
+            closeMapBtn.setAttribute('data-primary', true);
+            closeMapBtn.setAttribute('data-label', 'x');
+            closeMapBtn.setAttribute('data-size', 'large');
+            closeMapBtn.setAttribute('data-hover', false);
+            closeMapBtn.setAttribute('data-background-color', 'warning');
+            closeMapBtn.setAttribute('data-img', '');
+            closeMapBtn.setAttribute('data-img-alt', '');
+            closeMapBtn.setAttribute('data-icon', '');
+            closeMapBtn.setAttribute('data-shape', 'square');
+            this.mapWrapper.appendChild(closeMapBtn);
+            app[0].setAttribute('data-map-state', 'init');
+            break;
+
+          case 'single-location':
+            break;
+        
+          default:
+            break;
+        }  
+        break;
+
       default:
         break;
     }
   }
 
-  buildPointData(dataType, data, map, e) {
+  buildPopup(dataType, data, map, e) {
     switch (dataType) {
       case 'schools':
+        console.log(e.features[0].properties.EntityOfficialName);
         new maplibregl.Popup()
           .setLngLat(e.lngLat)
           .setHTML(
