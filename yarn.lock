@@ -9049,13 +9049,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"bootstrap-icons@npm:^1.10.3":
-  version: 1.10.4
-  resolution: "bootstrap-icons@npm:1.10.4"
-  checksum: d76333e46dc75bc5b8942211d91703af5033e186f31bc7de06d7d816ba5ee7f70cd94c07b00d36321b104c0b86f5305936602b43504c7407168a00b6c2d2713d
-  languageName: node
-  linkType: hard
-
 "bootstrap@npm:5.3.0-alpha3":
   version: 5.3.0-alpha3
   resolution: "bootstrap@npm:5.3.0-alpha3"
@@ -9640,7 +9633,6 @@ __metadata:
     babel-loader: ^8.2.3
     babel-plugin-transform-react-remove-prop-types: ^0.4.24
     bootstrap: 5.3.0-alpha3
-    bootstrap-icons: ^1.10.3
     chromatic: ^10.3.1
     concurrently: ^7.0.0
     cross-env: ^7.0.3

@@ -1,7 +1,6 @@
 import styles from '!!raw-loader!./Alert.css';
 import varStyles from '!!raw-loader!../../../shared/variables.css';
 import bootstrapStyles from '!!raw-loader!../../../shared/themed-bootstrap.css';
-import bootstrapIcons from '!!raw-loader!bootstrap-icons/font/bootstrap-icons.css';
 
 const template = document.createElement('template');
 
@@ -38,8 +37,6 @@ export default class Alert extends HTMLElement {
   }
 
   connectedCallback() {
-    const bootIcons = document.createElement('style');
-    bootIcons.textContent = bootstrapIcons;
     const bootStyles = document.createElement('style');
     bootStyles.textContent = bootstrapStyles;
     const variableStyles = document.createElement('style');
@@ -47,7 +44,6 @@ export default class Alert extends HTMLElement {
     const alertStyles = document.createElement('style');
     alertStyles.textContent = styles;
     this.shadowRoot.appendChild(bootStyles);
-    this.shadowRoot.appendChild(bootIcons);
     this.shadowRoot.appendChild(variableStyles);
     this.shadowRoot.appendChild(alertStyles);
     // alert attributes
