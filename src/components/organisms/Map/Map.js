@@ -5,7 +5,7 @@ import styles from '!!raw-loader!./Map.css';
 import maplibreStyles from '!!raw-loader!../../../../node_modules/maplibre-gl/dist/maplibre-gl.css';
 export default class Map extends HTMLElement {
   static get observedAttributes() {
-    return ['data-map-state','data-map-mode'];
+    return ['data-map-state', 'data-map-mode'];
   }
 
   constructor() {
@@ -31,31 +31,30 @@ export default class Map extends HTMLElement {
     mapContainer.id = 'map';
     this.mapWrapper.appendChild(mapContainer);
     shadow.appendChild(this.mapWrapper);
-    
+
     this.map = new maplibregl.Map({
       container: mapContainer,
       style: mapStyle,
       center: [-83.1, 42.36],
       zoom: 9,
     });
-    
   }
 
   // TODO: See CityOfDetroit/detroitmi#1099
   // eslint-disable-next-line no-unused-vars
   attributeChangedCallback(name, oldValue, newValue) {
     switch (name) {
-      case 'data-map-state':
+      case 'data-map-state': {
         const locationPoint = JSON.parse(this.getAttribute('data-location'));
         const coord = [locationPoint.location.x, locationPoint.location.y];
         this.map.addControl(new maplibregl.NavigationControl());
         this.map.on('style.load', () => {
           this.map.resize();
 
-          if(locationPoint){
-            const marker = new maplibregl.Marker()
-            .setLngLat(coord)
-            .addTo(this.map);
+          if (locationPoint) {
+            const marker = new maplibregl.Marker();
+            marker.setLngLat(coord);
+            marker.addTo(this.map);
             this.map.flyTo({
               // These options control the ending camera position: centered at
               // the target, at zoom level 9, and north up.
@@ -79,7 +78,7 @@ export default class Map extends HTMLElement {
               essential: true,
             });
           }
-          
+
           const mapData = JSON.parse(this.getAttribute('data-map-data'));
           this.map.addSource('data-points', {
             type: 'geojson',
@@ -118,15 +117,16 @@ export default class Map extends HTMLElement {
           tempMap.map.getCanvas().style.cursor = '';
         });
         break;
+      }
 
-      case 'data-map-mode':
+      case 'data-map-mode': {
         // Get map mode
         const mapMode = this.getAttribute('data-map-mode');
         switch (mapMode) {
-          case 'my-home-info':
+          case 'my-home-info': {
             const app = document.getElementsByTagName('my-home-info');
             const closeMapBtn = document.createElement('cod-button');
-            closeMapBtn.addEventListener('click', (ev) => {
+            closeMapBtn.addEventListener('click', () => {
               app[0].setAttribute('data-app-state', 'results');
             });
             closeMapBtn.setAttribute('data-primary', true);
@@ -141,14 +141,17 @@ export default class Map extends HTMLElement {
             this.mapWrapper.appendChild(closeMapBtn);
             app[0].setAttribute('data-map-state', 'init');
             break;
+          }
 
-          case 'single-location':
+          case 'single-location': {
             break;
-        
+          }
+
           default:
             break;
-        }  
+        }
         break;
+      }
 
       default:
         break;
@@ -158,7 +161,6 @@ export default class Map extends HTMLElement {
   buildPopup(dataType, data, map, e) {
     switch (dataType) {
       case 'schools':
-        console.log(e.features[0].properties.EntityOfficialName);
         new maplibregl.Popup()
           .setLngLat(e.lngLat)
           .setHTML(
