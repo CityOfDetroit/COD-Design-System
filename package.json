@@ -30,7 +30,7 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "deploy-storybook": "storybook-to-ghpages",
-    "test-storybook": "test-storybook",
+    "test-storybook": "test-storybook --maxWorkers=2 --coverage",
     "release": "auto shipit --base-branch=dev",
     "chromatic": "chromatic --exit-zero-on-changes"
   },
