@@ -80,25 +80,28 @@ export default class Map extends HTMLElement {
           }
 
           const mapData = JSON.parse(this.getAttribute('data-map-data'));
-          this.map.addSource('data-points', {
-            type: 'geojson',
-            data: mapData.data,
-          });
-          this.map.addLayer({
-            id: 'data-points',
-            type: 'circle',
-            source: 'data-points',
-            paint: {
-              'circle-radius': {
-                base: 5,
-                stops: [
-                  [12, 5],
-                  [22, 120],
-                ],
+          if(mapData){
+            this.map.addSource('data-points', {
+              type: 'geojson',
+              data: mapData.data,
+            });
+            this.map.addLayer({
+              id: 'data-points',
+              type: 'circle',
+              source: 'data-points',
+              paint: {
+                'circle-radius': {
+                  base: 5,
+                  stops: [
+                    [12, 5],
+                    [22, 120],
+                  ],
+                },
+                'circle-color': '#004544',
               },
-              'circle-color': '#004544',
-            },
-          });
+            });
+          }
+          
         });
         // Creating this temp variable for workaround with dealing with "this" encapsulation
         // TODO: See CityOfDetroit/detroitmi#1099
@@ -124,10 +127,11 @@ export default class Map extends HTMLElement {
         const mapMode = this.getAttribute('data-map-mode');
         switch (mapMode) {
           case 'my-home-info': {
-            const app = document.getElementsByTagName('my-home-info');
+            const parentComponentName = this.getAttribute('data-parent-component');
+            const app = document.getElementsByTagName(parentComponentName);
             const closeMapBtn = document.createElement('cod-button');
             closeMapBtn.addEventListener('click', () => {
-              app[0].setAttribute('data-app-state', 'results');
+              (app[0]) ? app[0].setAttribute('data-app-state', 'results') : 0;
             });
             closeMapBtn.setAttribute('data-primary', true);
             closeMapBtn.setAttribute('data-label', 'x');
@@ -139,7 +143,7 @@ export default class Map extends HTMLElement {
             closeMapBtn.setAttribute('data-icon', '');
             closeMapBtn.setAttribute('data-shape', 'square');
             this.mapWrapper.appendChild(closeMapBtn);
-            app[0].setAttribute('data-map-state', 'init');
+            (app[0]) ? app[0].setAttribute('data-map-state', 'init') : 0;
             break;
           }
 
