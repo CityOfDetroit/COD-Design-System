@@ -80,7 +80,7 @@ export default class Map extends HTMLElement {
           }
 
           const mapData = JSON.parse(this.getAttribute('data-map-data'));
-          if(mapData){
+          if (mapData) {
             this.map.addSource('data-points', {
               type: 'geojson',
               data: mapData.data,
@@ -101,7 +101,6 @@ export default class Map extends HTMLElement {
               },
             });
           }
-          
         });
         // Creating this temp variable for workaround with dealing with "this" encapsulation
         // TODO: See CityOfDetroit/detroitmi#1099
@@ -127,11 +126,13 @@ export default class Map extends HTMLElement {
         const mapMode = this.getAttribute('data-map-mode');
         switch (mapMode) {
           case 'my-home-info': {
-            const parentComponentName = this.getAttribute('data-parent-component');
+            const parentComponentName = this.getAttribute(
+              'data-parent-component',
+            );
             const app = document.getElementsByTagName(parentComponentName);
             const closeMapBtn = document.createElement('cod-button');
             closeMapBtn.addEventListener('click', () => {
-              (app[0]) ? app[0].setAttribute('data-app-state', 'results') : 0;
+              app[0] ? app[0].setAttribute('data-app-state', 'results') : 0;
             });
             closeMapBtn.setAttribute('data-primary', true);
             closeMapBtn.setAttribute('data-label', 'x');
@@ -143,7 +144,7 @@ export default class Map extends HTMLElement {
             closeMapBtn.setAttribute('data-icon', '');
             closeMapBtn.setAttribute('data-shape', 'square');
             this.mapWrapper.appendChild(closeMapBtn);
-            (app[0]) ? app[0].setAttribute('data-map-state', 'init') : 0;
+            app[0] ? app[0].setAttribute('data-map-state', 'init') : 0;
             break;
           }
 
