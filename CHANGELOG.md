@@ -1,3 +1,30 @@
+# v1.0.13 (Tue Feb 06 2024)
+
+#### 🐛 Bug Fix
+
+- Fix bold when using light fonts [#137](https://github.com/CityOfDetroit/COD-Design-System/pull/137) ([@maxatdetroit](https://github.com/maxatdetroit))
+
+#### 🏎 Performance
+
+- Adding icons for intranet and chevron circles. [#151](https://github.com/CityOfDetroit/COD-Design-System/pull/151) ([@jedgar1mx](https://github.com/jedgar1mx))
+
+#### 🧪 Tests
+
+- Setting up map component modes, fixing dev conflicts. [#150](https://github.com/CityOfDetroit/COD-Design-System/pull/150) ([@jedgar1mx](https://github.com/jedgar1mx))
+- Chromatic [#141](https://github.com/CityOfDetroit/COD-Design-System/pull/141) ([@jedgar1mx](https://github.com/jedgar1mx))
+- Add CI workflow for storybook tests [#138](https://github.com/CityOfDetroit/COD-Design-System/pull/138) ([@maxatdetroit](https://github.com/maxatdetroit))
+
+#### 🔩 Dependency Updates
+
+- Feature.147 [#148](https://github.com/CityOfDetroit/COD-Design-System/pull/148) ([@jedgar1mx](https://github.com/jedgar1mx))
+
+#### Authors: 2
+
+- J Edgar Montes ([@jedgar1mx](https://github.com/jedgar1mx))
+- Max Morgan ([@maxatdetroit](https://github.com/maxatdetroit))
+
+---
+
 # v1.0.12 (Fri Jan 12 2024)
 
 #### 🐛 Bug Fix
