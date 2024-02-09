@@ -34,7 +34,11 @@ export default {
         'building-fill',
         'buildings',
         'buildings-fill',
-      ],
+        'currency-dollar',
+        'file-earmark',
+        'list-task',
+        'journals',
+      ].sort(),
     },
     size: {
       control: { type: 'select' },
