@@ -1,0 +1,18 @@
+div {
+  font-family: var(--font-family);
+}
+
+.info-btn-title {
+  font-weight: 900;
+}
+
+.card {
+  --bs-card-bg: initial;
+  --bs-card-border-width: 0;
+}
+
+.btn {
+  --bs-btn-padding-x: 0rem;
+  --bs-btn-padding-y: 0rem;
+  text-align: initial;
+}
