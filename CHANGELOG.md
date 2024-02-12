@@ -1,3 +1,16 @@
+# v1.0.14 (Mon Feb 12 2024)
+
+#### 🏎 Performance
+
+- Adding additional icons for intranet. [#157](https://github.com/CityOfDetroit/COD-Design-System/pull/157) ([@maxatdetroit](https://github.com/maxatdetroit))
+
+
+#### Authors: 1
+
+- Max Morgan ([@maxatdetroit](https://github.com/maxatdetroit))
+
+---
+
 # v1.0.13 (Tue Feb 06 2024)
 
 #### 🐛 Bug Fix
