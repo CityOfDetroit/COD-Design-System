@@ -46,12 +46,12 @@ export default class Map extends HTMLElement {
     switch (name) {
       case 'data-map-state': {
         const locationPoint = JSON.parse(this.getAttribute('data-location'));
-        const coord = [locationPoint.location.x, locationPoint.location.y];
         this.map.addControl(new maplibregl.NavigationControl());
         this.map.on('style.load', () => {
           this.map.resize();
 
           if (locationPoint) {
+            const coord = [locationPoint.location.x, locationPoint.location.y];
             const marker = new maplibregl.Marker();
             marker.setLngLat(coord);
             marker.addTo(this.map);
@@ -107,8 +107,26 @@ export default class Map extends HTMLElement {
         // eslint-disable-next-line no-case-declarations
         const tempMap = this;
         this.map.on('click', 'data-points', function (e) {
-          const activeData = tempMap.getAttribute('data-map-active-data');
-          tempMap.buildPopup(activeData, e.features[0], tempMap, e);
+          switch (tempMap.getAttribute('data-map-mode')) {
+            case 'my-home-info':
+              const activeData = tempMap.getAttribute('data-map-active-data');
+              tempMap.buildPopup(activeData, e.features[0], tempMap, e);
+              break;
+            
+            case 'map-panel':
+              const parentComponentName = tempMap.getAttribute(
+                'data-parent-component',
+              );
+              console.log(parentComponentName);
+              const app = document.getElementsByTagName(parentComponentName);
+              console.log(app);
+              app[0].setAttribute('data-panel-data', JSON.stringify(e.features[0]));
+              app[0].setAttribute('data-app-state', 'active-panel');
+              break;
+          
+            default:
+              break;
+          }
         });
         this.map.on('mouseenter', 'data-points', function () {
           tempMap.map.getCanvas().style.cursor = 'pointer';
@@ -143,6 +161,7 @@ export default class Map extends HTMLElement {
             closeMapBtn.setAttribute('data-img-alt', '');
             closeMapBtn.setAttribute('data-icon', '');
             closeMapBtn.setAttribute('data-shape', 'square');
+            closeMapBtn.setAttribute('data-extra-classes', 'fw-bold');
             this.mapWrapper.appendChild(closeMapBtn);
             app[0] ? app[0].setAttribute('data-map-state', 'init') : 0;
             break;
