@@ -45,24 +45,27 @@ class InfoButton extends HTMLElement {
     imgElt.setAttribute('alt', imgAlt);
     imgElt.classList.add('card-img-top', 'img-fluid');
 
-
     // Build the title section.
-    // TODO: Make title-primary conditional.
     const titlePrim = this.getAttribute('title-primary');
-    const titlePrimElt = document.createElement('h5');
-    titlePrimElt.innerText = titlePrim;
+    let titleContainer = null;
+    if (titlePrim) {
+      titleContainer = document.createElement('div');
+      titleContainer.classList.add('d-flex', 'justify-content-between');
 
-    // TODO: Make title-secondary conditional.
-    const titleSec = this.getAttribute('title-secondary');
-    const titleSecElt = document.createElement('h5');
-    titleSecElt.innerText = titleSec;
-    [titlePrimElt, titleSecElt].forEach((elt) => elt.classList.add('info-btn-title'));
-    titleSecElt.classList.add('text-warning', 'text-end');
+      const titlePrimElt = document.createElement('h5');
+      titlePrimElt.innerText = titlePrim;
+      titlePrimElt.classList.add('info-btn-title');
+      titleContainer.appendChild(titlePrimElt);
 
-    const titleContainer = document.createElement('div');
-    titleContainer.classList.add('d-flex', 'justify-content-between');
-    titleContainer.appendChild(titlePrimElt);
-    titleContainer.appendChild(titleSecElt);
+      // TODO: Make title-secondary conditional.
+      const titleSec = this.getAttribute('title-secondary');
+      if (titleSec) {
+        const titleSecElt = document.createElement('h5');
+        titleSecElt.innerText = titleSec;
+        titleSecElt.classList.add('info-btn-title', 'text-warning', 'text-end');
+        titleContainer.appendChild(titleSecElt);
+      }
+    }
 
     // Build the body section.
     const body = this.getAttribute('body');
@@ -73,14 +76,20 @@ class InfoButton extends HTMLElement {
     chevronElt.setAttribute('data-icon', 'chevron-right-circle');
     chevronElt.setAttribute('data-size', 'medium');
     const bodyContainer = document.createElement('div');
-    bodyContainer.classList.add('d-flex', 'justify-content-between', 'align-items-center');
+    bodyContainer.classList.add(
+      'd-flex',
+      'justify-content-between',
+      'align-items-center',
+    );
     bodyContainer.appendChild(bodyElt);
     bodyContainer.appendChild(chevronElt);
 
     // Build the card body.
     const cardBodyElt = document.createElement('div');
     cardBodyElt.classList.add('card-body', 'text-light');
-    cardBodyElt.appendChild(titleContainer);
+    if (titleContainer) {
+      cardBodyElt.appendChild(titleContainer);
+    }
     cardBodyElt.appendChild(bodyContainer);
 
     // Build the card.
