@@ -1,3 +1,4 @@
+import { html } from 'lit-html';
 import '../components/organisms/Card/cod-card';
 import '../components/atoms/CardBody/cod-card-body';
 import '../components/atoms/Icon/cod-icon';
@@ -48,3 +49,78 @@ const Template = (args) => {
 };
 
 export const Primary = Template.bind({});
+
+export const InfoButtonGrid = () => html`
+  <div class="container-fluid">
+    <div class="row my-3">
+      <div class="col-sm-4">
+        <cod-info-button
+          img-src="https://placehold.co/800x400/000000/FFF"
+          img-alt="..."
+          href="https://example.com"
+          target="_blank"
+          title-primary="Some Information"
+          body="Commercial demolition and rehab"
+        >
+        </cod-info-button>
+      </div>
+      <div class="col-sm-4">
+        <cod-info-button
+          img-src="https://placehold.co/800x400/000000/FFF"
+          img-alt="..."
+          href="https://example.com"
+          target="_blank"
+          title-primary="Some Information"
+          body="Commercial demolition and rehab but this content is going to spread onto multiple lines"
+        >
+        </cod-info-button>
+      </div>
+      <div class="col-sm-4">
+        <cod-info-button
+          img-src="https://placehold.co/800x400/000000/FFF"
+          img-alt="..."
+          href="https://example.com"
+          target="_blank"
+          title-primary="Some Information"
+          body="Commercial demolition and rehab"
+        >
+        </cod-info-button>
+      </div>
+    </div>
+    <div class="row my-3">
+      <div class="col-sm-4">
+        <cod-info-button
+          img-src="https://placehold.co/800x400/000000/FFF"
+          img-alt="..."
+          href="https://example.com"
+          target="_blank"
+          title-primary="Some Information"
+          body="Commercial demolition and rehab"
+        >
+        </cod-info-button>
+      </div>
+      <div class="col-sm-4">
+        <cod-info-button
+          img-src="https://placehold.co/800x400/000000/FFF"
+          img-alt="..."
+          href="https://example.com"
+          target="_blank"
+          title-primary="Some Information"
+          body="Commercial demolition and rehab"
+        >
+        </cod-info-button>
+      </div>
+      <div class="col-sm-4">
+        <cod-info-button
+          img-src="https://placehold.co/800x400/000000/FFF"
+          img-alt="..."
+          href="https://example.com"
+          target="_blank"
+          title-primary="Some Information"
+          body="Commercial demolition and rehab"
+        >
+        </cod-info-button>
+      </div>
+    </div>
+  </div>
+`;

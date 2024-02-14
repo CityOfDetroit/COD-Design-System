@@ -17,6 +17,7 @@ class InfoButton extends HTMLElement {
     const shadow = this.attachShadow({ mode: 'open' });
     shadow.appendChild(template.content.cloneNode(true));
     this.div = document.createElement('div');
+    this.div.classList.add('info-button-container');
     shadow.addEventListener('slotchange', (ev) => {
       const tempElements = ev.target.assignedElements();
       tempElements.forEach((node) => {
