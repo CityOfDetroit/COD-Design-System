@@ -2,6 +2,25 @@ import styles from '!!raw-loader!./ActionButton.css';
 import varStyles from '!!raw-loader!../../../shared/variables.css';
 import bootstrapStyles from '!!raw-loader!../../../shared/themed-bootstrap.css';
 
+const template = document.createElement('template');
+
+template.innerHTML = `
+<div class="action-button-container">
+  <a class="btn" role="button" href="">
+    <div class="abutton">
+      <div class="w-100 top-icon">
+        <cod-icon data-icon="" data-size="x-large">
+        </cod-icon>
+      </div>
+      <div class="abutton-body">
+        <h4 class="abutton-title"></h4>
+        <slot></slot>
+      </div>
+    </div>
+  </a>
+</div>
+`;
+
 class ActionButton extends HTMLElement {
   static observedAttributes = [];
 
@@ -10,8 +29,7 @@ class ActionButton extends HTMLElement {
     super();
     // Create a shadow root
     const shadow = this.attachShadow({ mode: 'open' });
-    this.div = document.createElement('div');
-    this.div.classList.add('action-button-container');
+    shadow.appendChild(template.content.cloneNode(true));
 
     // Add styles
     const bootStyles = document.createElement('style');
@@ -26,51 +44,26 @@ class ActionButton extends HTMLElement {
   }
 
   connectedCallback() {
-    // Build abutton body.
+    // Update the title.
     const title = this.getAttribute('title');
-    const titleElt = document.createElement('h4');
-    titleElt.classList.add('abutton-title');
+    const titleElt = this.shadowRoot.querySelector('h4.abutton-title');
     titleElt.innerText = title;
-    const body = this.getAttribute('body');
-    const bodyElt = document.createElement('p');
-    bodyElt.classList.add('abutton-text');
-    bodyElt.innerText = body;
-    const abuttonBody = document.createElement('div');
-    abuttonBody.classList.add('abutton-body');
-    abuttonBody.appendChild(titleElt);
-    abuttonBody.appendChild(bodyElt);
 
-    // Build abutton top icon.
+    // Update the icon.
     const icon = this.getAttribute('icon');
-    const iconElt = document.createElement('cod-icon');
+    const iconElt = this.shadowRoot.querySelector('cod-icon');
     iconElt.setAttribute('data-icon', icon);
-    iconElt.setAttribute('data-size', 'x-large');
-    const iconContainer = document.createElement('div');
-    iconContainer.classList.add('w-100', 'top-icon');
-    iconContainer.appendChild(iconElt);
 
-    // Build abutton.
-    const abuttonElt = document.createElement('div');
-    abuttonElt.classList.add('abutton');
-    abuttonElt.appendChild(iconContainer);
-    abuttonElt.appendChild(abuttonBody);
-
-    // Build clickable wrapper.
+    // Update the button link and style.
     const btnColor = this.getAttribute('btn-color') ?? 'btn-outline-primary';
     const href = this.getAttribute('href');
     const target = this.getAttribute('target');
-    const clickableContainer = document.createElement('a');
-    clickableContainer.classList.add('btn', btnColor);
-    clickableContainer.setAttribute('role', 'button');
-    clickableContainer.setAttribute('href', href);
+    const aElt = this.shadowRoot.querySelector('a.btn');
+    aElt.classList.add('btn', btnColor);
+    aElt.setAttribute('href', href);
     if (target) {
-      clickableContainer.setAttribute('target', target);
+      aElt.setAttribute('target', target);
     }
-    clickableContainer.appendChild(abuttonElt);
-
-    // Append to shadow root.
-    this.div.appendChild(clickableContainer);
-    this.shadowRoot.appendChild(this.div);
   }
 }
 

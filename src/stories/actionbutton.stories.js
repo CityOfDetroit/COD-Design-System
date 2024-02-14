@@ -38,12 +38,37 @@ const Template = (args) => {
   aButton.setAttribute('btn-color', args.buttonColor);
   aButton.setAttribute('icon', args.icon);
   aButton.setAttribute('title', args.title);
-  aButton.setAttribute('body', args.body);
   aButton.setAttribute('href', 'https://example.com');
+  const body = document.createElement('p');
+  body.innerText = args.body;
+  aButton.appendChild(body);
   return aButton;
 };
 
 export const ActionButton = Template.bind({});
+
+export const ActionButtonRichBody = () => html`
+  <div style="width: 300px; height: 300px">
+    <cod-action-button
+      btn-color="btn-outline-primary"
+      icon="house"
+      title="Do Something"
+      href="https://example.com"
+      target="_blank"
+    >
+      <p>
+        Anything can go inside an action button but it's best to keep to simple
+        text.
+      </p>
+      <img
+        src="https://placehold.co/800x400/000000/FFF"
+        alt="..."
+        width="100"
+        height="50"
+      />
+    </cod-action-button>
+  </div>
+`;
 
 export const ActionButtonGrid = () => html`
   <div class="container-fluid">
@@ -53,10 +78,10 @@ export const ActionButtonGrid = () => html`
           btn-color="btn-outline-primary"
           icon="house"
           title="Do Something"
-          body="Like Click on This Button"
           href="https://example.com"
           target="_blank"
         >
+          <p>Like Click on This Button</p>
         </cod-action-button>
       </div>
       <div class="col-sm-4">
@@ -64,10 +89,14 @@ export const ActionButtonGrid = () => html`
           btn-color="btn-outline-primary"
           icon="house"
           title="Do Something"
-          body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus eros sit amet augue tempus sollicitudin. Mauris lacinia ante et."
           href="https://example.com"
           target="_blank"
         >
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
+            luctus eros sit amet augue tempus sollicitudin. Mauris lacinia ante
+            et.
+          </p>
         </cod-action-button>
       </div>
       <div class="col-sm-4">
@@ -75,10 +104,10 @@ export const ActionButtonGrid = () => html`
           btn-color="btn-outline-primary"
           icon="house"
           title="Do Something"
-          body="Like Click on This Button"
           href="https://example.com"
           target="_blank"
         >
+          <p>Like Click on This Button</p>
         </cod-action-button>
       </div>
     </div>
@@ -88,10 +117,10 @@ export const ActionButtonGrid = () => html`
           btn-color="btn-outline-primary"
           icon="house"
           title="Do Something"
-          body="Like Click on This Button"
           href="https://example.com"
           target="_blank"
         >
+          <p>Like Click on This Button</p>
         </cod-action-button>
       </div>
       <div class="col-sm-4">
@@ -99,10 +128,10 @@ export const ActionButtonGrid = () => html`
           btn-color="btn-outline-primary"
           icon="house"
           title="Do Something"
-          body="Like Click on This Button"
           href="https://example.com"
           target="_blank"
         >
+          <p>Like Click on This Button</p>
         </cod-action-button>
       </div>
       <div class="col-sm-4">
@@ -110,10 +139,10 @@ export const ActionButtonGrid = () => html`
           btn-color="btn-outline-primary"
           icon="house"
           title="Do Something"
-          body="Like Click on This Button"
           href="https://example.com"
           target="_blank"
         >
+          <p>Like Click on This Button</p>
         </cod-action-button>
       </div>
     </div>
