@@ -1,3 +1,4 @@
+import { html } from 'lit-html';
 import '../components/atoms/ActionButton/cod-action-button';
 import '../components/atoms/Clickable/cod-clickable';
 import '../components/atoms/Icon/cod-icon';
@@ -11,7 +12,11 @@ export default {
   // 👇 Creates specific argTypes
   argTypes: {
     buttonColor: {
-      options: ['btn-primary', 'btn-secondary', 'btn-success'],
+      options: [
+        'btn-outline-primary',
+        'btn-outline-secondary',
+        'btn-outline-success',
+      ],
       control: 'select',
     },
     icon: IconStory.argTypes.icon,
@@ -23,7 +28,7 @@ export default {
     },
   },
   args: {
-    buttonColor: 'btn-primary',
+    buttonColor: 'btn-outline-primary',
     title: 'Do Something',
     body: 'Like click on this card',
     icon: 'house-fill',
@@ -42,3 +47,78 @@ const Template = (args) => {
 };
 
 export const ActionButton = Template.bind({});
+
+export const ActionButtonGrid = () => html`
+  <div class="container-fluid">
+    <div class="row my-3">
+      <div class="col-sm-4">
+        <cod-action-button
+          btn-color="btn-outline-primary"
+          icon="house"
+          title="Do Something"
+          body="Like Click on This Button"
+          href="https://example.com"
+          target="_blank"
+        >
+        </cod-action-button>
+      </div>
+      <div class="col-sm-4">
+        <cod-action-button
+          btn-color="btn-outline-primary"
+          icon="house"
+          title="Do Something"
+          body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus eros sit amet augue tempus sollicitudin. Mauris lacinia ante et."
+          href="https://example.com"
+          target="_blank"
+        >
+        </cod-action-button>
+      </div>
+      <div class="col-sm-4">
+        <cod-action-button
+          btn-color="btn-outline-primary"
+          icon="house"
+          title="Do Something"
+          body="Like Click on This Button"
+          href="https://example.com"
+          target="_blank"
+        >
+        </cod-action-button>
+      </div>
+    </div>
+    <div class="row my-3">
+      <div class="col-sm-4">
+        <cod-action-button
+          btn-color="btn-outline-primary"
+          icon="house"
+          title="Do Something"
+          body="Like Click on This Button"
+          href="https://example.com"
+          target="_blank"
+        >
+        </cod-action-button>
+      </div>
+      <div class="col-sm-4">
+        <cod-action-button
+          btn-color="btn-outline-primary"
+          icon="house"
+          title="Do Something"
+          body="Like Click on This Button"
+          href="https://example.com"
+          target="_blank"
+        >
+        </cod-action-button>
+      </div>
+      <div class="col-sm-4">
+        <cod-action-button
+          btn-color="btn-outline-primary"
+          icon="house"
+          title="Do Something"
+          body="Like Click on This Button"
+          href="https://example.com"
+          target="_blank"
+        >
+        </cod-action-button>
+      </div>
+    </div>
+  </div>
+`;

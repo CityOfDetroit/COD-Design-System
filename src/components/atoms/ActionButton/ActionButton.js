@@ -11,6 +11,7 @@ class ActionButton extends HTMLElement {
     // Create a shadow root
     const shadow = this.attachShadow({ mode: 'open' });
     this.div = document.createElement('div');
+    this.div.classList.add('action-button-container');
 
     // Add styles
     const bootStyles = document.createElement('style');
@@ -25,22 +26,21 @@ class ActionButton extends HTMLElement {
   }
 
   connectedCallback() {
-    // Build card body.
+    // Build abutton body.
     const title = this.getAttribute('title');
     const titleElt = document.createElement('h4');
-    titleElt.classList.add('card-title');
-    titleElt.style.textTransform = 'uppercase';
-    titleElt.style.fontWeight = '900';
+    titleElt.classList.add('abutton-title');
     titleElt.innerText = title;
     const body = this.getAttribute('body');
     const bodyElt = document.createElement('p');
-    bodyElt.classList.add('card-text');
+    bodyElt.classList.add('abutton-text');
     bodyElt.innerText = body;
-    const cardBody = document.createElement('cod-card-body');
-    cardBody.appendChild(titleElt);
-    cardBody.appendChild(bodyElt);
+    const abuttonBody = document.createElement('div');
+    abuttonBody.classList.add('abutton-body');
+    abuttonBody.appendChild(titleElt);
+    abuttonBody.appendChild(bodyElt);
 
-    // Build card top icon.
+    // Build abutton top icon.
     const icon = this.getAttribute('icon');
     const iconElt = document.createElement('cod-icon');
     iconElt.setAttribute('data-icon', icon);
@@ -49,20 +49,24 @@ class ActionButton extends HTMLElement {
     iconContainer.classList.add('w-100', 'top-icon');
     iconContainer.appendChild(iconElt);
 
-    // Build card.
-    const cardElt = document.createElement('cod-card');
-    cardElt.appendChild(iconContainer);
-    cardElt.appendChild(cardBody);
+    // Build abutton.
+    const abuttonElt = document.createElement('div');
+    abuttonElt.classList.add('abutton');
+    abuttonElt.appendChild(iconContainer);
+    abuttonElt.appendChild(abuttonBody);
 
     // Build clickable wrapper.
+    const btnColor = this.getAttribute('btn-color') ?? 'btn-outline-primary';
     const href = this.getAttribute('href');
     const target = this.getAttribute('target');
-    const btnColor = this.getAttribute('btn-color');
-    const clickableContainer = document.createElement('cod-clickable');
+    const clickableContainer = document.createElement('a');
+    clickableContainer.classList.add('btn', btnColor);
+    clickableContainer.setAttribute('role', 'button');
     clickableContainer.setAttribute('href', href);
-    clickableContainer.setAttribute('target', target);
-    clickableContainer.setAttribute('data-btn-color', btnColor);
-    clickableContainer.appendChild(cardElt);
+    if (target) {
+      clickableContainer.setAttribute('target', target);
+    }
+    clickableContainer.appendChild(abuttonElt);
 
     // Append to shadow root.
     this.div.appendChild(clickableContainer);
