@@ -2,7 +2,9 @@ div {
   font-family: var(--font-family);
 }
 
-.info-button-container, .info-button-container > a, .info-button-container > a > .card {
+.info-button-container,
+.info-button-container > a,
+.info-button-container > a > .card {
   width: 100%;
   height: 100%;
 }
