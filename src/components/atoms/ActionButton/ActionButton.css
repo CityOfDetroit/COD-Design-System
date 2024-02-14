@@ -30,7 +30,6 @@ div {
 .abutton {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   min-width: 0;
   --abutton-spacer-y: 1em;
   --abutton-spacer-x: 1em;
