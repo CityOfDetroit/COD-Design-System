@@ -1,9 +1,6 @@
 import { html } from 'lit-html';
 import '../components/atoms/ActionButton/cod-action-button';
-import '../components/atoms/Clickable/cod-clickable';
 import '../components/atoms/Icon/cod-icon';
-import '../components/atoms/CardBody/cod-card-body';
-import '../components/organisms/Card/cod-card';
 import IconStory from './icon.stories';
 
 export default {
