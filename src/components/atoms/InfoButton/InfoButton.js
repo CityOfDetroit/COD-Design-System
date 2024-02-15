@@ -39,11 +39,11 @@ class InfoButton extends HTMLElement {
     let titleContainer = null;
     if (titlePrim) {
       titleContainer = document.createElement('div');
-      titleContainer.classList.add('d-flex', 'justify-content-between');
+      titleContainer.classList.add('d-flex', 'justify-content-between', 'flex-wrap');
 
       const titlePrimElt = document.createElement('h5');
       titlePrimElt.innerText = titlePrim;
-      titlePrimElt.classList.add('info-btn-title');
+      titlePrimElt.classList.add('info-btn-title', 'me-2');
       titleContainer.appendChild(titlePrimElt);
 
       const titleSec = this.getAttribute('title-secondary');
