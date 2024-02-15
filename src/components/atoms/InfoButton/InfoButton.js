@@ -2,11 +2,6 @@ import styles from '!!raw-loader!./InfoButton.css';
 import varStyles from '!!raw-loader!../../../shared/variables.css';
 import bootstrapStyles from '!!raw-loader!../../../shared/themed-bootstrap.css';
 
-const template = document.createElement('template');
-template.innerHTML = `
-<slot></slot>
-`;
-
 class InfoButton extends HTMLElement {
   static observedAttributes = [];
 
@@ -15,15 +10,8 @@ class InfoButton extends HTMLElement {
     super();
     // Create a shadow root
     const shadow = this.attachShadow({ mode: 'open' });
-    shadow.appendChild(template.content.cloneNode(true));
     this.div = document.createElement('div');
     this.div.classList.add('info-button-container');
-    shadow.addEventListener('slotchange', (ev) => {
-      const tempElements = ev.target.assignedElements();
-      tempElements.forEach((node) => {
-        this.div.append(node);
-      });
-    });
 
     // Add styles
     const bootStyles = document.createElement('style');
@@ -58,7 +46,6 @@ class InfoButton extends HTMLElement {
       titlePrimElt.classList.add('info-btn-title');
       titleContainer.appendChild(titlePrimElt);
 
-      // TODO: Make title-secondary conditional.
       const titleSec = this.getAttribute('title-secondary');
       if (titleSec) {
         const titleSecElt = document.createElement('h5');
