@@ -24,6 +24,13 @@ export default {
         If the attribute is not included or empty string, and the primary \
         title is also ommitted, then the entire title row is omitted.',
     },
+    forceTitleMultiline: {
+      control: 'boolean',
+      description:
+        '(Optional) If this attribute is set, the primary and secondary \
+        titles will be forced onto two separate lines even if they would fit \
+        onto a single line.',
+    },
     body: {
       control: 'text',
       description: 'The text to be used for the body of the button.',
@@ -44,6 +51,9 @@ const Template = (args) => {
   infoBtn.setAttribute('target', '_blank');
   infoBtn.setAttribute('title-primary', args.titlePrimary);
   infoBtn.setAttribute('title-secondary', args.titleSecondary);
+  if (args.forceTitleMultiline) {
+    infoBtn.setAttribute('force-title-multiline', '');
+  }
   infoBtn.setAttribute('body', args.body);
   return infoBtn;
 };

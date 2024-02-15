@@ -35,25 +35,7 @@ class InfoButton extends HTMLElement {
     imgElt.classList.add('card-img-top', 'img-fluid');
 
     // Build the title section.
-    const titlePrim = this.getAttribute('title-primary');
-    let titleContainer = null;
-    if (titlePrim) {
-      titleContainer = document.createElement('div');
-      titleContainer.classList.add('d-flex', 'justify-content-between', 'flex-wrap');
-
-      const titlePrimElt = document.createElement('h5');
-      titlePrimElt.innerText = titlePrim;
-      titlePrimElt.classList.add('info-btn-title', 'me-2');
-      titleContainer.appendChild(titlePrimElt);
-
-      const titleSec = this.getAttribute('title-secondary');
-      if (titleSec) {
-        const titleSecElt = document.createElement('h5');
-        titleSecElt.innerText = titleSec;
-        titleSecElt.classList.add('info-btn-title', 'text-warning', 'text-end');
-        titleContainer.appendChild(titleSecElt);
-      }
-    }
+    const titleContainer = this.buildTitleSection();
 
     // Build the body section.
     const body = this.getAttribute('body');
@@ -100,6 +82,41 @@ class InfoButton extends HTMLElement {
 
     this.div.appendChild(clickableContainer);
     this.shadowRoot.appendChild(this.div);
+  }
+
+  buildTitleSection() {
+    const titlePrim = this.getAttribute('title-primary');
+    if (!titlePrim) {
+      return null;
+    }
+
+    const titleMultiline = this.getAttribute('force-title-multiline');
+    const titleContainer = document.createElement('div');
+    if (titleMultiline === null) {
+      titleContainer.classList.add(
+        'd-flex',
+        'justify-content-between',
+        'flex-wrap',
+      );
+    }
+
+    const titlePrimElt = document.createElement('h5');
+    titlePrimElt.innerText = titlePrim;
+    titlePrimElt.classList.add('info-btn-title', 'me-2');
+    titleContainer.appendChild(titlePrimElt);
+
+    const titleSec = this.getAttribute('title-secondary');
+    if (titleSec) {
+      const titleSecElt = document.createElement('h5');
+      titleSecElt.innerText = titleSec;
+      titleSecElt.classList.add(
+        'info-btn-title',
+        'text-warning',
+        titleMultiline !== null ? null : 'text-end',
+      );
+      titleContainer.appendChild(titleSecElt);
+    }
+    return titleContainer;
   }
 }
 
