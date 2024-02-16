@@ -2,6 +2,26 @@ import styles from '!!raw-loader!./InfoButton.css';
 import varStyles from '!!raw-loader!../../../shared/variables.css';
 import bootstrapStyles from '!!raw-loader!../../../shared/themed-bootstrap.css';
 
+const template = document.createElement('template');
+
+template.innerHTML = `
+<div class="info-button-container">
+  <a class="btn btn-primary" role="button" href="">
+    <div class="card">
+      <img src="" alt="" class="card-img-top img-fluid">
+      <div class="card-body text-light">
+        <div class="d-flex justify-content-between align-items-center">
+          <div class="pe-3">
+            <slot></slot>
+          </div>
+          <cod-icon data-icon="chevron-right-circle" data-size="medium"></cod-icon>
+        </div>
+      </div>
+    </div>
+  </a>
+</div>
+`;
+
 class InfoButton extends HTMLElement {
   static observedAttributes = [];
 
@@ -10,8 +30,7 @@ class InfoButton extends HTMLElement {
     super();
     // Create a shadow root
     const shadow = this.attachShadow({ mode: 'open' });
-    this.div = document.createElement('div');
-    this.div.classList.add('info-button-container');
+    shadow.appendChild(template.content.cloneNode(true));
 
     // Add styles
     const bootStyles = document.createElement('style');
@@ -26,68 +45,30 @@ class InfoButton extends HTMLElement {
   }
 
   connectedCallback() {
-    // Build the img for the top of the card.
+    // Set the img for the top of the card.
     const imgSrc = this.getAttribute('img-src');
     const imgAlt = this.getAttribute('img-alt');
-    const imgElt = document.createElement('img');
+    const imgElt = this.shadowRoot.querySelector('img.card-img-top');
     imgElt.setAttribute('src', imgSrc);
     imgElt.setAttribute('alt', imgAlt);
-    imgElt.classList.add('card-img-top', 'img-fluid');
 
     // Build the title section.
-    const titleContainer = this.buildTitleSection();
+    this.buildTitleSection();
 
-    // Build the body section.
-    const body = this.getAttribute('body');
-    const bodyElt = document.createElement('p');
-    bodyElt.classList.add('card-text', 'pe-3');
-    bodyElt.innerText = body;
-    const chevronElt = document.createElement('cod-icon');
-    chevronElt.setAttribute('data-icon', 'chevron-right-circle');
-    chevronElt.setAttribute('data-size', 'medium');
-    const bodyContainer = document.createElement('div');
-    bodyContainer.classList.add(
-      'd-flex',
-      'justify-content-between',
-      'align-items-center',
-    );
-    bodyContainer.appendChild(bodyElt);
-    bodyContainer.appendChild(chevronElt);
-
-    // Build the card body.
-    const cardBodyElt = document.createElement('div');
-    cardBodyElt.classList.add('card-body', 'text-light');
-    if (titleContainer) {
-      cardBodyElt.appendChild(titleContainer);
-    }
-    cardBodyElt.appendChild(bodyContainer);
-
-    // Build the card.
-    const cardElt = document.createElement('div');
-    cardElt.classList.add('card');
-    cardElt.appendChild(imgElt);
-    cardElt.appendChild(cardBodyElt);
-
-    // Build clickable wrapper.
+    // Set link attributes.
     const href = this.getAttribute('href');
     const target = this.getAttribute('target');
-    const clickableContainer = document.createElement('a');
-    clickableContainer.classList.add('btn', 'btn-primary');
-    clickableContainer.setAttribute('role', 'button');
-    clickableContainer.setAttribute('href', href);
+    const aElt = this.shadowRoot.querySelector('a');
+    aElt.setAttribute('href', href);
     if (target) {
-      clickableContainer.setAttribute('target', target);
+      aElt.setAttribute('target', target);
     }
-    clickableContainer.appendChild(cardElt);
-
-    this.div.appendChild(clickableContainer);
-    this.shadowRoot.appendChild(this.div);
   }
 
   buildTitleSection() {
     const titlePrim = this.getAttribute('title-primary');
     if (!titlePrim) {
-      return null;
+      return;
     }
 
     const titleMultiline = this.getAttribute('force-title-multiline');
@@ -116,7 +97,8 @@ class InfoButton extends HTMLElement {
       );
       titleContainer.appendChild(titleSecElt);
     }
-    return titleContainer;
+    const cardBody = this.shadowRoot.querySelector('div.card-body');
+    cardBody.prepend(titleContainer);
   }
 }
 

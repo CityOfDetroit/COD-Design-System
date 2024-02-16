@@ -33,7 +33,8 @@ export default {
     },
     body: {
       control: 'text',
-      description: 'The text to be used for the body of the button.',
+      description:
+        'The content to be shown in the body of the button. Supports rich HTML.',
     },
   },
   args: {
@@ -54,7 +55,9 @@ const Template = (args) => {
   if (args.forceTitleMultiline) {
     infoBtn.setAttribute('force-title-multiline', '');
   }
-  infoBtn.setAttribute('body', args.body);
+  const body = document.createElement('p');
+  body.innerText = args.body;
+  infoBtn.append(body);
   return infoBtn;
 };
 
@@ -70,8 +73,8 @@ export const InfoButtonGrid = () => html`
           href="https://example.com"
           target="_blank"
           title-primary="Some Information"
-          body="Commercial demolition and rehab"
         >
+          <p>Commercial demolition and rehab</p>
         </cod-info-button>
       </div>
       <div class="col-sm-4">
@@ -81,8 +84,11 @@ export const InfoButtonGrid = () => html`
           href="https://example.com"
           target="_blank"
           title-primary="Some Information"
-          body="Commercial demolition and rehab but this content is going to spread onto multiple lines"
         >
+          <p>
+            Commercial demolition and rehab but this content is going to spread
+            onto multiple lines
+          </p>
         </cod-info-button>
       </div>
       <div class="col-sm-4">
@@ -92,8 +98,8 @@ export const InfoButtonGrid = () => html`
           href="https://example.com"
           target="_blank"
           title-primary="Some Information"
-          body="Commercial demolition and rehab"
         >
+          <p>Commercial demolition and rehab</p>
         </cod-info-button>
       </div>
     </div>
@@ -105,8 +111,8 @@ export const InfoButtonGrid = () => html`
           href="https://example.com"
           target="_blank"
           title-primary="Some Information"
-          body="Commercial demolition and rehab"
         >
+          <p>Commercial demolition and rehab</p>
         </cod-info-button>
       </div>
       <div class="col-sm-4">
@@ -116,8 +122,8 @@ export const InfoButtonGrid = () => html`
           href="https://example.com"
           target="_blank"
           title-primary="Some Information"
-          body="Commercial demolition and rehab"
         >
+          <p>Commercial demolition and rehab</p>
         </cod-info-button>
       </div>
       <div class="col-sm-4">
@@ -127,8 +133,9 @@ export const InfoButtonGrid = () => html`
           href="https://example.com"
           target="_blank"
           title-primary="Some Information"
-          body="Commercial demolition and rehab"
         >
+          <p>Commercial demolition and rehab.</p>
+          <p>With an <i>italic flair</i> to demonstrate rich markup ability.</p>
         </cod-info-button>
       </div>
     </div>
