@@ -1,8 +1,5 @@
 import { html } from 'lit-html';
-import '../components/organisms/Card/cod-card';
-import '../components/atoms/CardBody/cod-card-body';
 import '../components/atoms/Icon/cod-icon';
-import '../components/atoms/Clickable/cod-clickable';
 import '../components/atoms/InfoButton/cod-info-button';
 
 export default {
