@@ -1,3 +1,16 @@
+# v1.0.15 (Mon Feb 19 2024)
+
+#### 🚀 Enhancement
+
+- Adding new components: [`cod-info-button`](https://github.com/CityOfDetroit/COD-Design-System/pull/160) and [`cod-action-button`](https://github.com/CityOfDetroit/COD-Design-System/pull/158).
+
+
+#### Authors: 1
+
+- Max Morgan ([@maxatdetroit](https://github.com/maxatdetroit))
+
+---
+
 # v1.0.14 (Mon Feb 12 2024)
 
 #### 🏎 Performance
