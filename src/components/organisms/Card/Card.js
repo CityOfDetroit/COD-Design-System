@@ -107,12 +107,4 @@ export default class Card extends HTMLElement {
       this.shadowRoot.appendChild(this.card);
     }
   }
-
-  setIsClickable(isClickable = true, color = null) {
-    if (isClickable) {
-      this.card.classList.add('btn', color);
-    } else {
-      this.card.classList.remove('btn', color);
-    }
-  }
 }

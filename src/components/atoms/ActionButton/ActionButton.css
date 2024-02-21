@@ -1,0 +1,42 @@
+div {
+  font-family: var(--font-family);
+}
+
+.action-button-container,
+.action-button-container > a,
+.action-button-container > a > .abutton {
+  width: 100%;
+  height: 100%;
+}
+
+.top-icon {
+  padding-top: 1em;
+}
+
+.abutton-title {
+  margin-bottom: var(--abutton-title-spacer-y);
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.abutton-text:last-child {
+  margin-bottom: 0;
+}
+
+.abutton-body {
+  padding: var(--abutton-spacer-y) var(--abutton-spacer-x);
+}
+
+.abutton {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  --abutton-spacer-y: 1em;
+  --abutton-spacer-x: 1em;
+  --abutton-title-spacer-y: 0.5em;
+}
+
+.btn {
+  --bs-btn-padding-x: 0rem;
+  --bs-btn-padding-y: 0rem;
+}
