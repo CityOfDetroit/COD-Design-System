@@ -30,6 +30,25 @@ const observedAttributeMixin = {
         : element.removeAttribute(name);
     });
   },
+
+  /**
+   * Handle an observed attribute change using a custom callback:
+   *  codElement.handleObservedAttribute(
+   *    oldValue, // the old value of the attribute that changed
+   *    newValue, // the new value of the attribute that changed
+   *    // a callback accepting the web component and the old/new values
+   *    (component, oldValue, newValue) => {
+   *      if (newValue is not null) {
+   *        // query shadow DOM for input element and disable the input.
+   *      } else {
+   *        // query shadow DOM for input element and enable the input.
+   *      }
+   *    }
+   *  )
+   */
+  handleObservedAttribute(oldValue, newValue, onChangeCallback) {
+    onChangeCallback(this, oldValue, newValue);
+  },
 };
 
 export { observedAttributeMixin as default };
