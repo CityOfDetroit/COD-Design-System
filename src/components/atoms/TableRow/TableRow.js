@@ -6,8 +6,8 @@ import {
   firstClass,
   oddClass,
   stackedTableClass,
+  handleTableStacked,
 } from '../../../shared/js/utilities';
-import tableStackedMixin from '../../../shared/js/table-stacked-mixin';
 import observedAttributeMixin from '../../../shared/js/observed-attribute-mixin';
 
 const template = document.createElement('template');
@@ -55,7 +55,7 @@ class TableRow extends HTMLElement {
         this.getAttribute('data-scrollable') === 'true'
           ? node.setAttribute('data-scrollable', 'true')
           : 0;
-        this.handleTableStacked(this, node);
+        handleTableStacked(this, node);
 
         this.tableRow.append(node);
       });
@@ -125,7 +125,6 @@ class TableRow extends HTMLElement {
 }
 
 // Apply mixins.
-Object.assign(TableRow.prototype, tableStackedMixin);
 Object.assign(TableRow.prototype, observedAttributeMixin);
 
 export { TableRow as default };

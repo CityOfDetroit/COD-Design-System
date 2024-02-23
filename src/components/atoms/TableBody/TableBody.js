@@ -4,8 +4,8 @@ import bootstrapStyles from '!!raw-loader!../../../shared/themed-bootstrap.css';
 import {
   cellHeaderBlockClass,
   stackedTableClass,
+  handleTableStacked,
 } from '../../../shared/js/utilities';
-import tableStackedMixin from '../../../shared/js/table-stacked-mixin';
 import observedAttributeMixin from '../../../shared/js/observed-attribute-mixin';
 
 const template = document.createElement('template');
@@ -63,7 +63,7 @@ class TableBody extends HTMLElement {
         this.getAttribute('data-scrollable') === 'true'
           ? node.setAttribute('data-scrollable', 'true')
           : 0;
-        this.handleTableStacked(this, node);
+        handleTableStacked(this, node);
 
         this.tableBody.append(node);
       });
@@ -99,7 +99,6 @@ class TableBody extends HTMLElement {
 }
 
 // Apply mixins.
-Object.assign(TableBody.prototype, tableStackedMixin);
 Object.assign(TableBody.prototype, observedAttributeMixin);
 
 export { TableBody as default };

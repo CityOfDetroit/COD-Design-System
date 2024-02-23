@@ -5,7 +5,6 @@ import {
   cellHeaderBlockClass,
   stackedTableClass,
 } from '../../../shared/js/utilities';
-import tableStackedMixin from '../../../shared/js/table-stacked-mixin';
 import observedAttributeMixin from '../../../shared/js/observed-attribute-mixin';
 
 const template = document.createElement('template');
@@ -115,7 +114,6 @@ class TableCell extends HTMLElement {
 }
 
 // Apply mixins.
-Object.assign(TableCell.prototype, tableStackedMixin);
 Object.assign(TableCell.prototype, observedAttributeMixin);
 
 export { TableCell as default };

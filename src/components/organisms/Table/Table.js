@@ -2,7 +2,7 @@ import styles from '!!raw-loader!./Table.css';
 import varStyles from '!!raw-loader!../../../shared/variables.css';
 import bootstrapStyles from '!!raw-loader!../../../shared/themed-bootstrap.css';
 
-import tableStackedMixin from '../../../shared/js/table-stacked-mixin';
+import { handleTableStacked } from '../../../shared/js/utilities';
 
 const template = document.createElement('template');
 
@@ -43,7 +43,7 @@ class Table extends HTMLElement {
             this.getAttribute('data-scrollable') === 'true'
               ? node.setAttribute('data-scrollable', 'true')
               : 0;
-            this.handleTableStacked(this, node);
+            handleTableStacked(this, node);
 
             this.table.appendChild(node);
             break;
@@ -72,7 +72,7 @@ class Table extends HTMLElement {
             this.getAttribute('data-scrollable') === 'true'
               ? node.setAttribute('data-scrollable', 'true')
               : 0;
-            this.handleTableStacked(this, node);
+            handleTableStacked(this, node);
 
             this.table.appendChild(node);
             break;
@@ -130,8 +130,5 @@ class Table extends HTMLElement {
     }
   }
 }
-
-// Apply mixins.
-Object.assign(Table.prototype, tableStackedMixin);
 
 export { Table as default };
