@@ -55,25 +55,17 @@ const Template = (args) => {
 export const ActionButtonV2 = Template.bind({});
 
 
+
 export const ActionButtonV2RichBody = () => html`
   <div style="width: 300px; height: 300px">
     <cod-action-button-v2
       btn-color="btn-outline-primary"
       icon="house"
-      primary-text="Do Something"
       href="https://example.com"
       target="_blank"
     >
-      <p>
-        Anything can go inside an action button but it's best to keep to simple
-        text.
-      </p>
-      <img
-        src="https://placehold.co/800x400/000000/FFF"
-        alt="..."
-        width="100"
-        height="50"
-      />
+      <h4 slot="primary">Do Something</h4>
+      <p slot="secondary">Like click on this card</p>
     </cod-action-button-v2>
   </div>
 `;
@@ -85,37 +77,35 @@ export const ActionButtonV2Grid = () => html`
         <cod-action-button-v2
           btn-color="btn-outline-primary"
           icon="house"
-          primary-text="Do Something"
           href="https://example.com"
           target="_blank"
         >
-          <p>Like Click on This Button</p>
+        <h4 slot="primary">Do Something</h4>
+        <p slot="secondary">Like click on this card</p>
         </cod-action-button-v2>
       </div>
       <div class="col-sm-4">
         <cod-action-button-v2
           btn-color="btn-outline-primary"
           icon="house"
-          primary-text="Do Something"
           href="https://example.com"
           target="_blank"
         >
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
-            luctus eros sit amet augue tempus sollicitudin. Mauris lacinia ante
-            et.
-          </p>
+        <h4 slot="primary">Do Something</h4>
+        <p slot="secondary">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
+        luctus eros sit amet augue tempus sollicitudin. Mauris lacinia ante
+        et.</p>
         </cod-action-button-v2>
       </div>
       <div class="col-sm-4">
         <cod-action-button-v2
           btn-color="btn-outline-primary"
           icon="house"
-          primary-text="Do Something"
           href="https://example.com"
           target="_blank"
         >
-          <p>Like Click on This Button</p>
+          <h4 slot="primary">Do Something</h4>
+          <p slot="secondary">Like Click on This Button</p>
         </cod-action-button-v2>
       </div>
     </div>
@@ -124,33 +114,33 @@ export const ActionButtonV2Grid = () => html`
         <cod-action-button-v2
           btn-color="btn-outline-primary"
           icon="house"
-          primary-text="Do Something"
           href="https://example.com"
           target="_blank"
         >
-          <p>Like Click on This Button</p>
+          <h4 slot="primary">Do Something</h4>
+          <p slot="secondary">Like Click on This Button</p>
         </cod-action-button-v2>
       </div>
       <div class="col-sm-4">
         <cod-action-button-v2
           btn-color="btn-outline-primary"
           icon="house"
-          primary-text="Do Something"
           href="https://example.com"
           target="_blank"
         >
-          <p>Like Click on This Button</p>
+          <h4 slot="primary">Do Something</h4>
+          <p slot="secondary">Like Click on This Button</p>
         </cod-action-button-v2>
       </div>
       <div class="col-sm-4">
         <cod-action-button-v2
           btn-color="btn-outline-primary"
           icon="house"
-          primary-text="Do Something"
           href="https://example.com"
           target="_blank"
         >
-          <p>Like Click on This Button</p>
+          <h4 slot="primary">Do Something</h4>
+          <p slot="secondary">Like Click on This Button</p>
         </cod-action-button-v2>
       </div>
     </div>
