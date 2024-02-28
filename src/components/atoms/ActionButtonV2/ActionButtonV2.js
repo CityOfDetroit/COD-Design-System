@@ -12,8 +12,7 @@ template.innerHTML = `
         <cod-icon data-icon="" data-size="x-large">
         </cod-icon>
       </div>
-      <div class="abutton-body">
-        <h4 class="abutton-title"></h4>
+      <div class="abutton-body">  
         <slot></slot>
       </div>
     </div>
@@ -22,16 +21,12 @@ template.innerHTML = `
 `;
 
 class ActionButtonV2 extends HTMLElement {
-  static observedAttributes = [];
+  static observedAttributes = ['icon'];
 
   constructor() {
-    // Always call super first in constructor
     super();
-    // Create a shadow root
     const shadow = this.attachShadow({ mode: 'open' });
     shadow.appendChild(template.content.cloneNode(true));
-
-    // Add styles
     const bootStyles = document.createElement('style');
     bootStyles.textContent = bootstrapStyles;
     const variableStyles = document.createElement('style');
@@ -44,17 +39,10 @@ class ActionButtonV2 extends HTMLElement {
   }
 
   connectedCallback() {
-    // Update the title.
-    const title = this.getAttribute('title');
-    const titleElt = this.shadowRoot.querySelector('h4.abutton-title');
-    titleElt.innerText = title;
-
-    // Update the icon.
-    const icon = this.getAttribute('icon');
+    const icon = this.getAttribute('icon') || 'default-icon';
     const iconElt = this.shadowRoot.querySelector('cod-icon');
     iconElt.setAttribute('data-icon', icon);
 
-    // Update the button link and style.
     const btnColor = this.getAttribute('btn-color') ?? 'btn-outline-primary';
     const href = this.getAttribute('href');
     const target = this.getAttribute('target');

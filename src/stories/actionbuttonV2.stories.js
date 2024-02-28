@@ -24,6 +24,12 @@ export default {
       control: 'text',
     },
   },  
+  args: {
+    buttonColor: 'btn-outline-primary',
+    'primary-text': 'Do Something',
+    'secondary-text': 'Like click on this card',
+    icon: 'house-fill',
+  },
 };
 
 // Template
@@ -47,6 +53,7 @@ const Template = (args) => {
 };
 
 export const ActionButtonV2 = Template.bind({});
+
 
 export const ActionButtonV2RichBody = () => html`
   <div style="width: 300px; height: 300px">
