@@ -8,7 +8,7 @@ template.innerHTML = `
 <div class="action-button-container">
   <a class="btn" role="button" href="">
     <div class="abutton">
-      <div class="w-100 top-icon">
+      <div class="top-icon">
         <cod-icon data-icon="" data-size="x-large">
         </cod-icon>
       </div>

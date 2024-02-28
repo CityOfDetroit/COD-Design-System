@@ -15,12 +15,14 @@ div {
 
 .abutton-body {
   padding: var(--abutton-spacer-y) var(--abutton-spacer-x);
+  text-align: left;
 }
 
 .abutton {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   min-width: 0;
+  padding: 1em;
   --abutton-spacer-y: 1em;
   --abutton-spacer-x: 1em;
   --abutton-title-spacer-y: 0.5em;
