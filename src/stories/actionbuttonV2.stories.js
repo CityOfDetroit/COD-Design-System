@@ -62,8 +62,8 @@ export const ActionButtonV2RichBody = () => html`
       href="https://example.com"
       target="_blank"
     >
-      <h4 slot="primary">Do Something</h4>
-      <p slot="secondary">Like click on this card</p>
+      <h4>Do Something</h4>
+      <p>Like click on this card</p>
     </cod-action-button-v2>
   </div>
 `;
@@ -78,8 +78,8 @@ export const ActionButtonV2Grid = () => html`
           href="https://example.com"
           target="_blank"
         >
-          <h4 slot="primary">Do Something</h4>
-          <p slot="secondary">Like click on this card</p>
+          <h4>Do Something</h4>
+          <p>Like click on this card</p>
         </cod-action-button-v2>
       </div>
       <div class="col-sm-4">
@@ -89,8 +89,8 @@ export const ActionButtonV2Grid = () => html`
           href="https://example.com"
           target="_blank"
         >
-          <h4 slot="primary">Do Something</h4>
-          <p slot="secondary">
+          <h4>Do Something</h4>
+          <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
             luctus eros sit amet augue tempus sollicitudin. Mauris lacinia ante
             et.
@@ -104,8 +104,8 @@ export const ActionButtonV2Grid = () => html`
           href="https://example.com"
           target="_blank"
         >
-          <h4 slot="primary">Do Something</h4>
-          <p slot="secondary">Like Click on This Button</p>
+          <h4>Do Something</h4>
+          <p>Like Click on This Button</p>
         </cod-action-button-v2>
       </div>
     </div>
@@ -117,8 +117,8 @@ export const ActionButtonV2Grid = () => html`
           href="https://example.com"
           target="_blank"
         >
-          <h4 slot="primary">Do Something</h4>
-          <p slot="secondary">Like Click on This Button</p>
+          <h4>Do Something</h4>
+          <p>Like Click on This Button</p>
         </cod-action-button-v2>
       </div>
       <div class="col-sm-4">
@@ -128,8 +128,8 @@ export const ActionButtonV2Grid = () => html`
           href="https://example.com"
           target="_blank"
         >
-          <h4 slot="primary">Do Something</h4>
-          <p slot="secondary">Like Click on This Button</p>
+          <h4>Do Something</h4>
+          <p>Like Click on This Button</p>
         </cod-action-button-v2>
       </div>
       <div class="col-sm-4">
@@ -139,8 +139,8 @@ export const ActionButtonV2Grid = () => html`
           href="https://example.com"
           target="_blank"
         >
-          <h4 slot="primary">Do Something</h4>
-          <p slot="secondary">Like Click on This Button</p>
+          <h4>Do Something</h4>
+          <p>Like Click on This Button</p>
         </cod-action-button-v2>
       </div>
     </div>

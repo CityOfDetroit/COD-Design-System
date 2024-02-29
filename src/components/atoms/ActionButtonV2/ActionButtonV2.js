@@ -14,8 +14,6 @@ template.innerHTML = `
       </div>
       <div class="abutton-body">  
         <slot></slot>
-      <slot name="primary"></slot>
-      <slot name="secondary"></slot> 
       </div>
     </div>
   </a>
