@@ -12,8 +12,9 @@ template.innerHTML = `
         <cod-icon data-icon="" data-size="x-large">
         </cod-icon>
       </div>
-      <div class="abutton-body">  
-        <slot></slot>
+      <div class="abutton-body">
+        <slot class="abutton-title" name="title"></slot>
+        <slot name="body"></slot>
       </div>
     </div>
   </a>
@@ -21,12 +22,14 @@ template.innerHTML = `
 `;
 
 class ActionButtonV2 extends HTMLElement {
-  static observedAttributes = ['icon'];
-
   constructor() {
+    // Always call super first in constructor
     super();
+    // Create a shadow root
     const shadow = this.attachShadow({ mode: 'open' });
     shadow.appendChild(template.content.cloneNode(true));
+
+    // Add styles
     const bootStyles = document.createElement('style');
     bootStyles.textContent = bootstrapStyles;
     const variableStyles = document.createElement('style');
@@ -39,10 +42,12 @@ class ActionButtonV2 extends HTMLElement {
   }
 
   connectedCallback() {
-    const icon = this.getAttribute('icon') || 'default-icon';
+    // Update the icon.
+    const icon = this.getAttribute('icon');
     const iconElt = this.shadowRoot.querySelector('cod-icon');
     iconElt.setAttribute('data-icon', icon);
 
+    // Update the button link and style.
     const btnColor = this.getAttribute('btn-color') ?? 'btn-outline-primary';
     const href = this.getAttribute('href');
     const target = this.getAttribute('target');
