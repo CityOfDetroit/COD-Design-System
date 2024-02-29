@@ -23,7 +23,7 @@ export default {
     'secondary-text': {
       control: 'text',
     },
-  },  
+  },
   args: {
     buttonColor: 'btn-outline-primary',
     'primary-text': 'Do Something',
@@ -40,7 +40,7 @@ const Template = (args) => {
   aButton.setAttribute('primary-text', args['primary-text']);
   aButton.setAttribute('secondary-text', args['secondary-text']);
   aButton.setAttribute('href', 'https://example.com');
-  
+
   const slotElt1 = document.createElement('h1');
   slotElt1.innerText = args['primary-text'];
   aButton.appendChild(slotElt1);
@@ -53,8 +53,6 @@ const Template = (args) => {
 };
 
 export const ActionButtonV2 = Template.bind({});
-
-
 
 export const ActionButtonV2RichBody = () => html`
   <div style="width: 300px; height: 300px">
@@ -80,8 +78,8 @@ export const ActionButtonV2Grid = () => html`
           href="https://example.com"
           target="_blank"
         >
-        <h4 slot="primary">Do Something</h4>
-        <p slot="secondary">Like click on this card</p>
+          <h4 slot="primary">Do Something</h4>
+          <p slot="secondary">Like click on this card</p>
         </cod-action-button-v2>
       </div>
       <div class="col-sm-4">
@@ -91,10 +89,12 @@ export const ActionButtonV2Grid = () => html`
           href="https://example.com"
           target="_blank"
         >
-        <h4 slot="primary">Do Something</h4>
-        <p slot="secondary">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
-        luctus eros sit amet augue tempus sollicitudin. Mauris lacinia ante
-        et.</p>
+          <h4 slot="primary">Do Something</h4>
+          <p slot="secondary">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
+            luctus eros sit amet augue tempus sollicitudin. Mauris lacinia ante
+            et.
+          </p>
         </cod-action-button-v2>
       </div>
       <div class="col-sm-4">
