@@ -54,7 +54,6 @@ const Template = (args) => {
   return aButton;
 };
 
-
 export const ActionButtonV2 = Template.bind({});
 
 export const ActionButtonV2RichBody = () => html`
@@ -67,15 +66,15 @@ export const ActionButtonV2RichBody = () => html`
     >
       <h4 slot="title">Do Something</h4>
       <p slot="body">
-          Anything can go inside an action button but it's best to keep to simple
-          text.
+        Anything can go inside an action button but it's best to keep to simple
+        text.
       </p>
-        <img
-          src="https://placehold.co/800x400/000000/FFF"
-          alt="..."
-          width="100"
-          height="50"
-        />
+      <img
+        src="https://placehold.co/800x400/000000/FFF"
+        alt="..."
+        width="100"
+        height="50"
+      />
     </cod-action-button-v2>
   </div>
 `;
@@ -102,10 +101,10 @@ export const ActionButtonGrid = () => html`
           target="_blank"
         >
           <h4 slot="title">Do Something</h4>
-          <p slot="body">        
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
-              luctus eros sit amet augue tempus sollicitudin. Mauris lacinia ante
-              et.    
+          <p slot="body">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
+            luctus eros sit amet augue tempus sollicitudin. Mauris lacinia ante
+            et.
           </p>
         </cod-action-button-v2>
       </div>
