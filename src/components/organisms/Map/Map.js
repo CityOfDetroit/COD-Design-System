@@ -5,7 +5,7 @@ import styles from '!!raw-loader!./Map.css';
 import maplibreStyles from '!!raw-loader!../../../../node_modules/maplibre-gl/dist/maplibre-gl.css';
 export default class Map extends HTMLElement {
   static get observedAttributes() {
-    return ['data-map-state', 'data-map-mode'];
+    return ['data-map-state', 'data-map-mode', 'data-map-layers'];
   }
 
   constructor() {
@@ -32,11 +32,16 @@ export default class Map extends HTMLElement {
     this.mapWrapper.appendChild(mapContainer);
     shadow.appendChild(this.mapWrapper);
 
+    // Check for custom center point
+    let center = this.getAttribute('data-center');
+    (center != undefined) ? center = center.split(',') : 0;
+    let zoom = this.getAttribute('data-zoom');
+
     this.map = new maplibregl.Map({
       container: mapContainer,
       style: mapStyle,
-      center: [-83.1, 42.36],
-      zoom: 9,
+      center: (center != undefined) ? [center[0], center[1]] : [-83.1, 42.36],
+      zoom: (zoom != undefined) ? zoom : 9,
     });
   }
 
@@ -177,6 +182,75 @@ export default class Map extends HTMLElement {
         break;
       }
 
+      case 'data-map-layers': {
+        let sources = this.getAttribute('data-map-layers');
+        const tmpMap = this.map;
+        if (sources){
+          this.map.on('style.load', () => {
+          sources = JSON.parse(sources);
+          sources.forEach(source => {
+            tmpMap.addSource(source.name, {
+              type: 'geojson',
+              data: source.source,
+            });
+            source.layers.forEach(layer => {
+              let tmpLayer = this.buildLayer(layer);
+              console.log(tmpLayer);
+              this.map.addLayer(tmpLayer);
+            });
+          });
+          });
+        }
+        break;
+      }
+
+      default:
+        break;
+    }
+  }
+
+  buildLayer(layer){
+    console.log(layer);
+    switch (layer.type) {
+      case 'line':
+        return {
+          id: layer.name,
+          type: layer.type,
+          source: layer.source,
+          layout: (layer.active) ? { visibility: "visible" } : { visibility: "none" },
+          paint: { "line-color": layer.color },
+        };
+        break;
+
+      case 'circle':
+        return {
+          id: layer.name,
+          type: layer.type,
+          source: layer.source,
+          layout: (layer.active) ? { visibility: "visible" } : { visibility: "none" },
+          paint: {
+            'circle-radius': {
+              base: 5,
+              stops: [
+                [12, 5],
+                [22, 120],
+              ],
+            },
+            'circle-color': layer.color,
+          },
+        };
+        break;
+
+      case 'fill':
+        return {
+          id: layer.name,
+          type: layer.type,
+          source: layer.source,
+          layout: (layer.active) ? { visibility: "visible" } : { visibility: "none" },
+          paint: (layer.opacity) ? { "fill-color": layer.color, "fill-opacity": layer.opacity } : { "fill-color": layer.color },
+        };
+        break;
+    
       default:
         break;
     }

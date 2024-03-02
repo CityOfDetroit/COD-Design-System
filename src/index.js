@@ -6,6 +6,7 @@
 import './components/organisms/Card/cod-card';
 import './components/organisms/Carousel/cod-carousel';
 import './components/organisms/Form/cod-form';
+import './components/organisms/Geocoder/cod-geocoder';
 import './components/organisms/Modal/cod-modal';
 import './components/organisms/Map/cod-map';
 import './components/organisms/Navbar/cod-navbar';
