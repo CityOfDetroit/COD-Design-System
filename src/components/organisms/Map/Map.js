@@ -5,7 +5,7 @@ import styles from '!!raw-loader!./Map.css';
 import maplibreStyles from '!!raw-loader!../../../../node_modules/maplibre-gl/dist/maplibre-gl.css';
 export default class Map extends HTMLElement {
   static get observedAttributes() {
-    return ['data-map-state', 'data-map-mode', 'data-map-layers'];
+    return ['data-map-state', 'data-map-mode', 'data-map-layers', 'data-active-layers',];
   }
 
   constructor() {
@@ -88,22 +88,11 @@ export default class Map extends HTMLElement {
           if (mapData) {
             this.map.addSource('data-points', {
               type: 'geojson',
-              data: mapData.data,
+              data: mapData.source,
             });
-            this.map.addLayer({
-              id: 'data-points',
-              type: 'circle',
-              source: 'data-points',
-              paint: {
-                'circle-radius': {
-                  base: 5,
-                  stops: [
-                    [12, 5],
-                    [22, 120],
-                  ],
-                },
-                'circle-color': '#004544',
-              },
+            mapData.layers.forEach(layer => {
+              let tmpLayer = this.buildLayer(layer);
+              this.map.addLayer(tmpLayer);
             });
           }
         });
@@ -130,6 +119,7 @@ export default class Map extends HTMLElement {
               break;
           
             default:
+              console.log(e);
               break;
           }
         });
@@ -195,7 +185,6 @@ export default class Map extends HTMLElement {
             });
             source.layers.forEach(layer => {
               let tmpLayer = this.buildLayer(layer);
-              console.log(tmpLayer);
               this.map.addLayer(tmpLayer);
             });
           });
@@ -204,13 +193,16 @@ export default class Map extends HTMLElement {
         break;
       }
 
+      case 'data-active-layers': {
+        console.log(oldValue);
+        console.log(newValue);
+      }
       default:
         break;
     }
   }
 
   buildLayer(layer){
-    console.log(layer);
     switch (layer.type) {
       case 'line':
         return {
@@ -218,7 +210,20 @@ export default class Map extends HTMLElement {
           type: layer.type,
           source: layer.source,
           layout: (layer.active) ? { visibility: "visible" } : { visibility: "none" },
-          paint: { "line-color": layer.color },
+          paint: (layer.width) ? { "line-color": layer.color, "line-width": layer.width } : { "line-color": layer.color },
+        };
+        break;
+
+      case 'text':
+        return {
+          id: layer.name,
+          type: "symbol",
+          source: layer.source,
+          layout: (layer.active) ? { visibility: "visible", "text-field": ['get', layer.text],"text-font": [
+            "Arial Unicode MS Regular"
+        ], } : { visibility: "none", "text-field": ['get', layer.text],"text-font": [
+          "Arial Unicode MS Regular"
+      ], },
         };
         break;
 
@@ -228,14 +233,9 @@ export default class Map extends HTMLElement {
           type: layer.type,
           source: layer.source,
           layout: (layer.active) ? { visibility: "visible" } : { visibility: "none" },
+          "fill-sort-key": (layer.sort) ? layer.sort : 1,
           paint: {
-            'circle-radius': {
-              base: 5,
-              stops: [
-                [12, 5],
-                [22, 120],
-              ],
-            },
+            'circle-radius':(layer.radius) ? layer.radius : 5,
             'circle-color': layer.color,
           },
         };
@@ -257,6 +257,8 @@ export default class Map extends HTMLElement {
   }
 
   buildPopup(dataType, data, map, e) {
+    console.log(e);
+    console.log(dataType);
     switch (dataType) {
       case 'schools':
         new maplibregl.Popup()
