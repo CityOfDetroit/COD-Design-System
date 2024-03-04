@@ -1,3 +1,17 @@
+# v1.0.16 (Mon March 4 2024)
+
+#### 🐛 Bug Fix
+
+- Fix [header background height](https://github.com/CityOfDetroit/COD-Design-System/pull/165)
+- Add [info button and action button to production build](https://github.com/CityOfDetroit/COD-Design-System/pull/166)
+- Add mixins for [handling observed attributes & CSS classes](https://github.com/CityOfDetroit/COD-Design-System/pull/140)
+
+#### Authors: 1
+
+- Max Morgan ([@maxatdetroit](https://github.com/maxatdetroit))
+
+---
+
 # v1.0.15 (Mon Feb 19 2024)
 
 #### 🚀 Enhancement
