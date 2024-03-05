@@ -55,7 +55,7 @@ import './components/organisms/Modal/cod-modal';
 import './components/organisms/Map/cod-map';
 import './components/organisms/Navbar/cod-navbar';
 import './components/organisms/Offcanvas/cod-offcanvas';
-import './components/organisms/Slider/cod-slider';
+import './components/organisms/ImgSlider/cod-img-slider';
 import './components/organisms/Table/cod-table';
 
 // Import molecules

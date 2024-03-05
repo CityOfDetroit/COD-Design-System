@@ -1,4 +1,4 @@
-import styles from '!!raw-loader!./Slider.css';
+import styles from '!!raw-loader!./ImgSlider.css';
 import varStyles from '!!raw-loader!../../../shared/variables.css';
 import bootstrapStyles from '!!raw-loader!../../../shared/themed-bootstrap.css';
 
@@ -19,7 +19,7 @@ template.innerHTML = `
 </label>
 `;
 
-class Slider extends HTMLElement {
+class ImgSlider extends HTMLElement {
   constructor() {
     super();
     const shadow = this.attachShadow({ mode: 'open' });
@@ -61,4 +61,4 @@ class Slider extends HTMLElement {
   }
 }
 
-export { Slider as default };
+export { ImgSlider as default };

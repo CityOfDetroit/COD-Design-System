@@ -1,14 +1,14 @@
 import { html } from 'lit-html';
 import img1 from './assets/example-image.svg';
 import img2 from './assets/example-image2.svg';
-import '../components/organisms/Slider/cod-slider';
+import '../components/organisms/ImgSlider/cod-img-slider';
 
 export default {
-  title: 'Components/Organisms/Slider',
+  title: 'Components/Organisms/ImgSlider',
 };
 
 export const Basic = () => html`
-  <cod-slider
+  <cod-img-slider
     label-text="Use the slider to control the visibility of the two images."
   >
     <img
@@ -25,5 +25,5 @@ export const Basic = () => html`
       width="1600"
       height="900"
     />
-  </cod-slider>
+  </cod-img-slider>
 `;
