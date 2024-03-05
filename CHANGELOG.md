@@ -1,4 +1,14 @@
-# v1.0.16 (Mon March 4 2024)
+# v1.0.17 (Tues March 5 2024)
+
+#### 🚀 Enhancement
+
+- Add [cod-img-slider](https://github.com/CityOfDetroit/COD-Design-System/pull/176)
+
+#### Authors: 1
+
+- J Edgar Montes ([@jedgar1mx](https://github.com/jedgar1mx))
+
+---
 
 #### 🐛 Bug Fix
 
