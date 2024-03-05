@@ -4,12 +4,6 @@ import bootstrapStyles from '!!raw-loader!../../../shared/themed-bootstrap.css';
 
 const template = document.createElement('template');
 
-const thumbFocusStyles = `
-  box-shadow: 0px 0px 0px var(--focus-width) var(--focus-color);
-`;
-
-const thumbSvgWidth = 4;
-
 template.innerHTML = `
 <slot name="image-1"></slot>
 <slot name="image-2"></slot>
@@ -26,43 +20,45 @@ template.innerHTML = `
 `;
 
 class Slider extends HTMLElement {
-    constructor() {
-        super();
-        const shadow = this.attachShadow({ mode: "open" });
+  constructor() {
+    super();
+    const shadow = this.attachShadow({ mode: 'open' });
 
-         // Add styles
-         const bootStyles = document.createElement('style');
-         bootStyles.textContent = bootstrapStyles;
-         const variableStyles = document.createElement('style');
-         variableStyles.textContent = varStyles;
-         const itemStyles = document.createElement('style');
-         itemStyles.textContent = styles;
-         shadow.appendChild(bootStyles);
-         shadow.appendChild(variableStyles);
-         shadow.appendChild(itemStyles);
-    }
+    // Add styles
+    const bootStyles = document.createElement('style');
+    bootStyles.textContent = bootstrapStyles;
+    const variableStyles = document.createElement('style');
+    variableStyles.textContent = varStyles;
+    const itemStyles = document.createElement('style');
+    itemStyles.textContent = styles;
+    shadow.appendChild(bootStyles);
+    shadow.appendChild(variableStyles);
+    shadow.appendChild(itemStyles);
+  }
 
-    connectedCallback() {
+  connectedCallback() {
     this.shadowRoot.appendChild(template.content.cloneNode(true));
-    
-    ['input', 'change'].forEach((eventName) => {
-        this.shadowRoot.querySelector("input").addEventListener(
-        eventName,
-        ({ target }) => {
-            if (this.animationFrame) cancelAnimationFrame(this.animationFrame);
 
-            this.animationFrame = requestAnimationFrame(() => {
-            this.shadowRoot.host.style.setProperty('--exposure', `${target.value}%`)
-            });
-        },
-        );
+    ['input', 'change'].forEach((eventName) => {
+      this.shadowRoot
+        .querySelector('input')
+        .addEventListener(eventName, ({ target }) => {
+          if (this.animationFrame) cancelAnimationFrame(this.animationFrame);
+
+          this.animationFrame = requestAnimationFrame(() => {
+            this.shadowRoot.host.style.setProperty(
+              '--exposure',
+              `${target.value}%`,
+            );
+          });
+        });
     });
 
     const customLabel = this.shadowRoot.host.getAttribute('label-text');
-    if(customLabel) {
-        this.shadowRoot.querySelector(".js-label-text").textContent = customLabel;
+    if (customLabel) {
+      this.shadowRoot.querySelector('.js-label-text').textContent = customLabel;
     }
-    }
+  }
 }
 
 export { Slider as default };
