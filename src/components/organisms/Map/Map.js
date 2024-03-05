@@ -5,7 +5,12 @@ import styles from '!!raw-loader!./Map.css';
 import maplibreStyles from '!!raw-loader!../../../../node_modules/maplibre-gl/dist/maplibre-gl.css';
 export default class Map extends HTMLElement {
   static get observedAttributes() {
-    return ['data-map-state', 'data-map-mode', 'data-map-layers', 'data-active-layers',];
+    return [
+      'data-map-state',
+      'data-map-mode',
+      'data-map-layers',
+      'data-active-layers',
+    ];
   }
 
   constructor() {
@@ -34,14 +39,14 @@ export default class Map extends HTMLElement {
 
     // Check for custom center point
     let center = this.getAttribute('data-center');
-    (center != undefined) ? center = center.split(',') : 0;
+    center != undefined ? (center = center.split(',')) : 0;
     let zoom = this.getAttribute('data-zoom');
 
     this.map = new maplibregl.Map({
       container: mapContainer,
       style: mapStyle,
-      center: (center != undefined) ? [center[0], center[1]] : [-83.1, 42.36],
-      zoom: (zoom != undefined) ? zoom : 9,
+      center: center != undefined ? [center[0], center[1]] : [-83.1, 42.36],
+      zoom: zoom != undefined ? zoom : 9,
     });
   }
 
@@ -90,7 +95,7 @@ export default class Map extends HTMLElement {
               type: 'geojson',
               data: mapData.source,
             });
-            mapData.layers.forEach(layer => {
+            mapData.layers.forEach((layer) => {
               let tmpLayer = this.buildLayer(layer);
               this.map.addLayer(tmpLayer);
             });
@@ -106,7 +111,7 @@ export default class Map extends HTMLElement {
               const activeData = tempMap.getAttribute('data-map-active-data');
               tempMap.buildPopup(activeData, e.features[0], tempMap, e);
               break;
-            
+
             case 'map-panel':
               const parentComponentName = tempMap.getAttribute(
                 'data-parent-component',
@@ -114,10 +119,13 @@ export default class Map extends HTMLElement {
               console.log(parentComponentName);
               const app = document.getElementsByTagName(parentComponentName);
               console.log(app);
-              app[0].setAttribute('data-panel-data', JSON.stringify(e.features[0]));
+              app[0].setAttribute(
+                'data-panel-data',
+                JSON.stringify(e.features[0]),
+              );
               app[0].setAttribute('data-app-state', 'active-panel');
               break;
-          
+
             default:
               console.log(e);
               break;
@@ -175,19 +183,19 @@ export default class Map extends HTMLElement {
       case 'data-map-layers': {
         let sources = this.getAttribute('data-map-layers');
         const tmpMap = this.map;
-        if (sources){
+        if (sources) {
           this.map.on('style.load', () => {
-          sources = JSON.parse(sources);
-          sources.forEach(source => {
-            tmpMap.addSource(source.name, {
-              type: 'geojson',
-              data: source.source,
+            sources = JSON.parse(sources);
+            sources.forEach((source) => {
+              tmpMap.addSource(source.name, {
+                type: 'geojson',
+                data: source.source,
+              });
+              source.layers.forEach((layer) => {
+                let tmpLayer = this.buildLayer(layer);
+                this.map.addLayer(tmpLayer);
+              });
             });
-            source.layers.forEach(layer => {
-              let tmpLayer = this.buildLayer(layer);
-              this.map.addLayer(tmpLayer);
-            });
-          });
           });
         }
         break;
@@ -202,28 +210,38 @@ export default class Map extends HTMLElement {
     }
   }
 
-  buildLayer(layer){
+  buildLayer(layer) {
     switch (layer.type) {
       case 'line':
         return {
           id: layer.name,
           type: layer.type,
           source: layer.source,
-          layout: (layer.active) ? { visibility: "visible" } : { visibility: "none" },
-          paint: (layer.width) ? { "line-color": layer.color, "line-width": layer.width } : { "line-color": layer.color },
+          layout: layer.active
+            ? { visibility: 'visible' }
+            : { visibility: 'none' },
+          paint: layer.width
+            ? { 'line-color': layer.color, 'line-width': layer.width }
+            : { 'line-color': layer.color },
         };
         break;
 
       case 'text':
         return {
           id: layer.name,
-          type: "symbol",
+          type: 'symbol',
           source: layer.source,
-          layout: (layer.active) ? { visibility: "visible", "text-field": ['get', layer.text],"text-font": [
-            "Arial Unicode MS Regular"
-        ], } : { visibility: "none", "text-field": ['get', layer.text],"text-font": [
-          "Arial Unicode MS Regular"
-      ], },
+          layout: layer.active
+            ? {
+                visibility: 'visible',
+                'text-field': ['get', layer.text],
+                'text-font': ['Arial Unicode MS Regular'],
+              }
+            : {
+                visibility: 'none',
+                'text-field': ['get', layer.text],
+                'text-font': ['Arial Unicode MS Regular'],
+              },
         };
         break;
 
@@ -232,10 +250,12 @@ export default class Map extends HTMLElement {
           id: layer.name,
           type: layer.type,
           source: layer.source,
-          layout: (layer.active) ? { visibility: "visible" } : { visibility: "none" },
-          "fill-sort-key": (layer.sort) ? layer.sort : 1,
+          layout: layer.active
+            ? { visibility: 'visible' }
+            : { visibility: 'none' },
+          'fill-sort-key': layer.sort ? layer.sort : 1,
           paint: {
-            'circle-radius':(layer.radius) ? layer.radius : 5,
+            'circle-radius': layer.radius ? layer.radius : 5,
             'circle-color': layer.color,
           },
         };
@@ -246,11 +266,15 @@ export default class Map extends HTMLElement {
           id: layer.name,
           type: layer.type,
           source: layer.source,
-          layout: (layer.active) ? { visibility: "visible" } : { visibility: "none" },
-          paint: (layer.opacity) ? { "fill-color": layer.color, "fill-opacity": layer.opacity } : { "fill-color": layer.color },
+          layout: layer.active
+            ? { visibility: 'visible' }
+            : { visibility: 'none' },
+          paint: layer.opacity
+            ? { 'fill-color': layer.color, 'fill-opacity': layer.opacity }
+            : { 'fill-color': layer.color },
         };
         break;
-    
+
       default:
         break;
     }
