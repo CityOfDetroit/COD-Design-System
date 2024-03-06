@@ -41,12 +41,18 @@ $h6-font-size: $font-size-base;
 // Disable rounded corners on all elements.
 $enable-rounded: false;
 
+// Establish variables for City of Detroit style guide.
+$cod-city-green: #004445;
+$cod-light-grey: #f2f2f2;
+$cod-pale-green: #9fd5b3;
+$cod-accent-yellow: #feb70d;
+
 // Set default colors for the theme.
-$primary: #004445 !default;
-$secondary: #e6e6e6 !default;
-$success: #9fd5b3 !default;
-$info: #004445 !default;
-$warning: #feb70d !default;
+$primary: $cod-city-green !default;
+$secondary: $cod-light-grey !default;
+$success: $cod-pale-green !default;
+$info: $cod-city-green !default;
+$warning: $cod-accent-yellow !default;
 $danger: #b3393b !default;
 $light: #fff !default;
 $dark: #000 !default;
