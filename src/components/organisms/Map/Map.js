@@ -106,10 +106,23 @@ export default class Map extends HTMLElement {
         // eslint-disable-next-line no-case-declarations
         const tempMap = this;
         this.map.on('click', 'data-points', function (e) {
+          let activeData;
+          let popupStructure;
           switch (tempMap.getAttribute('data-map-mode')) {
             case 'my-home-info':
-              const activeData = tempMap.getAttribute('data-map-active-data');
-              tempMap.buildPopup(activeData, e.features[0], tempMap, e);
+              popupStructure = JSON.parse(
+                tempMap.getAttribute('data-popup-structure'),
+              );
+              activeData = tempMap.getAttribute('data-map-active-data');
+              tempMap.buildPopup(activeData, popupStructure, tempMap, e);
+              break;
+
+            case 'popup':
+              popupStructure = JSON.parse(
+                tempMap.getAttribute('data-popup-structure'),
+              );
+              activeData = tempMap.getAttribute('data-map-active-data');
+              tempMap.buildPopup(activeData, popupStructure, tempMap, e);
               break;
 
             case 'map-panel':
@@ -224,7 +237,6 @@ export default class Map extends HTMLElement {
             ? { 'line-color': layer.color, 'line-width': layer.width }
             : { 'line-color': layer.color },
         };
-        break;
 
       case 'text':
         return {
@@ -243,7 +255,6 @@ export default class Map extends HTMLElement {
                 'text-font': ['Arial Unicode MS Regular'],
               },
         };
-        break;
 
       case 'circle':
         return {
@@ -259,7 +270,6 @@ export default class Map extends HTMLElement {
             'circle-color': layer.color,
           },
         };
-        break;
 
       case 'fill':
         return {
@@ -273,52 +283,32 @@ export default class Map extends HTMLElement {
             ? { 'fill-color': layer.color, 'fill-opacity': layer.opacity }
             : { 'fill-color': layer.color },
         };
-        break;
 
       default:
         break;
     }
   }
 
-  buildPopup(dataType, data, map, e) {
-    console.log(e);
-    console.log(dataType);
-    switch (dataType) {
-      case 'schools':
-        new maplibregl.Popup()
-          .setLngLat(e.lngLat)
-          .setHTML(
-            `<strong>School Name:</strong> ${e.features[0].properties.EntityOfficialName}`,
-          )
-          .addTo(map.map);
-        break;
+  buildPopup(dataType, structure, map, e) {
+    let popupHTML = '';
+    structure[dataType].forEach((elem) => {
+      popupHTML += this.buildPopupElement(elem, e.features[0].properties);
+    });
+    new maplibregl.Popup()
+      .setLngLat(e.lngLat)
+      .setHTML(popupHTML)
+      .addTo(map.map);
+  }
 
-      case 'demos-data':
-        new maplibregl.Popup()
-          .setLngLat(e.lngLat)
-          .setHTML(
-            `<strong>Demo Address:</strong> ${e.features[0].properties.address}`,
-          )
-          .addTo(map.map);
-        break;
+  buildPopupElement(elem, data) {
+    switch (elem.type) {
+      case 'field-value':
+        return `<p><strong>${elem.label}</strong> ${data[elem.value]}</p>`;
 
-      case 'stabilization-data':
-        new maplibregl.Popup()
-          .setLngLat(e.lngLat)
-          .setHTML(
-            `<strong>Stabilization Address:</strong> ${e.features[0].properties.address}`,
-          )
-          .addTo(map.map);
-        break;
-
-      case 'improve-det':
-        new maplibregl.Popup()
-          .setLngLat(e.lngLat)
-          .setHTML(
-            `<strong>Issue type:</strong> ${e.features[0].properties.request_type_title}`,
-          )
-          .addTo(map.map);
-        break;
+      case 'field-link':
+        return `<p><strong>${elem.label}</strong> <a href="${
+          data[elem.link]
+        }" target="_blank">${data[elem.value]}</a></p>`;
 
       default:
         break;
