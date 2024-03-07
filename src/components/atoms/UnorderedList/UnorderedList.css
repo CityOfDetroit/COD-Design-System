@@ -1,0 +1,8 @@
+ul {
+  color: grey;
+}
+
+::slotted(li) {
+  color: blue;
+  list-style-type: none;
+}
