@@ -37,23 +37,14 @@ export default class AccordionHeader extends HTMLElement {
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
-    const accordionBtn = this.shadowRoot.querySelector('button');
-    accordionBtn.setAttribute('aria-expanded', newValue);
-    // TODO: See CityOfDetroit/detroitmi#1099
-    // eslint-disable-next-line prefer-const
-    let tempClasses = accordionBtn.className.split(' ');
-    // TODO: See CityOfDetroit/detroitmi#1099
-    // eslint-disable-next-line prefer-const
-    let popValue = tempClasses.pop();
-    // TODO: See CityOfDetroit/detroitmi#1099
-    // eslint-disable-next-line eqeqeq
-    popValue != 'collapsed' ? tempClasses.push(popValue) : 0;
-    // TODO: See CityOfDetroit/detroitmi#1099
-    // eslint-disable-next-line eqeqeq
-    if (newValue == 'false') {
-      tempClasses.push('collapsed');
+    if (name === 'data-expanded') {
+      const accordionBtn = this.shadowRoot.querySelector('button');
+      accordionBtn.setAttribute('aria-expanded', newValue);
+      accordionBtn.classList.remove('collapsed');
+      if (newValue === 'false') {
+        accordionBtn.classList.add('collapsed');
+      }
     }
-    accordionBtn.className = tempClasses.join(' ');
   }
 
   connectedCallback() {
