@@ -76,9 +76,17 @@ export default class AccordionHeader extends HTMLElement {
   addListNumber(index, extraClasses) {
     const accordionBtn = this.shadowRoot.querySelector('button');
     const numberBox = document.createElement('div');
-    numberBox.innerText = `${index + 1}`;
     extraClasses.push('li-num-box');
     numberBox.className = extraClasses.join(' ');
+    const numberSlot = document.createElement('slot');
+    numberSlot.setAttribute('name', 'li-num-box');
+    numberBox.appendChild(numberSlot);
     accordionBtn.prepend(numberBox);
+
+    // TODO: Match existing slot element and classes.
+    const number = document.createElement('span');
+    number.innerText = `${index + 1}`;
+    number.setAttribute('slot', 'li-num-box');
+    this.appendChild(number);
   }
 }
