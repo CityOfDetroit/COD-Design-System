@@ -39,14 +39,14 @@ export default class Map extends HTMLElement {
 
     // Check for custom center point
     let center = this.getAttribute('data-center');
-    center !== undefined ? (center = center.split(',')) : 0;
+    center !== null ? (center = center.split(',')) : 0;
     const zoom = this.getAttribute('data-zoom');
 
     this.map = new maplibregl.Map({
       container: mapContainer,
       style: mapStyle,
-      center: center !== undefined ? [center[0], center[1]] : [-83.1, 42.36],
-      zoom: zoom !== undefined ? zoom : 9,
+      center: center !== null ? [center[0], center[1]] : [-83.1, 42.36],
+      zoom: zoom !== null ? zoom : 9,
     });
   }
 
