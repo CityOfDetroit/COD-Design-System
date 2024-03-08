@@ -39,14 +39,14 @@ export default class Map extends HTMLElement {
 
     // Check for custom center point
     let center = this.getAttribute('data-center');
-    center != undefined ? (center = center.split(',')) : 0;
-    let zoom = this.getAttribute('data-zoom');
+    center !== undefined ? (center = center.split(',')) : 0;
+    const zoom = this.getAttribute('data-zoom');
 
     this.map = new maplibregl.Map({
       container: mapContainer,
       style: mapStyle,
-      center: center != undefined ? [center[0], center[1]] : [-83.1, 42.36],
-      zoom: zoom != undefined ? zoom : 9,
+      center: center !== undefined ? [center[0], center[1]] : [-83.1, 42.36],
+      zoom: zoom !== undefined ? zoom : 9,
     });
   }
 
@@ -96,7 +96,7 @@ export default class Map extends HTMLElement {
               data: mapData.source,
             });
             mapData.layers.forEach((layer) => {
-              let tmpLayer = this.buildLayer(layer);
+              const tmpLayer = this.buildLayer(layer);
               this.map.addLayer(tmpLayer);
             });
           }
@@ -125,22 +125,20 @@ export default class Map extends HTMLElement {
               tempMap.buildPopup(activeData, popupStructure, tempMap, e);
               break;
 
-            case 'map-panel':
+            case 'map-panel': {
               const parentComponentName = tempMap.getAttribute(
                 'data-parent-component',
               );
-              console.log(parentComponentName);
               const app = document.getElementsByTagName(parentComponentName);
-              console.log(app);
               app[0].setAttribute(
                 'data-panel-data',
                 JSON.stringify(e.features[0]),
               );
               app[0].setAttribute('data-app-state', 'active-panel');
               break;
+            }
 
             default:
-              console.log(e);
               break;
           }
         });
@@ -205,7 +203,7 @@ export default class Map extends HTMLElement {
                 data: source.source,
               });
               source.layers.forEach((layer) => {
-                let tmpLayer = this.buildLayer(layer);
+                const tmpLayer = this.buildLayer(layer);
                 this.map.addLayer(tmpLayer);
               });
             });
@@ -215,9 +213,9 @@ export default class Map extends HTMLElement {
       }
 
       case 'data-active-layers': {
-        console.log(oldValue);
-        console.log(newValue);
+        break;
       }
+
       default:
         break;
     }
