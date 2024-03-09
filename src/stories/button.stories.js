@@ -149,6 +149,19 @@ Icon.args = {
   iconOrder: 'left',
 };
 
+export const IconCenterSquare = Template.bind({});
+IconCenterSquare.args = {
+  primary: true,
+  label: '',
+  size: 'lg',
+  backgroundColor: 'primary',
+  icon: 'house',
+  iconSize: 'medium',
+  shape: 'square',
+  ariaLabel: 'Home',
+  extraClasses: 'icon-center',
+};
+
 export const Close = Template.bind({});
 Close.args = {
   primary: true,
