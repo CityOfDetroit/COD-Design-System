@@ -33,8 +33,18 @@ class UnorderedList extends HTMLElement {
   }
 
   connectedCallback() {
-    this.getAttribute('icon');
-    // TODO: Handle icon attribute and append icon in front of list elements.
+    const icon = this.getAttribute('icon');
+    // TODO: Move this logic into the slotchange event (to avoid the global queryselector).
+    const listItems = document.querySelectorAll('li[slot="list-item"]');
+    listItems.forEach((listItem) => {
+      if (listItem.querySelector('cod-icon') !== null) {
+        return;
+      }
+      const codIcon = document.createElement('cod-icon');
+      codIcon.setAttribute('data-icon', icon);
+      codIcon.setAttribute('data-size', 'small');
+      listItem.prepend(codIcon);
+    });
   }
 }
 
