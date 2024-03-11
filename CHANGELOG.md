@@ -1,3 +1,22 @@
+# v1.0.18 (Mon March 11 2024)
+
+#### 🚀 Enhancement
+
+- Additional features for [cod-map](https://github.com/CityOfDetroit/COD-Design-System/pull/172)
+
+#### 🔩 Dependency Updates
+
+- Refactor [bootstrap theme SASS](https://github.com/CityOfDetroit/COD-Design-System/pull/178)
+
+#### Authors: 1
+
+- J Edgar Montes ([@jedgar1mx](https://github.com/jedgar1mx))
+- Max Morgan ([@maxatdetroit](https://github.com/maxatdetroit))
+
+**Full Changelog**: https://github.com/CityOfDetroit/COD-Design-System/compare/1.0.17...1.0.18
+
+---
+
 # v1.0.17 (Tues March 5 2024)
 
 #### 🚀 Enhancement
