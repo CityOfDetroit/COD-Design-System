@@ -2,24 +2,23 @@ import styles from '!!raw-loader!./Icon.css';
 import varStyles from '!!raw-loader!../../../shared/variables.css';
 import bootstrapStyles from '!!raw-loader!../../../shared/themed-bootstrap.css';
 
-
 export default class Icon extends HTMLElement {
   constructor() {
     // Always call super first in constructor
     super();
-   // Create a shadow root
-  const shadow = this.attachShadow({ mode: 'open' });
+    // Create a shadow root
+    const shadow = this.attachShadow({ mode: 'open' });
 
-        // Add styles
-        const bootStyles = document.createElement('style');
-        bootStyles.textContent = bootstrapStyles;
-        const variableStyles = document.createElement('style');
-        variableStyles.textContent = varStyles;
-        const itemStyles = document.createElement('style');
-        itemStyles.textContent = styles;
-        shadow.appendChild(bootStyles);
-        shadow.appendChild(variableStyles);
-        shadow.appendChild(itemStyles);
+    // Add styles
+    const bootStyles = document.createElement('style');
+    bootStyles.textContent = bootstrapStyles;
+    const variableStyles = document.createElement('style');
+    variableStyles.textContent = varStyles;
+    const itemStyles = document.createElement('style');
+    itemStyles.textContent = styles;
+    shadow.appendChild(bootStyles);
+    shadow.appendChild(variableStyles);
+    shadow.appendChild(itemStyles);
   }
 
   connectedCallback() {
@@ -37,7 +36,7 @@ export default class Icon extends HTMLElement {
     // Icon attributes
     const icon = this.getAttribute('data-icon');
     let size = this.getAttribute('data-size');
-    
+
     switch (size) {
       case 'small':
         size = '16';
@@ -66,11 +65,10 @@ export default class Icon extends HTMLElement {
     // Append the icon element to the container
     container.appendChild(iconElement);
 
-// Add the highlighted class if is-highlighted attribute is present
-if (isHighlighted) {
-  container.classList.add('highlighted');
-}
-
+    // Add the highlighted class if is-highlighted attribute is present
+    if (isHighlighted) {
+      container.classList.add('highlighted');
+    }
 
     // Append the container to the shadow root
     this.shadowRoot.appendChild(container);

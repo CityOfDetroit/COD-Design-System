@@ -1,6 +1,5 @@
 import '../components/atoms/Icon/cod-icon';
 
-
 export default {
   title: 'Components/Atoms/Icon',
   argTypes: {
@@ -47,8 +46,8 @@ export default {
     },
     isHighlighted: {
       control: { type: 'boolean' },
-      defaultValue: false, 
-    },   
+      defaultValue: false,
+    },
   },
 };
 // Template
