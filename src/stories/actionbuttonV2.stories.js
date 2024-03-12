@@ -79,7 +79,7 @@ export const ActionButtonV2RichBody = () => html`
   </div>
 `;
 
-export const ActionButtonGrid = () => html`
+export const ActionButtonV2Grid = () => html`
   <div class="container-fluid">
     <div class="row my-3">
       <div class="col-sm-4">
