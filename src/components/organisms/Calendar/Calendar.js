@@ -2,6 +2,8 @@ import styles from '!!raw-loader!./Calendar.css';
 import varStyles from '!!raw-loader!../../../shared/variables.css';
 import bootstrapStyles from '!!raw-loader!../../../shared/themed-bootstrap.css';
 
+import observedAttributeMixin from '../../../shared/js/observed-attribute-mixin';
+
 import { Calendar as FullCalendar } from '@fullcalendar/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
 
@@ -12,7 +14,17 @@ template.innerHTML = `
 `;
 
 class Calendar extends HTMLElement {
-  static observedAttributes = [];
+  static observedAttributeCbs = {
+    events: (component, _oldValue, newEventsJSON) => {
+      if (component.calendar === null) {
+        // Guard against attribute initialization being
+        // called before component connected.
+        return;
+      }
+      component.updateEventArraySource(newEventsJSON);
+    },
+  };
+  static observedAttributes = Object.keys(this.observedAttributeCbs);
 
   constructor() {
     // Always call super first in constructor
@@ -20,6 +32,9 @@ class Calendar extends HTMLElement {
     // Create a shadow root
     this.attachShadow({ mode: 'open' });
     this.shadowRoot.appendChild(template.content.cloneNode(true));
+
+    // Create variable for calendar instance
+    this.calendar = null;
 
     // Add styles
     const bootStyles = document.createElement('style');
@@ -40,7 +55,7 @@ class Calendar extends HTMLElement {
 
     const calendarEl = this.shadowRoot.getElementById('calendar');
     const eventArraySource = this.buildEventArraySource();
-    const calendar = new FullCalendar(calendarEl, {
+    this.calendar = new FullCalendar(calendarEl, {
       plugins: [dayGridPlugin],
       initialView: 'dayGridMonth',
       headerToolbar: {
@@ -50,18 +65,23 @@ class Calendar extends HTMLElement {
       },
       eventSources: [eventArraySource],
     });
-    calendar.render();
+    this.calendar.render();
   }
 
   /**
    * Build an events source object from the JSON list of events
    * provided by the user of the component.
+   * @param {string} [eventsJSON=null] A JSON serialized array of pre-parsed
+   *        event objects. See https://fullcalendar.io/docs/event-parsing. If null, events
+   *        will be fetched from the 'events' attribute on the component.
    * @returns an EventSource object using an array of events.
    *          See https://fullcalendar.io/docs/event-source-object.
    */
-  buildEventArraySource() {
+  buildEventArraySource(eventsJSON = null) {
+    if (eventsJSON === null) {
+      eventsJSON = this.getAttribute('events');
+    }
     let events = [];
-    const eventsJSON = this.getAttribute('events');
     try {
       events = JSON.parse(eventsJSON ?? '[]');
     } catch (error) {
@@ -72,11 +92,23 @@ class Calendar extends HTMLElement {
     const eventSource = {
       id: 'eventsArray',
       events: events,
-      // TODO: customize based on detroitmi theme and associated filters.
-      color: 'blue',
-      textColor: 'black',
     };
     return eventSource;
+  }
+
+  /**
+   * Replaces the 'eventsArray' event source with a new event source.
+   *
+   * @param {string} newEventsJSON - A JSON serialized array of pre-parsed
+   *        event objects. See https://fullcalendar.io/docs/event-parsing. If null, events
+   *        will be fetched from the 'events' attribute on the component instead.
+   */
+  updateEventArraySource(newEventsJSON = null) {
+    this.calendar.pauseRendering();
+    const newEventSource = this.buildEventArraySource(newEventsJSON);
+    this.calendar.getEventSourceById('eventsArray')?.remove();
+    this.calendar.addEventSource(newEventSource);
+    this.calendar.resumeRendering();
   }
 
   /**
@@ -88,9 +120,18 @@ class Calendar extends HTMLElement {
     return this.shadowRoot.getElementById('calendar').childElementCount > 0;
   }
 
-  // TODO: Handle event source changes.
-  // attributeChangedCallback(name, oldValue, newValue) {
-  // }
+  attributeChangedCallback(name, oldValue, newValue) {
+    if (name in Calendar.observedAttributeCbs) {
+      this.handleObservedAttribute(
+        oldValue,
+        newValue,
+        Calendar.observedAttributeCbs[name],
+      );
+    }
+  }
 }
+
+// Apply mixins.
+Object.assign(Calendar.prototype, observedAttributeMixin);
 
 export { Calendar as default };
