@@ -22,8 +22,6 @@ export default class Icon extends HTMLElement {
   }
 
   connectedCallback() {
-    // Boolean Attribute adds circle if present
-    const isHighlighted = this.hasAttribute('is-highlighted');
 
     if (this.isIconConnected()) {
       return;
@@ -60,15 +58,22 @@ export default class Icon extends HTMLElement {
 
     const iconElement = document.createElement('span');
     iconElement.innerHTML = this.getIcon(icon, size);
-    this.shadowRoot.appendChild(iconElement);
+
 
     // Append the icon element to the container
     container.appendChild(iconElement);
+
+       // Boolean Attribute adds circle if present
+  const isHighlighted = this.hasAttribute('is-highlighted');
+
 
     // Add the highlighted class if is-highlighted attribute is present
     if (isHighlighted) {
       container.classList.add('highlighted');
     }
+
+
+
 
     // Append the container to the shadow root
     this.shadowRoot.appendChild(container);
