@@ -15,8 +15,6 @@ div {
 
 .abutton-title {
   margin-bottom: var(--abutton-title-spacer-y);
-  font-weight: 900;
-  text-transform: uppercase;
 }
 
 .abutton-text:last-child {
