@@ -66,16 +66,16 @@ export const ActionButtonV2RichBody = () => html`
     >
       <h4 slot="title">Do Something</h4>
       <div slot="body">
-      <p>
-        Anything can go inside an action button but it's best to keep to simple
-        text.
-      </p>
-      <img
-        src="https://placehold.co/800x400/000000/FFF"
-        alt="..."
-        width="100"
-        height="50"
-      />
+        <p>
+          Anything can go inside an action button but it's best to keep to
+          simple text.
+        </p>
+        <img
+          src="https://placehold.co/800x400/000000/FFF"
+          alt="..."
+          width="100"
+          height="50"
+        />
       </div>
     </cod-action-button-v2>
   </div>
