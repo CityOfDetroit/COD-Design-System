@@ -32,6 +32,7 @@ export default class Icon extends HTMLElement {
         break;
 
       default:
+        size = '24';
         break;
     }
     const iconContainer = document.createElement('span');
