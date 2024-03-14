@@ -65,7 +65,8 @@ export const ActionButtonV2RichBody = () => html`
       target="_blank"
     >
       <h4 slot="title">Do Something</h4>
-      <p slot="body">
+      <div slot="body">
+      <p>
         Anything can go inside an action button but it's best to keep to simple
         text.
       </p>
@@ -75,6 +76,7 @@ export const ActionButtonV2RichBody = () => html`
         width="100"
         height="50"
       />
+      </div>
     </cod-action-button-v2>
   </div>
 `;
