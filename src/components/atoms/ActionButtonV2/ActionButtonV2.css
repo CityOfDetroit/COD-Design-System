@@ -34,7 +34,9 @@ div {
   --abutton-spacer-y: 1em;
   --abutton-spacer-x: 1em;
   --abutton-title-spacer-y: 0.5em;
-  border-bottom: solid;
+  border-top: none;
+  border-right: none;
+  border-left: none;
 }
 
 .btn {
