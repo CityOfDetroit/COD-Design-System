@@ -62,6 +62,7 @@ class Calendar extends HTMLElement {
     this.calendar = new FullCalendar(calendarEl, {
       plugins: [dayGridPlugin],
       initialView: 'dayGridMonth',
+      height: 'auto',
       headerToolbar: {
         left: 'title',
         center: '',
