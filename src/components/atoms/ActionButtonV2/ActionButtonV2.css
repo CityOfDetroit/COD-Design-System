@@ -7,6 +7,9 @@ div {
 .action-button-container > a > .abutton {
   width: 100%;
   height: 100%;
+  border-top: none;
+  border-right: none;
+  border-left: none;
 }
 
 .top-icon {
@@ -34,9 +37,6 @@ div {
   --abutton-spacer-y: 1em;
   --abutton-spacer-x: 1em;
   --abutton-title-spacer-y: 0.5em;
-  border-top: none;
-  border-right: none;
-  border-left: none;
 }
 
 .btn {
