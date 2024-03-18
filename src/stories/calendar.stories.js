@@ -29,16 +29,29 @@ export default {
   args: {
     events: JSON.stringify([
       {
-        title: 'event1',
+        title: 'event @ Say Detroit Play Center',
         start: new Date().toISOString(),
         allDay: true,
+        location: 'Say Detroit Play Center',
+      },
+      {
+        title: 'event @ Senior Facility',
+        start: new Date().toISOString(),
+        allDay: true,
+        location: 'Senior Facility',
+      },
+      {
+        title: 'event @ Detroit Housing Commission',
+        start: new Date().toISOString(),
+        allDay: true,
+        location: 'Detroit Housing Commission',
       },
     ]),
     eventFilters: JSON.stringify({
       dei_category_filter: {
         type: 'radio',
         legend: 'Select a location filter:',
-        key: 'dei_location',
+        key: 'location',
         values: [
           'Say Detroit Play Center',
           'Senior Facility',
