@@ -3855,6 +3855,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@fullcalendar/core@npm:^6.1.11":
+  version: 6.1.11
+  resolution: "@fullcalendar/core@npm:6.1.11"
+  dependencies:
+    preact: ~10.12.1
+  checksum: 0078a6f96b06a637de08ba28a317bbcbf7768f53ce7891faa2a656ca2bed0e887e555d6f3203b77d6c271ccb128fa85d592411fcfd87746514a5cec68376ad87
+  languageName: node
+  linkType: hard
+
+"@fullcalendar/daygrid@npm:^6.1.11":
+  version: 6.1.11
+  resolution: "@fullcalendar/daygrid@npm:6.1.11"
+  peerDependencies:
+    "@fullcalendar/core": ~6.1.11
+  checksum: 6eb5606de58b7a8ec30d96618a6d15b2c0d7108c94593ff94e81a8d87ce8efb1f29f3849c6c3f2b8ae56198ffe6235e2ec0e4a1270993c022dc194016e595685
+  languageName: node
+  linkType: hard
+
 "@hapi/hoek@npm:^9.0.0":
   version: 9.3.0
   resolution: "@hapi/hoek@npm:9.3.0"
@@ -9613,6 +9631,8 @@ __metadata:
     "@babel/preset-env": ^7.16.0
     "@babel/preset-typescript": ^7.21.0
     "@babel/runtime": ^7.15.4
+    "@fullcalendar/core": ^6.1.11
+    "@fullcalendar/daygrid": ^6.1.11
     "@storybook/addon-a11y": ^7.3.2
     "@storybook/addon-actions": ^7.3.2
     "@storybook/addon-coverage": ^0.0.9
@@ -18868,6 +18888,13 @@ __metadata:
   version: 1.0.2
   resolution: "potpack@npm:1.0.2"
   checksum: 9dfdbbce012ce80842249abcdd89e20222eb8ae96beba8d578b7e41e78feefc7e33b5c72d46fb8dd3a1e382cb4da9c34574764d88aa8849ab36f542fd2088b42
+  languageName: node
+  linkType: hard
+
+"preact@npm:~10.12.1":
+  version: 10.12.1
+  resolution: "preact@npm:10.12.1"
+  checksum: 0de99f477563ab7f94a0f964952ad216375973c0dcd9eb49881f8eb5effc5ed6948da062548c87d5bb0d82f1a1e516b649020e760eab3a0503dfdd8e64d34a26
   languageName: node
   linkType: hard
 
