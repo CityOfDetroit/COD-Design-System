@@ -9,6 +9,22 @@ export default {
         'A JSON array of events conforming to the FullCalenar \
       event model. See: https://fullcalendar.io/docs/event-model.',
     },
+    eventFilters: {
+      control: { type: 'text' },
+      description: `A JSON object of event filters to be applied. The filters
+        should take the following form:
+        {
+         "filter_name": {
+            type: "ui_filter_type",
+            legend: "A helpful legend.",
+            key: "event_field_key",
+            values: [
+              "event_field_key_value1",
+              "event_field_key_value2"
+            ],
+          }
+        }`,
+    },
   },
   args: {
     events: JSON.stringify([
@@ -18,6 +34,19 @@ export default {
         allDay: true,
       },
     ]),
+    eventFilters: JSON.stringify({
+      dei_category_filter: {
+        type: 'radio',
+        legend: 'Select a location filter:',
+        key: 'dei_location',
+        values: [
+          'Say Detroit Play Center',
+          'Senior Facility',
+          'Dick & Sandy Boys and Girls Club',
+          'Detroit Housing Commission',
+        ],
+      },
+    }),
   },
 };
 
@@ -25,6 +54,9 @@ export default {
 const Template = (args) => {
   const calendarElt = document.createElement('cod-calendar');
   calendarElt.setAttribute('events', args.events);
+  if (args.eventFilters) {
+    calendarElt.setAttribute('event-filters', args.eventFilters);
+  }
   return calendarElt;
 };
 

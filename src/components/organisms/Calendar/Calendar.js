@@ -9,7 +9,11 @@ import dayGridPlugin from '@fullcalendar/daygrid';
 
 const template = document.createElement('template');
 template.innerHTML = `
-<div id="calendar">
+<div>
+  <div id="calendarFilters">
+  </div>
+  <div id="calendar">
+  </div>
 </div>
 `;
 
@@ -65,6 +69,7 @@ class Calendar extends HTMLElement {
       },
       eventSources: [eventArraySource],
     });
+    this.buildEventFilters();
     this.calendar.render();
   }
 
@@ -118,6 +123,80 @@ class Calendar extends HTMLElement {
    */
   calendarIsConnected() {
     return this.shadowRoot.getElementById('calendar').childElementCount > 0;
+  }
+
+  /**
+   * Creates filter form elements above the calendar based on the event filters provided.
+   *
+   * @param {string} [newFiltersJSON=null] - A JSON serialized array of event filter definitions.
+   *        If null, filters will be fetched from the 'event-filters' attribute on the
+   *        component instead.
+   * @returns void
+   */
+  buildEventFilters(newFiltersJSON = null) {
+    const calendarFilterElt = this.shadowRoot.getElementById('calendarFilters');
+    if (calendarFilterElt === null) {
+      return;
+    }
+
+    if (newFiltersJSON === null) {
+      newFiltersJSON = this.getAttribute('event-filters');
+    }
+
+    let filters = {};
+    try {
+      filters = JSON.parse(newFiltersJSON ?? '{}');
+    } catch (error) {
+      // TODO: Introduce proper error logging.
+      // eslint-disable-next-line no-console
+      console.error(`Failed to parse list of filters:\n${newFiltersJSON}`);
+    }
+    for (const filter in filters) {
+      this.buildEventFilter(calendarFilterElt, filters[filter]);
+    }
+  }
+
+  /**
+   * Creates a single filter form field set above the calendar based
+   * on the event filter provided.
+   *
+   * @param {HTMLElement} calendarFilterElt - An HTML element to be used
+   *        as the container for the event filter created.
+   * @param {Object} filter - A single event filter object.
+   * @returns void
+   */
+  buildEventFilter(calendarFilterElt, filter) {
+    switch (filter.type) {
+      case 'radio': {
+        const radioFiltersContainer = document.createElement('fieldset');
+        const legend = document.createElement('legend');
+        legend.classList.add('visually-hidden');
+        legend.innerText = filter.legend;
+        radioFiltersContainer.appendChild(legend);
+        filter.values.forEach((value) => {
+          const radioButtonContainer = document.createElement('div');
+          const radioButtonInput = document.createElement('input');
+          radioButtonInput.setAttribute('type', 'radio');
+          radioButtonInput.setAttribute('id', value);
+          radioButtonInput.setAttribute('name', filter.key);
+          radioButtonInput.setAttribute('value', value);
+          radioButtonContainer.appendChild(radioButtonInput);
+          const radioButtonLabel = document.createElement('label');
+          radioButtonLabel.setAttribute('for', value);
+          radioButtonLabel.innerText = value;
+          radioButtonContainer.appendChild(radioButtonLabel);
+          radioFiltersContainer.appendChild(radioButtonContainer);
+        });
+        calendarFilterElt.appendChild(radioFiltersContainer);
+        break;
+      }
+      default: {
+        // TODO: Introduce proper error logging.
+        // eslint-disable-next-line no-console
+        console.warn(`Unsupported event filter type provided: ${filter.type}`);
+        return;
+      }
+    }
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
