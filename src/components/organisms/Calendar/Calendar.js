@@ -169,17 +169,25 @@ class Calendar extends HTMLElement {
     switch (filter.type) {
       case 'radio': {
         const radioFiltersContainer = document.createElement('fieldset');
+        radioFiltersContainer.classList.add(
+          'd-flex',
+          'flex-wrap',
+          'm-3',
+          'justify-content-center',
+        );
         const legend = document.createElement('legend');
         legend.classList.add('visually-hidden');
         legend.innerText = filter.legend;
         radioFiltersContainer.appendChild(legend);
         filter.values.forEach((value) => {
           const radioButtonContainer = document.createElement('div');
+          radioButtonContainer.classList.add('m-2');
           const radioButtonInput = document.createElement('input');
           radioButtonInput.setAttribute('type', 'radio');
           radioButtonInput.setAttribute('id', value);
           radioButtonInput.setAttribute('name', filter.key);
           radioButtonInput.setAttribute('value', value);
+          radioButtonInput.classList.add('btn-check');
           // Bind event handler to this instance.
           radioButtonInput.addEventListener(
             'click',
@@ -188,6 +196,7 @@ class Calendar extends HTMLElement {
           radioButtonContainer.appendChild(radioButtonInput);
           const radioButtonLabel = document.createElement('label');
           radioButtonLabel.setAttribute('for', value);
+          radioButtonLabel.classList.add('btn', 'btn-primary');
           radioButtonLabel.innerText = value;
           radioButtonContainer.appendChild(radioButtonLabel);
           radioFiltersContainer.appendChild(radioButtonContainer);
