@@ -180,6 +180,11 @@ class Calendar extends HTMLElement {
           radioButtonInput.setAttribute('id', value);
           radioButtonInput.setAttribute('name', filter.key);
           radioButtonInput.setAttribute('value', value);
+          // Bind event handler to this instance.
+          radioButtonInput.addEventListener(
+            'click',
+            this.filterEvents.bind(this),
+          );
           radioButtonContainer.appendChild(radioButtonInput);
           const radioButtonLabel = document.createElement('label');
           radioButtonLabel.setAttribute('for', value);
@@ -197,6 +202,29 @@ class Calendar extends HTMLElement {
         return;
       }
     }
+  }
+
+  /**
+   * Handles filter element events by filter down events to the
+   * user-selected criteria.
+   *
+   * @param {Event} browserEvent - The browser event triggered on the filter
+   *        form element.
+   */
+  filterEvents(browserEvent) {
+    const inputKey = browserEvent.target.name;
+    const inputValue = browserEvent.target.value;
+    const currentEventsJSON = this.getAttribute('events');
+    let events = [];
+    try {
+      events = JSON.parse(currentEventsJSON ?? '[]');
+    } catch (error) {
+      // TODO: Introduce proper error logging.
+      // eslint-disable-next-line no-console
+      console.error(`Failed to parse list of events:\n${currentEventsJSON}`);
+    }
+    events = events.filter((calEvent) => calEvent[inputKey] === inputValue);
+    this.updateEventArraySource(JSON.stringify(events));
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
