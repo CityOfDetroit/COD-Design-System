@@ -25,6 +25,23 @@ export default {
           }
         }`,
     },
+    eventPropertyRules: {
+      control: { type: 'text' },
+      description: `A JSON object of event properties to be applied to events matching
+          a specific criteria. The keys and value of the object correspond to keys and
+          values of the event and filters where the properties are applied. The object
+          associated with each key is a list of event properties and their values
+          as defined in https://fullcalendar.io/docs/event-object.
+          The rules should take the following form:
+          {
+            event_field_key: {
+              event_field_key_value: {
+                backgroundColor: '#000',
+              }
+            }
+          }
+        `,
+    },
   },
   args: {
     events: JSON.stringify([
@@ -60,6 +77,19 @@ export default {
         ],
       },
     }),
+    eventPropertyRules: JSON.stringify({
+      location: {
+        'Say Detroit Play Center': {
+          backgroundColor: '#ff6c37',
+        },
+        'Senior Facility': {
+          backgroundColor: '#1f71bf',
+        },
+        'Detroit Housing Commission': {
+          backgroundColor: '#1ed760',
+        },
+      },
+    }),
   },
 };
 
@@ -69,6 +99,9 @@ const Template = (args) => {
   calendarElt.setAttribute('events', args.events);
   if (args.eventFilters) {
     calendarElt.setAttribute('event-filters', args.eventFilters);
+  }
+  if (args.eventPropertyRules) {
+    calendarElt.setAttribute('event-property-rules', args.eventPropertyRules);
   }
   return calendarElt;
 };

@@ -95,11 +95,42 @@ class Calendar extends HTMLElement {
       // eslint-disable-next-line no-console
       console.error(`Failed to parse list of events:\n${eventsJSON}`);
     }
+    events = this.applyEventPropertyRules(events);
     const eventSource = {
       id: 'eventsArray',
       events: events,
     };
     return eventSource;
+  }
+
+  /**
+   * Apply additional event properties as defined by event
+   * property rules supplied in the `event-property-rules` attribute.
+   *
+   * @param {Object[]} events - An array of pre-parsed
+   *        event objects. See https://fullcalendar.io/docs/event-parsing.
+   * @returns {Object[]} An array of pre-parsed event objects.
+   */
+  applyEventPropertyRules(events) {
+    const eventPropertyRules = this.getEventPropertyRules();
+    for (const property in eventPropertyRules) {
+      events = events.map((event) => {
+        const eventPropertyValue = event[property];
+        if (
+          !Object.prototype.hasOwnProperty.call(
+            eventPropertyRules[property],
+            eventPropertyValue,
+          )
+        ) {
+          return event;
+        }
+        return {
+          ...event,
+          ...eventPropertyRules[property][eventPropertyValue],
+        };
+      });
+    }
+    return events;
   }
 
   /**
@@ -132,7 +163,6 @@ class Calendar extends HTMLElement {
    * @param {string} [newFiltersJSON=null] - A JSON serialized array of event filter definitions.
    *        If null, filters will be fetched from the 'event-filters' attribute on the
    *        component instead.
-   * @returns void
    */
   buildEventFilters(newFiltersJSON = null) {
     const calendarFilterElt = this.shadowRoot.getElementById('calendarFilters');
@@ -164,7 +194,6 @@ class Calendar extends HTMLElement {
    * @param {HTMLElement} calendarFilterElt - An HTML element to be used
    *        as the container for the event filter created.
    * @param {Object} filter - A single event filter object.
-   * @returns void
    */
   buildEventFilter(calendarFilterElt, filter) {
     switch (filter.type) {
@@ -198,6 +227,8 @@ class Calendar extends HTMLElement {
           const radioButtonLabel = document.createElement('label');
           radioButtonLabel.setAttribute('for', value);
           radioButtonLabel.classList.add('btn', 'btn-primary');
+          const eventRule = this.getEventPropertyRule(filter.key, value);
+          this.applyFilterPropertyRule(radioButtonLabel, eventRule);
           radioButtonLabel.innerText = value;
           radioButtonContainer.appendChild(radioButtonLabel);
           radioFiltersContainer.appendChild(radioButtonContainer);
@@ -210,6 +241,31 @@ class Calendar extends HTMLElement {
         // eslint-disable-next-line no-console
         console.warn(`Unsupported event filter type provided: ${filter.type}`);
         return;
+      }
+    }
+  }
+
+  /**
+   * Applies necessary styles based on the event property rule supplied.
+   *
+   * @param {HTMLElement} filterElement - The HTML element where the filter
+   *        property rule will be applied.
+   * @param {Object} eventPropertyRule - An event property rule to be used as
+   *        the filter property.
+   */
+  applyFilterPropertyRule(filterElement, eventPropertyRule) {
+    for (const property in eventPropertyRule) {
+      switch (property) {
+        case 'backgroundColor': {
+          filterElement.style.backgroundColor = eventPropertyRule[property];
+          break;
+        }
+        default: {
+          // TODO: Introduce proper error logging.
+          // eslint-disable-next-line no-console
+          console.warn(`Ignoring unsupported filter property: ${property}`);
+          return;
+        }
       }
     }
   }
@@ -235,6 +291,44 @@ class Calendar extends HTMLElement {
     }
     events = events.filter((calEvent) => calEvent[inputKey] === inputValue);
     this.updateEventArraySource(JSON.stringify(events));
+  }
+
+  /**
+   * Get an event/filter property and value for a given event/filter key and
+   * value.
+   * @param {string} eventKey - The event key used to filter down filters
+   *        and events for rules.
+   * @param {string} eventKeyValue - The value at the sepcified event key
+   *        used to filter down filters and events for rules.
+   * @returns Object - An event property rule consisting of
+   *          property keys and values to be applied to events and filters.
+   */
+  getEventPropertyRule(eventKey, eventKeyValue) {
+    const rules = this.getEventPropertyRules();
+    return rules[eventKey][eventKeyValue] ?? {};
+  }
+
+  /**
+   * Get all the event property rules from the `event-property-rules`
+   * attribute.
+   * @returns Object - All event property rules.
+   */
+  getEventPropertyRules() {
+    const eventPropertyRulesJSON = this.getAttribute('event-property-rules');
+    if (!eventPropertyRulesJSON) {
+      return {};
+    }
+    let eventPropertyRules = {};
+    try {
+      eventPropertyRules = JSON.parse(eventPropertyRulesJSON ?? '{}');
+    } catch (error) {
+      // TODO: Introduce proper error logging.
+      // eslint-disable-next-line no-console
+      console.error(
+        `Failed to parse event property rules:\n${eventPropertyRulesJSON}`,
+      );
+    }
+    return eventPropertyRules;
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
