@@ -9,7 +9,7 @@ template.innerHTML = `
   <a class="btn" role="button" href="">
     <div class="abutton">
       <div class="top-icon">
-        <cod-icon data-icon="" data-size="x-large" is-highlighted>
+        <cod-icon data-icon="" data-size="large" is-highlighted>
         </cod-icon>
       </div>
       <div class="abutton-body">
