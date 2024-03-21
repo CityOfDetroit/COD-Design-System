@@ -44,6 +44,10 @@ export default {
       control: { type: 'select' },
       options: ['small', 'medium', 'large', 'x-large'],
     },
+    isHighlighted: {
+      control: { type: 'boolean' },
+      defaultValue: false,
+    },
   },
 };
 // Template
@@ -51,6 +55,11 @@ const Template = (args) => {
   const icon = document.createElement('cod-icon');
   icon.setAttribute('data-icon', args.icon);
   icon.setAttribute('data-size', args.size);
+  if (args.isHighlighted) {
+    icon.setAttribute('is-highlighted', ''); // Set the attribute if isHighlighted is true
+  } else {
+    icon.removeAttribute('is-highlighted'); // Remove the attribute if isHighlighted is false
+  }
   return icon;
 };
 
