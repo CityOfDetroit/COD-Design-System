@@ -6,6 +6,8 @@ export default {
     icon: {
       control: { type: 'select' },
       options: [
+        'bounding-box',
+        'bounding-box-circle',
         'chevron-right',
         'chevron-right-circle',
         'chevron-right-circle-fill',
@@ -23,6 +25,8 @@ export default {
         'exclamation-circle',
         'exclamation-circle-fill',
         'exclamation-triangle',
+        'funnel',
+        'funnel-fill',
         'check-circle',
         'check-circle-fill',
         'calendar',
