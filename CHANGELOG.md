@@ -1,3 +1,25 @@
+# v1.0.19 (Wed March 27 2024)
+
+#### 🚀 Enhancement
+
+- Create component for new Action Button [by @sreidthomas](https://github.com/CityOfDetroit/COD-Design-System/pull/167)
+- Create calendar component [by @maxatdetroit](https://github.com/CityOfDetroit/COD-Design-System/pull/187)
+- Add icons to icon component [by @jedgar1mx](https://github.com/CityOfDetroit/COD-Design-System/pull/191)
+
+#### 🐛 Bug Fix
+
+- Prevent hypothetical XSS [by @maxatdetroit](https://github.com/CityOfDetroit/COD-Design-System/pull/185)
+
+#### Authors: 1
+
+- Shakira Reid-Thomas ([@sreidthomas](https://github.com/sreidthomas))
+- J Edgar Montes ([@jedgar1mx](https://github.com/jedgar1mx))
+- Max Morgan ([@maxatdetroit](https://github.com/maxatdetroit))
+
+**Full Changelog**: https://github.com/CityOfDetroit/COD-Design-System/compare/1.0.18...1.0.19
+
+---
+
 # v1.0.18 (Mon March 11 2024)
 
 #### 🚀 Enhancement
