@@ -31,7 +31,7 @@ const Template = (args) => {
     progress.setAttribute('data-label', args.label);
   }
   if (args.ariaLabel) {
-    progress.setAttribute('data-aria-label', args.ariaLabel);
+    progress.setAttribute('aria-label', args.ariaLabel);
   }
   if (args.striped) {
     progress.setAttribute('striped', '');

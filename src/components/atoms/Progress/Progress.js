@@ -23,7 +23,7 @@ export default class Progress extends HTMLElement {
     // Handle attributes
     // TODO: Make me a slotted attribute.
     const label = this.getAttribute('data-label');
-    const ariaLabel = this.getAttribute('data-aria-label');
+    const ariaLabel = this.getAttribute('aria-label');
     const animated = this.hasAttribute('animated');
     const striped = this.hasAttribute('striped');
     const value = this.getAttribute('value');
