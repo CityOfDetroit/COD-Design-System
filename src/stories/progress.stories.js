@@ -27,9 +27,6 @@ const Template = (args) => {
   progress.setAttribute('data-label', args.label);
   progress.setAttribute('data-aria-label', args.ariaLabel);
   progress.setAttribute('data-animated', args.animated);
-  if (args.multiBars) {
-    progress.setAttribute('multi-bar-config', args.multiBars);
-  }
   return progress;
 };
 
@@ -65,30 +62,4 @@ StripedBarLabel.args = {
   type: 'striped',
   animated: 'animated',
   label: 'this 25%',
-};
-
-export const StripedBarStacked = Template.bind({});
-StripedBarStacked.args = {
-  multiBars: JSON.stringify([
-    {
-      ariaLabel: 'first stacked bar',
-      value: '30',
-      label: 'Something 30%',
-      animated: 'animated',
-      striped: 'striped',
-      backgroundColor: 'info',
-    },
-    {
-      ariaLabel: 'second stacked bar',
-      value: '15',
-      animated: 'animated',
-      striped: 'striped',
-      backgroundColor: 'warning',
-    },
-    {
-      ariaLabel: 'second stacked bar',
-      value: '20',
-      backgroundColor: 'success',
-    },
-  ]),
 };
