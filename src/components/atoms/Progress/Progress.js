@@ -88,6 +88,7 @@ export default class Progress extends HTMLElement {
 
   _addBarClasses(barElement, isAnimated, isStriped, bgColor) {
     const barClasses = [
+      'progress-bar',
       isAnimated ? 'progress-bar-animated' : null,
       isStriped ? 'progress-bar-striped' : null,
       bgColor ? `bg-${bgColor}` : null,
