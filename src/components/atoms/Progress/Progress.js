@@ -34,12 +34,10 @@ export default class Progress extends HTMLElement {
 
     const backgroundColor = this.getAttribute('data-background-color');
 
-    const stacked = this.getAttribute('data-multi-bars');
+    const multiBarConfig = this.getAttribute('multi-bar-config');
     const progressContainer = document.createElement('div');
 
-    // TODO: Fix old ESLint errors - see issue #1099
-    // eslint-disable-next-line eqeqeq
-    if (stacked == 'undefined' || stacked == 'null') {
+    if (multiBarConfig === null) {
       const bar = document.createElement('div');
       bar.role = 'progressbar';
       bar.setAttribute('aria-label', ariaLabel);
@@ -63,7 +61,7 @@ export default class Progress extends HTMLElement {
       progressContainer.appendChild(bar);
     } else {
       progressContainer.className = 'progress-stacked';
-      this.buildBar(JSON.parse(stacked), progressContainer);
+      this.buildBar(JSON.parse(multiBarConfig), progressContainer);
     }
     this.shadowRoot.appendChild(progressContainer);
   }

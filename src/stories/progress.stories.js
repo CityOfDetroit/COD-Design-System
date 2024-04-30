@@ -27,7 +27,9 @@ const Template = (args) => {
   progress.setAttribute('data-label', args.label);
   progress.setAttribute('data-aria-label', args.ariaLabel);
   progress.setAttribute('data-animated', args.animated);
-  progress.setAttribute('data-multi-bars', args.multiBars);
+  if (args.multiBars) {
+    progress.setAttribute('multi-bar-config', args.multiBars);
+  }
   return progress;
 };
 
