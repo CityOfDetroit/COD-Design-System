@@ -28,7 +28,10 @@ const Template = (args) => {
     progress.setAttribute('value', args.value);
   }
   if (args.label) {
-    progress.setAttribute('data-label', args.label);
+    const label = document.createElement('span');
+    label.setAttribute('slot', 'label');
+    label.innerText = args.label;
+    progress.appendChild(label);
   }
   if (args.ariaLabel) {
     progress.setAttribute('aria-label', args.ariaLabel);
@@ -75,30 +78,4 @@ StripedBarLabel.args = {
   striped: 'striped',
   animated: 'animated',
   label: 'this 25%',
-};
-
-export const StripedBarStacked = Template.bind({});
-StripedBarStacked.args = {
-  multiBars: JSON.stringify([
-    {
-      ariaLabel: 'first stacked bar',
-      value: '30',
-      label: 'Something 30%',
-      animated: 'animated',
-      striped: 'striped',
-      backgroundColor: 'info',
-    },
-    {
-      ariaLabel: 'second stacked bar',
-      value: '15',
-      animated: 'animated',
-      striped: 'striped',
-      backgroundColor: 'warning',
-    },
-    {
-      ariaLabel: 'second stacked bar',
-      value: '20',
-      backgroundColor: 'success',
-    },
-  ]),
 };
