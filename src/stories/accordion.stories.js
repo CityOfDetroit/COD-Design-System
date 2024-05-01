@@ -1,6 +1,4 @@
 import { html } from 'lit-html';
-import '../components/atoms/AccordionHeader/cod-accordion-header';
-import '../components/atoms/AccordionBody/cod-accordion-body';
 import '../components/atoms/AccordionItem/cod-accordion-item';
 import '../components/molecules/Accordion/cod-accordion';
 
