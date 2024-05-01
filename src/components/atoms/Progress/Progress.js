@@ -34,65 +34,29 @@ export default class Progress extends HTMLElement {
 
     const backgroundColor = this.getAttribute('data-background-color');
 
-    const stacked = this.getAttribute('data-multi-bars');
     const progressContainer = document.createElement('div');
+
+    const bar = document.createElement('div');
+    bar.role = 'progressbar';
+    bar.setAttribute('aria-label', ariaLabel);
+    bar.setAttribute('aria-valuenow', value);
+    bar.className = 'progress';
+    const barBody = document.createElement('div');
+    barBody.style = `width: ${value}%`;
 
     // TODO: Fix old ESLint errors - see issue #1099
     // eslint-disable-next-line eqeqeq
-    if (stacked == 'undefined' || stacked == 'null') {
-      const bar = document.createElement('div');
-      bar.role = 'progressbar';
-      bar.setAttribute('aria-label', ariaLabel);
-      bar.setAttribute('aria-valuenow', value);
-      bar.className = 'progress';
-      const barBody = document.createElement('div');
-      barBody.style = `width: ${value}%`;
-
-      // TODO: Fix old ESLint errors - see issue #1099
-      // eslint-disable-next-line eqeqeq
-      if (label != 'undefined' && label != 'null') {
-        barBody.innerText = label;
-      }
-      barBody.className = [
-        'progress-bar',
-        `progress-bar-${animated || ''}`,
-        `progress-bar-${striped || ''}`,
-        `bg-${backgroundColor || ''}`,
-      ].join(' ');
-      bar.appendChild(barBody);
-      progressContainer.appendChild(bar);
-    } else {
-      progressContainer.className = 'progress-stacked';
-      this.buildBar(JSON.parse(stacked), progressContainer);
+    if (label != 'undefined' && label != 'null') {
+      barBody.innerText = label;
     }
+    barBody.className = [
+      'progress-bar',
+      `progress-bar-${animated || ''}`,
+      `progress-bar-${striped || ''}`,
+      `bg-${backgroundColor || ''}`,
+    ].join(' ');
+    bar.appendChild(barBody);
+    progressContainer.appendChild(bar);
     this.shadowRoot.appendChild(progressContainer);
-  }
-
-  buildBar(bars, barContainer) {
-    bars.forEach((bar) => {
-      const tempBar = document.createElement('div');
-      tempBar.role = 'progressbar';
-      tempBar.setAttribute('aria-label', bar.ariaLabel);
-      tempBar.setAttribute('aria-valuenow', bar.value);
-      tempBar.setAttribute('aria-valuemin', '0');
-      tempBar.setAttribute('aria-valuemax', '100');
-      tempBar.className = 'progress';
-      const barBody = document.createElement('div');
-      tempBar.style = `width: ${bar.value}%`;
-
-      // TODO: Fix old ESLint errors - see issue #1099
-      // eslint-disable-next-line eqeqeq
-      bar.label == undefined || bar.label == null
-        ? ''
-        : (barBody.innerText = bar.label);
-      barBody.className = [
-        'progress-bar',
-        `progress-bar-${bar.animated || ''}`,
-        `progress-bar-${bar.striped || ''}`,
-        `bg-${bar.backgroundColor || ''}`,
-      ].join(' ');
-      tempBar.appendChild(barBody);
-      barContainer.appendChild(tempBar);
-    });
   }
 }
