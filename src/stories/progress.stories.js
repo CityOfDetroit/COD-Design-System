@@ -21,12 +21,28 @@ export default {
 // Template
 const Template = (args) => {
   const progress = document.createElement('cod-progress');
-  progress.setAttribute('data-type', args.type);
-  progress.setAttribute('data-background-color', args.backgroundColor);
-  progress.setAttribute('data-value', args.value);
-  progress.setAttribute('data-label', args.label);
-  progress.setAttribute('data-aria-label', args.ariaLabel);
-  progress.setAttribute('data-animated', args.animated);
+  if (args.backgroundColor) {
+    progress.setAttribute('color', args.backgroundColor);
+  }
+  if (args.value) {
+    progress.setAttribute('value', args.value);
+  }
+  if (args.label) {
+    const label = document.createElement('span');
+    label.setAttribute('slot', 'label');
+    label.innerText = args.label;
+    progress.appendChild(label);
+  }
+  if (args.ariaLabel) {
+    progress.setAttribute('aria-label', args.ariaLabel);
+  }
+  if (args.striped) {
+    progress.setAttribute('striped', '');
+  }
+  if (args.animated) {
+    progress.setAttribute('animated', '');
+  }
+  progress.setAttribute('data-multi-bars', args.multiBars);
   return progress;
 };
 
@@ -42,7 +58,7 @@ StripedBar.args = {
   backgroundColor: 'primary',
   value: '25',
   ariaLabel: 'simple test',
-  type: 'striped',
+  striped: 'striped',
 };
 
 export const StripedBarAnimated = Template.bind({});
@@ -50,7 +66,7 @@ StripedBarAnimated.args = {
   backgroundColor: 'primary',
   value: '25',
   ariaLabel: 'simple test',
-  type: 'striped',
+  striped: 'striped',
   animated: 'animated',
 };
 
@@ -59,7 +75,7 @@ StripedBarLabel.args = {
   backgroundColor: 'primary',
   value: '25',
   ariaLabel: 'simple test',
-  type: 'striped',
+  striped: 'striped',
   animated: 'animated',
   label: 'this 25%',
 };

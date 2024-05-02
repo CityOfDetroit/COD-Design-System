@@ -1,16 +1,26 @@
 import styles from '!!raw-loader!./Progress.css';
 import varStyles from '!!raw-loader!../../../shared/variables.css';
 import bootstrapStyles from '!!raw-loader!../../../shared/themed-bootstrap.css';
+
+const template = document.createElement('template');
+
+template.innerHTML = `
+<div class="progress" role="progressbar">
+  <div class="progress-bar">
+    <slot name="label"></slot>
+  <div>
+</div>
+`;
+
 export default class Progress extends HTMLElement {
   constructor() {
     // Always call super first in constructor
     super();
     // Create a shadow root
     this.attachShadow({ mode: 'open' });
-  }
+    this.shadowRoot.appendChild(template.content.cloneNode(true));
 
-  connectedCallback() {
-    // setting up styles
+    // Setting up styles
     const bootStyles = document.createElement('style');
     bootStyles.textContent = bootstrapStyles;
     const variableStyles = document.createElement('style');
@@ -20,43 +30,33 @@ export default class Progress extends HTMLElement {
     this.shadowRoot.appendChild(bootStyles);
     this.shadowRoot.appendChild(variableStyles);
     this.shadowRoot.appendChild(progressStyles);
-    // progress attributes
+  }
 
-    const striped = this.getAttribute('data-type');
+  connectedCallback() {
+    // Handle attributes
+    const ariaLabel = this.getAttribute('aria-label');
+    const animated = this.hasAttribute('animated');
+    const striped = this.hasAttribute('striped');
+    const value = this.getAttribute('value');
+    const backgroundColor = this.getAttribute('color');
 
-    const label = this.getAttribute('data-label');
-
-    const ariaLabel = this.getAttribute('data-aria-label');
-
-    const animated = this.getAttribute('data-animated');
-
-    const value = this.getAttribute('data-value');
-
-    const backgroundColor = this.getAttribute('data-background-color');
-
-    const progressContainer = document.createElement('div');
-
-    const bar = document.createElement('div');
-    bar.role = 'progressbar';
+    const bar = this.shadowRoot.querySelector('.progress');
     bar.setAttribute('aria-label', ariaLabel);
     bar.setAttribute('aria-valuenow', value);
-    bar.className = 'progress';
-    const barBody = document.createElement('div');
+
+    const barBody = this.shadowRoot.querySelector('.progress-bar');
     barBody.style = `width: ${value}%`;
 
-    // TODO: Fix old ESLint errors - see issue #1099
-    // eslint-disable-next-line eqeqeq
-    if (label != 'undefined' && label != 'null') {
-      barBody.innerText = label;
-    }
-    barBody.className = [
+    this._addBarClasses(barBody, animated, striped, backgroundColor);
+  }
+
+  _addBarClasses(barElement, isAnimated, isStriped, bgColor) {
+    const barClasses = [
       'progress-bar',
-      `progress-bar-${animated || ''}`,
-      `progress-bar-${striped || ''}`,
-      `bg-${backgroundColor || ''}`,
-    ].join(' ');
-    bar.appendChild(barBody);
-    progressContainer.appendChild(bar);
-    this.shadowRoot.appendChild(progressContainer);
+      isAnimated ? 'progress-bar-animated' : null,
+      isStriped ? 'progress-bar-striped' : null,
+      bgColor ? `bg-${bgColor}` : null,
+    ].filter((value) => value !== null);
+    barElement.classList.add(...barClasses);
   }
 }
