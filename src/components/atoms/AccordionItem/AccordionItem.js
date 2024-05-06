@@ -43,8 +43,8 @@ export default class AccordionItem extends HTMLElement {
     // Handle accordion item attributes
     const bodyContainer =
       this.shadowRoot.querySelector('div.accordion-body').parentElement;
-    const parentID = this.getAttribute('data-parent-id');
-    const index = this.getAttribute('data-index');
+    const parentID = this.getAttribute('parent-id');
+    const index = this.getAttribute('index');
     const itemID = `${parentID}-${index}`;
     bodyContainer.id = itemID;
 
@@ -74,26 +74,5 @@ export default class AccordionItem extends HTMLElement {
       buttonClicked.setAttribute('aria-expanded', false);
       bodyContainer.classList.remove('show');
     }
-  }
-
-  getListItemBackgroundColor() {
-    const customColor = this.getAttribute('data-li-bg');
-    return customColor !== null ? customColor : 'primary';
-  }
-
-  getListItemTextColor() {
-    const customColor = this.getAttribute('data-li-text');
-    return customColor !== null ? customColor : 'light';
-  }
-
-  getHeaderListItemClasses() {
-    const bgColor = this.getListItemBackgroundColor();
-    const textColor = this.getListItemTextColor();
-    return ['li-bg-' + bgColor, 'text-' + textColor];
-  }
-
-  getBodyListItemClasses() {
-    const bgColor = this.getListItemBackgroundColor();
-    return ['border-start', 'border-' + bgColor];
   }
 }

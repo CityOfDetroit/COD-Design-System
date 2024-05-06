@@ -33,16 +33,11 @@ export default class Accordion extends HTMLElement {
     // Handle accordion attributes
     const accordionContainer = this.shadowRoot.querySelector('div.accordion');
 
-    const id = this.getAttribute('data-id');
+    const id = this.getAttribute('id');
     accordionContainer.id = id;
-
-    const extraClasses = this.getAttribute('data-extra-classes');
-    if (extraClasses !== null) {
-      accordionContainer.classList.add(...extraClasses.split(' '));
-    }
     [...this.children].forEach((element, index) => {
-      element.setAttribute('data-parent-id', id);
-      element.setAttribute('data-index', index);
+      element.setAttribute('parent-id', id);
+      element.setAttribute('index', index);
       accordionContainer.append(element);
     });
   }
