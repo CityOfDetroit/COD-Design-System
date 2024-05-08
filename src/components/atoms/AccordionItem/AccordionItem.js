@@ -5,56 +5,27 @@ import bootstrapStyles from '!!raw-loader!../../../shared/themed-bootstrap.css';
 const template = document.createElement('template');
 
 template.innerHTML = `
-<slot></slot>
+<div class="accordion-item">
+  <div class="accordion-header">
+    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" aria-expanded="false">
+      <slot name="header"></slot>
+    </button>
+  </h2>
+  <div class="accordion-collapse collapse">
+    <div class="accordion-body">
+      <slot name="body"></slot>
+    </div>
+  </div>
+</div>
 `;
 
 export default class AccordionItem extends HTMLElement {
-  static get observedAttributes() {
-    return ['data-expanded'];
-  }
-
   constructor() {
     // Always call super first in constructor
     super();
     // Create a shadow root
     const shadow = this.attachShadow({ mode: 'open' });
     shadow.appendChild(template.content.cloneNode(true));
-    this.accordionHeader = document.createElement('div');
-    this.accordionBody = document.createElement('div');
-    this.shadowRoot.addEventListener('slotchange', (ev) => {
-      const tempElements = ev.target.assignedElements();
-      tempElements.forEach((node) => {
-        // TODO: Refactor attribute and class handling.
-        node.setAttribute(
-          'data-parent-id',
-          `${this.getAttribute('data-parent-id')}-${this.getAttribute(
-            'data-index',
-          )}`,
-        );
-
-        // TODO: Fix old ESLint errors - see issue #1099
-        // eslint-disable-next-line eqeqeq
-        this.getAttribute('data-expanded') == 'true'
-          ? node.setAttribute('data-expanded', true)
-          : 0;
-
-        // TODO: Fix old ESLint errors - see issue #1099
-        // eslint-disable-next-line eqeqeq
-        if (node.tagName == 'COD-ACCORDION-HEADER') {
-          if (this.getAttribute('data-li') !== null) {
-            node.setAttribute('data-li', '');
-            const extraClasses = this.getHeaderListItemClasses();
-            node.addListNumber(
-              Number(this.getAttribute('data-index')),
-              extraClasses,
-            );
-          }
-          this.accordionHeader.append(node);
-        } else {
-          this.accordionBody.append(node);
-        }
-      });
-    });
 
     // Add styles
     const bootStyles = document.createElement('style');
@@ -68,98 +39,40 @@ export default class AccordionItem extends HTMLElement {
     shadow.appendChild(itemStyles);
   }
 
-  attributeChangedCallback(name, oldValue, newValue) {
-    this.accordionHeader
-      .querySelector('cod-accordion-header')
-      .setAttribute('data-expanded', newValue);
-    this.accordionBody
-      .querySelector('cod-accordion-body')
-      .setAttribute('data-expanded', newValue);
-
-    const tempClasses = this.accordionBody.className.split(' ');
-
-    const popValue = tempClasses.pop();
-
-    // TODO: Fix old ESLint errors - see issue #1099
-    // eslint-disable-next-line eqeqeq
-    popValue != 'show' ? tempClasses.push(popValue) : 0;
-
-    // TODO: Fix old ESLint errors - see issue #1099
-    // eslint-disable-next-line eqeqeq
-    if (newValue == 'true') {
-      tempClasses.push('show');
-    }
-    this.accordionBody.className = tempClasses.join(' ');
-  }
-
   connectedCallback() {
-    // Nav attributes
-    // TODO: Refactor attribute and class handling.
+    // Handle accordion item attributes
+    const bodyContainer =
+      this.shadowRoot.querySelector('div.accordion-body').parentElement;
+    const parentID = this.getAttribute('parent-id');
+    const index = this.getAttribute('index');
+    const itemID = `${parentID}-${index}`;
+    bodyContainer.id = itemID;
 
-    const parentID = this.getAttribute('data-parent-id');
-
-    const index = this.getAttribute('data-index');
-
-    const expanded = this.getAttribute('data-expanded');
-
-    const accordionHeaderClasses = ['accordion-header'];
-    let accordionBodyClasses = ['accordion-collapse collapse'];
-
-    // TODO: Fix old ESLint errors - see issue #1099
-    // eslint-disable-next-line eqeqeq
-    expanded == 'true' ? accordionBodyClasses.push('show') : 0;
-    if (this.getAttribute('data-li') !== null) {
-      accordionBodyClasses = accordionBodyClasses.concat(
-        this.getBodyListItemClasses(),
-      );
-    }
-    this.accordionBody.id = `${parentID}-${index}`;
-    this.accordionHeader.className = accordionHeaderClasses.join(' ');
-    this.accordionBody.className = accordionBodyClasses.join(' ');
-    if (this.querySelector('cod-accordion-header')) {
-      this.querySelector('cod-accordion-header').addEventListener(
-        'click',
-        this._onClick,
-      );
-    }
-    if (!this.shadowRoot.querySelector('ul')) {
-      this.shadowRoot.appendChild(this.accordionHeader);
-      this.shadowRoot.appendChild(this.accordionBody);
-    }
+    const accordionButton = this.shadowRoot.querySelector(
+      'button.accordion-button',
+    );
+    accordionButton.setAttribute('data-bs-target', `#${itemID}`);
+    accordionButton.setAttribute('aria-controls', `${itemID}`);
+    accordionButton.addEventListener('click', this._toggleAccordion);
   }
 
   disconnectedCallback() {
-    this.removeEventListener('click', this._onClick.bind(this));
+    this.removeEventListener('click', this._toggleAccordion);
   }
 
-  getListItemBackgroundColor() {
-    const customColor = this.getAttribute('data-li-bg');
-    return customColor !== null ? customColor : 'primary';
-  }
-
-  getListItemTextColor() {
-    const customColor = this.getAttribute('data-li-text');
-    return customColor !== null ? customColor : 'light';
-  }
-
-  getHeaderListItemClasses() {
-    const bgColor = this.getListItemBackgroundColor();
-    const textColor = this.getListItemTextColor();
-    return ['li-bg-' + bgColor, 'text-' + textColor];
-  }
-
-  getBodyListItemClasses() {
-    const bgColor = this.getListItemBackgroundColor();
-    return ['border-start', 'border-' + bgColor];
-  }
-
-  _onClick(e) {
-    // TODO: Fix old ESLint errors - see issue #1099
-    // eslint-disable-next-line eqeqeq
-    if (e.target.getAttribute('data-expanded') == 'true') {
-      this.getRootNode().host.setAttribute('data-expanded', 'false');
+  _toggleAccordion(clickEvent) {
+    const buttonClicked = clickEvent.currentTarget;
+    const bodyContainer = buttonClicked
+      .getRootNode()
+      .querySelector('div.accordion-body').parentElement;
+    if (buttonClicked.classList.contains('collapsed')) {
+      buttonClicked.classList.remove('collapsed');
+      buttonClicked.setAttribute('aria-expanded', true);
+      bodyContainer.classList.add('show');
     } else {
-      this.getRootNode().host.setAttribute('data-expanded', 'true');
+      buttonClicked.classList.add('collapsed');
+      buttonClicked.setAttribute('aria-expanded', false);
+      bodyContainer.classList.remove('show');
     }
   }
 }

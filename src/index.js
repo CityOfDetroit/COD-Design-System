@@ -3,8 +3,6 @@
 // ============================================================
 
 // Importing atoms
-import './components/atoms/AccordionBody/cod-accordion-body';
-import './components/atoms/AccordionHeader/cod-accordion-header';
 import './components/atoms/AccordionItem/cod-accordion-item';
 import './components/atoms/Alert/cod-alert';
 import './components/atoms/Badge/cod-badge';
