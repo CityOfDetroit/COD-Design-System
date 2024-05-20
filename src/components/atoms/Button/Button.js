@@ -12,8 +12,8 @@ export default class Button extends HTMLElement {
 
   connectedCallback() {
     // Button attributes
-    const close = this.getAttribute('data-close');
-    const link = this.getAttribute('data-link');
+    const close = this.getAttribute('close');
+    const link = this.getAttribute('link');
     const btnID = this.getAttribute('data-id');
     const ariaLabel = this.getAttribute('data-aria-label');
     const primary = this.getAttribute('data-primary');
