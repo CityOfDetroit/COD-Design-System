@@ -28,7 +28,7 @@ export default class Button extends HTMLElement {
     const size = this.getAttribute('size');
     const extraClasses = this.getAttribute('extra-classes');
     const label = this.getAttribute('label');
-    const disableStatus = this.getAttribute('data-disable');
+    const disableStatus = this.getAttribute('disabled');
     // Building Button component
     const btn = document.createElement('button');
     const btnClasses = ['btn'];
