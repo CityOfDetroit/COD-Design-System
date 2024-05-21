@@ -16,18 +16,18 @@ export default class Button extends HTMLElement {
     const link = this.getAttribute('link');
     const btnID = this.getAttribute('id');
     const ariaLabel = this.getAttribute('aria-label');
-    const primary = this.getAttribute('data-primary');
-    const backgroundColor = this.getAttribute('data-background-color');
-    const shape = this.getAttribute('data-shape');
-    const icon = this.getAttribute('data-icon');
-    const iconSize = this.getAttribute('data-icon-size');
-    const iconOrder = this.getAttribute('data-icon-order');
-    const hiddenLabel = this.getAttribute('data-hidden-label');
-    const imgSrc = this.getAttribute('data-img');
-    const imgAlt = this.getAttribute('data-img-alt');
-    const size = this.getAttribute('data-size');
-    const extraClasses = this.getAttribute('data-extra-classes');
-    const label = this.getAttribute('data-label');
+    const primary = this.getAttribute('primary');
+    const backgroundColor = this.getAttribute('background-color');
+    const shape = this.getAttribute('shape');
+    const icon = this.getAttribute('icon');
+    const iconSize = this.getAttribute('icon-size');
+    const iconOrder = this.getAttribute('icon-order');
+    const hiddenLabel = this.getAttribute('hidden-label');
+    const imgSrc = this.getAttribute('img');
+    const imgAlt = this.getAttribute('img-alt');
+    const size = this.getAttribute('size');
+    const extraClasses = this.getAttribute('extra-classes');
+    const label = this.getAttribute('label');
     const disableStatus = this.getAttribute('data-disable');
     // Building Button component
     const btn = document.createElement('button');
@@ -58,8 +58,8 @@ export default class Button extends HTMLElement {
       // Loading icon
       const iconContainer = document.createElement('span');
       const activeIcon = document.createElement('cod-icon');
-      activeIcon.setAttribute('data-icon', icon);
-      activeIcon.setAttribute('data-size', iconSize);
+      activeIcon.setAttribute('icon', icon);
+      activeIcon.setAttribute('size', iconSize);
       iconContainer.appendChild(activeIcon);
       btn.innerText = label;
       if (iconOrder === 'left') {
