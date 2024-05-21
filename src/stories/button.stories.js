@@ -8,7 +8,7 @@ export default {
     primary: {
       control: { type: 'boolean' },
     },
-    disable: COMMON_STORY_ARGS.disabled,
+    disabled: COMMON_STORY_ARGS.disabled,
     // TODO: Make this attr name and accepted
     // values consistent with other action button, progress bar,
     // etc. Issue #202.
@@ -35,36 +35,36 @@ const Template = (args) => {
   btn.addEventListener('click', (e) => {
     args.onclick(e);
   });
-  btn.setAttribute('data-primary', args.primary);
-  btn.setAttribute('data-disable', args.disable);
-  btn.setAttribute('data-label', args.label);
-  btn.setAttribute('data-img', args.img ? args.img : '');
-  btn.setAttribute('data-img-alt', args.imgAlt ? args.imgAlt : '');
-  btn.setAttribute('data-icon', args.icon ? args.icon : '');
-  btn.setAttribute('data-icon-order', args.iconOrder ? args.iconOrder : '');
-  btn.setAttribute('data-icon-size', args.iconSize ? args.iconSize : '');
-  btn.setAttribute('data-shape', args.shape);
-  btn.setAttribute('data-aria-label', args.ariaLabel ? args.ariaLabel : '');
+  btn.setAttribute('primary', args.primary);
+  btn.setAttribute('disabled', args.disabled);
+  btn.setAttribute('label', args.label);
+  btn.setAttribute('img', args.img ? args.img : '');
+  btn.setAttribute('img-alt', args.imgAlt ? args.imgAlt : '');
+  btn.setAttribute('icon', args.icon ? args.icon : '');
+  btn.setAttribute('icon-order', args.iconOrder ? args.iconOrder : '');
+  btn.setAttribute('icon-size', args.iconSize ? args.iconSize : '');
+  btn.setAttribute('shape', args.shape);
+  btn.setAttribute('aria-label', args.ariaLabel ? args.ariaLabel : '');
   args.backgroundColor
-    ? btn.setAttribute('data-background-color', args.backgroundColor)
-    : btn.setAttribute('data-background-color', 'primary');
+    ? btn.setAttribute('background-color', args.backgroundColor)
+    : btn.setAttribute('background-color', 'primary');
   if (args.close) {
-    btn.setAttribute('data-close', args.close);
+    btn.setAttribute('close', args.close);
   }
   if (args.hLabel) {
-    btn.setAttribute('data-hidden-label', args.hLabel);
+    btn.setAttribute('hidden-label', args.hLabel);
   }
   if (args.size) {
-    btn.setAttribute('data-size', args.size);
+    btn.setAttribute('size', args.size);
   }
   if (args.id) {
-    btn.setAttribute('data-id', args.id);
+    btn.setAttribute('id', args.id);
   }
   if (args.link) {
-    btn.setAttribute('data-link', args.link);
+    btn.setAttribute('link', args.link);
   }
   if (args.extraClasses) {
-    btn.setAttribute('data-extra-classes', args.extraClasses);
+    btn.setAttribute('extra-classes', args.extraClasses);
   }
   return btn;
 };
