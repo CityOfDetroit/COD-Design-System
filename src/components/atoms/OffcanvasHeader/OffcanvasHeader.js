@@ -73,8 +73,6 @@ export default class OffcanvasHeader extends HTMLElement {
   }
 
   _onClick() {
-    this.getRootNode()
-      .host.getRootNode()
-      .host.setAttribute('show', 'false');
+    this.getRootNode().host.getRootNode().host.setAttribute('show', 'false');
   }
 }
