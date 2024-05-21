@@ -14,8 +14,8 @@ export default class Button extends HTMLElement {
     // Button attributes
     const close = this.getAttribute('close');
     const link = this.getAttribute('link');
-    const btnID = this.getAttribute('data-id');
-    const ariaLabel = this.getAttribute('data-aria-label');
+    const btnID = this.getAttribute('id');
+    const ariaLabel = this.getAttribute('aria-label');
     const primary = this.getAttribute('data-primary');
     const backgroundColor = this.getAttribute('data-background-color');
     const shape = this.getAttribute('data-shape');
