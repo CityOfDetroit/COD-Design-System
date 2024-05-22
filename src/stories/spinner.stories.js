@@ -20,10 +20,10 @@ export default {
 // Template
 const Template = (args) => {
   const spinner = document.createElement('cod-spinner');
-  spinner.setAttribute('data-type', args.type);
-  spinner.setAttribute('data-background-color', args.backgroundColor);
-  spinner.setAttribute('data-size', args.size);
-  spinner.setAttribute('data-display-type', args.displayType);
+  spinner.setAttribute('type', args.type);
+  spinner.setAttribute('background-color', args.backgroundColor);
+  spinner.setAttribute('size', args.size);
+  spinner.setAttribute('display-type', args.displayType);
   return spinner;
 };
 
