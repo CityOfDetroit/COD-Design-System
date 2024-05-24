@@ -9,7 +9,7 @@ export default {
     },
     size: {
       control: { type: 'select' },
-      options: ['sm', ''],
+      options: ['sm', 'md'],
     },
     backgroundColor: {
       control: { type: 'select' },
@@ -29,10 +29,18 @@ export default {
 // Template
 const Template = (args) => {
   const spinner = document.createElement('cod-spinner');
-  spinner.setAttribute('data-type', args.type);
-  spinner.setAttribute('data-background-color', args.backgroundColor);
-  spinner.setAttribute('data-size', args.size);
-  spinner.setAttribute('data-display-type', args.displayType);
+  spinner.setAttribute('type', args.type);
+  spinner.setAttribute('background-color', args.backgroundColor);
+  if (args.size){
+    spinner.setAttribute('size', args.size);
+  } else {
+    delete spinner.size;
+  }
+  if (args.displayType){
+    spinner.setAttribute('display-type', args.displayType);
+  } else {
+    delete spinner.displayType;
+  }
   return spinner;
 };
 
