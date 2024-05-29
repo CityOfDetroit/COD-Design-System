@@ -1,40 +1,17 @@
 import '../components/atoms/Alert/cod-alert';
+import { COMMON_STORY_ARGS } from '../shared/js/storybook/args-utils';
 
 export default {
   title: 'Components/Atoms/Alert',
   argTypes: {
-    icon: {
-      control: { type: 'select' },
-      options: [
-        'house',
-        'house-fill',
-        'exclamation-circle',
-        'exclamation-circle-fill',
-        'exclamation-triangle',
-        'check-circle',
-        'check-circle-fill',
-      ],
-    },
-    iconOrder: {
-      control: { type: 'select' },
-      options: ['left', 'right'],
-    },
-    iconSize: {
-      control: { type: 'select' },
-      options: ['small', 'medium', 'large', 'x-large'],
-    },
-    backgroundColor: {
-      control: { type: 'select' },
-      options: [
-        'primary',
-        'secondary',
-        'success',
-        'info',
-        'warning',
-        'danger',
-        'light',
-        'dark',
-      ],
+    icon: COMMON_STORY_ARGS.icon,
+    iconOrder: COMMON_STORY_ARGS.order,
+    iconSize: COMMON_STORY_ARGS.longSize,
+    backgroundColor: COMMON_STORY_ARGS.bootstrapColor,
+
+    closeable: {
+      control: { type: 'boolean' },
+      defaultValue: false,
     },
   },
 };
@@ -48,6 +25,15 @@ const Template = (args) => {
   alert.setAttribute('data-icon-size', args.iconSize);
   alert.setAttribute('data-extra-classes', args.extraClasses);
   alert.setAttribute('data-background-color', args.backgroundColor);
+
+  if (args.closeable) {
+    // If closeable is true, set the closeable attribute
+    alert.setAttribute('closeable', '');
+  } else {
+    // If closeable is false, remove the closeable attribute
+    alert.removeAttribute('closeable');
+  }
+
   return alert;
 };
 
@@ -86,5 +72,14 @@ AlertIcon.args = {
   iconSize: 'small',
   elements: `
     <article>Article with <a href="https://google.com">link</a></article>
+  `,
+};
+
+export const AlertClose = Template.bind({});
+AlertClose.args = {
+  closeable: true,
+  backgroundColor: 'primary',
+  elements: `
+    <span>Alert with Close Button</span>
   `,
 };
