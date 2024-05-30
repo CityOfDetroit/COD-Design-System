@@ -22,13 +22,13 @@ export default class Image extends HTMLElement {
     this.shadowRoot.appendChild(spinnerStyles);
     // image attributes
 
-    const spinnerType = this.getAttribute('data-type');
+    const spinnerType = this.getAttribute('type');
 
-    const spinnerSize = this.getAttribute('data-size');
+    const spinnerSize = this.getAttribute('size');
 
-    const backgroundColor = this.getAttribute('data-background-color');
+    const backgroundColor = this.getAttribute('background-color');
 
-    const displayType = this.getAttribute('data-display-type');
+    const displayType = this.getAttribute('display-type');
     let spinnerSizeClass;
 
     // TODO: Fix old ESLint errors - see issue #1099
