@@ -58,8 +58,8 @@ export default class Button extends HTMLElement {
       // Loading icon
       const iconContainer = document.createElement('span');
       const activeIcon = document.createElement('cod-icon');
-      activeIcon.setAttribute('icon', icon);
-      activeIcon.setAttribute('size', iconSize);
+      activeIcon.setAttribute('data-icon', icon);
+      activeIcon.setAttribute('data-size', iconSize);
       iconContainer.appendChild(activeIcon);
       btn.innerText = label;
       if (iconOrder === 'left') {
