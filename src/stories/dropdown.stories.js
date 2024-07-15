@@ -195,14 +195,14 @@ export const Split = () => html`
 export const DarkMode = () => html`
   <cod-dropdown data-split="false">
     <cod-button
-      data-label="Dropdown button"
-      data-background-color="primary"
-      data-primary="true"
-      data-img-alt=""
-      data-icon=""
+      label="Dropdown button"
+      background-color="primary"
+      primary="true"
+      img-alt=""
+      icon=""
       data-bs-toggle="dropdown"
       aria-expanded="false"
-      data-extra-classes="dropdown-toggle"
+      extra-classes="dropdown-toggle"
     ></cod-button>
     <cod-dropdown-menu data-dark-mode="true">
       <li><a class="dropdown-item" href="#">Action</a></li>
