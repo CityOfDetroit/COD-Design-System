@@ -61,7 +61,7 @@ Form.args = {
   </cod-form-check-group>
   <cod-form-check data-type="checkbox" data-label="Accept legal stuff" data-required="true"
     data-valueMissing="Please sign off your rights to proceed lol"></cod-form-check>
-  <cod-button data-label="submit" data-background-color="color-1" data-primary="true" data-img-alt="" data-icon=""></cod-button>
+  <cod-button label="submit" background-color="color-1" primary="true" img-alt="" icon=""></cod-button>
   `,
   submit: (e) => {
     e.preventDefault();
