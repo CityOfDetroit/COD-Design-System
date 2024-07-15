@@ -117,13 +117,13 @@ export const Brand = () => html`
         <a class="nav-link" href="#">Link</a>
         <cod-dropdown data-split="false">
           <cod-button
-            data-label="Dropdown"
-            data-primary="true"
-            data-img-alt=""
-            data-icon=""
+            label="Dropdown"
+            primary="true"
+            img-alt=""
+            icon=""
             data-bs-toggle="dropdown"
             aria-expanded="false"
-            data-extra-classes="dropdown-toggle text-primary"
+            extra-classes="dropdown-toggle text-primary"
           ></cod-button>
           <cod-dropdown-menu>
             <li><a class="dropdown-item" href="#">Link</a></li>
@@ -157,13 +157,13 @@ export const Brand = () => html`
         <a class="nav-link" href="#">Link</a>
         <cod-dropdown data-split="false">
           <cod-button
-            data-label="Dropdown"
-            data-primary="true"
-            data-img-alt=""
-            data-icon=""
+            label="Dropdown"
+            primary="true"
+            img-alt=""
+            icon=""
             data-bs-toggle="dropdown"
             aria-expanded="false"
-            data-extra-classes="dropdown-toggle text-primary"
+            extra-classes="dropdown-toggle text-primary"
           ></cod-button>
           <cod-dropdown-menu>
             <li><a class="dropdown-item" href="#">Link</a></li>
@@ -198,13 +198,13 @@ export const Brand = () => html`
         <a class="nav-link" href="#">Link</a>
         <cod-dropdown data-split="false">
           <cod-button
-            data-label="Dropdown"
-            data-primary="true"
-            data-img-alt=""
-            data-icon=""
+            label="Dropdown"
+            primary="true"
+            img-alt=""
+            icon=""
             data-bs-toggle="dropdown"
             aria-expanded="false"
-            data-extra-classes="dropdown-toggle text-primary"
+            extra-classes="dropdown-toggle text-primary"
           ></cod-button>
           <cod-dropdown-menu>
             <li><a class="dropdown-item" href="#">Link</a></li>
@@ -240,13 +240,13 @@ export const Brand = () => html`
         <a class="nav-link" href="#">Link</a>
         <cod-dropdown data-split="false">
           <cod-button
-            data-label="Dropdown"
-            data-primary="true"
-            data-img-alt=""
-            data-icon=""
+            label="Dropdown"
+            primary="true"
+            img-alt=""
+            icon=""
             data-bs-toggle="dropdown"
             aria-expanded="false"
-            data-extra-classes="dropdown-toggle text-primary"
+            extra-classes="dropdown-toggle text-primary"
           ></cod-button>
           <cod-dropdown-menu>
             <li><a class="dropdown-item" href="#">Link</a></li>
