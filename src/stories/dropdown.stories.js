@@ -34,7 +34,7 @@ export const Basic = () => html`
       icon=""
       data-bs-toggle="dropdown"
       aria-expanded="false"
-      data-extra-classes="dropdown-toggle"
+      extra-classes="dropdown-toggle"
     ></cod-button>
     <cod-dropdown-menu>
       <li><a class="dropdown-item" href="#">Action</a></li>
@@ -54,7 +54,7 @@ export const Variations = () => html`
       icon=""
       data-bs-toggle="dropdown"
       aria-expanded="false"
-      data-extra-classes="dropdown-toggle"
+      extra-classes="dropdown-toggle"
     ></cod-button>
     <cod-dropdown-menu>
       <li><a class="dropdown-item" href="#">Action</a></li>
@@ -73,7 +73,7 @@ export const Variations = () => html`
       icon=""
       data-bs-toggle="dropdown"
       aria-expanded="false"
-      data-extra-classes="dropdown-toggle"
+      extra-classes="dropdown-toggle"
     ></cod-button>
     <cod-dropdown-menu>
       <li><a class="dropdown-item" href="#">Action</a></li>
@@ -92,7 +92,7 @@ export const Variations = () => html`
       icon=""
       data-bs-toggle="dropdown"
       aria-expanded="false"
-      data-extra-classes="dropdown-toggle"
+      extra-classes="dropdown-toggle"
     ></cod-button>
     <cod-dropdown-menu>
       <li><a class="dropdown-item" href="#">Action</a></li>
@@ -111,7 +111,7 @@ export const Variations = () => html`
       icon=""
       data-bs-toggle="dropdown"
       aria-expanded="false"
-      data-extra-classes="dropdown-toggle"
+      extra-classes="dropdown-toggle"
     ></cod-button>
     <cod-dropdown-menu>
       <li><a class="dropdown-item" href="#">Action</a></li>
@@ -130,7 +130,7 @@ export const Variations = () => html`
       icon=""
       data-bs-toggle="dropdown"
       aria-expanded="false"
-      data-extra-classes="dropdown-toggle"
+      extra-classes="dropdown-toggle"
     ></cod-button>
     <cod-dropdown-menu>
       <li><a class="dropdown-item" href="#">Action</a></li>
@@ -149,7 +149,7 @@ export const Variations = () => html`
       icon=""
       data-bs-toggle="dropdown"
       aria-expanded="false"
-      data-extra-classes="dropdown-toggle"
+      extra-classes="dropdown-toggle"
     ></cod-button>
     <cod-dropdown-menu>
       <li><a class="dropdown-item" href="#">Action</a></li>
@@ -178,7 +178,7 @@ export const Split = () => html`
       icon=""
       data-bs-toggle="dropdown"
       aria-expanded="false"
-      data-extra-classes="dropdown-toggle dropdown-toggle-split"
+      extra-classes="dropdown-toggle dropdown-toggle-split"
     >
       <span class="visually-hidden">Toggle Dropdown</span>
     </cod-button>
