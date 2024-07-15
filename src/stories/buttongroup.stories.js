@@ -67,25 +67,25 @@ export const Mixed = () => html`
 export const Outlined = () => html`
   <cod-button-group data-type="group" data-label="basic example">
     <cod-button
-      data-label="Left"
-      data-background-color="primary"
-      data-primary="false"
-      data-img-alt=""
-      data-icon=""
+      label="Left"
+      background-color="primary"
+      primary="false"
+      img-alt=""
+      icon=""
     ></cod-button>
     <cod-button
-      data-label="Middle"
-      data-background-color="primary"
-      data-primary="false"
-      data-img-alt=""
-      data-icon=""
+      label="Middle"
+      background-color="primary"
+      primary="false"
+      img-alt=""
+      icon=""
     ></cod-button>
     <cod-button
-      data-label="Right"
-      data-background-color="primary"
-      data-primary="false"
-      data-img-alt=""
-      data-icon=""
+      label="Right"
+      background-color="primary"
+      primary="false"
+      img-alt=""
+      icon=""
     ></cod-button>
   </cod-button-group>
 `;
