@@ -192,25 +192,25 @@ export const ButtonToolbar = () => html`
       data-extra-classes="me-2"
     >
       <cod-button
-        data-label="1"
-        data-background-color="primary"
-        data-primary="false"
-        data-img-alt=""
-        data-icon=""
+        label="1"
+        background-color="primary"
+        primary="false"
+        img-alt=""
+        icon=""
       ></cod-button>
       <cod-button
-        data-label="2"
-        data-background-color="primary"
-        data-primary="false"
-        data-img-alt=""
-        data-icon=""
+        label="2"
+        background-color="primary"
+        primary="false"
+        img-alt=""
+        icon=""
       ></cod-button>
       <cod-button
-        data-label="3"
-        data-background-color="primary"
-        data-primary="false"
-        data-img-alt=""
-        data-icon=""
+        label="3"
+        background-color="primary"
+        primary="false"
+        img-alt=""
+        icon=""
       ></cod-button>
     </cod-button-group>
     <cod-form-control
