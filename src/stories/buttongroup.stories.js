@@ -41,25 +41,25 @@ export const Basic = () => html`
 export const Mixed = () => html`
   <cod-button-group data-type="group" data-label="basic example">
     <cod-button
-      data-label="Left"
-      data-background-color="primary"
-      data-primary="true"
-      data-img-alt=""
-      data-icon=""
+      label="Left"
+      background-color="primary"
+      primary="true"
+      img-alt=""
+      icon=""
     ></cod-button>
     <cod-button
-      data-label="Middle"
-      data-background-color="warning"
-      data-primary="true"
-      data-img-alt=""
-      data-icon=""
+      label="Middle"
+      background-color="warning"
+      primary="true"
+      img-alt=""
+      icon=""
     ></cod-button>
     <cod-button
-      data-label="Right"
-      data-background-color="danger"
-      data-primary="true"
-      data-img-alt=""
-      data-icon=""
+      label="Right"
+      background-color="danger"
+      primary="true"
+      img-alt=""
+      icon=""
     ></cod-button>
   </cod-button-group>
 `;
