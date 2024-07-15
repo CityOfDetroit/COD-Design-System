@@ -577,13 +577,13 @@ export const OffcanvasColor = () => html`
           <a class="nav-link text-light" href="#">Link</a>
           <cod-dropdown data-split="false">
             <cod-button
-              data-label="Dropdown"
-              data-primary="true"
-              data-img-alt=""
-              data-icon=""
+              label="Dropdown"
+              primary="true"
+              img-alt=""
+              icon=""
               data-bs-toggle="dropdown"
               aria-expanded="false"
-              data-extra-classes="dropdown-toggle text-light"
+              extra-classes="dropdown-toggle text-light"
             ></cod-button>
             <cod-dropdown-menu>
               <li><a class="dropdown-item" href="#">Link</a></li>
