@@ -27,11 +27,11 @@ export const Basic = () => html`
       </ul>
     </div>
     <cod-button
-      data-label="Dropdown button"
-      data-background-color="primary"
-      data-primary="true"
-      data-img-alt=""
-      data-icon=""
+      label="Dropdown button"
+      background-color="primary"
+      primary="true"
+      img-alt=""
+      icon=""
       data-bs-toggle="dropdown"
       aria-expanded="false"
       data-extra-classes="dropdown-toggle"
