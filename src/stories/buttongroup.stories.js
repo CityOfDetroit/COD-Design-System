@@ -235,39 +235,39 @@ export const Vertical = () => html`
     data-vertical="true"
   >
     <cod-button
-      data-label="Button"
-      data-background-color="primary"
-      data-primary="true"
-      data-img-alt=""
-      data-icon=""
+      label="Button"
+      background-color="primary"
+      primary="true"
+      img-alt=""
+      icon=""
     ></cod-button>
     <cod-button
-      data-label="Button"
-      data-background-color="primary"
-      data-primary="true"
-      data-img-alt=""
-      data-icon=""
+      label="Button"
+      background-color="primary"
+      primary="true"
+      img-alt=""
+      icon=""
     ></cod-button>
     <cod-button
-      data-label="Button"
-      data-background-color="primary"
-      data-primary="true"
-      data-img-alt=""
-      data-icon=""
+      label="Button"
+      background-color="primary"
+      primary="true"
+      img-alt=""
+      icon=""
     ></cod-button>
     <cod-button
-      data-label="Button"
-      data-background-color="primary"
-      data-primary="true"
-      data-img-alt=""
-      data-icon=""
+      label="Button"
+      background-color="primary"
+      primary="true"
+      img-alt=""
+      icon=""
     ></cod-button>
     <cod-button
-      data-label="Button"
-      data-background-color="primary"
-      data-primary="true"
-      data-img-alt=""
-      data-icon=""
+      label="Button"
+      background-color="primary"
+      primary="true"
+      img-alt=""
+      icon=""
     ></cod-button>
   </cod-button-group>
 `;
