@@ -113,8 +113,6 @@ export const TabsDropdowns = () => html`
       <cod-button
         label="Dropdown"
         primary
-        img-alt=""
-        icon=""
         data-bs-toggle="dropdown"
         aria-expanded="false"
         extra-classes="dropdown-toggle"
@@ -139,8 +137,6 @@ export const PillssDropdowns = () => html`
       <cod-button
         label="Dropdown"
         primary
-        img-alt=""
-        icon=""
         data-bs-toggle="dropdown"
         aria-expanded="false"
         extra-classes="dropdown-toggle"
