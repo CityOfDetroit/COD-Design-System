@@ -14,61 +14,25 @@ export const Basic = () => html`
       <button type="button" class="btn btn-primary">Middle</button>
       <button type="button" class="btn btn-primary">Right</button>
     </div>
-    <cod-button
-      label="Left"
-      background-color="primary"
-      primary
-    ></cod-button>
-    <cod-button
-      label="Middle"
-      background-color="primary"
-      primary
-    ></cod-button>
-    <cod-button
-      label="Right"
-      background-color="primary"
-      primary
-    ></cod-button>
+    <cod-button label="Left" background-color="primary" primary></cod-button>
+    <cod-button label="Middle" background-color="primary" primary></cod-button>
+    <cod-button label="Right" background-color="primary" primary></cod-button>
   </cod-button-group>
 `;
 
 export const Mixed = () => html`
   <cod-button-group data-type="group" data-label="basic example">
-    <cod-button
-      label="Left"
-      background-color="primary"
-      primary
-    ></cod-button>
-    <cod-button
-      label="Middle"
-      background-color="warning"
-      primary
-    ></cod-button>
-    <cod-button
-      label="Right"
-      background-color="danger"
-      primary
-    ></cod-button>
+    <cod-button label="Left" background-color="primary" primary></cod-button>
+    <cod-button label="Middle" background-color="warning" primary></cod-button>
+    <cod-button label="Right" background-color="danger" primary></cod-button>
   </cod-button-group>
 `;
 
 export const Outlined = () => html`
   <cod-button-group data-type="group" data-label="basic example">
-    <cod-button
-      label="Left"
-      background-color="primary"
-      primary
-    ></cod-button>
-    <cod-button
-      label="Middle"
-      background-color="primary"
-      primary
-    ></cod-button>
-    <cod-button
-      label="Right"
-      background-color="primary"
-      primary
-    ></cod-button>
+    <cod-button label="Left" background-color="primary" primary></cod-button>
+    <cod-button label="Middle" background-color="primary" primary></cod-button>
+    <cod-button label="Right" background-color="primary" primary></cod-button>
   </cod-button-group>
 `;
 
@@ -173,21 +137,9 @@ export const ButtonToolbar = () => html`
       data-label="group 1"
       data-extra-classes="me-2"
     >
-      <cod-button
-        label="1"
-        background-color="primary"
-        primary
-      ></cod-button>
-      <cod-button
-        label="2"
-        background-color="primary"
-        primary
-      ></cod-button>
-      <cod-button
-        label="3"
-        background-color="primary"
-        primary
-      ></cod-button>
+      <cod-button label="1" background-color="primary" primary></cod-button>
+      <cod-button label="2" background-color="primary" primary></cod-button>
+      <cod-button label="3" background-color="primary" primary></cod-button>
     </cod-button-group>
     <cod-form-control
       data-tag="input"
@@ -210,30 +162,10 @@ export const Vertical = () => html`
     data-label="Vertical button group"
     data-vertical="true"
   >
-    <cod-button
-      label="Button"
-      background-color="primary"
-      primary
-    ></cod-button>
-    <cod-button
-      label="Button"
-      background-color="primary"
-      primary
-    ></cod-button>
-    <cod-button
-      label="Button"
-      background-color="primary"
-      primary
-    ></cod-button>
-    <cod-button
-      label="Button"
-      background-color="primary"
-      primary
-    ></cod-button>
-    <cod-button
-      label="Button"
-      background-color="primary"
-      primary
-    ></cod-button>
+    <cod-button label="Button" background-color="primary" primary></cod-button>
+    <cod-button label="Button" background-color="primary" primary></cod-button>
+    <cod-button label="Button" background-color="primary" primary></cod-button>
+    <cod-button label="Button" background-color="primary" primary></cod-button>
+    <cod-button label="Button" background-color="primary" primary></cod-button>
   </cod-button-group>
 `;
