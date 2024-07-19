@@ -30,8 +30,6 @@ export const Basic = () => html`
       label="Dropdown button"
       background-color="primary"
       primary
-      img-alt=""
-      icon=""
       data-bs-toggle="dropdown"
       aria-expanded="false"
       extra-classes="dropdown-toggle"
@@ -50,8 +48,6 @@ export const Variations = () => html`
       label="Dropdown button"
       background-color="primary"
       primary
-      img-alt=""
-      icon=""
       data-bs-toggle="dropdown"
       aria-expanded="false"
       extra-classes="dropdown-toggle"
@@ -69,8 +65,6 @@ export const Variations = () => html`
       label="Dropdown button"
       background-color="secondary"
       primary
-      img-alt=""
-      icon=""
       data-bs-toggle="dropdown"
       aria-expanded="false"
       extra-classes="dropdown-toggle"
@@ -88,8 +82,6 @@ export const Variations = () => html`
       label="Dropdown button"
       background-color="success"
       primary
-      img-alt=""
-      icon=""
       data-bs-toggle="dropdown"
       aria-expanded="false"
       extra-classes="dropdown-toggle"
@@ -107,8 +99,6 @@ export const Variations = () => html`
       label="Dropdown button"
       background-color="info"
       primary
-      img-alt=""
-      icon=""
       data-bs-toggle="dropdown"
       aria-expanded="false"
       extra-classes="dropdown-toggle"
@@ -126,8 +116,6 @@ export const Variations = () => html`
       label="Dropdown button"
       background-color="warning"
       primary
-      img-alt=""
-      icon=""
       data-bs-toggle="dropdown"
       aria-expanded="false"
       extra-classes="dropdown-toggle"
@@ -145,8 +133,6 @@ export const Variations = () => html`
       label="Dropdown button"
       background-color="danger"
       primary
-      img-alt=""
-      icon=""
       data-bs-toggle="dropdown"
       aria-expanded="false"
       extra-classes="dropdown-toggle"
@@ -167,15 +153,10 @@ export const Split = () => html`
       label="Dropdown button"
       background-color="primary"
       primary="true"
-      img-alt=""
-      icon=""
     ></cod-button>
     <cod-button
-      label=""
       background-color="primary"
       primary
-      img-alt=""
-      icon=""
       data-bs-toggle="dropdown"
       aria-expanded="false"
       extra-classes="dropdown-toggle dropdown-toggle-split"
@@ -198,8 +179,6 @@ export const DarkMode = () => html`
       label="Dropdown button"
       background-color="primary"
       primary
-      img-alt=""
-      icon=""
       data-bs-toggle="dropdown"
       aria-expanded="false"
       extra-classes="dropdown-toggle"
