@@ -18,22 +18,16 @@ export const Basic = () => html`
       label="Left"
       background-color="primary"
       primary
-      img-alt=""
-      icon=""
     ></cod-button>
     <cod-button
       label="Middle"
       background-color="primary"
       primary
-      img-alt=""
-      icon=""
     ></cod-button>
     <cod-button
       label="Right"
       background-color="primary"
       primary
-      img-alt=""
-      icon=""
     ></cod-button>
   </cod-button-group>
 `;
@@ -44,22 +38,16 @@ export const Mixed = () => html`
       label="Left"
       background-color="primary"
       primary
-      img-alt=""
-      icon=""
     ></cod-button>
     <cod-button
       label="Middle"
       background-color="warning"
       primary
-      img-alt=""
-      icon=""
     ></cod-button>
     <cod-button
       label="Right"
       background-color="danger"
       primary
-      img-alt=""
-      icon=""
     ></cod-button>
   </cod-button-group>
 `;
@@ -70,22 +58,16 @@ export const Outlined = () => html`
       label="Left"
       background-color="primary"
       primary
-      img-alt=""
-      icon=""
     ></cod-button>
     <cod-button
       label="Middle"
       background-color="primary"
       primary
-      img-alt=""
-      icon=""
     ></cod-button>
     <cod-button
       label="Right"
       background-color="primary"
       primary
-      img-alt=""
-      icon=""
     ></cod-button>
   </cod-button-group>
 `;
@@ -195,22 +177,16 @@ export const ButtonToolbar = () => html`
         label="1"
         background-color="primary"
         primary
-        img-alt=""
-        icon=""
       ></cod-button>
       <cod-button
         label="2"
         background-color="primary"
         primary
-        img-alt=""
-        icon=""
       ></cod-button>
       <cod-button
         label="3"
         background-color="primary"
         primary
-        img-alt=""
-        icon=""
       ></cod-button>
     </cod-button-group>
     <cod-form-control
@@ -238,36 +214,26 @@ export const Vertical = () => html`
       label="Button"
       background-color="primary"
       primary
-      img-alt=""
-      icon=""
     ></cod-button>
     <cod-button
       label="Button"
       background-color="primary"
       primary
-      img-alt=""
-      icon=""
     ></cod-button>
     <cod-button
       label="Button"
       background-color="primary"
       primary
-      img-alt=""
-      icon=""
     ></cod-button>
     <cod-button
       label="Button"
       background-color="primary"
       primary
-      img-alt=""
-      icon=""
     ></cod-button>
     <cod-button
       label="Button"
       background-color="primary"
       primary
-      img-alt=""
-      icon=""
     ></cod-button>
   </cod-button-group>
 `;
