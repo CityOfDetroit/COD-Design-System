@@ -35,7 +35,7 @@ export const Basic = () => html`
         of the card's content.
       </p>
       <cod-button
-        primary="true"
+        primary
         disable="false"
         label="Link"
         background-color="primary"
