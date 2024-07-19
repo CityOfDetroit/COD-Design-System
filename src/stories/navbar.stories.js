@@ -80,7 +80,7 @@ export const Basic = () => html`
         <cod-dropdown data-split="false">
           <cod-button
             label="Dropdown"
-            primary="true"
+            primary
             img-alt=""
             icon=""
             data-bs-toggle="dropdown"
@@ -118,7 +118,7 @@ export const Brand = () => html`
         <cod-dropdown data-split="false">
           <cod-button
             label="Dropdown"
-            primary="true"
+            primary
             img-alt=""
             icon=""
             data-bs-toggle="dropdown"
@@ -158,7 +158,7 @@ export const Brand = () => html`
         <cod-dropdown data-split="false">
           <cod-button
             label="Dropdown"
-            primary="true"
+            primary
             img-alt=""
             icon=""
             data-bs-toggle="dropdown"
@@ -199,7 +199,7 @@ export const Brand = () => html`
         <cod-dropdown data-split="false">
           <cod-button
             label="Dropdown"
-            primary="true"
+            primary
             img-alt=""
             icon=""
             data-bs-toggle="dropdown"
@@ -241,7 +241,7 @@ export const Brand = () => html`
         <cod-dropdown data-split="false">
           <cod-button
             label="Dropdown"
-            primary="true"
+            primary
             img-alt=""
             icon=""
             data-bs-toggle="dropdown"
@@ -455,7 +455,7 @@ export const Offcanvas = () => html`
           <cod-dropdown data-split="false">
             <cod-button
               label="Dropdown"
-              primary="true"
+              primary
               img-alt=""
               icon=""
               data-bs-toggle="dropdown"
@@ -525,7 +525,7 @@ export const OffcanvasResponsive = () => html`
           <cod-dropdown data-split="false">
             <cod-button
               label="Dropdown"
-              primary="true"
+              primary
               img-alt=""
               icon=""
               data-bs-toggle="dropdown"
@@ -578,7 +578,7 @@ export const OffcanvasColor = () => html`
           <cod-dropdown data-split="false">
             <cod-button
               label="Dropdown"
-              primary="true"
+              primary
               img-alt=""
               icon=""
               data-bs-toggle="dropdown"
