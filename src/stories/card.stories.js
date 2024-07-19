@@ -39,13 +39,7 @@ export const Basic = () => html`
         disable="false"
         label="Link"
         background-color="primary"
-        img=""
-        img-alt=""
-        icon=""
-        icon-order=""
-        icon-size=""
         shape="fluid"
-        aria-label=""
         link="https://detroitmi.gov"
       ></cod-button>
     </cod-card-body>
