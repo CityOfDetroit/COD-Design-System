@@ -29,7 +29,7 @@ export const Basic = () => html`
     <cod-button
       label="Dropdown button"
       background-color="primary"
-      primary="true"
+      primary
       img-alt=""
       icon=""
       data-bs-toggle="dropdown"
@@ -49,7 +49,7 @@ export const Variations = () => html`
     <cod-button
       label="Dropdown button"
       background-color="primary"
-      primary="true"
+      primary
       img-alt=""
       icon=""
       data-bs-toggle="dropdown"
@@ -68,7 +68,7 @@ export const Variations = () => html`
     <cod-button
       label="Dropdown button"
       background-color="secondary"
-      primary="true"
+      primary
       img-alt=""
       icon=""
       data-bs-toggle="dropdown"
@@ -87,7 +87,7 @@ export const Variations = () => html`
     <cod-button
       label="Dropdown button"
       background-color="success"
-      primary="true"
+      primary
       img-alt=""
       icon=""
       data-bs-toggle="dropdown"
@@ -106,7 +106,7 @@ export const Variations = () => html`
     <cod-button
       label="Dropdown button"
       background-color="info"
-      primary="true"
+      primary
       img-alt=""
       icon=""
       data-bs-toggle="dropdown"
@@ -125,7 +125,7 @@ export const Variations = () => html`
     <cod-button
       label="Dropdown button"
       background-color="warning"
-      primary="true"
+      primary
       img-alt=""
       icon=""
       data-bs-toggle="dropdown"
@@ -144,7 +144,7 @@ export const Variations = () => html`
     <cod-button
       label="Dropdown button"
       background-color="danger"
-      primary="true"
+      primary
       img-alt=""
       icon=""
       data-bs-toggle="dropdown"
@@ -173,7 +173,7 @@ export const Split = () => html`
     <cod-button
       label=""
       background-color="primary"
-      primary="true"
+      primary
       img-alt=""
       icon=""
       data-bs-toggle="dropdown"
@@ -197,7 +197,7 @@ export const DarkMode = () => html`
     <cod-button
       label="Dropdown button"
       background-color="primary"
-      primary="true"
+      primary
       img-alt=""
       icon=""
       data-bs-toggle="dropdown"
