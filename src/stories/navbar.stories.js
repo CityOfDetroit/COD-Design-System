@@ -81,8 +81,6 @@ export const Basic = () => html`
           <cod-button
             label="Dropdown"
             primary
-            img-alt=""
-            icon=""
             data-bs-toggle="dropdown"
             aria-expanded="false"
             extra-classes="dropdown-toggle text-primary"
@@ -119,8 +117,6 @@ export const Brand = () => html`
           <cod-button
             label="Dropdown"
             primary
-            img-alt=""
-            icon=""
             data-bs-toggle="dropdown"
             aria-expanded="false"
             extra-classes="dropdown-toggle text-primary"
@@ -159,8 +155,6 @@ export const Brand = () => html`
           <cod-button
             label="Dropdown"
             primary
-            img-alt=""
-            icon=""
             data-bs-toggle="dropdown"
             aria-expanded="false"
             extra-classes="dropdown-toggle text-primary"
@@ -200,8 +194,6 @@ export const Brand = () => html`
           <cod-button
             label="Dropdown"
             primary
-            img-alt=""
-            icon=""
             data-bs-toggle="dropdown"
             aria-expanded="false"
             extra-classes="dropdown-toggle text-primary"
@@ -242,8 +234,6 @@ export const Brand = () => html`
           <cod-button
             label="Dropdown"
             primary
-            img-alt=""
-            icon=""
             data-bs-toggle="dropdown"
             aria-expanded="false"
             extra-classes="dropdown-toggle text-primary"
@@ -526,8 +516,6 @@ export const OffcanvasResponsive = () => html`
             <cod-button
               label="Dropdown"
               primary
-              img-alt=""
-              icon=""
               data-bs-toggle="dropdown"
               aria-expanded="false"
               extra-classes="dropdown-toggle text-light"
@@ -579,8 +567,6 @@ export const OffcanvasColor = () => html`
             <cod-button
               label="Dropdown"
               primary
-              img-alt=""
-              icon=""
               data-bs-toggle="dropdown"
               aria-expanded="false"
               extra-classes="dropdown-toggle text-light"
