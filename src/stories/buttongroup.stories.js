@@ -17,21 +17,21 @@ export const Basic = () => html`
     <cod-button
       label="Left"
       background-color="primary"
-      primary="true"
+      primary
       img-alt=""
       icon=""
     ></cod-button>
     <cod-button
       label="Middle"
       background-color="primary"
-      primary="true"
+      primary
       img-alt=""
       icon=""
     ></cod-button>
     <cod-button
       label="Right"
       background-color="primary"
-      primary="true"
+      primary
       img-alt=""
       icon=""
     ></cod-button>
@@ -43,21 +43,21 @@ export const Mixed = () => html`
     <cod-button
       label="Left"
       background-color="primary"
-      primary="true"
+      primary
       img-alt=""
       icon=""
     ></cod-button>
     <cod-button
       label="Middle"
       background-color="warning"
-      primary="true"
+      primary
       img-alt=""
       icon=""
     ></cod-button>
     <cod-button
       label="Right"
       background-color="danger"
-      primary="true"
+      primary
       img-alt=""
       icon=""
     ></cod-button>
@@ -69,21 +69,21 @@ export const Outlined = () => html`
     <cod-button
       label="Left"
       background-color="primary"
-      primary="false"
+      primary
       img-alt=""
       icon=""
     ></cod-button>
     <cod-button
       label="Middle"
       background-color="primary"
-      primary="false"
+      primary
       img-alt=""
       icon=""
     ></cod-button>
     <cod-button
       label="Right"
       background-color="primary"
-      primary="false"
+      primary
       img-alt=""
       icon=""
     ></cod-button>
@@ -194,21 +194,21 @@ export const ButtonToolbar = () => html`
       <cod-button
         label="1"
         background-color="primary"
-        primary="false"
+        primary
         img-alt=""
         icon=""
       ></cod-button>
       <cod-button
         label="2"
         background-color="primary"
-        primary="false"
+        primary
         img-alt=""
         icon=""
       ></cod-button>
       <cod-button
         label="3"
         background-color="primary"
-        primary="false"
+        primary
         img-alt=""
         icon=""
       ></cod-button>
@@ -237,35 +237,35 @@ export const Vertical = () => html`
     <cod-button
       label="Button"
       background-color="primary"
-      primary="true"
+      primary
       img-alt=""
       icon=""
     ></cod-button>
     <cod-button
       label="Button"
       background-color="primary"
-      primary="true"
+      primary
       img-alt=""
       icon=""
     ></cod-button>
     <cod-button
       label="Button"
       background-color="primary"
-      primary="true"
+      primary
       img-alt=""
       icon=""
     ></cod-button>
     <cod-button
       label="Button"
       background-color="primary"
-      primary="true"
+      primary
       img-alt=""
       icon=""
     ></cod-button>
     <cod-button
       label="Button"
       background-color="primary"
-      primary="true"
+      primary
       img-alt=""
       icon=""
     ></cod-button>
