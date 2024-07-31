@@ -1,4 +1,5 @@
 import '../components/atoms/Spinner/cod-spinner';
+import { COMMON_STORY_ARGS } from '../shared/js/storybook/args-utils';
 
 export default {
   title: 'Components/Atoms/Spinner',
@@ -7,6 +8,8 @@ export default {
       control: { type: 'select' },
       options: ['border', 'grow'],
     },
+    // TODO: Add support for lg and xl to make size
+    // consistent. Issue #202.
     size: {
       control: { type: 'select' },
       options: ['sm', 'md'],
@@ -24,6 +27,7 @@ export default {
         'dark',
       ],
     },
+    backgroundColor: COMMON_STORY_ARGS.bootstrapColor,
   },
 };
 // Template
@@ -33,13 +37,9 @@ const Template = (args) => {
   spinner.setAttribute('background-color', args.backgroundColor);
   if (args.size){
     spinner.setAttribute('size', args.size);
-  } else {
-    delete spinner.size;
   }
   if (args.displayType){
     spinner.setAttribute('display-type', args.displayType);
-  } else {
-    delete spinner.displayType;
   }
   return spinner;
 };
