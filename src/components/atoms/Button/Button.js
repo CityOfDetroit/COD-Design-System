@@ -38,9 +38,9 @@ export default class Button extends HTMLElement {
     }
     disableStatus === 'true' ? (btn.disabled = true) : (btn.disabled = false);
     btn.setAttribute('aria-label', `${ariaLabel || ''}`);
-    if (primary === 'true') {
+    if (primary) {
       btnClasses.push(`btn-${backgroundColor}`);
-    } else if (primary === 'false') {
+    } else {
       btnClasses.push(`btn-outline-${backgroundColor}`);
     }
     shape === 'square'
