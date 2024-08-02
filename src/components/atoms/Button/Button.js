@@ -12,11 +12,11 @@ export default class Button extends HTMLElement {
 
   connectedCallback() {
     // Button attributes
-    const close = this.getAttribute('close');
+    const close = this.hasAttribute('close');
     const link = this.getAttribute('link');
     const btnID = this.getAttribute('id');
     const ariaLabel = this.getAttribute('aria-label');
-    const primary = this.getAttribute('primary');
+    const primary = this.hasAttribute('primary');
     const backgroundColor = this.getAttribute('background-color');
     const shape = this.getAttribute('shape');
     const icon = this.getAttribute('icon');
@@ -28,7 +28,7 @@ export default class Button extends HTMLElement {
     const size = this.getAttribute('size');
     const extraClasses = this.getAttribute('extra-classes');
     const label = this.getAttribute('label');
-    const disableStatus = this.getAttribute('disabled');
+    const disableStatus = this.hasAttribute('disabled');
     // Building Button component
     const btn = document.createElement('button');
     const btnClasses = ['btn'];
