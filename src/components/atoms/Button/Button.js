@@ -51,7 +51,9 @@ export default class Button extends HTMLElement {
     imgAlt
       ? btnClasses.push('cod-button--img')
       : btnClasses.push('cod-button--not-img');
-    close === 'true' ? btnClasses.push('btn-close') : 0;
+    if (close) {
+      btnClasses.push('btn-close');
+    }
     btn.className = btnClasses.join(' ');
 
     if (icon) {
