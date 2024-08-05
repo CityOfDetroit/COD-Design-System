@@ -33,7 +33,6 @@ import './components/atoms/ModalFooter/cod-modal-footer';
 import './components/atoms/ModalHeader/cod-modal-header';
 import './components/atoms/NavbarBrand/cod-navbar-brand';
 import './components/atoms/NavbarCollapse/cod-navbar-collapse';
-import './components/atoms/NavbarOffcanvas/cod-navbar-offcanvas';
 import './components/atoms/NavbarToggle/cod-navbar-toggle';
 import './components/atoms/OffcanvasBody/cod-offcanvas-body';
 import './components/atoms/OffcanvasHeader/cod-offcanvas-header';
