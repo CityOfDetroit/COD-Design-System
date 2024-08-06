@@ -18,7 +18,7 @@ export const Basic = () => html`
       >
         Dropdown button
       </button>
-      <ul class="dropdown-menu">
+      <ul class="dropdown-menu" id="dropdown-menu">
         <li><a class="dropdown-item" href="#">Action</a></li>
         <li><a class="dropdown-item" href="#">Another action</a></li>
         <li>

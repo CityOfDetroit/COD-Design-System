@@ -51,6 +51,9 @@ export default class Dropdown extends HTMLElement {
       this.querySelector(
         'cod-button[data-bs-toggle="dropdown"]',
       ).addEventListener('click', this._onClick);
+      this.querySelector(
+        'cod-button[data-bs-toggle="dropdown"]')
+      .setAttribute('aria-controls', '#dropdown-id');
     }
     if (!this.shadowRoot.querySelector('div')) {
       this.shadowRoot.appendChild(this.dropdown);
@@ -68,11 +71,20 @@ export default class Dropdown extends HTMLElement {
         this.parentElement
           .querySelector('cod-dropdown-menu')
           .setAttribute('data-show', 'false');
+        this.parentElement
+          .querySelector('cod-dropdown-menu') 
+          .setAttribute('aria-hidden', 'true');           
       } else {
         this.setAttribute('aria-expanded', 'true');
         this.parentElement
-          .querySelector('cod-dropdown-menu')
+          .querySelector('cod-dropdown-menu') 
           .setAttribute('data-show', 'true');
+        this.parentElement
+          .querySelector('cod-dropdown-menu') 
+          .setAttribute('aria-labelledby', '#button-id');
+        this.parentElement
+          .querySelector('cod-dropdown-menu') 
+          .setAttribute('aria-hidden', 'false');          
       }
     }
   }
