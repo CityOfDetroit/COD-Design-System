@@ -18,7 +18,7 @@ export const Basic = () => html`
       >
         Dropdown button
       </button>
-      <ul class="dropdown-menu" id="dropdown-menu">
+      <ul class="dropdown-menu">
         <li><a class="dropdown-item" href="#">Action</a></li>
         <li><a class="dropdown-item" href="#">Another action</a></li>
         <li>
@@ -27,6 +27,7 @@ export const Basic = () => html`
       </ul>
     </div>
     <cod-button
+      id="dropdownControl"
       data-label="Dropdown button"
       data-background-color="primary"
       data-primary="true"
@@ -36,7 +37,7 @@ export const Basic = () => html`
       aria-expanded="false"
       data-extra-classes="dropdown-toggle"
     ></cod-button>
-    <cod-dropdown-menu>
+    <cod-dropdown-menu id="dropdownMenu">
       <li><a class="dropdown-item" href="#">Action</a></li>
       <li><a class="dropdown-item" href="#">Another action</a></li>
       <li><a class="dropdown-item" href="#">Something else here</a></li>

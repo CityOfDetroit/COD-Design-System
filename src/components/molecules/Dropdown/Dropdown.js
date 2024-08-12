@@ -51,9 +51,14 @@ export default class Dropdown extends HTMLElement {
       this.querySelector(
         'cod-button[data-bs-toggle="dropdown"]',
       ).addEventListener('click', this._onClick);
-      this.querySelector(
-        'cod-button[data-bs-toggle="dropdown"]')
-      .setAttribute('aria-controls', '#dropdown-id');
+      const buttonElt = this.querySelector(
+        'cod-button[data-bs-toggle="dropdown"]',
+      );
+      const menuId = this.querySelector('cod-dropdown-menu')
+      .getAttribute('id');
+      buttonElt 
+      .setAttribute('aria-controls', menuId);  
+      
     }
     if (!this.shadowRoot.querySelector('div')) {
       this.shadowRoot.appendChild(this.dropdown);
@@ -68,23 +73,27 @@ export default class Dropdown extends HTMLElement {
     if (e.target.getAttribute('data-bs-toggle') === 'dropdown') {
       if (this.getAttribute('aria-expanded') === 'true') {
         this.setAttribute('aria-expanded', 'false');
-        this.parentElement
-          .querySelector('cod-dropdown-menu')
+        const dropdownMenu = this.parentElement
+          .querySelector('cod-dropdown-menu');
+        dropdownMenu
           .setAttribute('data-show', 'false');
-        this.parentElement
-          .querySelector('cod-dropdown-menu') 
+        dropdownMenu
           .setAttribute('aria-hidden', 'true');           
       } else {
         this.setAttribute('aria-expanded', 'true');
-        this.parentElement
-          .querySelector('cod-dropdown-menu') 
+        const dropdownMenu = this.parentElement
+          .querySelector('cod-dropdown-menu');
+        dropdownMenu
           .setAttribute('data-show', 'true');
+        dropdownMenu
+          .setAttribute('aria-hidden', 'false'); 
+
+        const buttonId = this.parentElement
+          .querySelector('cod-button')
+          .getAttribute('id');
         this.parentElement
-          .querySelector('cod-dropdown-menu') 
-          .setAttribute('aria-labelledby', '#button-id');
-        this.parentElement
-          .querySelector('cod-dropdown-menu') 
-          .setAttribute('aria-hidden', 'false');          
+          .querySelector('cod-dropdown-menu')
+          .setAttribute('aria-labelledby', buttonId);        
       }
     }
   }
