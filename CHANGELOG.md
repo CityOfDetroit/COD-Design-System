@@ -1,3 +1,17 @@
+# v1.0.32 (Thu Aug 22 2024)
+
+#### 🐛 Bug Fix
+
+- Feature.259 [#260](https://github.com/CityOfDetroit/COD-Design-System/pull/260) ([@jedgar1mx](https://github.com/jedgar1mx))
+- Adding zoom controls to layers in map component. [#258](https://github.com/CityOfDetroit/COD-Design-System/pull/258) ([@jedgar1mx](https://github.com/jedgar1mx))
+- Feature.255 [#256](https://github.com/CityOfDetroit/COD-Design-System/pull/256) ([@jedgar1mx](https://github.com/jedgar1mx))
+
+#### Authors: 1
+
+- J Edgar Montes ([@jedgar1mx](https://github.com/jedgar1mx))
+
+---
+
 # v1.0.31 (Tues Aug 06 2024)
 
 #### 🐛 Bug Fix
