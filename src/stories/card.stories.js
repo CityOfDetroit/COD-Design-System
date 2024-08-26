@@ -36,7 +36,7 @@ export const Basic = () => html`
       </p>
       <cod-button
         primary
-        disable="false"
+        disabled="false"
         label="Link"
         background-color="primary"
         shape="fluid"
