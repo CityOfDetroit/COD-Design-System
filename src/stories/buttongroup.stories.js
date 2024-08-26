@@ -82,7 +82,7 @@ export const CheckboxButtonGroup = () => html`
     ></cod-form-check>
   </cod-button-group>
   <br /><br />
-  <cod-button-group data-type="group" label="basic example">
+  <cod-button-group data-type="group" data-label="basic example">
     <cod-form-check-group data-type="radio" class="d-flex">
       <cod-form-check
         data-id="radio-button-1"
