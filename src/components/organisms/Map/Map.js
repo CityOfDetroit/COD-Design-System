@@ -214,16 +214,16 @@ export default class Map extends HTMLElement {
             closeMapBtn.addEventListener('click', () => {
               app[0] ? app[0].setAttribute('data-app-state', 'results') : 0;
             });
-            closeMapBtn.setAttribute('data-primary', true);
-            closeMapBtn.setAttribute('data-label', 'x');
-            closeMapBtn.setAttribute('data-size', 'large');
+            closeMapBtn.setAttribute('primary', true);
+            closeMapBtn.setAttribute('label', 'x');
+            closeMapBtn.setAttribute('size', 'large');
             closeMapBtn.setAttribute('data-hover', false);
-            closeMapBtn.setAttribute('data-background-color', 'warning');
-            closeMapBtn.setAttribute('data-img', '');
-            closeMapBtn.setAttribute('data-img-alt', '');
-            closeMapBtn.setAttribute('data-icon', '');
-            closeMapBtn.setAttribute('data-shape', 'square');
-            closeMapBtn.setAttribute('data-extra-classes', 'fw-bold');
+            closeMapBtn.setAttribute('background-color', 'warning');
+            closeMapBtn.setAttribute('img', '');
+            closeMapBtn.setAttribute('img-alt', '');
+            closeMapBtn.setAttribute('icon', '');
+            closeMapBtn.setAttribute('shape', 'square');
+            closeMapBtn.setAttribute('extra-classes', 'fw-bold');
             this.mapWrapper.appendChild(closeMapBtn);
             app[0] ? app[0].setAttribute('data-map-state', 'init') : 0;
             break;
