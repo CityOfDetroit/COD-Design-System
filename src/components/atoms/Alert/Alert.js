@@ -44,15 +44,15 @@ export default class Alert extends HTMLElement {
 
     // alert attributes
 
-    const icon = this.getAttribute('data-icon');
+    const icon = this.getAttribute('icon');
 
-    const iconOrder = this.getAttribute('data-icon-order');
+    const iconOrder = this.getAttribute('icon-order');
 
-    const iconSize = this.getAttribute('data-icon-size');
+    const iconSize = this.getAttribute('icon-size');
 
-    const backgroundColor = this.getAttribute('data-background-color');
+    const backgroundColor = this.getAttribute('background-color');
 
-    const extraClasses = this.getAttribute('data-extra-classes');
+    const extraClasses = this.getAttribute('extra-classes');
     this.alert.role = 'alert';
     let iconClass = '';
 
