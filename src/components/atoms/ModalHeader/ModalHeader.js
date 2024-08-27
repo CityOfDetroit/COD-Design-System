@@ -55,7 +55,7 @@ export default class ModalHeader extends HTMLElement {
     this.closeBtn.setAttribute('img-alt', '');
     this.closeBtn.setAttribute('icon', '');
     this.closeBtn.setAttribute('close', 'true');
-    this.closeBtn.setAttribute('bs-dismiss', 'modal');
+    this.closeBtn.setAttribute('data-bs-dismiss', 'modal');
 
     // TODO: Fix old ESLint errors - see issue #1099
     // eslint-disable-next-line eqeqeq
