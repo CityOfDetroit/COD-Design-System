@@ -47,7 +47,7 @@ export default class ModalHeader extends HTMLElement {
 
     const btnDark = this.getAttribute('data-button-dark');
 
-    const extraClasses = this.getAttribute('extra-classes');
+    const extraClasses = this.getAttribute('data-extra-classes');
 
     const modalHeaderClasses = ['modal-header'];
     this.modalTitle.className = 'modal-title';
