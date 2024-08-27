@@ -50,7 +50,7 @@ export default class OffcanvasHeader extends HTMLElement {
     this.closeBtn.setAttribute('img-alt', '');
     this.closeBtn.setAttribute('icon', '');
     this.closeBtn.setAttribute('close', 'true');
-    this.closeBtn.setAttribute('bs-dismiss', parentID);
+    this.closeBtn.setAttribute('data-bs-dismiss', parentID);
     extraClasses ? offcanvasHeaderClasses.push(extraClasses) : 0;
     btnDark === 'true'
       ? this.closeBtn.setAttribute('extra-classes', 'btn-close-white')
