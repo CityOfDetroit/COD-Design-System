@@ -53,7 +53,7 @@ export default class OffcanvasHeader extends HTMLElement {
     this.closeBtn.setAttribute('data-bs-dismiss', parentID);
     extraClasses ? offcanvasHeaderClasses.push(extraClasses) : 0;
     btnDark === 'true'
-      ? this.closeBtn.setAttribute('extra-classes', 'btn-close-white')
+      ? this.closeBtn.setAttribute('data-extra-classes', 'btn-close-white')
       : 0;
     const expand = this.getAttribute('data-expand');
     if (expand) {
