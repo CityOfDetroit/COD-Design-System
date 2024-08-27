@@ -8,7 +8,7 @@ export default {
 };
 
 export const Basic = () => html`
-  <cod-button-group data-type="group" label="basic example">
+  <cod-button-group data-type="group" data-label="basic example">
     <div class="no-wc btn-group" role="group" aria-label="Basic example">
       <button type="button" class="btn btn-primary">Left</button>
       <button type="button" class="btn btn-primary">Middle</button>
