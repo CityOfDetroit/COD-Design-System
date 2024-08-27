@@ -43,7 +43,7 @@ export default class ModalFooter extends HTMLElement {
 
     const btnExtraClasses = this.getAttribute('data-button-extra-classes');
 
-    const extraClasses = this.getAttribute('extra-classes');
+    const extraClasses = this.getAttribute('data-extra-classes');
 
     const modalFooterClasses = ['modal-footer'];
     this.closeBtn.setAttribute('img-alt', '');
