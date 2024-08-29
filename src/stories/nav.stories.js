@@ -111,13 +111,11 @@ export const TabsDropdowns = () => html`
     <a class="nav-link active" aria-current="page" href="#">Active</a>
     <cod-dropdown data-split="false">
       <cod-button
-        data-label="Dropdown"
-        data-primary="true"
-        data-img-alt=""
-        data-icon=""
+        label="Dropdown"
+        primary
         data-bs-toggle="dropdown"
         aria-expanded="false"
-        data-extra-classes="dropdown-toggle"
+        extra-classes="dropdown-toggle"
       ></cod-button>
       <cod-dropdown-menu>
         <li><a class="dropdown-item" href="#">Action</a></li>
@@ -137,13 +135,11 @@ export const PillssDropdowns = () => html`
     <a class="nav-link active" aria-current="page" href="#">Active</a>
     <cod-dropdown data-split="false">
       <cod-button
-        data-label="Dropdown"
-        data-primary="true"
-        data-img-alt=""
-        data-icon=""
+        label="Dropdown"
+        primary
         data-bs-toggle="dropdown"
         aria-expanded="false"
-        data-extra-classes="dropdown-toggle"
+        extra-classes="dropdown-toggle"
       ></cod-button>
       <cod-dropdown-menu>
         <li><a class="dropdown-item" href="#">Action</a></li>

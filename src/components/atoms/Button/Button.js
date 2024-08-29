@@ -12,23 +12,23 @@ export default class Button extends HTMLElement {
 
   connectedCallback() {
     // Button attributes
-    const close = this.getAttribute('data-close');
-    const link = this.getAttribute('data-link');
-    const btnID = this.getAttribute('data-id');
-    const ariaLabel = this.getAttribute('data-aria-label');
-    const primary = this.getAttribute('data-primary');
-    const backgroundColor = this.getAttribute('data-background-color');
-    const shape = this.getAttribute('data-shape');
-    const icon = this.getAttribute('data-icon');
-    const iconSize = this.getAttribute('data-icon-size');
-    const iconOrder = this.getAttribute('data-icon-order');
-    const hiddenLabel = this.getAttribute('data-hidden-label');
-    const imgSrc = this.getAttribute('data-img');
-    const imgAlt = this.getAttribute('data-img-alt');
-    const size = this.getAttribute('data-size');
-    const extraClasses = this.getAttribute('data-extra-classes');
-    const label = this.getAttribute('data-label');
-    const disableStatus = this.getAttribute('data-disable');
+    const close = this.hasAttribute('close');
+    const link = this.getAttribute('link');
+    const btnID = this.getAttribute('id');
+    const ariaLabel = this.getAttribute('aria-label');
+    const primary = this.hasAttribute('primary');
+    const backgroundColor = this.getAttribute('background-color');
+    const shape = this.getAttribute('shape');
+    const icon = this.getAttribute('icon');
+    const iconSize = this.getAttribute('icon-size');
+    const iconOrder = this.getAttribute('icon-order');
+    const hiddenLabel = this.getAttribute('hidden-label');
+    const imgSrc = this.getAttribute('img');
+    const imgAlt = this.getAttribute('img-alt');
+    const size = this.getAttribute('size');
+    const extraClasses = this.getAttribute('extra-classes');
+    const label = this.getAttribute('label');
+    const disableStatus = this.hasAttribute('disabled');
     // Building Button component
     const btn = document.createElement('button');
     const btnClasses = ['btn'];
@@ -38,9 +38,9 @@ export default class Button extends HTMLElement {
     }
     disableStatus === 'true' ? (btn.disabled = true) : (btn.disabled = false);
     btn.setAttribute('aria-label', `${ariaLabel || ''}`);
-    if (primary === 'true') {
+    if (primary) {
       btnClasses.push(`btn-${backgroundColor}`);
-    } else if (primary === 'false') {
+    } else {
       btnClasses.push(`btn-outline-${backgroundColor}`);
     }
     shape === 'square'
@@ -51,7 +51,9 @@ export default class Button extends HTMLElement {
     imgAlt
       ? btnClasses.push('cod-button--img')
       : btnClasses.push('cod-button--not-img');
-    close === 'true' ? btnClasses.push('btn-close') : 0;
+    if (close) {
+      btnClasses.push('btn-close');
+    }
     btn.className = btnClasses.join(' ');
 
     if (icon) {

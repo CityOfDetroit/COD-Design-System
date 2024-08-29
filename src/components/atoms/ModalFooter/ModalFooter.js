@@ -46,9 +46,9 @@ export default class ModalFooter extends HTMLElement {
     const extraClasses = this.getAttribute('data-extra-classes');
 
     const modalFooterClasses = ['modal-footer'];
-    this.closeBtn.setAttribute('data-img-alt', '');
-    this.closeBtn.setAttribute('data-icon', '');
-    this.closeBtn.setAttribute('data-label', 'Close');
+    this.closeBtn.setAttribute('img-alt', '');
+    this.closeBtn.setAttribute('icon', '');
+    this.closeBtn.setAttribute('label', 'Close');
     this.closeBtn.setAttribute('data-bs-dismiss', 'modal');
 
     // TODO: Fix old ESLint errors - see issue #1099

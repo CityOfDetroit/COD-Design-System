@@ -47,9 +47,9 @@ export default class OffcanvasHeader extends HTMLElement {
     const offcanvasHeaderClasses = ['offcanvas-header'];
     this.offcanvasTitle.className = 'offcanvas-title';
     this.offcanvasTitle.id = `${parentID}-label`;
-    this.closeBtn.setAttribute('data-img-alt', '');
-    this.closeBtn.setAttribute('data-icon', '');
-    this.closeBtn.setAttribute('data-close', 'true');
+    this.closeBtn.setAttribute('img-alt', '');
+    this.closeBtn.setAttribute('icon', '');
+    this.closeBtn.setAttribute('close', 'true');
     this.closeBtn.setAttribute('data-bs-dismiss', parentID);
     extraClasses ? offcanvasHeaderClasses.push(extraClasses) : 0;
     btnDark === 'true'

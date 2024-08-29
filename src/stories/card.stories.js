@@ -35,18 +35,12 @@ export const Basic = () => html`
         of the card's content.
       </p>
       <cod-button
-        data-primary="true"
-        data-disable="false"
-        data-label="Link"
-        data-background-color="primary"
-        data-img=""
-        data-img-alt=""
-        data-icon=""
-        data-icon-order=""
-        data-icon-size=""
-        data-shape="fluid"
-        data-aria-label=""
-        data-link="https://detroitmi.gov"
+        primary
+        disabled="false"
+        label="Link"
+        background-color="primary"
+        shape="fluid"
+        link="https://detroitmi.gov"
       ></cod-button>
     </cod-card-body>
   </cod-card>
