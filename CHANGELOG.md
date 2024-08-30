@@ -1,3 +1,16 @@
+# v1.0.33 (Fri Aug 30 2024)
+
+#### 🐛 Bug Fix
+
+- Adding image to popup as an option. [#265](https://github.com/CityOfDetroit/COD-Design-System/pull/265) ([@jedgar1mx](https://github.com/jedgar1mx))
+- Updating images' URLs. [#263](https://github.com/CityOfDetroit/COD-Design-System/pull/263) ([@jedgar1mx](https://github.com/jedgar1mx))
+
+#### Authors: 1
+
+- J Edgar Montes ([@jedgar1mx](https://github.com/jedgar1mx))
+
+---
+
 # v1.0.32 (Thu Aug 22 2024)
 
 #### 🐛 Bug Fix
