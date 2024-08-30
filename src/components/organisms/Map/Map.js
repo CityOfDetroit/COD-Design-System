@@ -468,6 +468,11 @@ export default class Map extends HTMLElement {
           data[elem.link]
         }" target="_blank">${data[elem.value]}</a></p>`;
 
+      case 'field-image':
+        return `<img style="width:100%" src="${elem.path}${data[elem.url]}${
+          elem.format
+        }" Alt="${data[elem.alt]}">`;
+
       default:
         break;
     }
