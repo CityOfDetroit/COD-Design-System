@@ -1,3 +1,15 @@
+# v1.0.34 (Wed Sept 4 2024)
+
+#### 🐛 Bug Fix
+
+- Add remaining style guide colors and update BS dark by [@maxatdetroit](https://github.com/CityOfDetroit/COD-Design-System/pull/267)
+
+#### Authors: 1
+
+- Max Morgan ([@maxatdetroit](https://github.com/maxatdetroit))
+
+---
+
 # v1.0.33 (Fri Aug 30 2024)
 
 #### 🐛 Bug Fix
