@@ -50,9 +50,11 @@ $enable-rounded: false;
 
 // Establish variables for City of Detroit style guide.
 $cod-city-green: #004445;
-$cod-light-grey: #f2f2f2;
+$cod-spirit-green: #279989;
 $cod-pale-green: #9fd5b3;
 $cod-accent-yellow: #feb70d;
+$cod-near-black: #18252a;
+$cod-light-grey: #f2f2f2;
 
 // Set default colors for the theme.
 $primary: $cod-city-green !default;
@@ -61,8 +63,8 @@ $success: $cod-pale-green !default;
 $info: $cod-city-green !default;
 $warning: $cod-accent-yellow !default;
 $danger: #b3393b !default;
+$dark: $cod-near-black !default;
 $light: #fff !default;
-$dark: #000 !default;
 
 $focus-ring-width: 0.25rem;
 $focus-ring-opacity: 1;

@@ -42,7 +42,7 @@
   --bs-warning: #feb70d;
   --bs-danger: #b3393b;
   --bs-light: #fff;
-  --bs-dark: #000;
+  --bs-dark: #18252a;
   --bs-accent-primary: #feb70d;
   --bs-accent-secondary: #9fd5b3;
   --bs-primary-rgb: 0, 68, 69;
@@ -52,7 +52,7 @@
   --bs-warning-rgb: 254, 183, 13;
   --bs-danger-rgb: 179, 57, 59;
   --bs-light-rgb: 255, 255, 255;
-  --bs-dark-rgb: 0, 0, 0;
+  --bs-dark-rgb: 24, 37, 42;
   --bs-accent-primary-rgb: 254, 183, 13;
   --bs-accent-secondary-rgb: 159, 213, 179;
   --bs-primary-text-emphasis: #001b1c;
@@ -2061,13 +2061,13 @@ progress {
 
 .table-dark {
   --bs-table-color: #fff;
-  --bs-table-bg: #000;
-  --bs-table-border-color: #1a1a1a;
-  --bs-table-striped-bg: #0d0d0d;
+  --bs-table-bg: #18252a;
+  --bs-table-border-color: #2f3b3f;
+  --bs-table-striped-bg: #243035;
   --bs-table-striped-color: #fff;
-  --bs-table-active-bg: #1a1a1a;
+  --bs-table-active-bg: #2f3b3f;
   --bs-table-active-color: #fff;
-  --bs-table-hover-bg: #131313;
+  --bs-table-hover-bg: #29353a;
   --bs-table-hover-color: #fff;
   color: var(--bs-table-color);
   border-color: var(--bs-table-border-color);
@@ -3155,19 +3155,19 @@ fieldset:disabled .btn {
 
 .btn-dark {
   --bs-btn-color: #fff;
-  --bs-btn-bg: #000;
-  --bs-btn-border-color: #000;
+  --bs-btn-bg: #18252a;
+  --bs-btn-border-color: #18252a;
   --bs-btn-hover-color: #fff;
-  --bs-btn-hover-bg: #262626;
-  --bs-btn-hover-border-color: #1a1a1a;
-  --bs-btn-focus-shadow-rgb: 38, 38, 38;
+  --bs-btn-hover-bg: #3b464a;
+  --bs-btn-hover-border-color: #2f3b3f;
+  --bs-btn-focus-shadow-rgb: 59, 70, 74;
   --bs-btn-active-color: #fff;
-  --bs-btn-active-bg: #333333;
-  --bs-btn-active-border-color: #1a1a1a;
+  --bs-btn-active-bg: #465155;
+  --bs-btn-active-border-color: #2f3b3f;
   --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
   --bs-btn-disabled-color: #fff;
-  --bs-btn-disabled-bg: #000;
-  --bs-btn-disabled-border-color: #000;
+  --bs-btn-disabled-bg: #18252a;
+  --bs-btn-disabled-border-color: #18252a;
 }
 
 .btn-accent-primary {
@@ -3324,19 +3324,19 @@ fieldset:disabled .btn {
 }
 
 .btn-outline-dark {
-  --bs-btn-color: #000;
-  --bs-btn-border-color: #000;
+  --bs-btn-color: #18252a;
+  --bs-btn-border-color: #18252a;
   --bs-btn-hover-color: #fff;
-  --bs-btn-hover-bg: #000;
-  --bs-btn-hover-border-color: #000;
-  --bs-btn-focus-shadow-rgb: 0, 0, 0;
+  --bs-btn-hover-bg: #18252a;
+  --bs-btn-hover-border-color: #18252a;
+  --bs-btn-focus-shadow-rgb: 24, 37, 42;
   --bs-btn-active-color: #fff;
-  --bs-btn-active-bg: #000;
-  --bs-btn-active-border-color: #000;
+  --bs-btn-active-bg: #18252a;
+  --bs-btn-active-border-color: #18252a;
   --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
-  --bs-btn-disabled-color: #000;
+  --bs-btn-disabled-color: #18252a;
   --bs-btn-disabled-bg: transparent;
-  --bs-btn-disabled-border-color: #000;
+  --bs-btn-disabled-border-color: #18252a;
   --bs-gradient: none;
 }
 
@@ -6926,7 +6926,7 @@ fieldset:disabled .btn {
 
 .text-bg-dark {
   color: #fff !important;
-  background-color: RGBA(0, 0, 0, var(--bs-bg-opacity, 1)) !important;
+  background-color: RGBA(24, 37, 42, var(--bs-bg-opacity, 1)) !important;
 }
 
 .text-bg-accent-primary {
@@ -7059,8 +7059,8 @@ fieldset:disabled .btn {
 }
 .link-dark:hover,
 .link-dark:focus {
-  color: RGBA(0, 0, 0, var(--bs-link-opacity, 1));
-  text-decoration-color: RGBA(0, 0, 0, var(--bs-link-underline-opacity, 1));
+  color: RGBA(19, 30, 34, var(--bs-link-opacity, 1));
+  text-decoration-color: RGBA(19, 30, 34, var(--bs-link-underline-opacity, 1));
 }
 
 .link-accent-primary {
@@ -12438,7 +12438,7 @@ fieldset:disabled .btn {
   --bs-warning: #feb70d;
   --bs-danger: #b3393b;
   --bs-light: #fff;
-  --bs-dark: #000;
+  --bs-dark: #18252a;
   --bs-accent-primary: #feb70d;
   --bs-accent-secondary: #9fd5b3;
   --bs-primary-rgb: 0, 68, 69;
@@ -12448,7 +12448,7 @@ fieldset:disabled .btn {
   --bs-warning-rgb: 254, 183, 13;
   --bs-danger-rgb: 179, 57, 59;
   --bs-light-rgb: 255, 255, 255;
-  --bs-dark-rgb: 0, 0, 0;
+  --bs-dark-rgb: 24, 37, 42;
   --bs-accent-primary-rgb: 254, 183, 13;
   --bs-accent-secondary-rgb: 159, 213, 179;
   --bs-primary-text-emphasis: #001b1c;
