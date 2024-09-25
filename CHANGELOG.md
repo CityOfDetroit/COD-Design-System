@@ -1,3 +1,15 @@
+# v1.0.35 (Tue Sep 24 2024)
+
+#### 🐛 Bug Fix
+
+- Creating new countdown component. [#270](https://github.com/CityOfDetroit/COD-Design-System/pull/270) ([@jedgar1mx](https://github.com/jedgar1mx))
+
+#### Authors: 1
+
+- J Edgar Montes ([@jedgar1mx](https://github.com/jedgar1mx))
+
+---
+
 # v1.0.34 (Wed Sept 4 2024)
 
 #### 🐛 Bug Fix
