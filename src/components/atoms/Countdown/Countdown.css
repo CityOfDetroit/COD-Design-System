@@ -1,0 +1,41 @@
+time {
+  display: flex;
+}
+
+.item {
+  padding: 0.25em 0.5em;
+}
+
+.number,
+.unit {
+  display: block;
+}
+
+.number.sm {
+  font-size: 1rem;
+}
+
+.number.md {
+  font-size: 2rem;
+}
+
+.number.lg {
+  font-size: 3rem;
+}
+
+.unit.sm {
+  font-size: 0.33rem;
+}
+
+.unit.md {
+  font-size: 0.66rem;
+}
+
+.unit.lg {
+  font-size: 1rem;
+}
+
+.unit,
+.number {
+  text-align: center;
+}

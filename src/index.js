@@ -17,6 +17,7 @@ import './components/atoms/CardOverlay/cod-card-overlay';
 import './components/atoms/CarouselCaption/cod-carousel-caption';
 import './components/atoms/CarouselItem/cod-carousel-item';
 import './components/atoms/Container/cod-container';
+import './components/atoms/Countdown/cod-countdown';
 import './components/atoms/DropdownMenu/cod-dropdown-menu';
 import './components/atoms/FormCheck/cod-formcheck';
 import './components/atoms/FormControl/cod-formcontrol';
