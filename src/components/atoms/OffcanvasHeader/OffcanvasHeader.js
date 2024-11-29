@@ -41,21 +41,21 @@ export default class OffcanvasHeader extends HTMLElement {
 
   connectedCallback() {
     // Nav attributes
-    const parentID = this.getAttribute('data-parent-id');
-    const btnDark = this.getAttribute('data-button-dark');
-    const extraClasses = this.getAttribute('data-extra-classes');
+    const parentID = this.getAttribute('parent-id');
+    const btnDark = this.getAttribute('button-dark');
+    const extraClasses = this.getAttribute('extra-classes');
     const offcanvasHeaderClasses = ['offcanvas-header'];
     this.offcanvasTitle.className = 'offcanvas-title';
     this.offcanvasTitle.id = `${parentID}-label`;
-    this.closeBtn.setAttribute('data-img-alt', '');
-    this.closeBtn.setAttribute('data-icon', '');
-    this.closeBtn.setAttribute('data-close', 'true');
-    this.closeBtn.setAttribute('data-bs-dismiss', parentID);
+    this.closeBtn.setAttribute('img-alt', '');
+    this.closeBtn.setAttribute('icon', '');
+    this.closeBtn.setAttribute('close', 'true');
+    this.closeBtn.setAttribute('bs-dismiss', parentID);
     extraClasses ? offcanvasHeaderClasses.push(extraClasses) : 0;
     btnDark === 'true'
-      ? this.closeBtn.setAttribute('data-extra-classes', 'btn-close-white')
+      ? this.closeBtn.setAttribute('extra-classes', 'btn-close-white')
       : 0;
-    const expand = this.getAttribute('data-expand');
+    const expand = this.getAttribute('expand');
     if (expand) {
       expand === 'always'
         ? offcanvasHeaderClasses.push('navbar-expand')
@@ -73,8 +73,6 @@ export default class OffcanvasHeader extends HTMLElement {
   }
 
   _onClick() {
-    this.getRootNode()
-      .host.getRootNode()
-      .host.setAttribute('data-show', 'false');
+    this.getRootNode().host.getRootNode().host.setAttribute('show', 'false');
   }
 }
