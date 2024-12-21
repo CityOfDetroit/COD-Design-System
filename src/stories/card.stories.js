@@ -7,7 +7,7 @@ import '../components/organisms/Card/cod-card';
 import '../components/atoms/Button/cod-button';
 
 export default {
-  title: 'Components/Organisms/Card',
+  title: 'Experimental/Organisms/Card',
 };
 
 export const Basic = () => html`

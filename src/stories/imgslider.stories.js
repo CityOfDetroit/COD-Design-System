@@ -4,7 +4,7 @@ import img2 from './assets/example-image2.svg';
 import '../components/organisms/ImgSlider/cod-img-slider';
 
 export default {
-  title: 'Components/Organisms/ImgSlider',
+  title: 'Experimental/Organisms/ImgSlider',
 };
 
 export const Basic = () => html`

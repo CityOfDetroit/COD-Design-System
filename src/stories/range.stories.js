@@ -2,7 +2,7 @@ import '../components/atoms/Range/cod-range';
 import { COMMON_STORY_ARGS } from '../shared/js/storybook/args-utils';
 
 export default {
-  title: 'Components/Atoms/Forms/Range',
+  title: 'Experimental/Atoms/Forms/Range',
   argTypes: {
     disable: COMMON_STORY_ARGS.disabled,
   },

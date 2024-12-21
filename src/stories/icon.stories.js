@@ -2,7 +2,7 @@ import '../components/atoms/Icon/cod-icon';
 import { COMMON_STORY_ARGS } from '../shared/js/storybook/args-utils';
 
 export default {
-  title: 'Components/Atoms/Icon',
+  title: 'Experimental/Atoms/Icon',
   argTypes: {
     icon: COMMON_STORY_ARGS.icon,
     size: COMMON_STORY_ARGS.longSize,

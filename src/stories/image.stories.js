@@ -2,7 +2,7 @@ import '../components/atoms/Image/cod-image';
 import { COMMON_STORY_ARGS } from '../shared/js/storybook/args-utils';
 
 export default {
-  title: 'Components/Atoms/Image',
+  title: 'Experimental/Atoms/Image',
   argTypes: {
     align: {
       control: { type: 'select' },

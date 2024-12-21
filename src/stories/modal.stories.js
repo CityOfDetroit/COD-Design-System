@@ -6,7 +6,7 @@ import '../components/organisms/Modal/cod-modal';
 import '../components/atoms/Button/cod-button';
 
 export default {
-  title: 'Components/Organisms/Modal',
+  title: 'Experimental/Organisms/Modal',
 };
 
 export const Basic = () => html`

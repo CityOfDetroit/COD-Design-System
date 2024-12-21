@@ -3,7 +3,7 @@ import '../components/atoms/Badge/cod-badge';
 import { COMMON_STORY_ARGS } from '../shared/js/storybook/args-utils';
 
 export default {
-  title: 'Components/Atoms/Badge',
+  title: 'Experimental/Atoms/Badge',
   argTypes: {
     tag: {
       control: { type: 'select' },

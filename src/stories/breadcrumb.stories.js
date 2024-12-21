@@ -2,7 +2,7 @@ import { html } from 'lit-html';
 import '../components/atoms/Breadcrumb/cod-breadcrumb';
 
 export default {
-  title: 'Components/Atoms/Breadcrumb',
+  title: 'Experimental/Atoms/Breadcrumb',
 };
 
 export const Basic = () => html`

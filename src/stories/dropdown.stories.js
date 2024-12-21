@@ -4,7 +4,7 @@ import '../components/atoms/DropdownMenu/cod-dropdown-menu';
 import '../components/atoms/Button/cod-button';
 
 export default {
-  title: 'Components/Molecules/Dropdown',
+  title: 'Experimental/Molecules/Dropdown',
 };
 
 export const Basic = () => html`

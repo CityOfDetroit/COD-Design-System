@@ -1,7 +1,7 @@
 import '../components/organisms/VideoPlayer/cod-videoplayer';
 
 export default {
-  title: 'Components/Organisms/VideoPlayer',
+  title: 'Experimental/Organisms/VideoPlayer',
   argTypes: {
     videoType: {
       control: { type: 'select' },

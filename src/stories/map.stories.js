@@ -2,7 +2,7 @@ import { html } from 'lit-html';
 import '../components/organisms/Map/cod-map';
 
 export default {
-  title: 'Components/Organisms/Map',
+  title: 'Experimental/Organisms/Map',
 };
 
 export const Location = () =>

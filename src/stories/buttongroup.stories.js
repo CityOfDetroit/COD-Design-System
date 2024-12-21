@@ -4,7 +4,7 @@ import '../components/atoms/Button/cod-button';
 import '../components/atoms/FormCheck/cod-formcheck';
 
 export default {
-  title: 'Components/Molecules/ButtonGroup',
+  title: 'Experimental/Molecules/ButtonGroup',
 };
 
 export const Basic = () => html`

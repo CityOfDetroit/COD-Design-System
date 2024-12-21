@@ -3,7 +3,7 @@ import '../components/atoms/Icon/cod-icon';
 import { COMMON_STORY_ARGS } from '../shared/js/storybook/args-utils';
 
 export default {
-  title: 'Components/Atoms/Button',
+  title: 'Experimental/Atoms/Button',
   argTypes: {
     primary: {
       control: { type: 'boolean' },

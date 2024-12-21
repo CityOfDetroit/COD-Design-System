@@ -9,7 +9,7 @@ import '../components/atoms/DropdownMenu/cod-dropdown-menu';
 import '../components/atoms/Button/cod-button';
 
 export default {
-  title: 'Components/Organisms/Navbar',
+  title: 'Experimental/Organisms/Navbar',
 };
 
 export const Basic = () => html`

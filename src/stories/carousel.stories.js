@@ -5,7 +5,7 @@ import '../components/organisms/Carousel/cod-carousel';
 import '../components/atoms/Button/cod-button';
 
 export default {
-  title: 'Components/Organisms/Carousel',
+  title: 'Experimental/Organisms/Carousel',
 };
 
 export const Basic = () => html`

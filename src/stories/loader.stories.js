@@ -2,7 +2,7 @@ import '../components/atoms/Loader/cod-loader';
 import { COMMON_STORY_ARGS } from '../shared/js/storybook/args-utils';
 
 export default {
-  title: 'Components/Atoms/Loader',
+  title: 'Experimental/Atoms/Loader',
   argTypes: {
     // TODO: Use bootstrap color names. Issue #202.
     backgroundColor: COMMON_STORY_ARGS.numberColor,

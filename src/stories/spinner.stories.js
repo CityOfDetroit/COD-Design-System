@@ -2,7 +2,7 @@ import '../components/atoms/Spinner/cod-spinner';
 import { COMMON_STORY_ARGS } from '../shared/js/storybook/args-utils';
 
 export default {
-  title: 'Components/Atoms/Spinner',
+  title: 'Experimental/Atoms/Spinner',
   argTypes: {
     type: {
       control: { type: 'select' },

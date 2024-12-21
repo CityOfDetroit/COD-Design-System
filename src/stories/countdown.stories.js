@@ -2,7 +2,7 @@ import '../components/atoms/Countdown/cod-countdown';
 import { COMMON_STORY_ARGS } from '../shared/js/storybook/args-utils';
 
 export default {
-  title: 'Components/Atoms/Countdown',
+  title: 'Experimental/Atoms/Countdown',
   argTypes: {
     size: {
       control: { type: 'select' },

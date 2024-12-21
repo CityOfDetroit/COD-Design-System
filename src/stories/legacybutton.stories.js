@@ -2,7 +2,7 @@ import '../components/atoms/LegacyButton/cod-legacy-button';
 import { html } from 'lit-html';
 
 export default {
-  title: 'Components/Atoms/LegacyButton',
+  title: 'Experimental/Atoms/LegacyButton',
   argTypes: {
     icon: {
       control: { type: 'select' },

@@ -2,7 +2,7 @@ import '../components/atoms/Alert/cod-alert';
 import { COMMON_STORY_ARGS } from '../shared/js/storybook/args-utils';
 
 export default {
-  title: 'Components/Atoms/Alert',
+  title: 'Experimental/Atoms/Alert',
   argTypes: {
     icon: COMMON_STORY_ARGS.icon,
     iconOrder: COMMON_STORY_ARGS.order,

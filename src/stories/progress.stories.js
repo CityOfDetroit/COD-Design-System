@@ -2,7 +2,7 @@ import { COMMON_STORY_ARGS } from '../shared/js/storybook/args-utils';
 import '../components/atoms/Progress/cod-progress';
 
 export default {
-  title: 'Components/Atoms/Progress',
+  title: 'Experimental/Atoms/Progress',
   argTypes: {
     backgroundColor: COMMON_STORY_ARGS.bootstrapColor,
   },
