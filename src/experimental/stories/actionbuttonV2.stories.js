@@ -1,7 +1,8 @@
 import { html } from 'lit-html';
 import '../components/atoms/ActionButtonV2/cod-action-button-v2';
 import '../components/atoms/Icon/cod-icon';
-import { COMMON_STORY_ARGS } from '../shared/js/storybook/args-utils';
+import { COMMON_STORY_ARGS } from '../../../shared/js/storybook/args-utils';
+
 
 export default {
   component: 'cod-action-button-v2',
