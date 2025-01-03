@@ -8,12 +8,12 @@ on:
 
 jobs:
   format_and_lint:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: lts/Jod
       - run: yarn install --frozen-lockfile
       - run: yarn check-lint-config
       - run: yarn lint
