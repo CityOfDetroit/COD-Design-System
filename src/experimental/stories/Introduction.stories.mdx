@@ -1,0 +1,200 @@
+import { Meta } from '@storybook/addon-docs';
+import Code from './assets/code-brackets.svg';
+import Colors from './assets/colors.svg';
+import Comments from './assets/comments.svg';
+import Direction from './assets/direction.svg';
+import Flow from './assets/flow.svg';
+import Plugin from './assets/plugin.svg';
+import Repo from './assets/repo.svg';
+import StackAlt from './assets/stackalt.svg';
+
+<Meta title="COD UXDS/Introduction" />
+
+<style>
+  {`
+    .subheading {
+      --mediumdark: '#999999';
+      font-weight: 900;
+      font-size: 13px;
+      color: #999;
+      letter-spacing: 6px;
+      line-height: 24px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      margin-top: 40px;
+    }
+
+    .link-list {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr 1fr;
+      row-gap: 10px;
+    }
+
+    @media (min-width: 620px) {
+      .link-list {
+        row-gap: 20px;
+        column-gap: 20px;
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media all and (-ms-high-contrast:none) {
+    .link-list {
+        display: -ms-grid;
+        -ms-grid-columns: 1fr 1fr;
+        -ms-grid-rows: 1fr 1fr;
+      }
+    }
+
+    .link-item {
+      display: block;
+      padding: 20px 30px 20px 15px;
+      border: 1px solid #00000010;
+      border-radius: 5px;
+      transition: background 150ms ease-out, border 150ms ease-out, transform 150ms ease-out;
+      color: #333333;
+      display: flex;
+      align-items: flex-start;
+    }
+
+    .link-item:hover {
+      border-color: #1EA7FD50;
+      transform: translate3d(0, -3px, 0);
+      box-shadow: rgba(0, 0, 0, 0.08) 0 3px 10px 0;
+    }
+
+    .link-item:active {
+      border-color: #1EA7FD;
+      transform: translate3d(0, 0, 0);
+    }
+
+    .link-item strong {
+      font-weight: 700;
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    .link-item img {
+      height: 40px;
+      width: 40px;
+      margin-right: 15px;
+      flex: none;
+    }
+
+    .link-item span {
+      font-size: 14px;
+      line-height: 20px;
+    }
+
+    .tip {
+      display: inline-block;
+      border-radius: 1em;
+      font-size: 11px;
+      line-height: 12px;
+      font-weight: 700;
+      background: #E7FDD8;
+      color: #66BF3C;
+      padding: 4px 12px;
+      margin-right: 10px;
+      vertical-align: top;
+    }
+
+    .tip-wrapper {
+      font-size: 13px;
+      line-height: 20px;
+      margin-top: 40px;
+      margin-bottom: 40px;
+    }
+
+    .tip-wrapper code {
+      font-size: 12px;
+      display: inline-block;
+    }
+  `}
+</style>
+
+<h1 className="text-center">City of Detroit Design System</h1>
+
+This is the COD UXDS Storybook, a sandbox for demonstrating and developing components and patterns built for the City of Detroit UX Design System ("COD UXDS"). This demonstration is built using the open source tool Storybook using JavaScript and Node.js. All COD components are built using **ONLY JAVASCRIPT** to deliver standards-compliant web components. COD web components are platform-agnostic and can be used in any JavaScript framework of your choice or directly in the browser using static HTML.
+
+**Why no framework?**
+
+- Frameworks can increase the learning curve due to specific syntax or particular methodologies dictated by the creators.
+- Support and maintenance are heavily influence by the developer community which can change often.
+
+In the Sidebar to the left, you can browse the components and patterns within COD. Each example will be demonstrated in what is called a "story" within the Canvas (the area of the window you're reading now). Across the top of the Canvas area, you will see a Docs tab, zoom controls, a color blindness simulator, and a light/dark theme toggle.
+
+- **Docs tab** - includes all of the developer documentation for each component, including guidelines and usage, the full API, any variants, and instructions for cherry picking.
+
+While viewing a component, to the right of the Canvas there is a tabbed Panel which displays Controls, any Action outputs associated with that demonstration, and an Accessibility audit:
+
+- **Control** - options allow you to change content in the demonstration area by altering the data given to the component via its properties.
+- **Actions** - provides console output where user actions like clicking or selecting should produce event target information.
+- **Accessibilty** - displays a11y violations of WCAG 2.0 Levels A and AA, WCAG 2.1 Level AA, Section 508, and other best practices through the aXe accessibilty engine.
+  Display options and keyboard shortcuts are available via the Ellipsis Menu Icon next to the COD UXDS logo at the top of the sidebar.
+
+<h2>Experimental Components</h2>
+
+<p>
+  The COD UXDS Storybook includes an Experimental section. These components are
+  in development and should be considered unstable. They are provided for
+  preview and testing purposes only. Please note:
+</p>
+
+<ul>
+  <li>Experimental components are not considered stable.</li>
+  <li>Use these components at your own risk.</li>
+  <li>They may undergo significant changes or be removed without notice.</li>
+  <li>
+    We do not recommend using experimental components in production
+    environments.
+  </li>
+</ul>
+
+<div className="subheading">Configure</div>
+
+<div className="link-list">
+  <a
+    className="link-item"
+    href="https://jedgar1mx.github.io/COD-Design-System/?path=/story/cod-uxds-setup--page"
+  >
+    <img src={Plugin} alt="plugin" />
+    <span>
+      <strong>Setup</strong>
+      Easy setup using COD components.
+    </span>
+  </a>
+  <a
+    className="link-item"
+    href="https://jedgar1mx.github.io/COD-Design-System/?path=/story/cod-uxds-customization--page"
+  >
+    <img src={StackAlt} alt="Build" />
+    <span>
+      <strong>Custom configuration</strong>
+      How to customize COD components
+    </span>
+  </a>
+  <a
+    className="link-item"
+    href="https://detroitmi.gov/departments/department-innovation-and-technology/style-guide"
+    target="_blank"
+  >
+    <img src={Colors} alt="colors" />
+    <span>
+      <strong>Styling</strong>
+      Learn about our style guide.
+    </span>
+  </a>
+  <a
+    className="link-item"
+    href="https://github.com/jedgar1mx/COD-Design-System"
+    target="_blank"
+  >
+    <img src={Code} alt="code" />
+    <span>
+      <strong>GitHub project</strong>
+      View the source and add issues
+    </span>
+  </a>
+</div>
