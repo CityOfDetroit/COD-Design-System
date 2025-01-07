@@ -2,7 +2,7 @@
 import maplibregl from 'maplibre-gl';
 import mapStyle from './style.json';
 import styles from '!!raw-loader!./Map.css';
-import maplibreStyles from '!!raw-loader!../../../../node_modules/maplibre-gl/dist/maplibre-gl.css';
+import maplibreStyles from '!!raw-loader!../../../../../node_modules/maplibre-gl/dist/maplibre-gl.css';
 export default class Map extends HTMLElement {
   static get observedAttributes() {
     return [

@@ -1,6 +1,6 @@
 import styles from '!!raw-loader!./Icon.css';
-import varStyles from '!!raw-loader!../../../shared/variables.css';
-import bootstrapStyles from '!!raw-loader!../../../shared/themed-bootstrap.css';
+import varStyles from '!!raw-loader!../../../../shared/variables.css';
+import bootstrapStyles from '!!raw-loader!../../../../shared/themed-bootstrap.css';
 
 export default class Icon extends HTMLElement {
   constructor() {

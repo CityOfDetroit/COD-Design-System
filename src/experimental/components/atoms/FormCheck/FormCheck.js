@@ -1,6 +1,6 @@
 import styles from '!!raw-loader!./FormCheck.css';
-import varStyles from '!!raw-loader!../../../shared/variables.css';
-import bootstrapStyles from '!!raw-loader!../../../shared/themed-bootstrap.css';
+import varStyles from '!!raw-loader!../../../../shared/variables.css';
+import bootstrapStyles from '!!raw-loader!../../../../shared/themed-bootstrap.css';
 export default class FormCheck extends HTMLElement {
   static formAssociated = true;
 

@@ -1,5 +1,5 @@
 import styles from '!!raw-loader!./Loader.css';
-import varStyles from '!!raw-loader!../../../shared/variables.css';
+import varStyles from '!!raw-loader!../../../../shared/variables.css';
 export default class Loader extends HTMLElement {
   constructor() {
     // Always call super first in constructor

@@ -1,13 +1,13 @@
 import styles from '!!raw-loader!./TableHeader.css';
-import varStyles from '!!raw-loader!../../../shared/variables.css';
-import bootstrapStyles from '!!raw-loader!../../../shared/themed-bootstrap.css';
+import varStyles from '!!raw-loader!../../../../shared/variables.css';
+import bootstrapStyles from '!!raw-loader!../../../../shared/themed-bootstrap.css';
 
 import {
   cellHeaderBlockClass,
   stackedTableClass,
   handleTableStacked,
-} from '../../../shared/js/utilities';
-import observedAttributeMixin from '../../../shared/js/observed-attribute-mixin';
+} from '../../../../shared/js/utilities';
+import observedAttributeMixin from '../../../../shared/js/observed-attribute-mixin';
 
 const template = document.createElement('template');
 

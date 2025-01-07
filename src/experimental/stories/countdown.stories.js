@@ -1,5 +1,5 @@
 import '../components/atoms/Countdown/cod-countdown';
-import { COMMON_STORY_ARGS } from '../shared/js/storybook/args-utils';
+import { COMMON_STORY_ARGS } from '../../shared/js/storybook/args-utils';
 
 export default {
   title: 'Experimental/Atoms/Countdown',

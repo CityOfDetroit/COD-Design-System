@@ -1,8 +1,8 @@
 import styles from '!!raw-loader!./Calendar.css';
-import varStyles from '!!raw-loader!../../../shared/variables.css';
-import bootstrapStyles from '!!raw-loader!../../../shared/themed-bootstrap.css';
+import varStyles from '!!raw-loader!../../../../shared/variables.css';
+import bootstrapStyles from '!!raw-loader!../../../../shared/themed-bootstrap.css';
 
-import observedAttributeMixin from '../../../shared/js/observed-attribute-mixin';
+import observedAttributeMixin from '../../../../shared/js/observed-attribute-mixin';
 
 import { Calendar as FullCalendar } from '@fullcalendar/core';
 import dayGridPlugin from '@fullcalendar/daygrid';

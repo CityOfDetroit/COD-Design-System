@@ -1,6 +1,6 @@
 import styles from '!!raw-loader!./FormLabel.css';
-import varStyles from '!!raw-loader!../../../shared/variables.css';
-import bootstrapStyles from '!!raw-loader!../../../shared/themed-bootstrap.css';
+import varStyles from '!!raw-loader!../../../../shared/variables.css';
+import bootstrapStyles from '!!raw-loader!../../../../shared/themed-bootstrap.css';
 export default class FormLabel extends HTMLElement {
   constructor() {
     // Always call super first in constructor

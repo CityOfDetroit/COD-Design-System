@@ -1,6 +1,6 @@
 import styles from '!!raw-loader!./TableV2.css';
-import varStyles from '!!raw-loader!../../../shared/variables.css';
-import bootstrapStyles from '!!raw-loader!../../../shared/themed-bootstrap.css';
+import varStyles from '!!raw-loader!../../../../shared/variables.css';
+import bootstrapStyles from '!!raw-loader!../../../../shared/themed-bootstrap.css';
 
 class TableV2 extends HTMLElement {
   static observedAttributes = [];
