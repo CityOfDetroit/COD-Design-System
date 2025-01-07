@@ -77,11 +77,12 @@
 
 #### 🚀 Enhancement
 
-- Support attribute-based animations on article card by @maxatdetroit in https://github.com/CityOfDetroit/COD-Design-System/pull/249
+
+* Support attribute-based animations on article card by @maxatdetroit in https://github.com/CityOfDetroit/COD-Design-System/pull/249
 
 #### 🐛 Bug Fix
 
-- Support long content in offcanvas body by @maxatdetroit in https://github.com/CityOfDetroit/COD-Design-System/pull/240
+* Support long content in offcanvas body by @maxatdetroit in https://github.com/CityOfDetroit/COD-Design-System/pull/240
 
 #### Authors: 1
 
@@ -93,11 +94,11 @@
 
 #### 🚀 Enhancement
 
-- Allow legacy icons and buttons to scale responsively with parent container by @maxatdetroit in https://github.com/CityOfDetroit/COD-Design-System/pull/238
+* Allow legacy icons and buttons to scale responsively with parent container by @maxatdetroit in https://github.com/CityOfDetroit/COD-Design-System/pull/238
 
 #### 🐛 Bug Fix
 
-- Fix carousel transition animations on 'next' by @maxatdetroit in https://github.com/CityOfDetroit/COD-Design-System/pull/236
+* Fix carousel transition animations on 'next' by @maxatdetroit in https://github.com/CityOfDetroit/COD-Design-System/pull/236
 
 #### Authors: 1
 
@@ -109,7 +110,7 @@
 
 #### 🚀 Enhancement
 
-- Introduce legacy icon component [by @maxatdetroit](https://github.com/CityOfDetroit/COD-Design-System/pull/234)
+* Introduce legacy icon component [by @maxatdetroit](https://github.com/CityOfDetroit/COD-Design-System/pull/234)
 
 #### Authors: 1
 
@@ -121,7 +122,7 @@
 
 #### 🚀 Enhancement
 
-- Update article card styles given feedback [by @maxatdetroit](https://github.com/CityOfDetroit/COD-Design-System/pull/232)
+* Update article card styles given feedback [by @maxatdetroit](https://github.com/CityOfDetroit/COD-Design-System/pull/232)
 
 #### Authors: 1
 
@@ -133,7 +134,7 @@
 
 #### 🚀 Enhancement
 
-- Add new detroit legacy button component [by @maxatdetroit](https://github.com/CityOfDetroit/COD-Design-System/pull/230)
+* Add new detroit legacy button component [by @maxatdetroit](https://github.com/CityOfDetroit/COD-Design-System/pull/230)
 
 #### Authors: 1
 
@@ -290,6 +291,7 @@
 
 - Adding new components: [`cod-info-button`](https://github.com/CityOfDetroit/COD-Design-System/pull/160) and [`cod-action-button`](https://github.com/CityOfDetroit/COD-Design-System/pull/158).
 
+
 #### Authors: 1
 
 - Max Morgan ([@maxatdetroit](https://github.com/maxatdetroit))
@@ -301,6 +303,7 @@
 #### 🏎 Performance
 
 - Adding additional icons for intranet. [#157](https://github.com/CityOfDetroit/COD-Design-System/pull/157) ([@maxatdetroit](https://github.com/maxatdetroit))
+
 
 #### Authors: 1
 
