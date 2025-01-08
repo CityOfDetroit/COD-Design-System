@@ -4,7 +4,7 @@ import bootstrapStyles from '!!raw-loader!../../../../shared/themed-bootstrapSty
 
 
 const template = document.createElement('template');
-      
+
 template.innerHTML = `
   <div part="container" class="banner-container">
     <header part="header" class="banner-header">
@@ -18,7 +18,7 @@ template.innerHTML = `
         </div>
       </div>
       <button part="toggle" class="chevron-container" aria-expanded="false" aria-controls="content">
-        <slot name="toggle-icon">▼</slot>
+        <slot name="toggle-icon"></slot>
       </button>
     </header>
     <div id="content" part="content" class="content-container" hidden>
@@ -26,3 +26,26 @@ template.innerHTML = `
     </div>
   </div>
 `;
+
+class GovBanner extends HTMLElement {
+    constructor(){
+
+        // Always call super first in constructor
+        super();
+
+        // Create a shadow root
+        const shadow = this.attachShadow({ mode: 'open' });
+        shadow.appendChild(template.content.cloneNode(true));
+
+        // Add Styles
+            const bootStyles = document.createElement('style');
+            bootStyles.textContent = bootstrapStyles;
+            const variableStyles = document.createElement('style');
+            variableStyles.textContent = varStyles;
+            const itemStyles = document.createElement('style');
+            itemStyles.textContent = styles;
+            shadow.appendChild(bootStyles);
+            shadow.appendChild(variableStyles);
+            shadow.appendChild(itemStyles);
+    }
+}
