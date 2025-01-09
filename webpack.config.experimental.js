@@ -11,7 +11,7 @@ module.exports = function (_env, argv) {
 
   return {
     devtool: isDevelopment && 'cheap-module-source-map',
-    entry: './src/index-experimental.js',
+    entry: './src/experimental/index-experimental.js',
     output: {
       path: path.resolve(__dirname, 'build/experimental'),
       filename: 'assets/js/[name].js',

@@ -24,7 +24,8 @@
   "scripts": {
     "check-lint-config": "npx eslint-config-prettier src/index.js",
     "lint": "eslint src && prettier --check src/*",
-    "build:experimental": "webpack --mode production",
+    "build": "yarn build:experimental",
+    "build:experimental": "webpack --mode production --config webpack.config.experimental.js",
     "build-package": "cross-env BABEL_ENV=production babel src -d dist",
     "start": "webpack-dev-server --mode development",
     "storybook": "storybook dev -p 6006",
