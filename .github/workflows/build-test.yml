@@ -1,0 +1,19 @@
+name: 'Package Build Tests'
+on:
+  push:
+    branches: [ dev ]
+  pull_request:
+    branches: [ dev ]
+jobs:
+  test:
+    timeout-minutes: 60
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: lts/Jod
+      - name: Install dependencies
+        run: yarn
+      - name: Build package using Webpack
+        run: yarn build
