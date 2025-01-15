@@ -1,4 +1,5 @@
-import '../components/organisms/GovBanner/cod-gov-banner';
+import { html } from 'lit-html';
+import '../../stable/components/organisms/GovBanner/cod-gov-banner';
 import { COMMON_STORY_ARGS } from '../../shared/js/storybook/args-utils';
 
 export default {
@@ -7,7 +8,7 @@ export default {
 };
 
 export const Default = {
-  render: () => `
+  render: () => html`
     <gov-banner>
       <span slot="city-name">CITY OF DETROIT</span>
       <span slot="official-statement">An official website of the City of Detroit.</span>
@@ -26,11 +27,15 @@ export const Default = {
             <div class="icon">🔒</div>
             <div>
               <h3>Secure .gov websites use HTTPS</h3>
-              <p>A lock or https:// means you've safely connected to the .gov website. Share sensitive information only on official, secure websites.</p>
+              <p>
+                A lock or https:// means you've safely connected to the .gov
+                website. Share sensitive information only on official, secure
+                websites.
+              </p>
             </div>
           </div>
         </div>
       </div>
     </gov-banner>
-  `
+  `,
 };

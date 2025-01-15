@@ -21,19 +21,23 @@
   },
   "readmeFilename": "README.md",
   "homepage": "https://jedgar1mx.github.io/COD-Design-System",
-  "scripts": {
+"scripts": {
     "check-lint-config": "npx eslint-config-prettier src/index.js",
     "lint": "eslint src && prettier --check src/*",
-    "build:experimental": "webpack --mode production",
+    "build:experimental": "cross-env BUILD_TYPE=experimental webpack --mode production",
+    "build:stable": "cross-env BUILD_TYPE=stable webpack --mode production",
+    "build": "yarn build:stable && yarn build:experimental",
     "build-package": "cross-env BABEL_ENV=production babel src -d dist",
-    "start": "webpack-dev-server --mode development",
+    "start:experimental": "cross-env BUILD_TYPE=experimental webpack-dev-server --mode development",
+    "start:stable": "cross-env BUILD_TYPE=stable webpack-dev-server --mode development",
+    "start": "yarn start:experimental",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "deploy-storybook": "storybook-to-ghpages",
     "test-storybook": "test-storybook --maxWorkers=2 --coverage",
     "release": "auto shipit --base-branch=dev",
     "chromatic": "chromatic --exit-zero-on-changes"
-  },
+},
   "author": {
     "name": "Edgar Montes"
   },

@@ -34,6 +34,9 @@ template.innerHTML = `
 `;
 
 class GovBanner extends HTMLElement {
+  static get observedAttributes() {
+    return['expanded'];
+  }
 
   static observedAttributes = ['expanded'];
 
@@ -48,6 +51,7 @@ class GovBanner extends HTMLElement {
   }
   connectedCallback() {
     this._setupListeners();
+    this._updateExpandedState(this.expanded);
   }
 
   disconnectedCallback() {
@@ -55,19 +59,40 @@ class GovBanner extends HTMLElement {
     toggle.removeEventListener('click', this._handleToggle);
   }
 
+  attributeChangedCallback(name, oldValue, newValue){
+    if(name == 'expanded'){
+      this._updateExpandedState(newValue == 'true');
+    }
+  }
+
+  get expanded() {
+    return this.hasAttribute('expanded') && this.getAttribute('expanded') === 'true';
+  }
+
+  set expanded(value){
+    if(value) {
+      this.setAttribute('expanded', 'true');
+    } else {
+      this.removeAttribute('expanded');
+    }
+  }
 
   _setupListeners() {
     const toggle = this.shadowRoot.querySelector('[part="toggle"]');
-    toggle.addEventListener('click', this._handleToggle.bind(this));
+    if (toggle) {
+      toggle.addEventListener('click', this._handleToggle.bind(this));
+    }
+  }
+
+  _updateExpandedState(isExpanded){
+    const content = this.shadowRoot.querySelector('[part="content"]');
+    const toggle = this.shadowRoot.querySelector('[part="toggle"]');
+    toggle.setAttribute('aria-expanded', isExpanded);
+    content.hidden = !isExpanded;
   }
 
   _handleToggle() {
-    const content = this.shadowRoot.querySelector('[part="content"]');
-    const toggle = this.shadowRoot.querySelector('[part="toggle"]');
-    const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
-
-    toggle.setAttribute('aria-expanded', !isExpanded);
-    content.hidden = isExpanded;
+   this.expanded = !this.expanded;
   }
 }
 
