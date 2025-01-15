@@ -34,12 +34,6 @@ template.innerHTML = `
 `;
 
 class GovBanner extends HTMLElement {
-  static get observedAttributes() {
-    return['expanded'];
-  }
-
-  static observedAttributes = ['expanded'];
-
   constructor() {
     // Always call super first in constructor
     super();
@@ -47,34 +41,15 @@ class GovBanner extends HTMLElement {
     // Create a shadow root
     const shadow = this.attachShadow({ mode: 'open' });
     shadow.appendChild(template.content.cloneNode(true));
-    
   }
   connectedCallback() {
     this._setupListeners();
-    this._updateExpandedState(this.expanded);
   }
 
   disconnectedCallback() {
+    // TODO: Confirm this is working correctly.
     const toggle = this.shadowRoot.querySelector('[part="toggle"]');
     toggle.removeEventListener('click', this._handleToggle);
-  }
-
-  attributeChangedCallback(name, oldValue, newValue){
-    if(name == 'expanded'){
-      this._updateExpandedState(newValue == 'true');
-    }
-  }
-
-  get expanded() {
-    return this.hasAttribute('expanded') && this.getAttribute('expanded') === 'true';
-  }
-
-  set expanded(value){
-    if(value) {
-      this.setAttribute('expanded', 'true');
-    } else {
-      this.removeAttribute('expanded');
-    }
   }
 
   _setupListeners() {
@@ -84,15 +59,8 @@ class GovBanner extends HTMLElement {
     }
   }
 
-  _updateExpandedState(isExpanded){
-    const content = this.shadowRoot.querySelector('[part="content"]');
-    const toggle = this.shadowRoot.querySelector('[part="toggle"]');
-    toggle.setAttribute('aria-expanded', isExpanded);
-    content.hidden = !isExpanded;
-  }
-
   _handleToggle() {
-   this.expanded = !this.expanded;
+    console.log('I was clicked.');
   }
 }
 
