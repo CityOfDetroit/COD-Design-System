@@ -1,6 +1,5 @@
 import { html } from 'lit-html';
 import '../../stable/components/organisms/GovBanner/cod-gov-banner';
-import { COMMON_STORY_ARGS } from '../../shared/js/storybook/args-utils';
 
 export default {
   title: 'Organisms/GovBanner',

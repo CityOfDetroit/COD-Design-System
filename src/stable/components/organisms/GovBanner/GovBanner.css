@@ -74,7 +74,7 @@
   height: 12px;
 }
 
-.chevron-container[aria-expanded="true"] svg {
+.chevron-container[aria-expanded='true'] svg {
   transform: rotate(180deg);
 }
 
@@ -112,7 +112,8 @@
   flex-shrink: 0;
 }
 
-.gov-icon, .lock-icon {
+.gov-icon,
+.lock-icon {
   font-size: 1.5rem;
   color: #004445;
 }
