@@ -9,7 +9,7 @@ export default {
 
 export const Default = {
   render: () => html`
-    <gov-banner>
+    <cod-gov-banner>
       <span slot="city-name">CITY OF DETROIT</span>
       <span slot="official-statement">An official website of the City of Detroit.</span>
       <span slot="know-statement">Here's how you know.</span>
@@ -36,6 +36,6 @@ export const Default = {
           </div>
         </div>
       </div>
-    </gov-banner>
+    </cod-gov-banner>
   `,
 };

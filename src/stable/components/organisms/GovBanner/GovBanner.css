@@ -1,69 +1,236 @@
 .banner-container {
-    width: 100%;
-    background-color: #004445;
-    color: white;
-  }
-  
+  width: 100%;
+  background-color: #004445;
+  color: white;
+}
+
+.banner-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.title-section {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.city-name {
+  font-weight: bold;
+  text-transform: uppercase;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.city-name > span {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.city-name > span:first-child {
+  font-size: 0.75rem;
+  line-height: 1;
+}
+
+.city-name > span:last-child {
+  font-size: 1rem;
+}
+
+.official-text {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.875rem;
+}
+
+.know-text {
+  display: flex;
+  align-items: center;
+  text-decoration: underline;
+  cursor: pointer;
+  margin-left: 0.25rem;
+}
+
+.chevron-container {
+  background: none;
+  border: none;
+  padding: 0;
+  color: inherit;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  margin-left: 0.25rem;
+}
+
+.chevron-container svg {
+  transition: transform 0.2s ease;
+  width: 12px;
+  height: 12px;
+}
+
+.chevron-container[aria-expanded="true"] svg {
+  transform: rotate(180deg);
+}
+
+.content-container {
+  background-color: #f8f9fa;
+  width: 100%;
+  border-top: 1px solid #dee2e6;
+}
+
+.info-section {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.5rem 1rem;
+  gap: 2rem;
+}
+
+.info-item {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  flex: 1;
+}
+
+.icon-circle {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 2px solid #dee2e6;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.gov-icon, .lock-icon {
+  font-size: 1.5rem;
+  color: #004445;
+}
+
+.info-item h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #212529;
+}
+
+.info-item p {
+  margin: 0;
+  line-height: 1.5;
+  color: #495057;
+  font-size: 0.875rem;
+}
+
+/* @media (max-width: 900px) and (min-width: 769px) {
   .banner-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.75rem 1rem;
+    justify-content: center;
   }
   
   .title-section {
     display: flex;
+    flex-direction: row;
     align-items: center;
-    gap: 0.5rem;
-    flex: 1;
+    justify-content: center;
+    gap: 1rem;
   }
-  
+
+  .city-name {
+    margin-top: 0.25rem;
+    flex-shrink: 0;
+  }
+
   .official-text {
     display: flex;
-    gap: 0.25rem;
-    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    white-space: nowrap;
+    min-width: 0;
   }
-  
+
   .know-text {
-    text-decoration: underline;
+    display: flex;
+    justify-content: center;
+    margin-top: 0.5rem;
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .banner-header {
+    justify-content: flex-start;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
   }
   
-  .chevron-container {
-    background: none;
-    border: none;
-    padding: 0.5rem;
-    color: inherit;
-    cursor: pointer;
+  .title-section {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
   }
-  
-  .chevron-container svg {
-    transition: transform 0.2s ease;
+
+  .city-name {
+    margin-top: 0.25rem;
+    flex-shrink: 0;
   }
-  
-  .chevron-container[aria-expanded="true"] svg {
-    transform: rotate(180deg);
+
+  .official-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    white-space: nowrap;
+    min-width: 0;
   }
-  
-  .content-container {
-    background-color: #f0f0f0;
-    padding: 1rem;
-    color: #333;
+
+  .know-text {
+    display: flex;
+    justify-content: center;
+    margin-top: 0.5rem;
+    width: 100%;
   }
-  
-  @media (max-width: 768px) {
-    .banner-header {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 0.5rem;
-    }
-  
-    .title-section {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-  
-    .chevron-container {
-      align-self: flex-end;
-      margin-top: -2rem;
-    }
-  }  
+} */
+
+/* Tablet and Mobile shared styles */
+@media (max-width: 900px) {
+  .official-text {
+    display: flex;
+    flex-direction: column;
+    white-space: nowrap;
+    min-width: 0;
+  }
+
+  .know-text {
+    display: flex;
+    justify-content: center;
+    margin-top: 0.5rem;
+    width: 100%;
+  }
+
+  .city-name {
+    margin-top: 0.25rem;
+    flex-shrink: 0;
+  }
+}
+
+/* Mobile-specific overrides */
+@media (max-width: 550px) {
+  .banner-header {
+    justify-content: flex-start;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+  }
+
+  .official-text {
+    align-items: flex-start;
+  }
+}
