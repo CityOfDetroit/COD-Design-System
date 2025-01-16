@@ -1,2 +1,2 @@
-// Import GovBanner component
+// Importing Organisms
 import './components/organisms/GovBanner/cod-gov-banner.js';
