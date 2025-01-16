@@ -132,75 +132,6 @@
   font-size: 0.875rem;
 }
 
-/* @media (max-width: 900px) and (min-width: 769px) {
-  .banner-header {
-    justify-content: center;
-  }
-  
-  .title-section {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-  }
-
-  .city-name {
-    margin-top: 0.25rem;
-    flex-shrink: 0;
-  }
-
-  .official-text {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    white-space: nowrap;
-    min-width: 0;
-  }
-
-  .know-text {
-    display: flex;
-    justify-content: center;
-    margin-top: 0.5rem;
-    width: 100%;
-  }
-}
-
-@media (max-width: 768px) {
-  .banner-header {
-    justify-content: flex-start;
-    padding-top: 0.75rem;
-    padding-bottom: 0.75rem;
-  }
-  
-  .title-section {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 1rem;
-  }
-
-  .city-name {
-    margin-top: 0.25rem;
-    flex-shrink: 0;
-  }
-
-  .official-text {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    white-space: nowrap;
-    min-width: 0;
-  }
-
-  .know-text {
-    display: flex;
-    justify-content: center;
-    margin-top: 0.5rem;
-    width: 100%;
-  }
-} */
-
 /* Tablet and Mobile shared styles */
 @media (max-width: 900px) {
   .official-text {
@@ -208,12 +139,13 @@
     flex-direction: column;
     white-space: nowrap;
     min-width: 0;
+    gap: 0.0625rem;
   }
 
   .know-text {
     display: flex;
     justify-content: center;
-    margin-top: 0.5rem;
+    margin-top: 0.0625rem;
     width: 100%;
   }
 
@@ -233,5 +165,15 @@
 
   .official-text {
     align-items: flex-start;
+  }
+
+  .info-section {
+    flex-direction: column;
+    padding: 1rem;
+    gap: 1.5rem;
+  }
+
+  .info-item {
+    width: 100%;
   }
 }
