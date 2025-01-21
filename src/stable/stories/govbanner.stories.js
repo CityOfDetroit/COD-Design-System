@@ -20,7 +20,7 @@ export const Default = {
           <div class="info-item">
             <div class="icon">🏛️</div>
             <div>
-              <h3>Official websites use .gov</h3>
+              <span class="info-title">Official websites use .gov</span>
               <p>
                 A .gov website belongs to an official government organization in
                 the United States.
@@ -30,7 +30,7 @@ export const Default = {
           <div class="info-item">
             <div class="icon">🔒</div>
             <div>
-              <h3>Secure .gov websites use HTTPS</h3>
+              <span class="info-title">Secure .gov websites use HTTPS</span>
               <p>
                 A lock or https:// means you've safely connected to the .gov
                 website. Share sensitive information only on official, secure
