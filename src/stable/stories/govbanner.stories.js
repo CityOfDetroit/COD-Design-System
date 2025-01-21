@@ -7,8 +7,5 @@ export default {
 };
 
 export const Default = {
-  render: () => html`
-    <cod-gov-banner>
-    </cod-gov-banner>
-  `,
+  render: () => html` <cod-gov-banner> </cod-gov-banner> `,
 };
