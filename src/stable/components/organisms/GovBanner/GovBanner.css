@@ -118,7 +118,7 @@
   color: #004445;
 }
 
-.info-item h3 {
+.info-item .info-title {
   margin: 0 0 0.5rem 0;
   font-size: 1rem;
   font-weight: 600;

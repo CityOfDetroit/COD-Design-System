@@ -36,7 +36,7 @@ template.innerHTML = `
           <span class="gov-icon">🏛️</span>
         </div>
         <div>
-          <h3>Official websites use .gov</h3>
+          <span class="info-title">Official websites use .gov</span>
           <p>A <b>.gov</b> website belongs to an official government organization in the United States.</p>
         </div>
       </div>
@@ -45,7 +45,7 @@ template.innerHTML = `
           <span class="lock-icon">🔒</span>
         </div>
         <div>
-          <h3>Secure .gov websites use HTTPS</h3>
+          <span class="info-title">Secure .gov websites use HTTPS</span>
           <p>A <b>lock</b> (🔒) or <b>https://</b> means you've safely connected to the .gov website. Share sensitive information only on official, secure websites.</p>
         </div>
       </div>
