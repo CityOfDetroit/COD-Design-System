@@ -55,19 +55,43 @@ template.innerHTML = `
 `;
 
 class GovBanner extends HTMLElement {
+
+  static get observedAttributes(){
+    return['expanded'];
+  }
+
   constructor() {
     super();
     const shadow = this.attachShadow({ mode: 'open' });
     shadow.appendChild(template.content.cloneNode(true));
   }
 
+  get expanded(){
+    return this.hasAttribute('expanded') && this.getAttribute('expanded') === 'true';
+  }
+
+  set expanded(value) {
+    if(value) {
+      this.setAttribute('expanded', 'true');
+    } else {
+      this.removeAttribute('expanded');
+    }
+  }
+
   connectedCallback() {
     this._setupListeners();
+    this._updateExpandedState(this.expanded);
   }
 
   disconnectedCallback() {
     const toggle = this.shadowRoot.querySelector('.chevron-container');
     toggle.removeEventListener('click', this._handleToggle);
+  }
+
+  attributeChangedCallback(name, oldValue, newValue) {
+    if(name === 'expanded'){
+      this._updateExpandedState(newValue === 'true');
+    }
   }
 
   _setupListeners() {
@@ -76,16 +100,19 @@ class GovBanner extends HTMLElement {
       toggle.addEventListener('click', this._handleToggle.bind(this));
     }
   }
-
   _handleToggle() {
-    const content = this.shadowRoot.querySelector('#content');
-    const button = this.shadowRoot.querySelector('.chevron-container');
-    if (content && button) {
-      const isExpanded = button.getAttribute('aria-expanded') === 'true';
-      button.setAttribute('aria-expanded', !isExpanded);
-      content.hidden = isExpanded;
-    }
-  }
-}
+    this.expanded = !this.expanded;
+   }
+ 
+   _updateExpandedState(isExpanded){
+     const content = this.shadowRoot.querySelector('#content');
+     const button = this.shadowRoot.querySelector('.chevron-container');
+ 
+     if (content && button) {
+       button.setAttribute('aria-expanded', isExpanded);
+       content.hidden = !isExpanded;
+     }
+   }
+ } 
 
 export { GovBanner as default };
