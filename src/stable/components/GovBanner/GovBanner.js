@@ -88,7 +88,7 @@ class GovBanner extends HTMLElement {
       new CustomEvent('expandedchange', {
         detail: { expanded: isExpanded },
         bubbles: true,
-      })
+      }),
     );
   }
 
