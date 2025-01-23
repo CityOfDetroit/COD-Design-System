@@ -1,5 +1,5 @@
 import { html } from 'lit-html';
-import '../../stable/components/organisms/GovBanner/cod-gov-banner';
+import '../components/GovBanner/cod-gov-banner';
 
 export default {
   title: 'Organisms/GovBanner',
