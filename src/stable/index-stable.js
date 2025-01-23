@@ -1,2 +1,2 @@
 // Importing Organisms
-import './components/organisms/GovBanner/cod-gov-banner.js';
+import './components/GovBanner/cod-gov-banner.js';
