@@ -72,11 +72,24 @@ class GovBanner extends HTMLElement {
   }
 
   set expanded(value) {
-    if (value) {
+    const isExpanded = Boolean(value);
+
+    if (isExpanded === this.expanded) {
+      return;
+    }
+
+    if (isExpanded) {
       this.setAttribute('expanded', 'true');
     } else {
       this.removeAttribute('expanded');
     }
+
+    this.dispatchEvent(
+      new CustomEvent('expandedchange', {
+        detail: { expanded: isExpanded },
+        bubbles: true,
+      })
+    );
   }
 
   connectedCallback() {
