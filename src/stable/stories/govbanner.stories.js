@@ -2,7 +2,7 @@ import { html } from 'lit-html';
 import '../components/GovBanner/cod-gov-banner';
 
 export default {
-  title: 'Organisms/GovBanner',
+  title: 'Stable/GovBanner',
   tags: ['autodocs'],
 };
 
