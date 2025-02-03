@@ -18,7 +18,7 @@ ${styles}
       </svg>
     </button>
   </div>
-  <nav class="section-nav">
+  <nav class="section-nav" aria-labelledby="section-heading">
     <slot name="nav-items"></slot>
   </nav>
 </div>
