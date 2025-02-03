@@ -25,7 +25,7 @@ compile_bootstrap () {
 compile_components() {
     # Variable Setup
     folders=("atoms" "molecules" "organisms")
-    base_path="${PROJECT_ROOT}src/components"
+    base_path="${PROJECT_ROOT}src/experimental/components"
     directories_not_found=()
 
     # Check if directories exist
