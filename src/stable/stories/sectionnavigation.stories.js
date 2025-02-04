@@ -9,7 +9,7 @@ export default {
 export const Default = {
   render: () => html`
     <cod-section-navigation>
-    <h2 slot="header">On This Page</h2>
+      <h2 slot="header">On This Page</h2>
       <a slot="nav-items" href="#services">Services</a>
       <a slot="nav-items" href="#council-sessions">Council Sessions</a>
       <a slot="nav-items" href="#community-events">Community Events</a>
