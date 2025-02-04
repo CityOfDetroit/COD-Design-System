@@ -63,7 +63,7 @@ class SectionNavigation extends HTMLElement {
     const slot = this.shadowRoot.querySelector('slot[name="nav-items"]');
     slot.addEventListener('slotchange', () => {
       const items = slot.assignedElements();
-      items.forEach(item => {
+      items.forEach((item) => {
         if (item.tagName === 'A' && item.parentNode.tagName !== 'LI') {
           const li = document.createElement('li');
           item.parentNode.insertBefore(li, item);
@@ -72,7 +72,6 @@ class SectionNavigation extends HTMLElement {
       });
     });
   }
-  
 }
 
 export { SectionNavigation as default };
