@@ -19,7 +19,9 @@ ${styles}
     </button>
   </div>
   <nav class="section-nav" aria-labelledby="section-heading">
+  <ul>
     <slot name="nav-items"></slot>
+  </ul>
   </nav>
 </div>
 `;
@@ -56,6 +58,21 @@ class SectionNavigation extends HTMLElement {
       container.classList.toggle('expanded');
     }
   }
+
+  _wrapSlottedLinks() {
+    const slot = this.shadowRoot.querySelector('slot[name="nav-items"]');
+    slot.addEventListener('slotchange', () => {
+      const items = slot.assignedElements();
+      items.forEach(item => {
+        if (item.tagName === 'A' && item.parentNode.tagName !== 'LI') {
+          const li = document.createElement('li');
+          item.parentNode.insertBefore(li, item);
+          li.appendChild(item);
+        }
+      });
+    });
+  }
+  
 }
 
 export { SectionNavigation as default };

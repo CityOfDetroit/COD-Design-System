@@ -37,16 +37,29 @@
 }
 
 .section-nav {
+  flex-grow: 1;
+}
+
+.section-nav ul {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem 2rem;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
 }
 
-::slotted(a) {
-  color: #000 !important;
-  text-decoration: none !important;
-  border-bottom: none !important;
-  padding: 0.25rem 0 !important;
+.section-nav li {
+  margin: 0;
+  padding: 0;
+}
+
+:host .section-nav ::slotted(a) {
+  color: #000;
+  text-decoration: none;
+  border-bottom: none;
+  padding: 0.25rem 0;
+  display: block;
 }
 
 .toggle-button {
@@ -104,21 +117,24 @@
     background-color: #fff;
     padding: 0.5rem 0;
     margin: 0;
-    gap: 0;
-    flex-direction: column;
   }
 
-  ::slotted(a) {
-    display: block !important;
-    padding: 0.75rem 1rem !important;
-    margin: 0 !important;
-    border: none !important;
-    color: #000 !important;
-    text-decoration: none !important;
+  .section-nav ul {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  :host .section-nav ::slotted(a) {
+    display: block;
+    padding: 0.75rem 1rem;
+    margin: 0;
+    border: none;
+    color: #000;
+    text-decoration: none;
   }
 
   .section-container.expanded .section-nav {
-    display: flex;
+    display: block;
   }
 
   .section-container.expanded .toggle-button svg {
