@@ -48,13 +48,6 @@ compile_components() {
         done < <(find "$stable_base_path" -type f -name "*.scss" -not -path "*/node_modules/*" 2>/dev/null)
     fi
 
-    # Debug output
-    echo "Searching in experimental path: $exp_base_path"
-    echo "Searching in stable path: $stable_base_path"
-    
-    # Print current working directory for debugging
-    echo "Current working directory: $(pwd)"
-
     # Check if any SCSS files were found
     if [[ ${#found_scss_files[@]} -eq 0 ]]; then
         echo "No .scss files found in any of the directories. Aborting."
@@ -62,7 +55,6 @@ compile_components() {
         exit 1
     fi
 
-    # Rest of the function remains the same...
     echo "Found .scss files:"
     for scss_file in "${found_scss_files[@]}"; do
         echo "$scss_file"
