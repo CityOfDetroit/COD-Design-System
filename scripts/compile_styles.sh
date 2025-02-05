@@ -51,7 +51,6 @@ compile_components() {
     # Check if any SCSS files were found
     if [[ ${#found_scss_files[@]} -eq 0 ]]; then
         echo "No .scss files found in any of the directories. Aborting."
-        ls -la "${stable_base_path}/GovBanner"  # Debug line to show contents of GovBanner directory
         exit 1
     fi
 
