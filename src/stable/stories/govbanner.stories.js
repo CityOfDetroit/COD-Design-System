@@ -32,9 +32,9 @@ export const ExpandedBehavior = {
 
     // Test clicking the header
     const toggle = shadow.querySelector('.chevron-container');
-    
+
     // Test event dispatch on click
-    const clickEventPromise = new Promise(resolve => {
+    const clickEventPromise = new Promise((resolve) => {
       govBanner.addEventListener('expandedchange', (e) => resolve(e.detail));
     });
     await userEvent.click(toggle);
@@ -50,13 +50,13 @@ export const ExpandedBehavior = {
     checkExpandedState(false);
 
     // Test changing expanded property and event dispatch
-    const propertyEventPromise = new Promise(resolve => {
+    const propertyEventPromise = new Promise((resolve) => {
       govBanner.addEventListener('expandedchange', (e) => resolve(e.detail));
     });
     govBanner.expanded = true;
     const propertyEventDetail = await propertyEventPromise;
     expect(propertyEventDetail.expanded).toBe(true);
-    
+
     await expect(govBanner.expanded).toBe(true);
     checkExpandedState(true);
     expect(govBanner.getAttribute('expanded')).toBe('true');
