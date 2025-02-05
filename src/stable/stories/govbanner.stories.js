@@ -1,6 +1,6 @@
 import { html } from 'lit-html';
 import { expect } from '@storybook/jest';
-import { within, userEvent } from '@storybook/testing-library';
+import { userEvent } from '@storybook/testing-library';
 import '../components/GovBanner/cod-gov-banner';
 
 export default {
@@ -15,7 +15,6 @@ export const Default = {
 export const ExpandedBehavior = {
   render: () => html` <cod-gov-banner> </cod-gov-banner> `,
   play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement);
     const govBanner = canvasElement.querySelector('cod-gov-banner');
     const shadow = govBanner.shadowRoot;
 
@@ -33,7 +32,15 @@ export const ExpandedBehavior = {
 
     // Test clicking the header
     const toggle = shadow.querySelector('.chevron-container');
+    
+    // Test event dispatch on click
+    const clickEventPromise = new Promise(resolve => {
+      govBanner.addEventListener('expandedchange', (e) => resolve(e.detail));
+    });
     await userEvent.click(toggle);
+    const clickEventDetail = await clickEventPromise;
+    expect(clickEventDetail.expanded).toBe(true);
+
     await expect(govBanner.expanded).toBe(true);
     checkExpandedState(true);
 
@@ -42,13 +49,26 @@ export const ExpandedBehavior = {
     await expect(govBanner.expanded).toBe(false);
     checkExpandedState(false);
 
-    // Test changing expanded property
+    // Test changing expanded property and event dispatch
+    const propertyEventPromise = new Promise(resolve => {
+      govBanner.addEventListener('expandedchange', (e) => resolve(e.detail));
+    });
     govBanner.expanded = true;
+    const propertyEventDetail = await propertyEventPromise;
+    expect(propertyEventDetail.expanded).toBe(true);
+    
     await expect(govBanner.expanded).toBe(true);
     checkExpandedState(true);
+    expect(govBanner.getAttribute('expanded')).toBe('true');
 
     // Test changing expanded attribute
     govBanner.setAttribute('expanded', 'false');
+    await expect(govBanner.expanded).toBe(false);
+    checkExpandedState(false);
+    expect(govBanner.getAttribute('expanded')).toBe('false');
+
+    // Test setting same value (should not trigger event)
+    govBanner.expanded = false;
     await expect(govBanner.expanded).toBe(false);
     checkExpandedState(false);
   },
