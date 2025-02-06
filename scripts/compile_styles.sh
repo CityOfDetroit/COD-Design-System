@@ -21,50 +21,48 @@ compile_bootstrap () {
     replace_rem_w_em "${PROJECT_ROOT}src/shared/themed-bootstrap.css"
     format_bootstrap "${PROJECT_ROOT}src/shared/themed-bootstrap.css"
 }
-
 compile_components() {
     # Variable Setup
-    folders=("atoms" "molecules" "organisms")
-    base_path="${PROJECT_ROOT}src/experimental/components"
-    directories_not_found=()
-
-    # Check if directories exist
-    for folder in "${folders[@]}"; do
-        current_path="${base_path}/${folder}"
-        
-        if [[ ! -d $current_path ]]; then
-            echo "Directory '${current_path}' not found."
-            directories_not_found+=("$folder")
+    found_scss_files=()
+    
+    # Handle experimental components with atomic structure
+    exp_base_path="${PROJECT_ROOT}src/experimental/components"
+    exp_folders=("atoms" "molecules" "organisms")
+    
+    # Find SCSS files in experimental atomic folders
+    for folder in "${exp_folders[@]}"; do
+        current_path="${exp_base_path}/${folder}"
+        if [[ -d $current_path ]]; then
+            while read -r scss_file; do
+                found_scss_files+=("$scss_file")
+            done < <(find "$current_path" -type f -name "*.scss" 2>/dev/null)
         fi
     done
+    
+    # Find SCSS files in stable components
+    stable_base_path="${PROJECT_ROOT}src/stable/components"
+    if [[ -d $stable_base_path ]]; then
+        # Look for .scss files recursively in all component folders
+        while read -r scss_file; do
+            found_scss_files+=("$scss_file")
+        done < <(find "$stable_base_path" -type f -name "*.scss" -not -path "*/node_modules/*" 2>/dev/null)
+    fi
 
-    if [[ ${#directories_not_found[@]} -gt 0 ]]; then
-        echo "Aborting CSS generation. Directories not found: ${directories_not_found[*]}"
+    # Check if any SCSS files were found
+    if [[ ${#found_scss_files[@]} -eq 0 ]]; then
+        echo "No .scss files found in any of the directories. Aborting."
         exit 1
     fi
 
-    # Find and print .scss files before confirmation
-    found_scss_files=()
-    for folder in "${folders[@]}"; do
-        current_path="${base_path}/${folder}"
-
-        while read -r scss_file; do
-            found_scss_files+=("$scss_file")
-        done < <(find "$current_path" -type f -name '*.scss')
-    done
-
-    # Display found .scss files
     echo "Found .scss files:"
     for scss_file in "${found_scss_files[@]}"; do
         echo "$scss_file"
     done
 
-    # Confirm with the user
     read -p "Confirm the conversion of found .scss files (input 'yes' to proceed or 'abort' to stop the script): " user_input
 
     case $user_input in
         "yes")
-            # Continue with the conversion
             echo "Starting CSS generation..."
             ;;
         "abort")
@@ -79,23 +77,19 @@ compile_components() {
     
     # Convert .scss files to .css
     for scss_file in "${found_scss_files[@]}"; do
-
-        # Get the real path of the file
         component_scss_path=$(realpath "$scss_file")
-
-        # Replace the file extension to get the CSS output file name.
         output_css_file="${component_scss_path%.*}.css"
-
-        # Run yarn sass command for each .scss file
+        
         yarn sass -I ${PROJECT_ROOT}/node_modules/ "$component_scss_path" "$output_css_file"
-
-        # Apply replace_rem_w_em and format_bootstrap functions to the generated CSS file
+        
         replace_rem_w_em "$output_css_file"
         format_bootstrap "$output_css_file"
     done
 
     echo "CSS generation and post-processing completed."
 }
+
+
 
 replace_rem_w_em () {
     echo "Replacing REMs with EMs..."
