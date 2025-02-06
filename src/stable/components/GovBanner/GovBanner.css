@@ -1,5 +1,3 @@
-/* Move all into SCSS */
-
 .banner-container {
   width: 100%;
   background-color: #004445;
@@ -10,7 +8,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0.5rem 1rem;
+  padding: 0.5em 1em;
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -18,7 +16,7 @@
 .title-section {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 1em;
 }
 
 .city-name {
@@ -28,27 +26,24 @@
   flex-direction: column;
   align-items: center;
 }
-
 .city-name > span {
   display: inline-flex;
   flex-direction: column;
   align-items: center;
 }
-
 .city-name > span:first-child {
-  font-size: 0.75rem;
+  font-size: 0.75em;
   line-height: 1;
 }
-
 .city-name > span:last-child {
-  font-size: 1rem;
+  font-size: 1em;
 }
 
 .official-text {
   display: flex;
   align-items: center;
-  gap: 0.25rem;
-  font-size: 0.875rem;
+  gap: 0.25em;
+  font-size: 0.875em;
 }
 
 .know-text {
@@ -56,7 +51,7 @@
   align-items: center;
   text-decoration: underline;
   cursor: pointer;
-  margin-left: 0.25rem;
+  margin-left: 0.25em;
 }
 
 .chevron-container {
@@ -67,15 +62,13 @@
   cursor: pointer;
   display: inline-flex;
   align-items: center;
-  margin-left: 0.25rem;
+  margin-left: 0.25em;
 }
-
 .chevron-container svg {
   transition: transform 0.2s ease;
   width: 12px;
   height: 12px;
 }
-
 .chevron-container[aria-expanded='true'] svg {
   transform: rotate(180deg);
 }
@@ -91,15 +84,27 @@
   justify-content: space-between;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 1.5rem 1rem;
-  gap: 2rem;
+  padding: 1.5em 1em;
+  gap: 2em;
 }
 
 .info-item {
   display: flex;
-  gap: 1rem;
+  gap: 1em;
   align-items: flex-start;
   flex: 1;
+}
+.info-item .info-title {
+  margin: 0 0 0.5em 0;
+  font-size: 1em;
+  font-weight: 600;
+  color: #212529;
+}
+.info-item p {
+  margin: 0;
+  line-height: 1.5;
+  color: #495057;
+  font-size: 0.875em;
 }
 
 .icon-circle {
@@ -116,66 +121,46 @@
 
 .gov-icon,
 .lock-icon {
-  font-size: 1.5rem;
+  font-size: 1.5em;
   color: #004445;
 }
 
-.info-item .info-title {
-  margin: 0 0 0.5rem 0;
-  font-size: 1rem;
-  font-weight: 600;
-  color: #212529;
-}
-
-.info-item p {
-  margin: 0;
-  line-height: 1.5;
-  color: #495057;
-  font-size: 0.875rem;
-}
-
-/* Tablet and Mobile shared styles */
-@media (max-width: 900px) {
+@media (max-width: 991.98px) {
   .official-text {
     display: flex;
     flex-direction: column;
     white-space: nowrap;
     min-width: 0;
-    gap: 0.0625rem;
+    gap: 0.0625em;
   }
-
   .know-text {
     display: flex;
     justify-content: center;
-    margin-top: 0.0625rem;
+    margin-top: 0.0625em;
     width: 100%;
   }
-
   .city-name {
-    margin-top: 0.25rem;
+    margin-top: 0.25em;
     flex-shrink: 0;
   }
 }
-
-/* Mobile-specific overrides */
-@media (max-width: 550px) {
+@media (max-width: 575.98px) {
   .banner-header {
     justify-content: flex-start;
-    padding-top: 0.75rem;
-    padding-bottom: 0.75rem;
+    padding-top: 0.75em;
+    padding-bottom: 0.75em;
   }
-
   .official-text {
     align-items: flex-start;
   }
-
   .info-section {
     flex-direction: column;
-    padding: 1rem;
-    gap: 1.5rem;
+    padding: 1em;
+    gap: 1.5em;
   }
-
   .info-item {
     width: 100%;
   }
 }
+
+/*# sourceMappingURL=GovBanner.css.map */
