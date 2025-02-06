@@ -18,12 +18,22 @@ export const Default = {
     <cod-section-navigation>
       <span slot="header">On This Page</span>
       <a slot="nav-items" href="#services" class="section-nav-link">Services</a>
-      <a slot="nav-items" href="#council-sessions" class="section-nav-link">Council Sessions</a>
-      <a slot="nav-items" href="#community-events" class="section-nav-link">Community Events</a>
+      <a slot="nav-items" href="#council-sessions" class="section-nav-link"
+        >Council Sessions</a
+      >
+      <a slot="nav-items" href="#community-events" class="section-nav-link"
+        >Community Events</a
+      >
       <a slot="nav-items" href="#news" class="section-nav-link">News</a>
-      <a slot="nav-items" href="#council-members" class="section-nav-link">Council Members</a>
-      <a slot="nav-items" href="#standing-committees" class="section-nav-link">Standing Committees</a>
-      <a slot="nav-items" href="#departments" class="section-nav-link">Departments, Contacts & More</a>
+      <a slot="nav-items" href="#council-members" class="section-nav-link"
+        >Council Members</a
+      >
+      <a slot="nav-items" href="#standing-committees" class="section-nav-link"
+        >Standing Committees</a
+      >
+      <a slot="nav-items" href="#departments" class="section-nav-link"
+        >Departments, Contacts & More</a
+      >
     </cod-section-navigation>
   `,
 };
@@ -45,7 +55,7 @@ export const ExpandedBehavior = {
     const checkExpandedState = (isExpanded) => {
       const container = shadow.querySelector('.section-container');
       const button = shadow.querySelector('.toggle-button');
-      
+
       expect(container.classList.contains('expanded')).toBe(isExpanded);
       expect(button.getAttribute('aria-expanded')).toBe(isExpanded.toString());
     };
@@ -67,7 +77,7 @@ export const ExpandedBehavior = {
     expect(navItems.length).toBe(3);
     expect(navItems[0].textContent).toBe('Services');
     expect(navItems[0].getAttribute('href')).toBe('#services');
-  }
+  },
 };
 
 export const Accessibility = {
@@ -88,5 +98,5 @@ export const Accessibility = {
     expect(toggleButton).toHaveAttribute('aria-label', 'Toggle navigation');
     expect(toggleButton).toHaveAttribute('type', 'button');
     expect(nav).toHaveAttribute('aria-labelledby', 'section-heading');
-  }
+  },
 };
