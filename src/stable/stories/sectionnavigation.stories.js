@@ -1,8 +1,8 @@
 import { html } from 'lit-html';
-import '../../stable/components/organisms/SectionNavigation/cod-section-navigation';
+import '../../stable/components/SectionNavigation/cod-section-navigation';
 
 export default {
-  title: 'Organisms/SectionNavigation',
+  title: 'Stable/SectionNavigation',
   tags: ['autodocs'],
 };
 
