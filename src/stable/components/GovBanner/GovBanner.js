@@ -66,9 +66,7 @@ class GovBanner extends HTMLElement {
   }
 
   get expanded() {
-    return (
-      this.hasAttribute('expanded') && this.getAttribute('expanded') === 'true'
-    );
+    return this.hasAttribute('expanded');
   }
 
   set expanded(value) {
@@ -79,7 +77,7 @@ class GovBanner extends HTMLElement {
     }
 
     if (isExpanded) {
-      this.setAttribute('expanded', 'true');
+      this.setAttribute('expanded', '');
     } else {
       this.removeAttribute('expanded');
     }
@@ -102,9 +100,9 @@ class GovBanner extends HTMLElement {
     toggle.removeEventListener('click', this._handleToggle);
   }
 
-  attributeChangedCallback(name, oldValue, newValue) {
+  attributeChangedCallback(name) {
     if (name === 'expanded') {
-      this._updateExpandedState(newValue === 'true');
+      this._updateExpandedState(this.hasAttribute('expanded'));
     }
   }
 
