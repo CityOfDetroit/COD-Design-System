@@ -18,14 +18,14 @@ template.innerHTML = `
       </span>
       <div class="official-text">
         An official website of the City of Detroit.
-        <span class="know-text">
-          Here's how you know
-          <button class="chevron-container" aria-expanded="false" aria-controls="content">
+        <button class="know-text" aria-expanded="false" aria-controls="content">
+        Here's how you know  
+        <span class="chevron-container">                
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
               <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/>
             </svg>
-          </button>
-        </span>
+            </span>
+          </button>     
       </div>
     </div>
   </header>
@@ -108,9 +108,9 @@ class GovBanner extends HTMLElement {
   }
 
   _setupListeners() {
-    const toggle = this.shadowRoot.querySelector('.chevron-container');
-    if (toggle) {
-      toggle.addEventListener('click', this._handleToggle.bind(this));
+    const toggleButton = this.shadowRoot.querySelector('.know-text');
+    if (toggleButton) {
+      toggleButton.addEventListener('click', this._handleToggle.bind(this));
     }
   }
   _handleToggle() {
@@ -119,7 +119,7 @@ class GovBanner extends HTMLElement {
 
   _updateExpandedState(isExpanded) {
     const content = this.shadowRoot.querySelector('#content');
-    const button = this.shadowRoot.querySelector('.chevron-container');
+    const button = this.shadowRoot.querySelector('.know-text');
 
     if (content && button) {
       button.setAttribute('aria-expanded', isExpanded);

@@ -45,32 +45,38 @@
   gap: 0.25em;
   font-size: 0.875em;
 }
-
-.know-text {
-  display: flex;
+.official-text .know-text {
+  display: inline-flex; /* Ensure it behaves like an inline element */
+  align-items: center; /* Center-align text and chevron */
+  text-decoration: underline; /* Add underline for emphasis */
+  cursor: pointer; /* Pointer cursor for interactivity */
+  margin-left: 0.25em; /* Add spacing between text and other elements */
+  background-color: transparent; /* Remove default button background */
+  border: none; /* Remove default button border */
+  color: inherit; /* Inherit parent text color */
+  padding: 0; /* Remove default button padding */
+  font-size: inherit; /* Match font size with parent */
+}
+.official-text .know-text:focus {
+  outline: none; /* Remove default focus outline */
+  text-decoration-thickness: from-font; /* Optional, makes focus state look cleaner */
+  text-decoration-color: #f8d568; /* Optional, adds focus color */
+}
+.official-text .know-text:hover {
+  text-decoration-color: #f8d568; /* Optional, adds hover effect */
+}
+.official-text .know-text .chevron-container {
+  display: inline-flex; /* Ensure chevron aligns properly */
   align-items: center;
-  text-decoration: underline;
-  cursor: pointer;
   margin-left: 0.25em;
 }
-
-.chevron-container {
-  background: none;
-  border: none;
-  padding: 0;
-  color: inherit;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  margin-left: 0.25em;
-}
-.chevron-container svg {
+.official-text .know-text .chevron-container svg {
   transition: transform 0.2s ease;
   width: 12px;
   height: 12px;
 }
-.chevron-container[aria-expanded='true'] svg {
-  transform: rotate(180deg);
+.official-text .know-text .chevron-container svg[aria-expanded='true'] {
+  transform: rotate(180deg); /* Rotate chevron when expanded */
 }
 
 .content-container {
