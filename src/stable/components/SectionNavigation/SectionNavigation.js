@@ -59,21 +59,6 @@ class SectionNavigation extends HTMLElement {
     }
   }
 
-  //   _wrapSlottedLinks() {
-  //     const slot = this.shadowRoot.querySelector('slot[name="nav-items"]');
-  //     slot.addEventListener('slotchange', () => {
-  //       const items = slot.assignedElements();
-  //       items.forEach((item) => {
-  //         if (item.tagName === 'A' && item.parentNode.tagName !== 'LI') {
-  //           const li = document.createElement('li');
-  //           item.parentNode.insertBefore(li, item);
-  //           li.appendChild(item);
-  //         }
-  //       });
-  //     });
-  //   }
-  // }
-
   _wrapSlottedLinks() {
     const slot = this.shadowRoot.querySelector('slot[name="nav-items"]');
     if (!slot) return;
