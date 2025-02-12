@@ -59,44 +59,44 @@ class SectionNavigation extends HTMLElement {
     }
   }
 
-//   _wrapSlottedLinks() {
-//     const slot = this.shadowRoot.querySelector('slot[name="nav-items"]');
-//     slot.addEventListener('slotchange', () => {
-//       const items = slot.assignedElements();
-//       items.forEach((item) => {
-//         if (item.tagName === 'A' && item.parentNode.tagName !== 'LI') {
-//           const li = document.createElement('li');
-//           item.parentNode.insertBefore(li, item);
-//           li.appendChild(item);
-//         }
-//       });
-//     });
-//   }
-// }
+  //   _wrapSlottedLinks() {
+  //     const slot = this.shadowRoot.querySelector('slot[name="nav-items"]');
+  //     slot.addEventListener('slotchange', () => {
+  //       const items = slot.assignedElements();
+  //       items.forEach((item) => {
+  //         if (item.tagName === 'A' && item.parentNode.tagName !== 'LI') {
+  //           const li = document.createElement('li');
+  //           item.parentNode.insertBefore(li, item);
+  //           li.appendChild(item);
+  //         }
+  //       });
+  //     });
+  //   }
+  // }
 
-_wrapSlottedLinks() {
-  const slot = this.shadowRoot.querySelector('slot[name="nav-items"]');
-  if (!slot) return;
+  _wrapSlottedLinks() {
+    const slot = this.shadowRoot.querySelector('slot[name="nav-items"]');
+    if (!slot) return;
 
-  // Wrap all assigned elements in <li> tags
-  const wrapLinks = () => {
-    const items = slot.assignedElements();
-    items.forEach((item) => {
-      // Only wrap <a> elements that are not already inside an <li>
-      if (item.tagName === 'A' && item.parentNode.tagName !== 'LI') {
-        const li = document.createElement('li');
-        item.parentNode.insertBefore(li, item);
-        li.appendChild(item);
-      }
-    });
-  };
+    // Wrap all assigned elements in <li> tags
+    const wrapLinks = () => {
+      const items = slot.assignedElements();
+      items.forEach((item) => {
+        // Only wrap <a> elements that are not already inside an <li>
+        if (item.tagName === 'A' && item.parentNode.tagName !== 'LI') {
+          const li = document.createElement('li');
+          item.parentNode.insertBefore(li, item);
+          li.appendChild(item);
+        }
+      });
+    };
 
-  // Wrap existing links
-  wrapLinks();
+    // Wrap existing links
+    wrapLinks();
 
-  // Listen for dynamically added links
-  slot.addEventListener('slotchange', wrapLinks);
-}
+    // Listen for dynamically added links
+    slot.addEventListener('slotchange', wrapLinks);
+  }
 }
 
 export { SectionNavigation as default };

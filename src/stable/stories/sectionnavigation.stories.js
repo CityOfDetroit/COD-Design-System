@@ -1,7 +1,6 @@
 import { html } from 'lit-html';
 import { expect } from '@storybook/jest';
-import { userEvent, waitFor } from '@storybook/testing-library';
-import jest from 'jest-mock';
+import { userEvent } from '@storybook/testing-library';
 import '../../stable/components/SectionNavigation/cod-section-navigation';
 
 export default {
@@ -71,31 +70,31 @@ export const Default = {
     const sectionNav = canvasElement.querySelector('cod-section-navigation');
     const shadow = sectionNav.shadowRoot;
 
-        // Helper function to check expanded state
-        const checkExpandedState = (isExpanded) => {
-          const container = shadow.querySelector('.section-container');
-          const button = shadow.querySelector('.toggle-button');
+    // Helper function to check expanded state
+    const checkExpandedState = (isExpanded) => {
+      const container = shadow.querySelector('.section-container');
+      const button = shadow.querySelector('.toggle-button');
 
-          expect(container.classList.contains('expanded')).toBe(isExpanded);
-          expect(button.getAttribute('aria-expanded')).toBe(isExpanded.toString());
-        };
-
-        // Test initial state
-        checkExpandedState(false);
-
-        // Test button click to expand
-        const toggleButton = shadow.querySelector('.toggle-button');
-        await userEvent.click(toggleButton);
-        checkExpandedState(true);
-
-        // Test button click to collapse
-        await userEvent.click(toggleButton);
-        checkExpandedState(false);
-
-        // Verify navigation items
-        const navItems = shadow.querySelectorAll('slot[name="nav-items"] a');
-        expect(navItems.length).toBe(3);
-        expect(navItems[0].textContent).toBe('Services');
-        expect(navItems[0].getAttribute('href')).toBe('#services');
-      },
+      expect(container.classList.contains('expanded')).toBe(isExpanded);
+      expect(button.getAttribute('aria-expanded')).toBe(isExpanded.toString());
     };
+
+    // Test initial state
+    checkExpandedState(false);
+
+    // Test button click to expand
+    const toggleButton = shadow.querySelector('.toggle-button');
+    await userEvent.click(toggleButton);
+    checkExpandedState(true);
+
+    // Test button click to collapse
+    await userEvent.click(toggleButton);
+    checkExpandedState(false);
+
+    // Verify navigation items
+    const navItems = shadow.querySelectorAll('slot[name="nav-items"] a');
+    expect(navItems.length).toBe(3);
+    expect(navItems[0].textContent).toBe('Services');
+    expect(navItems[0].getAttribute('href')).toBe('#services');
+  },
+};
