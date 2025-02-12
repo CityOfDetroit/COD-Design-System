@@ -70,31 +70,80 @@ export const Default = {
     const sectionNav = canvasElement.querySelector('cod-section-navigation');
     const shadow = sectionNav.shadowRoot;
 
-    // Helper function to check expanded state
-    const checkExpandedState = (isExpanded) => {
-      const container = shadow.querySelector('.section-container');
-      const button = shadow.querySelector('.toggle-button');
+//     // Helper function to check expanded state
+//     const checkExpandedState = (isExpanded) => {
+//       const container = shadow.querySelector('.section-container');
+//       const button = shadow.querySelector('.toggle-button');
 
-      expect(container.classList.contains('expanded')).toBe(isExpanded);
-      expect(button.getAttribute('aria-expanded')).toBe(isExpanded.toString());
-    };
+//       expect(container.classList.contains('expanded')).toBe(isExpanded);
+//       expect(button.getAttribute('aria-expanded')).toBe(isExpanded.toString());
+//     };
 
-    // Test initial state
-    checkExpandedState(false);
+//     // Test initial state
+//     checkExpandedState(false);
 
-    // Test button click to expand
-    const toggleButton = shadow.querySelector('.toggle-button');
-    await userEvent.click(toggleButton);
-    checkExpandedState(true);
+//     // Test button click to expand
+//     const toggleButton = shadow.querySelector('.toggle-button');
+//     await userEvent.click(toggleButton);
+//     checkExpandedState(true);
 
-    // Test button click to collapse
-    await userEvent.click(toggleButton);
-    checkExpandedState(false);
+//     // Test button click to collapse
+//     await userEvent.click(toggleButton);
+//     checkExpandedState(false);
 
-    // Verify navigation items
-    const navItems = shadow.querySelectorAll('slot[name="nav-items"] a');
-    expect(navItems.length).toBe(3);
-    expect(navItems[0].textContent).toBe('Services');
-    expect(navItems[0].getAttribute('href')).toBe('#services');
-  },
+//     // Verify navigation items
+//     const navItems = shadow.querySelectorAll('slot[name="nav-items"] a');
+//     expect(navItems.length).toBe(3);
+//     expect(navItems[0].textContent).toBe('Services');
+//     expect(navItems[0].getAttribute('href')).toBe('#services');
+//   },
+// };
+
+// Helper function to check expanded state
+const checkExpandedState = (isExpanded) => {
+  const container = shadow.querySelector('.section-container');
+  const button = shadow.querySelector('.toggle-button');
+
+  expect(container.classList.contains('expanded')).toBe(isExpanded);
+  expect(button.getAttribute('aria-expanded')).toBe(isExpanded.toString());
+};
+
+// Test initial state
+checkExpandedState(false);
+
+// Test button click to expand
+const toggleButton = shadow.querySelector('.toggle-button');
+await userEvent.click(toggleButton);
+checkExpandedState(true);
+
+// Test button click to collapse
+await userEvent.click(toggleButton);
+checkExpandedState(false);
+
+// Verify navigation items
+await waitFor(() => {
+  const slot = shadow.querySelector('slot[name="nav-items"]');
+  const navItems = slot.assignedElements();
+  expect(navItems.length).toBe(7);
+  expect(navItems[0].textContent).toBe('Services');
+  expect(navItems[0].getAttribute('href')).toBe('#services');
+});
+
+// Test _wrapSlottedLinks method
+sectionNav._wrapSlottedLinks();
+await waitFor(() => {
+  const slot = shadow.querySelector('slot[name="nav-items"]');
+  const navItems = slot.assignedElements();
+  navItems.forEach(item => {
+    expect(item.tagName).toBe('LI');
+    expect(item.firstElementChild.tagName).toBe('A');
+  });
+});
+
+// Test disconnectedCallback
+const spy = jest.spyOn(toggleButton, 'removeEventListener');
+sectionNav.disconnectedCallback();
+expect(spy).toHaveBeenCalledWith('click', sectionNav._handleToggle);
+spy.mockRestore();
+},
 };
