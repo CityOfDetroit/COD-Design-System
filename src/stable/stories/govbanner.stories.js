@@ -8,11 +8,11 @@ export default {
   tags: ['autodocs'],
 };
 
-export const Default = {
+export const GovBanner = {
   render: () => html` <cod-gov-banner> </cod-gov-banner> `,
 };
 
-export const ExpandedBehavior = {
+export const Default = {
   render: () => html` <cod-gov-banner> </cod-gov-banner> `,
   play: async ({ canvasElement }) => {
     const govBanner = canvasElement.querySelector('cod-gov-banner');
@@ -21,7 +21,7 @@ export const ExpandedBehavior = {
     // Helper function to check expanded state
     const checkExpandedState = (isExpanded) => {
       const content = shadow.querySelector('#content');
-      const button = shadow.querySelector('.chevron-container');
+      const button = shadow.querySelector('.know-text');
       expect(content.hidden).toBe(!isExpanded);
       expect(button.getAttribute('aria-expanded')).toBe(isExpanded.toString());
     };
@@ -31,7 +31,7 @@ export const ExpandedBehavior = {
     checkExpandedState(false);
 
     // Test clicking the header
-    const toggle = shadow.querySelector('.chevron-container');
+    const toggle = shadow.querySelector('.know-text');
 
     // Test event dispatch on click
     const clickEventPromise = new Promise((resolve) => {
@@ -59,13 +59,21 @@ export const ExpandedBehavior = {
 
     await expect(govBanner.expanded).toBe(true);
     checkExpandedState(true);
-    expect(govBanner.getAttribute('expanded')).toBe('true');
+    expect(govBanner.getAttribute('expanded')).toBe('');
 
-    // Test changing expanded attribute
-    govBanner.setAttribute('expanded', 'false');
+    // Test setting same value (should not trigger event)
+    govBanner.expanded = true;
+    await expect(govBanner.expanded).toBe(true);
+    checkExpandedState(true);
+
+    govBanner.expanded = false;
+
+    govBanner.expanded = false;
     await expect(govBanner.expanded).toBe(false);
     checkExpandedState(false);
-    expect(govBanner.getAttribute('expanded')).toBe('false');
+
+    // Test disconnectedCallback
+    govBanner.remove();
 
     // Test setting same value (should not trigger event)
     govBanner.expanded = false;
