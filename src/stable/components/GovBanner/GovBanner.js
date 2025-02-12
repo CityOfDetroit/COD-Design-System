@@ -63,6 +63,7 @@ class GovBanner extends HTMLElement {
     super();
     const shadow = this.attachShadow({ mode: 'open' });
     shadow.appendChild(template.content.cloneNode(true));
+    this.expanded = false;
   }
 
   get expanded() {
