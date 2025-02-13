@@ -147,7 +147,7 @@ export const Default = {
   play: async ({ canvasElement }) => {
     const serviceButton = canvasElement.querySelector('cod-service-button');
     const shadow = serviceButton.shadowRoot;
-    
+
     // Test for title and subtitle
     const title = shadow.querySelector('.title slot');
     const subtitle = shadow.querySelector('.subtitle slot');
@@ -160,16 +160,16 @@ export const Default = {
     // Test for hover overlay effect
     const button = shadow.querySelector('button');
     const overlay = button.querySelector('::before');
-    
+
     const initialOverlayOpacity = getComputedStyle(overlay).opacity;
 
     await userEvent.hover(button);
-    
+
     // Add a small delay to allow for any transitions
-    await new Promise(resolve => setTimeout(resolve, 250));
+    await new Promise((resolve) => setTimeout(resolve, 250));
 
     const hoverOverlayOpacity = getComputedStyle(overlay).opacity;
-    
+
     await expect(hoverOverlayOpacity).not.toBe(initialOverlayOpacity);
     await expect(parseFloat(hoverOverlayOpacity)).toBe(1); // Assuming full opacity on hover
 
