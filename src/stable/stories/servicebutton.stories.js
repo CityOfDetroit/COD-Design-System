@@ -135,6 +135,59 @@ export const ServiceButton = {
 //     // Add any specific tests for disconnectedCallback behavior here
 //   },
 // };
+// export const Default = {
+//   render: () => html`
+//     <cod-service-button>
+//       <span slot="title">Apply for a Job</span>
+//       <span slot="subtitle"
+//         >View job postings for the City of Detroit or our partners.</span
+//       >
+//     </cod-service-button>
+//   `,
+//   play: async ({ canvasElement }) => {
+//     const serviceButton = canvasElement.querySelector('cod-service-button');
+//     const shadow = serviceButton.shadowRoot;
+
+//     // Test for title and subtitle
+//     const title = shadow.querySelector('.title slot');
+//     const subtitle = shadow.querySelector('.subtitle slot');
+
+//     await expect(title.assignedNodes()[0].textContent).toBe('Apply for a Job');
+//     await expect(subtitle.assignedNodes()[0].textContent).toBe(
+//       'View job postings for the City of Detroit or our partners.',
+//     );
+
+//     // Test for hover overlay effect
+//     const button = shadow.querySelector('button');
+//     const overlay = button.querySelector('::before');
+
+//     const initialOverlayOpacity = getComputedStyle(overlay).opacity;
+
+//     await userEvent.hover(button);
+
+//     // Add a small delay to allow for any transitions
+//     await new Promise((resolve) => setTimeout(resolve, 250));
+
+//     const hoverOverlayOpacity = getComputedStyle(overlay).opacity;
+
+//     await expect(hoverOverlayOpacity).not.toBe(initialOverlayOpacity);
+//     await expect(parseFloat(hoverOverlayOpacity)).toBe(1); // Assuming full opacity on hover
+
+//     // Test for icon visibility (if applicable)
+//     const icon = shadow.querySelector('.icon'); // Adjust selector as needed
+//     if (icon) {
+//       const initialIconVisibility = getComputedStyle(icon).visibility;
+//       await userEvent.hover(button);
+//       const hoverIconVisibility = getComputedStyle(icon).visibility;
+//       await expect(hoverIconVisibility).not.toBe(initialIconVisibility);
+//     }
+
+//     // Test disconnectedCallback (if applicable)
+//     serviceButton.remove();
+//     // Add any specific tests for disconnectedCallback behavior here
+//   },
+// };
+
 export const Default = {
   render: () => html`
     <cod-service-button>
@@ -159,19 +212,26 @@ export const Default = {
 
     // Test for hover overlay effect
     const button = shadow.querySelector('button');
-    const overlay = button.querySelector('::before');
 
-    const initialOverlayOpacity = getComputedStyle(overlay).opacity;
+    // Ensure the button exists before proceeding
+    expect(button).not.toBeNull();
+
+    // Add a small delay to ensure the component has fully rendered
+    await new Promise((resolve) => setTimeout(resolve, 100));
+
+    const initialButtonStyle = getComputedStyle(button);
+    const initialBackgroundColor = initialButtonStyle.backgroundColor;
 
     await userEvent.hover(button);
 
-    // Add a small delay to allow for any transitions
+    // Add another small delay to allow for any transitions
     await new Promise((resolve) => setTimeout(resolve, 250));
 
-    const hoverOverlayOpacity = getComputedStyle(overlay).opacity;
+    const hoverButtonStyle = getComputedStyle(button);
+    const hoverBackgroundColor = hoverButtonStyle.backgroundColor;
 
-    await expect(hoverOverlayOpacity).not.toBe(initialOverlayOpacity);
-    await expect(parseFloat(hoverOverlayOpacity)).toBe(1); // Assuming full opacity on hover
+    // Check if there's any change in the computed style after hover
+    expect(hoverBackgroundColor).not.toBe(initialBackgroundColor);
 
     // Test for icon visibility (if applicable)
     const icon = shadow.querySelector('.icon'); // Adjust selector as needed
@@ -179,7 +239,7 @@ export const Default = {
       const initialIconVisibility = getComputedStyle(icon).visibility;
       await userEvent.hover(button);
       const hoverIconVisibility = getComputedStyle(icon).visibility;
-      await expect(hoverIconVisibility).not.toBe(initialIconVisibility);
+      expect(hoverIconVisibility).not.toBe(initialIconVisibility);
     }
 
     // Test disconnectedCallback (if applicable)
