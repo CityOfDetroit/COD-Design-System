@@ -5,8 +5,6 @@ import bootstrapStyles from '!!raw-loader!../../../shared/themed-bootstrap.css';
 const template = document.createElement('template');
 template.innerHTML = `
   <style>
-    ${bootstrapStyles}
-    ${varStyles}
     ${styles}
   </style>
 <div class="banner-container">
