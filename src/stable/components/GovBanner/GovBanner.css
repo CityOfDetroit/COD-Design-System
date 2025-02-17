@@ -1,0 +1,173 @@
+.banner-container {
+  width: 100%;
+  background-color: #004445;
+  color: white;
+}
+
+.banner-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5em 1em;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.title-section {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+
+.city-name {
+  font-weight: bold;
+  text-transform: uppercase;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+}
+.city-name > span {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+}
+.city-name > span:first-child {
+  font-size: 0.75em;
+  line-height: 1;
+}
+.city-name > span:last-child {
+  font-size: 1em;
+}
+
+.official-text {
+  display: flex;
+  align-items: center;
+  gap: 0.25em;
+  font-size: 0.875em;
+}
+.official-text .know-text {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: underline;
+  cursor: pointer;
+  margin-left: 0.25em;
+  background-color: transparent;
+  border: none;
+  color: inherit;
+  padding: 0;
+  font-size: inherit;
+}
+.official-text .know-text:focus {
+  outline: none;
+  text-decoration-thickness: from-font;
+  text-decoration-color: #f8d568;
+}
+.official-text .know-text:hover {
+  text-decoration-color: #f8d568;
+}
+.official-text .know-text .chevron-container {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 0.25em;
+}
+.official-text .know-text .chevron-container svg {
+  transition: transform 0.2s ease;
+  width: 12px;
+  height: 12px;
+}
+.official-text .know-text .chevron-container svg[aria-expanded='true'] {
+  transform: rotate(180deg);
+}
+
+.content-container {
+  background-color: #f8f9fa;
+  width: 100%;
+  border-top: 1px solid #dee2e6;
+}
+
+.info-section {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.5em 1em;
+  gap: 2em;
+}
+
+.info-item {
+  display: flex;
+  gap: 1em;
+  align-items: flex-start;
+  flex: 1;
+}
+.info-item .info-title {
+  margin: 0 0 0.5em 0;
+  font-size: 1em;
+  font-weight: 600;
+  color: #212529;
+}
+.info-item p {
+  margin: 0;
+  line-height: 1.5;
+  color: #495057;
+  font-size: 0.875em;
+}
+
+.icon-circle {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 2px solid #dee2e6;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.gov-icon,
+.lock-icon {
+  font-size: 1.5em;
+  color: #004445;
+}
+
+@media (max-width: 991.98px) {
+  .official-text {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    gap: 0.0625em;
+  }
+  .know-text {
+    display: flex;
+    justify-content: center;
+    margin-top: 0.0625em;
+    width: 100%;
+  }
+  .city-name {
+    margin-top: 0.25em;
+    flex-shrink: 0;
+  }
+}
+@media (max-width: 575.98px) {
+  .banner-header {
+    justify-content: flex-start;
+    padding-top: 0.75em;
+    padding-bottom: 0.75em;
+  }
+  .official-text {
+    align-items: flex-start;
+    text-align: center;
+    word-wrap: break-word;
+  }
+  .info-section {
+    flex-direction: column;
+    padding: 1em;
+    gap: 1.5em;
+  }
+  .info-item {
+    width: 100%;
+  }
+}
+
+/*# sourceMappingURL=GovBanner.css.map */
