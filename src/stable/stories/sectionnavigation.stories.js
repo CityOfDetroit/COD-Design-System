@@ -10,7 +10,7 @@ export default {
 
 export const SectionNavigation = {
   render: () => html`
-<style>
+    <style>
       .section-header {
         white-space: nowrap;
         text-transform: uppercase;
