@@ -1,7 +1,7 @@
 import '../components/atoms/Tag/cod-tag';
 
 export default {
-  title: 'Stable/components/Atoms/Tag',
+  title: 'Stable/Tag',
   argTypes: {
     label: { control: 'text', defaultValue: 'Label' },
   },
@@ -15,10 +15,10 @@ const Template = (args) => {
   const label = document.createElement('span');
   label.slot = 'label';
   label.textContent = args.label;
-  
+
   // Append the label to the tag element
   tag.appendChild(label);
-  
+
   return tag;
 };
 
