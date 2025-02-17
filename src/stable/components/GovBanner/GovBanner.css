@@ -46,27 +46,27 @@
   font-size: 0.875em;
 }
 .official-text .know-text {
-  display: inline-flex; /* Ensure it behaves like an inline element */
-  align-items: center; /* Center-align text and chevron */
-  text-decoration: underline; /* Add underline for emphasis */
-  cursor: pointer; /* Pointer cursor for interactivity */
-  margin-left: 0.25em; /* Add spacing between text and other elements */
-  background-color: transparent; /* Remove default button background */
-  border: none; /* Remove default button border */
-  color: inherit; /* Inherit parent text color */
-  padding: 0; /* Remove default button padding */
-  font-size: inherit; /* Match font size with parent */
+  display: inline-flex;
+  align-items: center;
+  text-decoration: underline;
+  cursor: pointer;
+  margin-left: 0.25em;
+  background-color: transparent;
+  border: none;
+  color: inherit;
+  padding: 0;
+  font-size: inherit;
 }
 .official-text .know-text:focus {
-  outline: none; /* Remove default focus outline */
-  text-decoration-thickness: from-font; /* Optional, makes focus state look cleaner */
-  text-decoration-color: #f8d568; /* Optional, adds focus color */
+  outline: none;
+  text-decoration-thickness: from-font;
+  text-decoration-color: #f8d568;
 }
 .official-text .know-text:hover {
-  text-decoration-color: #f8d568; /* Optional, adds hover effect */
+  text-decoration-color: #f8d568;
 }
 .official-text .know-text .chevron-container {
-  display: inline-flex; /* Ensure chevron aligns properly */
+  display: inline-flex;
   align-items: center;
   margin-left: 0.25em;
 }
@@ -76,7 +76,7 @@
   height: 12px;
 }
 .official-text .know-text .chevron-container svg[aria-expanded='true'] {
-  transform: rotate(180deg); /* Rotate chevron when expanded */
+  transform: rotate(180deg);
 }
 
 .content-container {
@@ -135,7 +135,6 @@
   .official-text {
     display: flex;
     flex-direction: column;
-    white-space: nowrap;
     min-width: 0;
     gap: 0.0625em;
   }
@@ -158,6 +157,8 @@
   }
   .official-text {
     align-items: flex-start;
+    text-align: center;
+    word-wrap: break-word;
   }
   .info-section {
     flex-direction: column;

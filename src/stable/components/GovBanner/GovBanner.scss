@@ -151,7 +151,6 @@
   .official-text {
     display: flex;
     flex-direction: column;
-    white-space: nowrap;
     min-width: 0;
     gap: 0.0625rem;
   }
@@ -179,6 +178,8 @@
 
   .official-text {
     align-items: flex-start;
+    text-align: center;
+    word-wrap: break-word;
   }
 
   .info-section {
