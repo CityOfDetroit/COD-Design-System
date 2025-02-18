@@ -43,7 +43,7 @@ This project was created using:
 
 4. Build storybook.
    ```
-   $ yarn build-storybook
+   $ yarn build:storybook
    ```
 
 ### Testing
@@ -54,7 +54,7 @@ Use Storybooks [built-in test-runner](https://storybook.js.org/docs/react/writin
 
 2. Invoke the test runner in another. Note: depending on the power of you machine, you may have to reduce concurrent workers to avoid test timeout failures. Use `--maxWorkers=2` to limit the workers to two.
    ```
-   $ yarn test-storybook
+   $ yarn test:storybook
    ```
 
 ### Formatting and Linting
