@@ -1,6 +1,19 @@
-# v1.0.35 (Tue Sep 24 2024)
+# v2.0.0 (Tues Feb 18 2025)
 
 #### 🐛 Bug Fix
+
+- Fix CI workflows. [#275](https://github.com/CityOfDetroit/COD-Design-System/pull/275) by ([@maxatdetroit](https://github.com/maxatdetroit))
+
+#### 🚀 Enhancement
+
+- Move existing components to experimental section. [#273](https://github.com/CityOfDetroit/COD-Design-System/pull/273) by ([@sreidthomas](https://github.com/sreidthomas))
+- Create stable package build. [#281](https://github.com/CityOfDetroit/COD-Design-System/pull/281) by ([@maxatdetroit](https://github.com/maxatdetroit))
+- Support component SASS compilation in stable build. [#288](https://github.com/CityOfDetroit/COD-Design-System/pull/281) by ([@sreidthomas](https://github.com/sreidthomas))
+- Create .gov banner component. [#280](https://github.com/CityOfDetroit/COD-Design-System/pull/280) by ([@sreidthomas](https://github.com/sreidthomas))
+
+# v1.0.35 (Tue Sep 24 2024)
+
+#### 🚀 Enhancement
 
 - Creating new countdown component. [#270](https://github.com/CityOfDetroit/COD-Design-System/pull/270) ([@jedgar1mx](https://github.com/jedgar1mx))
 
