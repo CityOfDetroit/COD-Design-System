@@ -22,15 +22,15 @@
   "readmeFilename": "README.md",
   "homepage": "https://cityofdetroit.github.io/COD-Design-System/",
   "scripts": {
-    "check-lint-config": "npx eslint-config-prettier src/index.js",
     "lint": "eslint src && prettier --check src/*",
+    "lint:check-config": "npx eslint-config-prettier src/index.js",
+    "storybook": "storybook dev -p 6006",
     "build": "yarn build:experimental && yarn build:stable",
     "build:experimental": "webpack --mode production --config webpack.config.experimental.js",
     "build:stable": "webpack --mode production --config webpack.config.stable.js",
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build",
-    "test-storybook": "test-storybook --maxWorkers=2 --coverage",
-    "chromatic": "chromatic --exit-zero-on-changes"
+    "build:storybook": "storybook build",
+    "test:storybook": "test-storybook --maxWorkers=2 --coverage",
+    "test:chromatic": "chromatic --exit-zero-on-changes"
   },
   "author": {
     "name": "City of Detroit"

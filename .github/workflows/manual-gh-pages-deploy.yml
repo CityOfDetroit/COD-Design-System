@@ -18,7 +18,7 @@ jobs:
       - name: Install dependencies and build
         run: |
           yarn
-          yarn build-storybook --quiet
+          yarn build:storybook --quiet
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
