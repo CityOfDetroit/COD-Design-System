@@ -11,6 +11,10 @@
 - Support component SASS compilation in stable build. [#288](https://github.com/CityOfDetroit/COD-Design-System/pull/281) by ([@sreidthomas](https://github.com/sreidthomas))
 - Create .gov banner component. [#280](https://github.com/CityOfDetroit/COD-Design-System/pull/280) by ([@sreidthomas](https://github.com/sreidthomas))
 
+#### 🏠 Internal
+
+- Cleanup yarn commands and github workflows. [#292](https://github.com/CityOfDetroit/COD-Design-System/pull/292) by ([@maxatdetroit](https://github.com/maxatdetroit))
+
 # v1.0.35 (Tue Sep 24 2024)
 
 #### 🚀 Enhancement
