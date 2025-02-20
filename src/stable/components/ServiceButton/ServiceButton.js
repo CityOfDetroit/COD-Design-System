@@ -1,6 +1,5 @@
 import styles from '!!raw-loader!./ServiceButton.css';
 
-
 const template = document.createElement('template');
 
 template.innerHTML = `
