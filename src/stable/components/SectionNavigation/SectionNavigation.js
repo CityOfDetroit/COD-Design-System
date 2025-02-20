@@ -62,32 +62,35 @@ class SectionNavigation extends HTMLElement {
     }
   }
 
-    _wrapSlottedLinks() {
-      const slot = this.shadowRoot.querySelector('slot[name="nav-items"]');
-      if (!slot) return;
-      // declares a function named wrapLinks 
-        const wrapLinks = () => {
-          // gets all the elements currently assigned to the slot
-          const assignedElements = slot.assignedElements();
-          //  starts a loop that will process each assigned element
-          assignedElements.forEach(element => {
-            //  checks if the current element is an <a> tag and if its parent doesn't already have the class 'nav-item'
-            if (element.tagName === 'A' && !element.parentElement.classList.contains('nav-item')) {
-              // If the condition is met, this creates a new <li> element
-              const li = document.createElement('li');
-              // adds the 'nav-item' class to the newly created <li> element
-              li.classList.add('nav-item');
-              // inserts the new <li> element into the DOM, right before the current <a> element
-              element.parentNode.insertBefore(li, element);
-              // moves the <a> element to be a child of the new <li> element
-              li.appendChild(element);
-            }
-          });
-        };
+  _wrapSlottedLinks() {
+    const slot = this.shadowRoot.querySelector('slot[name="nav-items"]');
+    if (!slot) return;
+    // declares a function named wrapLinks
+    const wrapLinks = () => {
+      // gets all the elements currently assigned to the slot
+      const assignedElements = slot.assignedElements();
+      //  starts a loop that will process each assigned element
+      assignedElements.forEach((element) => {
+        //  checks if the current element is an <a> tag and if its parent doesn't already have the class 'nav-item'
+        if (
+          element.tagName === 'A' &&
+          !element.parentElement.classList.contains('nav-item')
+        ) {
+          // If the condition is met, this creates a new <li> element
+          const li = document.createElement('li');
+          // adds the 'nav-item' class to the newly created <li> element
+          li.classList.add('nav-item');
+          // inserts the new <li> element into the DOM, right before the current <a> element
+          element.parentNode.insertBefore(li, element);
+          // moves the <a> element to be a child of the new <li> element
+          li.appendChild(element);
+        }
+      });
+    };
 
-      // Listen for dynamically added links
-      slot.addEventListener('slotchange', wrapLinks);
-    }
+    // Listen for dynamically added links
+    slot.addEventListener('slotchange', wrapLinks);
   }
+}
 
 export { SectionNavigation as default };

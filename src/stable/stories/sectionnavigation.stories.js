@@ -11,9 +11,9 @@ export default {
 export const SectionNavigation = {
   render: () => html`
     <style>
-    .section-nav-link {
-    text-decoration: none;
-    }
+      .section-nav-link {
+        text-decoration: none;
+      }
     </style>
     <cod-section-navigation>
       <span slot="header">On This Page</span>
