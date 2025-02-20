@@ -88,7 +88,7 @@ export const Default = {
     // Cleanup
     observer.disconnect();
 
-    // Test icon if present
+    // Test icon is present
     const icon = shadow.querySelector('.icon');
     if (icon) {
       const initialVisibility = window.getComputedStyle(icon).visibility;
