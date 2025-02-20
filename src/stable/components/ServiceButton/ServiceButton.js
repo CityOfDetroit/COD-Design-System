@@ -28,7 +28,10 @@ class ServiceButton extends HTMLElement {
 
     // Listen for slotchange events
     titleSlot.addEventListener('slotchange', this.handleSlotChange.bind(this));
-    subtitleSlot.addEventListener('slotchange', this.handleSlotChange.bind(this));
+    subtitleSlot.addEventListener(
+      'slotchange',
+      this.handleSlotChange.bind(this),
+    );
   }
 
   handleSlotChange(event) {
