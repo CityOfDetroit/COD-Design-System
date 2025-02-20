@@ -30,8 +30,6 @@ export const Default = {
     </cod-service-button>
   `,
   play: async ({ canvasElement }) => {
-    // Allow initial render
-    await new Promise((resolve) => setTimeout(resolve, 100));
 
     const serviceButton = canvasElement.querySelector('cod-service-button');
     const shadow = serviceButton.shadowRoot;
