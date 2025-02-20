@@ -27,21 +27,22 @@ class ServiceButton extends HTMLElement {
     const subtitleSlot = shadow.querySelector('#subtitleSlot');
 
     // Listen for slotchange events
-    titleSlot.addEventListener('slotchange', () => {
-      const elements = titleSlot.assignedElements();
-      if (elements.length > 0) {
-        const text = elements[0].textContent;
-        elements[0].textContent = text;
-      }
-    });
+    titleSlot.addEventListener('slotchange', this.handleSlotChange.bind(this));
+    subtitleSlot.addEventListener('slotchange', this.handleSlotChange.bind(this));
+  }
 
-    subtitleSlot.addEventListener('slotchange', () => {
-      const elements = subtitleSlot.assignedElements();
-      if (elements.length > 0) {
-        const text = elements[0].textContent;
-        elements[0].textContent = text;
+  handleSlotChange(event) {
+    const slot = event.target;
+    const elements = slot.assignedElements();
+
+    if (elements.length > 0) {
+      const element = elements[0];
+      if (element.tagName !== 'SPAN') {
+        const span = document.createElement('span');
+        span.textContent = element.textContent;
+        element.replaceWith(span);
       }
-    });
+    }
   }
 }
 
