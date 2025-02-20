@@ -1,24 +1,20 @@
 import styles from '!!raw-loader!./ServiceButton.css';
-import varStyles from '!!raw-loader!../../../shared/variables.css';
-import bootstrapStyles from '!!raw-loader!../../../shared/themed-bootstrap.css';
+
 
 const template = document.createElement('template');
 
 template.innerHTML = `
 <style>
-${bootstrapStyles}
-${varStyles}
 ${styles}
-
 </style>
-<button>
+<a href="www.example.com" class="service-button">
   <div class="title">
     <slot name="title" id="titleSlot"></slot>
   </div>
   <div class="subtitle">
     <slot name="subtitle" id="subtitleSlot"></slot>
   </div>
-</button>
+</a>
 `;
 
 class ServiceButton extends HTMLElement {

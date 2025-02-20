@@ -78,9 +78,9 @@ export const Default = {
 
     // Check if any of these conditions are met
     const styleChangeDetected =
-      styleChanged || // MutationObserver detected change
-      hoverState || // Element is in hover state
-      computedStyle.getPropertyValue('--hover-opacity') !== '' || // Custom property changed
+      styleChanged && // MutationObserver detected change
+      hoverState && // Element is in hover state
+      computedStyle.getPropertyValue('--hover-opacity') !== '' && // Custom property changed
       parseFloat(computedStyle.getPropertyValue('opacity')) > 0; // Opacity changed
 
     expect(styleChangeDetected).toBe(true);
