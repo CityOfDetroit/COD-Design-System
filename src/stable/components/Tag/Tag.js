@@ -45,7 +45,8 @@ class Tag extends HTMLElement {
           // Replace tag with span
           const spanElement = document.createElement('span');
           spanElement.innerText = element.innerText;
-          element.replaceWith(spanElement);    
+          spanElement.slot = 'label';
+          element.replaceWith(spanElement);
         }
       });
     });
