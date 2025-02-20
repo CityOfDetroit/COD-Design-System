@@ -11,56 +11,9 @@ export default {
 export const SectionNavigation = {
   render: () => html`
     <style>
-      .section-header {
-        white-space: nowrap;
-        text-transform: uppercase;
-        font-size: 1rem;
-        font-weight: bold;
-        margin: 0;
-        position: relative;
-        padding-left: 0.75rem;
-      }
-
-      .section-header::before {
-        content: '';
-        position: absolute;
-        left: 0;
-        top: 50%;
-        transform: translateY(-50%);
-        width: 4px;
-        height: 1rem;
-        background-color: #ffc107;
-      }
-
-      .section-nav-link {
-        color: #000;
-        text-decoration: none;
-        border-bottom: none;
-        padding: 0.25rem 0;
-        display: block;
-      }
-
-      @media (max-width: 992px) {
-        .section-header {
-          font-size: 1rem;
-          padding-left: 0;
-          text-transform: none;
-          font-weight: 600;
-        }
-
-        .section-header::before {
-          display: none;
-        }
-
-        .section-nav-link {
-          display: block;
-          padding: 0.75rem 1rem;
-          margin: 0;
-          border: none;
-          color: #000;
-          text-decoration: none;
-        }
-      }
+    .section-nav-link {
+    text-decoration: none;
+    }
     </style>
     <cod-section-navigation>
       <span slot="header">On This Page</span>
