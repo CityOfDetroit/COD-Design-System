@@ -30,10 +30,9 @@ export const Default = {
     </cod-service-button>
   `,
   play: async ({ canvasElement }) => {
-
     const serviceButton = canvasElement.querySelector('cod-service-button');
     const shadow = serviceButton.shadowRoot;
-
+  
     // Test for title and subtitle
     const title = shadow.querySelector('.title slot');
     const subtitle = shadow.querySelector('.subtitle slot');
@@ -41,12 +40,14 @@ export const Default = {
     await expect(subtitle.assignedNodes()[0].textContent).toBe(
       'View job postings for the City of Detroit or our partners.',
     );
-
+  
+    // Test that the button is a link
+    const link = shadow.querySelector('a');
+    expect(link).not.toBeNull();
+    expect(link.tagName).toBe('A');
+    expect(link.hasAttribute('href')).toBe(true);
+  
     // Test for hover effect
-    const button = shadow.querySelector('button');
-    expect(button).not.toBeNull();
-
-    // Create a MutationObserver to track style changes
     let styleChanged = false;
     const observer = new MutationObserver((mutations) => {
       mutations.forEach((mutation) => {
@@ -58,45 +59,73 @@ export const Default = {
         }
       });
     });
-
-    observer.observe(button, {
+  
+    observer.observe(link, {
       attributes: true,
       attributeFilter: ['style', 'class'],
     });
-
+  
     // Trigger hover
-    await userEvent.hover(button);
-
+    await userEvent.hover(link);
+  
     // Wait for any transitions/animations
     await new Promise((resolve) => setTimeout(resolve, 300));
-
+  
     // Test for style changes
-    const computedStyle = window.getComputedStyle(button);
-    const hoverState = button.matches(':hover');
-
+    const computedStyle = window.getComputedStyle(link);
+    const hoverState = link.matches(':hover');
+  
     // Check if any of these conditions are met
     const styleChangeDetected =
       styleChanged && // MutationObserver detected change
       hoverState && // Element is in hover state
-      computedStyle.getPropertyValue('--hover-opacity') !== '' && // Custom property changed
-      parseFloat(computedStyle.getPropertyValue('opacity')) > 0; // Opacity changed
-
+      (computedStyle.getPropertyValue('--hover-opacity') !== '' && 
+       parseFloat(computedStyle.getPropertyValue('--hover-opacity')) > 0); // Custom property changed
+  
     expect(styleChangeDetected).toBe(true);
-
+  
     // Cleanup
     observer.disconnect();
-
+  
     // Test icon is present
     const icon = shadow.querySelector('.icon');
     if (icon) {
       const initialVisibility = window.getComputedStyle(icon).visibility;
-      await userEvent.hover(button);
+      await userEvent.hover(link);
       await new Promise((resolve) => setTimeout(resolve, 300));
       const hoverVisibility = window.getComputedStyle(icon).visibility;
       expect(hoverVisibility).not.toBe(initialVisibility);
     }
-
-    // Test component cleanup
+  
+    // Test that the link can be clicked
+    const mockClick = jest.fn();
+    link.addEventListener('click', mockClick);
+    await userEvent.click(link);
+    expect(mockClick).toHaveBeenCalledTimes(1);
+  
+    // Test non-span elements get converted to spans
+    const newServiceButton = document.createElement('cod-service-button');
+    newServiceButton.innerHTML = `
+      <div slot="title">Non-span Title</div>
+      <p slot="subtitle">Non-span Subtitle</p>
+    `;
+    document.body.appendChild(newServiceButton);
+  
+    // Wait for the component to update
+    await new Promise(resolve => setTimeout(resolve, 0));
+  
+    const newShadow = newServiceButton.shadowRoot;
+    const newTitle = newShadow.querySelector('.title slot');
+    const newSubtitle = newShadow.querySelector('.subtitle slot');
+  
+    expect(newTitle.assignedNodes()[0].tagName).toBe('SPAN');
+    expect(newTitle.assignedNodes()[0].textContent).toBe('Non-span Title');
+    expect(newSubtitle.assignedNodes()[0].tagName).toBe('SPAN');
+    expect(newSubtitle.assignedNodes()[0].textContent).toBe('Non-span Subtitle');
+  
+    // Cleanup
+    newServiceButton.remove();
     serviceButton.remove();
   },
-};
+}
+  
