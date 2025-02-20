@@ -3,7 +3,7 @@ import styles from '!!raw-loader!./tag.css';
 // Function to strip HTML tags
 function stripHTML(html) {
   const doc = new DOMParser().parseFromString(html, 'text/html');
-  return doc.body.textContent || '';
+  return doc.body.innerText || "";
 }
 
 // Define a template element to hold the structure and style of the custom element
@@ -39,11 +39,13 @@ class Tag extends HTMLElement {
     const slot = this.shadowRoot.querySelector('slot[name="label"]');
     slot.addEventListener('slotchange', () => {
       const elements = slot.assignedElements(); // Get the elements assigned to the slot
-      elements.forEach((element) => {
+      elements.forEach(element => {
         // Check if the element is not a <span> or <a>
         if (element.tagName !== 'SPAN' && element.tagName !== 'A') {
-          // Strip inner HTML content
-          element.innerHTML = stripHTML(element.innerHTML);
+          // Replace tag with span
+          const spanElement = document.createElement('span');
+          spanElement.innerText = element.innerText;
+          element.replaceWith(spanElement);    
         }
       });
     });

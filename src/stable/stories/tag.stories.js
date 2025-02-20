@@ -1,4 +1,4 @@
-import '../components/atoms/Tag/cod-tag';
+import '../components/Tag/cod-tag';
 
 export default {
   title: 'Stable/Tag',
