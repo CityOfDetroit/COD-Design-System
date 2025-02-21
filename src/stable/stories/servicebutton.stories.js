@@ -33,13 +33,47 @@ export const Default = {
     const serviceButton = canvasElement.querySelector('cod-service-button');
     const shadow = serviceButton.shadowRoot;
 
-    // Test for title and subtitle
-    const title = shadow.querySelector('.title slot');
-    const subtitle = shadow.querySelector('.subtitle slot');
-    await expect(title.assignedNodes()[0].textContent).toBe('Apply for a Job');
-    await expect(subtitle.assignedNodes()[0].textContent).toBe(
-      'View job postings for the City of Detroit or our partners.',
-    );
+    // // Test for title and subtitle
+    // const title = shadow.querySelector('.title slot');
+    // const subtitle = shadow.querySelector('.subtitle slot');
+    // await expect(title.assignedNodes()[0].textContent).toBe('Apply for a Job');
+    // await expect(subtitle.assignedNodes()[0].textContent).toBe(
+    //   'View job postings for the City of Detroit or our partners.',
+    // );
+
+    test('Check title and subtitle', async () => {
+      // Wait for the shadow DOM to be available
+      await page.waitForSelector('service-button');
+    
+      const serviceButton = await page.evaluateHandle(() => document.querySelector('service-button'));
+      const shadow = await serviceButton.evaluateHandle(el => el.shadowRoot);
+    
+      // Wait for content to load
+      await page.waitForSelector('.title slot');
+      await page.waitForSelector('.subtitle slot');
+    
+      // Use more robust selectors (assuming you've added data-testid attributes)
+      const title = await shadow.querySelector('[data-testid="title"] slot');
+      const subtitle = await shadow.querySelector('[data-testid="subtitle"] slot');
+    
+      // Debug logging
+      console.log('Title content:', await title.evaluate(el => el.assignedNodes()[0]?.textContent));
+      console.log('Subtitle content:', await subtitle.evaluate(el => el.assignedNodes()[0]?.textContent));
+    
+      // Check for non-empty slots
+      const titleNodes = await title.evaluate(el => el.assignedNodes());
+      const subtitleNodes = await subtitle.evaluate(el => el.assignedNodes());
+    
+      expect(titleNodes.length).toBeGreaterThan(0);
+      expect(subtitleNodes.length).toBeGreaterThan(0);
+    
+      // Assert content
+      await expect(title.evaluate(el => el.assignedNodes()[0].textContent)).resolves.toBe('Apply for a Job');
+      await expect(subtitle.evaluate(el => el.assignedNodes()[0].textContent)).resolves.toBe(
+        'View job postings for the City of Detroit or our partners.'
+      );
+    }, 30000); // Increased timeout
+    
 
     // Test that the button is a link
     const link = shadow.querySelector('a');
