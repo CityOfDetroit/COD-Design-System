@@ -35,9 +35,7 @@ class SectionNavigation extends HTMLElement {
 
   connectedCallback() {
     this._setupListeners();
-    setTimeout(() => {
-      this._wrapSlottedLinks();
-    }, 0);
+    this._wrapSlottedLinks();
   }
 
   disconnectedCallback() {
@@ -74,12 +72,14 @@ class SectionNavigation extends HTMLElement {
         //  checks if the current element is an <a> tag and if its parent doesn't already have the class 'nav-item'
         if (
           element.tagName === 'A' &&
-          !element.parentElement.classList.contains('nav-item')
+          !element.parentElement.tagName !== 'LI'
         ) {
           // If the condition is met, this creates a new <li> element
           const li = document.createElement('li');
           // adds the 'nav-item' class to the newly created <li> element
           li.classList.add('nav-item');
+          li.setAttribute('slot', 'nav-items');
+          element.removeAttribute('slot');
           // inserts the new <li> element into the DOM, right before the current <a> element
           element.parentNode.insertBefore(li, element);
           // moves the <a> element to be a child of the new <li> element
