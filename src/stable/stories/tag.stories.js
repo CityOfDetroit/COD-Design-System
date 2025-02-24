@@ -30,9 +30,9 @@ Default.args = {
   label: "Mayor's Office",
 };
 
-export const IncorrectSlotElement = {
+export const HeadingElements = {
   render: () => {
-    return html`<cod-tag><h1 slot="label">Incorrect Element</h1></cod-tag>`;
+    return html`<cod-tag><h1 slot="label">Heading Element</h1></cod-tag>`;
   },
   play: async ({ canvasElement }) => {
     const tag = canvasElement.querySelector('cod-tag');
@@ -42,5 +42,30 @@ export const IncorrectSlotElement = {
     // Test that even though the incorrect element was passed to
     // the slot, it was replaced with a span.
     expect(slottedElt.tagName).toBe('SPAN');
+  },
+};
+
+export const ListElements = {
+  render: () => {
+    return html`<cod-tag>
+    <ul slot="label">
+      <li>List-item</li>
+      <li>List-item</li>
+      <li>List-item</li>
+    </ul></cod-tag>`;
+  },
+  play: async ({ canvasElement }) => {
+    const tag = canvasElement.querySelector('cod-tag');
+    const tagShadowRoot = tag.shadowRoot;
+    const slot = tagShadowRoot.querySelector('slot[name="label"]');
+    const slottedElt = slot.assignedElements()[0];
+    
+    // Test that the result is a single <span> after the transformation
+    expect(slottedElt.tagName).toBe('SPAN');
+
+    // Verify there are no <br> elements or newlines in the content
+    expect(slottedElt.innerHTML).not.toContain('<br>');
+    expect(slottedElt.innerHTML).not.toContain('\n');
+
   },
 };
