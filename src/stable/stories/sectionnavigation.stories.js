@@ -13,10 +13,19 @@ export const SectionNavigation = {
     <style>
       .section-nav-link {
         text-decoration: none;
+         color: #000;
       }
+
+      .section-header {
+        white-space: nowrap;
+        text-transform: uppercase;
+        font-size: 1rem;
+        font-weight: bold;
+      }
+
     </style>
     <cod-section-navigation>
-      <span slot="header">On This Page</span>
+      <span slot="header" class="section-header">On This Page</span>
       <a slot="nav-items" href="#services" class="section-nav-link">Services</a>
       <a slot="nav-items" href="#council-sessions" class="section-nav-link"
         >Council Sessions</a
@@ -98,6 +107,34 @@ export const Default = {
       expect(navItems.length).toBe(7);
       expect(navItems[0].textContent).toBe('Services');
       expect(navItems[0].getAttribute('href')).toBe('#services');
+    });
+
+    // test slotted <a> elements are wrapped in <li>
+    await waitFor(() => {
+      const slot = shadow.querySelector('slot[name="nav-items"]');
+      const navItems = slot.assignedElements();
+
+      navItems.forEach(item => {
+        if (item.tagName === 'A') {
+          const parentLi = item.closest('li');
+          expect(parentLi).not.toBeNull();
+          expect(parentLi.tagName).toBe('LI');
+        }
+      });
+    });
+
+    // test non-<a> elements assigned to the slot are not used
+    await waitFor(() => {
+      const slot = shadow.querySelector('slot[name="nav-items"]');
+      const navItems = slot.assignedElements();
+
+      const nonAElements = navItems.filter(item => item.tagName !== 'A');
+      const renderedItems = shadow.querySelectorAll('.nav-item');
+
+      nonAElements.forEach(element => {
+        const isRendered = Array.from(renderedItems).some(item => item.contains(element));
+        expect(isRendered).toBe(false);
+      });
     });
   },
 };

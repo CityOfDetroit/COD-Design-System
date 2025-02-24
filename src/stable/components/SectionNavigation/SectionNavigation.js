@@ -84,6 +84,8 @@ class SectionNavigation extends HTMLElement {
           element.parentNode.insertBefore(li, element);
           // moves the <a> element to be a child of the new <li> element
           li.appendChild(element);
+        } else if (item.tagName !== 'A') {
+          item.remove();
         }
       });
     };
