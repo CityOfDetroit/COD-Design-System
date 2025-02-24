@@ -13,7 +13,7 @@ export const SectionNavigation = {
     <style>
       .section-nav-link {
         text-decoration: none;
-         color: #000;
+        color: #000;
       }
 
       .section-header {
@@ -22,7 +22,6 @@ export const SectionNavigation = {
         font-size: 1rem;
         font-weight: bold;
       }
-
     </style>
     <cod-section-navigation>
       <span slot="header" class="section-header">On This Page</span>
@@ -114,7 +113,7 @@ export const Default = {
       const slot = shadow.querySelector('slot[name="nav-items"]');
       const navItems = slot.assignedElements();
 
-      navItems.forEach(item => {
+      navItems.forEach((item) => {
         if (item.tagName === 'A') {
           const parentLi = item.closest('li');
           expect(parentLi).not.toBeNull();
@@ -128,11 +127,13 @@ export const Default = {
       const slot = shadow.querySelector('slot[name="nav-items"]');
       const navItems = slot.assignedElements();
 
-      const nonAElements = navItems.filter(item => item.tagName !== 'A');
+      const nonAElements = navItems.filter((item) => item.tagName !== 'A');
       const renderedItems = shadow.querySelectorAll('.nav-item');
 
-      nonAElements.forEach(element => {
-        const isRendered = Array.from(renderedItems).some(item => item.contains(element));
+      nonAElements.forEach((element) => {
+        const isRendered = Array.from(renderedItems).some((item) =>
+          item.contains(element),
+        );
         expect(isRendered).toBe(false);
       });
     });
