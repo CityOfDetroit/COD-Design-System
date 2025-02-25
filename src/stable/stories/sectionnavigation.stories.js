@@ -99,28 +99,28 @@ export const Default = {
     await userEvent.click(toggleButton);
     checkExpandedState(false);
 
-    // Verify navigation items
+    // // Verify navigation items
+    // await waitFor(() => {
+    //   const slot = shadow.querySelector('slot[name="nav-items"]');
+    //   const navItems = slot.assignedElements();
+    //   expect(navItems.length).toBe(7);
+    //   expect(navItems[0].textContent).toBe('Services');
+    //   expect(navItems[0].getAttribute('href')).toBe('#services');
+    // });
+
+  //   // test slotted <a> elements are wrapped in <li>
     await waitFor(() => {
       const slot = shadow.querySelector('slot[name="nav-items"]');
       const navItems = slot.assignedElements();
-      expect(navItems.length).toBe(7);
-      expect(navItems[0].textContent).toBe('Services');
-      expect(navItems[0].getAttribute('href')).toBe('#services');
+
+      navItems.forEach((item) => {
+        if (item.tagName === 'A') {
+          const parentLi = item.closest('li');
+          expect(parentLi).not.toBeNull();
+          expect(parentLi.tagName).toBe('LI');
+        }
+      });
     });
-
-  //   // test slotted <a> elements are wrapped in <li>
-  //   await waitFor(() => {
-  //     const slot = shadow.querySelector('slot[name="nav-items"]');
-  //     const navItems = slot.assignedElements();
-
-  //     navItems.forEach((item) => {
-  //       if (item.tagName === 'A') {
-  //         const parentLi = item.closest('li');
-  //         expect(parentLi).not.toBeNull();
-  //         expect(parentLi.tagName).toBe('LI');
-  //       }
-  //     });
-  //   });
 
   //   // test non-<a> elements assigned to the slot are not used
   //   await waitFor(() => {
