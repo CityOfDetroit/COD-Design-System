@@ -108,7 +108,7 @@ export const Default = {
     //   expect(navItems[0].getAttribute('href')).toBe('#services');
     // });
 
-  //   // test slotted <a> elements are wrapped in <li>
+    //   // test slotted <a> elements are wrapped in <li>
     await waitFor(() => {
       const slot = shadow.querySelector('slot[name="nav-items"]');
       const navItems = slot.assignedElements();
@@ -122,7 +122,7 @@ export const Default = {
       });
     });
 
-  //   // test non-<a> elements assigned to the slot are not used
+    //   // test non-<a> elements assigned to the slot are not used
     await waitFor(() => {
       const slot = shadow.querySelector('slot[name="nav-items"]');
       const navItems = slot.assignedElements();
@@ -137,5 +137,5 @@ export const Default = {
         expect(isRendered).toBe(false);
       });
     });
-  }
+  },
 };
