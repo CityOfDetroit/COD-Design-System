@@ -90,10 +90,10 @@ export const Default = {
     // Test initial state
     checkExpandedState(false);
 
-  //   // Test button click to expand
-  //   const toggleButton = shadow.querySelector('.toggle-button');
-  //   await userEvent.click(toggleButton);
-  //   checkExpandedState(true);
+    // Test button click to expand
+    const toggleButton = shadow.querySelector('.toggle-button');
+    await userEvent.click(toggleButton);
+    checkExpandedState(true);
 
   //   // Test button click to collapse
   //   await userEvent.click(toggleButton);
