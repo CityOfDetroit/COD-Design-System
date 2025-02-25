@@ -95,9 +95,9 @@ export const Default = {
     await userEvent.click(toggleButton);
     checkExpandedState(true);
 
-  //   // Test button click to collapse
-  //   await userEvent.click(toggleButton);
-  //   checkExpandedState(false);
+    // Test button click to collapse
+    await userEvent.click(toggleButton);
+    checkExpandedState(false);
 
   //   // Verify navigation items
   //   await waitFor(() => {
