@@ -87,8 +87,8 @@ export const Default = {
       expect(button.getAttribute('aria-expanded')).toBe(isExpanded.toString());
     };
 
-  //   // Test initial state
-  //   checkExpandedState(false);
+    // Test initial state
+    checkExpandedState(false);
 
   //   // Test button click to expand
   //   const toggleButton = shadow.querySelector('.toggle-button');
