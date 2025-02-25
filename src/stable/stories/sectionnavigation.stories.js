@@ -123,19 +123,19 @@ export const Default = {
     });
 
   //   // test non-<a> elements assigned to the slot are not used
-  //   await waitFor(() => {
-  //     const slot = shadow.querySelector('slot[name="nav-items"]');
-  //     const navItems = slot.assignedElements();
+    await waitFor(() => {
+      const slot = shadow.querySelector('slot[name="nav-items"]');
+      const navItems = slot.assignedElements();
 
-  //     const nonAElements = navItems.filter((item) => item.tagName !== 'A');
-  //     const renderedItems = shadow.querySelectorAll('.nav-item');
+      const nonAElements = navItems.filter((item) => item.tagName !== 'A');
+      const renderedItems = shadow.querySelectorAll('.nav-item');
 
-  //     nonAElements.forEach((element) => {
-  //       const isRendered = Array.from(renderedItems).some((item) =>
-  //         item.contains(element),
-  //       );
-  //       expect(isRendered).toBe(false);
-  //     });
-  //   });
+      nonAElements.forEach((element) => {
+        const isRendered = Array.from(renderedItems).some((item) =>
+          item.contains(element),
+        );
+        expect(isRendered).toBe(false);
+      });
+    });
   }
 };
