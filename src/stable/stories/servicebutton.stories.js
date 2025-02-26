@@ -36,21 +36,21 @@ export const Default = {
     const titleSlot = shadow.querySelector('.title slot');
     const subtitleSlot = shadow.querySelector('.subtitle slot');
 
-      // Check that slots exist
-      expect(titleSlot).not.toBeNull();
-      expect(subtitleSlot).not.toBeNull();
+    // Check that slots exist
+    expect(titleSlot).not.toBeNull();
+    expect(subtitleSlot).not.toBeNull();
 
-      // Check slot content
-      const titleNodes = titleSlot.assignedNodes();
-      const subtitleNodes = subtitleSlot.assignedNodes();
+    // Check slot content
+    const titleNodes = titleSlot.assignedNodes();
+    const subtitleNodes = subtitleSlot.assignedNodes();
 
-      expect(titleNodes.length).toBeGreaterThan(0);
-      expect(subtitleNodes.length).toBeGreaterThan(0);
+    expect(titleNodes.length).toBeGreaterThan(0);
+    expect(subtitleNodes.length).toBeGreaterThan(0);
 
-      expect(titleNodes[0].textContent).toBe('Apply for a Job');
-      expect(subtitleNodes[0].textContent).toBe(
-        'View job postings for the City of Detroit or our partners.',
-      );
+    expect(titleNodes[0].textContent).toBe('Apply for a Job');
+    expect(subtitleNodes[0].textContent).toBe(
+      'View job postings for the City of Detroit or our partners.',
+    );
 
     // Test that the button is a link
     const link = shadow.querySelector('a');
