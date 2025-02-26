@@ -1,6 +1,6 @@
 import { html } from 'lit-html';
 import '../../stable/components/ServiceButton/cod-service-button';
-import { jest, expect, test } from '@storybook/jest';
+import { jest, expect } from '@storybook/jest';
 import { userEvent } from '@storybook/testing-library';
 
 export default {
@@ -33,10 +33,8 @@ export const Default = {
     const serviceButton = canvasElement.querySelector('cod-service-button');
     const shadow = serviceButton.shadowRoot;
 
-    // Test for title and subtitle
-    test('Check title and subtitle', async () => {
-      const titleSlot = shadow.querySelector('.title slot');
-      const subtitleSlot = shadow.querySelector('.subtitle slot');
+    const titleSlot = shadow.querySelector('.title slot');
+    const subtitleSlot = shadow.querySelector('.subtitle slot');
 
       // Check that slots exist
       expect(titleSlot).not.toBeNull();
@@ -53,7 +51,6 @@ export const Default = {
       expect(subtitleNodes[0].textContent).toBe(
         'View job postings for the City of Detroit or our partners.',
       );
-    });
 
     // Test that the button is a link
     const link = shadow.querySelector('a');
