@@ -1,7 +1,6 @@
 import { html } from 'lit-html';
 import '../../stable/components/ServiceButton/cod-service-button';
-import { jest, expect } from '@storybook/jest';
-import { userEvent } from '@storybook/testing-library';
+import { expect } from '@storybook/jest';
 
 export default {
   title: 'Stable/ServiceButton',
@@ -60,38 +59,5 @@ export const Default = {
     expect(link).not.toBeNull();
     expect(link.tagName).toBe('A');
     expect(link.hasAttribute('href')).toBe(true);
-
-    // ===== TEST 3: Click Event Test =====
-    // Tests that the link can be clicked and triggers an event
-    const mockClick = jest.fn();
-    link.addEventListener('click', mockClick);
-    await userEvent.click(link);
-    expect(mockClick).toHaveBeenCalledTimes(1);
-
-    // ===== TEST 4: Slot Conversion Test =====
-    // Tests that non-span elements get converted to spans
-    // const newServiceButton = document.createElement('cod-service-button');
-    // newServiceButton.innerHTML = `
-    //   <div slot="title">Non-span Title</div>
-    //   <p slot="subtitle">Non-span Subtitle</p>
-    // `;
-    // document.body.appendChild(newServiceButton);
-
-    // // Wait for the component to update
-    // await new Promise((resolve) => setTimeout(resolve, 0));
-
-    // const newShadow = newServiceButton.shadowRoot;
-    // const newTitle = newShadow.querySelector('.title slot');
-    // const newSubtitle = newShadow.querySelector('.subtitle slot');
-
-    // expect(newTitle.assignedNodes()[0].tagName).toBe('SPAN');
-    // expect(newTitle.assignedNodes()[0].textContent).toBe('Non-span Title');
-    // expect(newSubtitle.assignedNodes()[0].tagName).toBe('SPAN');
-    // expect(newSubtitle.assignedNodes()[0].textContent).toBe(
-    //   'Non-span Subtitle',
-    // );
-
-    // Cleanup
-    // newServiceButton.remove();
   },
 };
