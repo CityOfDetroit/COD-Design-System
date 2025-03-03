@@ -112,33 +112,33 @@ export const Default = {
   play: async ({ canvasElement }) => {
     const sectionNav = canvasElement.querySelector('cod-section-navigation');
     const shadow = sectionNav.shadowRoot;
-  
+
     // Helper function to check expanded state
     const checkExpandedState = (isExpanded) => {
       const container = shadow.querySelector('.section-container');
       const button = shadow.querySelector('.toggle-button');
-  
+
       expect(container.classList.contains('expanded')).toBe(isExpanded);
       expect(button.getAttribute('aria-expanded')).toBe(isExpanded.toString());
     };
-  
+
     // Test initial state
     checkExpandedState(false);
-  
+
     // Test button click to expand
     const toggleButton = shadow.querySelector('.toggle-button');
     await userEvent.click(toggleButton);
     checkExpandedState(true);
-  
+
     // Test button click to collapse
     await userEvent.click(toggleButton);
     checkExpandedState(false);
-  
+
     // Test slotted elements
     await waitFor(() => {
       const slot = shadow.querySelector('slot[name="nav-items"]');
       const navItems = slot.assignedElements();
-  
+
       navItems.forEach((item) => {
         if (item.tagName === 'A') {
           // Test <a> elements are wrapped in <li>
@@ -162,11 +162,11 @@ export const Default = {
           // Test non-<a> and non-<li> elements are not rendered
           const renderedItems = shadow.querySelectorAll('.nav-item');
           const isRendered = Array.from(renderedItems).some((renderedItem) =>
-            renderedItem.contains(item)
+            renderedItem.contains(item),
           );
           expect(isRendered).toBe(false);
         }
       });
     });
-  }
-}
+  },
+};

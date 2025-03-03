@@ -62,7 +62,7 @@ class SectionNavigation extends HTMLElement {
   _wrapSlottedLinks() {
     const slot = this.shadowRoot.querySelector('slot[name="nav-items"]');
     if (!slot) return;
-  
+
     const wrapLinks = () => {
       const assignedElements = slot.assignedElements();
       assignedElements.forEach((element) => {
@@ -97,11 +97,10 @@ class SectionNavigation extends HTMLElement {
         }
       });
     };
-  
+
     // Listen for dynamically added links
     slot.addEventListener('slotchange', wrapLinks);
   }
-  
 }
 
 export { SectionNavigation as default };
