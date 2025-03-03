@@ -59,45 +59,49 @@ class SectionNavigation extends HTMLElement {
       container.classList.toggle('expanded');
     }
   }
-
   _wrapSlottedLinks() {
     const slot = this.shadowRoot.querySelector('slot[name="nav-items"]');
     if (!slot) return;
-    // declares a function named wrapLinks
+  
     const wrapLinks = () => {
-      // gets all the elements currently assigned to the slot
       const assignedElements = slot.assignedElements();
-      //  starts a loop that will process each assigned element
       assignedElements.forEach((element) => {
-        //  checks if the current element is an <a> tag and if its parent doesn't already have the class 'nav-item'
-        if (
-          element.tagName === 'A' &&
-          !element.parentElement.tagName !== 'LI'
-        ) {
-          // If the condition is met, this creates a new <li> element
+        if (element.tagName === 'A' && element.parentElement.tagName !== 'LI') {
           const li = document.createElement('li');
-          // adds the 'nav-item' class to the newly created <li> element
           li.classList.add('nav-item');
           li.setAttribute('slot', 'nav-items');
           element.removeAttribute('slot');
-          // inserts the new <li> element into the DOM, right before the current <a> element
           element.parentNode.insertBefore(li, element);
-          // moves the <a> element to be a child of the new <li> element
           li.appendChild(element);
-        } else if (element.tagName !== 'LI') {
-          /*INCLUDE ANCHOR INSIDE A LI ITEM 
-        li with anchor
-        li by itself
-        anchor by itself
-        */
+        } else if (element.tagName === 'LI') {
+          // Handle li with anchor or li by itself
+          if (element.querySelector('a')) {
+            // li with anchor: ensure it has the correct class and slot
+            element.classList.add('nav-item');
+            element.setAttribute('slot', 'nav-items');
+          } else {
+            // li by itself: add a class but don't modify further
+            element.classList.add('nav-item');
+          }
+        } else if (element.tagName === 'A') {
+          // Handle anchor by itself
+          const li = document.createElement('li');
+          li.classList.add('nav-item');
+          li.setAttribute('slot', 'nav-items');
+          element.removeAttribute('slot');
+          element.parentNode.insertBefore(li, element);
+          li.appendChild(element);
+        } else {
+          // Remove any other elements that are not li or a
           element.remove();
         }
       });
     };
-
+  
     // Listen for dynamically added links
     slot.addEventListener('slotchange', wrapLinks);
   }
+  
 }
 
 export { SectionNavigation as default };

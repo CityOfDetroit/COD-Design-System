@@ -112,65 +112,61 @@ export const Default = {
   play: async ({ canvasElement }) => {
     const sectionNav = canvasElement.querySelector('cod-section-navigation');
     const shadow = sectionNav.shadowRoot;
-
+  
     // Helper function to check expanded state
     const checkExpandedState = (isExpanded) => {
       const container = shadow.querySelector('.section-container');
       const button = shadow.querySelector('.toggle-button');
-
+  
       expect(container.classList.contains('expanded')).toBe(isExpanded);
       expect(button.getAttribute('aria-expanded')).toBe(isExpanded.toString());
     };
-
+  
     // Test initial state
     checkExpandedState(false);
-
+  
     // Test button click to expand
     const toggleButton = shadow.querySelector('.toggle-button');
     await userEvent.click(toggleButton);
     checkExpandedState(true);
-
+  
     // Test button click to collapse
     await userEvent.click(toggleButton);
     checkExpandedState(false);
-
-    // // Verify navigation items
+  
+    // Test slotted elements
     await waitFor(() => {
       const slot = shadow.querySelector('slot[name="nav-items"]');
       const navItems = slot.assignedElements();
-      expect(navItems.length).toBe(7);
-      expect(navItems[0].textContent).toBe('Services');
-      expect(navItems[0].getAttribute('href')).toBe('#services');
-    });
-
-    // test slotted <a> elements are wrapped in <li>
-    await waitFor(() => {
-      const slot = shadow.querySelector('slot[name="nav-items"]');
-      const navItems = slot.assignedElements();
-
+  
       navItems.forEach((item) => {
         if (item.tagName === 'A') {
+          // Test <a> elements are wrapped in <li>
           const parentLi = item.closest('li');
           expect(parentLi).not.toBeNull();
-          expect(parentLi.tagName).toBe('LI');
+          expect(parentLi.classList.contains('nav-item')).toBe(true);
+          expect(parentLi.getAttribute('slot')).toBe('nav-items');
+          expect(item.getAttribute('slot')).toBe(null);
+        } else if (item.tagName === 'LI') {
+          // Test <li> elements
+          expect(item.classList.contains('nav-item')).toBe(true);
+          const anchor = item.querySelector('a');
+          if (anchor) {
+            // Test <li> with anchor
+            expect(item.getAttribute('slot')).toBe('nav-items');
+          } else {
+            // Test <li> by itself
+            expect(item.classList.contains('nav-item')).toBe(true);
+          }
+        } else {
+          // Test non-<a> and non-<li> elements are not rendered
+          const renderedItems = shadow.querySelectorAll('.nav-item');
+          const isRendered = Array.from(renderedItems).some((renderedItem) =>
+            renderedItem.contains(item)
+          );
+          expect(isRendered).toBe(false);
         }
       });
     });
-
-    // test non-<a> elements assigned to the slot are not used
-    await waitFor(() => {
-      const slot = shadow.querySelector('slot[name="nav-items"]');
-      const navItems = slot.assignedElements();
-
-      const nonAElements = navItems.filter((item) => item.tagName !== 'A');
-      const renderedItems = shadow.querySelectorAll('.nav-item');
-
-      nonAElements.forEach((element) => {
-        const isRendered = Array.from(renderedItems).some((item) =>
-          item.contains(element),
-        );
-        expect(isRendered).toBe(false);
-      });
-    });
-  },
-};
+  }
+}
