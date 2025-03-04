@@ -1,12 +1,8 @@
 import styles from '!!raw-loader!./SectionNavigation.css';
-import varStyles from '!!raw-loader!../../../shared/variables.css';
-import bootstrapStyles from '!!raw-loader!../../../shared/themed-bootstrap.css';
 
 const template = document.createElement('template');
 template.innerHTML = `
 <style>
-${bootstrapStyles}
-${varStyles}
 ${styles}
 </style>
 <div class="section-container">
