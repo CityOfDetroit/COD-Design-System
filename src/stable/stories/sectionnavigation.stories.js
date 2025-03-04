@@ -84,8 +84,10 @@ export const SectionNavigationWithSpan = {
 export const Default = {
   render: () => html`
     <style>
-      .section-nav-link {
+      .section-nav-link,
+      .nav-item a {
         text-decoration: none;
+        color: inherit;
       }
     </style>
     <cod-section-navigation>

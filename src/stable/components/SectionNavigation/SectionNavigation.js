@@ -62,7 +62,8 @@ class SectionNavigation extends HTMLElement {
     const wrapLinks = () => {
       const assignedElements = slot.assignedElements();
       assignedElements.forEach((element) => {
-        if (element.tagName === 'A' && element.parentElement.tagName !== 'LI') {
+        if (element.tagName === 'A') {
+          // Wrap the 'a' element in an 'li'
           const li = document.createElement('li');
           li.classList.add('nav-item');
           li.setAttribute('slot', 'nav-items');
@@ -70,30 +71,25 @@ class SectionNavigation extends HTMLElement {
           element.parentNode.insertBefore(li, element);
           li.appendChild(element);
         } else if (element.tagName === 'LI') {
-          // Handle li with anchor or li by itself
           if (element.querySelector('a')) {
-            // li with anchor: ensure it has the correct class and slot
+            // Ensure li with anchor has the correct class and slot
             element.classList.add('nav-item');
             element.setAttribute('slot', 'nav-items');
-          } 
-        } else if (element.tagName === 'A') {
-          // Handle anchor by itself
-          const li = document.createElement('li');
-          li.classList.add('nav-item');
-          li.setAttribute('slot', 'nav-items');
-          element.removeAttribute('slot');
-          element.parentNode.insertBefore(li, element);
-          li.appendChild(element);
+          } else {
+            // Remove li without anchor
+            element.remove();
+          }
         } else {
-          // Remove any other elements that are not li or a
+          // Remove any other elements
           element.remove();
         }
       });
     };
 
+    wrapLinks();
+
     // Listen for dynamically added links
     slot.addEventListener('slotchange', wrapLinks);
   }
 }
-
 export { SectionNavigation as default };
