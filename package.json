@@ -1,11 +1,11 @@
 {
   "name": "cod-design-system",
-  "version": "1.0.35",
+  "version": "2.0.0",
   "description": "City of Detroit design system",
-  "main": "dist/index.js",
+  "main": "build/stable/assets/js/main.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jedgar1mx/COD-Design-System.git"
+    "url": "git+https://github.com/CityOfDetroit/COD-Design-System.git"
   },
   "keywords": [
     "components",
@@ -17,26 +17,23 @@
     "storybook"
   ],
   "bugs": {
-    "url": "https://github.com/jedgar1mx/COD-Design-System/issues"
+    "url": "https://github.com/CityOfDetroit/COD-Design-System/issues"
   },
   "readmeFilename": "README.md",
-  "homepage": "https://jedgar1mx.github.io/COD-Design-System",
+  "homepage": "https://cityofdetroit.github.io/COD-Design-System/",
   "scripts": {
-    "check-lint-config": "npx eslint-config-prettier src/index.js",
     "lint": "eslint src && prettier --check src/*",
+    "lint:check-config": "npx eslint-config-prettier src/index.js",
+    "storybook": "storybook dev -p 6006",
     "build": "yarn build:experimental && yarn build:stable",
     "build:experimental": "webpack --mode production --config webpack.config.experimental.js",
     "build:stable": "webpack --mode production --config webpack.config.stable.js",
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build",
-    "deploy-storybook": "storybook-to-ghpages",
-    "test-storybook": "test-storybook --maxWorkers=2 --coverage",
-    "chromatic": "chromatic --exit-zero-on-changes",
-    "build-package": "cross-env BABEL_ENV=production babel src -d dist",
-    "release": "auto shipit --base-branch=dev"
+    "build:storybook": "storybook build",
+    "test:storybook": "test-storybook --maxWorkers=2 --coverage",
+    "test:chromatic": "chromatic --exit-zero-on-changes"
   },
   "author": {
-    "name": "Edgar Montes"
+    "name": "City of Detroit"
   },
   "license": "MIT",
   "dependencies": {
@@ -119,6 +116,6 @@
     ]
   },
   "packageManager": "yarn@3.6.2",
-  "readme": "ERROR: No README data found!",
-  "_id": "cod-design-system@1.0.12"
+  "readme": "README.md",
+  "_id": "cod-design-system@2.0.0"
 }
