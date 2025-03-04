@@ -29,7 +29,20 @@ class SectionNavigation extends HTMLElement {
     shadow.appendChild(template.content.cloneNode(true));
   }
 
+  static get observedAttributes() {
+    return ['expanded'];
+  }
+
+  attributeChangedCallback(name) {
+    if (name === 'expanded') {
+      this._updateExpansion();
+    }
+  }
+
   connectedCallback() {
+    if (!this.hasAttribute('expanded')) {
+      this.setAttribute('expanded', 'false');
+    }
     this._setupListeners();
     this._wrapSlottedLinks();
   }
@@ -47,14 +60,23 @@ class SectionNavigation extends HTMLElement {
   }
 
   _handleToggle() {
+    const isExpanded = this.getAttribute('expanded') === 'true';
+    this.setAttribute('expanded', (!isExpanded).toString());
+  }
+
+  _updateExpansion() {
     const button = this.shadowRoot.querySelector('.toggle-button');
     const container = this.shadowRoot.querySelector('.section-container');
-    if (button && container) {
-      const isExpanded = button.getAttribute('aria-expanded') === 'true';
-      button.setAttribute('aria-expanded', (!isExpanded).toString());
-      container.classList.toggle('expanded');
+    const isExpanded = this.getAttribute('expanded') === 'true';
+
+    if (button) {
+      button.setAttribute('aria-expanded', isExpanded.toString());
+    }
+    if (container) {
+      container.classList.toggle('expanded', isExpanded);
     }
   }
+
   _wrapSlottedLinks() {
     const slot = this.shadowRoot.querySelector('slot[name="nav-items"]');
     if (!slot) return;
