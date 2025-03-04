@@ -75,10 +75,7 @@ class SectionNavigation extends HTMLElement {
             // li with anchor: ensure it has the correct class and slot
             element.classList.add('nav-item');
             element.setAttribute('slot', 'nav-items');
-          } else {
-            // li by itself: add a class but don't modify further
-            element.classList.add('nav-item');
-          }
+          } 
         } else if (element.tagName === 'A') {
           // Handle anchor by itself
           const li = document.createElement('li');
