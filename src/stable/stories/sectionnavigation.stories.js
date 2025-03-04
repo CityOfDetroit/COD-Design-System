@@ -45,42 +45,6 @@ export const SectionNavigation = {
     </cod-section-navigation>
   `,
 };
-
-export const SectionNavigationWithSpan = {
-  render: () => html`
-    <style>
-      .section-nav-link {
-        text-decoration: none;
-        color: #000;
-        cursor: pointer;
-      }
-
-      .section-header {
-        white-space: nowrap;
-        text-transform: uppercase;
-        font-size: 1rem;
-        font-weight: bold;
-      }
-    </style>
-    <cod-section-navigation>
-      <span slot="header" class="section-header">On This Page</span>
-      <a slot="nav-items" href="#services" class="section-nav-link">Services</a>
-      <span slot="nav-items" class="section-nav-link">Council Sessions</span>
-      <a slot="nav-items" href="#community-events" class="section-nav-link"
-        >Community Events</a
-      >
-      <span slot="nav-items" class="section-nav-link">News</span>
-      <a slot="nav-items" href="#council-members" class="section-nav-link"
-        >Council Members</a
-      >
-      <span slot="nav-items" class="section-nav-link">Standing Committees</span>
-      <a slot="nav-items" href="#departments" class="section-nav-link"
-        >Departments, Contacts & More</a
-      >
-    </cod-section-navigation>
-  `,
-};
-
 export const Default = {
   render: () => html`
     <style>
