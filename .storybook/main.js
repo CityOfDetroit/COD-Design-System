@@ -6,7 +6,6 @@ module.exports = {
     '@storybook/addon-a11y',
     '@storybook/addon-coverage',
     '@storybook/addon-interactions',
-    '@storybook/addon-mdx-gfm',
   ],
   framework: {
     name: '@storybook/web-components-webpack5',
@@ -18,5 +17,11 @@ module.exports = {
   staticDirs: ['../public'],
   docs: {
     autodocs: true,
+    // Add the MDX configuration here:
+    mdx: {
+      remarkPlugins: [
+        require('remark-gfm')
+      ],
+    },
   },
 };
