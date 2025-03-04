@@ -10,7 +10,11 @@ export default {
 
 export const ServiceButton = {
   render: () => html`
-    <cod-service-button>
+    <cod-service-button
+      href="https://www.example.com"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
       <span slot="title">Apply for a Job</span>
       <span slot="subtitle"
         >View job postings for the City of Detroit or our partners.</span

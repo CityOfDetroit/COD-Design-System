@@ -6,7 +6,7 @@ template.innerHTML = `
 <style>
 ${styles}
 </style>
-<a href="www.example.com" class="service-button">
+<a class="service-button">
   <div class="title">
     <slot name="title" id="titleSlot"></slot>
   </div>
@@ -17,10 +17,16 @@ ${styles}
 `;
 
 class ServiceButton extends HTMLElement {
+  static get observedAttributes() {
+    return ['href', 'hreflang', 'rel', 'target'];
+  }
+
   constructor() {
     super();
     const shadow = this.attachShadow({ mode: 'open' });
     shadow.appendChild(template.content.cloneNode(true));
+
+    this.link = shadow.querySelector('a');
 
     // Get references to slots
     const titleSlot = shadow.querySelector('#titleSlot');
@@ -32,6 +38,24 @@ class ServiceButton extends HTMLElement {
       'slotchange',
       this.handleSlotChange.bind(this),
     );
+  }
+
+  connectedCallback() {
+    this.updateLinkAttributes();
+  }
+
+  attributeChangedCallbacl() {
+    this.updateLinkAttributes();
+  }
+
+  updateLinkAttributes() {
+    ['href', 'hreflang', 'rel', 'target'].forEach((attr) => {
+      if (this.hasAttribute(attr)) {
+        this.link.setAttribute(attr, this.getAttribute(attr));
+      } else {
+        this.link.removeAttribute(attr);
+      }
+    });
   }
 
   handleSlotChange(event) {
