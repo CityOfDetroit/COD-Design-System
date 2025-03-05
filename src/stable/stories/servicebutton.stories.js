@@ -22,10 +22,14 @@ export const ServiceButton = {
     </cod-service-button>
   `,
 };
-
 export const Default = {
   render: () => html`
-    <cod-service-button>
+    <cod-service-button
+      <cod-service-button
+      href="https://www.example.com"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
       <span slot="title">Apply for a Job</span>
       <span slot="subtitle"
         >View job postings for the City of Detroit or our partners.</span
@@ -37,7 +41,6 @@ export const Default = {
     const shadow = serviceButton.shadowRoot;
 
     // ===== TEST 1: Slot Content Test =====
-    // Verifies that title and subtitle slots exist and contain expected content
     const titleSlot = shadow.querySelector('.title slot');
     const subtitleSlot = shadow.querySelector('.subtitle slot');
 
@@ -58,10 +61,25 @@ export const Default = {
     );
 
     // ===== TEST 2: Link Element Test =====
-    // Verifies that the component contains a link element with href attribute
     const link = shadow.querySelector('a');
+
     expect(link).not.toBeNull();
     expect(link.tagName).toBe('A');
+
+    // Verify the href attribute
     expect(link.hasAttribute('href')).toBe(true);
+    expect(link.getAttribute('href')).toBe(serviceButton.getAttribute('href'));
+
+    // Verify the target attribute (if present on the component)
+    if (serviceButton.hasAttribute('target')) {
+      expect(link.getAttribute('target')).toBe(
+        serviceButton.getAttribute('target'),
+      );
+    }
+
+    // Verify the rel attribute (if present on the component)
+    if (serviceButton.hasAttribute('rel')) {
+      expect(link.getAttribute('rel')).toBe(serviceButton.getAttribute('rel'));
+    }
   },
 };

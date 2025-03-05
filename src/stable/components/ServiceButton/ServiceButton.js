@@ -44,7 +44,7 @@ class ServiceButton extends HTMLElement {
     this.updateLinkAttributes();
   }
 
-  attributeChangedCallbacl() {
+  attributeChangedCallback() {
     this.updateLinkAttributes();
   }
 
