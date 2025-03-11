@@ -1,6 +1,6 @@
 import { html } from 'lit-html';
-import { expect } from '@storybook/jest';
-import { userEvent, waitFor } from '@storybook/testing-library';
+import { expect } from '@storybook/test';
+import { userEvent, waitFor } from '@storybook/test';
 import '../../stable/components/SectionNavigation/cod-section-navigation';
 
 export default {
