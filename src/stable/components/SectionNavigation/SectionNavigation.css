@@ -1,0 +1,125 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
+.section-container {
+  display: flex;
+  width: 100%;
+  margin-bottom: 2em;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  margin-right: 2em;
+}
+
+:host ::slotted([slot='header']) {
+  margin: 0;
+  position: relative;
+  padding-left: 0.75em;
+}
+:host ::slotted([slot='header'])::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 1em;
+  background-color: #ffc107;
+}
+
+.section-nav {
+  flex-grow: 1;
+}
+.section-nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5em 2em;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+.section-nav li {
+  margin: 0;
+  padding: 0;
+}
+
+:host .section-nav ::slotted(a) {
+  border-bottom: none;
+  padding: 0.25em 0;
+  display: block;
+}
+
+.toggle-button {
+  display: none;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+.toggle-button svg {
+  transition: transform 0.3s ease;
+}
+
+@media (max-width: 991.98px) {
+  .section-container {
+    flex-direction: column;
+    margin-bottom: 0;
+    border: 1px solid #dee2e6;
+  }
+  .section-container.expanded .section-nav {
+    display: block;
+  }
+  .section-container.expanded .toggle-button svg {
+    transform: rotate(180deg);
+  }
+  .section-header {
+    width: 100%;
+    background-color: #ffc107;
+    padding: 0.75em 1em;
+    margin: 0;
+    justify-content: space-between;
+    border: none;
+  }
+  :host ::slotted([slot='header']) {
+    font-size: 1em;
+    padding-left: 0;
+    text-transform: none;
+    font-weight: 600;
+  }
+  :host ::slotted([slot='header'])::before {
+    display: none;
+  }
+  .toggle-button {
+    display: flex;
+    align-items: center;
+    padding: 0.25em;
+  }
+  .toggle-button svg {
+    width: 20px;
+    height: 20px;
+  }
+  .section-nav {
+    display: none;
+    background-color: #fff;
+    padding: 0.5em 0;
+    margin: 0;
+  }
+  .section-nav ul {
+    flex-direction: column;
+    gap: 0;
+  }
+  :host .section-nav ::slotted(a) {
+    display: block;
+    padding: 0.75em 1em;
+    margin: 0;
+    border: none;
+    color: #000;
+    text-decoration: none;
+  }
+}
+
+/*# sourceMappingURL=SectionNavigation.css.map */
