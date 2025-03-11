@@ -1,11 +1,13 @@
 module.exports = {
-  stories: ['../src/**/*.stories.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
+  stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
   addons: [
     '@storybook/addon-links',
     '@storybook/addon-essentials',
     '@storybook/addon-a11y',
     '@storybook/addon-coverage',
     '@storybook/addon-interactions',
+    '@storybook/addon-webpack5-compiler-babel',
+    '@chromatic-com/storybook'
   ],
   framework: {
     name: '@storybook/web-components-webpack5',
@@ -16,12 +18,11 @@ module.exports = {
   },
   staticDirs: ['../public'],
   docs: {
-    autodocs: true,
     // Add the MDX configuration here:
     mdx: {
       remarkPlugins: [
         require('remark-gfm')
       ],
-    },
+    }
   },
 };
