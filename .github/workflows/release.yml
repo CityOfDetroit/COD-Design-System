@@ -40,8 +40,8 @@ jobs:
       - name: Create Tag
         if: ${{ env.CURRENT_VERSION != env.PREV_VERSION }}
         run: |
-          git tag -a "v${{ env.CURRENT_VERSION }}" -m "Release version ${{ env.CURRENT_VERSION }}"
-          git push origin "v${{ env.CURRENT_VERSION }}"
+          git tag -a "${{ env.CURRENT_VERSION }}" -m "Release version ${{ env.CURRENT_VERSION }}"
+          git push origin "${{ env.CURRENT_VERSION }}"
 
       - name: Generate Release Notes
         if: ${{ env.CURRENT_VERSION != env.PREV_VERSION }}
@@ -59,40 +59,28 @@ jobs:
           REPO_NAME="${GITHUB_REPOSITORY}"
           
           # Find the previous version tag in git
-          PREV_TAG=$(git tag --sort=-v:refname | grep -E "^v${PREV_VERSION}$" || echo "")
-          if [ -z "$PREV_TAG" ]; then
-            # If no exact match, try to find the closest tag
-            PREV_TAG=$(git tag --sort=-v:refname | head -n 1)
-          fi
-          
-          # Get merged PRs between tags/versions
-          echo "Fetching PRs between $PREV_TAG and HEAD..."
-          
+          PREV_TAG="${PREV_VERSION}"
+
+          echo "Creating changelog template..."
+
           # Function to categorize PRs based on title/labels
-          categorize_prs() {
-            local query="$1"
-            local category="$2"
-            local prs=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-              "https://api.github.com/search/issues?q=repo:${REPO_NAME}+is:pr+is:merged+merged:>=${PREV_TAG}+${query}" | \
-              jq -r '.items[] | "- " + .title + " [#" + (.number|tostring) + "](https://github.com/'${REPO_NAME}'/pull/" + (.number|tostring) + ") by ([@" + .user.login + "](https://github.com/" + .user.login + "))"')
-            
-            if [ ! -z "$prs" ]; then
-              echo "#### ${category}" >> release_notes.md
-              echo "" >> release_notes.md
-              echo "$prs" >> release_notes.md
-              echo "" >> release_notes.md
-            fi
+          create_pr_category() {
+            local category="$1"
+            echo "#### ${category}" >> release_notes.md
+            echo "" >> release_notes.md
+            echo "TODO -- fill me in!" >> release_notes.md
+            echo "" >> release_notes.md
           }
-          
+
           # Categorize PRs based on labels or title keywords
-          categorize_prs "label:bug OR title:fix OR title:bug" "🐛 Bug Fix"
-          categorize_prs "label:enhancement OR title:feature OR title:add OR title:support OR title:create" "🚀 Enhancement"
-          categorize_prs "label:documentation OR title:doc OR title:docs" "📝 Documentation"
-          categorize_prs "label:internal OR title:internal OR title:refactor OR title:cleanup OR title:chore" "🏠 Internal"
-          
+          categorize_prs "🐛 Bug Fix"
+          categorize_prs "🚀 Enhancement"
+          categorize_prs "📝 Documentation"
+          categorize_prs "🏠 Internal"
+
           # Add full changelog link
-          echo "**Full Changelog**: https://github.com/${REPO_NAME}/compare/${PREV_TAG}...v${{ env.CURRENT_VERSION }}" >> release_notes.md
-          
+          echo "**Full Changelog**: https://github.com/${REPO_NAME}/compare/${PREV_TAG}...${{ env.CURRENT_VERSION }}" >> release_notes.md
+
           # Set the release notes as an output
           RELEASE_NOTES=$(cat release_notes.md)
           echo "RELEASE_NOTES<<EOF" >> $GITHUB_ENV
@@ -105,8 +93,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: "v${{ env.CURRENT_VERSION }}"
-          release_name: "Release v${{ env.CURRENT_VERSION }}"
+          tag_name: "${{ env.CURRENT_VERSION }}"
+          release_name: "v${{ env.CURRENT_VERSION }}"
           body: ${{ env.RELEASE_NOTES }}
-          draft: false
+          draft: true
           prerelease: false
