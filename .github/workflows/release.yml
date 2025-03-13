@@ -3,7 +3,7 @@ name: Auto Release
 on:
   push:
     branches:
-      - main  # Only run on the main branch
+      - dev  # Only run on the dev branch
 
 jobs:
   release:
