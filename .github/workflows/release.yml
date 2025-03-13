@@ -73,10 +73,10 @@ jobs:
           }
 
           # Categorize PRs based on labels or title keywords
-          categorize_prs "🐛 Bug Fix"
-          categorize_prs "🚀 Enhancement"
-          categorize_prs "📝 Documentation"
-          categorize_prs "🏠 Internal"
+          create_pr_category "🐛 Bug Fix"
+          create_pr_category "🚀 Enhancement"
+          create_pr_category "📝 Documentation"
+          create_pr_category "🏠 Internal"
 
           # Add full changelog link
           echo "**Full Changelog**: https://github.com/${REPO_NAME}/compare/${PREV_TAG}...${{ env.CURRENT_VERSION }}" >> release_notes.md
