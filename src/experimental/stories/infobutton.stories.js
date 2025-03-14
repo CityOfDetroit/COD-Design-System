@@ -1,5 +1,5 @@
 import { html } from 'lit-html';
-import '../components/atoms/Icon/cod-icon';
+import '../../stable/components/Icon/cod-icon';
 import '../components/atoms/InfoButton/cod-info-button';
 
 export default {

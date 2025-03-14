@@ -1,81 +1,56 @@
 import styles from '!!raw-loader!./Icon.css';
-import varStyles from '!!raw-loader!../../../../shared/variables.css';
-import bootstrapStyles from '!!raw-loader!../../../../shared/themed-bootstrap.css';
 
-export default class Icon extends HTMLElement {
+const template = document.createElement('template');
+template.innerHTML = `
+  <style>
+    ${styles}
+  </style>
+  <div class="icon-container">
+    <span class="icon"></span>
+  </div>
+`;
+
+class Icon extends HTMLElement {
   constructor() {
-    // Always call super first in constructor
     super();
-    // Create a shadow root
-    const shadow = this.attachShadow({ mode: 'open' });
-
-    // Add styles
-    const bootStyles = document.createElement('style');
-    bootStyles.textContent = bootstrapStyles;
-    const variableStyles = document.createElement('style');
-    variableStyles.textContent = varStyles;
-    const itemStyles = document.createElement('style');
-    itemStyles.textContent = styles;
-    shadow.appendChild(bootStyles);
-    shadow.appendChild(variableStyles);
-    shadow.appendChild(itemStyles);
+    this.attachShadow({ mode: 'open' });
+    this.shadowRoot.appendChild(template.content.cloneNode(true));
   }
 
   connectedCallback() {
     if (this.isIconConnected()) {
       return;
     }
-
-    // Create a container for the icon and circle image
-    const container = document.createElement('div');
-    container.classList.add('icon-container', 'd-inline-block');
-
-    // Icon attributes
-    const icon = this.getAttribute('data-icon');
-    let size = this.getAttribute('data-size');
-
-    switch (size) {
-      case 'small':
-        size = '16';
-        break;
-
-      case 'medium':
-        size = '24';
-        break;
-
-      case 'large':
-        size = '36';
-        break;
-
-      case 'x-large':
-        size = '54';
-        break;
-
-      default:
-        size = '24';
-        break;
-    }
-
-    const iconElement = document.createElement('span');
-    iconElement.innerHTML = this.getIcon(icon, size);
-
-    // Append the icon element to the container
-    container.appendChild(iconElement);
-
-    // Boolean Attribute adds circle if present
-    const isHighlighted = this.hasAttribute('is-highlighted');
-
-    // Add the highlighted class if is-highlighted attribute is present
-    if (isHighlighted) {
-      container.classList.add('highlighted');
-    }
-
-    // Append the container to the shadow root
-    this.shadowRoot.appendChild(container);
+    this.renderIcon();
   }
 
   isIconConnected() {
-    return this.shadowRoot.querySelector('span') !== null;
+    return this.shadowRoot.querySelector('.icon').innerHTML !== "";
+  }
+
+  renderIcon() {
+    const container = this.shadowRoot.querySelector('.icon-container');
+    const iconElement = this.shadowRoot.querySelector('.icon');
+
+    // Get attributes
+    const icon = this.getAttribute('data-icon');
+    let size = this.getAttribute('data-size') || '24';
+
+    switch (size) {
+      case 'small': size = '16'; break;
+      case 'medium': size = '24'; break;
+      case 'large': size = '36'; break;
+      case 'x-large': size = '54'; break;
+      default: size = '24';
+    }
+
+    // Set icon using getIcon()
+    iconElement.innerHTML = this.getIcon(icon, size);
+
+    // Handle boolean attribute
+    if (this.hasAttribute('is-highlighted')) {
+      container.classList.add('highlighted');
+    }
   }
 
   getIcon(icon, size) {
@@ -410,7 +385,11 @@ export default class Icon extends HTMLElement {
               </svg>`;
 
       default:
-        break;
+        return `<svg width="${size}" height="${size}" viewBox="0 0 16 16" fill="currentColor">
+          <circle cx="8" cy="8" r="6"/>
+        </svg>`;
     }
   }
 }
+
+export { Icon as default };
