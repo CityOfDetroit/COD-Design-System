@@ -25,7 +25,7 @@ class Icon extends HTMLElement {
   }
 
   isIconConnected() {
-    return this.shadowRoot.querySelector('.icon').innerHTML !== "";
+    return this.shadowRoot.querySelector('.icon').innerHTML !== '';
   }
 
   renderIcon() {
@@ -37,11 +37,20 @@ class Icon extends HTMLElement {
     let size = this.getAttribute('data-size') || '24';
 
     switch (size) {
-      case 'small': size = '16'; break;
-      case 'medium': size = '24'; break;
-      case 'large': size = '36'; break;
-      case 'x-large': size = '54'; break;
-      default: size = '24';
+      case 'small':
+        size = '16';
+        break;
+      case 'medium':
+        size = '24';
+        break;
+      case 'large':
+        size = '36';
+        break;
+      case 'x-large':
+        size = '54';
+        break;
+      default:
+        size = '24';
     }
 
     // Set icon using getIcon()
