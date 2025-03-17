@@ -1,0 +1,100 @@
+name: Auto Release
+
+on:
+  push:
+    branches:
+      - dev  # Only run on the dev branch
+
+jobs:
+  release:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0  # This fetches the complete history for better changelog generation
+
+      - name: Set up Git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Get current version from package.json
+        id: current_version
+        run: |
+          CURRENT_VERSION=$(jq -r '.version' package.json)
+          echo "CURRENT_VERSION=$CURRENT_VERSION" >> $GITHUB_ENV
+
+      - name: Get previous version from Git
+        id: previous_version
+        run: |
+          PREV_VERSION=$(git show HEAD~1:package.json | jq -r '.version')
+          echo "PREV_VERSION=$PREV_VERSION" >> $GITHUB_ENV
+
+      - name: Check if version has changed
+        if: ${{ env.CURRENT_VERSION == env.PREV_VERSION }}
+        run: |
+          echo "Version has not changed. Exiting."
+          exit 0
+
+      - name: Create Tag
+        if: ${{ env.CURRENT_VERSION != env.PREV_VERSION }}
+        run: |
+          git tag -a "${{ env.CURRENT_VERSION }}" -m "Release version ${{ env.CURRENT_VERSION }}"
+          git push origin "${{ env.CURRENT_VERSION }}"
+
+      - name: Generate Release Notes
+        if: ${{ env.CURRENT_VERSION != env.PREV_VERSION }}
+        id: generate_release_notes
+        run: |
+          # Get the date in the desired format
+          RELEASE_DATE=$(date "+%a %b %d %Y")
+          
+          # Start building the release notes
+          echo "# v${{ env.CURRENT_VERSION }} ($RELEASE_DATE)" > release_notes.md
+          echo "" >> release_notes.md
+          
+          # Get all PRs since the last version using GitHub API
+          # This requires a GitHub token with repo scope
+          REPO_NAME="${GITHUB_REPOSITORY}"
+          
+          # Find the previous version tag in git
+          PREV_TAG="${PREV_VERSION}"
+
+          echo "Creating changelog template..."
+
+          # Function to categorize PRs based on title/labels
+          create_pr_category() {
+            local category="$1"
+            echo "#### ${category}" >> release_notes.md
+            echo "" >> release_notes.md
+            echo "TODO -- fill me in!" >> release_notes.md
+            echo "" >> release_notes.md
+          }
+
+          # Categorize PRs based on labels or title keywords
+          create_pr_category "🐛 Bug Fix"
+          create_pr_category "🚀 Enhancement"
+          create_pr_category "📝 Documentation"
+          create_pr_category "🏠 Internal"
+
+          # Add full changelog link
+          echo "**Full Changelog**: https://github.com/${REPO_NAME}/compare/${PREV_TAG}...${{ env.CURRENT_VERSION }}" >> release_notes.md
+
+          # Set the release notes as an output
+          RELEASE_NOTES=$(cat release_notes.md)
+          echo "RELEASE_NOTES<<EOF" >> $GITHUB_ENV
+          echo "$RELEASE_NOTES" >> $GITHUB_ENV
+          echo "EOF" >> $GITHUB_ENV
+
+      - name: Create GitHub Release
+        if: ${{ env.CURRENT_VERSION != env.PREV_VERSION }}
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: "${{ env.CURRENT_VERSION }}"
+          release_name: "v${{ env.CURRENT_VERSION }}"
+          body: ${{ env.RELEASE_NOTES }}
+          draft: true
+          prerelease: false
