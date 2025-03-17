@@ -55,7 +55,7 @@ class Tag extends HTMLElement {
           
           // Append a comma between every <li> 
           if (index < elements.length - 1) {
-            spanElement.innerText += ',';
+            spanElement.innerText += ', ';
           }
           
           // Replace the <li> with the span element

@@ -48,11 +48,10 @@ export const HeadingElements = {
 export const ListElements = {
   render: () => {
     return html`<cod-tag>
-    <ul slot="label">
-      <li>List-item</li>
-      <li>List-item</li>
-      <li>List-item</li>
-    </ul></cod-tag>`;
+      <li slot="label">List-item</li>
+      <li slot="label">List-item</li>
+      <li slot="label">List-item</li>
+    </cod-tag>`;
   },
   play: async ({ canvasElement }) => {
     const tag = canvasElement.querySelector('cod-tag');
@@ -69,3 +68,4 @@ export const ListElements = {
 
   },
 };
+
