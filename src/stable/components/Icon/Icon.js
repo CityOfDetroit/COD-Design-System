@@ -33,8 +33,10 @@ class Icon extends HTMLElement {
     const iconElement = this.shadowRoot.querySelector('.icon');
 
     // Get attributes
-    const icon = this.getAttribute('data-icon');
-    let size = this.getAttribute('data-size') || '24';
+    const icon = this.getAttribute('name') || this.getAttribute('data-icon');
+    const label = this.getAttribute('label') || this.getAttribute('aria-label') || icon;
+    
+    let size = this.getAttribute('size') || this.getAttribute('data-size') || '24';
 
     switch (size) {
       case 'small':
@@ -51,6 +53,11 @@ class Icon extends HTMLElement {
         break;
       default:
         size = '24';
+    }
+
+     // Set label for accessibility
+     if (label) {
+      container.setAttribute('aria-label', label);
     }
 
     // Set icon using getIcon()
