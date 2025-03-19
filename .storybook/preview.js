@@ -11,7 +11,7 @@ export const parameters = {
   },
   options: {
     storySort: {
-      order: ['COD UXDS', 'Components', 'Experimental'],
+      order: ['Getting Started', 'Components', 'Experimental'],
     },
   },
 };
