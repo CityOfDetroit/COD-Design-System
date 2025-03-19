@@ -1,7 +1,8 @@
 import '../components/organisms/Calendar/cod-calendar';
 
 export default {
-  title: 'Experimental/Organisms/Calendar',
+  tags: ['experimental'],
+  title: 'Components/Calendar',
   argTypes: {
     events: {
       control: { type: 'text' },
@@ -106,4 +107,7 @@ const Template = (args) => {
   return calendarElt;
 };
 
-export const Primary = Template.bind({});
+export const Primary = {
+  tags: ['autodocs'],
+  render: Template.bind({}),
+};
