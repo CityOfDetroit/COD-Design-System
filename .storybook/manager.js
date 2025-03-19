@@ -38,5 +38,6 @@ addons.setConfig({
         toolbar: true,
       },
     },
+    ...defaultConfig,
   ],
 })

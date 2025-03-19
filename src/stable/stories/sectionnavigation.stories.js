@@ -4,11 +4,12 @@ import { userEvent, waitFor } from '@storybook/test';
 import '../../stable/components/SectionNavigation/cod-section-navigation';
 
 export default {
+  tags: ['stable'],
   title: 'Stable/SectionNavigation',
-  tags: ['autodocs'],
 };
 
 export const SectionNavigation = {
+  tags: ['autodocs'],
   render: () => html`
     <style>
       .section-nav-link {
@@ -45,7 +46,9 @@ export const SectionNavigation = {
     </cod-section-navigation>
   `,
 };
-export const Default = {
+
+export const Test = {
+  tags: ['!dev'],
   render: () => html`
     <style>
       .section-nav-link,

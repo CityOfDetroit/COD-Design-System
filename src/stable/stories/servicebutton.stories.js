@@ -3,12 +3,13 @@ import '../../stable/components/ServiceButton/cod-service-button';
 import { expect } from '@storybook/test';
 
 export default {
+  tags: ['stable'],
   title: 'Stable/ServiceButton',
   component: 'cod-service-button',
-  tags: ['autodocs'],
 };
 
 export const ServiceButton = {
+  tags: ['autodocs'],
   render: () => html`
     <cod-service-button
       href="https://www.example.com"
@@ -22,7 +23,8 @@ export const ServiceButton = {
     </cod-service-button>
   `,
 };
-export const Default = {
+export const Test = {
+  tags: ['!dev'],
   render: () => html`
     <cod-service-button
       <cod-service-button

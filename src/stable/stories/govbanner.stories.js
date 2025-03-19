@@ -4,15 +4,17 @@ import { userEvent } from '@storybook/test';
 import '../components/GovBanner/cod-gov-banner';
 
 export default {
+  tags: ['stable'],
   title: 'Stable/GovBanner',
-  tags: ['autodocs'],
 };
 
 export const GovBanner = {
+  tags: ['autodocs'],
   render: () => html` <cod-gov-banner> </cod-gov-banner> `,
 };
 
-export const Default = {
+export const Test = {
+  tags: ['!dev'],
   render: () => html` <cod-gov-banner> </cod-gov-banner> `,
   play: async ({ canvasElement }) => {
     const govBanner = canvasElement.querySelector('cod-gov-banner');
