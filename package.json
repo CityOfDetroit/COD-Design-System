@@ -99,6 +99,7 @@
     "sass-loader": "^12.3.0",
     "start-server-and-test": "^1.14.0",
     "storybook": "^8.6.4",
+    "storybook-addon-tag-badges": "^1.4.0",
     "style-loader": "^3.3.1",
     "suppress-eslint-errors": "^3.0.1",
     "terser-webpack-plugin": "^5.2.4",
