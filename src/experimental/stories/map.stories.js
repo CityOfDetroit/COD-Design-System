@@ -9,10 +9,10 @@ export default {
 export const Location = {
   tags: ['autodocs'],
   render: () =>
-  html`<cod-map
-    data-location='{"address":"1104 Military St, Detroit, MI, 48209","location":{"x":-83.103111,"y":42.31103400000001}}'
-    data-map-state="init"
-  ></cod-map>`,
+    html`<cod-map
+      data-location='{"address":"1104 Military St, Detroit, MI, 48209","location":{"x":-83.103111,"y":42.31103400000001}}'
+      data-map-state="init"
+    ></cod-map>`,
 };
 
 export const CustomCenter = () =>

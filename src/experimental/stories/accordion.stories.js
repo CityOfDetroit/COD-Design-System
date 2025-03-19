@@ -86,10 +86,10 @@ export const Basic = {
             <div class="accordion-body">
               Placeholder content for this accordion, which is intended to
               demonstrate the <code>.accordion-flush</code> class. This is the
-              third item's accordion body. Nothing more exciting happening here in
-              terms of content, but just filling up the space to make it look, at
-              least at first glance, a bit more representative of how this would
-              look in a real-world application.
+              third item's accordion body. Nothing more exciting happening here
+              in terms of content, but just filling up the space to make it
+              look, at least at first glance, a bit more representative of how
+              this would look in a real-world application.
             </div>
           </div>
         </div>
@@ -100,14 +100,14 @@ export const Basic = {
         </cod-accordion-header>
         <cod-accordion-body>
           <p>
-            <strong>This is the first item's accordion body.</strong> It is shown
-            by default, until the collapse plugin adds the appropriate classes
-            that we use to style each element. These classes control the overall
-            appearance, as well as the showing and hiding via CSS transitions. You
-            can modify any of this with custom CSS or overriding our default
-            variables. It's also worth noting that just about any HTML can go
-            within the <code>.accordion-body</code>, though the transition does
-            limit overflow.
+            <strong>This is the first item's accordion body.</strong> It is
+            shown by default, until the collapse plugin adds the appropriate
+            classes that we use to style each element. These classes control the
+            overall appearance, as well as the showing and hiding via CSS
+            transitions. You can modify any of this with custom CSS or
+            overriding our default variables. It's also worth noting that just
+            about any HTML can go within the <code>.accordion-body</code>,
+            though the transition does limit overflow.
           </p>
         </cod-accordion-body>
       </cod-accordion-item>
@@ -121,10 +121,10 @@ export const Basic = {
             hidden by default, until the collapse plugin adds the appropriate
             classes that we use to style each element. These classes control the
             overall appearance, as well as the showing and hiding via CSS
-            transitions. You can modify any of this with custom CSS or overriding
-            our default variables. It's also worth noting that just about any HTML
-            can go within the <code>.accordion-body</code>, though the transition
-            does limit overflow.
+            transitions. You can modify any of this with custom CSS or
+            overriding our default variables. It's also worth noting that just
+            about any HTML can go within the <code>.accordion-body</code>,
+            though the transition does limit overflow.
           </p>
         </cod-accordion-body>
       </cod-accordion-item>
@@ -134,20 +134,20 @@ export const Basic = {
         </cod-accordion-header>
         <cod-accordion-body>
           <p>
-            <strong>This is the third item's accordion body.</strong> It is hidden
-            by default, until the collapse plugin adds the appropriate classes
-            that we use to style each element. These classes control the overall
-            appearance, as well as the showing and hiding via CSS transitions. You
-            can modify any of this with custom CSS or overriding our default
-            variables. It's also worth noting that just about any HTML can go
-            within the <code>.accordion-body</code>, though the transition does
-            limit overflow.
+            <strong>This is the third item's accordion body.</strong> It is
+            hidden by default, until the collapse plugin adds the appropriate
+            classes that we use to style each element. These classes control the
+            overall appearance, as well as the showing and hiding via CSS
+            transitions. You can modify any of this with custom CSS or
+            overriding our default variables. It's also worth noting that just
+            about any HTML can go within the <code>.accordion-body</code>,
+            though the transition does limit overflow.
           </p>
         </cod-accordion-body>
       </cod-accordion-item>
     </cod-accordion>
   `,
-}
+};
 
 export const Flush = {
   tags: ['autodocs'],
@@ -160,14 +160,14 @@ export const Flush = {
         </cod-accordion-header>
         <cod-accordion-body>
           <p>
-            <strong>This is the first item's accordion body.</strong> It is shown
-            by default, until the collapse plugin adds the appropriate classes
-            that we use to style each element. These classes control the overall
-            appearance, as well as the showing and hiding via CSS transitions. You
-            can modify any of this with custom CSS or overriding our default
-            variables. It's also worth noting that just about any HTML can go
-            within the <code>.accordion-body</code>, though the transition does
-            limit overflow.
+            <strong>This is the first item's accordion body.</strong> It is
+            shown by default, until the collapse plugin adds the appropriate
+            classes that we use to style each element. These classes control the
+            overall appearance, as well as the showing and hiding via CSS
+            transitions. You can modify any of this with custom CSS or
+            overriding our default variables. It's also worth noting that just
+            about any HTML can go within the <code>.accordion-body</code>,
+            though the transition does limit overflow.
           </p>
         </cod-accordion-body>
       </cod-accordion-item>
@@ -181,10 +181,10 @@ export const Flush = {
             hidden by default, until the collapse plugin adds the appropriate
             classes that we use to style each element. These classes control the
             overall appearance, as well as the showing and hiding via CSS
-            transitions. You can modify any of this with custom CSS or overriding
-            our default variables. It's also worth noting that just about any HTML
-            can go within the <code>.accordion-body</code>, though the transition
-            does limit overflow.
+            transitions. You can modify any of this with custom CSS or
+            overriding our default variables. It's also worth noting that just
+            about any HTML can go within the <code>.accordion-body</code>,
+            though the transition does limit overflow.
           </p>
         </cod-accordion-body>
       </cod-accordion-item>
@@ -194,20 +194,20 @@ export const Flush = {
         </cod-accordion-header>
         <cod-accordion-body>
           <p>
-            <strong>This is the third item's accordion body.</strong> It is hidden
-            by default, until the collapse plugin adds the appropriate classes
-            that we use to style each element. These classes control the overall
-            appearance, as well as the showing and hiding via CSS transitions. You
-            can modify any of this with custom CSS or overriding our default
-            variables. It's also worth noting that just about any HTML can go
-            within the <code>.accordion-body</code>, though the transition does
-            limit overflow.
+            <strong>This is the third item's accordion body.</strong> It is
+            hidden by default, until the collapse plugin adds the appropriate
+            classes that we use to style each element. These classes control the
+            overall appearance, as well as the showing and hiding via CSS
+            transitions. You can modify any of this with custom CSS or
+            overriding our default variables. It's also worth noting that just
+            about any HTML can go within the <code>.accordion-body</code>,
+            though the transition does limit overflow.
           </p>
         </cod-accordion-body>
       </cod-accordion-item>
     </cod-accordion>
-  `
-}
+  `,
+};
 
 export const List = {
   tags: ['!dev'],
@@ -219,14 +219,14 @@ export const List = {
         </cod-accordion-header>
         <cod-accordion-body>
           <p>
-            <strong>This is the first item's accordion body.</strong> It is shown
-            by default, until the collapse plugin adds the appropriate classes
-            that we use to style each element. These classes control the overall
-            appearance, as well as the showing and hiding via CSS transitions. You
-            can modify any of this with custom CSS or overriding our default
-            variables. It's also worth noting that just about any HTML can go
-            within the <code>.accordion-body</code>, though the transition does
-            limit overflow.
+            <strong>This is the first item's accordion body.</strong> It is
+            shown by default, until the collapse plugin adds the appropriate
+            classes that we use to style each element. These classes control the
+            overall appearance, as well as the showing and hiding via CSS
+            transitions. You can modify any of this with custom CSS or
+            overriding our default variables. It's also worth noting that just
+            about any HTML can go within the <code>.accordion-body</code>,
+            though the transition does limit overflow.
           </p>
         </cod-accordion-body>
       </cod-accordion-item>
@@ -240,10 +240,10 @@ export const List = {
             hidden by default, until the collapse plugin adds the appropriate
             classes that we use to style each element. These classes control the
             overall appearance, as well as the showing and hiding via CSS
-            transitions. You can modify any of this with custom CSS or overriding
-            our default variables. It's also worth noting that just about any HTML
-            can go within the <code>.accordion-body</code>, though the transition
-            does limit overflow.
+            transitions. You can modify any of this with custom CSS or
+            overriding our default variables. It's also worth noting that just
+            about any HTML can go within the <code>.accordion-body</code>,
+            though the transition does limit overflow.
           </p>
         </cod-accordion-body>
       </cod-accordion-item>
@@ -253,20 +253,20 @@ export const List = {
         </cod-accordion-header>
         <cod-accordion-body>
           <p>
-            <strong>This is the third item's accordion body.</strong> It is hidden
-            by default, until the collapse plugin adds the appropriate classes
-            that we use to style each element. These classes control the overall
-            appearance, as well as the showing and hiding via CSS transitions. You
-            can modify any of this with custom CSS or overriding our default
-            variables. It's also worth noting that just about any HTML can go
-            within the <code>.accordion-body</code>, though the transition does
-            limit overflow.
+            <strong>This is the third item's accordion body.</strong> It is
+            hidden by default, until the collapse plugin adds the appropriate
+            classes that we use to style each element. These classes control the
+            overall appearance, as well as the showing and hiding via CSS
+            transitions. You can modify any of this with custom CSS or
+            overriding our default variables. It's also worth noting that just
+            about any HTML can go within the <code>.accordion-body</code>,
+            though the transition does limit overflow.
           </p>
         </cod-accordion-body>
       </cod-accordion-item>
     </cod-accordion>
   `,
-}
+};
 
 export const Custom = {
   tags: ['!dev'],
@@ -278,14 +278,14 @@ export const Custom = {
         </cod-accordion-header>
         <cod-accordion-body data-extra-classes="bg-success">
           <p>
-            <strong>This is the first item's accordion body.</strong> It is shown
-            by default, until the collapse plugin adds the appropriate classes
-            that we use to style each element. These classes control the overall
-            appearance, as well as the showing and hiding via CSS transitions. You
-            can modify any of this with custom CSS or overriding our default
-            variables. It's also worth noting that just about any HTML can go
-            within the <code>.accordion-body</code>, though the transition does
-            limit overflow.
+            <strong>This is the first item's accordion body.</strong> It is
+            shown by default, until the collapse plugin adds the appropriate
+            classes that we use to style each element. These classes control the
+            overall appearance, as well as the showing and hiding via CSS
+            transitions. You can modify any of this with custom CSS or
+            overriding our default variables. It's also worth noting that just
+            about any HTML can go within the <code>.accordion-body</code>,
+            though the transition does limit overflow.
           </p>
         </cod-accordion-body>
       </cod-accordion-item>
@@ -299,10 +299,10 @@ export const Custom = {
             hidden by default, until the collapse plugin adds the appropriate
             classes that we use to style each element. These classes control the
             overall appearance, as well as the showing and hiding via CSS
-            transitions. You can modify any of this with custom CSS or overriding
-            our default variables. It's also worth noting that just about any HTML
-            can go within the <code>.accordion-body</code>, though the transition
-            does limit overflow.
+            transitions. You can modify any of this with custom CSS or
+            overriding our default variables. It's also worth noting that just
+            about any HTML can go within the <code>.accordion-body</code>,
+            though the transition does limit overflow.
           </p>
         </cod-accordion-body>
       </cod-accordion-item>
@@ -312,17 +312,17 @@ export const Custom = {
         </cod-accordion-header>
         <cod-accordion-body>
           <p>
-            <strong>This is the third item's accordion body.</strong> It is hidden
-            by default, until the collapse plugin adds the appropriate classes
-            that we use to style each element. These classes control the overall
-            appearance, as well as the showing and hiding via CSS transitions. You
-            can modify any of this with custom CSS or overriding our default
-            variables. It's also worth noting that just about any HTML can go
-            within the <code>.accordion-body</code>, though the transition does
-            limit overflow.
+            <strong>This is the third item's accordion body.</strong> It is
+            hidden by default, until the collapse plugin adds the appropriate
+            classes that we use to style each element. These classes control the
+            overall appearance, as well as the showing and hiding via CSS
+            transitions. You can modify any of this with custom CSS or
+            overriding our default variables. It's also worth noting that just
+            about any HTML can go within the <code>.accordion-body</code>,
+            though the transition does limit overflow.
           </p>
         </cod-accordion-body>
       </cod-accordion-item>
     </cod-accordion>
   `,
-}
+};

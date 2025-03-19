@@ -34,7 +34,7 @@ export const Range = {
   args: {
     id: 'simple-range',
   },
-}
+};
 
 export const MinMax = {
   tags: ['autodocs'],

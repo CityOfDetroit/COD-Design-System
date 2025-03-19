@@ -34,8 +34,8 @@ export const Basic = {
       <cod-card-body>
         <h5 class="card-title">Card title</h5>
         <p class="card-text">
-          Some quick example text to build on the card title and make up the bulk
-          of the card's content.
+          Some quick example text to build on the card title and make up the
+          bulk of the card's content.
         </p>
         <cod-button
           data-primary="true"
@@ -64,7 +64,7 @@ export const BodyOnly = {
       </cod-card-body>
     </cod-card>
   `,
-}
+};
 
 export const TitleTextLinks = {
   tags: ['!dev'],
@@ -74,15 +74,15 @@ export const TitleTextLinks = {
         <h5 class="card-title">Card title</h5>
         <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
         <p class="card-text">
-          Some quick example text to build on the card title and make up the bulk
-          of the card's content.
+          Some quick example text to build on the card title and make up the
+          bulk of the card's content.
         </p>
         <a href="#" class="card-link">Card link</a>
         <a href="#" class="card-link">Another link</a>
       </cod-card-body>
     </cod-card>
   `,
-}
+};
 
 export const KitchenSink = {
   tags: ['!dev'],
@@ -96,8 +96,8 @@ export const KitchenSink = {
       <cod-card-body>
         <h5 class="card-title">Card title</h5>
         <p class="card-text">
-          Some quick example text to build on the card title and make up the bulk
-          of the card's content.
+          Some quick example text to build on the card title and make up the
+          bulk of the card's content.
         </p>
       </cod-card-body>
       <cod-card-body>
@@ -123,7 +123,7 @@ export const Header = {
         <a href="#" class="btn btn-primary">Go somewhere</a>
       </cod-card-body>
     </cod-card>
-  `
+  `,
 };
 
 export const HeaderFooter = {
@@ -145,7 +145,7 @@ export const HeaderFooter = {
       </cod-card-footer>
     </cod-card>
   `,
-}
+};
 
 export const ImageBottom = {
   tags: ['autodocs'],
@@ -154,8 +154,8 @@ export const ImageBottom = {
       <cod-card-body>
         <h5 class="card-title">Card title</h5>
         <p class="card-text">
-          This is a wider card with supporting text below as a natural lead-in to
-          additional content. This content is a little bit longer.
+          This is a wider card with supporting text below as a natural lead-in
+          to additional content. This content is a little bit longer.
         </p>
         <p class="card-text">
           <small class="text-body-secondary">Last updated 3 mins ago</small>
@@ -182,8 +182,8 @@ export const ImageOverlay = {
       <cod-card-overlay>
         <h5 class="card-title">Card title</h5>
         <p class="card-text">
-          This is a wider card with supporting text below as a natural lead-in to
-          additional content. This content is a little bit longer.
+          This is a wider card with supporting text below as a natural lead-in
+          to additional content. This content is a little bit longer.
         </p>
         <p class="card-text"><small>Last updated 3 mins ago</small></p>
       </cod-card-overlay>
@@ -212,7 +212,7 @@ export const NavigationTabs = {
       </cod-card-body>
     </cod-card>
   `,
-}
+};
 
 export const NavigationPills = {
   tags: ['!dev'],
@@ -251,8 +251,8 @@ export const CardStyles = {
       <cod-card-body>
         <h5 class="card-title">Primary card title</h5>
         <p class="card-text">
-          Some quick example text to build on the card title and make up the bulk
-          of the card's content.
+          Some quick example text to build on the card title and make up the
+          bulk of the card's content.
         </p>
       </cod-card-body>
     </cod-card>
@@ -268,8 +268,8 @@ export const CardStyles = {
       <cod-card-body>
         <h5 class="card-title">Secondary card title</h5>
         <p class="card-text">
-          Some quick example text to build on the card title and make up the bulk
-          of the card's content.
+          Some quick example text to build on the card title and make up the
+          bulk of the card's content.
         </p>
       </cod-card-body>
     </cod-card>
@@ -285,8 +285,8 @@ export const CardStyles = {
       <cod-card-body>
         <h5 class="card-title">Success card title</h5>
         <p class="card-text">
-          Some quick example text to build on the card title and make up the bulk
-          of the card's content.
+          Some quick example text to build on the card title and make up the
+          bulk of the card's content.
         </p>
       </cod-card-body>
     </cod-card>
@@ -302,8 +302,8 @@ export const CardStyles = {
       <cod-card-body>
         <h5 class="card-title">Danger card title</h5>
         <p class="card-text">
-          Some quick example text to build on the card title and make up the bulk
-          of the card's content.
+          Some quick example text to build on the card title and make up the
+          bulk of the card's content.
         </p>
       </cod-card-body>
     </cod-card>
@@ -319,8 +319,8 @@ export const CardStyles = {
       <cod-card-body>
         <h5 class="card-title">Warning card title</h5>
         <p class="card-text">
-          Some quick example text to build on the card title and make up the bulk
-          of the card's content.
+          Some quick example text to build on the card title and make up the
+          bulk of the card's content.
         </p>
       </cod-card-body>
     </cod-card>
@@ -336,8 +336,8 @@ export const CardStyles = {
       <cod-card-body>
         <h5 class="card-title">Info card title</h5>
         <p class="card-text">
-          Some quick example text to build on the card title and make up the bulk
-          of the card's content.
+          Some quick example text to build on the card title and make up the
+          bulk of the card's content.
         </p>
       </cod-card-body>
     </cod-card>
@@ -353,8 +353,8 @@ export const CardStyles = {
       <cod-card-body>
         <h5 class="card-title">Light card title</h5>
         <p class="card-text">
-          Some quick example text to build on the card title and make up the bulk
-          of the card's content.
+          Some quick example text to build on the card title and make up the
+          bulk of the card's content.
         </p>
       </cod-card-body>
     </cod-card>
@@ -370,8 +370,8 @@ export const CardStyles = {
       <cod-card-body>
         <h5 class="card-title">Dark card title</h5>
         <p class="card-text">
-          Some quick example text to build on the card title and make up the bulk
-          of the card's content.
+          Some quick example text to build on the card title and make up the
+          bulk of the card's content.
         </p>
       </cod-card-body>
     </cod-card>
@@ -392,8 +392,8 @@ export const Border = {
       <cod-card-body>
         <h5 class="card-title">Primary card title</h5>
         <p class="card-text">
-          Some quick example text to build on the card title and make up the bulk
-          of the card's content.
+          Some quick example text to build on the card title and make up the
+          bulk of the card's content.
         </p>
       </cod-card-body>
     </cod-card>
@@ -415,7 +415,8 @@ export const CardGrid = {
             <h5 class="card-title">Card title</h5>
             <p class="card-text">
               This is a longer card with supporting text below as a natural
-              lead-in to additional content. This content is a little bit longer.
+              lead-in to additional content. This content is a little bit
+              longer.
             </p>
           </cod-card-body>
         </cod-card>
@@ -431,7 +432,8 @@ export const CardGrid = {
             <h5 class="card-title">Card title</h5>
             <p class="card-text">
               This is a longer card with supporting text below as a natural
-              lead-in to additional content. This content is a little bit longer.
+              lead-in to additional content. This content is a little bit
+              longer.
             </p>
           </cod-card-body>
         </cod-card>
@@ -447,7 +449,8 @@ export const CardGrid = {
             <h5 class="card-title">Card title</h5>
             <p class="card-text">
               This is a longer card with supporting text below as a natural
-              lead-in to additional content. This content is a little bit longer.
+              lead-in to additional content. This content is a little bit
+              longer.
             </p>
           </cod-card-body>
         </cod-card>
@@ -463,11 +466,12 @@ export const CardGrid = {
             <h5 class="card-title">Card title</h5>
             <p class="card-text">
               This is a longer card with supporting text below as a natural
-              lead-in to additional content. This content is a little bit longer.
+              lead-in to additional content. This content is a little bit
+              longer.
             </p>
           </cod-card-body>
         </cod-card>
       </div>
     </div>
   `,
-}
+};

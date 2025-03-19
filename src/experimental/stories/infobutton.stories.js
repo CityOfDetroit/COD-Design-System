@@ -89,8 +89,8 @@ export const InfoButtonGrid = {
             title-primary="Some Information"
           >
             <p>
-              Commercial demolition and rehab but this content is going to spread
-              onto multiple lines
+              Commercial demolition and rehab but this content is going to
+              spread onto multiple lines
             </p>
           </cod-info-button>
         </div>
@@ -138,7 +138,9 @@ export const InfoButtonGrid = {
             title-primary="Some Information"
           >
             <p>Commercial demolition and rehab.</p>
-            <p>With an <i>italic flair</i> to demonstrate rich markup ability.</p>
+            <p>
+              With an <i>italic flair</i> to demonstrate rich markup ability.
+            </p>
           </cod-info-button>
         </div>
       </div>

@@ -52,7 +52,7 @@ const Template = (args) => {
 export const ActionButton = {
   tags: ['autodocs'],
   render: Template.bind({}),
-}
+};
 
 export const ActionButtonRichBody = {
   tags: ['!dev'],
@@ -66,8 +66,8 @@ export const ActionButtonRichBody = {
         target="_blank"
       >
         <p>
-          Anything can go inside an action button but it's best to keep to simple
-          text.
+          Anything can go inside an action button but it's best to keep to
+          simple text.
         </p>
         <img
           src="https://placehold.co/800x400/000000/FFF"
@@ -78,7 +78,7 @@ export const ActionButtonRichBody = {
       </cod-action-button>
     </div>
   `,
-}
+};
 
 export const ActionButtonGrid = () => html`
   <div class="container-fluid">

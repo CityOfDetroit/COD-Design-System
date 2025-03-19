@@ -117,8 +117,8 @@ export const ActionButtonV2Grid = {
             <h4 slot="title">Do Something</h4>
             <p slot="body">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
-              luctus eros sit amet augue tempus sollicitudin. Mauris lacinia ante
-              et.
+              luctus eros sit amet augue tempus sollicitudin. Mauris lacinia
+              ante et.
             </p>
           </cod-action-button-v2>
         </div>

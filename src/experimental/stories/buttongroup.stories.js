@@ -200,7 +200,10 @@ export const CheckboxButtonGroup = {
 export const ButtonToolbar = {
   tags: ['!dev'], // Only for testing, hidden from sidebar
   render: () => html`
-    <cod-button-group data-type="toolbar" data-label="Toolbar with button groups">
+    <cod-button-group
+      data-type="toolbar"
+      data-label="Toolbar with button groups"
+    >
       <cod-button-group
         data-type="group"
         data-label="group 1"
