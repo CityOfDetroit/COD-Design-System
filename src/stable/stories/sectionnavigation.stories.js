@@ -5,7 +5,7 @@ import '../../stable/components/SectionNavigation/cod-section-navigation';
 
 export default {
   tags: ['stable'],
-  title: 'Components/SectionNavigation',
+  title: 'Components/Section Navigation',
 };
 
 export const SectionNavigation = {

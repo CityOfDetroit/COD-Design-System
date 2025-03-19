@@ -2,7 +2,8 @@ import '../components/atoms/Icon/cod-icon';
 import { COMMON_STORY_ARGS } from '../../shared/js/storybook/args-utils';
 
 export default {
-  title: 'Experimental/Atoms/Icon',
+  tags: ['experimental'],
+  title: 'Components/Icon',
   argTypes: {
     icon: COMMON_STORY_ARGS.icon,
     size: COMMON_STORY_ARGS.longSize,
@@ -25,14 +26,11 @@ const Template = (args) => {
   return icon;
 };
 
-export const Icon = Template.bind({});
-Icon.args = {
-  icon: 'house',
-  size: 'small',
-};
-
-export const IconCustom = Template.bind({});
-IconCustom.args = {
-  icon: 'house',
-  size: '120',
+export const Icon = {
+  tags: ['autodocs'],
+  render: Template.bind({}),
+  args: {
+    icon: 'house',
+    size: 'small',
+  },
 };

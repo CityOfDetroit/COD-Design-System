@@ -3,7 +3,7 @@ import { COMMON_STORY_ARGS } from '../../shared/js/storybook/args-utils';
 
 export default {
   tags: ['experimental'],
-  title: 'Components/ArticleCard',
+  title: 'Components/Article Card',
   argTypes: {
     href: {
       control: { type: 'text' },

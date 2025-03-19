@@ -2,7 +2,11 @@ import { html } from 'lit-html';
 import '../components/organisms/Geocoder/cod-geocoder';
 
 export default {
-  title: 'Experimental/Organisms/geocoder',
+  tags: ['experimental'],
+  title: 'Components/Geocoder',
 };
 
-export const loaded = () => html`<cod-geocoder></cod-geocoder>`;
+export const loaded = {
+  tags: ['autodocs'],
+  render: () => html`<cod-geocoder></cod-geocoder>`,
+};
