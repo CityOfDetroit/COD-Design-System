@@ -2,7 +2,8 @@ import '../components/atoms/FormLabel/cod-formlabel';
 import { COMMON_STORY_ARGS } from '../../shared/js/storybook/args-utils';
 
 export default {
-  title: 'Experimental/FormLabel',
+  tags: ['experimental', '!dev'],
+  title: 'Components/FormLabel',
   argTypes: {
     color: COMMON_STORY_ARGS.bootstrapColor,
     required: COMMON_STORY_ARGS.required,

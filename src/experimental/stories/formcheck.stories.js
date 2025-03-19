@@ -2,7 +2,8 @@ import '../components/atoms/FormCheck/cod-formcheck';
 import { COMMON_STORY_ARGS } from '../../shared/js/storybook/args-utils';
 
 export default {
-  title: 'Experimental/FormCheck',
+  tags: ['experimental', '!dev'],
+  title: 'Components/FormCheck',
   argTypes: {
     backgroundColor: COMMON_STORY_ARGS.bootstrapColor,
     btnColor: COMMON_STORY_ARGS.bootstrapColor,

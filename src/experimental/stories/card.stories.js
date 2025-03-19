@@ -57,7 +57,6 @@ export const Basic = {
 };
 
 export const BodyOnly = {
-  tags: [''],
   render: () => html`
     <cod-card data-id="card-body-only">
       <cod-card-body>

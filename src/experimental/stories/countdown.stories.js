@@ -2,7 +2,8 @@ import '../components/atoms/Countdown/cod-countdown';
 import { COMMON_STORY_ARGS } from '../../shared/js/storybook/args-utils';
 
 export default {
-  title: 'Experimental/Atoms/Countdown',
+  tags: ['experimental'],
+  title: 'Components/Countdown',
   argTypes: {
     size: {
       control: { type: 'select' },
@@ -22,10 +23,13 @@ const Template = (args) => {
   return countdown;
 };
 
-export const Countdown = Template.bind({});
-Countdown.args = {
-  extraClasses: '',
-  end: '2024-10-01T19:19',
-  size: 'sm',
-  text: 'dark',
+export const Countdown = {
+  tags: ['autodocs'],
+  render: Template.bind({}),
+  args: {
+    extraClasses: '',
+    end: '2024-10-01T19:19',
+    size: 'sm',
+    text: 'dark',
+  },
 };

@@ -10,4 +10,4 @@ export const parameters = {
     },
   },
 };
-export const tags = [''];
+export const tags = [];
