@@ -2,7 +2,7 @@ import '../components/organisms/Calendar/cod-calendar';
 
 export default {
   tags: ['experimental'],
-  title: 'Components/Calendar',
+  title: 'Experimental/Calendar',
   argTypes: {
     events: {
       control: { type: 'text' },

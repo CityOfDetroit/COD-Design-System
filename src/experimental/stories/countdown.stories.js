@@ -3,7 +3,7 @@ import { COMMON_STORY_ARGS } from '../../shared/js/storybook/args-utils';
 
 export default {
   tags: ['experimental'],
-  title: 'Components/Countdown',
+  title: 'Experimental/Countdown',
   argTypes: {
     size: {
       control: { type: 'select' },

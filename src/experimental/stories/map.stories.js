@@ -3,7 +3,7 @@ import '../components/organisms/Map/cod-map';
 
 export default {
   tags: ['experimental'],
-  title: 'Components/Map',
+  title: 'Experimental/Map',
 };
 
 export const Location = {

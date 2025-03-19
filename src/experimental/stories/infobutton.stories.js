@@ -5,7 +5,7 @@ import '../components/atoms/InfoButton/cod-info-button';
 export default {
   tags: ['experimental'],
   component: 'cod-info-button',
-  title: 'Components/Info Button',
+  title: 'Experimental/Info Button',
   // 👇 Creates specific argTypes
   argTypes: {
     titlePrimary: {

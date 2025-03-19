@@ -3,7 +3,7 @@ import { COMMON_STORY_ARGS } from '../../shared/js/storybook/args-utils';
 
 export default {
   tags: ['experimental', '!dev'],
-  title: 'Components/FormSelect',
+  title: 'Experimental/FormSelect',
   argTypes: {
     // TODO: Add support for xl to make size
     // consistent. Issue #202.

@@ -7,7 +7,7 @@ import '../components/atoms/Button/cod-button';
 
 export default {
   tags: ['experimental'],
-  title: 'Components/Modal',
+  title: 'Experimental/Modal',
 };
 
 export const Basic = () => html`

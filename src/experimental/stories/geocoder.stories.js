@@ -3,7 +3,7 @@ import '../components/organisms/Geocoder/cod-geocoder';
 
 export default {
   tags: ['experimental'],
-  title: 'Components/Geocoder',
+  title: 'Experimental/Geocoder',
 };
 
 export const loaded = {

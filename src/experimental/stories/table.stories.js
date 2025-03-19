@@ -8,7 +8,7 @@ import '../components/organisms/Table/cod-table';
 
 export default {
   tags: ['experimental'],
-  title: 'Components/Table',
+  title: 'Experimental/Table',
 };
 
 export const Basic = () => html`

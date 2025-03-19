@@ -3,7 +3,7 @@ import { COMMON_STORY_ARGS } from '../../shared/js/storybook/args-utils';
 
 export default {
   tags: ['experimental', '!dev'],
-  title: 'Components/FormCheck',
+  title: 'Experimental/FormCheck',
   argTypes: {
     backgroundColor: COMMON_STORY_ARGS.bootstrapColor,
     btnColor: COMMON_STORY_ARGS.bootstrapColor,

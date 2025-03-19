@@ -3,7 +3,7 @@ import '../components/molecules/FormCheckGroup/cod-form-check-group';
 
 export default {
   tags: ['experimental', '!dev'],
-  title: 'Components/FormCheckGroup',
+  title: 'Experimental/FormCheckGroup',
 };
 
 export const RadioGroup = () => html`

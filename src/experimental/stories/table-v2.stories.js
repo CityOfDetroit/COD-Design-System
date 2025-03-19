@@ -3,7 +3,7 @@ import '../components/organisms/TableV2/cod-table-v2';
 
 export default {
   tags: ['experimental'],
-  title: 'Components/TableV2',
+  title: 'Experimental/TableV2',
 };
 
 export const Basic = () => html`

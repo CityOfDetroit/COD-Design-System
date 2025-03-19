@@ -6,7 +6,7 @@ import '../components/atoms/Button/cod-button';
 
 export default {
   tags: ['experimental'],
-  title: 'Components/Carousel',
+  title: 'Experimental/Carousel',
 };
 
 export const Basic = {

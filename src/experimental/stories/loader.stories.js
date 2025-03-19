@@ -3,7 +3,7 @@ import { COMMON_STORY_ARGS } from '../../shared/js/storybook/args-utils';
 
 export default {
   tags: ['experimental'],
-  title: 'Components/Loader',
+  title: 'Experimental/Loader',
   argTypes: {
     // TODO: Use bootstrap color names. Issue #202.
     backgroundColor: COMMON_STORY_ARGS.numberColor,

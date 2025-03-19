@@ -3,7 +3,7 @@ import '../components/molecules/Nav/cod-nav';
 
 export default {
   tags: ['experimental'],
-  title: 'Components/Nav',
+  title: 'Experimental/Nav',
 };
 
 export const Basic = () => html`

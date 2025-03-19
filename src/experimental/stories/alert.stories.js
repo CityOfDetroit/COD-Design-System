@@ -3,7 +3,7 @@ import { COMMON_STORY_ARGS } from '../../shared/js/storybook/args-utils';
 
 export default {
   tags: ['experimental'],
-  title: 'Components/Alert',
+  title: 'Experimental/Alert',
   argTypes: {
     icon: COMMON_STORY_ARGS.icon,
     iconOrder: COMMON_STORY_ARGS.order,

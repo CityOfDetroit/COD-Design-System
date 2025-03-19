@@ -3,7 +3,7 @@ import { html } from 'lit-html';
 
 export default {
   tags: ['experimental'],
-  title: 'Components/Legacy Icon',
+  title: 'Experimental/Legacy Icon',
   argTypes: {
     icon: {
       control: { type: 'select' },

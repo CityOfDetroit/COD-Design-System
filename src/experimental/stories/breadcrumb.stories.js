@@ -3,7 +3,7 @@ import '../components/atoms/Breadcrumb/cod-breadcrumb';
 
 export default {
   tags: ['experimental'],
-  title: 'Components/Breadcrumb',
+  title: 'Experimental/Breadcrumb',
 };
 
 export const Basic = {

@@ -4,7 +4,7 @@ import { COMMON_STORY_ARGS } from '../../shared/js/storybook/args-utils';
 
 export default {
   tags: ['experimental'],
-  title: 'Components/Badge',
+  title: 'Experimental/Badge',
   argTypes: {
     tag: {
       control: { type: 'select' },

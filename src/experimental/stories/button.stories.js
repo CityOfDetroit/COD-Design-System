@@ -4,7 +4,7 @@ import { COMMON_STORY_ARGS } from '../../shared/js/storybook/args-utils';
 
 export default {
   tags: ['experimental'],
-  title: 'Components/Button',
+  title: 'Experimental/Button',
   argTypes: {
     primary: {
       control: { type: 'boolean' },

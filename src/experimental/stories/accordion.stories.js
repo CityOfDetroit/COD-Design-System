@@ -6,7 +6,7 @@ import '../components/molecules/Accordion/cod-accordion';
 
 export default {
   tags: ['experimental'],
-  title: 'Components/Accordion',
+  title: 'Experimental/Accordion',
 };
 
 export const Basic = {

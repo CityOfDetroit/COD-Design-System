@@ -5,7 +5,7 @@ import '../components/organisms/Offcanvas/cod-offcanvas';
 
 export default {
   tags: ['experimental'],
-  title: 'Components/Offcanvas',
+  title: 'Experimental/Offcanvas',
 };
 
 export const Basic = () => html`

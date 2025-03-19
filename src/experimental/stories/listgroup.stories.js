@@ -4,7 +4,7 @@ import '../components/molecules/ListGroup/cod-listgroup';
 
 export default {
   tags: ['experimental', '!dev'],
-  title: 'Components/ListGroup',
+  title: 'Experimental/ListGroup',
 };
 
 export const Basic = () => html`

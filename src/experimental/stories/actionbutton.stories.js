@@ -6,7 +6,7 @@ import { COMMON_STORY_ARGS } from '../../shared/js/storybook/args-utils';
 export default {
   tags: ['experimental'],
   component: 'cod-action-button',
-  title: 'Components/Action Button',
+  title: 'Experimental/Action Button',
   // 👇 Creates specific argTypes
   argTypes: {
     // TODO: Make this attr name and accepted

@@ -5,7 +5,7 @@ import '../components/atoms/Button/cod-button';
 
 export default {
   tags: ['experimental'],
-  title: 'Components/Dropdown',
+  title: 'Experimental/Dropdown',
 };
 
 export const Basic = {

@@ -3,7 +3,7 @@ import { COMMON_STORY_ARGS } from '../../shared/js/storybook/args-utils';
 
 export default {
   tags: ['experimental', '!dev'],
-  title: 'Components/FormControl',
+  title: 'Experimental/FormControl',
   argTypes: {
     backgroundColor: COMMON_STORY_ARGS.bootstrapColor,
     // TODO: Add support for xl to make size

@@ -3,7 +3,7 @@ import '../components/atoms/Progress/cod-progress';
 
 export default {
   tags: ['experimental'],
-  title: 'Components/Progress',
+  title: 'Experimental/Progress',
   argTypes: {
     backgroundColor: COMMON_STORY_ARGS.bootstrapColor,
   },

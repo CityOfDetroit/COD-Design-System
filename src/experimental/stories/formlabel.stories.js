@@ -3,7 +3,7 @@ import { COMMON_STORY_ARGS } from '../../shared/js/storybook/args-utils';
 
 export default {
   tags: ['experimental', '!dev'],
-  title: 'Components/FormLabel',
+  title: 'Experimental/FormLabel',
   argTypes: {
     color: COMMON_STORY_ARGS.bootstrapColor,
     required: COMMON_STORY_ARGS.required,

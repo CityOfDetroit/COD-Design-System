@@ -8,7 +8,7 @@ import '../components/atoms/Button/cod-button';
 
 export default {
   tags: ['experimental'],
-  title: 'Components/Card',
+  title: 'Experimental/Card',
 };
 
 export const Basic = {

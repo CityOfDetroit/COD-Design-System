@@ -5,7 +5,7 @@ import '../components/organisms/ImgSlider/cod-img-slider';
 
 export default {
   tags: ['experimental'],
-  title: 'Components/Image Slider',
+  title: 'Experimental/Image Slider',
 };
 
 export const Basic = {

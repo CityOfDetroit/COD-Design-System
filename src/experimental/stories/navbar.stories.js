@@ -10,7 +10,7 @@ import '../components/atoms/Button/cod-button';
 
 export default {
   tags: ['experimental'],
-  title: 'Components/Navbar',
+  title: 'Experimental/Navbar',
 };
 
 export const Basic = () => html`

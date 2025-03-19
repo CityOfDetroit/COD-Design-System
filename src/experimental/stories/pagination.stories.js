@@ -4,7 +4,7 @@ import '../components/molecules/Pagination/cod-pagination';
 
 export default {
   tags: ['experimental'],
-  title: 'Components/Pagination',
+  title: 'Experimental/Pagination',
 };
 
 export const Basic = () => html`

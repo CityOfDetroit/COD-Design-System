@@ -3,7 +3,7 @@ import { COMMON_STORY_ARGS } from '../../shared/js/storybook/args-utils';
 
 export default {
   tags: ['experimental'],
-  title: 'Components/Icon',
+  title: 'Experimental/Icon',
   argTypes: {
     icon: COMMON_STORY_ARGS.icon,
     size: COMMON_STORY_ARGS.longSize,

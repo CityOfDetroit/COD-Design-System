@@ -5,7 +5,7 @@ import '../components/atoms/FormCheck/cod-formcheck';
 
 export default {
   tags: ['experimental'],
-  title: 'Components/ButtonGroup',
+  title: 'Experimental/ButtonGroup',
 };
 
 export const Basic = {
