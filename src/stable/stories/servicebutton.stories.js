@@ -4,7 +4,7 @@ import { expect } from '@storybook/test';
 
 export default {
   tags: ['stable'],
-  title: 'Stable/ServiceButton',
+  title: 'Components/ServiceButton',
   component: 'cod-service-button',
 };
 

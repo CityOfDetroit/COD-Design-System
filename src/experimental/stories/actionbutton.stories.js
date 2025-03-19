@@ -4,8 +4,9 @@ import '../components/atoms/Icon/cod-icon';
 import { COMMON_STORY_ARGS } from '../../shared/js/storybook/args-utils';
 
 export default {
+  tags: ['experimental'],
   component: 'cod-action-button',
-  title: 'Experimental/Atoms/ActionButton',
+  title: 'Components/ActionButton',
   // 👇 Creates specific argTypes
   argTypes: {
     // TODO: Make this attr name and accepted
@@ -48,30 +49,36 @@ const Template = (args) => {
   return aButton;
 };
 
-export const ActionButton = Template.bind({});
+export const ActionButton = {
+  tags: ['autodocs'],
+  render: Template.bind({}),
+}
 
-export const ActionButtonRichBody = () => html`
-  <div style="width: 300px; height: 300px">
-    <cod-action-button
-      btn-color="btn-outline-primary"
-      icon="house"
-      title="Do Something"
-      href="https://example.com"
-      target="_blank"
-    >
-      <p>
-        Anything can go inside an action button but it's best to keep to simple
-        text.
-      </p>
-      <img
-        src="https://placehold.co/800x400/000000/FFF"
-        alt="..."
-        width="100"
-        height="50"
-      />
-    </cod-action-button>
-  </div>
-`;
+export const ActionButtonRichBody = {
+  tags: ['!dev'],
+  render: () => html`
+    <div style="width: 300px; height: 300px">
+      <cod-action-button
+        btn-color="btn-outline-primary"
+        icon="house"
+        title="Do Something"
+        href="https://example.com"
+        target="_blank"
+      >
+        <p>
+          Anything can go inside an action button but it's best to keep to simple
+          text.
+        </p>
+        <img
+          src="https://placehold.co/800x400/000000/FFF"
+          alt="..."
+          width="100"
+          height="50"
+        />
+      </cod-action-button>
+    </div>
+  `,
+}
 
 export const ActionButtonGrid = () => html`
   <div class="container-fluid">

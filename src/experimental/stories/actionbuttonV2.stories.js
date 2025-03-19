@@ -4,8 +4,9 @@ import '../components/atoms/Icon/cod-icon';
 import { COMMON_STORY_ARGS } from '../../shared/js/storybook/args-utils';
 
 export default {
+  tags: ['experimental'],
   component: 'cod-action-button-v2',
-  title: 'Experimental/Atoms/ActionButtonV2',
+  title: 'Components/ActionButtonV2',
   // 👇 Creates specific argTypes
   argTypes: {
     // TODO: Make this attr name and accepted
@@ -57,108 +58,117 @@ const Template = (args) => {
   return aButton;
 };
 
-export const ActionButtonV2 = Template.bind({});
+export const ActionButtonV2 = {
+  tags: ['!dev'],
+  redner: Template.bind({}),
+};
 
-export const ActionButtonV2RichBody = () => html`
-  <div style="width: 300px; height: 300px">
-    <cod-action-button-v2
-      btn-color="btn-outline-primary"
-      icon="house"
-      href="https://example.com"
-      target="_blank"
-    >
-      <h4 slot="title">Do Something</h4>
-      <div slot="body">
-        <p>
-          Anything can go inside an action button but it's best to keep to
-          simple text.
-        </p>
-        <img
-          src="https://placehold.co/800x400/000000/FFF"
-          alt="..."
-          width="100"
-          height="50"
-        />
-      </div>
-    </cod-action-button-v2>
-  </div>
-`;
-
-export const ActionButtonV2Grid = () => html`
-  <div class="container-fluid">
-    <div class="row my-3">
-      <div class="col-sm-4">
-        <cod-action-button-v2
-          btn-color="btn-outline-primary"
-          icon="house"
-          href="https://example.com"
-          target="_blank"
-        >
-          <h4 slot="title">Do Something</h4>
-          <p slot="body">Like Click on This Button</p>
-        </cod-action-button-v2>
-      </div>
-      <div class="col-sm-4">
-        <cod-action-button-v2
-          btn-color="btn-outline-primary"
-          icon="house"
-          href="https://example.com"
-          target="_blank"
-        >
-          <h4 slot="title">Do Something</h4>
-          <p slot="body">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
-            luctus eros sit amet augue tempus sollicitudin. Mauris lacinia ante
-            et.
+export const ActionButtonV2RichBody = {
+  tags: ['!dev'],
+  render: () => html`
+    <div style="width: 300px; height: 300px">
+      <cod-action-button-v2
+        btn-color="btn-outline-primary"
+        icon="house"
+        href="https://example.com"
+        target="_blank"
+      >
+        <h4 slot="title">Do Something</h4>
+        <div slot="body">
+          <p>
+            Anything can go inside an action button but it's best to keep to
+            simple text.
           </p>
-        </cod-action-button-v2>
+          <img
+            src="https://placehold.co/800x400/000000/FFF"
+            alt="..."
+            width="100"
+            height="50"
+          />
+        </div>
+      </cod-action-button-v2>
+    </div>
+  `,
+};
+
+export const ActionButtonV2Grid = {
+  tags: ['!dev'],
+  render: () => html`
+    <div class="container-fluid">
+      <div class="row my-3">
+        <div class="col-sm-4">
+          <cod-action-button-v2
+            btn-color="btn-outline-primary"
+            icon="house"
+            href="https://example.com"
+            target="_blank"
+          >
+            <h4 slot="title">Do Something</h4>
+            <p slot="body">Like Click on This Button</p>
+          </cod-action-button-v2>
+        </div>
+        <div class="col-sm-4">
+          <cod-action-button-v2
+            btn-color="btn-outline-primary"
+            icon="house"
+            href="https://example.com"
+            target="_blank"
+          >
+            <h4 slot="title">Do Something</h4>
+            <p slot="body">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
+              luctus eros sit amet augue tempus sollicitudin. Mauris lacinia ante
+              et.
+            </p>
+          </cod-action-button-v2>
+        </div>
+        <div class="col-sm-4">
+          <cod-action-button-v2
+            btn-color="btn-outline-primary"
+            icon="house"
+            href="https://example.com"
+            target="_blank"
+          >
+            <h4 slot="title">Do Something</h4>
+            <p slot="body">Like Click on This Button</p>
+          </cod-action-button-v2>
+        </div>
       </div>
-      <div class="col-sm-4">
-        <cod-action-button-v2
-          btn-color="btn-outline-primary"
-          icon="house"
-          href="https://example.com"
-          target="_blank"
-        >
-          <h4 slot="title">Do Something</h4>
-          <p slot="body">Like Click on This Button</p>
-        </cod-action-button-v2>
+      <div class="row my-3">
+        <div class="col-sm-4">
+          <cod-action-button-v2
+            btn-color="btn-outline-primary"
+            icon="house"
+            href="https://example.com"
+            target="_blank"
+          >
+            <h4 slot="title">Do Something</h4>
+            <p slot="body">Like Click on This Button</p>
+          </cod-action-button-v2>
+        </div>
+        <div class="col-sm-4">
+          <cod-action-button-v2
+            btn-color="btn-outline-primary"
+            icon="house"
+            href="https://example.com"
+            target="_blank"
+          >
+            <h4 slot="title">Do Something</h4>
+            <p slot="body">Like Click on This Button</p>
+          </cod-action-button-v2>
+        </div>
+        <div class="col-sm-4">
+          <cod-action-button-v2
+            btn-color="btn-outline-primary"
+            icon="house"
+            href="https://example.com"
+            target="_blank"
+          >
+            <h4 slot="title">Do Something</h4>
+            <p slot="body">Like Click on This Button</p>
+          </cod-action-button-v2>
+        </div>
       </div>
     </div>
-    <div class="row my-3">
-      <div class="col-sm-4">
-        <cod-action-button-v2
-          btn-color="btn-outline-primary"
-          icon="house"
-          href="https://example.com"
-          target="_blank"
-        >
-          <h4 slot="title">Do Something</h4>
-          <p slot="body">Like Click on This Button</p>
-        </cod-action-button-v2>
-      </div>
-      <div class="col-sm-4">
-        <cod-action-button-v2
-          btn-color="btn-outline-primary"
-          icon="house"
-          href="https://example.com"
-          target="_blank"
-        >
-          <h4 slot="title">Do Something</h4>
-          <p slot="body">Like Click on This Button</p>
-        </cod-action-button-v2>
-      </div>
-      <div class="col-sm-4">
-        <cod-action-button-v2
-          btn-color="btn-outline-primary"
-          icon="house"
-          href="https://example.com"
-          target="_blank"
-        >
-          <h4 slot="title">Do Something</h4>
-          <p slot="body">Like Click on This Button</p>
-        </cod-action-button-v2>
-      </div>
-    </div>
-  </div>
-`;
+  `,
+};

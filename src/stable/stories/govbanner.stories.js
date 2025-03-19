@@ -5,7 +5,7 @@ import '../components/GovBanner/cod-gov-banner';
 
 export default {
   tags: ['stable'],
-  title: 'Stable/GovBanner',
+  title: 'Components/GovBanner',
 };
 
 export const GovBanner = {
