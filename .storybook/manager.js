@@ -6,9 +6,10 @@ import {
 
 addons.setConfig({
   theme: CODTheme,
-});
-
-addons.setConfig({
+  navSize: 400,
+  sidebar: {
+    collapsedRoots: ['experimental'],
+  },
   tagBadges: [
     // When tagged 'stable', display a badge in the sidebar and toolbar
     {
@@ -20,7 +21,7 @@ addons.setConfig({
         tooltip: 'These components are ready for use!',
       },
       display: {
-        sidebar: ['component'],
+        sidebar: false,
         toolbar: true,
       },
     },

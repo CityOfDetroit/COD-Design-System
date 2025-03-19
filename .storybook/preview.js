@@ -9,5 +9,10 @@ export const parameters = {
       date: /Date$/,
     },
   },
+  options: {
+    storySort: {
+      order: ['COD UXDS', 'Components', 'Experimental'],
+    },
+  },
 };
 export const tags = [];
