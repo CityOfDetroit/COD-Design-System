@@ -2,7 +2,8 @@ import '../components/atoms/Spinner/cod-spinner';
 import { COMMON_STORY_ARGS } from '../../shared/js/storybook/args-utils';
 
 export default {
-  title: 'Experimental/Atoms/Spinner',
+  tags: ['experimental'],
+  title: 'Components/Spinner',
   argTypes: {
     type: {
       control: { type: 'select' },
@@ -27,8 +28,11 @@ const Template = (args) => {
   return spinner;
 };
 
-export const Spinner = Template.bind({});
-Spinner.args = {
-  type: 'border',
-  backgroundColor: 'primary',
+export const Spinner = {
+  tags: ['autodocs'],
+  render: Template.bind({}),
+  args: {
+    type: 'border',
+    backgroundColor: 'primary',
+  },
 };
