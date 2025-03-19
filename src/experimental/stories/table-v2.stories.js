@@ -2,7 +2,8 @@ import { html } from 'lit-html';
 import '../components/organisms/TableV2/cod-table-v2';
 
 export default {
-  title: 'Experimental/Organisms/TableV2',
+  tags: ['experimental'],
+  title: 'Components/TableV2',
 };
 
 export const Basic = () => html`
