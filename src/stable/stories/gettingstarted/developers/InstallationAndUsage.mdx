@@ -11,14 +11,16 @@ The NPM package for the design system is hosted on the City of Detroit's GitHub 
 ### NPM
 
 To install the latest version:
+
 ```bash
 npm i git+https://github.com/CityOfDetroit/COD-Design-System.git
 ```
 
-**Note: Be careful installing the latest version because subsequent yarn updates may update to 
+**Note: Be careful installing the latest version because subsequent yarn updates may update to
 a new major version that breaks your application**.
 
 For a specific version (like 2.0.5):
+
 ```bash
 npm i git+https://github.com/CityOfDetroit/COD-Design-System.git#v2.0.5
 ```
@@ -26,21 +28,23 @@ npm i git+https://github.com/CityOfDetroit/COD-Design-System.git#v2.0.5
 ### Yarn
 
 To install the latest version:
+
 ```bash
 yarn add git+https://github.com/CityOfDetroit/COD-Design-System.git
 ```
 
-**Note: Be careful installing the latest version because subsequent yarn updates may update to 
+**Note: Be careful installing the latest version because subsequent yarn updates may update to
 a new major version that breaks your application**.
 
 For a specific version (like 2.0.5):
+
 ```bash
 yarn add git+https://github.com/CityOfDetroit/COD-Design-System.git#v2.0.5
 ```
 
 ## Using Components
 
-As described on the [Introduction](/docs/getting-started-developers-introduction--docs) page, the 
+As described on the [Introduction](/docs/getting-started-developers-introduction--docs) page, the
 City of Detroit Design System contains both stable and experimental components. These components
 are bundled separately in the packge. Below we provide examples of how to use the stable components.
 If you'd like to use the experimental components, you can replace 'stable' with 'experimental' in the
@@ -57,9 +61,15 @@ import 'cod-design-system';
 Then use the components in your JSX:
 
 ```js
-<cod-service-button href="https://www.example.com" target="_blank" rel="noopener noreferrer">
+<cod-service-button
+  href="https://www.example.com"
+  target="_blank"
+  rel="noopener noreferrer"
+>
   <span slot="title">Apply for a Job</span>
-  <span slot="subtitle">View job postings for the City of Detroit or our partners.</span>
+  <span slot="subtitle">
+    View job postings for the City of Detroit or our partners.
+  </span>
 </cod-service-button>
 ```
 
@@ -77,9 +87,15 @@ To use web components in a native HTML/JS/CSS application, first import the comp
 Then use the components in your HTML:
 
 ```html
-<cod-service-button href="https://www.example.com" target="_blank" rel="noopener noreferrer">
+<cod-service-button
+  href="https://www.example.com"
+  target="_blank"
+  rel="noopener noreferrer"
+>
   <span slot="title">Apply for a Job</span>
-  <span slot="subtitle">View job postings for the City of Detroit or our partners.</span>
+  <span slot="subtitle"
+    >View job postings for the City of Detroit or our partners.</span
+  >
 </cod-service-button>
 ```
 
@@ -94,16 +110,20 @@ the DOM tree, and using event handlers to pass data up the DOM tree.
 For basic primitive types like `string`, `boolean`, `number`, data can be passed to the element as an attribute:
 
 ```js
-<cod-service-button href="https://www.example.com" target="_blank" rel="noopener noreferrer">
+<cod-service-button
+  href="https://www.example.com"
+  target="_blank"
+  rel="noopener noreferrer"
+>
   ...
 </cod-service-button>
 ```
 
 ### Passing Down Rick Markup w/ Slots
 
-Sometimes an attribute is not enough to pass data down the DOM tree, especially when the content 
-you want to pass down has a structure of its own. The 
-[Web Component Slot element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/slot) gives you 
+Sometimes an attribute is not enough to pass data down the DOM tree, especially when the content
+you want to pass down has a structure of its own. The
+[Web Component Slot element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/slot) gives you
 full control over the contents of a component. Some components may have multiple slots. The slots
 are described on a components 'Docs' page.
 
@@ -112,9 +132,15 @@ are described on a components 'Docs' page.
 
 ```html
 <div style="color: blue">
-  <cod-service-button href="https://www.example.com" target="_blank" rel="noopener noreferrer">
+  <cod-service-button
+    href="https://www.example.com"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
     <span slot="title">Apply for a Job</span>
-    <span slot="subtitle">View job postings for the City of Detroit or our partners.</span>
+    <span slot="subtitle"
+      >View job postings for the City of Detroit or our partners.</span
+    >
   </cod-service-button>
 </div>
 ```
@@ -124,17 +150,21 @@ are described on a components 'Docs' page.
 To handle interactions and events, you can use the standard DOM event listeners:
 
 ```js
-document.querySelector('cod-service-button').addEventListener('click', (event) => {
-  console.log('Button clicked!');
-});
+document
+  .querySelector('cod-service-button')
+  .addEventListener('click', (event) => {
+    console.log('Button clicked!');
+  });
 ```
 
 If a component dispatches a custom event, you can listen for that event:
 
 ```js
-document.querySelector('cod-service-button').addEventListener('custom-event', (event) => {
-  console.log('Custom event dispatched!');
-});
+document
+  .querySelector('cod-service-button')
+  .addEventListener('custom-event', (event) => {
+    console.log('Custom event dispatched!');
+  });
 ```
 
 Custom events will be documents on the component's 'Docs' page.
