@@ -3,8 +3,9 @@ import '../components/atoms/Icon/cod-icon';
 import '../components/atoms/InfoButton/cod-info-button';
 
 export default {
+  tags: ['experimental'],
   component: 'cod-info-button',
-  title: 'Experimental/Atoms/InfoButton',
+  title: 'Experimental/Info Button',
   // 👇 Creates specific argTypes
   argTypes: {
     titlePrimary: {
@@ -58,83 +59,91 @@ const Template = (args) => {
   return infoBtn;
 };
 
-export const Primary = Template.bind({});
+export const Primary = {
+  tags: ['autodocs'],
+  render: Template.bind({}),
+};
 
-export const InfoButtonGrid = () => html`
-  <div class="container-fluid">
-    <div class="row my-3">
-      <div class="col-sm-4">
-        <cod-info-button
-          img-src="https://placehold.co/800x400/000000/FFF"
-          img-alt="..."
-          href="https://example.com"
-          target="_blank"
-          title-primary="Some Information"
-        >
-          <p>Commercial demolition and rehab</p>
-        </cod-info-button>
+export const InfoButtonGrid = {
+  tags: ['autodocs'],
+  render: () => html`
+    <div class="container-fluid">
+      <div class="row my-3">
+        <div class="col-sm-4">
+          <cod-info-button
+            img-src="https://placehold.co/800x400/000000/FFF"
+            img-alt="..."
+            href="https://example.com"
+            target="_blank"
+            title-primary="Some Information"
+          >
+            <p>Commercial demolition and rehab</p>
+          </cod-info-button>
+        </div>
+        <div class="col-sm-4">
+          <cod-info-button
+            img-src="https://placehold.co/800x400/000000/FFF"
+            img-alt="..."
+            href="https://example.com"
+            target="_blank"
+            title-primary="Some Information"
+          >
+            <p>
+              Commercial demolition and rehab but this content is going to
+              spread onto multiple lines
+            </p>
+          </cod-info-button>
+        </div>
+        <div class="col-sm-4">
+          <cod-info-button
+            img-src="https://placehold.co/800x400/000000/FFF"
+            img-alt="..."
+            href="https://example.com"
+            target="_blank"
+            title-primary="Some Information"
+          >
+            <p>Commercial demolition and rehab</p>
+          </cod-info-button>
+        </div>
       </div>
-      <div class="col-sm-4">
-        <cod-info-button
-          img-src="https://placehold.co/800x400/000000/FFF"
-          img-alt="..."
-          href="https://example.com"
-          target="_blank"
-          title-primary="Some Information"
-        >
-          <p>
-            Commercial demolition and rehab but this content is going to spread
-            onto multiple lines
-          </p>
-        </cod-info-button>
-      </div>
-      <div class="col-sm-4">
-        <cod-info-button
-          img-src="https://placehold.co/800x400/000000/FFF"
-          img-alt="..."
-          href="https://example.com"
-          target="_blank"
-          title-primary="Some Information"
-        >
-          <p>Commercial demolition and rehab</p>
-        </cod-info-button>
+      <div class="row my-3">
+        <div class="col-sm-4">
+          <cod-info-button
+            img-src="https://placehold.co/800x400/000000/FFF"
+            img-alt="..."
+            href="https://example.com"
+            target="_blank"
+            title-primary="Some Information"
+          >
+            <p>Commercial demolition and rehab</p>
+          </cod-info-button>
+        </div>
+        <div class="col-sm-4">
+          <cod-info-button
+            img-src="https://placehold.co/800x400/000000/FFF"
+            img-alt="..."
+            href="https://example.com"
+            target="_blank"
+            title-primary="Some Information"
+          >
+            <p>Commercial demolition and rehab</p>
+          </cod-info-button>
+        </div>
+        <div class="col-sm-4">
+          <cod-info-button
+            img-src="https://placehold.co/800x400/000000/FFF"
+            img-alt="..."
+            href="https://example.com"
+            target="_blank"
+            title-primary="Some Information"
+          >
+            <p>Commercial demolition and rehab.</p>
+            <p>
+              With an <i>italic flair</i> to demonstrate rich markup ability.
+            </p>
+          </cod-info-button>
+        </div>
       </div>
     </div>
-    <div class="row my-3">
-      <div class="col-sm-4">
-        <cod-info-button
-          img-src="https://placehold.co/800x400/000000/FFF"
-          img-alt="..."
-          href="https://example.com"
-          target="_blank"
-          title-primary="Some Information"
-        >
-          <p>Commercial demolition and rehab</p>
-        </cod-info-button>
-      </div>
-      <div class="col-sm-4">
-        <cod-info-button
-          img-src="https://placehold.co/800x400/000000/FFF"
-          img-alt="..."
-          href="https://example.com"
-          target="_blank"
-          title-primary="Some Information"
-        >
-          <p>Commercial demolition and rehab</p>
-        </cod-info-button>
-      </div>
-      <div class="col-sm-4">
-        <cod-info-button
-          img-src="https://placehold.co/800x400/000000/FFF"
-          img-alt="..."
-          href="https://example.com"
-          target="_blank"
-          title-primary="Some Information"
-        >
-          <p>Commercial demolition and rehab.</p>
-          <p>With an <i>italic flair</i> to demonstrate rich markup ability.</p>
-        </cod-info-button>
-      </div>
-    </div>
-  </div>
-`;
+  `,
+};
