@@ -15,8 +15,9 @@ export const parameters = {
         'Getting Started',
         [
           'Home',
+          'Editors & Designers',
           'Developers',
-          ['Introduction', 'InstallationAndUsage', 'ThemesAndCustomization'],
+          ['Introduction', 'Installation & Usage', 'Themes & Customization'],
         ],
         'Components',
         'Experimental',
