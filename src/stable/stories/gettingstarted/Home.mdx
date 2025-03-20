@@ -1,0 +1,194 @@
+import { Meta } from '@storybook/blocks';
+import Code from './assets/code-brackets.svg';
+import Colors from './assets/colors.svg';
+import Comments from './assets/comments.svg';
+import Direction from './assets/direction.svg';
+import Flow from './assets/flow.svg';
+import Plugin from './assets/plugin.svg';
+import Repo from './assets/repo.svg';
+import StackAlt from './assets/stackalt.svg';
+
+<Meta title="Getting Started/Home" />
+
+<style>
+  {`
+      .subheading {
+        --mediumdark: '#999999';
+        font-weight: 900;
+        font-size: 13px;
+        color: #999;
+        letter-spacing: 6px;
+        line-height: 24px;
+        text-transform: uppercase;
+        margin-bottom: 12px;
+        margin-top: 40px;
+      }
+
+      .link-list {
+        display: grid;
+        grid-template-columns: 1fr;
+        row-gap: 10px;
+      }
+
+      @media (min-width: 620px) {
+        .link-list {
+          row-gap: 20px;
+          column-gap: 20px;
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      @media all and (-ms-high-contrast:none) {
+      .link-list {
+          display: -ms-grid;
+          -ms-grid-columns: 1fr 1fr;
+          -ms-grid-rows: 1fr 1fr;
+        }
+      }
+
+      .link-item {
+        display: block;
+        padding: 20px 30px 20px 15px;
+        border: 1px solid #00000010;
+        border-radius: 5px;
+        transition: background 150ms ease-out, border 150ms ease-out, transform 150ms ease-out;
+        color: #333333;
+        display: flex;
+        align-items: flex-start;
+      }
+
+      .link-item:hover {
+        border-color: #1EA7FD50;
+        transform: translate3d(0, -3px, 0);
+        box-shadow: rgba(0, 0, 0, 0.08) 0 3px 10px 0;
+      }
+
+      .link-item:active {
+        border-color: #1EA7FD;
+        transform: translate3d(0, 0, 0);
+      }
+
+      .link-item strong {
+        font-weight: 700;
+        display: block;
+        margin-bottom: 2px;
+      }
+
+      .link-item img {
+        height: 40px;
+        width: 40px;
+        margin-right: 15px;
+        flex: none;
+      }
+
+      .link-item span {
+        font-size: 14px;
+        line-height: 20px;
+      }
+
+      .tip {
+        display: inline-block;
+        border-radius: 1em;
+        font-size: 11px;
+        line-height: 12px;
+        font-weight: 700;
+        background: #E7FDD8;
+        color: #66BF3C;
+        padding: 4px 12px;
+        margin-right: 10px;
+        vertical-align: top;
+      }
+
+      .tip-wrapper {
+        font-size: 13px;
+        line-height: 20px;
+        margin-top: 40px;
+        margin-bottom: 40px;
+      }
+
+      .tip-wrapper code {
+        font-size: 12px;
+        display: inline-block;
+      }
+    `}
+</style>
+
+<h1 className="text-center">City of Detroit Design System</h1>
+
+Welcome to our design system! Our design system provides a collection of reusable components and patterns that work together
+to create cohesive user experiences. Whether you're building a new page or updating existing content,
+these components will help you maintain consistency while saving time and effort.
+
+This guide will help content editors, designers, and developers create consistent, user-friendly websites for the City of Detroit
+using our pre-built components.
+
+<h2>For Editors & Designers</h2>
+
+<div className="link-list">
+  <a
+    className="link-item"
+    href="https://detroitmi.gov/departments/department-innovation-and-technology/style-guide"
+    target="_blank"
+  >
+    <img src={Colors} alt="Translucent primary colors overlapping" />
+    <span>
+      <strong>Styling</strong>
+      Learn about the City's style guide.
+    </span>
+  </a>
+  <a
+    className="link-item"
+    href="/?path=/docs/getting-started-editors-designers-introduction-usage--docs"
+  >
+    <img src={Repo} alt="Open book" />
+    <span>
+      <strong>Using Components</strong>
+      Learn how to navigate this guide and use the City's components on your web
+      pages.
+    </span>
+  </a>
+</div>
+
+<h2>For Developers</h2>
+
+<div className="link-list">
+  <a className="link-item" href="/?path=/docs/getting-started-developers-introduction--docs">
+    <img src={Repo} alt="Open book" />
+    <span>
+      <strong>Setup</strong>
+      Learn about the technical foundations of the design system and how to use this site to find components.
+    </span>
+  </a>
+
+  <a className="link-item" href="/?path=/docs/getting-started-developers-installation-usage--docs">
+    <img src={StackAlt} alt="Stack of translucent colored squares" />
+
+    <span>
+      <strong>Custom configuration</strong>
+      Learn how to install the design system in a new project and use components.
+    </span>
+
+  </a>
+
+{' '}
+
+<a
+  className="link-item"
+  href="/?path=/docs/getting-started-developers-themes-customization--docs"
+>
+  <img src={Colors} alt="Translucent primary colors overlapping" />
+  <span>
+    <strong>Custom configuration</strong>
+    Learn how to apply themes to the design system or otherwise customize the styles
+    of components (work-in-progress).
+  </span>
+</a>
+
+  <a className="link-item" href="https://github.com/CityOfDetroit/COD-Design-System" target="_blank">
+    <img src={Code} alt="Code symbol" />
+    <span>
+      <strong>GitHub project</strong>
+      View the source code, releases, changelog, submit issues, or contribute to the design system.
+    </span>
+  </a>
+</div>
