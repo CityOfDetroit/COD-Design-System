@@ -6,50 +6,135 @@ import { Meta } from '@storybook/blocks';
 
 ## Installation
 
-### CDN
-
-Add the following inside your head tag
-
-```html
-<script src="https://www.unpkg.com/browse/cod-design-system@1.0.1/build/assets/js/main.js"></script>
-<script src="https://www.unpkg.com/browse/cod-design-system@1.0.1/build/assets/js/runtime.js"></script>
-<script src="https://www.unpkg.com/browse/cod-design-system@1.0.1/build/assets/js/vendors.babel.js"></script>
-<script src="https://www.unpkg.com/browse/cod-design-system@1.0.1/build/assets/js/vendors.bootstrap-icons.js"></script>
-```
+The NPM package for the design system is hosted on the City of Detroit's GitHub repository. You can install it using NPM or Yarn.
 
 ### NPM
 
-`npm i @cityofdetroit/cod-design-system`
+To install the latest version:
+```bash
+npm i git+https://github.com/CityOfDetroit/COD-Design-System.git
+```
+
+**Note: Be careful installing the latest version because subsequent yarn updates may update to 
+a new major version that breaks your application**.
+
+For a specific version (like 2.0.5):
+```bash
+npm i git+https://github.com/CityOfDetroit/COD-Design-System.git#v2.0.5
+```
 
 ### Yarn
 
-`yarn add @cityofdetroit/cod-design-system`
-
-```js
-import 'cod-design-system/src/components/atoms/Loader/cod-loader';
-import 'cod-design-system/src/components/atoms/Button/cod-button';
+To install the latest version:
+```bash
+yarn add git+https://github.com/CityOfDetroit/COD-Design-System.git
 ```
 
-## Setting Props
+**Note: Be careful installing the latest version because subsequent yarn updates may update to 
+a new major version that breaks your application**.
+
+For a specific version (like 2.0.5):
+```bash
+yarn add git+https://github.com/CityOfDetroit/COD-Design-System.git#v2.0.5
+```
+
+## Using Components
+
+As described on the [Introduction](/docs/getting-started-developers-introduction--docs) page, the 
+City of Detroit Design System contains both stable and experimental components. These components
+are bundled separately in the packge. Below we provide examples of how to use the stable components.
+If you'd like to use the experimental components, you can replace 'stable' with 'experimental' in the
+import path.
+
+### React Applications
+
+To use web components in a React application, first import the components:
+
+```js
+import 'cod-design-system';
+```
+
+Then use the components in your JSX:
+
+```js
+<cod-service-button href="https://www.example.com" target="_blank" rel="noopener noreferrer">
+  <span slot="title">Apply for a Job</span>
+  <span slot="subtitle">View job postings for the City of Detroit or our partners.</span>
+</cod-service-button>
+```
+
+### Native HTML/JS/CSS
+
+To use web components in a native HTML/JS/CSS application, first import the components:
+
+```html
+<head>
+  <script src="node_modules/cod-design-system/build/stable/assets/js/main.js"></script>
+  <script src="node_modules/cod-design-system/build/stable/assets/js/runtime.js"></script>
+</head>
+```
+
+Then use the components in your HTML:
+
+```html
+<cod-service-button href="https://www.example.com" target="_blank" rel="noopener noreferrer">
+  <span slot="title">Apply for a Job</span>
+  <span slot="subtitle">View job postings for the City of Detroit or our partners.</span>
+</cod-service-button>
+```
+
+## Managing State and Data
+
+The components in this design system behave like native HTML elements. You can manage state and data
+using the same techniques you would use with native HTML elements: setting attributes to pass state down
+the DOM tree, and using event handlers to pass data up the DOM tree.
 
 ### Basic Data
 
-For basic primitive types like `string`, `boolean`, `number`, set the attribute on the element:
+For basic primitive types like `string`, `boolean`, `number`, data can be passed to the element as an attribute:
 
 ```js
-<cod-loader data-color="color-1"></cod-loader>
+<cod-service-button href="https://www.example.com" target="_blank" rel="noopener noreferrer">
+  ...
+</cod-service-button>
 ```
 
-## Using Slots
+### Passing Down Rick Markup w/ Slots
 
-Slots give you full control over the contents of a component. Some components may have multiple slots.
+Sometimes an attribute is not enough to pass data down the DOM tree, especially when the content 
+you want to pass down has a structure of its own. The 
+[Web Component Slot element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/slot) gives you 
+full control over the contents of a component. Some components may have multiple slots. The slots
+are described on a components 'Docs' page.
 
 > Web Component Concept:
 > Slotted content lives outside of the shadow DOM and as a result, you are free to style them however you want.
 
 ```html
-<cod-breadcrumb>
-  <li class="breadcrumb-item"><a href="#">Home</a></li>
-  <li class="breadcrumb-item active" aria-current="page">Library</li>
-</cod-breadcrumb>
+<div style="color: blue">
+  <cod-service-button href="https://www.example.com" target="_blank" rel="noopener noreferrer">
+    <span slot="title">Apply for a Job</span>
+    <span slot="subtitle">View job postings for the City of Detroit or our partners.</span>
+  </cod-service-button>
+</div>
 ```
+
+### Handling Interactions and Events
+
+To handle interactions and events, you can use the standard DOM event listeners:
+
+```js
+document.querySelector('cod-service-button').addEventListener('click', (event) => {
+  console.log('Button clicked!');
+});
+```
+
+If a component dispatches a custom event, you can listen for that event:
+
+```js
+document.querySelector('cod-service-button').addEventListener('custom-event', (event) => {
+  console.log('Custom event dispatched!');
+});
+```
+
+Custom events will be documents on the component's 'Docs' page.
