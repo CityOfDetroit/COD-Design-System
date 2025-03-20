@@ -27,7 +27,6 @@ import StackAlt from './assets/stackalt.svg';
       .link-list {
         display: grid;
         grid-template-columns: 1fr;
-        grid-template-rows: 1fr 1fr;
         row-gap: 10px;
       }
 
@@ -116,82 +115,65 @@ import StackAlt from './assets/stackalt.svg';
 
 <h1 className="text-center">City of Detroit Design System</h1>
 
-This is the COD UXDS Storybook, a sandbox for demonstrating and developing components and patterns built for the City of Detroit UX Design System ("COD UXDS"). This demonstration is built using the open source tool Storybook using JavaScript and Node.js. All COD components are built using **ONLY JAVASCRIPT** to deliver standards-compliant web components. COD web components are platform-agnostic and can be used in any JavaScript framework of your choice or directly in the browser using static HTML.
+Welcome to our design system! Our design system provides a collection of reusable components and patterns that work together
+to create cohesive user experiences. Whether you're building a new page or updating existing content,
+these components will help you maintain consistency while saving time and effort.
 
-**Why no framework?**
+This guide will help content editors, designers, and developers create consistent, user-friendly websites for the City of Detroit 
+using our pre-built components.
 
-- Frameworks can increase the learning curve due to specific syntax or particular methodologies dictated by the creators.
-- Support and maintenance are heavily influence by the developer community which can change often.
-
-In the Sidebar to the left, you can browse the components and patterns within COD. Each example will be demonstrated in what is called a "story" within the Canvas (the area of the window you're reading now). Across the top of the Canvas area, you will see a Docs tab, zoom controls, a color blindness simulator, and a light/dark theme toggle.
-
-- **Docs tab** - includes all of the developer documentation for each component, including guidelines and usage, the full API, any variants, and instructions for cherry picking.
-
-While viewing a component, to the right of the Canvas there is a tabbed Panel which displays Controls, any Action outputs associated with that demonstration, and an Accessibility audit:
-
-- **Control** - options allow you to change content in the demonstration area by altering the data given to the component via its properties.
-- **Actions** - provides console output where user actions like clicking or selecting should produce event target information.
-- **Accessibilty** - displays a11y violations of WCAG 2.0 Levels A and AA, WCAG 2.1 Level AA, Section 508, and other best practices through the aXe accessibilty engine.
-  Display options and keyboard shortcuts are available via the Ellipsis Menu Icon next to the COD UXDS logo at the top of the sidebar.
-
-<h2>Experimental Components</h2>
-
-<p>
-  The COD UXDS Storybook includes an Experimental section. These components are
-  in development and should be considered unstable. They are provided for
-  preview and testing purposes only. Please note:
-</p>
-
-<ul>
-  <li>Experimental components are not considered stable.</li>
-  <li>Use these components at your own risk.</li>
-  <li>They may undergo significant changes or be removed without notice.</li>
-
-  <li>
-    We do not recommend using experimental components in production
-    environments.
-  </li>
-</ul>
-
-<div className="subheading">Configure</div>
+<h2>For Editors & Designers</h2>
 
 <div className="link-list">
-  <a className="link-item" href="https://jedgar1mx.github.io/COD-Design-System/?path=/story/cod-uxds-setup--page">
-    <img src={Plugin} alt="plugin" />
+  <a className="link-item" href="https://detroitmi.gov/departments/department-innovation-and-technology/style-guide" target="_blank">
+    <img src={Colors} alt="Translucent primary colors overlapping" />
+    <span>
+      <strong>Styling</strong>
+      Learn about the City's style guide.
+    </span>
+  </a>
+  <a className="link-item" href="/?path=/docs/getting-started-editors-designers-introduction-usage--docs">
+    <img src={Repo} alt="Open book" />
+    <span>
+      <strong>Using Components</strong>
+      Learn how to navigate this guide and use the City's components on your web pages.
+    </span>
+  </a>
+</div>
 
+<h2>For Developers</h2>
+
+<div className="link-list">
+  <a className="link-item" href="/?path=/docs/getting-started-developers-introduction--docs">
+    <img src={Repo} alt="Open book" />
     <span>
       <strong>Setup</strong>
-      Easy setup using COD components.
+      Learn about the technical foundations of the design system and how to use this site to find components.
     </span>
-
   </a>
 
-  <a className="link-item" href="https://jedgar1mx.github.io/COD-Design-System/?path=/story/cod-uxds-customization--page">
-    <img src={StackAlt} alt="Build" />
+  <a className="link-item" href="/?path=/docs/getting-started-developers-installation-usage--docs">
+    <img src={StackAlt} alt="Stack of translucent colored squares" />
 
     <span>
       <strong>Custom configuration</strong>
-      How to customize COD components
+      Learn how to install the design system in a new project and use components.
     </span>
-
   </a>
 
-  <a className="link-item" href="https://detroitmi.gov/departments/department-innovation-and-technology/style-guide" target="_blank">
-    <img src={Colors} alt="colors" />
-
+  <a className="link-item" href="/?path=/docs/getting-started-developers-themes-customization--docs">
+    <img src={Colors} alt="Translucent primary colors overlapping" />
     <span>
-      <strong>Styling</strong>
-      Learn about our style guide.
+      <strong>Custom configuration</strong>
+      Learn how to apply themes to the design system or otherwise customize the styles of components (work-in-progress).
     </span>
-
   </a>
 
-  <a className="link-item" href="https://github.com/jedgar1mx/COD-Design-System" target="_blank">
-    <img src={Code} alt="code" />
-
+  <a className="link-item" href="https://github.com/CityOfDetroit/COD-Design-System" target="_blank">
+    <img src={Code} alt="Code symbol" />
     <span>
       <strong>GitHub project</strong>
-      View the source and add issues
+      View the source, submit issues, or contribute to the design system.
     </span>
 
   </a>
