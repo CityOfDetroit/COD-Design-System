@@ -3,7 +3,8 @@ import '../components/atoms/Badge/cod-badge';
 import { COMMON_STORY_ARGS } from '../../shared/js/storybook/args-utils';
 
 export default {
-  title: 'Experimental/Atoms/Badge',
+  tags: ['experimental'],
+  title: 'Experimental/Badge',
   argTypes: {
     tag: {
       control: { type: 'select' },
@@ -41,53 +42,68 @@ const Template = (args) => {
   return badge;
 };
 
-export const Badge = Template.bind({});
-Badge.args = {
-  text: 'Badge',
-  tag: 'span',
-  backgroundColor: 'primary',
+export const Badge = {
+  tags: ['autodocs'],
+  render: Template.bind({}),
+  args: {
+    text: 'Badge',
+    tag: 'span',
+    backgroundColor: 'primary',
+  },
 };
 
-export const Pill = Template.bind({});
-Pill.args = {
-  text: 'Pill Badge',
-  pill: true,
-  tag: 'span',
-  backgroundColor: 'primary',
+export const Pill = {
+  tags: ['autodocs'],
+  render: Template.bind({}),
+  args: {
+    text: 'Pill Badge',
+    pill: true,
+    tag: 'span',
+    backgroundColor: 'primary',
+  },
 };
 
-export const BadgeHidden = Template.bind({});
-BadgeHidden.args = {
-  text: '99+',
-  hiddenText: 'Unread Messages',
-  backgroundColor: 'danger',
-  tag: 'span',
+export const BadgeHidden = {
+  tags: ['autodocs'],
+  render: Template.bind({}),
+  args: {
+    text: '99+',
+    hiddenText: 'Unread Messages',
+    backgroundColor: 'danger',
+    tag: 'span',
+  },
 };
 
-export const BadgePosition = (args) => html`
-  <button type="button" class="btn btn-primary position-relative">
-    Inbox
-    <cod-badge
-      data-tag="span"
-      data-background-color="${args.backgroundColor}"
-      data-hidden-text="${args.hiddenText}"
-      data-text="${args.text}"
-      data-extra-classes="${args.extraClasses}"
-    ></cod-badge>
-  </button>
-`;
-BadgePosition.args = {
-  text: '99+',
-  hiddenText: 'Unread Messages',
-  backgroundColor: 'danger',
-  extraClasses: 'position-absolute top-0 start-100 translate-middle',
-  tag: 'span',
+export const BadgePosition = {
+  tags: ['autodocs'],
+  render: (args) => html`
+    <button type="button" class="btn btn-primary position-relative">
+      Inbox
+      <cod-badge
+        data-tag="span"
+        data-background-color="${args.backgroundColor}"
+        data-hidden-text="${args.hiddenText}"
+        data-text="${args.text}"
+        data-extra-classes="${args.extraClasses}"
+      ></cod-badge>
+    </button>
+  `,
+  args: {
+    text: '99+',
+    hiddenText: 'Unread Messages',
+    backgroundColor: 'danger',
+    extraClasses: 'position-absolute top-0 start-100 translate-middle',
+    tag: 'span',
+  },
 };
 
-export const BadgeLink = Template.bind({});
-BadgeLink.args = {
-  text: 'Badge Link',
-  url: 'https://google.com',
-  tag: 'span',
-  backgroundColor: 'primary',
+export const BadgeLink = {
+  tags: ['autodocs'],
+  render: Template.bind({}),
+  args: {
+    text: 'Badge Link',
+    url: 'https://google.com',
+    tag: 'span',
+    backgroundColor: 'primary',
+  },
 };

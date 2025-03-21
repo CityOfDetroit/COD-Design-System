@@ -2,6 +2,7 @@ import { html } from 'lit-html';
 import '../components/molecules/FormCheckGroup/cod-form-check-group';
 
 export default {
+  tags: ['experimental', '!dev'],
   title: 'Experimental/FormCheckGroup',
 };
 

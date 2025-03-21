@@ -3,7 +3,8 @@ import '../../stable/components/Icon/cod-icon';
 import { COMMON_STORY_ARGS } from '../../shared/js/storybook/args-utils';
 
 export default {
-  title: 'Experimental/Atoms/Button',
+  tags: ['experimental'],
+  title: 'Experimental/Button',
   argTypes: {
     primary: {
       control: { type: 'boolean' },
@@ -69,97 +70,130 @@ const Template = (args) => {
   return btn;
 };
 
-export const Primary = Template.bind({});
-Primary.args = {
-  primary: true,
-  label: 'Primary',
+export const Primary = {
+  tags: ['autodocs'],
+  render: Template.bind({}),
+  args: {
+    primary: true,
+    label: 'Primary',
+  },
 };
 
-export const Secondary = Template.bind({});
-Secondary.args = {
-  primary: false,
-  label: 'Secondary',
+export const Secondary = {
+  tags: ['autodocs'],
+  render: Template.bind({}),
+  args: {
+    primary: false,
+    label: 'Secondary',
+  },
 };
 
-export const Extras = Template.bind({});
-Extras.args = {
-  primary: false,
-  label: 'Extras',
-  extraClasses: 'w-100',
+export const Extras = {
+  tags: ['autodocs'],
+  render: Template.bind({}),
+  args: {
+    primary: false,
+    label: 'Extras',
+    extraClasses: 'w-100',
+  },
 };
 
-export const Link = Template.bind({});
-Link.args = {
-  primary: false,
-  label: 'Link',
-  link: 'https://detroitmi.gov',
+export const Link = {
+  tags: ['autodocs'],
+  render: Template.bind({}),
+  args: {
+    primary: false,
+    label: 'Link',
+    link: 'https://detroitmi.gov',
+  },
 };
 
-export const Image = Template.bind({});
-Image.args = {
-  primary: true,
-  label: 'Image',
-  backgroundColor: 'secondary',
-  img: 'https://detroitmi.gov/sites/detroitmi.localhost/files/2023-02/map.png',
-  imgAlt: 'map',
+export const Image = {
+  tags: ['autodocs'],
+  render: Template.bind({}),
+  args: {
+    primary: true,
+    label: 'Image',
+    backgroundColor: 'secondary',
+    img: 'https://detroitmi.gov/sites/detroitmi.localhost/files/2023-02/map.png',
+    imgAlt: 'map',
+  },
 };
 
-export const Icon = Template.bind({});
-Icon.args = {
-  primary: true,
-  label: 'Image',
-  backgroundColor: 'secondary',
-  icon: 'house',
-  iconSize: 'small',
-  iconOrder: 'left',
+export const Icon = {
+  tags: ['autodocs'],
+  render: Template.bind({}),
+  args: {
+    primary: true,
+    label: 'Image',
+    backgroundColor: 'secondary',
+    icon: 'house',
+    iconSize: 'small',
+    iconOrder: 'left',
+  },
 };
 
-export const IconCenterSquare = Template.bind({});
-IconCenterSquare.args = {
-  primary: true,
-  label: '',
-  size: 'lg',
-  backgroundColor: 'primary',
-  icon: 'house',
-  iconSize: 'medium',
-  shape: 'square',
-  ariaLabel: 'Home',
-  extraClasses: 'icon-center',
+export const IconCenterSquare = {
+  tags: ['autodocs'],
+  render: Template.bind({}),
+  args: {
+    primary: true,
+    label: '',
+    size: 'lg',
+    backgroundColor: 'primary',
+    icon: 'house',
+    iconSize: 'medium',
+    shape: 'square',
+    ariaLabel: 'Home',
+    extraClasses: 'icon-center',
+  },
 };
 
-export const Close = Template.bind({});
-Close.args = {
-  primary: true,
-  label: '',
-  ariaLabel: 'Close',
-  close: 'true',
+export const Close = {
+  tags: ['autodocs'],
+  render: Template.bind({}),
+  args: {
+    primary: true,
+    label: '',
+    ariaLabel: 'Close',
+    close: 'true',
+  },
 };
 
-export const SquareClose = Template.bind({});
-SquareClose.args = {
-  primary: true,
-  label: 'x',
-  shape: 'square',
-  ariaLabel: 'Close',
-  extraClasses: 'fw-bold',
+export const SquareClose = {
+  tags: ['autodocs'],
+  render: Template.bind({}),
+  args: {
+    primary: true,
+    label: 'x',
+    shape: 'square',
+    ariaLabel: 'Close',
+    extraClasses: 'fw-bold',
+  },
 };
 
-export const SquareImage = Template.bind({});
-SquareImage.args = {
-  primary: true,
-  label: '',
-  backgroundColor: 'secondary',
-  shape: 'square',
-  img: 'https://detroitmi.gov/sites/detroitmi.localhost/files/2023-02/map.png',
-  imgAlt: 'map',
+export const SquareImage = {
+  tags: ['autodocs'],
+  render: Template.bind({}),
+  args: {
+    primary: true,
+    label: '',
+    backgroundColor: 'secondary',
+    shape: 'square',
+    img: 'https://detroitmi.gov/sites/detroitmi.localhost/files/2023-02/map.png',
+    imgAlt: 'map',
+  },
 };
 
-export const HiddenLabel = Template.bind({});
-HiddenLabel.args = {
-  primary: true,
-  label: '',
-  hLabel: 'Toggle Dropdown',
-  extraClasses: 'dropdown-toggle dropdown-toggle-split',
+export const HiddenLabel = {
+  tags: ['autodocs'],
+  render: Template.bind({}),
+  args: {
+    primary: true,
+    label: '',
+    hLabel: 'Toggle Dropdown',
+    extraClasses: 'dropdown-toggle dropdown-toggle-split',
+  },
 };
 
 // export const WithInteraction = Template.bind({});

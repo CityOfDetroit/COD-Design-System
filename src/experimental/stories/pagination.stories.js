@@ -3,7 +3,8 @@ import '../components/atoms/PaginationItem/cod-pagination-item';
 import '../components/molecules/Pagination/cod-pagination';
 
 export default {
-  title: 'Experimental/Molecules/Pagination',
+  tags: ['experimental'],
+  title: 'Experimental/Pagination',
 };
 
 export const Basic = () => html`
