@@ -1,5 +1,10 @@
 import styles from '!!raw-loader!./Icon.css';
 
+// when the component is used somewhere(integrated) and its wrapped inside another element
+// slots / light - dom ==> how the slots behave with the light-dom
+// should use slots: the svg should be a slot
+// slot the svg, user will not pass in the svg so use javascript to move the svg
+
 const template = document.createElement('template');
 template.innerHTML = `
   <style>

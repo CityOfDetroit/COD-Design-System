@@ -2,7 +2,7 @@ import '../components/Icon/cod-icon';
 import { COMMON_STORY_ARGS } from '../../shared/js/storybook/args-utils';
 
 export default {
-  title: 'Stable/Icon',
+  title: 'Components/Icon',
   argTypes: {
     icon: COMMON_STORY_ARGS.icon,
     size: COMMON_STORY_ARGS.longSize,
