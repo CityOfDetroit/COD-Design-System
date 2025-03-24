@@ -3,12 +3,12 @@
 @import 'bootstrap/scss/mixins/breakpoints';
 
 div.modal {
-  --bs-modal-width: 90vw;
+  --cod-modal-width: 90vw;
 }
 
 @include media-breakpoint-up(lg) {
   div.modal {
-    --bs-modal-width: 50vw;
+    --cod-modal-width: 50vw;
   }
 }
 

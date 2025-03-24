@@ -16,10 +16,10 @@
     display: block;
     border-top-width: 0;
     width: 100%;
-    border-bottom: 2px solid var(--bs-black);
+    border-bottom: 2px solid var(--cod-black);
   }
   table.table-stacked tr:nth-child(1) {
-    border-top: 2px solid var(--bs-black);
+    border-top: 2px solid var(--cod-black);
   }
   table.table-stacked th {
     padding: 0;

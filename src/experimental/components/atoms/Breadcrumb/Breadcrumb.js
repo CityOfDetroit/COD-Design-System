@@ -55,13 +55,13 @@ export default class Container extends HTMLElement {
     // TODO: Fix old ESLint errors - see issue #1099
     // eslint-disable-next-line eqeqeq
     if (noDivider == 'true') {
-      this.nav.style.cssText = "--bs-breadcrumb-divider: '';";
+      this.nav.style.cssText = "--cod-breadcrumb-divider: '';";
     }
 
     // TODO: Fix old ESLint errors - see issue #1099
     // eslint-disable-next-line eqeqeq
     if (svg != undefined || svg != null) {
-      this.nav.style.cssText = `--bs-breadcrumb-divider: url(${svg});`;
+      this.nav.style.cssText = `--cod-breadcrumb-divider: url(${svg});`;
     }
     this.shadowRoot.appendChild(this.nav);
   }

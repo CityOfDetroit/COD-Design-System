@@ -1,4 +1,4 @@
 label.required-field:after {
-  color: var(--bs-danger);
+  color: var(--cod-danger);
   content: ' *';
 }

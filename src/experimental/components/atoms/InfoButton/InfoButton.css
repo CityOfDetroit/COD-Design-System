@@ -14,12 +14,12 @@ div {
 }
 
 .card {
-  --bs-card-bg: initial;
-  --bs-card-border-width: 0;
+  --cod-card-bg: initial;
+  --cod-card-border-width: 0;
 }
 
 .btn {
-  --bs-btn-padding-x: 0rem;
-  --bs-btn-padding-y: 0rem;
+  --cod-btn-padding-x: 0rem;
+  --cod-btn-padding-y: 0rem;
   text-align: initial;
 }
