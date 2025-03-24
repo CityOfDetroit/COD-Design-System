@@ -46,20 +46,21 @@ class Tag extends HTMLElement {
 
       // Iterate over the assigned elements
       elements.forEach((element, index) => {
-        // Check if the element is an <li>
-       if (!allowedTags.includes(element.tagName)) {
+
+        if (!allowedTags.includes(element.tagName)) {
           // If the element is not allowed, replace it with a span element
           const spanElement = document.createElement('span');
           spanElement.slot = 'label';
           // Removing <br> and newlines
           spanElement.innerText = element.innerText.replace(/<br>/g, '').replace(/\n/g, '');
-          // Append a comma  
-          if (index < elements.length - 1) {
-            spanElement.innerText += ', ';
-          }
 
           element.replaceWith(spanElement);
+        } else {
+        // Append a comma if more than one label
+        if (index < elements.length - 1) {
+          element.innerText += ', ';
         }
+      }
       });
     });
   }
