@@ -1,6 +1,4 @@
 import styles from '!!raw-loader!./Drawer.css';
-import varStyles from '!!raw-loader!../../../shared/variables.css';
-import bootstrapStyles from '!!raw-loader!../../../shared/themed-bootstrap.css';
 
 const template = document.createElement('template');
 
@@ -22,46 +20,9 @@ export default class Drawer extends HTMLElement {
     this.offcanvas = document.createElement('div');
     this.offcanvasBackdrop = document.createElement('div');
 
-    shadow.addEventListener('slotchange', () => {
-      const tempElements = Array.from(this.children);
-      tempElements.forEach((node) => {
-        // TODO: Fix old ESLint errors - see issue #1099
-        // eslint-disable-next-line eqeqeq
-        this.getAttribute('data-show') == 'true'
-          ? node.setAttribute('data-show', true)
-          : 0;
-
-        // TODO: Fix old ESLint errors - see issue #1099
-        // eslint-disable-next-line eqeqeq
-        if (node.tagName == 'COD-OFFCANVAS-HEADER') {
-          // TODO: Fix old ESLint errors - see issue #1099
-          // eslint-disable-next-line eqeqeq
-          this.getAttribute('data-button-dark') == 'true'
-            ? node.setAttribute('data-button-dark', true)
-            : 0;
-          node.setAttribute('data-parent-id', this.getAttribute('data-id'));
-        }
-        const expand = this.getAttribute('data-expand');
-        if (expand) {
-          node.setAttribute('data-expand', expand);
-        }
-
-        const nodeClasses = node.className.split(' ');
-        nodeClasses.includes('no-wc')
-          ? node.remove()
-          : this.offcanvas.appendChild(node);
-      });
-    });
-
     // Add styles
-    const bootStyles = document.createElement('style');
-    bootStyles.textContent = bootstrapStyles;
-    const variableStyles = document.createElement('style');
-    variableStyles.textContent = varStyles;
     const itemStyles = document.createElement('style');
     itemStyles.textContent = styles;
-    shadow.appendChild(bootStyles);
-    shadow.appendChild(variableStyles);
     shadow.appendChild(itemStyles);
   }
 
