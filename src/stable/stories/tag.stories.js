@@ -1,5 +1,5 @@
 import { html } from 'lit-html';
-import { expect } from '@storybook/jest';
+import { expect } from '@storybook/test';
 import '../components/Tag/cod-tag';
 
 export default {
@@ -69,3 +69,27 @@ export const ListElements = {
   },
 };
 
+ 
+export const OtherNonAllowedElements = {
+  render: () => {
+    return html`<cod-tag>
+      <p slot="label">Paragraph</p>
+      <button slot="label">Button</button>
+      <strong slot="label">Bold</strong>
+    </cod-tag>`;
+  },
+  play: async ({ canvasElement }) => {
+    const tag = canvasElement.querySelector('cod-tag');
+    const tagShadowRoot = tag.shadowRoot;
+    const slot = tagShadowRoot.querySelector('slot[name="label"]');
+    const slottedElt = slot.assignedElements()[0];
+
+    // Test that the result is a single <span> after the transformation
+    expect(slottedElt.tagName).toBe('SPAN');
+
+    // Verify there are no elements or newlines in the content
+    expect(slottedElt.innerHTML).not.toContain('');
+    expect(slottedElt.innerHTML).not.toContain('\n');
+
+  },
+};

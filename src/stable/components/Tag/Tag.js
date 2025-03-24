@@ -37,34 +37,27 @@ class Tag extends HTMLElement {
   _setupSlot() {
     // Find the slot element and add an event listener for the slotchange event
     const slot = this.shadowRoot.querySelector('slot[name="label"]');
-    
+
     slot.addEventListener('slotchange', () => {
       // Get the elements assigned to the slot
       const elements = slot.assignedElements();
       // Define allowed tags
       const allowedTags = ['SPAN', 'A'];
-      
+
       // Iterate over the assigned elements
       elements.forEach((element, index) => {
         // Check if the element is an <li>
-        if (element.tagName === 'LI') {
-          // Create a span element to replace the <li>
-          const spanElement = document.createElement('span');
-          spanElement.slot = 'label';
-          spanElement.innerText = element.innerText.replace(/<br>/g, '').replace(/\n/g, '');  // Removing <br> and newlines
-          
-          // Append a comma between every <li> 
-          if (index < elements.length - 1) {
-            spanElement.innerText += ', ';
-          }
-          
-          // Replace the <li> with the span element
-          element.replaceWith(spanElement);
-        } else if (!allowedTags.includes(element.tagName)) {
+       if (!allowedTags.includes(element.tagName)) {
           // If the element is not allowed, replace it with a span element
           const spanElement = document.createElement('span');
           spanElement.slot = 'label';
-          spanElement.innerText = element.innerText.replace(/<br>/g, '').replace(/\n/g, '');  // Removing <br> and newlines
+          // Removing <br> and newlines
+          spanElement.innerText = element.innerText.replace(/<br>/g, '').replace(/\n/g, '');
+          // Append a comma  
+          if (index < elements.length - 1) {
+            spanElement.innerText += ', ';
+          }
+
           element.replaceWith(spanElement);
         }
       });
