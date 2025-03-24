@@ -2,7 +2,8 @@ import '../components/atoms/Loader/cod-loader';
 import { COMMON_STORY_ARGS } from '../../shared/js/storybook/args-utils';
 
 export default {
-  title: 'Experimental/Atoms/Loader',
+  tags: ['experimental'],
+  title: 'Experimental/Loader',
   argTypes: {
     // TODO: Use bootstrap color names. Issue #202.
     backgroundColor: COMMON_STORY_ARGS.numberColor,
@@ -16,4 +17,10 @@ const Template = (args) => {
   return loader;
 };
 
-export const Loader = Template.bind({});
+export const Loader = {
+  tags: ['autodocs'],
+  render: Template.bind({}),
+  args: {
+    backgroundColor: 'color-1',
+  },
+};

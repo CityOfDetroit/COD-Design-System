@@ -2,7 +2,8 @@ import '../components/atoms/Range/cod-range';
 import { COMMON_STORY_ARGS } from '../../shared/js/storybook/args-utils';
 
 export default {
-  title: 'Experimental/Atoms/Forms/Range',
+  tags: ['experimental'],
+  title: 'Experimental/Range',
   argTypes: {
     disable: COMMON_STORY_ARGS.disabled,
   },
@@ -27,22 +28,30 @@ const Template = (args) => {
   return range;
 };
 
-export const Range = Template.bind({});
-Range.args = {
-  id: 'simple-range',
+export const Range = {
+  tags: ['autodocs'],
+  render: Template.bind({}),
+  args: {
+    id: 'simple-range',
+  },
 };
 
-export const MinMax = Template.bind({});
-MinMax.args = {
-  id: 'simple-range',
-  min: 0,
-  max: 100,
+export const MinMax = {
+  tags: ['autodocs'],
+  render: Template.bind({}),
+  args: {
+    id: 'simple-range',
+    min: 0,
+    max: 100,
+  },
 };
 
-export const Step = Template.bind({});
-Step.args = {
-  id: 'simple-range',
-  min: 0,
-  max: 5,
-  step: 0.5,
+export const Step = {
+  render: Template.bind({}),
+  args: {
+    id: 'simple-range',
+    min: 0,
+    max: 5,
+    step: 0.5,
+  },
 };

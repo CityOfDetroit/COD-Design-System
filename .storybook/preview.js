@@ -9,5 +9,20 @@ export const parameters = {
       date: /Date$/,
     },
   },
+  options: {
+    storySort: {
+      order: [
+        'Getting Started',
+        [
+          'Home',
+          'Editors & Designers',
+          'Developers',
+          ['Introduction', 'Installation & Usage', 'Themes & Customization'],
+        ],
+        'Components',
+        'Experimental',
+      ],
+    },
+  },
 };
-export const tags = ['autodocs'];
+export const tags = [];

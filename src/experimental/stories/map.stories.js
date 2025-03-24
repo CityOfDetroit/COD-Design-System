@@ -2,14 +2,18 @@ import { html } from 'lit-html';
 import '../components/organisms/Map/cod-map';
 
 export default {
-  title: 'Experimental/Organisms/Map',
+  tags: ['experimental'],
+  title: 'Experimental/Map',
 };
 
-export const Location = () =>
-  html`<cod-map
-    data-location='{"address":"1104 Military St, Detroit, MI, 48209","location":{"x":-83.103111,"y":42.31103400000001}}'
-    data-map-state="init"
-  ></cod-map>`;
+export const Location = {
+  tags: ['autodocs'],
+  render: () =>
+    html`<cod-map
+      data-location='{"address":"1104 Military St, Detroit, MI, 48209","location":{"x":-83.103111,"y":42.31103400000001}}'
+      data-map-state="init"
+    ></cod-map>`,
+};
 
 export const CustomCenter = () =>
   html`<cod-map

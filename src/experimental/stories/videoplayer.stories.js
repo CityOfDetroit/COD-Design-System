@@ -1,7 +1,8 @@
 import '../components/organisms/VideoPlayer/cod-videoplayer';
 
 export default {
-  title: 'Experimental/Organisms/VideoPlayer',
+  tags: ['experimental'],
+  title: 'Experimental/VideoPlayer',
   argTypes: {
     videoType: {
       control: { type: 'select' },
@@ -59,4 +60,7 @@ const Template = (args) => {
   return videoPlayerElt;
 };
 
-export const Primary = Template.bind({});
+export const Primary = {
+  tags: ['autodocs'],
+  render: Template.bind({}),
+};

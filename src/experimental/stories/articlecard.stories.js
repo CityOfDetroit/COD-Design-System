@@ -2,7 +2,8 @@ import '../components/organisms/ArticleCard/cod-article-card';
 import { COMMON_STORY_ARGS } from '../../shared/js/storybook/args-utils';
 
 export default {
-  title: 'Experimental/Organisms/ArticleCard',
+  tags: ['experimental'],
+  title: 'Experimental/Article Card',
   argTypes: {
     href: {
       control: { type: 'text' },
@@ -121,4 +122,7 @@ const Template = (args) => {
   return rowElt;
 };
 
-export const Primary = Template.bind({});
+export const Primary = {
+  tags: ['autodocs'],
+  render: Template.bind({}),
+};

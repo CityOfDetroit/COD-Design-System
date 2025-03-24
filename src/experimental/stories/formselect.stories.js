@@ -2,6 +2,7 @@ import '../components/atoms/FormSelect/cod-formselect';
 import { COMMON_STORY_ARGS } from '../../shared/js/storybook/args-utils';
 
 export default {
+  tags: ['experimental', '!dev'],
   title: 'Experimental/FormSelect',
   argTypes: {
     // TODO: Add support for xl to make size

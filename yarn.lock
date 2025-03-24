@@ -4349,7 +4349,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/icons@npm:^1.2.12":
+"@storybook/icons@npm:^1.2.12, @storybook/icons@npm:^1.3.0":
   version: 1.4.0
   resolution: "@storybook/icons@npm:1.4.0"
   peerDependencies:
@@ -7340,6 +7340,7 @@ __metadata:
     sass-loader: ^12.3.0
     start-server-and-test: ^1.14.0
     storybook: ^8.6.4
+    storybook-addon-tag-badges: ^1.4.0
     style-loader: ^3.3.1
     suppress-eslint-errors: ^3.0.1
     terser-webpack-plugin: ^5.2.4
@@ -18121,6 +18122,17 @@ __metadata:
   dependencies:
     internal-slot: ^1.0.4
   checksum: d04173690b2efa40e24ab70e5e51a3ff31d56d699550cfad084104ab3381390daccb36652b25755e420245f3b0737de66c1879eaa2a8d4fc0a78f9bf892fcb42
+  languageName: node
+  linkType: hard
+
+"storybook-addon-tag-badges@npm:^1.4.0":
+  version: 1.4.0
+  resolution: "storybook-addon-tag-badges@npm:1.4.0"
+  dependencies:
+    "@storybook/icons": ^1.3.0
+  peerDependencies:
+    storybook: ^8.4.0
+  checksum: e663892623bb5911d2a232916b539bad5a7fbd28e922113fa6eeb8e546a4dba86d0ff2ff88950fb7e81449f1fe8e75bd8c655ca708a7b15b5744ae7dcb6c3c9e
   languageName: node
   linkType: hard
 

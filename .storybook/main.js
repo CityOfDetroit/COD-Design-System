@@ -7,7 +7,8 @@ module.exports = {
     '@storybook/addon-coverage',
     '@storybook/addon-interactions',
     '@storybook/addon-webpack5-compiler-babel',
-    '@chromatic-com/storybook'
+    '@chromatic-com/storybook',
+    'storybook-addon-tag-badges'
   ],
   framework: {
     name: '@storybook/web-components-webpack5',

@@ -1,0 +1,79 @@
+import { Meta } from '@storybook/blocks';
+import ToolbarExample from '../assets/toolbar-example.png';
+import ControlsExample from '../assets/controls-example.png';
+import StableBadge from '../assets/stable-badge.png';
+import ExperimentalBadge from '../assets/experimental-badge.png';
+
+<Meta title="Getting Started/Developers/Introduction" />
+
+<style>
+  {`
+  figcaption {
+    font-size: 0.8em;
+    color: #999;
+    margin-top: 0.5em;
+  }
+  `}
+</style>
+
+<h1 className="text-center">Introduction</h1>
+
+All City of Detroit Design System components are [HTML custom elements](https://html.spec.whatwg.org/multipage/custom-elements.html#custom-elements)
+built using _only Javascript and CSS_ to deliver standards-compliant web components. Our web components are platform-agnostic and can be used in
+any JavaScript framework of your choice (React, Vue, etc.) or directly in the browser DOM using HTML/JS.
+
+<h2>Why no framework?</h2>
+
+- The City of Detroit partners with many vendors and contractors who may not be familiar with a specific framework.
+- Frameworks can increase the learning curve due to specific syntax or particular methodologies dictated by the framework authors.
+
+<h2>Stable vs. Experimental Components</h2>
+
+The design system is divided into two categories: stable and experimental components. Stable components are considered production-ready and are
+recommended for use in production environments. Experimental components are in development and should be considered unstable. They are provided for
+preview and testing purposes only. At any time, they may undergo significant changes or be removed without notice. **We do not recommend using
+experimental components in production environments.**
+
+<h3>Distinguishing between Stable and Experimental Components</h3>
+
+All components in the design system are clearly marked as either stable or experimental. Stable components are marked with a green badge in the top
+toolbar that reads "Stable." Experimental components are marked with a red badge in the top toolbar that reads "Experimental." Furthermore, only
+stable components are organized under the "Components" section in the lefthand sidebar. All experimental components are organized under the
+"Experimental" section.
+
+<figure>
+  <img src={StableBadge} alt="Green stable badge" />
+  <figcaption>Stable component badge</figcaption>
+</figure>
+
+<figure>
+  <img src={ExperimentalBadge} alt="Red experimental badge" />
+  <figcaption>Experimental component badge</figcaption>
+</figure>
+
+<h2>Using Storybook</h2>
+
+In the lefthand sidebar, you can browse the components and patterns within the design system.
+
+Each example will be demonstrated in a story (read about
+[stories here](https://storybook.js.org/docs/get-started/whats-a-story)). At the top of a story, you'll find a toolbar that has tools for testing various
+viewport sizes, measuring the size of elements and simulating accessibility scenarios.
+
+<figure>
+  <img
+    src={ToolbarExample}
+    alt="Component story toolbar showing viewport controls, measure tool, and accessibility tools"
+  />
+  <figcaption>Example toolbar for a component story</figcaption>
+</figure>
+
+Dynamic components with configurable state and events will include a 'Docs' page. The 'Docs' page will list reasonable ways to configure and use each component
+and, if the story is documented well, will include a set of controls allowing the viewer to modify the component's state for themself.
+
+<figure>
+  <img
+    src={ControlsExample}
+    alt="Component story showing controls on the Docs page"
+  />
+  <figcaption>Example controls for a component story</figcaption>
+</figure>
