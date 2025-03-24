@@ -1,16 +1,14 @@
 import { html } from 'lit-html';
-import '../components/atoms/OffcanvasHeader/cod-offcanvas-header';
-import '../components/atoms/OffcanvasBody/cod-offcanvas-body';
-import '../components/organisms/Offcanvas/cod-offcanvas';
+import '../components/Drawer/cod-drawer';
 
 export default {
-  tags: ['experimental'],
-  title: 'Experimental/Offcanvas',
+  tags: ['stable'],
+  title: 'Components/Drawer',
 };
 
 export const Basic = () => html`
   <button
-    onclick="(function(){var offcanvas = document.querySelector('cod-offcanvas'); offcanvas.setAttribute('data-show','true')})(); return false;"
+    onclick="(function(){var offcanvas = document.querySelector('cod-drawer'); offcanvas.setAttribute('data-show','true')})(); return false;"
     class="btn btn-primary"
     type="button"
     data-bs-toggle="offcanvas"
@@ -18,7 +16,7 @@ export const Basic = () => html`
   >
     Button with data-bs-target
   </button>
-  <cod-offcanvas data-id="offcanvasExample">
+  <cod-drawer data-id="offcanvasExample">
     <button
       class="no-wc btn btn-primary"
       type="button"
@@ -121,12 +119,12 @@ export const Basic = () => html`
         <li>40</li>
       </ol>
     </cod-offcanvas-body>
-  </cod-offcanvas>
+  </cod-drawer>
 `;
 
 export const NoBackdrop = () => html`
   <button
-    onclick="(function(){var offcanvas = document.querySelector('cod-offcanvas'); offcanvas.setAttribute('data-show','true')})(); return false;"
+    onclick="(function(){var offcanvas = document.querySelector('cod-drawer'); offcanvas.setAttribute('data-show','true')})(); return false;"
     class="btn btn-primary"
     type="button"
     data-bs-toggle="offcanvas"
@@ -134,7 +132,7 @@ export const NoBackdrop = () => html`
   >
     Button with data-bs-target
   </button>
-  <cod-offcanvas data-id="offcanvasScrolling" data-backdrop="false">
+  <cod-drawer data-id="offcanvasScrolling" data-backdrop="false">
     <cod-offcanvas-header>
       <h5>Offcanvas</h5>
     </cod-offcanvas-header>
@@ -144,12 +142,12 @@ export const NoBackdrop = () => html`
         have chosen. Like, text, images, lists, etc.
       </p>
     </cod-offcanvas-body>
-  </cod-offcanvas>
+  </cod-drawer>
 `;
 
 export const StaticBackdrop = () => html`
   <button
-    onclick="(function(){var offcanvas = document.querySelector('cod-offcanvas'); offcanvas.setAttribute('data-show','true')})(); return false;"
+    onclick="(function(){var offcanvas = document.querySelector('cod-drawer'); offcanvas.setAttribute('data-show','true')})(); return false;"
     class="btn btn-primary"
     type="button"
     data-bs-toggle="offcanvas"
@@ -157,7 +155,7 @@ export const StaticBackdrop = () => html`
   >
     Button with data-bs-target
   </button>
-  <cod-offcanvas data-id="offcanvasScrolling" data-static="true">
+  <cod-drawer data-id="offcanvasScrolling" data-static="true">
     <cod-offcanvas-header>
       <h5>Offcanvas</h5>
     </cod-offcanvas-header>
@@ -167,12 +165,12 @@ export const StaticBackdrop = () => html`
         have chosen. Like, text, images, lists, etc.
       </p>
     </cod-offcanvas-body>
-  </cod-offcanvas>
+  </cod-drawer>
 `;
 
 export const Dark = () => html`
   <button
-    onclick="(function(){var offcanvas = document.querySelector('cod-offcanvas'); offcanvas.setAttribute('data-show','true')})(); return false;"
+    onclick="(function(){var offcanvas = document.querySelector('cod-drawer'); offcanvas.setAttribute('data-show','true')})(); return false;"
     class="btn btn-primary"
     type="button"
     data-bs-toggle="offcanvas"
@@ -180,7 +178,7 @@ export const Dark = () => html`
   >
     Button with data-bs-target
   </button>
-  <cod-offcanvas data-id="offcanvasExample" data-extra-classes="text-bg-dark">
+  <cod-drawer data-id="offcanvasExample" data-extra-classes="text-bg-dark">
     <cod-offcanvas-header data-button-dark="true">
       <h5>Offcanvas</h5>
     </cod-offcanvas-header>
@@ -190,12 +188,12 @@ export const Dark = () => html`
         have chosen. Like, text, images, lists, etc.
       </p>
     </cod-offcanvas-body>
-  </cod-offcanvas>
+  </cod-drawer>
 `;
 
 export const Custom = () => html`
   <button
-    onclick="(function(){var offcanvas = document.querySelector('cod-offcanvas'); offcanvas.setAttribute('data-show','true')})(); return false;"
+    onclick="(function(){var offcanvas = document.querySelector('cod-drawer'); offcanvas.setAttribute('data-show','true')})(); return false;"
     class="btn btn-primary"
     type="button"
     data-bs-toggle="offcanvas"
@@ -203,7 +201,7 @@ export const Custom = () => html`
   >
     Button with data-bs-target
   </button>
-  <cod-offcanvas
+  <cod-drawer
     data-id="offcanvasExample"
     data-extra-classes="text-dark bg-warning"
     data-backdrop-extra-classes="bg-primary"
@@ -220,12 +218,12 @@ export const Custom = () => html`
         have chosen. Like, text, images, lists, etc.
       </p>
     </cod-offcanvas-body>
-  </cod-offcanvas>
+  </cod-drawer>
 `;
 
 export const Placement = () => html`
   <button
-    onclick="(function(){var offcanvas = document.querySelector('cod-offcanvas[data-id=offcanvasStart]'); offcanvas.setAttribute('data-show','true')})(); return false;"
+    onclick="(function(){var offcanvas = document.querySelector('cod-drawer[data-id=offcanvasStart]'); offcanvas.setAttribute('data-show','true')})(); return false;"
     class="btn btn-primary"
     type="button"
     data-bs-toggle="offcanvas"
@@ -234,7 +232,7 @@ export const Placement = () => html`
     Start
   </button>
   <button
-    onclick="(function(){var offcanvas = document.querySelector('cod-offcanvas[data-id=offcanvasEnd]'); offcanvas.setAttribute('data-show','true')})(); return false;"
+    onclick="(function(){var offcanvas = document.querySelector('cod-drawer[data-id=offcanvasEnd]'); offcanvas.setAttribute('data-show','true')})(); return false;"
     class="btn btn-primary"
     type="button"
     data-bs-toggle="offcanvas"
@@ -243,7 +241,7 @@ export const Placement = () => html`
     End
   </button>
   <button
-    onclick="(function(){var offcanvas = document.querySelector('cod-offcanvas[data-id=offcanvasTop]'); offcanvas.setAttribute('data-show','true')})(); return false;"
+    onclick="(function(){var offcanvas = document.querySelector('cod-drawer[data-id=offcanvasTop]'); offcanvas.setAttribute('data-show','true')})(); return false;"
     class="btn btn-primary"
     type="button"
     data-bs-toggle="offcanvas"
@@ -252,7 +250,7 @@ export const Placement = () => html`
     Top
   </button>
   <button
-    onclick="(function(){var offcanvas = document.querySelector('cod-offcanvas[data-id=offcanvasBottom]'); offcanvas.setAttribute('data-show','true')})(); return false;"
+    onclick="(function(){var offcanvas = document.querySelector('cod-drawer[data-id=offcanvasBottom]'); offcanvas.setAttribute('data-show','true')})(); return false;"
     class="btn btn-primary"
     type="button"
     data-bs-toggle="offcanvas"
@@ -260,7 +258,7 @@ export const Placement = () => html`
   >
     Bottom
   </button>
-  <cod-offcanvas data-id="offcanvasStart" data-placement="start">
+  <cod-drawer data-id="offcanvasStart" data-placement="start">
     <cod-offcanvas-header>
       <h5>Offcanvas</h5>
     </cod-offcanvas-header>
@@ -270,8 +268,8 @@ export const Placement = () => html`
         have chosen. Like, text, images, lists, etc.
       </p>
     </cod-offcanvas-body>
-  </cod-offcanvas>
-  <cod-offcanvas data-id="offcanvasEnd" data-placement="end">
+  </cod-drawer>
+  <cod-drawer data-id="offcanvasEnd" data-placement="end">
     <cod-offcanvas-header>
       <h5>Offcanvas</h5>
     </cod-offcanvas-header>
@@ -281,8 +279,8 @@ export const Placement = () => html`
         have chosen. Like, text, images, lists, etc.
       </p>
     </cod-offcanvas-body>
-  </cod-offcanvas>
-  <cod-offcanvas data-id="offcanvasTop" data-placement="top">
+  </cod-drawer>
+  <cod-drawer data-id="offcanvasTop" data-placement="top">
     <cod-offcanvas-header>
       <h5>Offcanvas</h5>
     </cod-offcanvas-header>
@@ -292,8 +290,8 @@ export const Placement = () => html`
         have chosen. Like, text, images, lists, etc.
       </p>
     </cod-offcanvas-body>
-  </cod-offcanvas>
-  <cod-offcanvas data-id="offcanvasBottom" data-placement="bottom">
+  </cod-drawer>
+  <cod-drawer data-id="offcanvasBottom" data-placement="bottom">
     <cod-offcanvas-header>
       <h5>Offcanvas</h5>
     </cod-offcanvas-header>
@@ -303,5 +301,5 @@ export const Placement = () => html`
         have chosen. Like, text, images, lists, etc.
       </p>
     </cod-offcanvas-body>
-  </cod-offcanvas>
+  </cod-drawer>
 `;

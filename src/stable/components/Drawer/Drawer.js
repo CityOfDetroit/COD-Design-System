@@ -1,6 +1,6 @@
-import styles from '!!raw-loader!./Offcanvas.css';
-import varStyles from '!!raw-loader!../../../../shared/variables.css';
-import bootstrapStyles from '!!raw-loader!../../../../shared/themed-bootstrap.css';
+import styles from '!!raw-loader!./Drawer.css';
+import varStyles from '!!raw-loader!../../../shared/variables.css';
+import bootstrapStyles from '!!raw-loader!../../../shared/themed-bootstrap.css';
 
 const template = document.createElement('template');
 
@@ -8,7 +8,7 @@ template.innerHTML = `
 <slot></slot>
 `;
 
-export default class Offcanvas extends HTMLElement {
+export default class Drawer extends HTMLElement {
   static get observedAttributes() {
     return ['data-show'];
   }
