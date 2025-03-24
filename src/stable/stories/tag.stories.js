@@ -3,8 +3,7 @@ import { expect } from '@storybook/test';
 import '../components/Tag/cod-tag';
 
 export default {
-  title: 'Stable/Tag',
-  tags: ['autodocs'],
+  title: 'Components/Tag',
   argTypes: {
     label: { control: 'text', defaultValue: 'Label' },
   },
@@ -31,6 +30,7 @@ Default.args = {
 };
 
 export const HeadingElements = {
+  tags: ['!dev'],
   render: () => {
     return html`<cod-tag><h1 slot="label">Heading Element</h1></cod-tag>`;
   },
@@ -46,6 +46,7 @@ export const HeadingElements = {
 };
 
 export const ListElements = {
+  tags: ['!dev'],
   render: () => {
     return html`<cod-tag>
       <li slot="label">List-item</li>
@@ -71,6 +72,7 @@ export const ListElements = {
 
  
 export const OtherNonAllowedElements = {
+  tags: ['!dev'],
   render: () => {
     return html`<cod-tag>
       <p slot="label">Paragraph</p>
@@ -95,6 +97,7 @@ export const OtherNonAllowedElements = {
 };
 
 export const MultiSpanElements = {
+  tags: ['autodocs'],
   render: () => {
     return html`<cod-tag>
       <span slot="label">Span</span>
