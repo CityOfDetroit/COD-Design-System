@@ -8,7 +8,7 @@ export default {
 
 export const Basic = () => html`
   <button
-    onclick="(function(){const offcanvas = document.querySelector('cod-drawer'); offcanvas.setAttribute('show', '')})(); return false;"
+    onclick="(function(){const offcanvas = document.querySelector('cod-drawer'); offcanvas.setAttribute('open', '')})(); return false;"
     class="btn btn-primary"
     type="button"
   >

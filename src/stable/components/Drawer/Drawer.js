@@ -21,7 +21,7 @@ backdropTemplate.innerHTML = `
 
 export default class Drawer extends HTMLElement {
   static get observedAttributes() {
-    return ['show'];
+    return ['open'];
   }
 
   constructor() {
@@ -35,21 +35,34 @@ export default class Drawer extends HTMLElement {
     const itemStyles = document.createElement('style');
     itemStyles.textContent = styles;
     shadow.appendChild(itemStyles);
+
+    // Initialize properties
+    this._open = false;
   }
 
   attributeChangedCallback(name, _oldValue, newValue) {
     switch (name) {
-      case 'show': {
+      case 'open': {
+        this._open = newValue !== null;
         this._toggleDrawer(newValue !== null);
       }
     }
   }
 
   connectedCallback() {
-    // Offcanvas attributes
     const id = this.getAttribute('id');
-    // TODO: Make this a reflective property and set default if not set.
-    const show = this.getAttribute('show');
+    const drawerContainer = this.shadowRoot.querySelector('.offcanvas');
+    drawerContainer.id = id;
+
+    // Register click handler for closing.
+    const closeButton = this.shadowRoot.querySelector('.btn-close');
+    closeButton.addEventListener('click', this._handleClose.bind(this));
+    
+    const isOpen = this.getAttribute('open');
+    if (isOpen !== null) {
+      this._open = true;
+      this._toggleDrawer(true);
+    }
     // TODO: Make this a reflective property and set default if not set.
     const placement = this.getAttribute('placement');
     // TODO: Make this a reflective property and use it.
@@ -59,12 +72,6 @@ export default class Drawer extends HTMLElement {
     // TODO: Make this a reflective property and set default if not set.
     const scroll = this.getAttribute('scroll');
 
-    const drawerContainer = this.shadowRoot.querySelector('.offcanvas');
-    drawerContainer.id = id;
-
-    // Register click handler for closing.
-    const closeButton = this.shadowRoot.querySelector('.btn-close');
-    closeButton.addEventListener('click', this._handleClose.bind(this));
   }
 
   disconnectedCallback() {
@@ -95,6 +102,18 @@ export default class Drawer extends HTMLElement {
   }
 
   _handleClose() {
-    this._toggleDrawer(false);
+    this.removeAttribute('open');
+  }
+
+  get open() {
+    return this.hasAttribute('open');
+  }
+
+  set open(val) {
+    if (val) {
+      this.setAttribute('open', '');
+    } else {
+      this.removeAttribute('open');
+    }
   }
 }
