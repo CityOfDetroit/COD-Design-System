@@ -2,6 +2,7 @@ import styles from '!!raw-loader!./Drawer.css';
 
 const template = document.createElement('template');
 
+// TODO: Set aria labelled by to the slot label.
 template.innerHTML = `
 <div class="offcanvas offcanvas-end" tabindex="-1" id="">
   <div class="offcanvas-header">
@@ -21,7 +22,7 @@ backdropTemplate.innerHTML = `
 
 export default class Drawer extends HTMLElement {
   static get observedAttributes() {
-    return ['open'];
+    return ['open', 'placement'];
   }
 
   constructor() {
@@ -38,6 +39,7 @@ export default class Drawer extends HTMLElement {
 
     // Initialize properties
     this._open = false;
+    this._placement = 'end';
   }
 
   attributeChangedCallback(name, _oldValue, newValue) {
@@ -45,6 +47,12 @@ export default class Drawer extends HTMLElement {
       case 'open': {
         this._open = newValue !== null;
         this._toggleDrawer(newValue !== null);
+        break;
+      }
+      case 'placement': {
+        this._placement = newValue;
+        this._updatePlacement(newValue);
+        break;
       }
     }
   }
@@ -63,15 +71,16 @@ export default class Drawer extends HTMLElement {
       this._open = true;
       this._toggleDrawer(true);
     }
-    // TODO: Make this a reflective property and set default if not set.
     const placement = this.getAttribute('placement');
-    // TODO: Make this a reflective property and use it.
-    const label = this.getAttribute('label');
+    if (placement) {
+      this._placement = placement;
+      this._updatePlacement(placement);
+    } else {
+      this.setAttribute('placement', 'end');
+    }
     // TODO: Make this a reflective property and set default if not set.
     const backdrop = this.getAttribute('backdrop');
-    // TODO: Make this a reflective property and set default if not set.
     const scroll = this.getAttribute('scroll');
-
   }
 
   disconnectedCallback() {
@@ -101,6 +110,12 @@ export default class Drawer extends HTMLElement {
     }
   }
 
+  _updatePlacement(placement) {
+    const drawer = this.shadowRoot.querySelector('.offcanvas');
+    drawer.classList.remove('offcanvas-start', 'offcanvas-end', 'offcanvas-top', 'offcanvas-bottom');
+    drawer.classList.add(`offcanvas-${placement}`);
+  }
+
   _handleClose() {
     this.removeAttribute('open');
   }
@@ -115,5 +130,13 @@ export default class Drawer extends HTMLElement {
     } else {
       this.removeAttribute('open');
     }
+  }
+
+  get placement() {
+    return this.getAttribute('placement');
+  }
+
+  set placement(val) {
+    this.setAttribute('placement', val);
   }
 }

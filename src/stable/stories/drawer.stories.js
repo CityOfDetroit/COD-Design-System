@@ -15,6 +15,7 @@ export const Basic = () => html`
     Button with data-bs-target
   </button>
   <cod-drawer id="offcanvasExample">
+    <h2 slot="label">Drawer Header</h2>
     <div style="height: 150vh; border: dashed 2px grey; padding: 0 1rem;">
       <p>Scroll down to give it a try! 👇</p>
     </div>
