@@ -78,7 +78,7 @@ class Icon extends HTMLElement {
     }
   }
 
-  getIcon(icon, size, library = 'bootstrapicons') {
+  getIcon(icon, size, library = 'fontawesome') {
     switch (library.toLowerCase()) {
       case 'fontawesome':
         switch (icon) {
