@@ -3,12 +3,25 @@ import styles from '!!raw-loader!./Drawer.css';
 const template = document.createElement('template');
 
 template.innerHTML = `
-<slot></slot>
+<div class="offcanvas offcanvas-end" tabindex="-1" id="">
+  <div class="offcanvas-header">
+    <slot name="label"></slot>
+    <button type="button" class="btn-close" aria-label="Close">X</button>
+  </div>
+  <div class="offcanvas-body">
+    <slot></slot>
+  </div>
+</div>
+`;
+
+const backdropTemplate = document.createElement('template');
+backdropTemplate.innerHTML = `
+<div class="offcanvas-backdrop"></div>
 `;
 
 export default class Drawer extends HTMLElement {
   static get observedAttributes() {
-    return ['data-show'];
+    return ['show'];
   }
 
   constructor() {
@@ -17,8 +30,6 @@ export default class Drawer extends HTMLElement {
     // Create a shadow root
     const shadow = this.attachShadow({ mode: 'open' });
     shadow.appendChild(template.content.cloneNode(true));
-    this.offcanvas = document.createElement('div');
-    this.offcanvasBackdrop = document.createElement('div');
 
     // Add styles
     const itemStyles = document.createElement('style');
@@ -26,128 +37,64 @@ export default class Drawer extends HTMLElement {
     shadow.appendChild(itemStyles);
   }
 
-  attributeChangedCallback(name, oldValue, newValue) {
-    const tempClasses = this.offcanvas.className.split(' ');
-
-    const popValue = tempClasses.pop();
-
-    // TODO: Fix old ESLint errors - see issue #1099
-    // eslint-disable-next-line eqeqeq
-    popValue != 'show' ? tempClasses.push(popValue) : 0;
-
-    // TODO: Fix old ESLint errors - see issue #1099
-    // eslint-disable-next-line eqeqeq
-    if (newValue == 'true') {
-      tempClasses.push('show');
-
-      // TODO: Fix old ESLint errors - see issue #1099
-      // eslint-disable-next-line eqeqeq
-      if (this.getAttribute('data-backdrop') != 'false') {
-        // TODO: Fix old ESLint errors - see issue #1099
-        // eslint-disable-next-line eqeqeq
-        if (this.getAttribute('data-static') != 'true') {
-          this.offcanvasBackdrop.addEventListener('click', this._onClick);
-        }
-        this.shadowRoot.appendChild(this.offcanvasBackdrop);
-      }
-    } else {
-      if (this.shadowRoot.querySelector('div.offcanvas-backdrop')) {
-        this.shadowRoot.removeChild(this.offcanvasBackdrop);
+  attributeChangedCallback(name, _oldValue, newValue) {
+    switch (name) {
+      case 'show': {
+        this._toggleDrawer(newValue !== null);
       }
     }
-    this.offcanvas.className = tempClasses.join(' ');
   }
 
   connectedCallback() {
     // Offcanvas attributes
+    const id = this.getAttribute('id');
+    // TODO: Make this a reflective property and set default if not set.
+    const show = this.getAttribute('show');
+    // TODO: Make this a reflective property and set default if not set.
+    const placement = this.getAttribute('placement');
+    // TODO: Make this a reflective property and use it.
+    const label = this.getAttribute('label');
+    // TODO: Make this a reflective property and set default if not set.
+    const backdrop = this.getAttribute('backdrop');
+    // TODO: Make this a reflective property and set default if not set.
+    const scroll = this.getAttribute('scroll');
 
-    const show = this.getAttribute('data-show');
+    const drawerContainer = this.shadowRoot.querySelector('.offcanvas');
+    drawerContainer.id = id;
 
-    const placement = this.getAttribute('data-placement');
-
-    const id = this.getAttribute('data-id');
-
-    const backdrop = this.getAttribute('data-backdrop');
-
-    const backdropExtraClasses = this.getAttribute(
-      'data-backdrop-extra-classes',
-    );
-
-    const scroll = this.getAttribute('data-scroll');
-
-    const bStatic = this.getAttribute('data-static');
-
-    const extraClasses = this.getAttribute('data-extra-classes');
-
-    const offcanvasClasses = ['offcanvas'];
-
-    const backdropClasses = ['offcanvas-backdrop fade show'];
-
-    // TODO: Fix old ESLint errors - see issue #1099
-    // eslint-disable-next-line eqeqeq
-    show == 'true' ? offcanvasClasses.push('show') : 0;
-
-    // TODO: Fix old ESLint errors - see issue #1099
-    // eslint-disable-next-line eqeqeq
-    backdrop == 'false'
-      ? this.offcanvas.setAttribute('data-bs-backdrop', false)
-      : 0;
-
-    // TODO: Fix old ESLint errors - see issue #1099
-    // eslint-disable-next-line eqeqeq
-    scroll == 'true' ? this.offcanvas.setAttribute('data-bs-scroll', true) : 0;
-
-    // TODO: Fix old ESLint errors - see issue #1099
-    // eslint-disable-next-line eqeqeq
-    bStatic == 'true'
-      ? this.offcanvas.setAttribute('data-bs-backdrop', 'static')
-      : 0;
-
-    // TODO: Fix old ESLint errors - see issue #1099
-    // eslint-disable-next-line eqeqeq
-    backdropExtraClasses != undefined && backdropExtraClasses != null
-      ? backdropClasses.push(backdropExtraClasses)
-      : 0;
-
-    // TODO: Fix old ESLint errors - see issue #1099
-    // eslint-disable-next-line eqeqeq
-    extraClasses != undefined && extraClasses != null
-      ? offcanvasClasses.push(extraClasses)
-      : 0;
-
-    // TODO: Fix old ESLint errors - see issue #1099
-    // eslint-disable-next-line eqeqeq
-    if (placement != undefined && placement != null) {
-      offcanvasClasses.push(`offcanvas-${placement}`);
-    } else {
-      offcanvasClasses.push('offcanvas-start');
-    }
-    const expand = this.getAttribute('data-expand');
-    if (expand) {
-      expand === 'always'
-        ? offcanvasClasses.push('navbar-expand')
-        : offcanvasClasses.push(`navbar-expand-${expand}`);
-    }
-
-    // TODO: Fix old ESLint errors - see issue #1099
-    // eslint-disable-next-line eqeqeq
-    if (id != undefined && id != null) {
-      this.offcanvas.id = id;
-      this.offcanvas.setAttribute('aria-labelledby', `${id}-label`);
-    }
-    this.offcanvas.setAttribute('tabindex', -1);
-    this.offcanvas.className = offcanvasClasses.join(' ');
-    this.offcanvasBackdrop.className = backdropClasses.join(' ');
-    if (!this.shadowRoot.querySelector('div')) {
-      this.shadowRoot.appendChild(this.offcanvas);
-    }
+    // Register click handler for closing.
+    const closeButton = this.shadowRoot.querySelector('.btn-close');
+    closeButton.addEventListener('click', this._handleClose.bind(this));
   }
 
   disconnectedCallback() {
-    this.removeEventListener('click', this._onClick.bind(this));
+    const closeButton = this.shadowRoot.querySelector('.btn-close');
+    closeButton.removeEventListener('click', this._handleClose.bind(this));
+    const backdrop = this.shadowRoot.querySelector('.offcanvas-backdrop');
+    if (backdrop) {
+      backdrop.removeEventListener('click', this._handleClose.bind(this));
+    }
   }
 
-  _onClick() {
-    this.getRootNode().host.setAttribute('data-show', 'false');
+  _toggleDrawer(isOpening) {
+    const drawer = this.shadowRoot.querySelector('.offcanvas');
+    if (isOpening) {
+      drawer.classList.toggle('show', true);
+      const backdropCopy = backdropTemplate.content.cloneNode(true);
+      this.shadowRoot.appendChild(backdropCopy);
+      const backdrop = this.shadowRoot.querySelector('.offcanvas-backdrop');
+      backdrop.addEventListener('click', this._handleClose.bind(this))
+      backdrop.classList.toggle('show', true);
+    } else {
+      drawer.classList.toggle('show', false);
+      const backdrop = this.shadowRoot.querySelector('.offcanvas-backdrop');
+      backdrop.classList.toggle('show', false);
+      backdrop.removeEventListener('click', this._handleClose.bind(this));
+      backdrop.remove();
+    }
+  }
+
+  _handleClose() {
+    this._toggleDrawer(false);
   }
 }
