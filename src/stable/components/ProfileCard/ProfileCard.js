@@ -12,13 +12,11 @@ ${styles}
 `;
 
 class ProfileCard extends HTMLElement {
-    constructor(){
-        super();
-        const shadow = this.attachShadow({ mode: 'open'});
-        shadow.appendChild(template.content.cloneNode(true));
-    }
+  constructor() {
+    super();
+    const shadow = this.attachShadow({ mode: 'open' });
+    shadow.appendChild(template.content.cloneNode(true));
+  }
 }
-
-
 
 export { ProfileCard as default };
