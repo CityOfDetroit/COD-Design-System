@@ -2,9 +2,8 @@ import styles from '!!raw-loader!./Drawer.css';
 
 const template = document.createElement('template');
 
-// TODO: Set aria-modal, aria-labelled-by, and role="dialog" on the offcanvas element
 template.innerHTML = `
-<div class="offcanvas" tabindex="-1">
+<div class="offcanvas" tabindex="-1" role="dialog" aria-modal="true">
   <div class="offcanvas-header">
     <slot name="label"></slot>
     <button type="button" class="btn-close" aria-label="Close">X</button>
@@ -45,6 +44,7 @@ export default class Drawer extends HTMLElement {
 
     // Bind event handlers
     this._handleClose = this._handleClose.bind(this);
+    this._handleKeyDown = this._handleKeyDown.bind(this);
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
@@ -77,16 +77,24 @@ export default class Drawer extends HTMLElement {
     const id = this.getAttribute('id');
     if (id) drawer.id = id;
     
+    // Set the aria-labelledby attribute based on the label slot
+    const labelSlot = this.shadowRoot.querySelector('slot[name="label"]');
+    if (labelSlot) {
+      const labelId = `${id || 'drawer'}-label`;
+      drawer.setAttribute('aria-labelledby', labelId);
+    }
+    
     // Set up event listeners
     const closeButton = this.shadowRoot.querySelector('.btn-close');
     closeButton.addEventListener('click', this._handleClose);
+    document.addEventListener('keydown', this._handleKeyDown);
     
     // Initialize state from attributes
     this._state.open = this.hasAttribute('open');
     this._state.placement = this.getAttribute('placement') || 'end';
     this._state.backdrop = this.getAttribute('backdrop') === 'false' ? false : 
                           this.getAttribute('backdrop') || true;
-    this._state.scroll = this.hasAttribute('scroll') ? true :  false;
+    this._state.scroll = this.hasAttribute('scroll');
     
     // Set default attributes if not present
     if (!this.hasAttribute('placement')) this.setAttribute('placement', 'end');
@@ -100,13 +108,18 @@ export default class Drawer extends HTMLElement {
     // Clean up event listeners
     const closeButton = this.shadowRoot.querySelector('.btn-close');
     closeButton.removeEventListener('click', this._handleClose);
+    document.removeEventListener('keydown', this._handleKeyDown);
     
     this._removeBackdropEventListener();
+    
+    // Make sure we restore body scrolling if the drawer is removed
+    this._enableBodyScroll();
   }
 
   _render() {
     this._renderDrawer();
     this._renderBackdrop();
+    this._updateBodyScroll();
   }
 
   _renderDrawer() {
@@ -142,6 +155,37 @@ export default class Drawer extends HTMLElement {
     }
   }
 
+  _updateBodyScroll() {
+    if (this._state.open && !this._state.scroll) {
+      this._disableBodyScroll();
+    } else {
+      this._enableBodyScroll();
+    }
+  }
+
+  _disableBodyScroll() {
+    // Store current body padding and overflow
+    this._bodyPaddingRight = document.body.style.paddingRight;
+    this._bodyOverflow = document.body.style.overflow;
+    
+    // Calculate scrollbar width to avoid page shift
+    const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+    
+    // Apply padding equal to scrollbar width to prevent content shift
+    if (scrollbarWidth > 0) {
+      document.body.style.paddingRight = `${scrollbarWidth}px`;
+    }
+    
+    // Prevent body scrolling
+    document.body.style.overflow = 'hidden';
+  }
+
+  _enableBodyScroll() {
+    // Restore original body padding and overflow
+    document.body.style.paddingRight = this._bodyPaddingRight || '';
+    document.body.style.overflow = this._bodyOverflow || '';
+  }
+
   _removeBackdropEventListener() {
     const backdrop = this.shadowRoot.querySelector('.offcanvas-backdrop');
     if (backdrop) {
@@ -151,6 +195,13 @@ export default class Drawer extends HTMLElement {
 
   _handleClose() {
     this.removeAttribute('open');
+  }
+
+  _handleKeyDown(event) {
+    // Close the drawer when Escape key is pressed
+    if (event.key === 'Escape' && this._state.open) {
+      this._handleClose();
+    }
   }
 
   // Getters and setters
