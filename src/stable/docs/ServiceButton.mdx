@@ -1,4 +1,14 @@
-import { Meta, Title, Subtitle, Description, Primary, Controls, Stories, Story, Source } from '@storybook/blocks';
+import {
+  Meta,
+  Title,
+  Subtitle,
+  Description,
+  Primary,
+  Controls,
+  Stories,
+  Story,
+  Source,
+} from '@storybook/blocks';
 import * as ServiceButtonStories from '../stories/servicebutton.stories';
 
 import '../../../.storybook/docs'; // Import all documentation components
@@ -8,7 +18,8 @@ import '../../../.storybook/docs'; // Import all documentation components
 # Service Button
 
 <div className="component-summary">
-  Service buttons are specialized buttons that link out to services offered to residents/visitors/businesses.
+  Service buttons are specialized buttons that link out to services offered to
+  residents/visitors/businesses.
 </div>
 
 ## Examples
@@ -16,16 +27,16 @@ import '../../../.storybook/docs'; // Import all documentation components
 ### Basic
 
 <Description of={ServiceButtonStories.Basic} />
-<Story of={ServiceButtonStories.Basic} inline={true}/>
+<Story of={ServiceButtonStories.Basic} inline={true} />
 <Source of={ServiceButtonStories.Basic} />
 
 ## Slots
 
-<doc-slots-table 
-  data={JSON.stringify([
-    {"name": "title", "description": "The main title of the service button. This should start with a verb."}, 
-    {"name": "subtitle", "description": "A description of the service to be placed beneath the main title."}, 
-  ])}>
+<doc-slots-table
+data={JSON.stringify([
+{"name": "title", "description": "The main title of the service button. This should start with a verb."},
+{"name": "subtitle", "description": "A description of the service to be placed beneath the main title."},
+])}>
 </doc-slots-table>
 
 ## HTML Attributes / JS Properties
@@ -33,11 +44,11 @@ import '../../../.storybook/docs'; // Import all documentation components
 Supported HTML attributes. If the attribute is reflected in a JS property, that attribute will have a 'reflects' tag next to the name.
 
 <doc-js-properties-table
-  data={JSON.stringify([
-    {"name": "href", "description": "A link to the page or site containing the service. See https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#href", "type": "string", "default": "-", "reflects": false}, 
-    {"name": "target", "description": "Where to display the linked URL. See https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#target", "type": "_self|_blank|_parent|_top", "default": "-", "reflects": false}, 
-    {"name": "rel", "description": "The relationship of the linked URL as space-separated link types. See https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/rel", "type": "_self|", "default": "-", "reflects": false}, 
-  ])}>
+data={JSON.stringify([
+{"name": "href", "description": "A link to the page or site containing the service. See https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#href", "type": "string", "default": "-", "reflects": false},
+{"name": "target", "description": "Where to display the linked URL. See https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#target", "type": "_self|_blank|_parent|_top", "default": "-", "reflects": false},
+{"name": "rel", "description": "The relationship of the linked URL as space-separated link types. See https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/rel", "type": "_self|", "default": "-", "reflects": false},
+])}>
 </doc-js-properties-table>
 
 ## Events

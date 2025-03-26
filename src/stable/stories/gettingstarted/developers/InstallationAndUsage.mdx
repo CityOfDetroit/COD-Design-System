@@ -123,8 +123,11 @@ Some attribute state will be reflected as mutable JS properties on the object:
 
 ```js
 const button = document.querySelector('cod-service-button');
-button.href = "https://www.google.com";
-console.log('href:', document.querySelector('cod-service-button').getAttribute('href'));
+button.href = 'https://www.google.com';
+console.log(
+  'href:',
+  document.querySelector('cod-service-button').getAttribute('href'),
+);
 // Outputs "href: https://www.google.com"
 ```
 
