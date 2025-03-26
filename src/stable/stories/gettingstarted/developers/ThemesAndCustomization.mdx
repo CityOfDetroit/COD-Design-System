@@ -15,8 +15,42 @@ For example, this won't work:
 This is a feature of the Shadow DOM: outside styles cannot be applied to content inside the Shadow DOM. Shadow DOM gives us a clean, native way
 of encapsulating styles and protects your applications from breaking changes.
 
-The Shadow DOM API provides two solutions to allow intentional inheritance of styles across the Shadow DOM boundary - CSS Custom Properties
-and CSS Shadow Parts - however, the City of Detroit Design System has not yet implemented these features.
+The Shadow DOM API provides three solutions to allow intentional inheritance of styles across the Shadow DOM boundary:
+  - [Shadow DOM slots](https://javascript.info/slots-composition)
+  - [CSS Custom Properties](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_cascading_variables/Using_CSS_custom_properties)
+  - [CSS Parts](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_shadow_parts).
 
-While the design system does not support CSS Custom Properties or CSS Shadow Parts, you can still apply styles to slotted elements within the Shadow DOM.
-See the [Installation & Usage](/docs/getting-started-developers-installation-usage--docs) guide for more information.
+## Styling Slotted Elements
+
+Elements in Shadow DOM slots remain in the Light DOM, which means they can be styled with global CSS. This is the most straightforward way to style slotted elements.
+
+```html
+<style>
+  span {
+    color: blue;
+  }
+</style>
+<cod-service-button
+  href="https://www.example.com"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <!-- Colored blue because these are slotted elemented. -->
+  <span slot="title">Apply for a Job</span>
+  <span slot="subtitle"
+    >View job postings for the City of Detroit or our partners.</span
+  >
+</cod-service-button>
+```
+
+## Using CSS Custom Properties
+
+See https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_cascading_variables/Using_CSS_custom_properties for more information.
+
+The CSS custom properties of a component are listed on the component's Documentation page.
+
+## Using CSS Parts
+
+See https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_shadow_parts for more information.
+
+The CSS parts of a component are listed on the component's Documentation page.

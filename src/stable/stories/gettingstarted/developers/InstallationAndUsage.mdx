@@ -119,13 +119,24 @@ For basic primitive types like `string`, `boolean`, `number`, data can be passed
 </cod-service-button>
 ```
 
+Some attribute state will be reflected as mutable JS properties on the object:
+
+```js
+const button = document.querySelector('cod-service-button');
+button.href = "https://www.google.com";
+console.log('href:', document.querySelector('cod-service-button').getAttribute('href'));
+// Outputs "href: https://www.google.com"
+```
+
+HTML attributes and JS properties are described on the component's Documentation page.
+
 ### Passing Down Rick Markup w/ Slots
 
 Sometimes an attribute is not enough to pass data down the DOM tree, especially when the content
 you want to pass down has a structure of its own. The
 [Web Component Slot element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/slot) gives you
 full control over the contents of a component. Some components may have multiple slots. The slots
-are described on a components 'Docs' page.
+are described on a component's Documentation page.
 
 > Web Component Concept:
 > Slotted content lives outside of the shadow DOM and as a result, you are free to style them however you want.
@@ -167,4 +178,4 @@ document
   });
 ```
 
-Custom events will be documents on the component's 'Docs' page.
+Custom events will be documented on the component's Documentation page.
