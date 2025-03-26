@@ -31,7 +31,6 @@ import '../../../.storybook/docs'; // Import all documentation components
   data={JSON.stringify([
     {"name": "(default)", "description": "The drawer's main content."}, 
     {"name": "label", "description": "The drawer's label. Alternatively, you can use the label attribute."}, 
-    {"name": "footer", "description": "The drawer's footer, usually containing action buttons."}
   ])}>
 </doc-slots-table>
 
@@ -58,39 +57,31 @@ import '../../../.storybook/docs'; // Import all documentation components
 ## Methods
 
 <doc-methods-table 
-  data={JSON.stringify([
-    {"name": "open", "description": "Opens the drawer.", "parameters": "-"}, 
-    {"name": "close", "description": "Closes the drawer.", "parameters": "-"}
-  ])}>
+  data={JSON.stringify([])}>
 </doc-methods-table>
 
 ## Custom CSS Properties
 
 <doc-css-custom-properties-table 
   data={JSON.stringify([
-    {"name": "--cod-drawer-width", "description": "Width of the drawer when placement is start or end.", "defaultValue": "330px"}, 
-    {"name": "--cod-drawer-height", "description": "Height of the drawer when placement is top or bottom.", "defaultValue": "330px"}, 
-    {"name": "--cod-drawer-header-padding", "description": "Padding of the drawer header.", "defaultValue": "1rem"}, 
-    {"name": "--cod-drawer-body-padding", "description": "Padding of the drawer body.", "defaultValue": "1rem"}
+    {"name": "--cod-offcanvas-padding-x", "description": "Horizontal padding of the drawer element header and body.", "defaultValue": "1em"}, 
+    {"name": "--cod-offcanvas-padding-y", "description": "Vertical padding of the drawer element header and body.", "defaultValue": "1em"}, 
+    {"name": "--cod-offcanvas-transition", "description": "The transition used when showing the drawer.", "defaultValue": "transform 0.3s ease-in-out"}, 
+    {"name": "--cod-offcanvas-bg", "description": "The background color of the offcanvas element.", "defaultValue": "var(--cod-body-bg)"}, 
+    {"name": "--cod-offcanvas-width", "description": "Width of the drawer element.", "defaultValue": "400px"},
+    {"name": "--cod-offcanvas-height", "description": "Height of the drawer element.", "defaultValue": "30vh"}
   ])}>
 </doc-css-custom-properties-table>
 
 ## CSS Parts
 
 <doc-css-parts-table 
-  data={JSON.stringify([
-    {"name": "base", "description": "The component's base wrapper."}, 
-    {"name": "backdrop", "description": "The backdrop that covers the screen behind the drawer."}, 
-    {"name": "panel", "description": "The drawer's panel where content is rendered."}, 
-    {"name": "header", "description": "The drawer's header containing the title and close button."}, 
-    {"name": "close-button", "description": "The button that closes the drawer."}, 
-    {"name": "body", "description": "The drawer's body."}
-  ])}>
+  data={JSON.stringify([])}>
 </doc-css-parts-table>
 
 ## Dependencies
 
-<doc-dependencies-list data={JSON.stringify(["None"])}></doc-dependencies-list>
+<doc-dependencies-list data={JSON.stringify([])}></doc-dependencies-list>
 
 ## Accessibility
 
