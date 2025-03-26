@@ -34,14 +34,14 @@ import '../../../.storybook/docs'; // Import all documentation components
   ])}>
 </doc-slots-table>
 
-## JS Properties
+## HTML Attributes / JS Properties
 
 <doc-js-properties-table
   data={JSON.stringify([
-    {"name": "open", "description": "Indicates whether or not the drawer is open. You can toggle this attribute to show and hide the drawer.", "type": "boolean", "default": "false"}, 
-    {"name": "placement", "description": "The direction from which the drawer will open.", "type": "'start' | 'end' | 'top' | 'bottom'", "default": "'end'"}, 
-    {"name": "backdrop", "description": "When true, a backdrop will be shown behind the drawer. When set to 'static', the drawer will not close when clicking outside it.", "type": "boolean | 'static'", "default": "true"}, 
-    {"name": "scroll", "description": "When true, the body can be scrolled while the drawer is open.", "type": "boolean", "default": "false"}, 
+    {"name": "open", "description": "Indicates whether or not the drawer is open. You can toggle this attribute to show and hide the drawer.", "type": "boolean", "defaultValue": "false", reflects: true}, 
+    {"name": "placement", "description": "The direction from which the drawer will open.", "type": "'start' | 'end' | 'top' | 'bottom'", "defaultValue": "'end'", reflects: true}, 
+    {"name": "backdrop", "description": "When true, a backdrop will be shown behind the drawer. When set to 'static', the drawer will not close when clicking outside it.", "type": "boolean | 'static'", "defaultValue": true, reflects: true}, 
+    {"name": "scroll", "description": "When true, the body can be scrolled while the drawer is open.", "type": "boolean", "defaultValue": false, reflects: true}, 
   ])}>
 </doc-js-properties-table>
 
