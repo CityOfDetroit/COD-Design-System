@@ -117,9 +117,19 @@ export default class Drawer extends HTMLElement {
   }
 
   _render() {
+    const wasOpen = this.shadowRoot.querySelector('.offcanvas').classList.contains('show');
+    const willBeOpen = this._state.open;
+
     this._renderDrawer();
     this._renderBackdrop();
     this._updateBodyScroll();
+
+    // Dispatch events when state changes
+    if (!wasOpen && willBeOpen) {
+      this.dispatchEvent(new CustomEvent('cod-show', { bubbles: true }));
+    } else if (wasOpen && !willBeOpen) {
+      this.dispatchEvent(new CustomEvent('cod-hide', { bubbles: true }));
+    }
   }
 
   _renderDrawer() {
