@@ -1,0 +1,8 @@
+@import '../../../scss/detroitmi-bootstrap-base';
+@import '../../../scss/detroitmi-utilities';
+
+@import 'bootstrap/scss/offcanvas';
+
+// Override bootstrap _root.scss.
+@import '../../../scss/host';
+@import '../../../scss/detroitmi-style-guide';

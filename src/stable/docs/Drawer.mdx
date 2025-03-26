@@ -1,0 +1,105 @@
+import {
+  Meta,
+  Title,
+  Subtitle,
+  Description,
+  Primary,
+  Controls,
+  Stories,
+  Story,
+  Source,
+} from '@storybook/blocks';
+import * as DrawerStories from '../stories/drawer.stories';
+
+import '../../../.storybook/docs'; // Import all documentation components
+
+<Meta of={DrawerStories} />
+
+# Drawer
+
+<div className="component-summary">
+  Drawers slide in from a container to expose additional options and
+  information.
+</div>
+
+## Examples
+
+### Basic
+
+<Description of={DrawerStories.Basic} />
+<Story of={DrawerStories.Basic} inline={true} />
+<Source of={DrawerStories.Basic} />
+
+### Scrolls
+
+<Description of={DrawerStories.Scroll} />
+<Story of={DrawerStories.Scroll} inline={true} />
+<Source of={DrawerStories.Scroll} />
+
+## Slots
+
+<doc-slots-table
+data={JSON.stringify([
+{"name": "(default)", "description": "The drawer's main content."},
+{"name": "label", "description": "The drawer's label. Alternatively, you can use the label attribute."},
+])}>
+</doc-slots-table>
+
+## HTML Attributes / JS Properties
+
+<doc-js-properties-table
+data={JSON.stringify([
+{"name": "open", "description": "Indicates whether or not the drawer is open. You can toggle this attribute to show and hide the drawer.", "type": "boolean", "defaultValue": "false", reflects: true},
+{"name": "placement", "description": "The direction from which the drawer will open.", "type": "'start' | 'end' | 'top' | 'bottom'", "defaultValue": "'end'", reflects: true},
+{"name": "backdrop", "description": "When true, a backdrop will be shown behind the drawer. When set to 'static', the drawer will not close when clicking outside it.", "type": "boolean | 'static'", "defaultValue": true, reflects: true},
+{"name": "scroll", "description": "When true, the body can be scrolled while the drawer is open.", "type": "boolean", "defaultValue": false, reflects: true},
+])}>
+</doc-js-properties-table>
+
+## Events
+
+<doc-events-table
+data={JSON.stringify([
+{"name": "cod-show", "description": "Emitted when the drawer opens.", "detail": "-"},
+{"name": "cod-hide", "description": "Emitted when the drawer closes.", "detail": "-"}
+])}>
+</doc-events-table>
+
+## Methods
+
+<doc-methods-table 
+  data={JSON.stringify([])}>
+</doc-methods-table>
+
+## Custom CSS Properties
+
+<doc-css-custom-properties-table
+data={JSON.stringify([
+{"name": "--cod-offcanvas-padding-x", "description": "Horizontal padding of the drawer element header and body.", "defaultValue": "1em"},
+{"name": "--cod-offcanvas-padding-y", "description": "Vertical padding of the drawer element header and body.", "defaultValue": "1em"},
+{"name": "--cod-offcanvas-transition", "description": "The transition used when showing the drawer.", "defaultValue": "transform 0.3s ease-in-out"},
+{"name": "--cod-offcanvas-bg", "description": "The background color of the offcanvas element.", "defaultValue": "var(--cod-body-bg)"},
+{"name": "--cod-offcanvas-width", "description": "Width of the drawer element.", "defaultValue": "400px"},
+{"name": "--cod-offcanvas-height", "description": "Height of the drawer element.", "defaultValue": "30vh"}
+])}>
+</doc-css-custom-properties-table>
+
+## CSS Parts
+
+<doc-css-parts-table 
+  data={JSON.stringify([])}>
+</doc-css-parts-table>
+
+## Dependencies
+
+<doc-dependencies-list data={JSON.stringify([])}></doc-dependencies-list>
+
+## Accessibility
+
+Drawer components are designed to be accessible by default:
+
+- The drawer has `role="dialog"` and `aria-modal="true"`
+- When the `label` slot is used, it automatically sets the appropriate `aria-labelledby` attribute
+- Focus is trapped inside the drawer when it's open
+- The Escape key can be used to close the drawer
+- When closed, focus returns to the element that triggered the drawer
