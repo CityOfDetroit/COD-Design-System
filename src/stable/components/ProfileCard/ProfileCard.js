@@ -49,15 +49,21 @@ class ProfileCard extends HTMLElement {
     const slot = this.shadowRoot.querySelector('slot[name="name"]');
     slot.addEventListener('slotchange', () => {
       const assignedNodes = slot.assignedNodes({ flatten: true });
-      if(assignedNodes.length > 0) {
+      if (assignedNodes.length > 0) {
         const assignedElement = assignedNodes[0];
-        if(!(assignedElement instanceof HTMLSpanElement || assignedElement instanceof HTMLAnchorElement)){
-          console.warn('ProfileCard: The "name" slot should contain either a <span> or an <a> element.');
+        if (
+          !(
+            assignedElement instanceof HTMLSpanElement ||
+            assignedElement instanceof HTMLAnchorElement
+          )
+        ) {
+          throw new Error(
+            'ProfileCard: The "name" slot should contain either a <span> or an <a> element.',
+          );
         }
       }
     });
   }
-
 }
 
 export { ProfileCard as default };
