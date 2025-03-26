@@ -122,7 +122,7 @@ export class JSPropertiesTable extends HTMLElement {
         font-family: monospace;
       }
       
-      .doc-table .readonly-tag {
+      .doc-table .doc-tag {
         display: inline-block;
         font-size: 11px;
         font-weight: 600;
@@ -139,7 +139,7 @@ export class JSPropertiesTable extends HTMLElement {
     // Always check if this._properties is an array and has items
     if (!Array.isArray(this._properties) || this._properties.length === 0) {
       content = document.createElement('p');
-      content.textContent = 'This component does not expose any JavaScript properties.';
+      content.textContent = 'This component does not expose any HTML attributes or JavaScript properties.';
       content.className = 'doc-empty-message';
     } else {
       // Create the table element
@@ -168,7 +168,6 @@ export class JSPropertiesTable extends HTMLElement {
       const descriptionHeader = document.createElement('th');
       descriptionHeader.className = 'description-column';
       descriptionHeader.textContent = 'Description';
-      
       headerRow.appendChild(nameHeader);
       headerRow.appendChild(descriptionHeader);
       headerRow.appendChild(typeHeader);
@@ -192,9 +191,17 @@ export class JSPropertiesTable extends HTMLElement {
         // Add readonly tag if necessary
         if (prop.readonly) {
           const readonlyTag = document.createElement('span');
-          readonlyTag.className = 'readonly-tag';
+          readonlyTag.className = 'doc-tag';
           readonlyTag.textContent = 'readonly';
           nameCell.appendChild(readonlyTag);
+        }
+
+        // Add reflects tag if necessary
+        if (prop.reflects) {
+          const reflectsTag = document.createElement('span');
+          reflectsTag.className = 'doc-tag';
+          reflectsTag.textContent = 'reflects';
+          nameCell.appendChild(reflectsTag);
         }
         
         // Type cell
