@@ -8,14 +8,14 @@ export default {
 
 export const Basic = () => html`
   <button
-    onclick="(function(){const offcanvas = document.querySelector('cod-drawer'); offcanvas.setAttribute('open', '')})(); return false;"
+    onclick="(function(){const offcanvas = document.querySelector('#basicExample'); offcanvas.setAttribute('open', '')})(); return false;"
     class="btn btn-primary"
     type="button"
   >
     Button with data-bs-target
   </button>
-  <cod-drawer id="offcanvasExample">
-    <h2 slot="label">Drawer Header</h2>
+  <cod-drawer id="basicExample">
+    <h2 slot="label">Basic Header</h2>
     <div style="height: 150vh; border: dashed 2px grey; padding: 0 1rem;">
       <p>Scroll down to give it a try! 👇</p>
     </div>
@@ -25,14 +25,14 @@ export const Basic = () => html`
 export const Scroll = () => html`
   <div style="height: 150vh; border: dashed 2px grey; padding: 0 1rem;">
     <button
-      onclick="(function(){const offcanvas = document.querySelector('cod-drawer'); offcanvas.setAttribute('open', '')})(); return false;"
+      onclick="(function(){const offcanvas = document.querySelector('#scrollExample'); offcanvas.setAttribute('open', '')})(); return false;"
       class="btn btn-primary"
       type="button"
     >
       Button with data-bs-target
     </button>
-    <cod-drawer id="offcanvasExample" scroll>
-      <h2 slot="label">Drawer Header</h2>
+    <cod-drawer id="scrollExample" scroll>
+      <h2 slot="label">Scroll Header</h2>
       <div style="height: 150vh; border: dashed 2px grey; padding: 0 1rem;">
         <p>Scroll down to give it a try! 👇</p>
       </div>
