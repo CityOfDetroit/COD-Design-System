@@ -8,7 +8,7 @@ export default {
 
 export const Basic = () => html`
   <button
-    onclick="(function(){const offcanvas = document.querySelector('#basicExample'); offcanvas.setAttribute('open', '')})(); return false;"
+    onclick="(function(){const offcanvas = this.nextElementSibling; offcanvas.setAttribute('open', '')}).call(this); return false;"
     class="btn btn-primary"
     type="button"
   >
@@ -25,7 +25,7 @@ export const Basic = () => html`
 export const Scroll = () => html`
   <div style="height: 150vh; border: dashed 2px grey; padding: 0 1rem;">
     <button
-      onclick="(function(){const offcanvas = document.querySelector('#scrollExample'); offcanvas.setAttribute('open', '')})(); return false;"
+      onclick="(function(){const offcanvas = this.nextElementSibling; offcanvas.setAttribute('open', '')}).call(this); return false;"
       class="btn btn-primary"
       type="button"
     >
