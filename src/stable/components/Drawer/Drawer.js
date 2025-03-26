@@ -39,7 +39,7 @@ export default class Drawer extends HTMLElement {
       open: false,
       placement: 'end',
       backdrop: true,
-      scroll: false
+      scroll: false,
     };
 
     // Bind event handlers
@@ -59,15 +59,18 @@ export default class Drawer extends HTMLElement {
         this._state.placement = newValue || 'end';
         break;
       case 'backdrop':
-        this._state.backdrop = newValue === 'true' ? true : 
-                              newValue === 'false' ? false : 
-                              newValue || true;
+        this._state.backdrop =
+          newValue === 'true'
+            ? true
+            : newValue === 'false'
+            ? false
+            : newValue || true;
         break;
       case 'scroll':
         this._state.scroll = newValue !== null;
         break;
     }
-    
+
     // Re-render the component whenever an attribute changes
     this._render();
   }
@@ -76,30 +79,32 @@ export default class Drawer extends HTMLElement {
     const drawer = this.shadowRoot.querySelector('.offcanvas');
     const id = this.getAttribute('id');
     if (id) drawer.id = id;
-    
+
     // Set the aria-labelledby attribute based on the label slot
     const labelSlot = this.shadowRoot.querySelector('slot[name="label"]');
     if (labelSlot) {
       const labelId = `${id || 'drawer'}-label`;
       drawer.setAttribute('aria-labelledby', labelId);
     }
-    
+
     // Set up event listeners
     const closeButton = this.shadowRoot.querySelector('.btn-close');
     closeButton.addEventListener('click', this._handleClose);
     document.addEventListener('keydown', this._handleKeyDown);
-    
+
     // Initialize state from attributes
     this._state.open = this.hasAttribute('open');
     this._state.placement = this.getAttribute('placement') || 'end';
-    this._state.backdrop = this.getAttribute('backdrop') === 'false' ? false : 
-                          this.getAttribute('backdrop') || true;
+    this._state.backdrop =
+      this.getAttribute('backdrop') === 'false'
+        ? false
+        : this.getAttribute('backdrop') || true;
     this._state.scroll = this.hasAttribute('scroll');
-    
+
     // Set default attributes if not present
     if (!this.hasAttribute('placement')) this.setAttribute('placement', 'end');
     if (!this.hasAttribute('backdrop')) this.setAttribute('backdrop', 'true');
-    
+
     // Initial render
     this._render();
   }
@@ -109,15 +114,17 @@ export default class Drawer extends HTMLElement {
     const closeButton = this.shadowRoot.querySelector('.btn-close');
     closeButton.removeEventListener('click', this._handleClose);
     document.removeEventListener('keydown', this._handleKeyDown);
-    
+
     this._removeBackdropEventListener();
-    
+
     // Make sure we restore body scrolling if the drawer is removed
     this._enableBodyScroll();
   }
 
   _render() {
-    const wasOpen = this.shadowRoot.querySelector('.offcanvas').classList.contains('show');
+    const wasOpen = this.shadowRoot
+      .querySelector('.offcanvas')
+      .classList.contains('show');
     const willBeOpen = this._state.open;
 
     this._renderDrawer();
@@ -134,31 +141,38 @@ export default class Drawer extends HTMLElement {
 
   _renderDrawer() {
     const drawer = this.shadowRoot.querySelector('.offcanvas');
-    
+
     // Update placement
-    drawer.classList.remove('offcanvas-start', 'offcanvas-end', 'offcanvas-top', 'offcanvas-bottom');
+    drawer.classList.remove(
+      'offcanvas-start',
+      'offcanvas-end',
+      'offcanvas-top',
+      'offcanvas-bottom',
+    );
     drawer.classList.add(`offcanvas-${this._state.placement}`);
-    
+
     // Update visibility
     drawer.classList.toggle('show', this._state.open);
   }
 
   _renderBackdrop() {
     this._removeBackdropEventListener();
-    
+
     // Remove existing backdrop if present
-    const existingBackdrop = this.shadowRoot.querySelector('.offcanvas-backdrop');
+    const existingBackdrop = this.shadowRoot.querySelector(
+      '.offcanvas-backdrop',
+    );
     if (existingBackdrop) existingBackdrop.remove();
-    
+
     // If drawer is closed or backdrop is false, we're done
     if (!this._state.open || this._state.backdrop === false) return;
-    
+
     // Create new backdrop
     const backdropCopy = backdropTemplate.content.cloneNode(true);
     this.shadowRoot.appendChild(backdropCopy);
     const backdrop = this.shadowRoot.querySelector('.offcanvas-backdrop');
     backdrop.classList.add('show');
-    
+
     // Add click listener if backdrop is not static
     if (this._state.backdrop !== 'static') {
       backdrop.addEventListener('click', this._handleClose);
@@ -177,15 +191,16 @@ export default class Drawer extends HTMLElement {
     // Store current body padding and overflow
     this._bodyPaddingRight = document.body.style.paddingRight;
     this._bodyOverflow = document.body.style.overflow;
-    
+
     // Calculate scrollbar width to avoid page shift
-    const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
-    
+    const scrollbarWidth =
+      window.innerWidth - document.documentElement.clientWidth;
+
     // Apply padding equal to scrollbar width to prevent content shift
     if (scrollbarWidth > 0) {
       document.body.style.paddingRight = `${scrollbarWidth}px`;
     }
-    
+
     // Prevent body scrolling
     document.body.style.overflow = 'hidden';
   }

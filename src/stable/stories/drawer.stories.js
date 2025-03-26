@@ -29,7 +29,7 @@ export const Scroll = () => html`
       class="btn btn-primary"
       type="button"
     >
-    Open Drawer
+      Open Drawer
     </button>
     <cod-drawer id="scrollExample" scroll>
       <h2 slot="label">Scroll Header</h2>
@@ -37,6 +37,8 @@ export const Scroll = () => html`
         <p>Scroll down to give it a try! 👇</p>
       </div>
     </cod-drawer>
-    <p>Try scrolling on the body of the document while the drawer is open. 👇</p>
+    <p>
+      Try scrolling on the body of the document while the drawer is open. 👇
+    </p>
   </div>
 `;
