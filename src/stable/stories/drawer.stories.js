@@ -12,7 +12,7 @@ export const Basic = () => html`
     class="btn btn-primary"
     type="button"
   >
-    Button with data-bs-target
+    Open Drawer
   </button>
   <cod-drawer id="basicExample">
     <h2 slot="label">Basic Header</h2>
@@ -29,7 +29,7 @@ export const Scroll = () => html`
       class="btn btn-primary"
       type="button"
     >
-      Button with data-bs-target
+    Open Drawer
     </button>
     <cod-drawer id="scrollExample" scroll>
       <h2 slot="label">Scroll Header</h2>
