@@ -90,7 +90,7 @@ export const OtherNonAllowedElements = {
     expect(slottedElt.tagName).toBe('SPAN');
 
     // Verify there are no elements or newlines in the content
-    expect(slottedElt.innerHTML).not.toContain('');
+    expect(slottedElt.innerHTML).not.toEqual('');
     expect(slottedElt.innerHTML).not.toContain('\n');
 
   },
@@ -115,7 +115,7 @@ export const MultiSpanElements = {
     expect(slottedElt.tagName).toBe('SPAN');
 
     // Verify there are no elements or newlines in the content
-    expect(slottedElt.innerHTML).not.toContain('');
+    expect(slottedElt.innerHTML).not.toEqual('');
     expect(slottedElt.innerHTML).not.toContain('\n');
 
   },
