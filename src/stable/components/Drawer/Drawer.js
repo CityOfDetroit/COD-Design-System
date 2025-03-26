@@ -2,6 +2,8 @@ import styles from '!!raw-loader!./Drawer.css';
 
 const template = document.createElement('template');
 
+// TODO: Use cod-button instead for close after it's updated
+// https://github.com/CityOfDetroit/COD-Design-System/issues/315
 template.innerHTML = `
 <div class="offcanvas" tabindex="-1" role="dialog" aria-modal="true">
   <div class="offcanvas-header">
