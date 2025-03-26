@@ -8,8 +8,7 @@ export default {
   component: 'cod-service-button',
 };
 
-export const ServiceButton = {
-  tags: ['autodocs'],
+export const Basic = {
   render: () => html`
     <cod-service-button
       href="https://www.example.com"

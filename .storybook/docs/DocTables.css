@@ -1,0 +1,124 @@
+/* 
+ * Shared styles for documentation components
+ * These styles create consistent tables and lists for component documentation
+ */
+
+/* Base styles for all documentation components */
+:host {
+  display: block;
+  margin-bottom: 2rem;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  color: #333;
+  line-height: 1.5;
+}
+
+/* Table wrapper for horizontal scrolling on small screens */
+.doc-table-wrapper {
+  overflow-x: auto;
+  margin-bottom: 2rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 4px;
+}
+
+/* Basic table styling */
+.doc-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+/* Table headers and cells */
+.doc-table th,
+.doc-table td {
+  text-align: left;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+/* Table header style */
+.doc-table th {
+  background-color: #f8fafc;
+  font-weight: 600;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+/* Alternating row colors */
+.doc-table tbody tr:nth-child(even) {
+  background-color: #f8fafc;
+}
+
+/* Hover effect for rows */
+.doc-table tbody tr:hover {
+  background-color: #f1f5f9;
+}
+
+/* Last row has no bottom border */
+.doc-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Column width definitions */
+.doc-table .name-column {
+  white-space: nowrap;
+  width: 20%;
+}
+
+.doc-table .description-column {
+  width: 60%;
+}
+
+.doc-table .detail-column,
+.doc-table .parameters-column,
+.doc-table .default-column,
+.doc-table .type-column {
+  width: 20%;
+}
+
+/* Code styling */
+.doc-table code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+  font-size: 13px;
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+  background-color: #f1f5f9;
+}
+
+/* Special styling for default slot */
+.doc-table .slot-default {
+  font-style: italic;
+  color: #64748b;
+}
+
+/* Dependencies list styling */
+.doc-dependencies {
+  margin-bottom: 2rem;
+}
+
+.doc-dependencies p {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.doc-dependencies ul {
+  padding-left: 1.5rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0;
+}
+
+.doc-dependencies li {
+  margin-bottom: 0.5rem;
+}
+
+.doc-dependencies code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+  font-size: 13px;
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+  background-color: #f1f5f9;
+}
+
+/* Empty state message */
+.doc-empty-message {
+  color: #64748b;
+  font-style: italic;
+}
