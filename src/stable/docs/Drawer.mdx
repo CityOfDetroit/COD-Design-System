@@ -1,0 +1,237 @@
+import { Meta, Title, Subtitle, Description, Primary, Controls, Stories } from '@storybook/blocks';
+import * as DrawerStories from '../stories/drawer.stories';
+
+import '../../../.storybook/docs'; // Import all documentation components
+
+<Meta of={DrawerStories} />
+
+# Drawer
+
+<div className="component-summary">
+  Drawers slide in from a container to expose additional options and information.
+</div>
+
+<Primary />
+
+<Controls />
+
+## Examples
+
+Various examples of the Drawer component in action.
+
+<Stories includePrimary={false} />
+
+## Slots
+
+<div className="doc-table-wrapper">
+  <table className="doc-table slots-table">
+    <thead>
+      <tr>
+        <th className="name-column">Name</th>
+        <th className="description-column">Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td className="name-column"><span className="slot-default">(default)</span></td>
+        <td className="description-column">The drawer's main content.</td>
+      </tr>
+      <tr>
+        <td className="name-column"><code>label</code></td>
+        <td className="description-column">The drawer's label. Alternatively, you can use the label attribute.</td>
+      </tr>
+      <tr>
+        <td className="name-column"><code>footer</code></td>
+        <td className="description-column">The drawer's footer, usually containing action buttons.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+## Properties
+
+<div className="doc-table-wrapper">
+  <table className="doc-table properties-table">
+    <thead>
+      <tr>
+        <th className="name-column">Name</th>
+        <th className="description-column">Description</th>
+        <th className="type-column">Type</th>
+        <th className="default-column">Default</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td className="name-column"><code>open</code></td>
+        <td className="description-column">
+          Indicates whether or not the drawer is open. You can toggle this attribute to show and hide the drawer.
+        </td>
+        <td className="type-column"><code>boolean</code></td>
+        <td className="default-column"><code>false</code></td>
+      </tr>
+      <tr>
+        <td className="name-column"><code>placement</code></td>
+        <td className="description-column">The direction from which the drawer will open.</td>
+        <td className="type-column"><code>'start' | 'end' | 'top' | 'bottom'</code></td>
+        <td className="default-column"><code>'end'</code></td>
+      </tr>
+      <tr>
+        <td className="name-column"><code>backdrop</code></td>
+        <td className="description-column">
+          When true, a backdrop will be shown behind the drawer. When set to "static", the drawer will not close when clicking outside it.
+        </td>
+        <td className="type-column"><code>boolean | 'static'</code></td>
+        <td className="default-column"><code>true</code></td>
+      </tr>
+      <tr>
+        <td className="name-column"><code>scroll</code></td>
+        <td className="description-column">
+          When true, the body can be scrolled while the drawer is open.
+        </td>
+        <td className="type-column"><code>boolean</code></td>
+        <td className="default-column"><code>false</code></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+## Events
+
+<div className="doc-table-wrapper">
+  <table className="doc-table events-table">
+    <thead>
+      <tr>
+        <th className="name-column">Name</th>
+        <th className="description-column">Description</th>
+        <th className="detail-column">Event Detail</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td className="name-column"><code>cod-show</code></td>
+        <td className="description-column">Emitted when the drawer opens.</td>
+        <td className="detail-column">-</td>
+      </tr>
+      <tr>
+        <td className="name-column"><code>cod-hide</code></td>
+        <td className="description-column">Emitted when the drawer closes.</td>
+        <td className="detail-column">-</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+## Methods
+
+<div className="doc-table-wrapper">
+  <table className="doc-table methods-table">
+    <thead>
+      <tr>
+        <th className="name-column">Name</th>
+        <th className="description-column">Description</th>
+        <th className="parameters-column">Parameters</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td className="name-column"><code>open()</code></td>
+        <td className="description-column">Opens the drawer.</td>
+        <td className="parameters-column">-</td>
+      </tr>
+      <tr>
+        <td className="name-column"><code>close()</code></td>
+        <td className="description-column">Closes the drawer.</td>
+        <td className="parameters-column">-</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+## Custom Properties
+
+<div className="doc-table-wrapper">
+  <table className="doc-table css-properties-table">
+    <thead>
+      <tr>
+        <th className="name-column">Name</th>
+        <th className="description-column">Description</th>
+        <th className="default-column">Default</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td className="name-column"><code>--cod-drawer-width</code></td>
+        <td className="description-column">Width of the drawer when placement is start or end.</td>
+        <td className="default-column"><code>330px</code></td>
+      </tr>
+      <tr>
+        <td className="name-column"><code>--cod-drawer-height</code></td>
+        <td className="description-column">Height of the drawer when placement is top or bottom.</td>
+        <td className="default-column"><code>330px</code></td>
+      </tr>
+      <tr>
+        <td className="name-column"><code>--cod-drawer-header-padding</code></td>
+        <td className="description-column">Padding of the drawer header.</td>
+        <td className="default-column"><code>1rem</code></td>
+      </tr>
+      <tr>
+        <td className="name-column"><code>--cod-drawer-body-padding</code></td>
+        <td className="description-column">Padding of the drawer body.</td>
+        <td className="default-column"><code>1rem</code></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+## CSS Parts
+
+<div className="doc-table-wrapper">
+  <table className="doc-table css-parts-table">
+    <thead>
+      <tr>
+        <th className="name-column">Name</th>
+        <th className="description-column">Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td className="name-column"><code>base</code></td>
+        <td className="description-column">The component's base wrapper.</td>
+      </tr>
+      <tr>
+        <td className="name-column"><code>backdrop</code></td>
+        <td className="description-column">The backdrop that covers the screen behind the drawer.</td>
+      </tr>
+      <tr>
+        <td className="name-column"><code>panel</code></td>
+        <td className="description-column">The drawer's panel where content is rendered.</td>
+      </tr>
+      <tr>
+        <td className="name-column"><code>header</code></td>
+        <td className="description-column">The drawer's header containing the title and close button.</td>
+      </tr>
+      <tr>
+        <td className="name-column"><code>close-button</code></td>
+        <td className="description-column">The button that closes the drawer.</td>
+      </tr>
+      <tr>
+        <td className="name-column"><code>body</code></td>
+        <td className="description-column">The drawer's body.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+## Dependencies
+
+This component has no dependencies.
+
+## Accessibility
+
+Drawer components are designed to be accessible by default:
+
+- The drawer has `role="dialog"` and `aria-modal="true"` 
+- When the `label` slot is used, it automatically sets the appropriate `aria-labelledby` attribute
+- Focus is trapped inside the drawer when it's open
+- The Escape key can be used to close the drawer
+- When closed, focus returns to the element that triggered the drawer
