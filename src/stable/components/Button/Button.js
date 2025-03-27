@@ -1,110 +1,416 @@
 import styles from '!!raw-loader!./Button.css';
-import varStyles from '!!raw-loader!../../../shared/variables.css';
-import bootstrapStyles from '!!raw-loader!../../../shared/themed-bootstrap.css';
+
+const template = document.createElement('template');
+template.innerHTML = `
+<button class="btn" part="base">
+  <slot name="prefix"></slot>
+  <slot></slot>
+  <slot name="suffix"></slot>
+  <span class="caret-container">
+    <span class="caret" aria-hidden="true"></span>
+  </span>
+  <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+</button>
+`;
 
 export default class Button extends HTMLElement {
+  static get observedAttributes() {
+    return [
+      'variant',
+      'size',
+      'outline',
+      'disabled',
+      'caret',
+      'loading',
+      'href',
+      'target',
+      'download',
+      'rel'
+    ];
+  }
+
   constructor() {
-    // Always call super first in constructor
     super();
-    // Create a shadow root
-    this.attachShadow({ mode: 'open' });
+    const shadow = this.attachShadow({ mode: 'open' });
+    shadow.appendChild(template.content.cloneNode(true));
+
+    // Add styles
+    const itemStyles = document.createElement('style');
+    itemStyles.textContent = styles;
+    shadow.appendChild(itemStyles);
+
+    // Initialize properties with defaults
+    this._state = {
+      variant: 'default',
+      size: 'medium',
+      outline: false,
+      disabled: false,
+      caret: false,
+      loading: false,
+      href: '',
+      target: '',
+      download: '',
+      rel: ''
+    };
+
+    // Bind event handlers
+    this._handleClick = this._handleClick.bind(this);
+  }
+
+  attributeChangedCallback(name, oldValue, newValue) {
+    // Early return if value hasn't changed
+    if (oldValue === newValue) return;
+
+    switch (name) {
+      case 'variant':
+        this._state.variant = newValue || 'default';
+        break;
+      case 'size':
+        this._state.size = newValue || 'medium';
+        break;
+      case 'outline':
+        this._state.outline = newValue !== null;
+        break;
+      case 'disabled':
+        this._state.disabled = newValue !== null;
+        break;
+      case 'caret':
+        this._state.caret = newValue !== null;
+        break;
+      case 'loading':
+        this._state.loading = newValue !== null;
+        break;
+      case 'href':
+        this._state.href = newValue || '';
+        break;
+      case 'target':
+        this._state.target = newValue || '';
+        break;
+      case 'download':
+        this._state.download = newValue || '';
+        break;
+      case 'rel':
+        this._state.rel = newValue || '';
+        break;
+    }
+
+    // Re-render the component whenever an attribute changes
+    this._render();
   }
 
   connectedCallback() {
-    // Button attributes
-    const close = this.getAttribute('data-close');
-    const link = this.getAttribute('data-link');
-    const btnID = this.getAttribute('data-id');
-    const ariaLabel = this.getAttribute('data-aria-label');
-    const primary = this.getAttribute('data-primary');
-    const backgroundColor = this.getAttribute('data-background-color');
-    const shape = this.getAttribute('data-shape');
-    const icon = this.getAttribute('data-icon');
-    const iconSize = this.getAttribute('data-icon-size');
-    const iconOrder = this.getAttribute('data-icon-order');
-    const hiddenLabel = this.getAttribute('data-hidden-label');
-    const imgSrc = this.getAttribute('data-img');
-    const imgAlt = this.getAttribute('data-img-alt');
-    const size = this.getAttribute('data-size');
-    const extraClasses = this.getAttribute('data-extra-classes');
-    const label = this.getAttribute('data-label');
-    const disableStatus = this.getAttribute('data-disable');
-    // Building Button component
-    const btn = document.createElement('button');
-    const btnClasses = ['btn'];
-    btn.type = 'button';
-    if (btnID) {
-      btn.id = btnID;
-    }
-    disableStatus === 'true' ? (btn.disabled = true) : (btn.disabled = false);
-    btn.setAttribute('aria-label', `${ariaLabel || ''}`);
-    if (primary === 'true') {
-      btnClasses.push(`btn-${backgroundColor}`);
-    } else if (primary === 'false') {
-      btnClasses.push(`btn-outline-${backgroundColor}`);
-    }
-    shape === 'square'
-      ? btnClasses.push('cod-button--square')
-      : btnClasses.push('cod-button-fluid');
-    size !== null ? btnClasses.push(`btn-${size}`) : 0;
-    extraClasses !== null ? btnClasses.push(extraClasses) : 0;
-    imgAlt
-      ? btnClasses.push('cod-button--img')
-      : btnClasses.push('cod-button--not-img');
-    close === 'true' ? btnClasses.push('btn-close') : 0;
-    btn.className = btnClasses.join(' ');
+    // Set up event listeners
+    this.addEventListener('click', this._handleClick);
 
-    if (icon) {
-      // Loading icon
-      const iconContainer = document.createElement('span');
-      const activeIcon = document.createElement('cod-icon');
-      activeIcon.setAttribute('data-icon', icon);
-      activeIcon.setAttribute('data-size', iconSize);
-      iconContainer.appendChild(activeIcon);
-      btn.innerText = label;
-      if (iconOrder === 'left') {
-        btn.insertBefore(iconContainer, btn.firstChild);
-      } else {
-        btn.appendChild(iconContainer);
+    // Initialize state from attributes
+    this._state.variant = this.getAttribute('variant') || 'default';
+    this._state.size = this.getAttribute('size') || 'medium';
+    this._state.outline = this.hasAttribute('outline');
+    this._state.disabled = this.hasAttribute('disabled');
+    this._state.caret = this.hasAttribute('caret');
+    this._state.loading = this.hasAttribute('loading');
+    this._state.href = this.getAttribute('href') || '';
+    this._state.target = this.getAttribute('target') || '';
+    this._state.download = this.getAttribute('download') || '';
+    this._state.rel = this.getAttribute('rel') || '';
+
+    // Initial render
+    this._render();
+  }
+
+  disconnectedCallback() {
+    // Clean up event listeners
+    this.removeEventListener('click', this._handleClick);
+  }
+
+  _render() {
+    // Determine if we need to render as a button or an anchor
+    const isLink = !!this._state.href;
+    
+    if (isLink && this.shadowRoot.querySelector('button')) {
+      // Replace button with anchor
+      const button = this.shadowRoot.querySelector('button');
+      const anchor = document.createElement('a');
+      
+      // Copy all children from button to anchor
+      while (button.firstChild) {
+        anchor.appendChild(button.firstChild);
       }
-    } else if (imgAlt) {
-      // Loading image
-      btn.innerText = label;
-      const btnIcon = document.createElement('img');
-      btnIcon.src = imgSrc;
-      btnIcon.setAttribute('alt', imgAlt);
-      btn.appendChild(btnIcon);
+      
+      // Copy classes and part attribute
+      anchor.className = button.className;
+      anchor.setAttribute('part', button.getAttribute('part') || 'base');
+      
+      // Replace button with anchor
+      button.replaceWith(anchor);
+    } else if (!isLink && this.shadowRoot.querySelector('a')) {
+      // Replace anchor with button
+      const anchor = this.shadowRoot.querySelector('a');
+      const button = document.createElement('button');
+      
+      // Copy all children from anchor to button
+      while (anchor.firstChild) {
+        button.appendChild(anchor.firstChild);
+      }
+      
+      // Copy classes and part attribute
+      button.className = anchor.className;
+      button.setAttribute('part', anchor.getAttribute('part') || 'base');
+      
+      // Replace anchor with button
+      anchor.replaceWith(button);
+    }
+    
+    // Get the current root element (button or anchor)
+    const element = isLink ? 
+      this.shadowRoot.querySelector('a') : 
+      this.shadowRoot.querySelector('button');
+    
+    // Update element classes based on variant and size
+    this._renderVariant(element);
+    this._renderSize(element);
+    this._renderOutline(element);
+    
+    // Set attributes for link
+    if (isLink) {
+      element.href = this._state.href;
+      if (this._state.target) {
+        element.target = this._state.target;
+        // Add rel for security when target="_blank"
+        if (this._state.target === '_blank') {
+          element.rel = this._state.rel || 'noreferrer noopener';
+        } else if (this._state.rel) {
+          element.rel = this._state.rel;
+        }
+      }
+      if (this._state.download) {
+        element.download = this._state.download;
+      }
+    }
+    
+    // Handle disabled state
+    element.disabled = isLink ? false : this._state.disabled;
+    element.setAttribute('aria-disabled', this._state.disabled.toString());
+    if (isLink && this._state.disabled) {
+      element.classList.add('disabled');
+      element.setAttribute('tabindex', '-1');
+      element.style.pointerEvents = 'none';
+    } else if (isLink) {
+      element.classList.remove('disabled');
+      element.removeAttribute('tabindex');
+      element.style.pointerEvents = '';
+    }
+    
+    // Show/hide caret
+    const caretContainer = this.shadowRoot.querySelector('.caret-container');
+    if (caretContainer) {
+      caretContainer.style.display = this._state.caret ? 'inline-block' : 'none';
+    }
+    
+    // Show/hide loading spinner
+    const spinner = this.shadowRoot.querySelector('.spinner-border');
+    if (spinner) {
+      spinner.style.display = this._state.loading ? 'inline-block' : 'none';
+      
+      // Hide content when loading
+      const defaultSlot = this.shadowRoot.querySelector('slot:not([name])');
+      const prefixSlot = this.shadowRoot.querySelector('slot[name="prefix"]');
+      const suffixSlot = this.shadowRoot.querySelector('slot[name="suffix"]');
+      
+      if (this._state.loading) {
+        defaultSlot.style.visibility = 'hidden';
+        if (prefixSlot) prefixSlot.style.visibility = 'hidden';
+        if (suffixSlot) suffixSlot.style.visibility = 'hidden';
+      } else {
+        defaultSlot.style.visibility = 'visible';
+        if (prefixSlot) prefixSlot.style.visibility = 'visible';
+        if (suffixSlot) suffixSlot.style.visibility = 'visible';
+      }
+    }
+  }
+
+  _renderVariant(element) {
+    // Remove all variant classes
+    element.classList.remove(
+      'btn-primary',
+      'btn-secondary',
+      'btn-success',
+      'btn-danger',
+      'btn-warning',
+      'btn-info',
+      'btn-light',
+      'btn-dark',
+      'btn-link',
+      'btn-neutral',
+      'btn-text'
+    );
+    
+    // Map component variant values to Bootstrap classes
+    const variantMap = {
+      'default': '',
+      'primary': 'btn-primary',
+      'secondary': 'btn-secondary',
+      'success': 'btn-success',
+      'danger': 'btn-danger',
+      'warning': 'btn-warning',
+      'info': 'btn-info',
+      'neutral': 'btn-light',
+      'text': 'btn-link'
+    };
+    
+    // Add the appropriate variant class
+    if (this._state.variant === 'text') {
+      element.classList.add('btn-link');
+      // Add additional styling for text buttons
+      element.style.padding = '0';
+      element.style.verticalAlign = 'baseline';
+    } else if (variantMap[this._state.variant]) {
+      element.classList.add(variantMap[this._state.variant]);
+      element.style.padding = '';
+      element.style.verticalAlign = '';
     } else {
-      btn.innerText = label;
+      // Default to secondary if variant is not recognized
+      element.classList.add('btn-secondary');
+      element.style.padding = '';
+      element.style.verticalAlign = '';
     }
-    // Create hidden label
-    if (hiddenLabel !== null) {
-      const hLabel = document.createElement('span');
-      hLabel.className = 'visually-hidden';
-      hLabel.innerText = hiddenLabel;
-      btn.appendChild(hLabel);
+  }
+  
+  _renderSize(element) {
+    // Remove all size classes
+    element.classList.remove('btn-sm', 'btn-lg');
+    
+    // Add the appropriate size class
+    if (this._state.size === 'small') {
+      element.classList.add('btn-sm');
+    } else if (this._state.size === 'large') {
+      element.classList.add('btn-lg');
     }
-    if (!this.shadowRoot.querySelector('button')) {
-      // Inserting styles
-      const bootStyles = document.createElement('style');
-      bootStyles.textContent = bootstrapStyles;
-      this.shadowRoot.appendChild(bootStyles);
-      const variableStyles = document.createElement('style');
-      variableStyles.textContent = varStyles;
-      this.shadowRoot.appendChild(variableStyles);
-      const btnStyles = document.createElement('style');
-      btnStyles.textContent = styles;
-      this.shadowRoot.appendChild(btnStyles);
-      if (link) {
-        const btnLink = document.createElement('a');
-        btnLink.href = link;
-        btnLink.appendChild(btn);
-        this.shadowRoot.appendChild(btnLink);
-      } else {
-        this.shadowRoot.appendChild(btn);
-        const ghostBtn = this.appendChild(document.createElement('button'));
-        this.onclick = () => ghostBtn.click();
+    // Medium is the default size, no class needed
+  }
+  
+  _renderOutline(element) {
+    // Handle outline variant by replacing btn-* with btn-outline-*
+    if (this._state.outline && this._state.variant !== 'text') {
+      for (const className of Array.from(element.classList)) {
+        if (className.startsWith('btn-') && !className.startsWith('btn-outline-') && className !== 'btn-link') {
+          element.classList.remove(className);
+          element.classList.add(`btn-outline-${className.substring(4)}`);
+        }
+      }
+    } else {
+      // Remove outline classes if outline is false
+      for (const className of Array.from(element.classList)) {
+        if (className.startsWith('btn-outline-')) {
+          element.classList.remove(className);
+          element.classList.add(`btn-${className.substring(11)}`);
+        }
       }
     }
+  }
+
+  _handleClick(event) {
+    // Prevent default action when disabled or loading
+    if (this._state.disabled || this._state.loading) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+  }
+
+  // Getters and setters
+  get variant() {
+    return this._state.variant;
+  }
+  
+  set variant(value) {
+    this.setAttribute('variant', value);
+  }
+  
+  get size() {
+    return this._state.size;
+  }
+  
+  set size(value) {
+    this.setAttribute('size', value);
+  }
+  
+  get outline() {
+    return this._state.outline;
+  }
+  
+  set outline(value) {
+    if (value) {
+      this.setAttribute('outline', '');
+    } else {
+      this.removeAttribute('outline');
+    }
+  }
+  
+  get disabled() {
+    return this._state.disabled;
+  }
+  
+  set disabled(value) {
+    if (value) {
+      this.setAttribute('disabled', '');
+    } else {
+      this.removeAttribute('disabled');
+    }
+  }
+  
+  get caret() {
+    return this._state.caret;
+  }
+  
+  set caret(value) {
+    if (value) {
+      this.setAttribute('caret', '');
+    } else {
+      this.removeAttribute('caret');
+    }
+  }
+  
+  get loading() {
+    return this._state.loading;
+  }
+  
+  set loading(value) {
+    if (value) {
+      this.setAttribute('loading', '');
+    } else {
+      this.removeAttribute('loading');
+    }
+  }
+  
+  get href() {
+    return this._state.href;
+  }
+  
+  set href(value) {
+    this.setAttribute('href', value);
+  }
+  
+  get target() {
+    return this._state.target;
+  }
+  
+  set target(value) {
+    this.setAttribute('target', value);
+  }
+  
+  get download() {
+    return this._state.download;
+  }
+  
+  set download(value) {
+    this.setAttribute('download', value);
+  }
+  
+  get rel() {
+    return this._state.rel;
+  }
+  
+  set rel(value) {
+    this.setAttribute('rel', value);
   }
 }

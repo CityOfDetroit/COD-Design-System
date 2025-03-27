@@ -1,0 +1,47 @@
+@import '../../../scss/detroitmi-bootstrap-base';
+@import '../../../scss/detroitmi-utilities';
+
+// Import Bootstrap button styles
+@import 'bootstrap/scss/buttons';
+
+// Override bootstrap _root.scss
+@import '../../../scss/host';
+@import '../../../scss/detroitmi-style-guide';
+
+// Custom button styles
+:host {
+  display: inline-block;
+}
+
+// Handle prefix and suffix slots
+slot[name="prefix"]::slotted(*) {
+  margin-inline-end: 0.25em;
+}
+
+slot[name="suffix"]::slotted(*) {
+  margin-inline-start: 0.25em;
+}
+
+// Caret styles
+.caret-container {
+  margin-inline-start: 0.25em;
+}
+
+.caret {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin-left: 0.25em;
+  vertical-align: middle;
+  border-top: 0.25em solid;
+  border-right: 0.25em solid transparent;
+  border-left: 0.25em solid transparent;
+}
+
+// Spinner styles
+.spinner-border {
+  display: none;
+  width: 1em;
+  height: 1em;
+  margin-inline-start: 0.5em;
+}

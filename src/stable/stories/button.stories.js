@@ -1,212 +1,455 @@
-import '../components/Button/cod-button';
-import '../../experimental/components/atoms/Icon/cod-icon';
-import { COMMON_STORY_ARGS } from '../../shared/js/storybook/args-utils';
+import '../components/Button/cod-button.js';
 
 export default {
-  tags: ['stable'],
   title: 'Components/Button',
+  component: 'cod-button',
+  parameters: {
+    layout: 'centered',
+  },
   argTypes: {
-    primary: {
-      control: { type: 'boolean' },
+    variant: {
+      control: { type: 'select' },
+      options: ['default', 'primary', 'success', 'neutral', 'warning', 'danger', 'text'],
+      description: 'The button\'s variant.',
+      table: {
+        defaultValue: { summary: 'default' },
+      },
     },
-    disable: COMMON_STORY_ARGS.disabled,
-    // TODO: Make this attr name and accepted
-    // values consistent with other action button, progress bar,
-    // etc. Issue #202.
-    backgroundColor: COMMON_STORY_ARGS.bootstrapColor,
-    // TODO: Add support for lg and xl to make size
-    // consistent. Issue #202.
     size: {
       control: { type: 'select' },
-      options: ['sm', 'md', 'lg'],
+      options: ['small', 'medium', 'large'],
+      description: 'The button\'s size.',
+      table: {
+        defaultValue: { summary: 'medium' },
+      },
     },
-    icon: COMMON_STORY_ARGS.icon,
-    onClick: { action: 'onClick' },
-    iconSize: COMMON_STORY_ARGS.longSize,
-    iconOrder: COMMON_STORY_ARGS.order,
-    shape: {
-      control: { type: 'select' },
-      options: ['fluid', 'square'],
+    outline: {
+      control: { type: 'boolean' },
+      description: 'Whether to show the button with an outline style.',
+      table: {
+        defaultValue: { summary: false },
+      },
+    },
+    disabled: {
+      control: { type: 'boolean' },
+      description: 'Whether the button is disabled.',
+      table: {
+        defaultValue: { summary: false },
+      },
+    },
+    caret: {
+      control: { type: 'boolean' },
+      description: 'Whether to show a caret (dropdown arrow).',
+      table: {
+        defaultValue: { summary: false },
+      },
+    },
+    loading: {
+      control: { type: 'boolean' },
+      description: 'Whether the button is in a loading state.',
+      table: {
+        defaultValue: { summary: false },
+      },
+    },
+    href: {
+      control: { type: 'text' },
+      description: 'When set, renders as an <a> element with this URL.',
+      table: {
+        defaultValue: { summary: '' },
+      },
+    },
+    target: {
+      control: { type: 'text' },
+      description: 'Where to display the linked URL (only used with href).',
+      table: {
+        defaultValue: { summary: '' },
+      },
+    },
+    label: {
+      control: { type: 'text' },
+      description: 'The button\'s label.',
     },
   },
+  args: {
+    variant: 'default',
+    size: 'medium',
+    outline: false,
+    disabled: false,
+    caret: false,
+    loading: false,
+    href: '',
+    target: '',
+    label: 'Button',
+  },
 };
-// Template
+
+// Template for the story
 const Template = (args) => {
-  const btn = document.createElement('cod-button');
-  btn.addEventListener('click', (e) => {
-    args.onclick(e);
+  const button = document.createElement('cod-button');
+  
+  // Set attributes from args
+  if (args.variant) button.setAttribute('variant', args.variant);
+  if (args.size) button.setAttribute('size', args.size);
+  if (args.outline) button.setAttribute('outline', '');
+  if (args.disabled) button.setAttribute('disabled', '');
+  if (args.caret) button.setAttribute('caret', '');
+  if (args.loading) button.setAttribute('loading', '');
+  if (args.href) button.setAttribute('href', args.href);
+  if (args.target) button.setAttribute('target', args.target);
+  
+  // Set content
+  button.textContent = args.label;
+  
+  return button;
+};
+
+// Story: Variants
+export const Variants = () => {
+  const container = document.createElement('div');
+  container.style.display = 'flex';
+  container.style.gap = '8px';
+  container.style.flexWrap = 'wrap';
+  
+  const variants = ['default', 'primary', 'success', 'neutral', 'warning', 'danger'];
+  
+  variants.forEach(variant => {
+    const button = document.createElement('cod-button');
+    button.setAttribute('variant', variant);
+    button.textContent = variant.charAt(0).toUpperCase() + variant.slice(1);
+    container.appendChild(button);
   });
-  btn.setAttribute('data-primary', args.primary);
-  btn.setAttribute('data-disable', args.disable);
-  btn.setAttribute('data-label', args.label);
-  btn.setAttribute('data-img', args.img ? args.img : '');
-  btn.setAttribute('data-img-alt', args.imgAlt ? args.imgAlt : '');
-  btn.setAttribute('data-icon', args.icon ? args.icon : '');
-  btn.setAttribute('data-icon-order', args.iconOrder ? args.iconOrder : '');
-  btn.setAttribute('data-icon-size', args.iconSize ? args.iconSize : '');
-  btn.setAttribute('data-shape', args.shape);
-  btn.setAttribute('data-aria-label', args.ariaLabel ? args.ariaLabel : '');
-  args.backgroundColor
-    ? btn.setAttribute('data-background-color', args.backgroundColor)
-    : btn.setAttribute('data-background-color', 'primary');
-  if (args.close) {
-    btn.setAttribute('data-close', args.close);
-  }
-  if (args.hLabel) {
-    btn.setAttribute('data-hidden-label', args.hLabel);
-  }
-  if (args.size) {
-    btn.setAttribute('data-size', args.size);
-  }
-  if (args.id) {
-    btn.setAttribute('data-id', args.id);
-  }
-  if (args.link) {
-    btn.setAttribute('data-link', args.link);
-  }
-  if (args.extraClasses) {
-    btn.setAttribute('data-extra-classes', args.extraClasses);
-  }
-  return btn;
+  
+  return container;
 };
 
-export const Primary = {
-  tags: ['autodocs'],
-  render: Template.bind({}),
-  args: {
-    primary: true,
-    label: 'Primary',
+Variants.storyName = 'Variants';
+Variants.parameters = {
+  docs: {
+    description: {
+      story: 'Use the `variant` attribute to set the button\'s variant.',
+    },
   },
 };
 
-export const Secondary = {
-  tags: ['autodocs'],
-  render: Template.bind({}),
-  args: {
-    primary: false,
-    label: 'Secondary',
+// Story: Sizes
+export const Sizes = () => {
+  const container = document.createElement('div');
+  container.style.display = 'flex';
+  container.style.gap = '8px';
+  container.style.alignItems = 'center';
+  
+  const sizes = ['small', 'medium', 'large'];
+  
+  sizes.forEach(size => {
+    const button = document.createElement('cod-button');
+    button.setAttribute('size', size);
+    button.textContent = size.charAt(0).toUpperCase() + size.slice(1);
+    container.appendChild(button);
+  });
+  
+  return container;
+};
+
+Sizes.storyName = 'Sizes';
+Sizes.parameters = {
+  docs: {
+    description: {
+      story: 'Use the `size` attribute to change a button\'s size.',
+    },
   },
 };
 
-export const Extras = {
-  tags: ['autodocs'],
-  render: Template.bind({}),
-  args: {
-    primary: false,
-    label: 'Extras',
-    extraClasses: 'w-100',
+// Story: Outline
+export const Outline = () => {
+  const container = document.createElement('div');
+  container.style.display = 'flex';
+  container.style.gap = '8px';
+  container.style.flexWrap = 'wrap';
+  
+  const variants = ['default', 'primary', 'success', 'neutral', 'warning', 'danger'];
+  
+  variants.forEach(variant => {
+    const button = document.createElement('cod-button');
+    button.setAttribute('variant', variant);
+    button.setAttribute('outline', '');
+    button.textContent = variant.charAt(0).toUpperCase() + variant.slice(1);
+    container.appendChild(button);
+  });
+  
+  return container;
+};
+
+Outline.storyName = 'Outline Buttons';
+Outline.parameters = {
+  docs: {
+    description: {
+      story: 'Use the `outline` attribute to draw outlined buttons with transparent backgrounds.',
+    },
   },
 };
 
-export const Link = {
-  tags: ['autodocs'],
-  render: Template.bind({}),
-  args: {
-    primary: false,
-    label: 'Link',
-    link: 'https://detroitmi.gov',
+// Story: Text
+export const Text = () => {
+  const container = document.createElement('div');
+  container.style.display = 'flex';
+  container.style.gap = '8px';
+  container.style.alignItems = 'center';
+  
+  const sizes = ['small', 'medium', 'large'];
+  
+  sizes.forEach(size => {
+    const button = document.createElement('cod-button');
+    button.setAttribute('variant', 'text');
+    button.setAttribute('size', size);
+    button.textContent = 'Text';
+    container.appendChild(button);
+  });
+  
+  return container;
+};
+
+Text.storyName = 'Text Buttons';
+Text.parameters = {
+  docs: {
+    description: {
+      story: 'Use the `variant="text"` attribute to create text buttons that share the same size as regular buttons but don\'t have backgrounds or borders.',
+    },
   },
 };
 
-export const Image = {
-  tags: ['autodocs'],
-  render: Template.bind({}),
-  args: {
-    primary: true,
-    label: 'Image',
-    backgroundColor: 'secondary',
-    img: 'https://detroitmi.gov/sites/detroitmi.localhost/files/2023-02/map.png',
-    imgAlt: 'map',
+// Story: Link
+export const Link = () => {
+  const container = document.createElement('div');
+  container.style.display = 'flex';
+  container.style.gap = '8px';
+  container.style.flexWrap = 'wrap';
+  
+  // Regular link
+  const link1 = document.createElement('cod-button');
+  link1.setAttribute('href', 'https://example.com/');
+  link1.textContent = 'Link';
+  
+  // New window
+  const link2 = document.createElement('cod-button');
+  link2.setAttribute('href', 'https://example.com/');
+  link2.setAttribute('target', '_blank');
+  link2.textContent = 'New Window';
+  
+  // Download
+  const link3 = document.createElement('cod-button');
+  link3.setAttribute('href', '/assets/images/logo.svg');
+  link3.setAttribute('download', 'logo.svg');
+  link3.textContent = 'Download';
+  
+  // Disabled
+  const link4 = document.createElement('cod-button');
+  link4.setAttribute('href', 'https://example.com/');
+  link4.setAttribute('disabled', '');
+  link4.textContent = 'Disabled';
+  
+  container.appendChild(link1);
+  container.appendChild(link2);
+  container.appendChild(link3);
+  container.appendChild(link4);
+  
+  return container;
+};
+
+Link.storyName = 'Link Buttons';
+Link.parameters = {
+  docs: {
+    description: {
+      story: 'It\'s often helpful to have a button that works like a link. This is possible by setting the `href` attribute, which will make the component render an `<a>` under the hood.',
+    },
   },
 };
 
-export const Icon = {
-  tags: ['autodocs'],
-  render: Template.bind({}),
-  args: {
-    primary: true,
-    label: 'Image',
-    backgroundColor: 'secondary',
-    icon: 'house',
-    iconSize: 'small',
-    iconOrder: 'left',
+// Story: CustomWidth
+export const CustomWidth = () => {
+  const container = document.createElement('div');
+  container.style.display = 'flex';
+  container.style.flexDirection = 'column';
+  container.style.gap = '8px';
+  container.style.width = '300px';
+  
+  const sizes = ['small', 'medium', 'large'];
+  
+  sizes.forEach(size => {
+    const button = document.createElement('cod-button');
+    button.setAttribute('size', size);
+    button.style.width = '100%';
+    button.textContent = size.charAt(0).toUpperCase() + size.slice(1);
+    container.appendChild(button);
+  });
+  
+  return container;
+};
+
+CustomWidth.storyName = 'Custom Width';
+CustomWidth.parameters = {
+  docs: {
+    description: {
+      story: 'Buttons can be given a custom width using inline styles. This is useful for making buttons span the full width of their container.',
+    },
   },
 };
 
-export const IconCenterSquare = {
-  tags: ['autodocs'],
-  render: Template.bind({}),
-  args: {
-    primary: true,
-    label: '',
-    size: 'lg',
-    backgroundColor: 'primary',
-    icon: 'house',
-    iconSize: 'medium',
-    shape: 'square',
-    ariaLabel: 'Home',
-    extraClasses: 'icon-center',
+// Story: Icons
+export const Icons = () => {
+  const container = document.createElement('div');
+  container.style.display = 'flex';
+  container.style.flexDirection = 'column';
+  container.style.gap = '16px';
+  
+  // Create rows for different sizes
+  const sizes = ['small', 'medium', 'large'];
+  
+  sizes.forEach(size => {
+    const row = document.createElement('div');
+    row.style.display = 'flex';
+    row.style.gap = '8px';
+    row.style.flexWrap = 'wrap';
+    
+    // Prefix icon
+    const prefixButton = document.createElement('cod-button');
+    prefixButton.setAttribute('size', size);
+    
+    const prefixIcon = document.createElement('cod-icon');
+    prefixIcon.setAttribute('name', 'gear');
+    prefixIcon.setAttribute('slot', 'prefix');
+    
+    prefixButton.appendChild(prefixIcon);
+    prefixButton.appendChild(document.createTextNode('Settings'));
+    
+    // Suffix icon
+    const suffixButton = document.createElement('cod-button');
+    suffixButton.setAttribute('size', size);
+    
+    const suffixIcon = document.createElement('cod-icon');
+    suffixIcon.setAttribute('name', 'arrow-repeat');
+    suffixIcon.setAttribute('slot', 'suffix');
+    
+    suffixButton.appendChild(document.createTextNode('Refresh'));
+    suffixButton.appendChild(suffixIcon);
+    
+    // Both icons
+    const bothButton = document.createElement('cod-button');
+    bothButton.setAttribute('size', size);
+    
+    const prefixIcon2 = document.createElement('cod-icon');
+    prefixIcon2.setAttribute('name', 'link');
+    prefixIcon2.setAttribute('slot', 'prefix');
+    
+    const suffixIcon2 = document.createElement('cod-icon');
+    suffixIcon2.setAttribute('name', 'box-arrow-up-right');
+    suffixIcon2.setAttribute('slot', 'suffix');
+    
+    bothButton.appendChild(prefixIcon2);
+    bothButton.appendChild(document.createTextNode('Open'));
+    bothButton.appendChild(suffixIcon2);
+    
+    row.appendChild(prefixButton);
+    row.appendChild(suffixButton);
+    row.appendChild(bothButton);
+    
+    container.appendChild(row);
+  });
+  
+  return container;
+};
+
+Icons.storyName = 'Prefix and Suffix Icons';
+Icons.parameters = {
+  docs: {
+    description: {
+      story: 'Use the `prefix` and `suffix` slots to add icons to buttons.',
+    },
   },
 };
 
-export const Close = {
-  tags: ['autodocs'],
-  render: Template.bind({}),
-  args: {
-    primary: true,
-    label: '',
-    ariaLabel: 'Close',
-    close: 'true',
+// Story: Caret
+export const Caret = () => {
+  const container = document.createElement('div');
+  container.style.display = 'flex';
+  container.style.gap = '8px';
+  container.style.alignItems = 'center';
+  
+  const sizes = ['small', 'medium', 'large'];
+  
+  sizes.forEach(size => {
+    const button = document.createElement('cod-button');
+    button.setAttribute('size', size);
+    button.setAttribute('caret', '');
+    button.textContent = size.charAt(0).toUpperCase() + size.slice(1);
+    container.appendChild(button);
+  });
+  
+  return container;
+};
+
+Caret.storyName = 'Caret';
+Caret.parameters = {
+  docs: {
+    description: {
+      story: 'Use the `caret` attribute to add a dropdown indicator when a button will trigger a dropdown, menu, or popover.',
+    },
   },
 };
 
-export const SquareClose = {
-  tags: ['autodocs'],
-  render: Template.bind({}),
-  args: {
-    primary: true,
-    label: 'x',
-    shape: 'square',
-    ariaLabel: 'Close',
-    extraClasses: 'fw-bold',
+// Story: Loading
+export const Loading = () => {
+  const container = document.createElement('div');
+  container.style.display = 'flex';
+  container.style.gap = '8px';
+  container.style.flexWrap = 'wrap';
+  
+  const variants = ['default', 'primary', 'success', 'neutral', 'warning', 'danger'];
+  
+  variants.forEach(variant => {
+    const button = document.createElement('cod-button');
+    button.setAttribute('variant', variant);
+    button.setAttribute('loading', '');
+    button.textContent = variant.charAt(0).toUpperCase() + variant.slice(1);
+    container.appendChild(button);
+  });
+  
+  return container;
+};
+
+Loading.storyName = 'Loading';
+Loading.parameters = {
+  docs: {
+    description: {
+      story: 'Use the `loading` attribute to make a button busy. The width will remain the same as before, preventing adjacent elements from moving around.',
+    },
   },
 };
 
-export const SquareImage = {
-  tags: ['autodocs'],
-  render: Template.bind({}),
-  args: {
-    primary: true,
-    label: '',
-    backgroundColor: 'secondary',
-    shape: 'square',
-    img: 'https://detroitmi.gov/sites/detroitmi.localhost/files/2023-02/map.png',
-    imgAlt: 'map',
-  },
+// Story: Disabled
+export const Disabled = () => {
+  const container = document.createElement('div');
+  container.style.display = 'flex';
+  container.style.gap = '8px';
+  container.style.flexWrap = 'wrap';
+  
+  const variants = ['default', 'primary', 'success', 'neutral', 'warning', 'danger'];
+  
+  variants.forEach(variant => {
+    const button = document.createElement('cod-button');
+    button.setAttribute('variant', variant);
+    button.setAttribute('disabled', '');
+    button.textContent = variant.charAt(0).toUpperCase() + variant.slice(1);
+    container.appendChild(button);
+  });
+  
+  return container;
 };
 
-export const HiddenLabel = {
-  tags: ['autodocs'],
-  render: Template.bind({}),
-  args: {
-    primary: true,
-    label: '',
-    hLabel: 'Toggle Dropdown',
-    extraClasses: 'dropdown-toggle dropdown-toggle-split',
+Disabled.storyName = 'Disabled';
+Disabled.parameters = {
+  docs: {
+    description: {
+      story: 'Use the `disabled` attribute to disable a button.',
+    },
   },
 };
-
-// export const WithInteraction = Template.bind({});
-// WithInteraction.args = {
-//   primary: true,
-//   label: 'Interaction',
-//   id: 'interaction',
-//   onclick: (e) => {console.log(e)}
-// };
-
-// WithInteraction.play = async ({ args, canvasElement }) => {
-//   // Assigns canvas to the component root element
-//   const canvas = within(canvasElement);
-//   await userEvent.click(canvas.getByTestId('interaction'));
-//   await expect(console.log);
-// }
