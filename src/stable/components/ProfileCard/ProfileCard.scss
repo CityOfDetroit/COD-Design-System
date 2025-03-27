@@ -1,43 +1,43 @@
 .profile-card {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    max-width: 100%;
-    gap: 20px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 100%;
+  gap: 20px;
 }
 
 .profile-image {
-    object-fit: contain; /* could be cover */
-    width: 20%;
-    max-width: 120px; 
-    height: auto;
-    border-radius: 50%;
+  object-fit: contain; /* could be cover */
+  width: 20%;
+  max-width: 120px;
+  height: auto;
+  border-radius: 50%;
 }
 
 .profile-details {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-    min-width: 0;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  min-width: 0;
 }
 
-::slotted([slot="name"]) {
-    font-size: 20px;
-    line-height: 100%;
-    letter-spacing: 0%;
-    font-weight: 600;
+::slotted([slot='name']) {
+  font-size: 20px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  font-weight: 600;
 }
 
-::slotted([slot="title-primary"]){
-font-size: 16px;
-line-height: 100%;
-letter-spacing: 0%;
-font-weight: 400;
+::slotted([slot='title-primary']) {
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  font-weight: 400;
 }
 
-::slotted([slot="title-secondary"]) {
-font-size: 16px;
-line-height: 100%;
-letter-spacing: 0%;
-font-weight: 400;
+::slotted([slot='title-secondary']) {
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  font-weight: 400;
 }
