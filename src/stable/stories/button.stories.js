@@ -1,10 +1,10 @@
-import '../components/atoms/Button/cod-button';
-import '../components/atoms/Icon/cod-icon';
+import '../components/Button/cod-button';
+import '../../experimental/components/atoms/Icon/cod-icon';
 import { COMMON_STORY_ARGS } from '../../shared/js/storybook/args-utils';
 
 export default {
-  tags: ['experimental'],
-  title: 'Experimental/Button',
+  tags: ['stable'],
+  title: 'Components/Button',
   argTypes: {
     primary: {
       control: { type: 'boolean' },
