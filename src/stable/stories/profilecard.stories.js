@@ -2,11 +2,27 @@ import { html } from 'lit-html';
 import '../components/ProfileCard/cod-profile-card';
 
 export default {
-  tags: ['stable'],
+  tags: ['stable', 'autodocs'],
   title: 'Components/ProfileCard',
+  argTypes: {
+    imageSrc: { control: 'text', name: 'Image Source'},
+    name: { control: 'text', name: 'Name'},
+    titlePrimary: { control: 'text', name: 'Primary Title'},
+    titleSecondary: { control: 'text', name: 'Secondary Title'},
+  },
 };
 
-export const ProfileCard = {
-  tags: ['autodocs'],
-  render: () => html`<cod-profile-card></cod-profile-card>`,
+export const Default = (args) => html `
+<cod-profile-card image-src=${args.imageSrc}>
+  <span slot="name">${args.name}</span>
+  <span slot="title-primary">${args.titlePrimary}</span>
+  <span slot="title-secondary">${args.titleSecondary}</span>
+</cod-profile-card>
+`;
+
+Default.args = {
+  imageSrc: 'https://placehold.co/400',
+  name: 'Jane Doe',
+  titlePrimary: 'Frontend Engineer',
+  titleSecondary: 'Frontend Developer',
 };
