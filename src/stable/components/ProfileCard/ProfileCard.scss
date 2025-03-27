@@ -3,11 +3,11 @@
   align-items: center;
   width: 100%;
   max-width: 100%;
-  gap: 20px;
+  gap: 1.25rem;
 }
 
 .profile-image {
-  object-fit: contain; /* could be cover */
+  object-fit: cover; 
   width: 20%;
   max-width: 120px;
   height: auto;
@@ -22,21 +22,21 @@
 }
 
 ::slotted([slot='name']) {
-  font-size: 20px;
+  font-size: 1.25rem;
   line-height: 100%;
   letter-spacing: 0%;
   font-weight: 600;
 }
 
 ::slotted([slot='title-primary']) {
-  font-size: 16px;
+  font-size: 1rem;
   line-height: 100%;
   letter-spacing: 0%;
   font-weight: 400;
 }
 
 ::slotted([slot='title-secondary']) {
-  font-size: 16px;
+  font-size: 1rem;
   line-height: 100%;
   letter-spacing: 0%;
   font-weight: 400;
