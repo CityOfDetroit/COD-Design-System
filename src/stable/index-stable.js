@@ -2,3 +2,4 @@ import './components/GovBanner/cod-gov-banner.js';
 import './components/SectionNavigation/cod-section-navigation.js';
 import './components/ServiceButton/cod-service-button.js';
 import './components/Drawer/cod-drawer.js';
+import './components/Button/cod-button.js';
