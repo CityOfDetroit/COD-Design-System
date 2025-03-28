@@ -59,18 +59,16 @@ export const ListElements = {
     const tagShadowRoot = tag.shadowRoot;
     const slot = tagShadowRoot.querySelector('slot[name="label"]');
     const slottedElt = slot.assignedElements()[0];
-    
+
     // Test that the result is a single <span> after the transformation
     expect(slottedElt.tagName).toBe('SPAN');
 
     // Verify there are no <br> elements or newlines in the content
     expect(slottedElt.innerHTML).not.toContain('<br>');
     expect(slottedElt.innerHTML).not.toContain('\n');
-
   },
 };
 
- 
 export const OtherNonAllowedElements = {
   tags: ['!dev'],
   render: () => {
@@ -92,7 +90,6 @@ export const OtherNonAllowedElements = {
     // Verify there are no elements or newlines in the content
     expect(slottedElt.innerHTML).not.toEqual('');
     expect(slottedElt.innerHTML).not.toContain('\n');
-
   },
 };
 
@@ -117,6 +114,5 @@ export const MultiSpanElements = {
     // Verify there are no elements or newlines in the content
     expect(slottedElt.innerHTML).not.toEqual('');
     expect(slottedElt.innerHTML).not.toContain('\n');
-
   },
 };

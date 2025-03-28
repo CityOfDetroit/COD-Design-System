@@ -1,11 +1,5 @@
 import styles from '!!raw-loader!./tag.css';
 
-// Function to strip HTML tags
-function stripHTML(html) {
-  const doc = new DOMParser().parseFromString(html, 'text/html');
-  return doc.body.innerText || "";
-}
-
 // Define a template element to hold the structure and style of the custom element
 const template = document.createElement('template');
 template.innerHTML = `
@@ -46,21 +40,22 @@ class Tag extends HTMLElement {
 
       // Iterate over the assigned elements
       elements.forEach((element, index) => {
-
         if (!allowedTags.includes(element.tagName)) {
           // If the element is not allowed, replace it with a span element
           const spanElement = document.createElement('span');
           spanElement.slot = 'label';
           // Removing <br> and newlines
-          spanElement.innerText = element.innerText.replace(/<br>/g, '').replace(/\n/g, '');
+          spanElement.innerText = element.innerText
+            .replace(/<br>/g, '')
+            .replace(/\n/g, '');
 
           element.replaceWith(spanElement);
         } else {
-        // Append a comma if more than one label
-        if (index < elements.length - 1) {
-          element.innerText += ', ';
+          // Append a comma if more than one label
+          if (index < elements.length - 1) {
+            element.innerText += ', ';
+          }
         }
-      }
       });
     });
   }
