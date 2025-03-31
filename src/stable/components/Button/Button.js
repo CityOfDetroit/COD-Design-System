@@ -250,6 +250,8 @@ export default class Button extends HTMLElement {
       'default': '',
       'primary': 'btn-primary',
       'secondary': 'btn-secondary',
+      'accent-primary': 'btn-accent-primary',
+      'accent-secondary': 'btn-accent-secondary',
       'success': 'btn-success',
       'danger': 'btn-danger',
       'warning': 'btn-warning',

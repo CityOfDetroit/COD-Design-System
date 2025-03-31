@@ -1,5 +1,7 @@
 import '../components/Button/cod-button.js';
 
+const variants = ['default', 'primary', 'accent-primary', 'accent-secondary', 'success', 'neutral', 'warning', 'danger', 'text'];
+
 export default {
   title: 'Components/Button',
   component: 'cod-button',
@@ -9,7 +11,7 @@ export default {
   argTypes: {
     variant: {
       control: { type: 'select' },
-      options: ['default', 'primary', 'success', 'neutral', 'warning', 'danger', 'text'],
+      options: variants,
       description: 'The button\'s variant.',
       table: {
         defaultValue: { summary: 'default' },
@@ -110,9 +112,7 @@ export const Variants = () => {
   container.style.gap = '8px';
   container.style.flexWrap = 'wrap';
   
-  const variants = ['default', 'primary', 'success', 'neutral', 'warning', 'danger'];
-  
-  variants.forEach(variant => {
+  variants.filter((val) => val !== 'text').forEach(variant => {
     const button = document.createElement('cod-button');
     button.setAttribute('variant', variant);
     button.textContent = variant.charAt(0).toUpperCase() + variant.slice(1);
@@ -166,9 +166,7 @@ export const Outline = () => {
   container.style.gap = '8px';
   container.style.flexWrap = 'wrap';
   
-  const variants = ['default', 'primary', 'success', 'neutral', 'warning', 'danger'];
-  
-  variants.forEach(variant => {
+  variants.filter((val) => val !== 'text').forEach(variant => {
     const button = document.createElement('cod-button');
     button.setAttribute('variant', variant);
     button.setAttribute('outline', '');
@@ -403,9 +401,7 @@ export const Loading = () => {
   container.style.gap = '8px';
   container.style.flexWrap = 'wrap';
   
-  const variants = ['default', 'primary', 'success', 'neutral', 'warning', 'danger'];
-  
-  variants.forEach(variant => {
+  variants.filter((val) => val !== 'text').forEach(variant => {
     const button = document.createElement('cod-button');
     button.setAttribute('variant', variant);
     button.setAttribute('loading', '');
@@ -432,9 +428,7 @@ export const Disabled = () => {
   container.style.gap = '8px';
   container.style.flexWrap = 'wrap';
   
-  const variants = ['default', 'primary', 'success', 'neutral', 'warning', 'danger'];
-  
-  variants.forEach(variant => {
+  variants.filter((val) => val !== 'text').forEach(variant => {
     const button = document.createElement('cod-button');
     button.setAttribute('variant', variant);
     button.setAttribute('disabled', '');
