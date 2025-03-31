@@ -2,7 +2,7 @@ import styles from '!!raw-loader!./Button.css';
 
 const template = document.createElement('template');
 template.innerHTML = `
-<button class="btn">
+<button class="btn" part="base">
   <slot name="prefix"></slot>
   <slot></slot>
   <slot name="suffix"></slot>

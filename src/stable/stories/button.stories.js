@@ -268,14 +268,19 @@ export const CustomWidth = () => {
   container.style.display = 'flex';
   container.style.flexDirection = 'column';
   container.style.gap = '8px';
-  container.style.width = '300px';
+  container.style.width = '100%';
+  const style = document.createElement('style');
+  style.textContent = `.full-width-button::part(base) {
+    width: 100%;
+  }`;
+  container.appendChild(style);
   
   const sizes = ['small', 'medium', 'large'];
   
   sizes.forEach(size => {
     const button = document.createElement('cod-button');
     button.setAttribute('size', size);
-    button.style.width = '100%';
+    button.classList.add('full-width-button');
     button.textContent = size.charAt(0).toUpperCase() + size.slice(1);
     container.appendChild(button);
   });
