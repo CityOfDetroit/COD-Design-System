@@ -110,6 +110,8 @@ const Template = (args) => {
   return button;
 };
 
+export const Usage = Template.bind({});
+
 // Story: Variants
 export const Variants = () => {
   const container = document.createElement('div');
