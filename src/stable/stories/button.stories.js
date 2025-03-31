@@ -111,6 +111,7 @@ const Template = (args) => {
 };
 
 export const Usage = Template.bind({});
+Usage.tags = ['!dev'];
 
 // Story: Variants
 export const Variants = () => {
