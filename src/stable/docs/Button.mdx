@@ -144,26 +144,28 @@ data={JSON.stringify([
 
 <doc-css-custom-properties-table
 data={JSON.stringify([
-  {"name": "--cod-button-focus-ring-color", "description": "The color of the focus ring.", "defaultValue": "var(--cod-primary)"},
-  {"name": "--cod-button-focus-ring-offset", "description": "The width of the focus ring.", "defaultValue": "2px"},
-  {"name": "--cod-button-min-width", "description": "The button's minimum width.", "defaultValue": "auto"},
-  {"name": "--cod-button-height", "description": "The button's height.", "defaultValue": "auto"},
-  {"name": "--cod-button-font-family", "description": "The button's font family.", "defaultValue": "var(--cod-font-family-base)"},
-  {"name": "--cod-button-font-weight", "description": "The button's font weight.", "defaultValue": "var(--cod-font-weight-medium)"},
-  {"name": "--cod-button-font-size", "description": "The button's font size.", "defaultValue": "var(--cod-font-size-base)"},
-  {"name": "--cod-button-line-height", "description": "The button's line height.", "defaultValue": "var(--cod-line-height-base)"},
-  {"name": "--cod-button-color", "description": "The button's text color.", "defaultValue": "inherit"},
-  {"name": "--cod-button-border-radius", "description": "The button's border radius.", "defaultValue": "var(--cod-border-radius)"},
-  {"name": "--cod-button-transition", "description": "The button's transition.", "defaultValue": "color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out"}
+  {"name": "--cod-btn-padding-x", "description": "The button's horizontal padding.", "defaultValue": "0.75em"},
+  {"name": "--cod-btn-padding-y", "description": "The button's vertical padding.", "defaultValue": "0.375em"},
+  {"name": "--cod-btn-font-family", "description": "The button's font family.", "defaultValue": ""},
+  {"name": "--cod-btn-font-size", "description": "The button's font size.", "defaultValue": "1em"},
+  {"name": "--cod-btn-font-weight", "description": "The button's font weight.", "defaultValue": "400"},
+  {"name": "--cod-btn-line-height", "description": "The button's line height.", "defaultValue": "1.5"},
+  {"name": "--cod-btn-color", "description": "The button's text color.", "defaultValue": "var(--cod-body-color)"},
+  {"name": "--cod-btn-bg", "description": "The button's background color.", "defaultValue": "transparent"},
+  {"name": "--cod-btn-border-width", "description": "The button's border width.", "defaultValue": "var(--cod-border-width)"},
+  {"name": "--cod-btn-border-color", "description": "The button's border color.", "defaultValue": "transparent"},
+  {"name": "--cod-btn-border-radius", "description": "The button's border radius.", "defaultValue": "var(--cod-border-radius)"},
+  {"name": "--cod-btn-hover-border-color", "description": "The button's border color on hover.", "defaultValue": "transparent"},
+  {"name": "--cod-btn-box-shadow", "description": "The button's box shadow.", "defaultValue": "inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 1px 1px rgba(0, 0, 0, 0.075)"},
+  {"name": "--cod-btn-disabled-opacity", "description": "The button's opacity when disabled.", "defaultValue": "0.65"},
+  {"name": "--cod-btn-focus-box-shadow", "description": "The button's box shadow when focused.", "defaultValue": "0 0 0 0.25em rgba(var(--cod-btn-focus-shadow-rgb), 0.5)"}
 ])}>
 </doc-css-custom-properties-table>
 
 ## CSS Parts
 
 <doc-css-parts-table 
-data={JSON.stringify([
-  {"name": "base", "description": "The component's base wrapper element."}
-])}>
+data={JSON.stringify([])}>
 </doc-css-parts-table>
 
 ## Dependencies
