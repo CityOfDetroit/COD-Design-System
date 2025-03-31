@@ -7,6 +7,11 @@ export default {
   component: 'cod-button',
   parameters: {
     layout: 'centered',
+    docs: {
+      source: {
+        format: 'html',
+      }
+    }
   },
   argTypes: {
     variant: {
@@ -270,9 +275,11 @@ export const CustomWidth = () => {
   container.style.gap = '8px';
   container.style.width = '100%';
   const style = document.createElement('style');
-  style.textContent = `.full-width-button::part(base) {
+  style.textContent = `
+  .full-width-button::part(base) {
     width: 100%;
-  }`;
+  }
+    `;
   container.appendChild(style);
   
   const sizes = ['small', 'medium', 'large'];
