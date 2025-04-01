@@ -15,7 +15,7 @@ export const Basic = () => html`
     Open Drawer
   </button>
   <cod-drawer id="basicExample">
-    <h2 slot="label">Basic Header</h2>
+    <span class="fw-bold display-5" slot="label">Basic Header</span>
     <div style="height: 150vh; border: dashed 2px grey; padding: 0 1rem;">
       <p>Scroll down to give it a try! 👇</p>
     </div>
@@ -32,7 +32,7 @@ export const Scroll = () => html`
       Open Drawer
     </button>
     <cod-drawer id="scrollExample" scroll>
-      <h2 slot="label">Scroll Header</h2>
+      <span class="fw-bold display-5" slot="label">Scroll Header</span>
       <div style="height: 150vh; border: dashed 2px grey; padding: 0 1rem;">
         <p>Scroll down to give it a try! 👇</p>
       </div>
@@ -63,7 +63,7 @@ export const Contained = () => html`
       contained
       style="--cod-offcanvas-width: 50%;"
     >
-      <h2 slot="label">Contained Drawer</h2>
+      <span class="fw-bold display-5" slot="label">Contained Drawer</span>
       <div style="padding: 0 1rem;">
         <p>This drawer is contained within its parent element.</p>
         <p>Unlike normal drawers, contained drawers:</p>
