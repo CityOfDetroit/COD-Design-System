@@ -321,7 +321,7 @@ CustomWidth.parameters = {
   docs: {
     description: {
       story:
-        'Buttons can be given a custom width using inline styles. This is useful for making buttons span the full width of their container.',
+        'Buttons can be given a custom width using CSS parts. This is useful for making buttons span the full width of their container.',
     },
   },
 };

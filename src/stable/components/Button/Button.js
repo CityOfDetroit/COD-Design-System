@@ -126,7 +126,7 @@ export default class Button extends HTMLElement {
 
   _render() {
     // Determine if we need to render as a button or an anchor
-    const isLink = !!this._state.href;
+    const isLink = Boolean(this._state.href);
 
     if (isLink && this.shadowRoot.querySelector('button')) {
       // Replace button with anchor
