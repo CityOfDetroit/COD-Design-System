@@ -69,6 +69,14 @@ export default {
         defaultValue: { summary: false },
       },
     },
+    square: {
+      control: { type: 'boolean' },
+      description:
+        'Whether the button should be square. Expects a single icon in the default slot.',
+      table: {
+        defaultValue: { summary: false },
+      },
+    },
     href: {
       control: { type: 'text' },
       description: 'When set, renders as an <a> element with this URL.',
@@ -95,6 +103,7 @@ export default {
     disabled: false,
     caret: false,
     loading: false,
+    square: false,
     href: '',
     target: '',
     label: 'Button',
@@ -112,6 +121,7 @@ const Template = (args) => {
   if (args.disabled) button.setAttribute('disabled', '');
   if (args.caret) button.setAttribute('caret', '');
   if (args.loading) button.setAttribute('loading', '');
+  if (args.square) button.setAttribute('square', '');
   if (args.href) button.setAttribute('href', args.href);
   if (args.target) button.setAttribute('target', args.target);
 
@@ -236,6 +246,30 @@ Text.parameters = {
     description: {
       story:
         'Use the `variant="text"` attribute to create text buttons that share the same size as regular buttons but don\'t have backgrounds or borders.',
+    },
+  },
+};
+
+// Story: Square
+export const Square = () => {
+  const icon = document.createElement('cod-icon');
+  icon.setAttribute('data-icon', 'file-earmark');
+  icon.setAttribute('data-size', 'medium');
+
+  const button = document.createElement('cod-button');
+  button.setAttribute('variant', 'secondary');
+  button.setAttribute('square', '');
+  button.appendChild(icon);
+
+  return button;
+};
+
+Square.storyName = 'Square';
+Square.parameters = {
+  docs: {
+    description: {
+      story:
+        'Use the `square` attribute to render a square button with an icon inside.',
     },
   },
 };
