@@ -1,4 +1,5 @@
 import '../components/Button/cod-button.js';
+import '../../experimental/components/atoms/Icon/cod-icon.js';
 
 const variants = [
   'default',
@@ -342,40 +343,26 @@ export const Icons = () => {
   const prefixButton = document.createElement('cod-button');
 
   const prefixIcon = document.createElement('cod-icon');
-  prefixIcon.setAttribute('name', 'gear');
+  prefixIcon.setAttribute('data-icon', 'house');
+  prefixIcon.setAttribute('data-size', 'small');
   prefixIcon.setAttribute('slot', 'prefix');
 
   prefixButton.appendChild(prefixIcon);
-  prefixButton.appendChild(document.createTextNode('Settings'));
+  prefixButton.appendChild(document.createTextNode('Home'));
 
   // Suffix icon
   const suffixButton = document.createElement('cod-button');
 
   const suffixIcon = document.createElement('cod-icon');
-  suffixIcon.setAttribute('name', 'arrow-repeat');
+  suffixIcon.setAttribute('data-icon', 'funnel-fill');
+  suffixIcon.setAttribute('data-size', 'small');
   suffixIcon.setAttribute('slot', 'suffix');
 
-  suffixButton.appendChild(document.createTextNode('Refresh'));
+  suffixButton.appendChild(document.createTextNode('Filter'));
   suffixButton.appendChild(suffixIcon);
-
-  // Both icons
-  const bothButton = document.createElement('cod-button');
-
-  const prefixIcon2 = document.createElement('cod-icon');
-  prefixIcon2.setAttribute('name', 'link');
-  prefixIcon2.setAttribute('slot', 'prefix');
-
-  const suffixIcon2 = document.createElement('cod-icon');
-  suffixIcon2.setAttribute('name', 'box-arrow-up-right');
-  suffixIcon2.setAttribute('slot', 'suffix');
-
-  bothButton.appendChild(prefixIcon2);
-  bothButton.appendChild(document.createTextNode('Open'));
-  bothButton.appendChild(suffixIcon2);
 
   row.appendChild(prefixButton);
   row.appendChild(suffixButton);
-  row.appendChild(bothButton);
 
   container.appendChild(row);
 
