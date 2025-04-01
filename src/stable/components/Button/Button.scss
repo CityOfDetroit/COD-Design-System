@@ -14,11 +14,11 @@
 }
 
 // Handle prefix and suffix slots
-slot[name="prefix"]::slotted(*) {
+slot[name='prefix']::slotted(*) {
   margin-inline-end: 0.25em;
 }
 
-slot[name="suffix"]::slotted(*) {
+slot[name='suffix']::slotted(*) {
   margin-inline-start: 0.25em;
 }
 

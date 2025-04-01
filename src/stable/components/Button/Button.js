@@ -25,7 +25,7 @@ export default class Button extends HTMLElement {
       'href',
       'target',
       'download',
-      'rel'
+      'rel',
     ];
   }
 
@@ -50,7 +50,7 @@ export default class Button extends HTMLElement {
       href: '',
       target: '',
       download: '',
-      rel: ''
+      rel: '',
     };
 
     // Bind event handlers
@@ -126,51 +126,51 @@ export default class Button extends HTMLElement {
   _render() {
     // Determine if we need to render as a button or an anchor
     const isLink = !!this._state.href;
-    
+
     if (isLink && this.shadowRoot.querySelector('button')) {
       // Replace button with anchor
       const button = this.shadowRoot.querySelector('button');
       const anchor = document.createElement('a');
-      
+
       // Copy all children from button to anchor
       while (button.firstChild) {
         anchor.appendChild(button.firstChild);
       }
-      
+
       // Copy classes and part attribute
       anchor.className = button.className;
       anchor.setAttribute('part', button.getAttribute('part') || 'base');
-      
+
       // Replace button with anchor
       button.replaceWith(anchor);
     } else if (!isLink && this.shadowRoot.querySelector('a')) {
       // Replace anchor with button
       const anchor = this.shadowRoot.querySelector('a');
       const button = document.createElement('button');
-      
+
       // Copy all children from anchor to button
       while (anchor.firstChild) {
         button.appendChild(anchor.firstChild);
       }
-      
+
       // Copy classes and part attribute
       button.className = anchor.className;
       button.setAttribute('part', anchor.getAttribute('part') || 'base');
-      
+
       // Replace anchor with button
       anchor.replaceWith(button);
     }
-    
+
     // Get the current root element (button or anchor)
-    const element = isLink ? 
-      this.shadowRoot.querySelector('a') : 
-      this.shadowRoot.querySelector('button');
-    
+    const element = isLink
+      ? this.shadowRoot.querySelector('a')
+      : this.shadowRoot.querySelector('button');
+
     // Update element classes based on variant and size
     this._renderVariant(element);
     this._renderSize(element);
     this._renderOutline(element);
-    
+
     // Set attributes for link
     if (isLink) {
       element.href = this._state.href;
@@ -187,7 +187,7 @@ export default class Button extends HTMLElement {
         element.download = this._state.download;
       }
     }
-    
+
     // Handle disabled state
     element.disabled = isLink ? false : this._state.disabled;
     element.setAttribute('aria-disabled', this._state.disabled.toString());
@@ -200,23 +200,25 @@ export default class Button extends HTMLElement {
       element.removeAttribute('tabindex');
       element.style.pointerEvents = '';
     }
-    
+
     // Show/hide caret
     const caretContainer = this.shadowRoot.querySelector('.caret-container');
     if (caretContainer) {
-      caretContainer.style.display = this._state.caret ? 'inline-block' : 'none';
+      caretContainer.style.display = this._state.caret
+        ? 'inline-block'
+        : 'none';
     }
-    
+
     // Show/hide loading spinner
     const spinner = this.shadowRoot.querySelector('.spinner-border');
     if (spinner) {
       spinner.style.display = this._state.loading ? 'inline-block' : 'none';
-      
+
       // Hide content when loading
       const defaultSlot = this.shadowRoot.querySelector('slot:not([name])');
       const prefixSlot = this.shadowRoot.querySelector('slot[name="prefix"]');
       const suffixSlot = this.shadowRoot.querySelector('slot[name="suffix"]');
-      
+
       if (this._state.loading) {
         defaultSlot.style.visibility = 'hidden';
         if (prefixSlot) prefixSlot.style.visibility = 'hidden';
@@ -242,24 +244,24 @@ export default class Button extends HTMLElement {
       'btn-dark',
       'btn-link',
       'btn-neutral',
-      'btn-text'
+      'btn-text',
     );
-    
+
     // Map component variant values to Bootstrap classes
     const variantMap = {
-      'default': '',
-      'primary': 'btn-primary',
-      'secondary': 'btn-secondary',
+      default: '',
+      primary: 'btn-primary',
+      secondary: 'btn-secondary',
       'accent-primary': 'btn-accent-primary',
       'accent-secondary': 'btn-accent-secondary',
-      'success': 'btn-success',
-      'danger': 'btn-danger',
-      'warning': 'btn-warning',
-      'info': 'btn-info',
-      'neutral': 'btn-light',
-      'text': 'btn-link'
+      success: 'btn-success',
+      danger: 'btn-danger',
+      warning: 'btn-warning',
+      info: 'btn-info',
+      neutral: 'btn-light',
+      text: 'btn-link',
     };
-    
+
     // Add the appropriate variant class
     if (this._state.variant === 'text') {
       element.classList.add('btn-link');
@@ -277,11 +279,11 @@ export default class Button extends HTMLElement {
       element.style.verticalAlign = '';
     }
   }
-  
+
   _renderSize(element) {
     // Remove all size classes
     element.classList.remove('btn-sm', 'btn-lg');
-    
+
     // Add the appropriate size class
     if (this._state.size === 'small') {
       element.classList.add('btn-sm');
@@ -290,12 +292,16 @@ export default class Button extends HTMLElement {
     }
     // Medium is the default size, no class needed
   }
-  
+
   _renderOutline(element) {
     // Handle outline variant by replacing btn-* with btn-outline-*
     if (this._state.outline && this._state.variant !== 'text') {
       for (const className of Array.from(element.classList)) {
-        if (className.startsWith('btn-') && !className.startsWith('btn-outline-') && className !== 'btn-link') {
+        if (
+          className.startsWith('btn-') &&
+          !className.startsWith('btn-outline-') &&
+          className !== 'btn-link'
+        ) {
           element.classList.remove(className);
           element.classList.add(`btn-outline-${className.substring(4)}`);
         }
@@ -323,23 +329,23 @@ export default class Button extends HTMLElement {
   get variant() {
     return this._state.variant;
   }
-  
+
   set variant(value) {
     this.setAttribute('variant', value);
   }
-  
+
   get size() {
     return this._state.size;
   }
-  
+
   set size(value) {
     this.setAttribute('size', value);
   }
-  
+
   get outline() {
     return this._state.outline;
   }
-  
+
   set outline(value) {
     if (value) {
       this.setAttribute('outline', '');
@@ -347,11 +353,11 @@ export default class Button extends HTMLElement {
       this.removeAttribute('outline');
     }
   }
-  
+
   get disabled() {
     return this._state.disabled;
   }
-  
+
   set disabled(value) {
     if (value) {
       this.setAttribute('disabled', '');
@@ -359,11 +365,11 @@ export default class Button extends HTMLElement {
       this.removeAttribute('disabled');
     }
   }
-  
+
   get caret() {
     return this._state.caret;
   }
-  
+
   set caret(value) {
     if (value) {
       this.setAttribute('caret', '');
@@ -371,11 +377,11 @@ export default class Button extends HTMLElement {
       this.removeAttribute('caret');
     }
   }
-  
+
   get loading() {
     return this._state.loading;
   }
-  
+
   set loading(value) {
     if (value) {
       this.setAttribute('loading', '');
@@ -383,35 +389,35 @@ export default class Button extends HTMLElement {
       this.removeAttribute('loading');
     }
   }
-  
+
   get href() {
     return this._state.href;
   }
-  
+
   set href(value) {
     this.setAttribute('href', value);
   }
-  
+
   get target() {
     return this._state.target;
   }
-  
+
   set target(value) {
     this.setAttribute('target', value);
   }
-  
+
   get download() {
     return this._state.download;
   }
-  
+
   set download(value) {
     this.setAttribute('download', value);
   }
-  
+
   get rel() {
     return this._state.rel;
   }
-  
+
   set rel(value) {
     this.setAttribute('rel', value);
   }

@@ -1,5 +1,6 @@
 import {
   Meta,
+  Canvas,
   Title,
   Subtitle,
   Description,
@@ -23,91 +24,23 @@ import '../../../.storybook/docs'; // Import all documentation components
 
 ## Usage
 
-<Story of={ButtonStories.Usage} />
-<Source of={ButtonStories.Usage} />
+<Canvas>
+  <Story of={ButtonStories.Usage} />
+  <Source of={ButtonStories.Usage} />
+</Canvas>
 <Controls of={ButtonStories.Usage} />
 
 ## Examples
 
-### Variants
-
-Use the `variant` attribute to set the button's variant.
-
-<Story of={ButtonStories.Variants} inline={true} />
-<Source of={ButtonStories.Variants} />
-
-### Sizes
-
-Use the `size` attribute to change a button's size.
-
-<Story of={ButtonStories.Sizes} inline={true} />
-<Source of={ButtonStories.Sizes} />
-
-### Outline Buttons
-
-Use the `outline` attribute to draw outlined buttons with transparent backgrounds.
-
-<Story of={ButtonStories.Outline} inline={true} />
-<Source of={ButtonStories.Outline} />
-
-### Text Buttons
-
-Use the `variant="text"` to create text buttons that share the same size as regular buttons but don't have backgrounds or borders.
-
-<Story of={ButtonStories.Text} inline={true} />
-<Source of={ButtonStories.Text} />
-
-### Link Buttons
-
-It's often helpful to have a button that works like a link. This is possible by setting the `href` attribute, which will make the component render an `<a>` under the hood. This gives you all the default link behavior the browser provides (e.g. [[CMD/CTRL/SHIFT]] + [[CLICK]]) and exposes the `target` and `download` attributes.
-
-<Story of={ButtonStories.Link} inline={true} />
-<Source of={ButtonStories.Link} />
-
-> **Note**: When a `target="_blank"` is set, the link will receive `rel="noreferrer noopener"` for security reasons.
-
-### Setting a Custom Width
-
-Buttons can be given a custom width by using CSS parts. This is useful for making buttons span the full width of their container on smaller screens.
-
-<Story of={ButtonStories.CustomWidth} inline={true} />
-<Source of={ButtonStories.CustomWidth} />
-
-### Prefix and Suffix Icons
-
-Use the `prefix` and `suffix` slots to add icons.
-
-<Story of={ButtonStories.Icons} inline={true} />
-<Source of={ButtonStories.Icons} />
-
-### Caret
-
-Use the `caret` attribute to add a dropdown indicator when a button will trigger a dropdown, menu, or popover.
-
-<Story of={ButtonStories.Caret} inline={true} />
-<Source of={ButtonStories.Caret} />
-
-### Loading
-
-Use the `loading` attribute to make a button busy. The width will remain the same as before, preventing adjacent elements from moving around.
-
-<Story of={ButtonStories.Loading} inline={true} />
-<Source of={ButtonStories.Loading} />
-
-### Disabled
-
-Use the `disabled` attribute to disable a button.
-
-<Story of={ButtonStories.Disabled} inline={true} />
-<Source of={ButtonStories.Disabled} />
+<Stories of={ButtonStories} includePrimary={false} />
 
 ## Slots
 
 <doc-slots-table
 data={JSON.stringify([
-  {"name": "(default)", "description": "The button's label."},
-  {"name": "prefix", "description": "Used to prepend an icon or similar element to the button."},
-  {"name": "suffix", "description": "Used to append an icon or similar element to the button."}
+{"name": "(default)", "description": "The button's label."},
+{"name": "prefix", "description": "Used to prepend an icon or similar element to the button."},
+{"name": "suffix", "description": "Used to append an icon or similar element to the button."}
 ])}>
 </doc-slots-table>
 
@@ -115,16 +48,16 @@ data={JSON.stringify([
 
 <doc-js-properties-table
 data={JSON.stringify([
-  {"name": "variant", "description": "The button's visual style variant.", "type": "'default' | 'primary' | 'success' | 'neutral' | 'warning' | 'danger' | 'text'", "defaultValue": "'default'", "reflects": true},
-  {"name": "size", "description": "The button's size.", "type": "'small' | 'medium' | 'large'", "defaultValue": "'medium'", "reflects": true},
-  {"name": "outline", "description": "Makes the button use outlined styles with a transparent background.", "type": "boolean", "defaultValue": "false", "reflects": true},
-  {"name": "disabled", "description": "Disables the button.", "type": "boolean", "defaultValue": "false", "reflects": true},
-  {"name": "caret", "description": "Adds a dropdown caret to the button.", "type": "boolean", "defaultValue": "false", "reflects": true},
-  {"name": "loading", "description": "Shows a loading spinner inside the button and disables it.", "type": "boolean", "defaultValue": "false", "reflects": true},
-  {"name": "href", "description": "When set, the button will render as an <a> element with this value for its href attribute.", "type": "string", "defaultValue": "''", "reflects": true},
-  {"name": "target", "description": "Where to display linked URL for button as links. Only used when href is set.", "type": "string", "defaultValue": "''", "reflects": true},
-  {"name": "download", "description": "Causes the browser to download the linked URL instead of navigating to it. Only used when href is set.", "type": "string", "defaultValue": "''", "reflects": true},
-  {"name": "rel", "description": "The relationship of the linked URL as space-separated link types. Only used when href is set.", "type": "string", "defaultValue": "''", "reflects": true}
+{"name": "variant", "description": "The button's visual style variant.", "type": "'default' | 'primary' | 'success' | 'neutral' | 'warning' | 'danger' | 'text'", "defaultValue": "'default'", "reflects": true},
+{"name": "size", "description": "The button's size.", "type": "'small' | 'medium' | 'large'", "defaultValue": "'medium'", "reflects": true},
+{"name": "outline", "description": "Makes the button use outlined styles with a transparent background.", "type": "boolean", "defaultValue": "false", "reflects": true},
+{"name": "disabled", "description": "Disables the button.", "type": "boolean", "defaultValue": "false", "reflects": true},
+{"name": "caret", "description": "Adds a dropdown caret to the button.", "type": "boolean", "defaultValue": "false", "reflects": true},
+{"name": "loading", "description": "Shows a loading spinner inside the button and disables it.", "type": "boolean", "defaultValue": "false", "reflects": true},
+{"name": "href", "description": "When set, the button will render as an <a> element with this value for its href attribute.", "type": "string", "defaultValue": "''", "reflects": true},
+{"name": "target", "description": "Where to display linked URL for button as links. Only used when href is set.", "type": "string", "defaultValue": "''", "reflects": true},
+{"name": "download", "description": "Causes the browser to download the linked URL instead of navigating to it. Only used when href is set.", "type": "string", "defaultValue": "''", "reflects": true},
+{"name": "rel", "description": "The relationship of the linked URL as space-separated link types. Only used when href is set.", "type": "string", "defaultValue": "''", "reflects": true}
 ])}>
 </doc-js-properties-table>
 
@@ -132,45 +65,45 @@ data={JSON.stringify([
 
 <doc-events-table
 data={JSON.stringify([
-  // No custom events for the basic button implementation
+// No custom events for the basic button implementation
 ])}>
 </doc-events-table>
 
 ## Methods
 
-<doc-methods-table 
-  data={JSON.stringify([
-    // No custom methods for the basic button implementation
-  ])}>
+<doc-methods-table
+data={JSON.stringify([
+// No custom methods for the basic button implementation
+])}>
 </doc-methods-table>
 
 ## Custom CSS Properties
 
 <doc-css-custom-properties-table
 data={JSON.stringify([
-  {"name": "--cod-btn-padding-x", "description": "The button's horizontal padding.", "defaultValue": "0.75em"},
-  {"name": "--cod-btn-padding-y", "description": "The button's vertical padding.", "defaultValue": "0.375em"},
-  {"name": "--cod-btn-font-family", "description": "The button's font family.", "defaultValue": ""},
-  {"name": "--cod-btn-font-size", "description": "The button's font size.", "defaultValue": "1em"},
-  {"name": "--cod-btn-font-weight", "description": "The button's font weight.", "defaultValue": "400"},
-  {"name": "--cod-btn-line-height", "description": "The button's line height.", "defaultValue": "1.5"},
-  {"name": "--cod-btn-color", "description": "The button's text color.", "defaultValue": "var(--cod-body-color)"},
-  {"name": "--cod-btn-bg", "description": "The button's background color.", "defaultValue": "transparent"},
-  {"name": "--cod-btn-border-width", "description": "The button's border width.", "defaultValue": "var(--cod-border-width)"},
-  {"name": "--cod-btn-border-color", "description": "The button's border color.", "defaultValue": "transparent"},
-  {"name": "--cod-btn-border-radius", "description": "The button's border radius.", "defaultValue": "var(--cod-border-radius)"},
-  {"name": "--cod-btn-hover-border-color", "description": "The button's border color on hover.", "defaultValue": "transparent"},
-  {"name": "--cod-btn-box-shadow", "description": "The button's box shadow.", "defaultValue": "inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 1px 1px rgba(0, 0, 0, 0.075)"},
-  {"name": "--cod-btn-disabled-opacity", "description": "The button's opacity when disabled.", "defaultValue": "0.65"},
-  {"name": "--cod-btn-focus-box-shadow", "description": "The button's box shadow when focused.", "defaultValue": "0 0 0 0.25em rgba(var(--cod-btn-focus-shadow-rgb), 0.5)"}
+{"name": "--cod-btn-padding-x", "description": "The button's horizontal padding.", "defaultValue": "0.75em"},
+{"name": "--cod-btn-padding-y", "description": "The button's vertical padding.", "defaultValue": "0.375em"},
+{"name": "--cod-btn-font-family", "description": "The button's font family.", "defaultValue": ""},
+{"name": "--cod-btn-font-size", "description": "The button's font size.", "defaultValue": "1em"},
+{"name": "--cod-btn-font-weight", "description": "The button's font weight.", "defaultValue": "400"},
+{"name": "--cod-btn-line-height", "description": "The button's line height.", "defaultValue": "1.5"},
+{"name": "--cod-btn-color", "description": "The button's text color.", "defaultValue": "var(--cod-body-color)"},
+{"name": "--cod-btn-bg", "description": "The button's background color.", "defaultValue": "transparent"},
+{"name": "--cod-btn-border-width", "description": "The button's border width.", "defaultValue": "var(--cod-border-width)"},
+{"name": "--cod-btn-border-color", "description": "The button's border color.", "defaultValue": "transparent"},
+{"name": "--cod-btn-border-radius", "description": "The button's border radius.", "defaultValue": "var(--cod-border-radius)"},
+{"name": "--cod-btn-hover-border-color", "description": "The button's border color on hover.", "defaultValue": "transparent"},
+{"name": "--cod-btn-box-shadow", "description": "The button's box shadow.", "defaultValue": "inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 1px 1px rgba(0, 0, 0, 0.075)"},
+{"name": "--cod-btn-disabled-opacity", "description": "The button's opacity when disabled.", "defaultValue": "0.65"},
+{"name": "--cod-btn-focus-box-shadow", "description": "The button's box shadow when focused.", "defaultValue": "0 0 0 0.25em rgba(var(--cod-btn-focus-shadow-rgb), 0.5)"}
 ])}>
 </doc-css-custom-properties-table>
 
 ## CSS Parts
 
-<doc-css-parts-table 
+<doc-css-parts-table
 data={JSON.stringify([{
-  "name": "base", "description": "The component's base wrapper.",
+"name": "base", "description": "The component's base wrapper.",
 }])}>
 </doc-css-parts-table>
 
