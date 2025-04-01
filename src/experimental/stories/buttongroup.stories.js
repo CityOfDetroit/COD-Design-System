@@ -1,6 +1,6 @@
 import { html } from 'lit-html';
 import '../components/molecules/ButtonGroup/cod-button-group';
-import '../components/atoms/Button/cod-button';
+import '../../stable/components/Button/cod-button';
 import '../components/atoms/FormCheck/cod-formcheck';
 
 export default {

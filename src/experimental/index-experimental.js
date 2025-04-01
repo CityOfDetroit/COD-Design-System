@@ -9,7 +9,6 @@ import './components/atoms/AccordionItem/cod-accordion-item';
 import './components/atoms/Alert/cod-alert';
 import './components/atoms/Badge/cod-badge';
 import './components/atoms/Breadcrumb/cod-breadcrumb';
-import './components/atoms/Button/cod-button';
 import './components/atoms/CardBody/cod-card-body';
 import './components/atoms/CardFooter/cod-card-footer';
 import './components/atoms/CardHeader/cod-card-header';

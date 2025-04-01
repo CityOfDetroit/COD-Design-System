@@ -3,7 +3,7 @@ import '../components/atoms/ModalHeader/cod-modal-header';
 import '../components/atoms/ModalBody/cod-modal-body';
 import '../components/atoms/ModalFooter/cod-modal-footer';
 import '../components/organisms/Modal/cod-modal';
-import '../components/atoms/Button/cod-button';
+import '../../stable/components/Button/cod-button';
 
 export default {
   tags: ['experimental'],

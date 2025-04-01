@@ -4,7 +4,7 @@ import '../components/atoms/CardBody/cod-card-body';
 import '../components/atoms/CardFooter/cod-card-footer';
 import '../components/atoms/CardOverlay/cod-card-overlay';
 import '../components/organisms/Card/cod-card';
-import '../components/atoms/Button/cod-button';
+import '../../stable/components/Button/cod-button';
 
 export default {
   tags: ['experimental'],
