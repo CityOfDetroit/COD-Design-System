@@ -42,3 +42,39 @@ export const Scroll = () => html`
     </p>
   </div>
 `;
+
+export const Contained = () => html`
+  <div
+    style="position: relative; overflow: hidden; border: solid 2px grey; height: 300px; padding: 1rem; margin-bottom: 1rem;"
+  >
+    The drawer will be contained to this box. This content won't shift or be
+    affected in any way when the drawer opens.
+
+    <button
+      onclick="(function(){const offcanvas = this.nextElementSibling; offcanvas.setAttribute('open', '')}).call(this); return false;"
+      class="btn btn-primary"
+      type="button"
+    >
+      Toggle Contained Drawer
+    </button>
+
+    <cod-drawer
+      id="containedExample"
+      contained
+      style="--cod-offcanvas-width: 50%;"
+    >
+      <h2 slot="label">Contained Drawer</h2>
+      <div style="padding: 0 1rem;">
+        <p>This drawer is contained within its parent element.</p>
+        <p>Unlike normal drawers, contained drawers:</p>
+        <ul>
+          <li>Are not modal</li>
+          <li>Do not show an overlay</li>
+          <li>Do not trap focus</li>
+          <li>Are not dismissible with Escape</li>
+        </ul>
+        <p>This allows users to interact with elements outside the drawer.</p>
+      </div>
+    </cod-drawer>
+  </div>
+`;

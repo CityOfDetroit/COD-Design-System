@@ -6,3 +6,54 @@
 // Override bootstrap _root.scss.
 @import '../../../scss/host';
 @import '../../../scss/detroitmi-style-guide';
+
+// Contained drawer styles
+.offcanvas-contained {
+  /* The parent element of a contained drawer should have position: relative */
+  position: absolute;
+  bottom: auto;
+  height: 100%;
+  max-height: 100%;
+  z-index: 1000;
+  box-shadow: var(--cod-offcanvas-box-shadow);
+
+  &.offcanvas-start {
+    top: 0;
+    left: 0;
+    width: var(--cod-offcanvas-width, 50%);
+    border-right: var(--cod-offcanvas-border-width) solid
+      var(--cod-offcanvas-border-color);
+    transform: translateX(-100%);
+  }
+
+  &.offcanvas-end {
+    top: 0;
+    right: 0;
+    width: var(--cod-offcanvas-width, 50%);
+    border-left: var(--cod-offcanvas-border-width) solid
+      var(--cod-offcanvas-border-color);
+    transform: translateX(100%);
+  }
+
+  &.offcanvas-top {
+    top: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+    height: var(--cod-offcanvas-height, 50%);
+    border-bottom: var(--cod-offcanvas-border-width) solid
+      var(--cod-offcanvas-border-color);
+    transform: translateY(-100%);
+  }
+
+  &.offcanvas-bottom {
+    right: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: var(--cod-offcanvas-height, 50%);
+    border-top: var(--cod-offcanvas-border-width) solid
+      var(--cod-offcanvas-border-color);
+    transform: translateY(100%);
+  }
+}

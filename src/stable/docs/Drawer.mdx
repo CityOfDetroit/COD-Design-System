@@ -36,6 +36,12 @@ import '../../../.storybook/docs'; // Import all documentation components
 <Story of={DrawerStories.Scroll} inline={true} />
 <Source of={DrawerStories.Scroll} />
 
+### Contained
+
+<Description of={DrawerStories.Contained} />
+<Story of={DrawerStories.Contained} inline={true} />
+<Source of={DrawerStories.Contained} />
+
 ## Slots
 
 <doc-slots-table
@@ -53,6 +59,7 @@ data={JSON.stringify([
 {"name": "placement", "description": "The direction from which the drawer will open.", "type": "'start' | 'end' | 'top' | 'bottom'", "defaultValue": "'end'", reflects: true},
 {"name": "backdrop", "description": "When true, a backdrop will be shown behind the drawer. When set to 'static', the drawer will not close when clicking outside it.", "type": "boolean | 'static'", "defaultValue": true, reflects: true},
 {"name": "scroll", "description": "When true, the body can be scrolled while the drawer is open.", "type": "boolean", "defaultValue": false, reflects: true},
+{"name": "contained", "description": "When true, the drawer will be contained within its parent element instead of the viewport. The parent element must have position: relative.", "type": "boolean", "defaultValue": false, reflects: true},
 ])}>
 </doc-js-properties-table>
 
@@ -98,8 +105,9 @@ data={JSON.stringify([
 
 Drawer components are designed to be accessible by default:
 
-- The drawer has `role="dialog"` and `aria-modal="true"`
+- Regular drawers have `role="dialog"` and `aria-modal="true"`
+- Contained drawers have `role="region"` and `aria-modal="false"`
 - When the `label` slot is used, it automatically sets the appropriate `aria-labelledby` attribute
-- Focus is trapped inside the drawer when it's open
-- The Escape key can be used to close the drawer
+- For regular drawers, focus is trapped inside when open
+- The Escape key can be used to close regular drawers (not contained drawers)
 - When closed, focus returns to the element that triggered the drawer
