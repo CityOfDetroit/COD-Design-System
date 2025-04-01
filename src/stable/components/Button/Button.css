@@ -769,9 +769,26 @@ fieldset:disabled .btn:disabled.active,
   box-shadow: none !important;
 }
 
-/* Add styles for loading state */
+.btn {
+  position: relative;
+}
+.btn cod-spinner {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
 .btn.loading {
+  position: relative;
   cursor: wait;
+}
+.btn.loading cod-spinner {
+  display: inline-block;
+}
+.btn.loading slot {
+  visibility: hidden;
 }
 
 /*# sourceMappingURL=Button.css.map */

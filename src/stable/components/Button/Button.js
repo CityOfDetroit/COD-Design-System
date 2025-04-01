@@ -1,4 +1,5 @@
 import styles from '!!raw-loader!./Button.css';
+import '../../../experimental/components/atoms/Spinner/cod-spinner';
 
 const template = document.createElement('template');
 template.innerHTML = `
@@ -9,7 +10,7 @@ template.innerHTML = `
   <span class="caret-container">
     <span class="caret" aria-hidden="true"></span>
   </span>
-  <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+  <cod-spinner data-background-color="primary" data-type="border" role="status" aria-hidden="true"></cod-spinner>
 </button>
 `;
 
@@ -210,25 +211,32 @@ export default class Button extends HTMLElement {
     }
 
     // Show/hide loading spinner
-    const spinner = this.shadowRoot.querySelector('.spinner-border');
+    const spinner = this.shadowRoot.querySelector('cod-spinner');
     if (spinner) {
-      spinner.style.display = this._state.loading ? 'inline-block' : 'none';
-
-      // Hide content when loading
-      const defaultSlot = this.shadowRoot.querySelector('slot:not([name])');
-      const prefixSlot = this.shadowRoot.querySelector('slot[name="prefix"]');
-      const suffixSlot = this.shadowRoot.querySelector('slot[name="suffix"]');
-
       if (this._state.loading) {
-        element.classList.add('loading'); // Add loading class
-        defaultSlot.style.visibility = 'hidden';
-        if (prefixSlot) prefixSlot.style.visibility = 'hidden';
-        if (suffixSlot) suffixSlot.style.visibility = 'hidden';
+        element.classList.add('loading');
+
+        // Ensure the spinner size matches the button size
+        if (this._state.size === 'large') {
+          spinner.setAttribute('data-size', 'md');
+        } else {
+          spinner.setAttribute('data-size', 'sm');
+        }
+
+        // Set spinner color based on button variant
+        if (
+          this._state.variant === 'primary' ||
+          this._state.variant === 'danger' ||
+          this._state.variant === 'dark'
+        ) {
+          // For variants with light text on dark backgrounds
+          spinner.setAttribute('data-background-color', 'light');
+        } else {
+          // For variants with dark text on light backgrounds
+          spinner.setAttribute('data-background-color', 'dark');
+        }
       } else {
-        element.classList.remove('loading'); // Remove loading class
-        defaultSlot.style.visibility = 'visible';
-        if (prefixSlot) prefixSlot.style.visibility = 'visible';
-        if (suffixSlot) suffixSlot.style.visibility = 'visible';
+        element.classList.remove('loading');
       }
     }
   }

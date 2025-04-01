@@ -67,7 +67,33 @@ fieldset:disabled .btn {
   }
 }
 
-/* Add styles for loading state */
-.btn.loading {
-  cursor: wait;
+// Base button styles
+.btn {
+  position: relative;
+
+  // Spinner styles
+  cod-spinner {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+  }
+
+  // Loading state
+  &.loading {
+    position: relative;
+    cursor: wait;
+
+    // Show spinner when loading
+    cod-spinner {
+      display: inline-block;
+    }
+
+    // Hide content when loading
+    slot {
+      visibility: hidden;
+    }
+  }
 }
