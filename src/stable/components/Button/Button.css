@@ -748,4 +748,30 @@ slot[name='suffix']::slotted(*) {
   margin-inline-start: 0.5em;
 }
 
+.btn:disabled,
+.btn.disabled:disabled,
+fieldset:disabled .btn:disabled {
+  pointer-events: auto;
+  cursor: not-allowed;
+}
+.btn:disabled:active,
+.btn:disabled.active,
+.btn-check:checked + .btn:disabled,
+.btn.disabled:disabled:active,
+.btn.disabled:disabled.active,
+.btn-check:checked + .btn.disabled:disabled,
+fieldset:disabled .btn:disabled:active,
+fieldset:disabled .btn:disabled.active,
+.btn-check:checked + fieldset:disabled .btn:disabled {
+  color: var(--cod-btn-disabled-color) !important;
+  background-color: var(--cod-btn-disabled-bg) !important;
+  border-color: var(--cod-btn-disabled-border-color) !important;
+  box-shadow: none !important;
+}
+
+/* Add styles for loading state */
+.btn.loading {
+  cursor: wait;
+}
+
 /*# sourceMappingURL=Button.css.map */

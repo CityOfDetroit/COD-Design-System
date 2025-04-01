@@ -220,10 +220,12 @@ export default class Button extends HTMLElement {
       const suffixSlot = this.shadowRoot.querySelector('slot[name="suffix"]');
 
       if (this._state.loading) {
+        element.classList.add('loading'); // Add loading class
         defaultSlot.style.visibility = 'hidden';
         if (prefixSlot) prefixSlot.style.visibility = 'hidden';
         if (suffixSlot) suffixSlot.style.visibility = 'hidden';
       } else {
+        element.classList.remove('loading'); // Remove loading class
         defaultSlot.style.visibility = 'visible';
         if (prefixSlot) prefixSlot.style.visibility = 'visible';
         if (suffixSlot) suffixSlot.style.visibility = 'visible';

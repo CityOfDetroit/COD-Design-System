@@ -443,6 +443,7 @@ Loading.parameters = {
 // Story: Disabled
 export const Disabled = () => {
   const button = document.createElement('cod-button');
+  button.setAttribute('variant', 'primary');
   button.setAttribute('disabled', '');
   button.textContent = 'Disabled';
 

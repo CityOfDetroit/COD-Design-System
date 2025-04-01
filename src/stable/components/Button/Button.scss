@@ -45,3 +45,29 @@ slot[name='suffix']::slotted(*) {
   height: 1em;
   margin-inline-start: 0.5em;
 }
+
+.btn,
+.btn.disabled,
+fieldset:disabled .btn {
+  &:disabled {
+    pointer-events: auto;
+    cursor: not-allowed;
+
+    // Prevent active styles when disabled
+    &:active,
+    &.active,
+    .btn-check:checked + & {
+      // Reset to match the disabled styles
+      color: var(--cod-btn-disabled-color) !important;
+      background-color: var(--cod-btn-disabled-bg) !important;
+      border-color: var(--cod-btn-disabled-border-color) !important;
+      // No box-shadow on active+disabled
+      box-shadow: none !important;
+    }
+  }
+}
+
+/* Add styles for loading state */
+.btn.loading {
+  cursor: wait;
+}
