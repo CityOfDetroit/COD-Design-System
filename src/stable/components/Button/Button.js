@@ -251,17 +251,8 @@ export default class Button extends HTMLElement {
   _renderSquare(element) {
     if (this._state.square) {
       element.classList.add('btn-square');
-      // Apply CSS custom properties for square button
-      element.style.setProperty(
-        '--cod-btn-padding-x',
-        'var(--cod-btn-padding-y)',
-      );
-      element.style.setProperty('--cod-btn-line-height', '0');
     } else {
       element.classList.remove('btn-square');
-      // Reset CSS custom properties
-      element.style.removeProperty('--cod-btn-padding-x');
-      element.style.removeProperty('--cod-btn-line-height');
     }
   }
 

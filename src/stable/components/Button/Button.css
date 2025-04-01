@@ -791,4 +791,9 @@ fieldset:disabled .btn:disabled.active,
   visibility: hidden;
 }
 
+.btn-square {
+  --cod-btn-line-height: 0;
+  --cod-btn-padding-x: var(--cod-btn-padding-y);
+}
+
 /*# sourceMappingURL=Button.css.map */

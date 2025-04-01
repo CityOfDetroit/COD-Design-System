@@ -97,3 +97,8 @@ fieldset:disabled .btn {
     }
   }
 }
+
+.btn-square {
+  --cod-btn-line-height: 0;
+  --cod-btn-padding-x: var(--cod-btn-padding-y);
+}

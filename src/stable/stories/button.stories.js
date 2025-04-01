@@ -253,6 +253,8 @@ Text.parameters = {
 // Story: Square
 export const Square = () => {
   const icon = document.createElement('cod-icon');
+  icon.role = 'button';
+  icon.ariaLabel = 'Open File';
   icon.setAttribute('data-icon', 'file-earmark');
   icon.setAttribute('data-size', 'medium');
 
