@@ -399,36 +399,4 @@ export default class Button extends HTMLElement {
       this.removeAttribute('loading');
     }
   }
-
-  get href() {
-    return this._state.href;
-  }
-
-  set href(value) {
-    this.setAttribute('href', value);
-  }
-
-  get target() {
-    return this._state.target;
-  }
-
-  set target(value) {
-    this.setAttribute('target', value);
-  }
-
-  get download() {
-    return this._state.download;
-  }
-
-  set download(value) {
-    this.setAttribute('download', value);
-  }
-
-  get rel() {
-    return this._state.rel;
-  }
-
-  set rel(value) {
-    this.setAttribute('rel', value);
-  }
 }
