@@ -1,0 +1,37 @@
+@import '../../../scss/detroitmi-bootstrap-base';
+@import '../../../scss/detroitmi-utilities';
+
+// Import Bootstrap button group styles
+@import 'bootstrap/scss/button-group';
+
+// Override bootstrap _root.scss
+@import '../../../scss/host';
+@import '../../../scss/detroitmi-style-guide';
+
+// Host styles
+:host {
+  display: inline-block;
+}
+
+// Ensure buttons inside slots have proper styling
+::slotted(cod-button) {
+  margin: 0 !important;
+}
+
+// Fix borders to make buttons look connected
+::slotted(cod-button:not(:first-child)) ::part(base) {
+  margin-left: -1px;
+}
+
+// Fix z-index for hover and focus states
+::slotted(cod-button) {
+  position: relative;
+}
+
+::slotted(cod-button:hover) {
+  z-index: 1;
+}
+
+::slotted(cod-button:focus-within) {
+  z-index: 2;
+}

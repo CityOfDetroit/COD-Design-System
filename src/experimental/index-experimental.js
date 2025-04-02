@@ -56,7 +56,6 @@ import './components/organisms/VideoPlayer/cod-videoplayer';
 
 // Import molecules
 import './components/molecules/Accordion/cod-accordion';
-import './components/molecules/ButtonGroup/cod-button-group';
 import './components/molecules/Dropdown/cod-dropdown';
 import './components/molecules/FormCheckGroup/cod-form-check-group';
 import './components/molecules/ListGroup/cod-listgroup';
