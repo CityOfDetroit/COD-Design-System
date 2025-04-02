@@ -1,14 +1,17 @@
 import styles from '!!raw-loader!./Drawer.css';
+import '../Button/cod-button.js';
 
 const template = document.createElement('template');
 
-// TODO: Use cod-button instead for close after it's updated
-// https://github.com/CityOfDetroit/COD-Design-System/issues/315
 template.innerHTML = `
 <div class="offcanvas" tabindex="-1" role="dialog" aria-modal="true">
   <div class="offcanvas-header">
     <slot name="label"></slot>
-    <button type="button" class="btn-close" aria-label="Close">X</button>
+    <cod-button class="btn-close" variant="default" size="medium" square aria-role="button" aria-label="Close">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
+        <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"/>
+      </svg>
+    </cod-button>
   </div>
   <div class="offcanvas-body">
     <slot></slot>
@@ -23,7 +26,7 @@ backdropTemplate.innerHTML = `
 
 export default class Drawer extends HTMLElement {
   static get observedAttributes() {
-    return ['open', 'placement', 'backdrop', 'scroll'];
+    return ['open', 'placement', 'backdrop', 'scroll', 'contained'];
   }
 
   constructor() {
@@ -42,6 +45,7 @@ export default class Drawer extends HTMLElement {
       placement: 'end',
       backdrop: true,
       scroll: false,
+      contained: false,
     };
 
     // Bind event handlers
@@ -71,6 +75,9 @@ export default class Drawer extends HTMLElement {
       case 'scroll':
         this._state.scroll = newValue !== null;
         break;
+      case 'contained':
+        this._state.contained = newValue !== null;
+        break;
     }
 
     // Re-render the component whenever an attribute changes
@@ -92,7 +99,11 @@ export default class Drawer extends HTMLElement {
     // Set up event listeners
     const closeButton = this.shadowRoot.querySelector('.btn-close');
     closeButton.addEventListener('click', this._handleClose);
-    document.addEventListener('keydown', this._handleKeyDown);
+
+    // Only add keydown listener if not contained
+    if (!this.hasAttribute('contained')) {
+      document.addEventListener('keydown', this._handleKeyDown);
+    }
 
     // Initialize state from attributes
     this._state.open = this.hasAttribute('open');
@@ -102,10 +113,12 @@ export default class Drawer extends HTMLElement {
         ? false
         : this.getAttribute('backdrop') || true;
     this._state.scroll = this.hasAttribute('scroll');
+    this._state.contained = this.hasAttribute('contained');
 
     // Set default attributes if not present
     if (!this.hasAttribute('placement')) this.setAttribute('placement', 'end');
-    if (!this.hasAttribute('backdrop')) this.setAttribute('backdrop', 'true');
+    if (!this.hasAttribute('backdrop') && !this._state.contained)
+      this.setAttribute('backdrop', 'true');
 
     // Initial render
     this._render();
@@ -130,8 +143,12 @@ export default class Drawer extends HTMLElement {
     const willBeOpen = this._state.open;
 
     this._renderDrawer();
-    this._renderBackdrop();
-    this._updateBodyScroll();
+
+    // Only render backdrop for non-contained drawers
+    if (!this._state.contained) {
+      this._renderBackdrop();
+      this._updateBodyScroll();
+    }
 
     // Dispatch events when state changes
     if (!wasOpen && willBeOpen) {
@@ -153,6 +170,18 @@ export default class Drawer extends HTMLElement {
     );
     drawer.classList.add(`offcanvas-${this._state.placement}`);
 
+    // Add/remove contained class
+    drawer.classList.toggle('offcanvas-contained', this._state.contained);
+
+    // Update ARIA attributes for contained drawers
+    if (this._state.contained) {
+      drawer.setAttribute('aria-modal', 'false');
+      drawer.setAttribute('role', 'region');
+    } else {
+      drawer.setAttribute('aria-modal', 'true');
+      drawer.setAttribute('role', 'dialog');
+    }
+
     // Update visibility
     drawer.classList.toggle('show', this._state.open);
   }
@@ -166,8 +195,13 @@ export default class Drawer extends HTMLElement {
     );
     if (existingBackdrop) existingBackdrop.remove();
 
-    // If drawer is closed or backdrop is false, we're done
-    if (!this._state.open || this._state.backdrop === false) return;
+    // If drawer is closed, contained, or backdrop is false, we're done
+    if (
+      !this._state.open ||
+      this._state.contained ||
+      this._state.backdrop === false
+    )
+      return;
 
     // Create new backdrop
     const backdropCopy = backdropTemplate.content.cloneNode(true);
@@ -182,7 +216,13 @@ export default class Drawer extends HTMLElement {
   }
 
   _updateBodyScroll() {
-    if (this._state.open && !this._state.scroll) {
+    // Don't affect body scroll if contained or scroll attribute is set
+    if (this._state.contained || this._state.scroll) {
+      this._enableBodyScroll();
+      return;
+    }
+
+    if (this._state.open) {
       this._disableBodyScroll();
     } else {
       this._enableBodyScroll();
@@ -225,8 +265,8 @@ export default class Drawer extends HTMLElement {
   }
 
   _handleKeyDown(event) {
-    // Close the drawer when Escape key is pressed
-    if (event.key === 'Escape' && this._state.open) {
+    // Close the drawer when Escape key is pressed (only for non-contained drawers)
+    if (!this._state.contained && event.key === 'Escape' && this._state.open) {
       this._handleClose();
     }
   }
@@ -269,6 +309,18 @@ export default class Drawer extends HTMLElement {
       this.setAttribute('scroll', '');
     } else {
       this.removeAttribute('scroll');
+    }
+  }
+
+  get contained() {
+    return this.hasAttribute('contained');
+  }
+
+  set contained(val) {
+    if (val) {
+      this.setAttribute('contained', '');
+    } else {
+      this.removeAttribute('contained');
     }
   }
 }

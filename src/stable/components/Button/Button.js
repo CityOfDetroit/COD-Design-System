@@ -27,6 +27,7 @@ export default class Button extends HTMLElement {
       'target',
       'download',
       'rel',
+      'square',
     ];
   }
 
@@ -52,6 +53,7 @@ export default class Button extends HTMLElement {
       target: '',
       download: '',
       rel: '',
+      square: false,
     };
 
     // Bind event handlers
@@ -93,6 +95,9 @@ export default class Button extends HTMLElement {
       case 'rel':
         this._state.rel = newValue || '';
         break;
+      case 'square':
+        this._state.square = newValue !== null;
+        break;
     }
 
     // Re-render the component whenever an attribute changes
@@ -114,6 +119,7 @@ export default class Button extends HTMLElement {
     this._state.target = this.getAttribute('target') || '';
     this._state.download = this.getAttribute('download') || '';
     this._state.rel = this.getAttribute('rel') || '';
+    this._state.square = this.hasAttribute('square');
 
     // Initial render
     this._render();
@@ -171,6 +177,7 @@ export default class Button extends HTMLElement {
     this._renderVariant(element);
     this._renderSize(element);
     this._renderOutline(element);
+    this._renderSquare(element);
 
     // Set attributes for link
     if (isLink) {
@@ -238,6 +245,14 @@ export default class Button extends HTMLElement {
       } else {
         element.classList.remove('loading');
       }
+    }
+  }
+
+  _renderSquare(element) {
+    if (this._state.square) {
+      element.classList.add('btn-square');
+    } else {
+      element.classList.remove('btn-square');
     }
   }
 
@@ -342,6 +357,18 @@ export default class Button extends HTMLElement {
 
   set variant(value) {
     this.setAttribute('variant', value);
+  }
+
+  get square() {
+    return this._state.square;
+  }
+
+  set square(value) {
+    if (value) {
+      this.setAttribute('square', '');
+    } else {
+      this.removeAttribute('square');
+    }
   }
 
   get size() {
