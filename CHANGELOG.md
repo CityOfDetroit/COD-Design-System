@@ -1,3 +1,35 @@
+# v3.0.0-alpha.1 (Wed Apr 02 2025)
+
+#### 🚀 Enhancement
+
+- [Change CSS property prefix from `--bs-` to `--cod-`](https://github.com/CityOfDetroit/COD-Design-System/pull/321)
+- [Rewrite and rename offcanvas component to drawer](https://github.com/CityOfDetroit/COD-Design-System/pull/319)
+- [Rewrite button component](https://github.com/CityOfDetroit/COD-Design-System/pull/324)
+- [Add support for contained offcanvas and square buttons](https://github.com/CityOfDetroit/COD-Design-System/pull/325)
+- [Rewrite button group component](https://github.com/CityOfDetroit/COD-Design-System/pull/325)
+- [Remove nav elements from design system](https://github.com/CityOfDetroit/COD-Design-System/pull/323)
+
+#### 🏠 Internal
+
+- [Refactor stylesheets for lean SCSS imports](https://github.com/CityOfDetroit/COD-Design-System/pull/321)
+
+# v2.0.5 (Thu Mar 13 2025)
+
+#### 🐛 Bug Fix
+
+- [Fix ServiceButton icon covering text](https://github.com/CityOfDetroit/COD-Design-System/pull/302)
+
+#### 🚀 Enhancement
+
+- [Create ServiceButton component](https://github.com/CityOfDetroit/COD-Design-System/pull/290)
+- [Create SectionNavigation component](https://github.com/CityOfDetroit/COD-Design-System/pull/282)
+
+#### 🏠 Internal
+
+- [Setup chromatic with our project in Storybook 8](https://github.com/CityOfDetroit/COD-Design-System/pull/300)
+- [Upgrade to storybook 8](https://github.com/CityOfDetroit/COD-Design-System/pull/299)
+- [Remove deprecated MDX-GFM storybook addon](https://github.com/CityOfDetroit/COD-Design-System/pull/298)
+
 # v2.0.0 (Tues Feb 18 2025)
 
 #### 🐛 Bug Fix
