@@ -1,81 +1,68 @@
 import styles from '!!raw-loader!./ButtonGroup.css';
-import varStyles from '!!raw-loader!../../../shared/variables.css';
-import bootstrapStyles from '!!raw-loader!../../../shared/themed-bootstrap.css';
 
 const template = document.createElement('template');
-
 template.innerHTML = `
-<div></div>
-<slot></slot>
+<div class="btn-group" role="group" part="base">
+  <slot></slot>
+</div>
 `;
 
-export default class FormCheckGroup extends HTMLElement {
+export default class ButtonGroup extends HTMLElement {
+  static get observedAttributes() {
+    return ['label'];
+  }
+
   constructor() {
-    // Always call super first in constructor
     super();
-    // Create a shadow root
-    // Create a shadow root
     const shadow = this.attachShadow({ mode: 'open' });
     shadow.appendChild(template.content.cloneNode(true));
-    this.btnGroup = shadow.querySelector('div');
 
-    shadow.addEventListener('slotchange', () => {
-      const tempElements = Array.from(this.children);
-      tempElements.forEach((node) => {
-        const nodeClasses = node.className.split(' ');
-        nodeClasses.includes('no-wc')
-          ? node.remove()
-          : this.btnGroup.append(node);
-      });
-    });
-    // setting up styles
-    const bootStyles = document.createElement('style');
-    bootStyles.textContent = bootstrapStyles;
-    const variableStyles = document.createElement('style');
-    variableStyles.textContent = varStyles;
-    const formSelectStyles = document.createElement('style');
-    formSelectStyles.textContent = styles;
-    shadow.appendChild(bootStyles);
-    shadow.appendChild(variableStyles);
-    shadow.appendChild(formSelectStyles);
+    // Add styles
+    const itemStyles = document.createElement('style');
+    itemStyles.textContent = styles;
+    shadow.appendChild(itemStyles);
+
+    // Initialize properties with defaults
+    this._state = {
+      label: '',
+    };
+  }
+
+  attributeChangedCallback(name, oldValue, newValue) {
+    // Early return if value hasn't changed
+    if (oldValue === newValue) return;
+
+    if (name === 'label') {
+      this._state.label = newValue || '';
+      this._render();
+    }
   }
 
   connectedCallback() {
-    // setting up styles
+    // Initialize state from attributes
+    this._state.label = this.getAttribute('label') || '';
 
-    const type = this.getAttribute('data-type');
+    // Initial render
+    this._render();
+  }
 
-    const label = this.getAttribute('data-label');
-    let size = this.getAttribute('data-size');
-    let vertical = this.getAttribute('data-vertical');
+  _render() {
+    const btnGroup = this.shadowRoot.querySelector('.btn-group');
 
-    const extraClasses = this.getAttribute('data-extra-classes');
-
-    // TODO: Fix old ESLint errors - see issue #1099
-    // eslint-disable-next-line eqeqeq
-    if (type == 'group') {
-      this.btnGroup.role = 'group';
+    // Apply ARIA label if provided
+    if (this._state.label) {
+      btnGroup.setAttribute('aria-label', this._state.label);
     } else {
-      this.btnGroup.role = 'toolbar';
+      btnGroup.removeAttribute('aria-label');
     }
+  }
 
-    // TODO: Fix old ESLint errors - see issue #1099
-    // eslint-disable-next-line eqeqeq
-    if (size != undefined && size != null) {
-      size = `btn-group-${size}`;
-    }
+  // Getters and setters
+  get label() {
+    return this._state.label;
+  }
 
-    // TODO: Fix old ESLint errors - see issue #1099
-    // eslint-disable-next-line eqeqeq
-    if (vertical == 'true') {
-      vertical = 'btn-group-vertical';
-    }
-    this.btnGroup.setAttribute('aria-label', label);
-    this.btnGroup.className = [
-      `btn-${type}`,
-      `${size || ''}`,
-      `${vertical || ''}`,
-      `${extraClasses || ''}`,
-    ].join(' ');
+  set label(value) {
+    this.setAttribute('label', value);
   }
 }

@@ -1,0 +1,100 @@
+import {
+  Meta,
+  Canvas,
+  Title,
+  Subtitle,
+  Description,
+  Primary,
+  Controls,
+  Stories,
+  Story,
+  Source,
+} from '@storybook/blocks';
+import * as ButtonGroupStories from '../stories/buttongroup.stories';
+
+import '../../../.storybook/docs'; // Import all documentation components
+
+<Meta of={ButtonGroupStories} />
+
+# Button Group
+
+<div className="component-summary">
+  Button groups allow users to select from multiple related options presented as
+  a set of connected buttons.
+</div>
+
+## Usage
+
+<Canvas>
+  <Story of={ButtonGroupStories.Usage} />
+  <Source of={ButtonGroupStories.Usage} />
+</Canvas>
+<Controls of={ButtonGroupStories.Usage} />
+
+## Examples
+
+<Stories of={ButtonGroupStories} includePrimary={false} />
+
+## Slots
+
+<doc-slots-table
+data={JSON.stringify([
+{"name": "(default)", "description": "One or more <cod-button> elements to display in the button group."}
+])}>
+</doc-slots-table>
+
+## HTML Attributes / JS Properties
+
+<doc-js-properties-table
+data={JSON.stringify([
+{"name": "label", "description": "A label to use for the button group. This won't be displayed on the screen, but it will be announced by assistive devices when interacting with the control and is strongly recommended.", "type": "string", "defaultValue": "''", "reflects": true}
+])}>
+</doc-js-properties-table>
+
+## Events
+
+<doc-events-table
+data={JSON.stringify([
+// No custom events for the button group implementation
+])}>
+</doc-events-table>
+
+## Methods
+
+<doc-methods-table
+data={JSON.stringify([
+// No custom methods for the button group implementation
+])}>
+</doc-methods-table>
+
+## Custom CSS Properties
+
+<doc-css-custom-properties-table
+data={JSON.stringify([
+// No custom CSS properties for the button group implementation
+])}>
+</doc-css-custom-properties-table>
+
+## CSS Parts
+
+<doc-css-parts-table
+data={JSON.stringify([{
+"name": "base", "description": "The component's base wrapper.",
+}])}>
+</doc-css-parts-table>
+
+## Dependencies
+
+<doc-dependencies-list data={JSON.stringify([
+"<cod-button>"
+])}></doc-dependencies-list>
+
+## Accessibility
+
+Button group components are designed to be accessible:
+
+- Groups have the appropriate ARIA role (`role="group"`)
+- When a label is provided, it's applied as an `aria-label` for screen readers
+- Button groups maintain all the accessibility features of the individual buttons
+- Focus states are clearly visible and maintain the correct tab order
+- The visual connection between buttons helps users understand they're related actions
