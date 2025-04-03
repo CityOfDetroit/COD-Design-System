@@ -9,7 +9,7 @@ export default {
     name: { control: 'text', name: 'Name' },
     titlePrimary: { control: 'text', name: 'Primary Title' },
     titleSecondary: { control: 'text', name: 'Secondary Title' },
-    linkHref: { control: 'text', name: 'Profile Link' }, 
+    linkHref: { control: 'text', name: 'Profile Link' },
   },
 };
 

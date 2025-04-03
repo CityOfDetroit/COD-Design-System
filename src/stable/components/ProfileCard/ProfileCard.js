@@ -24,7 +24,7 @@ class ProfileCard extends HTMLElement {
   }
 
   static get observedAttributes() {
-    return ['image-src',  'link-href'];
+    return ['image-src', 'link-href'];
   }
 
   attributeChangedCallback(name, newValue) {
