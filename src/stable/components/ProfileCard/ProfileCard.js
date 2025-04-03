@@ -6,14 +6,14 @@ template.innerHTML = `
 ${styles}
 </style>
 
-<div class="profile-card">
+<a class="profile-card">
  <img class="profile-image" alt="Profile Image">
  <div class="profile-details">
  <slot name="name"></slot>
  <slot name="title-primary"></slot>
  <slot name="title-secondary"></slot>
  </div>
-</div>
+</a>
 `;
 
 class ProfileCard extends HTMLElement {
@@ -24,17 +24,21 @@ class ProfileCard extends HTMLElement {
   }
 
   static get observedAttributes() {
-    return ['image-src'];
+    return ['image-src',  'link-href'];
   }
 
   attributeChangedCallback(name, newValue) {
     if (name === 'image-src') {
       this._updateImage(newValue);
     }
+    if (name === 'link-href') {
+      this._updateLink(newValue);
+    }
   }
 
   connectedCallback() {
     this._updateImage(this.getAttribute('image-src'));
+    this._updateLink(this.getAttribute('link-href'));
     this._validateNameSlot();
   }
 
@@ -63,6 +67,19 @@ class ProfileCard extends HTMLElement {
         }
       }
     });
+  }
+
+  _updateLink(newValue) {
+    const card = this.shadowRoot.querySelector('.profile-card');
+    if (card) {
+      if (newValue) {
+        card.href = newValue;
+        card.target = '_blank';
+        card.rel = 'noopener noreferrer';
+      } else {
+        card.removeAttribute('href');
+      }
+    }
   }
 }
 

@@ -9,11 +9,12 @@ export default {
     name: { control: 'text', name: 'Name' },
     titlePrimary: { control: 'text', name: 'Primary Title' },
     titleSecondary: { control: 'text', name: 'Secondary Title' },
+    linkHref: { control: 'text', name: 'Profile Link' }, 
   },
 };
 
 export const Default = (args) => html`
-  <cod-profile-card image-src=${args.imageSrc}>
+  <cod-profile-card image-src=${args.imageSrc} link-href=${args.linkHref}>
     <span slot="name">${args.name}</span>
     <span slot="title-primary">${args.titlePrimary}</span>
     <span slot="title-secondary">${args.titleSecondary}</span>
@@ -25,4 +26,5 @@ Default.args = {
   name: 'Jane Doe',
   titlePrimary: 'Frontend Engineer',
   titleSecondary: 'Frontend Developer',
+  linkHref: 'https://example.com',
 };
