@@ -59,7 +59,6 @@ class Tag extends HTMLElement {
       });
     });
   }
-
 }
 
 export default Tag;
