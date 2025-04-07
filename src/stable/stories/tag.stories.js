@@ -94,7 +94,7 @@ export const OtherNonAllowedElements = {
 };
 
 export const MultiSpanElements = {
-  tags: ['autodocs'],
+  tags: ['dev'],
   render: () => {
     return html`<cod-tag>
       <span slot="label">Span</span>

@@ -1,4 +1,4 @@
-import styles from '!!raw-loader!./tag.css';
+import styles from '!!raw-loader!./Tag.css';
 
 // Define a template element to hold the structure and style of the custom element
 const template = document.createElement('template');
@@ -60,10 +60,6 @@ class Tag extends HTMLElement {
     });
   }
 
-  isTagConnected() {
-    // Check if the tag-container is connected to the shadow DOM
-    return this.shadowRoot.querySelector('.tag-container') !== null;
-  }
 }
 
 export default Tag;
