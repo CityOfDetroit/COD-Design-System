@@ -1,3 +1,20 @@
+# v2.0.5 (Thu Mar 13 2025)
+
+#### 🐛 Bug Fix
+
+- [Fix ServiceButton icon covering text](https://github.com/CityOfDetroit/COD-Design-System/pull/302)
+
+#### 🚀 Enhancement
+
+- [Create ServiceButton component](https://github.com/CityOfDetroit/COD-Design-System/pull/290)
+- [Create SectionNavigation component](https://github.com/CityOfDetroit/COD-Design-System/pull/282)
+
+#### 🏠 Internal
+
+- [Setup chromatic with our project in Storybook 8](https://github.com/CityOfDetroit/COD-Design-System/pull/300)
+- [Upgrade to storybook 8](https://github.com/CityOfDetroit/COD-Design-System/pull/299)
+- [Remove deprecated MDX-GFM storybook addon](https://github.com/CityOfDetroit/COD-Design-System/pull/298)
+
 # v2.0.0 (Tues Feb 18 2025)
 
 #### 🐛 Bug Fix
