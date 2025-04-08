@@ -4,6 +4,7 @@
   width: 100%;
   max-width: 100%;
   gap: 1.25em;
+  text-decoration: none;
 }
 
 .profile-image {
