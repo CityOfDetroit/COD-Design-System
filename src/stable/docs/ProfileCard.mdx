@@ -1,0 +1,82 @@
+import {
+    Meta,
+    Title,
+    Subtitle,
+    Description,
+    Primary,
+    Controls,
+    Stories,
+    Story,
+    Source,
+} from '@storybook/blocks';
+import * as ProfileCardStories from '../stories/profilecard.stories';
+
+import '../../../.storybook/docs'; // Import all documentation components
+
+<Meta of={ProfileCardStories} />
+
+# Profile Card
+<div className="component-summary">
+    Profile Cards are ...
+</div>
+
+# Examples
+
+### Default
+
+<Description of={ProfileCardStories.Default} />
+<Story of={ProfileCardStories.Default} inline={true} />
+<Source of={ProfileCardStories.Default} />
+
+
+## Slots
+
+<doc-slots-table
+data={JSON.stringify([
+    {"name": "name", "description": ""},
+    {"name": "title-primary", "description": ""},
+    {"name": "title-secondary", "description": ""}
+])}>
+</doc-slots-table>
+
+## HTML Attributes / JS Properties
+
+Supported HTML attributes. If the attribute is reflected in a JS property, that attribute will have a 'reflects' tag next to the name.
+
+<doc-js-properties-table
+data={JSON.stringify([
+    {"name": "href", "description":  "A link to the page or site containing the person's information. See https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#href", "type": "string", "default": "-", "reflects": true},
+     {"name": "src", "description":  "The url to the proper page or site. See https://developer.mozilla.org/en-US/docs/Web/HTML/Element/source", "type": "string", "default": "-", "reflects": false}
+])}>
+</doc-js-properties-table>
+
+## Events
+
+<doc-events-table
+data={JSON.stringify([])}>
+</doc-events-table>
+
+## Methods
+
+<doc-methods-table 
+  data={JSON.stringify([])}>
+</doc-methods-table>
+
+## Custom CSS Properties
+
+<doc-css-custom-properties-table 
+  data={JSON.stringify([])}>
+</doc-css-custom-properties-table>
+
+## CSS Parts
+<doc-css-parts-table 
+  data={JSON.stringify([])}>
+</doc-css-parts-table>
+
+## Dependencies
+
+<doc-dependencies-list data={JSON.stringify([])}></doc-dependencies-list>
+
+## Accessibility
+
+Profile Card components are 

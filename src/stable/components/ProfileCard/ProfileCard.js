@@ -24,21 +24,21 @@ class ProfileCard extends HTMLElement {
   }
 
   static get observedAttributes() {
-    return ['image-src', 'link-href'];
+    return ['src', 'href'];
   }
 
   attributeChangedCallback(name, newValue) {
-    if (name === 'image-src') {
+    if (name === 'src') {
       this._updateImage(newValue);
     }
-    if (name === 'link-href') {
+    if (name === 'href') {
       this._updateLink(newValue);
     }
   }
 
   connectedCallback() {
-    this._updateImage(this.getAttribute('image-src'));
-    this._updateLink(this.getAttribute('link-href'));
+    this._updateImage(this.getAttribute('src'));
+    this._updateLink(this.getAttribute('href'));
     this._validateNameSlot();
   }
 
