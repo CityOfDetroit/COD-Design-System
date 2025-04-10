@@ -35,10 +35,8 @@ class Icon extends HTMLElement {
 
     // Get attributes
     const icon = this.getAttribute('name') || this.getAttribute('data-icon');
-    const label =
-      this.getAttribute('label') || icon;
-    let size =
-      this.getAttribute('size') || this.getAttribute('data-size') || '24';
+    const label = this.getAttribute('label') || icon;
+    let size = this.getAttribute('data-size') || '24';
     const library = this.getAttribute('library') || 'fontawesome';
 
     // Check if slot has content
