@@ -28,7 +28,7 @@ class Icon extends HTMLElement {
     return this.shadowRoot.querySelector('.icon').innerHTML !== '';
   }
 
-  renderIcon() {
+  _renderIcon() {
     const container = this.shadowRoot.querySelector('.icon-container');
     const iconElement = this.shadowRoot.querySelector('.icon');
 
