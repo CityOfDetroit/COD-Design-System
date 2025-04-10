@@ -24,7 +24,7 @@ class Icon extends HTMLElement {
     this.renderIcon();
   }
 
-  isIconConnected() {
+  _isIconConnected() {
     return this.shadowRoot.querySelector('.icon').innerHTML !== '';
   }
 
