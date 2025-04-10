@@ -23,7 +23,6 @@ import './components/atoms/FormCheck/cod-formcheck';
 import './components/atoms/FormControl/cod-formcontrol';
 import './components/atoms/FormLabel/cod-formlabel';
 import './components/atoms/FormSelect/cod-formselect';
-import '../stable/components/Icon/cod-icon';
 import './components/atoms/Image/cod-image';
 import './components/atoms/LegacyButton/cod-legacy-button';
 import './components/atoms/LegacyIcon/cod-legacy-icon';
