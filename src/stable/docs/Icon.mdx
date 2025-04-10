@@ -9,7 +9,7 @@ import {
   Story,
   Source,
 } from '@storybook/blocks';
-import * as IconStories from '../stories/IconStories';
+import * as IconStories from '../stories/icon.stories.js';
 
 import '../../../.storybook/docs'; // Import all documentation components
 
@@ -25,9 +25,9 @@ import '../../../.storybook/docs'; // Import all documentation components
 
 ### Template
 
-<Description of={IconStories.Template} />
-<Story of={IconStories.Template} inline={true} />
-<Source of={IconStories.Template} />
+<Description of={IconStories.IconArguments} />
+<Story of={IconStories.IconArguments} inline={true} />
+<Source of={IconStories.IconArguments} />
 
 ## Slots
 
@@ -83,4 +83,4 @@ data={JSON.stringify([
 
 ## Accessibility
 
-The `Icon` component can be made accessible using the `aria-label` or `label` attribute to describe the icon for screen readers. If the icon is purely decorative, it should be marked with `aria-hidden="true"` in implementation to avoid screen reader confusion.
+The `Icon` component can be made accessible using the `label` attribute to describe the icon for screen readers. 

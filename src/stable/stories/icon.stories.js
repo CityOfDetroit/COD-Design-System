@@ -30,8 +30,8 @@ const Template = (args) => {
   return icon;
 };
 
-export const Icon = Template.bind({});
-Icon.args = {
+export const IconArguments = Template.bind({});
+IconArguments.args = {
   icon: 'house',
   size: 'small',
   library: 'fontawesome',
