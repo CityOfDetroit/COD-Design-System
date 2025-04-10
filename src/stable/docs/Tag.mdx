@@ -1,0 +1,89 @@
+import {
+  Meta,
+  Canvas,
+  Title,
+  Subtitle,
+  Description,
+  Primary,
+  Controls,
+  Stories,
+  Story,
+  Source,
+} from '@storybook/blocks';
+import * as TagStories from '../stories/tag.stories';
+
+import '../../../.storybook/docs'; // Import all documentation components
+
+<Meta of={TagStories} />
+
+# Tag
+
+<div className="component-summary">
+  Tag element will be used within other elements in the design system like
+  events and news to label Department or Taxonomy terms
+</div>
+
+## Usage
+
+<Canvas of={TagStories.Default} />
+
+<Controls of={TagStories.Default} />
+
+## Examples
+
+### Default
+
+<Description of={TagStories.Default} />
+<Story of={TagStories.Default} />
+<Source of={TagStories.Default} />
+
+### Multi Span
+
+<Description of={TagStories.MultiSpanElements} />
+<Story of={TagStories.MultiSpanElements} />
+
+## Slots
+
+<doc-slots-table
+data={JSON.stringify([
+{"name": "label", "description": "A label used with the Tag element to display the name of events or taxonomy term names."}
+])}>
+</doc-slots-table>
+
+## HTML Attributes / JS Properties
+
+<doc-js-properties-table
+    data={JSON.stringify([])}>
+</doc-js-properties-table>
+
+## Events
+
+<doc-events-table 
+  data={JSON.stringify([])}>
+</doc-events-table>
+
+## Methods
+
+<doc-methods-table 
+  data={JSON.stringify([])}>
+</doc-methods-table>
+
+## Custom CSS Properties
+
+<doc-css-custom-properties-table 
+  data={JSON.stringify([])}>
+</doc-css-custom-properties-table>
+
+## CSS Parts
+
+<doc-css-parts-table 
+  data={JSON.stringify([])}>
+</doc-css-parts-table>
+
+## Dependencies
+
+<doc-dependencies-list data={JSON.stringify([])}></doc-dependencies-list>
+
+## Accessibility
+
+Tag components are designed to be accessible by default.

@@ -4,3 +4,4 @@ import './components/ServiceButton/cod-service-button.js';
 import './components/Drawer/cod-drawer.js';
 import './components/Button/cod-button.js';
 import './components/ButtonGroup/cod-button-group.js';
+import './components/Tag/cod-tag.js';
