@@ -1,4 +1,5 @@
 import styles from '!!raw-loader!./Icon.css';
+import { getIcon } from './icon-helpers.js';
 
 const template = document.createElement('template');
 template.innerHTML = `
@@ -21,7 +22,7 @@ class Icon extends HTMLElement {
     if (this.isIconConnected()) {
       return;
     }
-    this.renderIcon();
+    this._renderIcon();
   }
 
   isIconConnected() {
