@@ -1,0 +1,86 @@
+import {
+  Meta,
+  Title,
+  Subtitle,
+  Description,
+  Primary,
+  Controls,
+  Stories,
+  Story,
+  Source,
+} from '@storybook/blocks';
+import * as IconStories from '../stories/IconStories';
+
+import '../../../.storybook/docs'; // Import all documentation components
+
+<Meta of={IconStories} />
+
+# Icon
+
+<div className="component-summary">
+  The `Icon` component displays an icon from a specified icon library.
+</div>
+
+## Examples
+
+### Template
+
+<Description of={IconStories.Template} />
+<Story of={IconStories.Template} inline={true} />
+<Source of={IconStories.Template} />
+
+## Slots
+
+<doc-slots-table
+data={JSON.stringify([
+{ "name": "icon", "description": "Optional slot to manually provide a custom icon or SVG if not using the built-in icon system."}
+])}>
+</doc-slots-table>
+
+## HTML Attributes / JS Properties
+
+Supported HTML attributes. If the attribute is reflected in a JS property, that attribute will have a 'reflects' tag next to the name.
+<doc-js-properties-table
+data={JSON.stringify([
+{ "name": "data-icon", "description": "Sets the icon name to display. Often used for dynamic rendering or legacy compatibility.", "type": "string", "default": "-","reflects": false},
+{ "name": "data-size", "description": "Custom attribute to control icon size. Typically used for legacy systems or data-* bindings.", "type": "string | number", "default": "-", "reflects": false},
+{ "name": "aria-label", "description": "Describes the icon for screen readers. Required if the icon conveys meaningful content.", "type": "string", "default": "-", "reflects": false},
+{ "name": "name","description": "The name of the icon to display, corresponding to entries in the selected icon library.","type": "string", "default": "-", "reflects": false},
+{ "name": "label","description": "Alternative to `aria-label`. Can be used to describe the icon’s purpose in a more semantic way.","type": "string","default": "-","reflects": false},
+{ "name": "size", "description": "Sets the icon’s visual size. Accepts named sizes (e.g., `small`, `medium`, `large`) or pixel values.", "type": "string | number","default": "-","reflects": false},
+{ "name": "is-highlighted","description": "When true, highlights or emphasizes the icon visually (e.g., for active states).","type": "boolean","default": "false","reflects": false},
+{ "name": "library","description": "Specifies which icon library to use (e.g., `fontawesome`, `material-icons`).","type": "string","default": "-","reflects": false}
+])}>
+</doc-js-properties-table>
+
+## Events
+
+<doc-events-table 
+  data={JSON.stringify([])}>
+</doc-events-table>
+
+## Methods
+
+<doc-methods-table 
+  data={JSON.stringify([])}>
+</doc-methods-table>
+
+## Custom CSS Properties
+
+<doc-css-custom-properties-table 
+  data={JSON.stringify([])}>
+</doc-css-custom-properties-table>
+
+## CSS Parts
+
+<doc-css-parts-table 
+  data={JSON.stringify([])}>
+</doc-css-parts-table>
+
+## Dependencies
+
+<doc-dependencies-list data={JSON.stringify([])}></doc-dependencies-list>
+
+## Accessibility
+
+The `Icon` component can be made accessible using the `aria-label` or `label` attribute to describe the icon for screen readers. If the icon is purely decorative, it should be marked with `aria-hidden="true"` in implementation to avoid screen reader confusion.
