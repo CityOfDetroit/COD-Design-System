@@ -36,47 +36,54 @@ class ProfileCard extends HTMLElement {
     this._updateLink(this.getAttribute('href'));
     this._validateNameSlot();
   }
-  
+
   getValidationError() {
     return this._validationError;
   }
-  
+
   _updateImage(newValue) {
     const img = this.shadowRoot.querySelector('.profile-image');
     if (img) {
       img.src = newValue || '';
     }
   }
-  
+
   _validateNameSlot() {
     const slot = this.shadowRoot.querySelector('slot[name="name"]');
     if (slot) {
       slot.addEventListener('slotchange', () => {
         this._validateSlotContent();
       });
-      
+
       this._validateSlotContent();
     }
   }
- 
+
   _validateSlotContent() {
     const slot = this.shadowRoot.querySelector('slot[name="name"]');
     if (!slot) return;
- 
+
     const assignedNodes = slot.assignedNodes({ flatten: true });
-    
+
     if (assignedNodes.length > 0) {
-      const firstElement = assignedNodes.find(node => node.nodeType === Node.ELEMENT_NODE);
-      
-      if (firstElement && !(firstElement instanceof HTMLSpanElement || 
-                        firstElement instanceof HTMLAnchorElement)) {
+      const firstElement = assignedNodes.find(
+        (node) => node.nodeType === Node.ELEMENT_NODE,
+      );
+
+      if (
+        firstElement &&
+        !(
+          firstElement instanceof HTMLSpanElement ||
+          firstElement instanceof HTMLAnchorElement
+        )
+      ) {
         throw new Error(
-          'ProfileCard: The "name" slot should contain either a <span> or an <a> element.'
+          'ProfileCard: The "name" slot should contain either a <span> or an <a> element.',
         );
       }
     }
   }
- 
+
   _updateLink(newValue) {
     const card = this.shadowRoot.querySelector('.profile-card');
     if (card) {

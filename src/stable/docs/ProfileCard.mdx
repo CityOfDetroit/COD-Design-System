@@ -1,13 +1,13 @@
 import {
-    Meta,
-    Title,
-    Subtitle,
-    Description,
-    Primary,
-    Controls,
-    Stories,
-    Story,
-    Source,
+  Meta,
+  Title,
+  Subtitle,
+  Description,
+  Primary,
+  Controls,
+  Stories,
+  Story,
+  Source,
 } from '@storybook/blocks';
 import * as ProfileCardStories from '../stories/profilecard.stories';
 
@@ -16,8 +16,9 @@ import '../../../.storybook/docs'; // Import all documentation components
 <Meta of={ProfileCardStories} />
 
 # Profile Card
+
 <div className="component-summary">
-    Profile Cards are components used to display a user's profile information.
+  Profile Cards are components used to display a user's profile information.
 </div>
 
 # Examples
@@ -32,9 +33,9 @@ import '../../../.storybook/docs'; // Import all documentation components
 
 <doc-slots-table
 data={JSON.stringify([
-    {"name": "name", "description": "This slot is used to display the person's name in the profile card."},
-    {"name": "title-primary", "description": "This slot contains the person's primary title, like their job position or designation." },
-    {"name": "title-secondary", "description": "This slot contains additional information about the person, such as a secondary job title, a department name, or an affiliation."}
+{"name": "name", "description": "This slot is used to display the person's name in the profile card."},
+{"name": "title-primary", "description": "This slot contains the person's primary title, like their job position or designation." },
+{"name": "title-secondary", "description": "This slot contains additional information about the person, such as a secondary job title, a department name, or an affiliation."}
 ])}>
 </doc-slots-table>
 
@@ -44,8 +45,8 @@ Supported HTML attributes. If the attribute is reflected in a JS property, that 
 
 <doc-js-properties-table
 data={JSON.stringify([
-    {"name": "href", "description":  "A link to the page or site containing the person's information. See https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#href", "type": "string", "default": "-", "reflects": true},
-     {"name": "src", "description":  "The url to the proper page or site. See https://developer.mozilla.org/en-US/docs/Web/HTML/Element/source", "type": "string", "default": "-", "reflects": false}
+{"name": "href", "description": "A link to the page or site containing the person's information. See https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#href", "type": "string", "default": "-", "reflects": true},
+{"name": "src", "description": "The url to the proper page or site. See https://developer.mozilla.org/en-US/docs/Web/HTML/Element/source", "type": "string", "default": "-", "reflects": false}
 ])}>
 </doc-js-properties-table>
 
@@ -68,6 +69,7 @@ data={JSON.stringify([])}>
 </doc-css-custom-properties-table>
 
 ## CSS Parts
+
 <doc-css-parts-table 
   data={JSON.stringify([])}>
 </doc-css-parts-table>
@@ -80,4 +82,4 @@ data={JSON.stringify([])}>
 
 - **Images (`src`)**: When a profile image is included using the `src` attribute, it should be accompanied by an `alt` attribute describing the person (e.g., `alt="Photo of Jane Doe"`). This ensures screen readers can describe the image content.
 
-- **Links (`href`)**: When the card is made clickable with the `href` attribute, it becomes keyboard-accessible and can be navigated by screen readers. 
+- **Links (`href`)**: When the card is made clickable with the `href` attribute, it becomes keyboard-accessible and can be navigated by screen readers.
