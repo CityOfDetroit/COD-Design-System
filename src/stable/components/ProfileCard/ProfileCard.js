@@ -5,7 +5,6 @@ template.innerHTML = `
 <style>
 ${styles}
 </style>
-
 <a class="profile-card">
  <img class="profile-image" alt="Profile Image">
  <div class="profile-details">
@@ -15,19 +14,16 @@ ${styles}
  </div>
 </a>
 `;
-
 class ProfileCard extends HTMLElement {
   constructor() {
     super();
     const shadow = this.attachShadow({ mode: 'open' });
     shadow.appendChild(template.content.cloneNode(true));
   }
-
   static get observedAttributes() {
     return ['src', 'href'];
   }
-
-  attributeChangedCallback(name, newValue) {
+  attributeChangedCallback(name, oldValue, newValue) {
     if (name === 'src') {
       this._updateImage(newValue);
     }
@@ -35,40 +31,52 @@ class ProfileCard extends HTMLElement {
       this._updateLink(newValue);
     }
   }
-
   connectedCallback() {
     this._updateImage(this.getAttribute('src'));
     this._updateLink(this.getAttribute('href'));
     this._validateNameSlot();
   }
-
+  
+  getValidationError() {
+    return this._validationError;
+  }
+  
   _updateImage(newValue) {
     const img = this.shadowRoot.querySelector('.profile-image');
     if (img) {
       img.src = newValue || '';
     }
   }
-
+  
   _validateNameSlot() {
     const slot = this.shadowRoot.querySelector('slot[name="name"]');
-    slot.addEventListener('slotchange', () => {
-      const assignedNodes = slot.assignedNodes({ flatten: true });
-      if (assignedNodes.length > 0) {
-        const assignedElement = assignedNodes[0];
-        if (
-          !(
-            assignedElement instanceof HTMLSpanElement ||
-            assignedElement instanceof HTMLAnchorElement
-          )
-        ) {
-          throw new Error(
-            'ProfileCard: The "name" slot should contain either a <span> or an <a> element.',
-          );
-        }
-      }
-    });
+    if (slot) {
+      slot.addEventListener('slotchange', () => {
+        this._validateSlotContent();
+      });
+      
+      this._validateSlotContent();
+    }
   }
-
+ 
+  _validateSlotContent() {
+    const slot = this.shadowRoot.querySelector('slot[name="name"]');
+    if (!slot) return;
+ 
+    const assignedNodes = slot.assignedNodes({ flatten: true });
+    
+    if (assignedNodes.length > 0) {
+      const firstElement = assignedNodes.find(node => node.nodeType === Node.ELEMENT_NODE);
+      
+      if (firstElement && !(firstElement instanceof HTMLSpanElement || 
+                        firstElement instanceof HTMLAnchorElement)) {
+        throw new Error(
+          'ProfileCard: The "name" slot should contain either a <span> or an <a> element.'
+        );
+      }
+    }
+  }
+ 
   _updateLink(newValue) {
     const card = this.shadowRoot.querySelector('.profile-card');
     if (card) {
@@ -82,5 +90,4 @@ class ProfileCard extends HTMLElement {
     }
   }
 }
-
 export { ProfileCard as default };

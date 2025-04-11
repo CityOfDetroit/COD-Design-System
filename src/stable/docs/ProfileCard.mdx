@@ -17,7 +17,7 @@ import '../../../.storybook/docs'; // Import all documentation components
 
 # Profile Card
 <div className="component-summary">
-    Profile Cards are ...
+    Profile Cards are components used to display a user's profile information.
 </div>
 
 # Examples
@@ -28,14 +28,13 @@ import '../../../.storybook/docs'; // Import all documentation components
 <Story of={ProfileCardStories.Default} inline={true} />
 <Source of={ProfileCardStories.Default} />
 
-
 ## Slots
 
 <doc-slots-table
 data={JSON.stringify([
-    {"name": "name", "description": ""},
-    {"name": "title-primary", "description": ""},
-    {"name": "title-secondary", "description": ""}
+    {"name": "name", "description": "This slot is used to display the person's name in the profile card."},
+    {"name": "title-primary", "description": "This slot contains the person's primary title, like their job position or designation." },
+    {"name": "title-secondary", "description": "This slot contains additional information about the person, such as a secondary job title, a department name, or an affiliation."}
 ])}>
 </doc-slots-table>
 
@@ -79,4 +78,6 @@ data={JSON.stringify([])}>
 
 ## Accessibility
 
-Profile Card components are 
+- **Images (`src`)**: When a profile image is included using the `src` attribute, it should be accompanied by an `alt` attribute describing the person (e.g., `alt="Photo of Jane Doe"`). This ensures screen readers can describe the image content.
+
+- **Links (`href`)**: When the card is made clickable with the `href` attribute, it becomes keyboard-accessible and can be navigated by screen readers. 
