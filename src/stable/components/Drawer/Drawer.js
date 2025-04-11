@@ -5,7 +5,7 @@ const template = document.createElement('template');
 
 template.innerHTML = `
 <div class="offcanvas" tabindex="-1" role="dialog" aria-modal="true">
-  <div class="offcanvas-header">
+  <div class="offcanvas-header" part="header">
     <slot name="label"></slot>
     <cod-button class="btn-close" variant="default" size="medium" square aria-role="button" aria-label="Close">
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
@@ -13,7 +13,7 @@ template.innerHTML = `
       </svg>
     </cod-button>
   </div>
-  <div class="offcanvas-body">
+  <div class="offcanvas-body" part="body">
     <slot></slot>
   </div>
 </div>
