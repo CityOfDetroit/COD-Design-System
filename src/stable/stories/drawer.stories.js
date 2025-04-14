@@ -81,10 +81,38 @@ export const Contained = () => html`
 
 export const SiteMenu = () => html`
   <style>
+    #mainSiteMenuDrawer::part(header) {
+      background-color: var(--cod-secondary);
+    }
     #mainSiteMenuDrawer::part(body) {
+      overflow-x: clip;
+      background-color: var(--cod-secondary);
+    }
+    #menuItemContainer {
+      height: 100%;
+    }
+    [id^=mainSiteSubMenu]::part(container) {
+      border-width: 0;
+      background-color: var(--cod-secondary);
+    }
+    [id^=mainSiteSubMenu]::part(header) {
+      display: none;
+    }
+    [id^=mainSiteSubMenu]::part(body) {
       padding: 0;
     }
-
+    .btn--w100::part(base) {
+      width: 100%;
+    }
+    .btn--align-left::part(base) {
+      text-align: left;
+    }
+    .btn-group--w100::part(base) {
+      width: 100%;
+    }
+    .btn--flex-grow {
+      flex-grow: 1;
+    }
   </style>
   <div id="mainSiteMenu">
     <cod-button
@@ -114,14 +142,14 @@ export const SiteMenu = () => html`
       backdrop="true"
     >
       <span class="fw-bold display-5" slot="label">City of Detroit</span>
-      <div class="position-relative">
+      <div id="menuItemContainer" class="position-relative">
         <ul class="list-unstyled">
           <li>
-            <cod-button-group label="Government" class="w-100">
+            <cod-button-group label="Government" class="w-100 btn-group--w100">
               <cod-button
                 href="/government"
                 size="medium"
-                class="btn--align-left"
+                class="btn--align-left btn--flex-grow btn--w100"
               >
                 Government
               </cod-button>
@@ -148,6 +176,14 @@ export const SiteMenu = () => html`
               <span class="fw-bold display-6" slot="label">Government</span>
               <div>
                 <ul class="list-unstyled">
+                  <li>
+                    <cod-button
+                      size="medium"
+                      class="w-100 btn--w100 btn--align-left"
+                      onclick="(function(){const offcanvas = document.querySelector('#mainSiteSubMenu-0-1'); offcanvas.removeAttribute('open')}).call(this); return false;"
+                      >\< Back</cod-button
+                    >
+                  </li>
                   <li>
                     <cod-button
                       href="/government/boards"
