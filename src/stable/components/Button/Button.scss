@@ -70,6 +70,7 @@ fieldset:disabled .btn {
 // Base button styles
 .btn {
   position: relative;
+  box-sizing: border-box;
 
   // Spinner styles
   cod-spinner {
