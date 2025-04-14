@@ -4,7 +4,7 @@ import '../Button/cod-button.js';
 const template = document.createElement('template');
 
 template.innerHTML = `
-<div class="offcanvas" tabindex="-1" role="dialog" aria-modal="true">
+<div class="offcanvas" tabindex="-1" role="dialog" aria-modal="true" part="container">
   <div class="offcanvas-header" part="header">
     <slot name="label"></slot>
     <cod-button class="btn-close" variant="default" size="medium" square aria-role="button" aria-label="Close">
