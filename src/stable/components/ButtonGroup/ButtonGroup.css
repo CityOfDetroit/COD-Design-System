@@ -348,17 +348,4 @@ strong {
   z-index: 2;
 }
 
-:host(.vertical-group) .btn-group {
-  flex-direction: column;
-}
-
-:host(.vertical-group) ::slotted(cod-button)::part(base) {
-  width: 100%; /* Make buttons span full width in vertical mode */
-}
-
-:host(.vertical-group) ::slotted(cod-button:not(:first-child))::part(base) {
-  margin-left: 0;
-  margin-top: -1px;
-}
-
 /*# sourceMappingURL=ButtonGroup.css.map */
