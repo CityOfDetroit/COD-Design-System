@@ -81,19 +81,15 @@ export const Contained = () => html`
 
 export const SiteMenu = () => html`
   <style>
-    #mainSiteMenuDrawer::part(header) {
-      background-color: var(--cod-secondary);
-    }
     #mainSiteMenuDrawer::part(body) {
       overflow-x: clip;
-      background-color: var(--cod-secondary);
+      padding-left: 0;
     }
     #menuItemContainer {
       height: 100%;
     }
     [id^=mainSiteSubMenu]::part(container) {
       border-width: 0;
-      background-color: var(--cod-secondary);
     }
     [id^=mainSiteSubMenu]::part(header) {
       display: none;
@@ -107,11 +103,15 @@ export const SiteMenu = () => html`
     .btn--align-left::part(base) {
       text-align: left;
     }
-    .btn-group--w100::part(base) {
-      width: 100%;
+    .btn--flush::part(base) {
+      padding-right: 0;
+      padding-left: 1em;
     }
     .btn--flex-grow {
       flex-grow: 1;
+    }
+    .btn-group--w100::part(base) {
+      width: 100%;
     }
   </style>
   <div id="mainSiteMenu">
@@ -149,12 +149,14 @@ export const SiteMenu = () => html`
               <cod-button
                 href="/government"
                 size="medium"
-                class="btn--align-left btn--flex-grow btn--w100"
+                class="btn--align-left btn--flex-grow btn--w100 btn--flush"
+                variant="neutral"
               >
                 Government
               </cod-button>
               <cod-button
                 square=""
+                variant="neutral"
                 onclick="(function(){const offcanvas = document.querySelector('#mainSiteSubMenu-0-1'); offcanvas.setAttribute('open', '')}).call(this); return false;"
               >
                 <svg
@@ -179,7 +181,8 @@ export const SiteMenu = () => html`
                   <li>
                     <cod-button
                       size="medium"
-                      class="w-100 btn--w100 btn--align-left"
+                      class="w-100 btn--align-left btn--w100 btn--flush"
+                      variant="neutral"
                       onclick="(function(){const offcanvas = document.querySelector('#mainSiteSubMenu-0-1'); offcanvas.removeAttribute('open')}).call(this); return false;"
                       >\< Back</cod-button
                     >
@@ -188,7 +191,8 @@ export const SiteMenu = () => html`
                     <cod-button
                       href="/government/boards"
                       size="medium"
-                      class="w-100 btn--w100 btn--align-left"
+                      class="w-100 btn--align-left btn--flex-grow btn--w100 btn--flush"
+                      variant="neutral"
                       >Boards</cod-button
                     >
                   </li>
@@ -196,7 +200,8 @@ export const SiteMenu = () => html`
                     <cod-button
                       href="/government/city-clerk"
                       size="medium"
-                      class="w-100 btn--w100 btn--align-left"
+                      class="w-100 btn--align-left btn--flex-grow btn--w100 btn--flush"
+                      variant="neutral"
                       >City Clerk</cod-button
                     >
                   </li>
@@ -204,7 +209,8 @@ export const SiteMenu = () => html`
                     <cod-button
                       href="/government/city-council"
                       size="medium"
-                      class="w-100 btn--w100 btn--align-left"
+                      class="w-100 btn--align-left btn--flex-grow btn--w100 btn--flush"
+                      variant="neutral"
                       >City Council</cod-button
                     >
                   </li>
@@ -212,7 +218,8 @@ export const SiteMenu = () => html`
                     <cod-button
                       href="/government/commissions"
                       size="medium"
-                      class="w-100 btn--w100 btn--align-left"
+                      class="w-100 btn--align-left btn--flex-grow btn--w100 btn--flush"
+                      variant="neutral"
                       >Commissions</cod-button
                     >
                   </li>
@@ -220,7 +227,8 @@ export const SiteMenu = () => html`
                     <cod-button
                       href="/government/mayors-office"
                       size="medium"
-                      class="w-100 btn--w100 btn--align-left"
+                      class="w-100 btn--align-left btn--flex-grow btn--w100 btn--flush"
+                      variant="neutral"
                       >Mayor's Office</cod-button
                     >
                   </li>
@@ -228,7 +236,8 @@ export const SiteMenu = () => html`
                     <cod-button
                       href="/government/office-inspector-general"
                       size="medium"
-                      class="w-100 btn--w100 btn--align-left"
+                      class="w-100 btn--align-left btn--flex-grow btn--w100 btn--flush"
+                      variant="neutral"
                       >Office of Inspector General</cod-button
                     >
                   </li>
@@ -236,7 +245,8 @@ export const SiteMenu = () => html`
                     <cod-button
                       href="/government/office-auditor-general"
                       size="medium"
-                      class="w-100 btn--w100 btn--align-left"
+                      class="w-100 btn--align-left btn--flex-grow btn--w100 btn--flush"
+                      variant="neutral"
                       >Office of the Auditor General</cod-button
                     >
                   </li>
@@ -244,7 +254,8 @@ export const SiteMenu = () => html`
                     <cod-button
                       href="/government/ombudsman"
                       size="medium"
-                      class="w-100 btn--w100 btn--align-left"
+                      class="w-100 btn--align-left btn--flex-grow btn--w100 btn--flush"
+                      variant="neutral"
                       >Ombudsman</cod-button
                     >
                   </li>
