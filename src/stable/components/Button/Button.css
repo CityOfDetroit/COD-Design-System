@@ -771,6 +771,7 @@ fieldset:disabled .btn:disabled.active,
 
 .btn {
   position: relative;
+  box-sizing: border-box;
 }
 .btn cod-spinner {
   display: none;
