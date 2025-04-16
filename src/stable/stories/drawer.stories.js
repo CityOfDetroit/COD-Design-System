@@ -88,13 +88,13 @@ export const SiteMenu = () => html`
     #menuItemContainer {
       height: 100%;
     }
-    [id^=mainSiteSubMenu]::part(container) {
+    [id^='mainSiteSubMenu']::part(container) {
       border-width: 0;
     }
-    [id^=mainSiteSubMenu]::part(header) {
+    [id^='mainSiteSubMenu']::part(header) {
       display: none;
     }
-    [id^=mainSiteSubMenu]::part(body) {
+    [id^='mainSiteSubMenu']::part(body) {
       padding: 0;
     }
     .btn--w100::part(base) {
@@ -184,7 +184,7 @@ export const SiteMenu = () => html`
                       class="w-100 btn--align-left btn--w100 btn--flush"
                       variant="neutral"
                       onclick="(function(){const offcanvas = document.querySelector('#mainSiteSubMenu-0-1'); offcanvas.removeAttribute('open')}).call(this); return false;"
-                      >\< Back</cod-button
+                      >< Back</cod-button
                     >
                   </li>
                   <li>
