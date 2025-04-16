@@ -9,10 +9,6 @@ import './components/atoms/AccordionItem/cod-accordion-item';
 import './components/atoms/Alert/cod-alert';
 import './components/atoms/Badge/cod-badge';
 import './components/atoms/Breadcrumb/cod-breadcrumb';
-import './components/atoms/CardBody/cod-card-body';
-import './components/atoms/CardFooter/cod-card-footer';
-import './components/atoms/CardHeader/cod-card-header';
-import './components/atoms/CardOverlay/cod-card-overlay';
 import './components/atoms/CarouselCaption/cod-carousel-caption';
 import './components/atoms/CarouselItem/cod-carousel-item';
 import './components/atoms/Container/cod-container';
@@ -45,7 +41,6 @@ import './components/atoms/InfoButton/cod-info-button';
 
 // Importing organisms
 import './components/organisms/ArticleCard/cod-article-card';
-import './components/organisms/Card/cod-card';
 import './components/organisms/Carousel/cod-carousel';
 import './components/organisms/Form/cod-form';
 import './components/organisms/Modal/cod-modal';

@@ -1,14 +1,10 @@
 import { html } from 'lit-html';
-import '../components/atoms/CardHeader/cod-card-header';
-import '../components/atoms/CardBody/cod-card-body';
-import '../components/atoms/CardFooter/cod-card-footer';
-import '../components/atoms/CardOverlay/cod-card-overlay';
-import '../components/organisms/Card/cod-card';
-import '../../stable/components/Button/cod-button';
+import '../components/Card/cod-card';
+import '../components/Button/cod-button';
 
 export default {
-  tags: ['experimental'],
-  title: 'Experimental/Card',
+  tags: ['stable'],
+  title: 'Components/Card',
 };
 
 export const Basic = {
