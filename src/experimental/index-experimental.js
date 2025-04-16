@@ -37,7 +37,6 @@ import './components/atoms/TableCellHeader/cod-table-cell-header';
 import './components/atoms/TableHeader/cod-table-header';
 import './components/atoms/TableRow/cod-table-row';
 import './components/atoms/ActionButton/cod-action-button';
-import './components/atoms/InfoButton/cod-info-button';
 
 // Importing organisms
 import './components/organisms/ArticleCard/cod-article-card';
