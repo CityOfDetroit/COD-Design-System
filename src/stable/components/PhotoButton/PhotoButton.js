@@ -23,5 +23,34 @@ export default class Card extends HTMLElement {
     shadow.appendChild(itemStyles);
   }
 
-  connectedCallback() {}
+  static get observedAttributes() {
+    return ['href', 'rel', 'target'];
+  }
+
+  get href() {
+    return this.getAttribute('href');
+  }
+
+  get rel() {
+    return this.getAttribute('rel');
+  }
+
+  get target() {
+    return this.getAttribute('target');
+  }
+
+  attributeChangedCallback(name, oldValue, newValue) {
+    const anchor = this.shadowRoot.querySelector('a');
+    if (anchor) {
+      anchor.setAttribute(name, newValue || '');
+    }
+  }
+
+  connectedCallback() {
+    // Set initial values if attributes exist
+    const anchor = this.shadowRoot.querySelector('a');
+    if (this.href) anchor.setAttribute('href', this.href);
+    if (this.rel) anchor.setAttribute('rel', this.rel);
+    if (this.target) anchor.setAttribute('target', this.target);
+  }
 }

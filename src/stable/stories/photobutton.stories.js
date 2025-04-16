@@ -4,7 +4,7 @@ import '../../experimental/components/atoms/Icon/cod-icon';
 
 export default {
   tags: ['stable'],
-  title: 'Components/PhotoButton',
+  title: 'Components/Photo Button',
   component: 'cod-photo-button',
   parameters: {
     layout: 'centered',
@@ -17,19 +17,23 @@ export default {
   argTypes: {
     titleText: {
       control: { type: 'text' },
-      description: 'A subtitle for the photo button.',
+      description: 'A title for the photo button.',
     },
     subtitleText: {
       control: { type: 'text' },
       description: 'A subtitle for the photo button.',
     },
+    href: {
+      control: { type: 'text' },
+      description: 'A link for the photo button.',
+    },
     imageSrc: {
       control: { type: 'text' },
-      description: 'Optional image source URL.',
+      description: 'Image source URL.',
     },
     imageAlt: {
       control: { type: 'text' },
-      description: 'Alt text for the image (if used).',
+      description: 'Alt text for the image.',
     },
     width: {
       control: { type: 'text' },
@@ -39,6 +43,7 @@ export default {
   args: {
     titleText: 'The City Solar Program',
     subtitleText: "City's Solar Plans",
+    href: 'https://www.example.com',
     imageSrc: '',
     imageAlt: '',
     width: '300px',
@@ -48,7 +53,12 @@ export default {
 // Template for the usage story with controls
 const Template = (args) => {
   return html`
-    <cod-photo-button class="photo-button-example">
+    <cod-photo-button
+      class="photo-button-example"
+      href="${args.href}"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
       ${args.imageSrc
         ? html`<img
             slot="image"
@@ -107,6 +117,7 @@ const Template = (args) => {
         align-items: center;
         justify-content: center;
         color: white;
+        margin-left: 0.5rem;
       }
     </style>
   `;
@@ -123,7 +134,12 @@ Usage.args = {
 Usage.tags = ['!dev'];
 
 export const BasicPhotoButton = () => html`
-  <cod-photo-button class="photo-btn-basic">
+  <cod-photo-button
+    class="photo-btn-basic"
+    href="https://www.example.com"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
     <img
       src="https://images.unsplash.com/photo-1559209172-0ff8f6d49ff7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80"
       alt="Solar panels sit in a field with a blue sky and clouds in the background."
