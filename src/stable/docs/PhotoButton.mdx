@@ -1,0 +1,85 @@
+import {
+  Meta,
+  Canvas,
+  Title,
+  Subtitle,
+  Description,
+  Primary,
+  Controls,
+  Stories,
+  Story,
+  Source,
+} from '@storybook/blocks';
+import * as PhotoButtonStories from '../stories/photobutton.stories';
+
+import '../../../.storybook/docs'; // Import all documentation components
+
+<Meta of={PhotoButtonStories} />
+
+# Photo Button
+
+<div className="component-summary">
+  Photo buttons are used to display a summary of some information with an image
+  that links out to a different page. They are often used to highlight a
+  specific piece of long form content.
+</div>
+
+## Usage
+
+<Canvas>
+  <Story of={PhotoButtonStories.Usage} />
+  <Source of={PhotoButtonStories.Usage} />
+</Canvas>
+<Controls of={PhotoButtonStories.Usage} />
+
+## Examples
+
+<Stories of={PhotoButtonStories} includePrimary={false} />
+
+## Slots
+
+<doc-slots-table
+data={JSON.stringify([
+{"name": "(default)", "description": "The button's main content."},
+{"name": "image", "description": "An image to render at the top of the button."}
+])}>
+</doc-slots-table>
+
+## HTML Attributes / JS Properties
+
+<doc-js-properties-table data={JSON.stringify([])}></doc-js-properties-table>
+
+## Events
+
+<doc-events-table data={JSON.stringify([])}></doc-events-table>
+
+## Methods
+
+<doc-methods-table 
+  data={JSON.stringify([])}>
+</doc-methods-table>
+
+## Custom CSS Properties
+
+<doc-css-custom-properties-table
+data={JSON.stringify([])}
+
+> </doc-css-custom-properties-table>
+
+## CSS Parts
+
+<doc-css-parts-table
+data={JSON.stringify([
+{"name": "base", "description": "The component's base wrapper."},
+{"name": "image", "description": "The container that wraps the card's image slot."},
+{"name": "body", "description": "The container that wraps the card's main content."},
+])}>
+</doc-css-parts-table>
+
+## Dependencies
+
+<doc-dependencies-list data={JSON.stringify([])}></doc-dependencies-list>
+
+## Accessibility
+
+TODO:

@@ -1,149 +1,151 @@
 import { html } from 'lit-html';
-import '../../experimental/components/atoms/Icon/cod-icon';
 import '../components/PhotoButton/cod-photo-button';
+import '../../experimental/components/atoms/Icon/cod-icon';
 
 export default {
   tags: ['stable'],
+  title: 'Components/PhotoButton',
   component: 'cod-photo-button',
-  title: 'Components/Photo Button',
-  // 👇 Creates specific argTypes
+  parameters: {
+    layout: 'centered',
+    docs: {
+      source: {
+        format: 'html',
+      },
+    },
+  },
   argTypes: {
-    titlePrimary: {
-      control: 'text',
-      description:
-        '(Optional) The text to be used for a primary title. \
-        If the attribute is not included or empty string, then the \
-        title is omitted.',
+    titleText: {
+      control: { type: 'text' },
+      description: 'A subtitle for the photo button.',
     },
-    titleSecondary: {
-      control: 'text',
-      description:
-        '(Optional) The text to be used for a secondary title. \
-        If the attribute is not included or empty string, and the primary \
-        title is also ommitted, then the entire title row is omitted.',
+    subtitleText: {
+      control: { type: 'text' },
+      description: 'A subtitle for the photo button.',
     },
-    forceTitleMultiline: {
-      control: 'boolean',
-      description:
-        '(Optional) If this attribute is set, the primary and secondary \
-        titles will be forced onto two separate lines even if they would fit \
-        onto a single line.',
+    imageSrc: {
+      control: { type: 'text' },
+      description: 'Optional image source URL.',
     },
-    body: {
-      control: 'text',
-      description:
-        'The content to be shown in the body of the button. Supports rich HTML.',
+    imageAlt: {
+      control: { type: 'text' },
+      description: 'Alt text for the image (if used).',
+    },
+    width: {
+      control: { type: 'text' },
+      description: 'Optional explicit width for the card.',
     },
   },
   args: {
-    titlePrimary: 'See This Photo Button',
-    titleSecondary: '$90 million',
-    body: "This is a longer piece of content but still brief since it's a button.",
+    titleText: 'The City Solar Program',
+    subtitleText: "City's Solar Plans",
+    imageSrc: '',
+    imageAlt: '',
+    width: '300px',
   },
 };
-// Template
+
+// Template for the usage story with controls
 const Template = (args) => {
-  const infoBtn = document.createElement('cod-photo-button');
-  infoBtn.setAttribute('img-src', 'https://placehold.co/800x400/000000/FFF');
-  infoBtn.setAttribute('img-alt', 'A placeholder image');
-  infoBtn.setAttribute('href', 'https://example.com');
-  infoBtn.setAttribute('target', '_blank');
-  infoBtn.setAttribute('title-primary', args.titlePrimary);
-  infoBtn.setAttribute('title-secondary', args.titleSecondary);
-  if (args.forceTitleMultiline) {
-    infoBtn.setAttribute('force-title-multiline', '');
-  }
-  const body = document.createElement('p');
-  body.innerText = args.body;
-  infoBtn.append(body);
-  return infoBtn;
-};
-
-export const Primary = {
-  tags: ['autodocs'],
-  render: Template.bind({}),
-};
-
-export const PhotoButtonGrid = {
-  tags: ['autodocs'],
-  render: () => html`
-    <div class="container-fluid">
-      <div class="row my-3">
-        <div class="col-sm-4">
-          <cod-photo-button
-            img-src="https://placehold.co/800x400/000000/FFF"
-            img-alt="..."
-            href="https://example.com"
-            target="_blank"
-            title-primary="Some Information"
-          >
-            <p>Commercial demolition and rehab</p>
-          </cod-photo-button>
-        </div>
-        <div class="col-sm-4">
-          <cod-photo-button
-            img-src="https://placehold.co/800x400/000000/FFF"
-            img-alt="..."
-            href="https://example.com"
-            target="_blank"
-            title-primary="Some Information"
-          >
-            <p>
-              Commercial demolition and rehab but this content is going to
-              spread onto multiple lines
-            </p>
-          </cod-photo-button>
-        </div>
-        <div class="col-sm-4">
-          <cod-photo-button
-            img-src="https://placehold.co/800x400/000000/FFF"
-            img-alt="..."
-            href="https://example.com"
-            target="_blank"
-            title-primary="Some Information"
-          >
-            <p>Commercial demolition and rehab</p>
-          </cod-photo-button>
+  return html`
+    <cod-photo-button class="photo-button-example">
+      ${args.imageSrc
+        ? html`<img
+            slot="image"
+            src="${args.imageSrc}"
+            alt="${args.imageAlt}"
+          />`
+        : ''}
+      <div>
+        <p class="subtitle">${args.subtitleText}</p>
+        <div class="program-row">
+          <h2 class="title">${args.titleText}</h2>
+          <div class="arrow-circle">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="32"
+              height="32"
+              fill="currentColor"
+              class="bi bi-arrow-right-circle"
+              viewBox="0 0 16 16"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0M4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5z"
+              />
+            </svg>
+          </div>
         </div>
       </div>
-      <div class="row my-3">
-        <div class="col-sm-4">
-          <cod-photo-button
-            img-src="https://placehold.co/800x400/000000/FFF"
-            img-alt="..."
-            href="https://example.com"
-            target="_blank"
-            title-primary="Some Information"
-          >
-            <p>Commercial demolition and rehab</p>
-          </cod-photo-button>
-        </div>
-        <div class="col-sm-4">
-          <cod-photo-button
-            img-src="https://placehold.co/800x400/000000/FFF"
-            img-alt="..."
-            href="https://example.com"
-            target="_blank"
-            title-primary="Some Information"
-          >
-            <p>Commercial demolition and rehab</p>
-          </cod-photo-button>
-        </div>
-        <div class="col-sm-4">
-          <cod-photo-button
-            img-src="https://placehold.co/800x400/000000/FFF"
-            img-alt="..."
-            href="https://example.com"
-            target="_blank"
-            title-primary="Some Information"
-          >
-            <p>Commercial demolition and rehab.</p>
-            <p>
-              With an <i>italic flair</i> to demonstrate rich markup ability.
-            </p>
-          </cod-photo-button>
-        </div>
-      </div>
-    </div>
-  `,
+    </cod-photo-button>
+    <style>
+      .photo-button-example {
+        max-width: ${args.width};
+      }
+      .subtitle {
+        font-size: 20px;
+        font-weight: 400;
+        margin: 0 0 0.5rem 0;
+        color: white;
+      }
+
+      .program-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .title {
+        font-size: 24px;
+        font-weight: 700;
+        margin: 0;
+        color: #feb70d;
+      }
+
+      .arrow-circle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+      }
+    </style>
+  `;
+};
+
+export const Usage = Template.bind({});
+Usage.args = {
+  imageSrc:
+    'https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80',
+  imageAlt:
+    'Solar panels sit in a field with a blue sky and clouds in the background.',
+  width: '300px',
+};
+Usage.tags = ['!dev'];
+
+export const BasicPhotoButton = () => html`
+  <cod-photo-button class="photo-btn-basic">
+    <img
+      src="https://images.unsplash.com/photo-1559209172-0ff8f6d49ff7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80"
+      alt="Solar panels sit in a field with a blue sky and clouds in the background."
+      slot="image"
+    />
+    This is just a basic card. No fancy styles or content layout. Just your
+    content.
+  </cod-photo-button>
+
+  <style>
+    .photo-btn-basic {
+      max-width: 300px;
+    }
+  </style>
+`;
+
+BasicPhotoButton.storyName = 'Basic Photo Button';
+BasicPhotoButton.parameters = {
+  docs: {
+    description: {
+      story:
+        "Basic cards aren't very exciting, but they can display any content you want them to.",
+    },
+  },
 };
