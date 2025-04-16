@@ -1,0 +1,27 @@
+div {
+  font-family: var(--font-family);
+}
+
+.photo-button-container,
+.photo-button-container > a,
+.photo-button-container > a > .card {
+  width: 100%;
+  height: 100%;
+}
+
+.info-btn-title {
+  font-weight: 900;
+}
+
+.card {
+  --cod-card-bg: initial;
+  --cod-card-border-width: 0;
+}
+
+.btn {
+  --cod-btn-padding-x: 0rem;
+  --cod-btn-padding-y: 0rem;
+  text-align: initial;
+}
+
+/*# sourceMappingURL=PhotoButton.css.map */

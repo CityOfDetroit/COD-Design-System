@@ -1,11 +1,11 @@
 import { html } from 'lit-html';
 import '../../experimental/components/atoms/Icon/cod-icon';
-import '../components/InfoButton/cod-info-button';
+import '../components/PhotoButton/cod-photo-button';
 
 export default {
   tags: ['stable'],
-  component: 'cod-info-button',
-  title: 'Components/Info Button',
+  component: 'cod-photo-button',
+  title: 'Components/Photo Button',
   // 👇 Creates specific argTypes
   argTypes: {
     titlePrimary: {
@@ -36,14 +36,14 @@ export default {
     },
   },
   args: {
-    titlePrimary: 'See This Info Button',
+    titlePrimary: 'See This Photo Button',
     titleSecondary: '$90 million',
     body: "This is a longer piece of content but still brief since it's a button.",
   },
 };
 // Template
 const Template = (args) => {
-  const infoBtn = document.createElement('cod-info-button');
+  const infoBtn = document.createElement('cod-photo-button');
   infoBtn.setAttribute('img-src', 'https://placehold.co/800x400/000000/FFF');
   infoBtn.setAttribute('img-alt', 'A placeholder image');
   infoBtn.setAttribute('href', 'https://example.com');
@@ -64,13 +64,13 @@ export const Primary = {
   render: Template.bind({}),
 };
 
-export const InfoButtonGrid = {
+export const PhotoButtonGrid = {
   tags: ['autodocs'],
   render: () => html`
     <div class="container-fluid">
       <div class="row my-3">
         <div class="col-sm-4">
-          <cod-info-button
+          <cod-photo-button
             img-src="https://placehold.co/800x400/000000/FFF"
             img-alt="..."
             href="https://example.com"
@@ -78,10 +78,10 @@ export const InfoButtonGrid = {
             title-primary="Some Information"
           >
             <p>Commercial demolition and rehab</p>
-          </cod-info-button>
+          </cod-photo-button>
         </div>
         <div class="col-sm-4">
-          <cod-info-button
+          <cod-photo-button
             img-src="https://placehold.co/800x400/000000/FFF"
             img-alt="..."
             href="https://example.com"
@@ -92,10 +92,10 @@ export const InfoButtonGrid = {
               Commercial demolition and rehab but this content is going to
               spread onto multiple lines
             </p>
-          </cod-info-button>
+          </cod-photo-button>
         </div>
         <div class="col-sm-4">
-          <cod-info-button
+          <cod-photo-button
             img-src="https://placehold.co/800x400/000000/FFF"
             img-alt="..."
             href="https://example.com"
@@ -103,12 +103,12 @@ export const InfoButtonGrid = {
             title-primary="Some Information"
           >
             <p>Commercial demolition and rehab</p>
-          </cod-info-button>
+          </cod-photo-button>
         </div>
       </div>
       <div class="row my-3">
         <div class="col-sm-4">
-          <cod-info-button
+          <cod-photo-button
             img-src="https://placehold.co/800x400/000000/FFF"
             img-alt="..."
             href="https://example.com"
@@ -116,10 +116,10 @@ export const InfoButtonGrid = {
             title-primary="Some Information"
           >
             <p>Commercial demolition and rehab</p>
-          </cod-info-button>
+          </cod-photo-button>
         </div>
         <div class="col-sm-4">
-          <cod-info-button
+          <cod-photo-button
             img-src="https://placehold.co/800x400/000000/FFF"
             img-alt="..."
             href="https://example.com"
@@ -127,10 +127,10 @@ export const InfoButtonGrid = {
             title-primary="Some Information"
           >
             <p>Commercial demolition and rehab</p>
-          </cod-info-button>
+          </cod-photo-button>
         </div>
         <div class="col-sm-4">
-          <cod-info-button
+          <cod-photo-button
             img-src="https://placehold.co/800x400/000000/FFF"
             img-alt="..."
             href="https://example.com"
@@ -141,7 +141,7 @@ export const InfoButtonGrid = {
             <p>
               With an <i>italic flair</i> to demonstrate rich markup ability.
             </p>
-          </cod-info-button>
+          </cod-photo-button>
         </div>
       </div>
     </div>

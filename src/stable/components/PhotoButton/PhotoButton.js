@@ -1,11 +1,11 @@
-import styles from '!!raw-loader!./InfoButton.css';
+import styles from '!!raw-loader!./PhotoButton.css';
 import varStyles from '!!raw-loader!../../../shared/variables.css';
 import bootstrapStyles from '!!raw-loader!../../../shared/themed-bootstrap.css';
 
 const template = document.createElement('template');
 
 template.innerHTML = `
-<div class="info-button-container">
+<div class="photo-button-container">
   <a class="btn btn-primary" role="button" href="">
     <div class="card">
       <img src="" alt="" class="card-img-top img-fluid">
@@ -22,7 +22,7 @@ template.innerHTML = `
 </div>
 `;
 
-class InfoButton extends HTMLElement {
+class PhotoButton extends HTMLElement {
   static observedAttributes = [];
 
   constructor() {
@@ -102,4 +102,4 @@ class InfoButton extends HTMLElement {
   }
 }
 
-export { InfoButton as default };
+export { PhotoButton as default };
