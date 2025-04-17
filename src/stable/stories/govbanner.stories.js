@@ -25,18 +25,16 @@ export const Test = {
       const content = shadow.querySelector('#content');
       const button = shadow.querySelector('.know-text');
       const chevron = shadow.querySelector('.chevron-container svg');
-    
+
       // Check if content has the 'visible' class
       expect(content.classList.contains('visible')).toBe(isExpanded);
-    
+
       // Check if the button's aria-expanded matches the expected state
       expect(button.getAttribute('aria-expanded')).toBe(isExpanded.toString());
-    
+
       // Check if the chevron's aria-expanded matches the expected state
       expect(chevron.getAttribute('aria-expanded')).toBe(isExpanded.toString());
     };
-    
-    
 
     // Test initial state
     await expect(govBanner.expanded).toBe(false);
