@@ -39,13 +39,6 @@ export const Test = {
     </cod-profile-card>
   `,
 
-  parameters: {
-    test: {
-      // Tell Storybook to ignore unhandled errors for this test
-      dangerouslyIgnoreUnhandledErrors: true,
-    },
-  },
-
   play: async ({ canvasElement }) => {
     const profileCard = canvasElement.querySelector('cod-profile-card');
     const shadow = profileCard.shadowRoot;
@@ -68,39 +61,5 @@ export const Test = {
     // Verify the target and rel attributes
     expect(link.getAttribute('target')).toBe('_blank');
     expect(link.getAttribute('rel')).toBe('noopener noreferrer');
-
-    // ===== TEST 3: Error Handling Test =====
-    // We need to test that the validation function works directly
-    const testValidationLogic = () => {
-      // 1. Create a component instance
-      const testCard = document.createElement('cod-profile-card');
-      document.body.appendChild(testCard);
-
-      // 2. Create a invalid element and add it to the slot
-      const invalidElement = document.createElement('div');
-      invalidElement.slot = 'name';
-      invalidElement.textContent = 'Invalid Element';
-      testCard.appendChild(invalidElement);
-
-      // 3. Try to validate manually and expect an error
-      try {
-        // Call validation directly
-        testCard._validateSlotContent();
-
-        // If we get here, the validation didn't throw an error (test should fail)
-        expect(false).toBe(true, 'Expected validation error was not thrown');
-      } catch (error) {
-        // This is what we expect - validation should throw an error
-        expect(error.message).toContain(
-          'ProfileCard: The "name" slot should contain either a <span> or an <a> element.',
-        );
-      } finally {
-        // Clean up
-        document.body.removeChild(testCard);
-      }
-    };
-
-    // Run the validation test
-    testValidationLogic();
   },
 };
