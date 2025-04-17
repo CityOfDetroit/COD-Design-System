@@ -1,3 +1,10 @@
+# v3.0.0-alpha.2 (Wed Apr 16 2025)
+
+#### 🚀 Enhancement
+
+- [Rewrite card and move to stable](https://github.com/CityOfDetroit/COD-Design-System/pull/330)
+- [Rename info button to photo button, rewrite, and move to stable](https://github.com/CityOfDetroit/COD-Design-System/pull/331)
+
 # v3.0.0-alpha.1 (Wed Apr 02 2025)
 
 #### 🚀 Enhancement
