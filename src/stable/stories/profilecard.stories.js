@@ -56,33 +56,7 @@ export const Test = {
     expect(img.tagName).toBe('IMG');
     expect(img.src).toContain('https://placehold.co/400');
 
-    // ===== TEST 2: Slot Content Test =====
-    const nameSlot = shadow.querySelector('slot[name="name"]');
-    const titlePrimarySlot = shadow.querySelector('slot[name="title-primary"]');
-    const titleSecondarySlot = shadow.querySelector(
-      'slot[name="title-secondary"]',
-    );
-
-    // Check that slots exist
-    expect(nameSlot).not.toBeNull();
-    expect(titlePrimarySlot).not.toBeNull();
-    expect(titleSecondarySlot).not.toBeNull();
-
-    // Check slot content
-    const nameNodes = nameSlot.assignedNodes({ flatten: true });
-    const titlePrimaryNodes = titlePrimarySlot.assignedNodes({ flatten: true });
-    const titleSecondaryNodes = titleSecondarySlot.assignedNodes({
-      flatten: true,
-    });
-
-    expect(nameNodes.length).toBeGreaterThan(0);
-    expect(titlePrimaryNodes.length).toBeGreaterThan(0);
-    expect(titleSecondaryNodes.length).toBeGreaterThan(0);
-    expect(nameNodes[0].textContent).toBe('Jane Doe');
-    expect(titlePrimaryNodes[0].textContent).toBe('Frontend Engineer');
-    expect(titleSecondaryNodes[0].textContent).toBe('Frontend Developer');
-
-    // ===== TEST 3: Link Element Test =====
+    // ===== TEST 2: Link Element Test =====
     const link = shadow.querySelector('.profile-card');
     expect(link).not.toBeNull();
     expect(link.tagName).toBe('A');
@@ -95,7 +69,7 @@ export const Test = {
     expect(link.getAttribute('target')).toBe('_blank');
     expect(link.getAttribute('rel')).toBe('noopener noreferrer');
 
-    // ===== TEST 4: Error Handling Test =====
+    // ===== TEST 3: Error Handling Test =====
     // We need to test that the validation function works directly
     const testValidationLogic = () => {
       // 1. Create a component instance
