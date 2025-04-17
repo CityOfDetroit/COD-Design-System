@@ -6,3 +6,4 @@ import './components/Button/cod-button.js';
 import './components/ButtonGroup/cod-button-group.js';
 import './components/Tag/cod-tag.js';
 import './components/Card/cod-card.js';
+import './components/PhotoButton/cod-photo-button.js';
