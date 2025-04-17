@@ -17,7 +17,7 @@ template.innerHTML = `
         <button class="know-text" aria-expanded="false" aria-controls="content">
         Here's how you know  
         <span class="chevron-container">                
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+            <svg aria-expanded="false" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
               <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/>
             </svg>
             </span>
@@ -116,12 +116,18 @@ class GovBanner extends HTMLElement {
   _updateExpandedState(isExpanded) {
     const content = this.shadowRoot.querySelector('#content');
     const button = this.shadowRoot.querySelector('.know-text');
-
+    const chevron = this.shadowRoot.querySelector('.chevron-container svg');
+  
     if (content && button) {
       button.setAttribute('aria-expanded', isExpanded);
       content.hidden = !isExpanded;
     }
+  
+    if (chevron) {
+      chevron.setAttribute('aria-expanded', isExpanded);
+    }
   }
+  
 }
 
 export { GovBanner as default };
