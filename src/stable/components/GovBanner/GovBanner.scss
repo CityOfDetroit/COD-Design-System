@@ -1,13 +1,11 @@
 @import 'bootstrap/scss/functions';
 @import 'bootstrap/scss/variables';
 @import 'bootstrap/scss/mixins';
-
 .banner-container {
   width: 100%;
   background-color: #004445;
   color: white;
 }
-
 .banner-header {
   display: flex;
   justify-content: center;
@@ -16,42 +14,35 @@
   max-width: 1200px;
   margin: 0 auto;
 }
-
 .title-section {
   display: flex;
   align-items: center;
   gap: 1rem;
 }
-
 .city-name {
   font-weight: bold;
   text-transform: uppercase;
   display: inline-flex;
   flex-direction: column;
   align-items: center;
-
   > span {
     display: inline-flex;
     flex-direction: column;
     align-items: center;
-
     &:first-child {
       font-size: 0.75rem;
       line-height: 1;
     }
-
     &:last-child {
       font-size: 1rem;
     }
   }
 }
-
 .official-text {
   display: flex;
   align-items: center;
   gap: 0.25rem;
   font-size: 0.875rem;
-
   .know-text {
     display: inline-flex;
     align-items: center;
@@ -63,27 +54,22 @@
     color: inherit;
     padding: 0;
     font-size: inherit;
-
     &:focus {
       outline: none;
       text-decoration-thickness: from-font;
       text-decoration-color: #f8d568;
     }
-
     &:hover {
       text-decoration-color: #f8d568;
     }
-
     .chevron-container {
       display: inline-flex;
       align-items: center;
       margin-left: 0.25rem;
-
       svg {
         transition: transform 0.2s ease;
         width: 12px;
         height: 12px;
-
         &[aria-expanded='true'] {
           transform: rotate(180deg);
         }
@@ -91,35 +77,37 @@
     }
   }
 }
-
 .content-container {
   background-color: #f8f9fa;
   width: 100%;
   border-top: 1px solid #dee2e6;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-in-out, padding 0.3s ease-in-out;
+  padding: 0 1rem;
+  &.visible {
+    max-height: 300px; /* Adjust this value based on your content height */
+    padding: 1.5rem 1rem;
+  }
 }
-
 .info-section {
   display: flex;
   justify-content: space-between;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 1.5rem 1rem;
   gap: 2rem;
 }
-
 .info-item {
   display: flex;
   gap: 1rem;
   align-items: flex-start;
   flex: 1;
-
   .info-title {
     margin: 0 0 0.5rem 0;
     font-size: 1rem;
     font-weight: 600;
     color: #212529;
   }
-
   p {
     margin: 0;
     line-height: 1.5;
@@ -127,7 +115,6 @@
     font-size: 0.875rem;
   }
 }
-
 .icon-circle {
   width: 48px;
   height: 48px;
@@ -139,13 +126,11 @@
   justify-content: center;
   flex-shrink: 0;
 }
-
 .gov-icon,
 .lock-icon {
   font-size: 1.5rem;
   color: #004445;
 }
-
 // Tablet and Mobile shared styles
 @include media-breakpoint-down(lg) {
   .official-text {
@@ -154,20 +139,17 @@
     min-width: 0;
     gap: 0.0625rem;
   }
-
   .know-text {
     display: flex;
     justify-content: center;
     margin-top: 0.0625rem;
     width: 100%;
   }
-
   .city-name {
     margin-top: 0.25rem;
     flex-shrink: 0;
   }
 }
-
 // Mobile-specific overrides
 @include media-breakpoint-down(sm) {
   .banner-header {
@@ -175,19 +157,15 @@
     padding-top: 0.75rem;
     padding-bottom: 0.75rem;
   }
-
   .official-text {
     align-items: flex-start;
     text-align: center;
     word-wrap: break-word;
   }
-
   .info-section {
     flex-direction: column;
-    padding: 1rem;
     gap: 1.5rem;
   }
-
   .info-item {
     width: 100%;
   }

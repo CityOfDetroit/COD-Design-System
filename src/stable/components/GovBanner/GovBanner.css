@@ -83,6 +83,16 @@
   background-color: #f8f9fa;
   width: 100%;
   border-top: 1px solid #dee2e6;
+  max-height: 0;
+  overflow: hidden;
+  transition:
+    max-height 0.3s ease-in-out,
+    padding 0.3s ease-in-out;
+  padding: 0 1em;
+}
+.content-container.visible {
+  max-height: 300px; /* Adjust this value based on your content height */
+  padding: 1.5em 1em;
 }
 
 .info-section {
@@ -90,7 +100,6 @@
   justify-content: space-between;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 1.5em 1em;
   gap: 2em;
 }
 
@@ -162,7 +171,6 @@
   }
   .info-section {
     flex-direction: column;
-    padding: 1em;
     gap: 1.5em;
   }
   .info-item {

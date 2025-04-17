@@ -21,12 +21,12 @@ template.innerHTML = `
               <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/>
             </svg>
             </span>
-          </button>     
+          </button>    
       </div>
     </div>
   </header>
-  <div id="content" class="content-container" hidden>
-    <div class="info-section">
+  <div id="content" class="content-container">
+    <div class="info-section" part="info-section">
       <div class="info-item">
         <div class="icon-circle">
           <span class="gov-icon">🏛️</span>
@@ -47,38 +47,31 @@ template.innerHTML = `
       </div>
     </div>
   </div>
-</div> 
+</div>
 `;
-
 class GovBanner extends HTMLElement {
   static get observedAttributes() {
     return ['expanded'];
   }
-
   constructor() {
     super();
     const shadow = this.attachShadow({ mode: 'open' });
     shadow.appendChild(template.content.cloneNode(true));
     this.expanded = false;
   }
-
   get expanded() {
     return this.hasAttribute('expanded');
   }
-
   set expanded(value) {
     const isExpanded = Boolean(value);
-
     if (isExpanded === this.expanded) {
       return;
     }
-
     if (isExpanded) {
       this.setAttribute('expanded', '');
     } else {
       this.removeAttribute('expanded');
     }
-
     this.dispatchEvent(
       new CustomEvent('expandedchange', {
         detail: { expanded: isExpanded },
@@ -86,23 +79,21 @@ class GovBanner extends HTMLElement {
       }),
     );
   }
-
   connectedCallback() {
     this._setupListeners();
     this._updateExpandedState(this.expanded);
   }
-
   disconnectedCallback() {
-    const toggle = this.shadowRoot.querySelector('.chevron-container');
-    toggle.removeEventListener('click', this._handleToggle);
+    const toggle = this.shadowRoot.querySelector('.know-text');
+    if (toggle) {
+      toggle.removeEventListener('click', this._handleToggle.bind(this));
+    }
   }
-
   attributeChangedCallback(name) {
     if (name === 'expanded') {
       this._updateExpandedState(this.hasAttribute('expanded'));
     }
   }
-
   _setupListeners() {
     const toggleButton = this.shadowRoot.querySelector('.know-text');
     if (toggleButton) {
@@ -112,22 +103,26 @@ class GovBanner extends HTMLElement {
   _handleToggle() {
     this.expanded = !this.expanded;
   }
-
   _updateExpandedState(isExpanded) {
     const content = this.shadowRoot.querySelector('#content');
     const button = this.shadowRoot.querySelector('.know-text');
     const chevron = this.shadowRoot.querySelector('.chevron-container svg');
-  
+ 
     if (content && button) {
       button.setAttribute('aria-expanded', isExpanded);
-      content.hidden = !isExpanded;
+      
+      // Use CSS class for animation instead of hidden attribute
+      if (isExpanded) {
+        content.classList.add('visible');
+      } else {
+        content.classList.remove('visible');
+      }
     }
-  
+ 
     if (chevron) {
       chevron.setAttribute('aria-expanded', isExpanded);
     }
   }
-  
 }
 
 export { GovBanner as default };
