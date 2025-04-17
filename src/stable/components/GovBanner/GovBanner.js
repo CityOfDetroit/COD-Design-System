@@ -107,10 +107,10 @@ class GovBanner extends HTMLElement {
     const content = this.shadowRoot.querySelector('#content');
     const button = this.shadowRoot.querySelector('.know-text');
     const chevron = this.shadowRoot.querySelector('.chevron-container svg');
- 
+
     if (content && button) {
       button.setAttribute('aria-expanded', isExpanded);
-      
+
       // Use CSS class for animation instead of hidden attribute
       if (isExpanded) {
         content.classList.add('visible');
@@ -118,7 +118,7 @@ class GovBanner extends HTMLElement {
         content.classList.remove('visible');
       }
     }
- 
+
     if (chevron) {
       chevron.setAttribute('aria-expanded', isExpanded);
     }
