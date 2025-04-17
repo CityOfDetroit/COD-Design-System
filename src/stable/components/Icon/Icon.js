@@ -20,10 +20,9 @@ class Icon extends HTMLElement {
 
   // Define reflective properties
   static get observedAttributes() {
-    return ['name', 'library', 'data-size', 'label', 'is-highlighted'];
+    return ['name', 'library', 'size'];
   }
 
-  // Getters and Setters for the attributes
   get name() {
     return this.getAttribute('name');
   }
@@ -41,19 +40,11 @@ class Icon extends HTMLElement {
   }
 
   get size() {
-    return this.getAttribute('data-size');
+    return this.getAttribute('size');
   }
 
   set size(value) {
-    this.setAttribute('data-size', value);
-  }
-
-  get label() {
-    return this.getAttribute('label');
-  }
-
-  set label(value) {
-    this.setAttribute('label', value);
+    this.setAttribute('size', value);
   }
 
   get isHighlighted() {
@@ -84,8 +75,8 @@ class Icon extends HTMLElement {
     const iconElement = this.shadowRoot.querySelector('.icon');
 
     // Get attributes (using the getter methods)
-    const icon = this.name || this.getAttribute('data-icon');
-    const label = this.label || icon;
+    const icon = this.name;
+    const label = icon;
     let size = this.size || '24'; // Default to 24 if no size provided
     const library = this.library || 'fontawesome';
 
