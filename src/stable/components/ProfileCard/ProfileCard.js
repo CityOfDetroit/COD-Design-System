@@ -158,10 +158,6 @@ class ProfileCard extends HTMLElement {
     this._validateNameSlot();
   }
 
-  getValidationError() {
-    return this._validationError;
-  }
-
   _updateImage(newValue) {
     const img = this.shadowRoot.querySelector('.profile-image');
     if (img) {
