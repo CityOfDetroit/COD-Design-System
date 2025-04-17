@@ -16,47 +16,58 @@ class Icon extends HTMLElement {
     super();
     this.attachShadow({ mode: 'open' });
     this.shadowRoot.appendChild(template.content.cloneNode(true));
-
-    // Internal properties for state management
-    this._name = '';
-    this._library = 'fontawesome';
-    this._size = '24';
   }
 
-  // Only observe the properties we want to be non-reflective
+  // Define reflective properties
   static get observedAttributes() {
-    return ['name', 'library', 'size', 'is-highlighted'];
+    return ['name', 'library', 'size', 'label', 'is-highlighted'];
+  }
+  // Getters and Setters for the attributes
+  get name() {
+    return this.getAttribute('name');
   }
 
-  // Getters only (no setters to prevent property-to-attribute reflection)
-  get name() {
-    return this._name;
+  set name(value) {
+    this.setAttribute('name', value);
   }
 
   get library() {
-    return this._library;
+    return this.getAttribute('library');
+  }
+
+  set library(value) {
+    this.setAttribute('library', value);
   }
 
   get size() {
-    return this._size;
+    return this.getAttribute('data-size');
+  }
+
+  set size(value) {
+    this.setAttribute('data-size', value);
+  }
+
+  get label() {
+    return this.getAttribute('label');
+  }
+
+  set label(value) {
+    this.setAttribute('label', value);
+  }
+
+  get isHighlighted() {
+    return this.hasAttribute('is-highlighted');
+  }
+
+  set isHighlighted(value) {
+    if (value) {
+      this.setAttribute('is-highlighted', '');
+    } else {
+      this.removeAttribute('is-highlighted');
+    }
   }
 
   connectedCallback() {
-    // Initialize internal properties from attributes
-    if (this.hasAttribute('name')) {
-      this._name = this.getAttribute('name');
-    }
-
-    if (this.hasAttribute('library')) {
-      this._library = this.getAttribute('library');
-    }
-
-    if (this.hasAttribute('size')) {
-      this._size = this.getAttribute('size');
-    } else if (this.hasAttribute('data-size')) {
-      this._size = this.getAttribute('data-size');
-    }
-
     if (this.isIconConnected()) {
       return;
     }
@@ -71,11 +82,11 @@ class Icon extends HTMLElement {
     const container = this.shadowRoot.querySelector('.icon-container');
     const iconElement = this.shadowRoot.querySelector('.icon');
 
-    // Use internal properties for rendering
-    const icon = this._name || this.getAttribute('data-icon');
-    const label = this.getAttribute('label') || icon;
-    let size = this._size || '24'; // Default to 24 if no size provided
-    const library = this._library || 'fontawesome';
+    // Get attributes (using the getter methods)
+    const icon = this.name || this.getAttribute('data-icon');
+    const label = this.label || icon;
+    let size = this.size || '24'; // Default to 24 if no size provided
+    const library = this.library || 'fontawesome';
 
     // Check if the font-size is set in the light DOM
     const style = window.getComputedStyle(this);
@@ -98,9 +109,7 @@ class Icon extends HTMLElement {
           size = '54';
           break;
         default:
-          if (isNaN(parseInt(size))) {
-            size = '24';
-          }
+          size = '24';
       }
     }
 
@@ -120,34 +129,16 @@ class Icon extends HTMLElement {
     iconElement.innerHTML = getIcon(icon, size, library);
 
     // Handle boolean attribute
-    if (this.hasAttribute('is-highlighted')) {
+    if (this.isHighlighted) {
       container.classList.add('highlighted');
-    } else {
-      container.classList.remove('highlighted');
     }
   }
 
-  // Handle attribute changes for observed attributes
+  // Handle attribute changes for reflective properties
   attributeChangedCallback(name, oldValue, newValue) {
-    if (oldValue === newValue) {
-      return;
+    if (oldValue !== newValue) {
+      this._renderIcon(); // Re-render the icon if any of the attributes change
     }
-
-    // Update internal properties when attributes change
-    switch (name) {
-      case 'name':
-        this._name = newValue || '';
-        break;
-      case 'library':
-        this._library = newValue || 'fontawesome';
-        break;
-      case 'size':
-        this._size = newValue || '24';
-        break;
-    }
-
-    // Re-render with updated internal properties
-    this._renderIcon();
   }
 }
 
