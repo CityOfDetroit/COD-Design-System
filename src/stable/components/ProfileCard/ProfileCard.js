@@ -24,9 +24,9 @@ class ProfileCard extends HTMLElement {
     const shadow = this.attachShadow({ mode: 'open' });
     shadow.appendChild(template.content.cloneNode(true));
 
-     // Internal properties
-     this._href = this.getAttribute('href') || '';
-     this._src = this.getAttribute('src') || '';
+    // Internal properties
+    this._href = this.getAttribute('href') || '';
+    this._src = this.getAttribute('src') || '';
   }
 
   static get observedAttributes() {
