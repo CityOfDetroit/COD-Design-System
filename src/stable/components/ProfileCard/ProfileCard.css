@@ -33,12 +33,24 @@ a.profile-card:hover {
   min-width: 0;
 }
 
+.name-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.chevron {
+  font-size: 1.25em;
+  line-height: 100%;
+  font-weight: 600;
+}
+
 ::slotted([slot='name']) {
   font-size: 1.25em;
   line-height: 100%;
   letter-spacing: 0%;
   font-weight: 600;
-  margin-bottom: 5px;
+  margin-right: 5px;
 }
 
 ::slotted([slot='title-primary']) {
