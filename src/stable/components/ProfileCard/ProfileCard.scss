@@ -7,6 +7,18 @@
   text-decoration: none;
 }
 
+a.profile-card {
+  color: inherit;
+  text-decoration: none;
+
+  &:visited,
+  &:active,
+  &:hover {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
 .profile-image {
   object-fit: cover;
   width: 20%;
@@ -27,6 +39,7 @@
   line-height: 100%;
   letter-spacing: 0%;
   font-weight: 600;
+  margin-bottom: 5px;
 }
 
 ::slotted([slot='title-primary']) {
@@ -34,6 +47,7 @@
   line-height: 100%;
   letter-spacing: 0%;
   font-weight: 400;
+  margin-bottom: 5px;
 }
 
 ::slotted([slot='title-secondary']) {
