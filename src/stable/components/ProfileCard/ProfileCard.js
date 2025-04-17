@@ -23,33 +23,32 @@ class ProfileCard extends HTMLElement {
     super();
     const shadow = this.attachShadow({ mode: 'open' });
     shadow.appendChild(template.content.cloneNode(true));
+
+     // Internal properties
+     this._href = this.getAttribute('href') || '';
+     this._src = this.getAttribute('src') || '';
   }
 
   static get observedAttributes() {
     return ['src', 'href'];
   }
 
-  get src() {
-    return this.getAttribute('src');
-  }
-
-  set src(value) {
-    this.setAttribute('src', value);
-  }
-
   get href() {
-    return this.getAttribute('href');
+    return this._href;
   }
 
-  set href(value) {
-    this.setAttribute('href', value);
+  get src() {
+    return this._src;
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
-    if (name === 'src') {
+    if (name === 'src' && newValue !== oldValue) {
+      this._src = newValue;
       this._updateImage(newValue);
     }
-    if (name === 'href') {
+
+    if (name === 'href' && newValue !== oldValue) {
+      this._href = newValue;
       this._updateLink(newValue);
     }
   }
@@ -59,10 +58,10 @@ class ProfileCard extends HTMLElement {
     this._updateLink(this.href);
   }
 
-  _updateImage(newValue) {
+  _updateImage(src) {
     const img = this.shadowRoot.querySelector('.profile-image');
     if (img) {
-      img.src = newValue || '';
+      img.src = src || 'default-profile-image.jpg'; // Fallback image if src is invalid
     }
   }
 
