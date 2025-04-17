@@ -58,7 +58,9 @@ class GovBanner extends HTMLElement {
     const shadow = this.attachShadow({ mode: 'open' });
     shadow.appendChild(template.content.cloneNode(true));
     this.expanded = false;
+    this._handleToggle = this._handleToggle.bind(this); 
   }
+  
   get expanded() {
     return this.hasAttribute('expanded');
   }
@@ -86,7 +88,7 @@ class GovBanner extends HTMLElement {
   disconnectedCallback() {
     const toggle = this.shadowRoot.querySelector('.know-text');
     if (toggle) {
-      toggle.removeEventListener('click', this._handleToggle.bind(this));
+      toggle.removeEventListener('click', this._handleToggle); 
     }
   }
   attributeChangedCallback(name) {
@@ -97,7 +99,7 @@ class GovBanner extends HTMLElement {
   _setupListeners() {
     const toggleButton = this.shadowRoot.querySelector('.know-text');
     if (toggleButton) {
-      toggleButton.addEventListener('click', this._handleToggle.bind(this));
+      toggleButton.addEventListener('click', this._handleToggle);  
     }
   }
   _handleToggle() {
