@@ -1,5 +1,17 @@
+:host {
+  --icon-color: inherit;
+  display: inline-block;
+}
+
 .icon-container {
   display: inline-block;
+  color: var(--icon-color);
+}
+.icon-container svg {
+  width: 100%;
+  height: 100%;
+  fill: currentColor;
+  stroke: currentColor;
 }
 
 .icon-container.highlighted {

@@ -40,19 +40,11 @@ class Icon extends HTMLElement {
   }
 
   get size() {
-    return this.getAttribute('data-size');
+    return this.getAttribute('size');
   }
 
   set size(value) {
-    this.setAttribute('data-size', value);
-  }
-
-  get label() {
-    return this.getAttribute('label');
-  }
-
-  set label(value) {
-    this.setAttribute('label', value);
+    this.setAttribute('size', value);
   }
 
   get isHighlighted() {

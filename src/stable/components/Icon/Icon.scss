@@ -1,6 +1,22 @@
+:host {
+  // Default to inheriting color from parent
+  --icon-color: inherit;
+  display: inline-block;
+}
+
 // /* Highlighted styles */
 .icon-container {
   display: inline-block;
+  color: var(--icon-color);
+
+  // Size will be controlled via the element itself or inherited from parent
+  svg {
+    width: 100%;
+    height: 100%;
+    // Ensure the SVG also inherits the color
+    fill: currentColor;
+    stroke: currentColor;
+  }
 }
 
 .icon-container.highlighted {
