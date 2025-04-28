@@ -15,23 +15,23 @@ export default {
 };
 
 export const Default = (args) => html`
-<style>
-.profile-card-name {
-  font-size: 1.25rem;
-  line-height: 100%;
-  letter-spacing: 0%;
-  font-weight: 600;
-  margin-right: 5px;
-}
+  <style>
+    .profile-card-name {
+      font-size: 1.25rem;
+      line-height: 100%;
+      letter-spacing: 0%;
+      font-weight: 600;
+      margin-right: 5px;
+    }
 
-.profile-card-title {
-  font-size: 1rem;
-  line-height: 100%;
-  letter-spacing: 0%;
-  font-weight: 400;
-  margin-bottom: 5px;
-}
-</style>
+    .profile-card-title {
+      font-size: 1rem;
+      line-height: 100%;
+      letter-spacing: 0%;
+      font-weight: 400;
+      margin-bottom: 5px;
+    }
+  </style>
   <cod-profile-card src=${args.src} href=${args.href}>
     <span slot="name" class="profile-card-name">${args.name}</span>
     <span slot="title" class="profile-card-title">${args.titlePrimary}</span>
@@ -49,23 +49,23 @@ Default.args = {
 
 export const Test = {
   render: () => html`
-  <style>
-.profile-card-name {
-  font-size: 1.25rem;
-  line-height: 100%;
-  letter-spacing: 0%;
-  font-weight: 600;
-  margin-right: 5px;
-}
+    <style>
+      .profile-card-name {
+        font-size: 1.25rem;
+        line-height: 100%;
+        letter-spacing: 0%;
+        font-weight: 600;
+        margin-right: 5px;
+      }
 
-.profile-card-title {
-  font-size: 1rem;
-  line-height: 100%;
-  letter-spacing: 0%;
-  font-weight: 400;
-  margin-bottom: 5px;
-}
-</style>
+      .profile-card-title {
+        font-size: 1rem;
+        line-height: 100%;
+        letter-spacing: 0%;
+        font-weight: 400;
+        margin-bottom: 5px;
+      }
+    </style>
     <cod-profile-card src="https://placehold.co/400" href="https://example.com">
       <span slot="name" class="profile-card-name">Jane Doe</span>
       <span slot="title" class="profile-card-title">Frontend Engineer</span>
