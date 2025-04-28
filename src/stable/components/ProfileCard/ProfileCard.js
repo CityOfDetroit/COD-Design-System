@@ -28,20 +28,29 @@ class ProfileCard extends HTMLElement {
     this._href = this.getAttribute('href') || '';
     this._src = this.getAttribute('src') || '';
     this._alt = this.getAttribute('alt') || 'Profile Image';
-    this._target = this.getAttribute('target') || '_blank'; 
-    this._rel = this.getAttribute('rel') || 'noopener noreferrer'; 
+    this._target = this.getAttribute('target') || '_blank';
+    this._rel = this.getAttribute('rel') || 'noopener noreferrer';
   }
 
   static get observedAttributes() {
     return ['src', 'href', 'alt', 'target', 'rel'];
   }
 
-
-  get href() { return this._href; }
-  get src() { return this._src; }
-  get alt() { return this._alt; }
-  get target() { return this._target; }
-  get rel() { return this._rel; }
+  get href() {
+    return this._href;
+  }
+  get src() {
+    return this._src;
+  }
+  get alt() {
+    return this._alt;
+  }
+  get target() {
+    return this._target;
+  }
+  get rel() {
+    return this._rel;
+  }
 
   attributeChangedCallback(name, oldValue, newValue) {
     if (name === 'src' && newValue !== oldValue) {
@@ -86,8 +95,8 @@ class ProfileCard extends HTMLElement {
     if (card) {
       if (this._href) {
         card.href = this._href;
-        card.target = this._target || '_blank'; 
-        card.rel = this._rel || 'noopener noreferrer'; 
+        card.target = this._target || '_blank';
+        card.rel = this._rel || 'noopener noreferrer';
       } else {
         card.removeAttribute('href');
         card.removeAttribute('target');
