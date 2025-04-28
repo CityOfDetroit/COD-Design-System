@@ -7,6 +7,7 @@ export default {
   title: 'Components/ProfileCard',
   argTypes: {
     src: { control: 'text', name: 'Image Source' },
+    alt: { control: 'text', name: 'Alt Text' },
     name: { control: 'text', name: 'Name' },
     titlePrimary: { control: 'text', name: 'Primary Title' },
     titleSecondary: { control: 'text', name: 'Secondary Title' },
@@ -32,7 +33,7 @@ export const Default = (args) => html`
       margin-bottom: 5px;
     }
   </style>
-  <cod-profile-card src=${args.src} href=${args.href}>
+  <cod-profile-card src=${args.src} href=${args.href} alt=${args.alt}>
     <span slot="name" class="profile-card-name">${args.name}</span>
     <span slot="title" class="profile-card-title">${args.titlePrimary}</span>
     <span slot="title" class="profile-card-title">${args.titleSecondary}</span>
@@ -41,6 +42,7 @@ export const Default = (args) => html`
 
 Default.args = {
   src: 'https://placehold.co/400',
+  alt: 'Photo of Jane Doe',
   name: 'Jane Doe',
   titlePrimary: 'Frontend Engineer',
   titleSecondary: 'Frontend Developer',
@@ -66,7 +68,7 @@ export const Test = {
         margin-bottom: 5px;
       }
     </style>
-    <cod-profile-card src="https://placehold.co/400" href="https://example.com">
+    <cod-profile-card src="https://placehold.co/400" href="https://example.com" alt="Photo of Jane Doe">
       <span slot="name" class="profile-card-name">Jane Doe</span>
       <span slot="title" class="profile-card-title">Frontend Engineer</span>
       <span slot="title" class="profile-card-title">Frontend Developer</span>
@@ -95,5 +97,10 @@ export const Test = {
     // Verify the target and rel attributes
     expect(link.getAttribute('target')).toBe('_blank');
     expect(link.getAttribute('rel')).toBe('noopener noreferrer');
+
+    // ===== TEST 3: Image Alt Text Test =====
+const expectedAlt = profileCard.getAttribute('alt') || 'Profile Image';
+expect(img.alt).toBe(expectedAlt);
+
   },
 };

@@ -27,10 +27,11 @@ class ProfileCard extends HTMLElement {
     // Internal properties
     this._href = this.getAttribute('href') || '';
     this._src = this.getAttribute('src') || '';
+    this._alt = this.getAttribute('alt') || 'Profile Image';
   }
 
   static get observedAttributes() {
-    return ['src', 'href'];
+    return ['src', 'href', 'alt'];
   }
 
   get href() {
@@ -39,6 +40,10 @@ class ProfileCard extends HTMLElement {
 
   get src() {
     return this._src;
+  }
+
+  get alt() {
+    return this._alt;
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
@@ -51,6 +56,10 @@ class ProfileCard extends HTMLElement {
       this._href = newValue;
       this._updateLink(newValue);
     }
+    if (name === 'alt' && newValue !== oldValue) {
+      this._alt = newValue;
+      this._updateImage();
+    }
   }
 
   connectedCallback() {
@@ -61,7 +70,8 @@ class ProfileCard extends HTMLElement {
   _updateImage(src) {
     const img = this.shadowRoot.querySelector('.profile-image');
     if (img) {
-      img.src = src || ''; // Fallback if src is invalid
+      img.src = src || ''; 
+      img.alt = this._alt || 'Profile Image';
     }
   }
 
