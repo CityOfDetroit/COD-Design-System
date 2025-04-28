@@ -61,7 +61,7 @@ class ProfileCard extends HTMLElement {
   _updateImage(src) {
     const img = this.shadowRoot.querySelector('.profile-image');
     if (img) {
-      img.src = src || 'default-profile-image.jpg'; // Fallback image if src is invalid
+      img.src = src || ""; // Fallback image if src is invalid
     }
   }
 
