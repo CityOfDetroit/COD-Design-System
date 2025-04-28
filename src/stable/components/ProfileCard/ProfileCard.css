@@ -48,20 +48,4 @@ a.profile-card:hover {
   font-weight: 600;
 }
 
-::slotted([slot='name']) {
-  font-size: 1.25em;
-  line-height: 100%;
-  letter-spacing: 0%;
-  font-weight: 600;
-  margin-right: 5px;
-}
-
-::slotted([slot='title']) {
-  font-size: 1em;
-  line-height: 100%;
-  letter-spacing: 0%;
-  font-weight: 400;
-  margin-bottom: 5px;
-}
-
 /*# sourceMappingURL=ProfileCard.css.map */

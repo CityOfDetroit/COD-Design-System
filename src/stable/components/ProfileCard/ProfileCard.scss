@@ -46,26 +46,3 @@ a.profile-card {
   line-height: 100%;
   font-weight: 600;
 }
-
-::slotted([slot='name']) {
-  font-size: 1.25rem;
-  line-height: 100%;
-  letter-spacing: 0%;
-  font-weight: 600;
-  margin-right: 5px;
-}
-
-::slotted([slot='title']) {
-  font-size: 1rem;
-  line-height: 100%;
-  letter-spacing: 0%;
-  font-weight: 400;
-  margin-bottom: 5px;
-}
-
-// ::slotted([slot='title-secondary']) {
-//   font-size: 1rem;
-//   line-height: 100%;
-//   letter-spacing: 0%;
-//   font-weight: 400;
-// }
