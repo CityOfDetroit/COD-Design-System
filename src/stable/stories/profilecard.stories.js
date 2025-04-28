@@ -68,7 +68,11 @@ export const Test = {
         margin-bottom: 5px;
       }
     </style>
-    <cod-profile-card src="https://placehold.co/400" href="https://example.com" alt="Photo of Jane Doe">
+    <cod-profile-card
+      src="https://placehold.co/400"
+      href="https://example.com"
+      alt="Photo of Jane Doe"
+    >
       <span slot="name" class="profile-card-name">Jane Doe</span>
       <span slot="title" class="profile-card-title">Frontend Engineer</span>
       <span slot="title" class="profile-card-title">Frontend Developer</span>
@@ -99,8 +103,7 @@ export const Test = {
     expect(link.getAttribute('rel')).toBe('noopener noreferrer');
 
     // ===== TEST 3: Image Alt Text Test =====
-const expectedAlt = profileCard.getAttribute('alt') || 'Profile Image';
-expect(img.alt).toBe(expectedAlt);
-
+    const expectedAlt = profileCard.getAttribute('alt') || 'Profile Image';
+    expect(img.alt).toBe(expectedAlt);
   },
 };

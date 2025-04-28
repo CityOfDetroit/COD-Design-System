@@ -70,7 +70,7 @@ class ProfileCard extends HTMLElement {
   _updateImage(src) {
     const img = this.shadowRoot.querySelector('.profile-image');
     if (img) {
-      img.src = src || ''; 
+      img.src = src || '';
       img.alt = this._alt || 'Profile Image';
     }
   }
