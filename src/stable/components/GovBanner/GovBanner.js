@@ -25,8 +25,7 @@ template.innerHTML = `
       </div>
     </div>
   </header>
-  <div id="content" class="content-container">
-    <div class="info-section" part="info-section">
+  <div id="content" class="content-container" part="content">
       <div class="info-item">
         <div class="icon-circle">
           <span class="gov-icon">🏛️</span>
