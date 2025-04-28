@@ -10,7 +10,7 @@ ${styles}
   <div class="profile-details">
     <div class="name-container">
       <slot name="name"></slot>
-      <span class="chevron">›</span>
+      <span class="chevron"></span>
     </div>
     <slot name="title"></slot>
     <slot name="title"></slot>
