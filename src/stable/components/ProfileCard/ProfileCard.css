@@ -56,19 +56,12 @@ a.profile-card:hover {
   margin-right: 5px;
 }
 
-::slotted([slot='title-primary']) {
+::slotted([slot='title']) {
   font-size: 1em;
   line-height: 100%;
   letter-spacing: 0%;
   font-weight: 400;
   margin-bottom: 5px;
-}
-
-::slotted([slot='title-secondary']) {
-  font-size: 1em;
-  line-height: 100%;
-  letter-spacing: 0%;
-  font-weight: 400;
 }
 
 /*# sourceMappingURL=ProfileCard.css.map */

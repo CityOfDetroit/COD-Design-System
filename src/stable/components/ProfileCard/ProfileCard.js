@@ -12,8 +12,8 @@ ${styles}
       <slot name="name"></slot>
       <span class="chevron">›</span>
     </div>
-    <slot name="title-primary"></slot>
-    <slot name="title-secondary"></slot>
+    <slot name="title"></slot>
+    <slot name="title"></slot>
   </div>
 </a>
 `;

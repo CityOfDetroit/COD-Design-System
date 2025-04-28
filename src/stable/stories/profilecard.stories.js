@@ -17,8 +17,8 @@ export default {
 export const Default = (args) => html`
   <cod-profile-card src=${args.src} href=${args.href}>
     <span slot="name">${args.name}</span>
-    <span slot="title-primary">${args.titlePrimary}</span>
-    <span slot="title-secondary">${args.titleSecondary}</span>
+    <span slot="title">${args.titlePrimary}</span>
+    <span slot="title">${args.titleSecondary}</span>
   </cod-profile-card>
 `;
 
@@ -34,8 +34,8 @@ export const Test = {
   render: () => html`
     <cod-profile-card src="https://placehold.co/400" href="https://example.com">
       <span slot="name">Jane Doe</span>
-      <span slot="title-primary">Frontend Engineer</span>
-      <span slot="title-secondary">Frontend Developer</span>
+      <span slot="title">Frontend Engineer</span>
+      <span slot="title">Frontend Developer</span>
     </cod-profile-card>
   `,
 
