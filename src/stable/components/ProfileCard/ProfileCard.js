@@ -74,6 +74,8 @@ class ProfileCard extends HTMLElement {
         card.rel = 'noopener noreferrer';
       } else {
         card.removeAttribute('href');
+        card.removeAttribute('target');
+        card.removeAttribute('rel');
       }
     }
   }
