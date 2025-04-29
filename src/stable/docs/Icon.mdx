@@ -54,6 +54,25 @@ data={JSON.stringify([
 ])}>
 </doc-js-properties-table>
 
+## Inheriting Size and Color from Parent
+
+You can control the `Icon` component's `size` and `color` using CSS inheritance from the parent element. This is useful when the `size` attribute is **not** set, allowing the icon to scale with `font-size` and adopt the parent’s `color`.
+
+### Example
+
+```html
+<style>
+  .large-icon-container {
+    font-size: 32px;
+    color: darkslateblue;
+  }
+</style>
+
+<div class="large-icon-container">
+  <cod-icon name="house" aria-label="House icon"></cod-icon>
+</div>
+```
+
 ## Events
 
 <doc-events-table 
