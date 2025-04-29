@@ -5,7 +5,7 @@
 
 .icon-container {
   display: inline-block;
-  color: var(--icon-color);
+  color: inherit;
 }
 .icon-container svg {
   width: 100%;

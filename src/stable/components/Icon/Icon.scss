@@ -7,7 +7,7 @@
 // /* Highlighted styles */
 .icon-container {
   display: inline-block;
-  color: var(--icon-color);
+  color: inherit;
 
   // Size will be controlled via the element itself or inherited from parent
   svg {
