@@ -131,7 +131,7 @@ SizeInheritance.args = {
 
 export const ColorInheritance = Template.bind({});
 ColorInheritance.args = {
-  icon: 'heart',
+  icon: 'house',
   parentSize: 'default',
   iconSize: 'large',
   parentColor: '#FF5733',
@@ -142,7 +142,7 @@ ColorInheritance.args = {
 
 export const BothInheritance = Template.bind({});
 BothInheritance.args = {
-  icon: 'star',
+  icon: 'house',
   parentSize: '64px',
   iconSize: 'inherit',
   parentColor: '#3366FF',
@@ -153,7 +153,7 @@ BothInheritance.args = {
 
 export const NoInheritance = Template.bind({});
 NoInheritance.args = {
-  icon: 'check',
+  icon: 'house',
   parentSize: '64px',
   iconSize: 'small',
   parentColor: '#3366FF',
@@ -164,7 +164,7 @@ NoInheritance.args = {
 
 export const HighlightedWithInheritance = Template.bind({});
 HighlightedWithInheritance.args = {
-  icon: 'bell',
+  icon: 'house',
   parentSize: '48px',
   iconSize: 'inherit',
   parentColor: '#6633CC',
