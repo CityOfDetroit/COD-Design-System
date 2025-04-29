@@ -51,14 +51,6 @@ class Icon extends HTMLElement {
     return this.hasAttribute('is-highlighted');
   }
 
-  set isHighlighted(value) {
-    if (value) {
-      this.setAttribute('is-highlighted', '');
-    } else {
-      this.removeAttribute('is-highlighted');
-    }
-  }
-
   connectedCallback() {
     if (this.isIconConnected()) {
       return;
