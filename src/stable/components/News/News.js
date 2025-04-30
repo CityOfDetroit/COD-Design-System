@@ -12,9 +12,9 @@ ${styles}
 `;
 
 class News extends HTMLElement {
-    constructor() {
-        super();
-    }
+  constructor() {
+    super();
+  }
 }
 
 export { News as default };
