@@ -16,7 +16,8 @@ const Template = (args) => {
   const event = document.createElement('cod-event');
 
   // Title
-  const title = document.createElement('span');
+  const title = document.createElement('a');
+  title.setAttribute('href', 'https://www.example.com');
   title.slot = 'event-title';
   title.textContent = args.title;
   event.appendChild(title);
@@ -27,11 +28,6 @@ const Template = (args) => {
 
   // Location
   const location = document.createElement('span');
-
-  // Location Icon
-  const locationIcon = document.createElement('span');
-
-  event.appendChild(locationIcon);
 
   location.slot = 'event-location';
   // Virtual Event
@@ -59,4 +55,3 @@ Default.args = {
   location: 'Conference Room',
   type: 'Meeting',
 };
-
