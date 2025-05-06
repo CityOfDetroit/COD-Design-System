@@ -1,0 +1,51 @@
+.event-container {
+    width: fit-content;
+    min-width: 340px;
+    height: 75px;
+    display: flex;
+  
+    .date-info {
+      background-color: #004445;
+      justify-content: center;  
+      text-align: center;
+      flex: 0;
+      color: white;
+      font-weight: lighter;
+      padding: 3px 20px;
+      line-height: normal;
+  
+      .event-date {
+        color: white;
+        flex: 0;
+        font-weight: 900;
+        display: flex;
+      }
+  }   
+  
+  .event-info {
+      flex: 3;
+      padding: 5px 10px;
+  
+      .event-title ::slotted(span) {
+        border-bottom: 3px solid #279989;
+      }
+      
+      .info-row {
+          display: flex;
+          margin-top: 10px;
+          
+          .info-item {
+              flex-grow: 1;
+            }
+    
+            .event-time {
+              font-weight: 900;
+            }
+      }
+    }
+  
+  
+    
+  
+  }
+  
