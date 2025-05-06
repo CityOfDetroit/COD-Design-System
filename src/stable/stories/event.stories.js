@@ -60,11 +60,3 @@ Default.args = {
   type: 'Meeting',
 };
 
-// slotted (slotchange leave text content)
-//      title -- location -- tag
-
-// attributes
-//      start time/date (see format)
-
-// styles
-// min-width 340px grow to fit cont ------ see figma for rest
