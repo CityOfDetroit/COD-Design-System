@@ -25,24 +25,24 @@
   .event-info {
     flex: 3;
     padding: 5px 10px;
-    
+
     .event-title {
-        display: flex;
+      display: flex;
 
-     ::slotted(a) {
-      text-decoration: none !important;
-      border-bottom: 3px solid #279989 !important;
-      color: #000 !important;
-    }
+      ::slotted(a) {
+        text-decoration: none !important;
+        border-bottom: 3px solid #279989 !important;
+        color: #000 !important;
+      }
 
-    .event-title:hover svg {
-      transform: translate(5px, 0px);
+      .event-title:hover svg {
+        transform: translate(5px, 0px);
+      }
+      svg {
+        top: 5px;
+        position: relative;
+      }
     }
-        svg {
-      top: 5px;
-      position: relative;
-    }
-  }
 
     .info-row {
       display: flex;
