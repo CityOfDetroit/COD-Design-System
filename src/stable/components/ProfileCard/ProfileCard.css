@@ -52,7 +52,7 @@ a.profile-card:hover {
   transition: transform 0.2s ease;
 }
 
-.name-container:hover .chevron {
+.profile-card:hover .chevron {
   transform: translateX(4px);
 }
 
