@@ -13,7 +13,6 @@ ${styles}
       <span class="chevron"></span>
     </div>
     <slot name="title"></slot>
-    <slot name="title"></slot>
   </div>
 </a>
 `;
