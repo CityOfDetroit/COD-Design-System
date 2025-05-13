@@ -54,30 +54,30 @@ class GovBanner extends HTMLElement {
   static get observedAttributes() {
     return ['expanded'];
   }
-  
+
   constructor() {
     super();
     const shadow = this.attachShadow({ mode: 'open' });
     shadow.appendChild(template.content.cloneNode(true));
     this.expanded = false;
   }
-  
+
   get expanded() {
     return this.hasAttribute('expanded');
   }
-  
+
   set expanded(value) {
     const isExpanded = Boolean(value);
     if (isExpanded === this.expanded) {
       return;
     }
-    
+
     if (isExpanded) {
       this.setAttribute('expanded', '');
     } else {
       this.removeAttribute('expanded');
     }
-    
+
     this.dispatchEvent(
       new CustomEvent('expandedchange', {
         detail: { expanded: isExpanded },
@@ -85,45 +85,45 @@ class GovBanner extends HTMLElement {
       }),
     );
   }
-  
+
   connectedCallback() {
     this._setupListeners();
     this._updateExpandedState(this.expanded);
   }
-  
+
   disconnectedCallback() {
     const toggleButton = this.shadowRoot.querySelector('.know-text');
     if (toggleButton) {
       toggleButton.removeEventListener('click', this._handleToggle.bind(this));
     }
   }
-  
+
   attributeChangedCallback(name) {
     if (name === 'expanded') {
       this._updateExpandedState(this.hasAttribute('expanded'));
     }
   }
-  
+
   _setupListeners() {
     const toggleButton = this.shadowRoot.querySelector('.know-text');
     if (toggleButton) {
       toggleButton.addEventListener('click', this._handleToggle.bind(this));
     }
   }
-  
+
   _handleToggle() {
     this.expanded = !this.expanded;
   }
-  
+
   _updateExpandedState(isExpanded) {
     const content = this.shadowRoot.querySelector('#content');
     const button = this.shadowRoot.querySelector('.know-text');
     const chevron = this.shadowRoot.querySelector('.chevron-container svg');
-    
+
     if (content && button && chevron) {
       button.setAttribute('aria-expanded', isExpanded);
       content.hidden = !isExpanded;
-      
+
       // Rotate the chevron when expanded
       if (isExpanded) {
         chevron.classList.add('rotated');
