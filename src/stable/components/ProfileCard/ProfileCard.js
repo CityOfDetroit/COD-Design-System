@@ -24,11 +24,11 @@ class ProfileCard extends HTMLElement {
     shadow.appendChild(template.content.cloneNode(true));
 
     // Internal properties
-    this._href = this.getAttribute('href') || '';
-    this._src = this.getAttribute('src') || '';
-    this._alt = this.getAttribute('alt') || 'Profile Image';
-    this._target = this.getAttribute('target') || '_blank';
-    this._rel = this.getAttribute('rel') || 'noopener noreferrer';
+    this._href = this.getAttribute('href');
+    this._src = this.getAttribute('src');
+    this._alt = this.getAttribute('alt');
+    this._target = this.getAttribute('target');
+    this._rel = this.getAttribute('rel');
   }
 
   static get observedAttributes() {
