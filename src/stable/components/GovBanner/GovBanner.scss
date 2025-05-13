@@ -1,11 +1,13 @@
 @import 'bootstrap/scss/functions';
 @import 'bootstrap/scss/variables';
 @import 'bootstrap/scss/mixins';
+
 .banner-container {
   width: 100%;
   background-color: #004445;
   color: white;
 }
+
 .banner-header {
   display: flex;
   justify-content: center;
@@ -14,11 +16,13 @@
   max-width: 1200px;
   margin: 0 auto;
 }
+
 .title-section {
   display: flex;
   align-items: center;
   gap: 1rem;
 }
+
 .city-name {
   font-weight: bold;
   text-transform: uppercase;
@@ -38,6 +42,7 @@
     }
   }
 }
+
 .official-text {
   display: flex;
   align-items: center;
@@ -67,42 +72,44 @@
       align-items: center;
       margin-left: 0.25rem;
       svg {
-        transition: transform 0.2s ease;
+        transition: transform 0.3s ease-in-out;
         width: 12px;
         height: 12px;
-        &[aria-expanded='true'] {
+        &.rotated {
           transform: rotate(180deg);
         }
       }
     }
   }
 }
+
 .content-container {
-  display: flex;
-  flex-wrap: wrap;
   background-color: #f8f9fa;
   width: 100%;
   border-top: 1px solid #dee2e6;
   max-height: 0;
   overflow: hidden;
-  transition:
-    max-height 0.3s ease-in-out,
-    padding 0.3s ease-in-out;
-  max-width: 1200px;
-  margin: 0 auto;
-  &.visible {
-    max-height: none;
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
+  transition: max-height 0.3s ease-in-out;
+
+  &:not([hidden]) {
+    max-height: 500px; /* Adjust as needed based on content height */
   }
 }
+
+.info-section {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.5rem 1rem;
+  gap: 2rem;
+}
+
 .info-item {
   display: flex;
-  flex: 1 1 45%;
   gap: 1rem;
   align-items: flex-start;
   flex: 1;
-  padding: 0 1rem;
   .info-title {
     margin: 0 0 0.5rem 0;
     font-size: 1rem;
@@ -116,6 +123,7 @@
     font-size: 0.875rem;
   }
 }
+
 .icon-circle {
   width: 48px;
   height: 48px;
@@ -127,11 +135,13 @@
   justify-content: center;
   flex-shrink: 0;
 }
+
 .gov-icon,
 .lock-icon {
   font-size: 1.5rem;
   color: #004445;
 }
+
 // Tablet and Mobile shared styles
 @include media-breakpoint-down(lg) {
   .official-text {
@@ -151,6 +161,7 @@
     flex-shrink: 0;
   }
 }
+
 // Mobile-specific overrides
 @include media-breakpoint-down(sm) {
   .banner-header {
@@ -163,8 +174,9 @@
     text-align: center;
     word-wrap: break-word;
   }
-  .content-container {
+  .info-section {
     flex-direction: column;
+    padding: 1rem;
     gap: 1.5rem;
   }
   .info-item {
