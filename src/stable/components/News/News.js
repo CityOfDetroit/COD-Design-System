@@ -32,25 +32,22 @@ class News extends HTMLElement {
     shadow.appendChild(template.content.cloneNode(true));
   }
 
-  static get observedAttributes(){
-    return['datetime'];
+  static get observedAttributes() {
+    return ['datetime'];
   }
 
-  attributeChangedCallback(name, oldValue, newValue){
-    if(name === 'date'){
+  attributeChangedCallback(name, oldValue, newValue) {
+    if (name === 'date') {
       this.formatDate(newValue);
     }
   }
 
-  connectedCallback(){
-  const date = this.getAttribute('date');
-  this.formatDate(date);
+  connectedCallback() {
+    const date = this.getAttribute('date');
+    this.formatDate(date);
   }
 
-
-  formatDate() {
-
-  }
+  formatDate() {}
 }
 
 export { News as default };
