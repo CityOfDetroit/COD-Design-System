@@ -26,16 +26,16 @@
   flex-direction: column;
   align-items: center;
 }
-.city-name > span {
+.city-name span {
   display: inline-flex;
   flex-direction: column;
   align-items: center;
 }
-.city-name > span:first-child {
+.city-name span:first-child {
   font-size: 0.75em;
   line-height: 1;
 }
-.city-name > span:last-child {
+.city-name span:last-child {
   font-size: 1em;
 }
 
@@ -70,12 +70,13 @@
   align-items: center;
   margin-left: 0.25em;
 }
-.official-text .know-text .chevron-container svg {
+
+.chevron-container svg {
   transition: transform 0.3s ease-in-out;
   width: 12px;
   height: 12px;
 }
-.official-text .know-text .chevron-container svg.rotated {
+.chevron-container svg.rotated {
   transform: rotate(180deg);
 }
 
@@ -83,12 +84,9 @@
   background-color: #f8f9fa;
   width: 100%;
   border-top: 1px solid #dee2e6;
-  max-height: 0;
   overflow: hidden;
-  transition: max-height 0.3s ease-in-out;
-}
-.content-container:not([hidden]) {
-  max-height: 500px; /* Adjust as needed based on content height */
+  transition: height 0.3s ease-out;
+  height: 0;
 }
 
 .info-section {
