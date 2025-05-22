@@ -15,13 +15,13 @@
 //       <div class="official-text">
 //         An official website of the City of Detroit.
 //         <button class="know-text" aria-expanded="false" aria-controls="content">
-//         Here's how you know  
-//         <span class="chevron-container">                
+//         Here's how you know
+//         <span class="chevron-container">
 //             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
 //               <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/>
 //             </svg>
 //             </span>
-//           </button>    
+//           </button>
 //       </div>
 //     </div>
 //   </header>
@@ -123,7 +123,7 @@
 //     if (content && button && chevron) {
 //       button.setAttribute('aria-expanded', isExpanded);
 //       content.hidden = !isExpanded;
-  
+
 //       // Rotate the chevron when expanded
 //       if (isExpanded) {
 //         chevron.classList.add('rotated');
@@ -255,22 +255,22 @@ class GovBanner extends HTMLElement {
     const content = this.shadowRoot.querySelector('#content');
     const button = this.shadowRoot.querySelector('.know-text');
     const chevron = this.shadowRoot.querySelector('.chevron-container svg');
-    
+
     if (!content || !button || !chevron) return;
-    
+
     button.setAttribute('aria-expanded', isExpanded);
-    
+
     if (isExpanded) {
       // Get the actual height of the content
       const contentHeight = content.scrollHeight;
-      
+
       // Set the height to that exact value for smooth animation
       content.style.height = contentHeight + 'px';
       chevron.classList.add('rotated');
     } else {
       // Force a repaint to ensure the animation works
       content.offsetHeight;
-      
+
       // Set height to 0 to animate the closing
       content.style.height = '0';
       chevron.classList.remove('rotated');
