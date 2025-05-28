@@ -88,7 +88,6 @@ class Event extends HTMLElement {
     const eventTime = this.shadowRoot.querySelector('.event-time');
     eventTime.appendChild(timeSpan);
   }
-
 }
 
 export default Event;

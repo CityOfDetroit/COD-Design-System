@@ -37,7 +37,7 @@ const Template = (args) => {
   // Location
   const location = document.createElement('span');
   location.slot = 'event-location';
- 
+
   // Virtual Event
   if (args.virutalEvent === true) {
     location.textContent = 'Virtual Event';
@@ -60,35 +60,45 @@ const Template = (args) => {
 export const Default = Template.bind({});
 
 Default.args = {
-
   title: 'DDOT Virtual Community Input Meeting',
   location: 'Conference Room',
   tag: 'Meeting',
 };
 
-
-export  const TagLink = {
+export const TagLink = {
   tags: ['!dev'],
   render: () => {
     return html`
-    <cod-event datetime="1747248282510">
-      <a href="https://www.example.com" slot="event-title">DDOT Virtual Community Input Meeting</a>
-      <span slot="event-location">Conference Room</span>
-      <span slot="event-tag"><cod-tag><a href="https://www.example.com" slot="label">Click Me</a></cod-tag></span>
-    </cod-event>
+      <cod-event datetime="1747248282510">
+        <a href="https://www.example.com" slot="event-title"
+          >DDOT Virtual Community Input Meeting</a
+        >
+        <span slot="event-location">Conference Room</span>
+        <span slot="event-tag"
+          ><cod-tag
+            ><a href="https://www.example.com" slot="label"
+              >Click Me</a
+            ></cod-tag
+          ></span
+        >
+      </cod-event>
     `;
   },
 };
-
 
 export const Test = {
   tags: ['!dev'],
   render: () => {
     return html`
-<cod-event datetime="1747248282510"><a href="https://www.example.com" slot="event-title">DDOT Virtual Community Input Meeting</a><span slot="event-location">Conference Room</span><span slot="event-type">
-  <cod-tag><span slot="label">Meeting</span></cod-tag>
-  </span></cod-event>
-      `;
+      <cod-event datetime="1747248282510"
+        ><a href="https://www.example.com" slot="event-title"
+          >DDOT Virtual Community Input Meeting</a
+        ><span slot="event-location">Conference Room</span
+        ><span slot="event-type">
+          <cod-tag><span slot="label">Meeting</span></cod-tag>
+        </span></cod-event
+      >
+    `;
   },
   play: async ({ canvasElement }) => {
     const event = canvasElement.querySelector('cod-event');
@@ -97,11 +107,9 @@ export const Test = {
 
     // Tests if title slot is empty
     expect(titleSlot).not.toBeNull();
-    
+
     // Test if title is a link
     const titleLink = titleSlot.assignedElements()[0];
     expect(titleLink.tagName).toBe('A');
-
   },
 };
-

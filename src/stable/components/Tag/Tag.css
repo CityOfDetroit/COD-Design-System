@@ -1,9 +1,8 @@
 .tag-container {
   display: inline;
 
-   ::slotted(a) {
+  ::slotted(a) {
     text-decoration: none !important;
     color: #000 !important;
   }
-  
 }
