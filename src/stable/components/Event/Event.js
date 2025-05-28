@@ -33,8 +33,8 @@ template.innerHTML = `
             <slot name="location-icon"></slot>
             <slot name="event-location"></slot>
           </div>
-          <div class="info-item event-type">
-            <slot name="event-type"></slot>
+          <div class="info-item event-tag">
+            <slot name="event-tag"></slot>
           </div>
         </div>
       </div>
@@ -88,6 +88,7 @@ class Event extends HTMLElement {
     const eventTime = this.shadowRoot.querySelector('.event-time');
     eventTime.appendChild(timeSpan);
   }
+
 }
 
 export default Event;

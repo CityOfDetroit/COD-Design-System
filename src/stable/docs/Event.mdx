@@ -1,0 +1,82 @@
+import {
+  Meta,
+  Canvas,
+  Title,
+  Subtitle,
+  Description,
+  Primary,
+  Controls,
+  Stories,
+  Story,
+  Source,
+} from '@storybook/blocks';
+import * as EventStories from '../stories/event.stories';
+
+import '../../../.storybook/docs'; // Import all documentation components
+
+<Meta of={EventStories} />
+
+# Event
+
+<div className="component-summary">
+  Event element will be used within Department pages to display Event information
+</div>
+
+## Usage
+
+<Canvas of={EventStories.Default} />
+
+<Controls of={EventStories.Default} />
+
+## 
+<Canvas of={EventStories.TagLink} />
+
+## Slots
+
+<doc-slots-table
+data={JSON.stringify([
+{"name": "title", "description": "Allows users to input the title of the Event."},
+{"name": "location", "description": "Allows users to select TRUE for virutal meetings and false to input the event location"},
+{"name": "tag", "description": "Uses the Tag component to specify the type of event"},
+])}>
+</doc-slots-table>
+
+## HTML Attributes / JS Properties
+
+<doc-js-properties-table
+    data={JSON.stringify([
+    {"name": "datetime", "description": " datetime attribute represent a machine-readable format of a <time> element."},
+    ])}>
+</doc-js-properties-table>
+
+## Events
+
+<doc-events-table 
+  data={JSON.stringify([])}>
+</doc-events-table>
+
+## Methods
+
+<doc-methods-table 
+  data={JSON.stringify([])}>
+</doc-methods-table>
+
+## Custom CSS Properties
+
+<doc-css-custom-properties-table 
+  data={JSON.stringify([])}>
+</doc-css-custom-properties-table>
+
+## CSS Parts
+
+<doc-css-parts-table 
+  data={JSON.stringify([])}>
+</doc-css-parts-table>
+
+## Dependencies
+
+<doc-dependencies-list data={JSON.stringify([])}></doc-dependencies-list>
+
+## Accessibility
+
+event components are designed to be accessible by default.
