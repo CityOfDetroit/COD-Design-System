@@ -35,13 +35,14 @@
         color: #000 !important;
       }
 
-      .event-title:hover svg {
-        transform: translate(5px, 0px);
-      }
       svg {
         top: 5px;
         position: relative;
       }
+    }
+
+    .event-title:hover svg {
+      transform: translate(5px, 0px);
     }
 
     .info-row {

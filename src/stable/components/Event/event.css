@@ -32,12 +32,12 @@
   border-bottom: 3px solid #279989 !important;
   color: #000 !important;
 }
-.event-container .event-info .event-title .event-title:hover svg {
-  transform: translate(5px, 0px);
-}
 .event-container .event-info .event-title svg {
   top: 5px;
   position: relative;
+}
+.event-container .event-info .event-title:hover svg {
+  transform: translate(5px, 0px);
 }
 .event-container .event-info .info-row {
   display: flex;
