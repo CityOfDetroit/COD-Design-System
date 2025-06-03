@@ -132,7 +132,7 @@ const createConfig = (options) => {
             },
           },
         },
-        runtimeChunk: 'single',
+        runtimeChunk: false,
       },
       devServer: {
         port,
