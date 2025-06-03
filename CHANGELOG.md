@@ -1,3 +1,9 @@
+# v3.0.0-alpha.4 (Tue Jun 03 2025)
+
+#### 🐛 Bug Fix
+
+- [Remove experimental component imports in stable](https://github.com/CityOfDetroit/COD-Design-System/pull/342)
+
 # v3.0.0-alpha.3 (Tue Jun 03 2025)
 
 #### 🐛 Bug Fix

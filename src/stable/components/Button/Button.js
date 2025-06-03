@@ -1,5 +1,4 @@
 import styles from '!!raw-loader!./Button.css';
-import '../../../experimental/components/atoms/Spinner/cod-spinner';
 
 const template = document.createElement('template');
 template.innerHTML = `
