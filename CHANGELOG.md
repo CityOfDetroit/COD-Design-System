@@ -1,5 +1,11 @@
 # v3.0.0-alpha.2 (Wed Apr 16 2025)
 
+#### 🐛 Bug Fix
+
+- [Disable runtime chunk splitting](https://github.com/CityOfDetroit/COD-Design-System/pull/341)
+
+# v3.0.0-alpha.2 (Wed Apr 16 2025)
+
 #### 🚀 Enhancement
 
 - [Rewrite card and move to stable](https://github.com/CityOfDetroit/COD-Design-System/pull/330)
