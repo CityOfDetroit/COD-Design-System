@@ -20,6 +20,12 @@
 
 - [Refactor stylesheets for lean SCSS imports](https://github.com/CityOfDetroit/COD-Design-System/pull/321)
 
+# v2.0.6 (Tues Jun 03 2025)
+
+#### 🐛 Bug Fix
+
+- [Disable runtime chunk splitting](https://github.com/CityOfDetroit/COD-Design-System/pull/340)
+
 # v2.0.5 (Thu Mar 13 2025)
 
 #### 🐛 Bug Fix
