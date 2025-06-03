@@ -1,5 +1,6 @@
 import '../components/Button/cod-button.js';
 import '../../experimental/components/atoms/Icon/cod-icon.js';
+import '../../experimental/components/atoms/Spinner/cod-spinner';
 
 const variants = [
   'default',
