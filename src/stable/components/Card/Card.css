@@ -1,7 +1,7 @@
 .card {
-  --cod-card-spacer-y: 1rem;
-  --cod-card-spacer-x: 1rem;
-  --cod-card-title-spacer-y: 0.5rem;
+  --cod-card-spacer-y: 1em;
+  --cod-card-spacer-x: 1em;
+  --cod-card-title-spacer-y: 0.5em;
   --cod-card-title-color: ;
   --cod-card-subtitle-color: ;
   --cod-card-border-width: var(--cod-border-width);
@@ -11,15 +11,15 @@
   --cod-card-inner-border-radius: calc(
     var(--cod-border-radius) - (var(--cod-border-width))
   );
-  --cod-card-cap-padding-y: 0.5rem;
-  --cod-card-cap-padding-x: 1rem;
+  --cod-card-cap-padding-y: 0.5em;
+  --cod-card-cap-padding-x: 1em;
   --cod-card-cap-bg: rgba(var(--cod-body-color-rgb), 0.03);
   --cod-card-cap-color: ;
   --cod-card-height: ;
   --cod-card-color: ;
   --cod-card-bg: var(--cod-body-bg);
-  --cod-card-img-overlay-padding: 1rem;
-  --cod-card-group-margin: 0.75rem;
+  --cod-card-img-overlay-padding: 1em;
+  --cod-card-group-margin: 0.75em;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -216,7 +216,7 @@
     rgba(255, 255, 255, 0)
   );
   --cod-body-font-family: var(--cod-font-sans-serif);
-  --cod-body-font-size: 1rem;
+  --cod-body-font-size: 1em;
   --cod-body-font-weight: 400;
   --cod-body-line-height: 1.5;
   --cod-body-color: #212529;
@@ -244,18 +244,18 @@
   --cod-border-style: solid;
   --cod-border-color: #dee2e6;
   --cod-border-color-translucent: rgba(0, 0, 0, 0.175);
-  --cod-border-radius: 0.375rem;
-  --cod-border-radius-sm: 0.25rem;
-  --cod-border-radius-lg: 0.5rem;
-  --cod-border-radius-xl: 1rem;
-  --cod-border-radius-xxl: 2rem;
+  --cod-border-radius: 0.375em;
+  --cod-border-radius-sm: 0.25em;
+  --cod-border-radius-lg: 0.5em;
+  --cod-border-radius-xl: 1em;
+  --cod-border-radius-xxl: 2em;
   --cod-border-radius-2xl: var(--cod-border-radius-xxl);
-  --cod-border-radius-pill: 50rem;
-  --cod-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
-  --cod-box-shadow-sm: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
-  --cod-box-shadow-lg: 0 1rem 3rem rgba(0, 0, 0, 0.175);
+  --cod-border-radius-pill: 50em;
+  --cod-box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.15);
+  --cod-box-shadow-sm: 0 0.125em 0.25em rgba(0, 0, 0, 0.075);
+  --cod-box-shadow-lg: 0 1em 3em rgba(0, 0, 0, 0.175);
   --cod-box-shadow-inset: inset 0 1px 2px rgba(0, 0, 0, 0.075);
-  --cod-focus-ring-width: 0.25rem;
+  --cod-focus-ring-width: 0.25em;
   --cod-focus-ring-opacity: 1;
   --cod-focus-ring-color: blue;
   --cod-form-valid-color: #9fd5b3;

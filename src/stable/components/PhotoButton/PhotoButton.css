@@ -1,8 +1,8 @@
 .btn {
-  --cod-btn-padding-x: 0.75rem;
-  --cod-btn-padding-y: 0.375rem;
+  --cod-btn-padding-x: 0.75em;
+  --cod-btn-padding-y: 0.375em;
   --cod-btn-font-family: ;
-  --cod-btn-font-size: 1rem;
+  --cod-btn-font-size: 1em;
   --cod-btn-font-weight: 400;
   --cod-btn-line-height: 1.5;
   --cod-btn-color: var(--cod-body-color);
@@ -14,7 +14,7 @@
   --cod-btn-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15),
     0 1px 1px rgba(0, 0, 0, 0.075);
   --cod-btn-disabled-opacity: 0.65;
-  --cod-btn-focus-box-shadow: 0 0 0 0.25rem
+  --cod-btn-focus-box-shadow: 0 0 0 0.25em
     rgba(var(--cod-btn-focus-shadow-rgb), 0.5);
   display: inline-block;
   padding: var(--cod-btn-padding-y) var(--cod-btn-padding-x);
@@ -452,16 +452,16 @@ fieldset:disabled .btn {
 }
 
 .btn-lg {
-  --cod-btn-padding-y: 0.5rem;
-  --cod-btn-padding-x: 1rem;
-  --cod-btn-font-size: 1.25rem;
+  --cod-btn-padding-y: 0.5em;
+  --cod-btn-padding-x: 1em;
+  --cod-btn-font-size: 1.25em;
   --cod-btn-border-radius: var(--cod-border-radius-lg);
 }
 
 .btn-sm {
-  --cod-btn-padding-y: 0.25rem;
-  --cod-btn-padding-x: 0.5rem;
-  --cod-btn-font-size: 1rem;
+  --cod-btn-padding-y: 0.25em;
+  --cod-btn-padding-x: 0.5em;
+  --cod-btn-font-size: 1em;
   --cod-btn-border-radius: var(--cod-border-radius-sm);
 }
 
@@ -544,7 +544,7 @@ fieldset:disabled .btn {
     rgba(255, 255, 255, 0)
   );
   --cod-body-font-family: var(--cod-font-sans-serif);
-  --cod-body-font-size: 1rem;
+  --cod-body-font-size: 1em;
   --cod-body-font-weight: 400;
   --cod-body-line-height: 1.5;
   --cod-body-color: #212529;
@@ -572,18 +572,18 @@ fieldset:disabled .btn {
   --cod-border-style: solid;
   --cod-border-color: #dee2e6;
   --cod-border-color-translucent: rgba(0, 0, 0, 0.175);
-  --cod-border-radius: 0.375rem;
-  --cod-border-radius-sm: 0.25rem;
-  --cod-border-radius-lg: 0.5rem;
-  --cod-border-radius-xl: 1rem;
-  --cod-border-radius-xxl: 2rem;
+  --cod-border-radius: 0.375em;
+  --cod-border-radius-sm: 0.25em;
+  --cod-border-radius-lg: 0.5em;
+  --cod-border-radius-xl: 1em;
+  --cod-border-radius-xxl: 2em;
   --cod-border-radius-2xl: var(--cod-border-radius-xxl);
-  --cod-border-radius-pill: 50rem;
-  --cod-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
-  --cod-box-shadow-sm: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
-  --cod-box-shadow-lg: 0 1rem 3rem rgba(0, 0, 0, 0.175);
+  --cod-border-radius-pill: 50em;
+  --cod-box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.15);
+  --cod-box-shadow-sm: 0 0.125em 0.25em rgba(0, 0, 0, 0.075);
+  --cod-box-shadow-lg: 0 1em 3em rgba(0, 0, 0, 0.175);
   --cod-box-shadow-inset: inset 0 1px 2px rgba(0, 0, 0, 0.075);
-  --cod-focus-ring-width: 0.25rem;
+  --cod-focus-ring-width: 0.25em;
   --cod-focus-ring-opacity: 1;
   --cod-focus-ring-color: blue;
   --cod-form-valid-color: #9fd5b3;
