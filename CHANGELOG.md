@@ -1,3 +1,9 @@
+# v3.0.0-alpha.5 (Wed Jun 04 2025)
+
+#### 🚀 Enhancement
+
+- [Styleguide updates and refactors](https://github.com/CityOfDetroit/COD-Design-System/pull/343)
+
 # v3.0.0-alpha.4 (Tue Jun 03 2025)
 
 #### 🐛 Bug Fix
