@@ -545,7 +545,7 @@ fieldset:disabled .btn {
   );
   --cod-body-font-family: var(--cod-font-sans-serif);
   --cod-body-font-size: 1em;
-  --cod-body-font-weight: 400;
+  --cod-body-font-weight: 500;
   --cod-body-line-height: 1.5;
   --cod-body-color: #212529;
   --cod-body-color-rgb: 33, 37, 41;
@@ -646,18 +646,14 @@ fieldset:disabled .btn {
 }
 
 h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-.h1,
-.h2,
-.h3,
-.h4,
-.h5,
-.h6 {
-  font-weight: 900;
+.h1 {
+  border-left: 0.1em solid #feb70d;
+  padding-left: 0.25em;
+}
+
+.title-line {
+  border-left: none;
+  border-bottom: 0.1em solid #feb70d;
 }
 
 b,

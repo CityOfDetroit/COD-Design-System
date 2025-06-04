@@ -5,19 +5,14 @@
 // -----------------------------------------------------------------------------
 
 // Global typeface settings for the theme.
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-.h1,
-.h2,
-.h3,
-.h4,
-.h5,
-.h6 {
-  font-weight: 900;
+h1, .h1 {
+  border-left: .1em solid #feb70d;
+  padding-left: .25em;
+}
+
+.title-line {
+  border-left: none;
+  border-bottom: .1em solid #feb70d;
 }
 
 b,
