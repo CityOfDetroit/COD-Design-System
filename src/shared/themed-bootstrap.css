@@ -90,7 +90,7 @@
   );
   --cod-body-font-family: var(--cod-font-sans-serif);
   --cod-body-font-size: 1em;
-  --cod-body-font-weight: 400;
+  --cod-body-font-weight: 500;
   --cod-body-line-height: 1.5;
   --cod-body-color: #212529;
   --cod-body-color-rgb: 33, 37, 41;
@@ -237,41 +237,41 @@ h1,
 .h1 {
   margin-top: 0;
   margin-bottom: 0.5em;
-  font-weight: 500;
+  font-weight: 700;
   line-height: 1.2;
   color: var(--cod-heading-color, inherit);
 }
 
 h1,
 .h1 {
-  font-size: calc(1.4em + 1.8vw);
+  font-size: calc(1.525em + 3.3vw);
 }
 @media (min-width: 1200px) {
   h1,
   .h1 {
-    font-size: 2.75em;
+    font-size: 4em;
   }
 }
 
 h2,
 .h2 {
-  font-size: calc(1.3625em + 1.35vw);
+  font-size: calc(1.375em + 1.5vw);
 }
 @media (min-width: 1200px) {
   h2,
   .h2 {
-    font-size: 2.375em;
+    font-size: 2.5em;
   }
 }
 
 h3,
 .h3 {
-  font-size: calc(1.3125em + 0.75vw);
+  font-size: calc(1.325em + 0.9vw);
 }
 @media (min-width: 1200px) {
   h3,
   .h3 {
-    font-size: 1.875em;
+    font-size: 2em;
   }
 }
 
@@ -623,39 +623,39 @@ progress {
 
 .lead {
   font-size: 1.25em;
-  font-weight: 300;
+  font-weight: 500;
 }
 
 .display-1 {
-  font-size: calc(1.4em + 1.8vw);
+  font-size: calc(1.525em + 3.3vw);
   font-weight: 300;
   line-height: 1.2;
 }
 @media (min-width: 1200px) {
   .display-1 {
-    font-size: 2.75em;
+    font-size: 4em;
   }
 }
 
 .display-2 {
-  font-size: calc(1.3625em + 1.35vw);
+  font-size: calc(1.375em + 1.5vw);
   font-weight: 300;
   line-height: 1.2;
 }
 @media (min-width: 1200px) {
   .display-2 {
-    font-size: 2.375em;
+    font-size: 2.5em;
   }
 }
 
 .display-3 {
-  font-size: calc(1.3125em + 0.75vw);
+  font-size: calc(1.325em + 0.9vw);
   font-weight: 300;
   line-height: 1.2;
 }
 @media (min-width: 1200px) {
   .display-3 {
-    font-size: 1.875em;
+    font-size: 2em;
   }
 }
 
@@ -2143,7 +2143,7 @@ progress {
   width: 100%;
   padding: 0.375em 0.75em;
   font-size: 1em;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1.5;
   color: var(--cod-body-color);
   background-color: var(--cod-body-bg);
@@ -2296,7 +2296,7 @@ textarea.form-control-lg {
   width: 100%;
   padding: 0.375em 2.25em 0.375em 0.75em;
   font-size: 1em;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1.5;
   color: var(--cod-body-color);
   background-color: var(--cod-body-bg);
@@ -2691,7 +2691,7 @@ textarea.form-control-lg {
   align-items: center;
   padding: 0.375em 0.75em;
   font-size: 1em;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1.5;
   color: var(--cod-body-color);
   text-align: center;
@@ -8595,15 +8595,15 @@ fieldset:disabled .btn {
 }
 
 .fs-1 {
-  font-size: calc(1.4em + 1.8vw) !important;
+  font-size: calc(1.525em + 3.3vw) !important;
 }
 
 .fs-2 {
-  font-size: calc(1.3625em + 1.35vw) !important;
+  font-size: calc(1.375em + 1.5vw) !important;
 }
 
 .fs-3 {
-  font-size: calc(1.3125em + 0.75vw) !important;
+  font-size: calc(1.325em + 0.9vw) !important;
 }
 
 .fs-4 {
@@ -12417,13 +12417,13 @@ fieldset:disabled .btn {
 }
 @media (min-width: 1200px) {
   .fs-1 {
-    font-size: 2.75em !important;
+    font-size: 4em !important;
   }
   .fs-2 {
-    font-size: 2.375em !important;
+    font-size: 2.5em !important;
   }
   .fs-3 {
-    font-size: 1.875em !important;
+    font-size: 2em !important;
   }
   .fs-4 {
     font-size: 1.5em !important;
@@ -12544,7 +12544,7 @@ fieldset:disabled .btn {
   );
   --cod-body-font-family: var(--cod-font-sans-serif);
   --cod-body-font-size: 1em;
-  --cod-body-font-weight: 400;
+  --cod-body-font-weight: 500;
   --cod-body-line-height: 1.5;
   --cod-body-color: #212529;
   --cod-body-color-rgb: 33, 37, 41;
@@ -12645,18 +12645,14 @@ fieldset:disabled .btn {
 }
 
 h1,
-.h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-.h2,
-.h3,
-.h4,
-.h5,
-.h6 {
-  font-weight: 900;
+.h1 {
+  border-left: 0.1em solid #feb70d;
+  padding-left: 0.25em;
+}
+
+.title-line {
+  border-left: none;
+  border-bottom: 0.1em solid #feb70d;
 }
 
 b,

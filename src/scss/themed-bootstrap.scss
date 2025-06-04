@@ -21,10 +21,13 @@
  * This file is generated from source SASS in src/scss/themed-bootstrap.scss. If you'd like to make
  * changes please change the source file or the code generation script at scripts/compile_bootstrap.sh.
  */
-@import 'detroitmi-bootstrap-base';
-@import 'detroitmi-utilities';
+@import 'cod-uxds-bs-base';
+@import 'cod-uxds-bs-utilities';
+
 @import 'bootstrap/scss/bootstrap';
+
 // Override bootstrap _root.scss.
-@import './host';
-@import 'detroitmi-style-guide';
+@import 'cod-uxds-bs-host';
+
+@import 'cod-uxds-style-guide';
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap');

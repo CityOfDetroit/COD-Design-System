@@ -1,12 +1,12 @@
-@import '../../../scss/detroitmi-bootstrap-base';
-@import '../../../scss/detroitmi-utilities';
+@import '../../../scss/cod-uxds-bs-base';
+@import '../../../scss/cod-uxds-bs-utilities';
 
 // Import Bootstrap button styles
 @import 'bootstrap/scss/buttons';
 
 // Override bootstrap _root.scss.
-@import '../../../scss/host';
-@import '../../../scss/detroitmi-style-guide';
+@import '../../../scss/cod-uxds-bs-host';
+@import '../../../scss/cod-uxds-style-guide';
 
 :host {
   display: block;
