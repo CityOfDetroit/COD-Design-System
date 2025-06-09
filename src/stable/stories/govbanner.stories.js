@@ -24,8 +24,21 @@ export const Test = {
     const checkExpandedState = (isExpanded) => {
       const content = shadow.querySelector('#content');
       const button = shadow.querySelector('.know-text');
-      expect(content.hidden).toBe(!isExpanded);
+      const chevron = shadow.querySelector('.chevron-container svg');
+
+      // Check if inline style.height is set correctly
+      const contentHeight = parseFloat(content.style.height);
+      if (isExpanded) {
+        expect(parseInt(contentHeight)).toBeGreaterThan(0);
+      } else {
+        expect(contentHeight).toBe(0);
+      }
+
+      // aria-expanded should be on the button only
       expect(button.getAttribute('aria-expanded')).toBe(isExpanded.toString());
+
+      // Check if chevron has the 'rotated' class
+      expect(chevron.classList.contains('rotated')).toBe(isExpanded);
     };
 
     // Test initial state
