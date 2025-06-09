@@ -27,7 +27,7 @@ export const Test = {
       const chevron = shadow.querySelector('.chevron-container svg');
 
       // Check if inline style.height is set correctly
-      const contentHeight = content.style.height;
+      const contentHeight = parseFloat(content.style.height);
       if (isExpanded) {
         expect(parseInt(contentHeight)).toBeGreaterThan(0);
       } else {
