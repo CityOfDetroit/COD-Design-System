@@ -31,7 +31,7 @@ export const Test = {
       if (isExpanded) {
         expect(parseInt(contentHeight)).toBeGreaterThan(0);
       } else {
-        expect(contentHeight).toBe('0');
+        expect(contentHeight).toBe(0);
       }
 
       // aria-expanded should be on the button only
