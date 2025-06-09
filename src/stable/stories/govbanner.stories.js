@@ -26,14 +26,19 @@ export const Test = {
       const button = shadow.querySelector('.know-text');
       const chevron = shadow.querySelector('.chevron-container svg');
 
-      // Check if content has the 'visible' class
-      expect(content.classList.contains('visible')).toBe(isExpanded);
+      // Check if inline style.height is set correctly
+      const contentHeight = content.style.height;
+      if (isExpanded) {
+        expect(parseInt(contentHeight)).toBeGreaterThan(0);
+      } else {
+        expect(contentHeight).toBe('0');
+      }
 
-      // Check if the button's aria-expanded matches the expected state
+      // aria-expanded should be on the button only
       expect(button.getAttribute('aria-expanded')).toBe(isExpanded.toString());
 
-      // Check if the chevron's aria-expanded matches the expected state
-      expect(chevron.getAttribute('aria-expanded')).toBe(isExpanded.toString());
+      // Check if chevron has the 'rotated' class
+      expect(chevron.classList.contains('rotated')).toBe(isExpanded);
     };
 
     // Test initial state
