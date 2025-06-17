@@ -9,13 +9,14 @@ ${styles}
 <div class="news-card">
 
 <div class="news-header">
-<h3 class="news-title">
-  <slot name="news-title" id="newsTitleSlot">Default news title: Lorem ipsum dolor sit amet.</slot>
-</h3><svg class="chevron-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
-    <polyline points="9 6 15 12 9 18"></polyline>
-  </svg>
-<span class="chevron"></span>
+  <h3 class="news-title">
+    <slot name="news-title" id="newsTitleSlot">Default news title: Lorem ipsum dolor sit amet.</slot>
+    <svg class="chevron-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+      <polyline points="9 6 15 12 9 18"></polyline>
+    </svg>
+  </h3>
 </div>
+
 
 <div class="news-meta">
    <span id="news-date"></span>
