@@ -1,0 +1,94 @@
+import {
+  Meta,
+  Title,
+  Subtitle,
+  Description,
+  Primary,
+  Controls,
+  Stories,
+  Story,
+  Source,
+} from '@storybook/blocks';
+
+import * as NewsStories from '../stories/news.stories';
+
+import '../../../.storybook/docs'; // Import all documentation components
+
+<Meta of={NewsStories} />
+
+# News
+
+<div className="component-summary">
+  {' '}
+  The **News** component displays a stylized news card with a title, date, and optional
+  tags slot. It formats the `datetime` attribute automatically.
+</div>
+
+## Examples
+
+### Basic
+
+<Description of={NewsStories.Basic} />
+<Story of={NewsStories.Basic} inline={true} />
+<Source of={NewsStories.Basic} />
+
+## Slots
+
+<doc-slots-table
+data={JSON.stringify([
+{"name": "news-title", "description": "The main title of the news component."},
+{"name": "tags", "description": "A placeholder for the tag component."},
+])}>
+</doc-slots-table>
+
+## HTML Attributes / JS Properties
+
+Supported HTML attributes. If the attribute is reflected in a JS property, that attribute will have a 'reflects' tag next to the name.
+
+<doc-js-properties-table
+data={JSON.stringify([
+{
+"name": "datetime",
+"description": "An ISO date string. The component formats and displays it in a readable format (e.g., 'June 1, 2024').",
+"type": "string",
+"default": "-",
+"reflects": false
+}
+])}>
+</doc-js-properties-table>
+
+## Events
+
+<doc-events-table 
+  data={JSON.stringify([])}>
+</doc-events-table>
+
+## Methods
+
+<doc-methods-table 
+  data={JSON.stringify([])}>
+</doc-methods-table>
+
+## Custom CSS Properties
+
+<doc-css-custom-properties-table 
+  data={JSON.stringify([])}>
+</doc-css-custom-properties-table>
+
+## CSS Parts
+
+<doc-css-parts-table 
+  data={JSON.stringify([])}>
+</doc-css-parts-table>
+
+## Dependencies
+
+<doc-dependencies-list data={JSON.stringify([])}></doc-dependencies-list>
+
+## Accessibility
+
+The News component uses semantic HTML:
+
+- The title is wrapped in a `<h3>` for hierarchy.
+- Date text is plain text.
+- The chevron icon uses `aria-hidden="true"` and is not focusable.

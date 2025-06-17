@@ -1,0 +1,13 @@
+.news-card {
+  min-width: 340px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.chevron-icon {
+  stroke: #333; /* adjust color */
+  width: 12px;
+  height: 12px;
+  user-select: none;
+  pointer-events: none;
+}
