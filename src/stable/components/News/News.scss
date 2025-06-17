@@ -7,7 +7,7 @@
   background: #fff;
   border-radius: 8px;
   padding: 20px 24px;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
 }
 
 .news-header {
@@ -22,14 +22,14 @@
   line-height: 1;
   letter-spacing: 0;
   margin: 0;
-  display: inline; 
+  display: inline;
   color: #222;
 
   // Chevron hover effect
   &:hover .chevron-icon,
   .chevron-icon:hover {
     transform: translateX(4px);
-    transition: transform 0.3s cubic-bezier(.4,0,.2,1);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
   cursor: pointer;
 }
@@ -38,10 +38,10 @@
   stroke: #333;
   width: 1em;
   height: 1em;
-  vertical-align: -0.15em; 
+  vertical-align: -0.15em;
   margin-left: 0.15em;
   display: inline-block;
-  transition: transform 0.3s cubic-bezier(.4,0,.2,1);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   pointer-events: auto;
   cursor: pointer;
 }
