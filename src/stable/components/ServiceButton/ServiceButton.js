@@ -6,7 +6,7 @@ template.innerHTML = `
 <style>
 ${styles}
 </style>
-<a class="service-button">
+<a part="base" class="service-button">
   <div class="title">
     <slot name="title" id="titleSlot"></slot>
   </div>
