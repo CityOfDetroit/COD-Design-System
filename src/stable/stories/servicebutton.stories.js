@@ -26,11 +26,11 @@ export const Basic = {
 export const Grid = {
   render: () => html`
     <style>
-      [class^="col-"] article {
+      [class^='col-'] article {
         height: 100%;
         width: 100%;
       }
-      [class^="col-"] cod-service-button {
+      [class^='col-'] cod-service-button {
         height: 100%;
         width: 100%;
 
