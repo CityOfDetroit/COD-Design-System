@@ -9,7 +9,7 @@ a.service-button {
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  padding: 50px 25px;
+  padding: 25px 50px;
   background-color: #004445;
   text-decoration: none;
   overflow: hidden;
