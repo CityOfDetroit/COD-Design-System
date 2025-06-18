@@ -22,6 +22,183 @@ export const Basic = {
     </cod-service-button>
   `,
 };
+
+export const Grid = {
+  render: () => html`
+    <style>
+      [class^='col-'] article {
+        height: 100%;
+        width: 100%;
+      }
+      [class^='col-'] cod-service-button {
+        height: 100%;
+        width: 100%;
+
+        min-width: 0px;
+      }
+    </style>
+    <div
+      id="views-bootstrap-dept-gov-services-filterable-block"
+      class="grid g-2 views-view-grid row"
+    >
+      <div class="col-12 col-md-6 col-lg-4">
+        <article
+          data-history-node-id="94946"
+          class="contextual-region node node--promoted service service--teaser"
+          about="/node/94946"
+        >
+          <cod-service-button href="/webapp/dpw-permits" target="_self">
+            <span slot="title">
+              <span>Pay a Detroit Public Works Permit Invoice</span>
+            </span>
+            <span slot="subtitle"></span>
+          </cod-service-button>
+        </article>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4">
+        <article
+          data-history-node-id="94921"
+          class="contextual-region node node--promoted service service--teaser"
+          about="/node/94921"
+        >
+          <cod-service-button
+            href="/webapp/detroit-fire-marshal-invoices"
+            target="_self"
+          >
+            <span slot="title">
+              <span>Pay a Fire Marshall Permit Invoice</span>
+            </span>
+            <span slot="subtitle"></span>
+          </cod-service-button>
+        </article>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4">
+        <article
+          data-history-node-id="94961"
+          class="contextual-region node node--promoted service service--teaser"
+          about="/node/94961"
+        >
+          <cod-service-button href="/webapp/assessor" target="_self">
+            <span slot="title">
+              <span>Pay a Property Transfer Affidavit (PTA) Fee</span>
+            </span>
+            <span slot="subtitle"></span>
+          </cod-service-button>
+        </article>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4">
+        <article
+          data-history-node-id="94941"
+          class="contextual-region node node--promoted service service--teaser"
+          about="/node/94941"
+        >
+          <cod-service-button href="/webapp/airport-fees" target="_self">
+            <span slot="title">
+              <span>Pay Airport Fees</span>
+            </span>
+            <span slot="subtitle"></span>
+          </cod-service-button>
+        </article>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4">
+        <article
+          data-history-node-id="94936"
+          class="contextual-region node node--promoted service service--teaser"
+          about="/node/94936"
+        >
+          <cod-service-button href="/webapp/bseed-fee-payments" target="_self">
+            <span slot="title">
+              <span>Pay BSEED Fees</span>
+            </span>
+            <span slot="subtitle"
+              >Pay fees to the Building Environmental Engineering and Safety
+              Department online.</span
+            >
+          </cod-service-button>
+        </article>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4">
+        <article
+          data-history-node-id="94931"
+          class="contextual-region node node--promoted service service--teaser"
+          about="/node/94931"
+        >
+          <cod-service-button
+            href="/webapp/pay-crio-invoices-online"
+            target="_self"
+          >
+            <span slot="title">
+              <span>Pay CRIO Deparment Invoices</span>
+            </span>
+            <span slot="subtitle"
+              >Pay Civil Rights, Inclusion, and Opportunity Department invoices
+              online.</span
+            >
+          </cod-service-button>
+        </article>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4">
+        <article
+          data-history-node-id="94956"
+          class="contextual-region node node--promoted service service--teaser"
+          about="/node/94956"
+        >
+          <cod-service-button href="/webapp/solid-waste-payment" target="_self">
+            <span slot="title">
+              <span>Pay for Solid Waste Pickup</span>
+            </span>
+            <span slot="subtitle"></span>
+          </cod-service-button>
+        </article>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4">
+        <article
+          data-history-node-id="94976"
+          class="contextual-region node node--promoted service service--teaser"
+          about="/node/94976"
+        >
+          <cod-service-button href="" target="_self">
+            <span slot="title">
+              <span>Pay Property Zoning Hearing Fees</span>
+            </span>
+            <span slot="subtitle"></span>
+          </cod-service-button>
+        </article>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4">
+        <article
+          data-history-node-id="94966"
+          class="contextual-region node node--promoted service service--teaser"
+          about="/node/94966"
+        >
+          <cod-service-button href="/webapp/police-towing-fees" target="_self">
+            <span slot="title">
+              <span>Pay Vehicle Towing Fees</span>
+            </span>
+            <span slot="subtitle"></span>
+          </cod-service-button>
+        </article>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4">
+        <article
+          data-history-node-id="94896"
+          class="contextual-region node node--promoted service service--teaser"
+          about="/node/94896"
+        >
+          <cod-service-button
+            href="/departments/office-chief-financial-officer/ocfo-divisions/office-treasury/pay-property-tax"
+            target="_self"
+          >
+            <span slot="title">
+              <span>Pay Your Property Taxes</span>
+            </span>
+            <span slot="subtitle"></span>
+          </cod-service-button>
+        </article>
+      </div>
+    </div>
+  `,
+};
 export const Test = {
   tags: ['!dev'],
   render: () => html`

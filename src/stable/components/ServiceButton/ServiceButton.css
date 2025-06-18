@@ -9,11 +9,14 @@ a.service-button {
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  padding: 50px 25px;
+  padding: 25px 50px;
   background-color: #004445;
   text-decoration: none;
   overflow: hidden;
   transition: background-color 200ms ease-in-out;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
 }
 a.service-button::before {
   content: '';
