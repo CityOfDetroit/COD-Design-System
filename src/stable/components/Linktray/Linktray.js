@@ -53,7 +53,7 @@ class Linktray extends HTMLElement {
   _fetchLinks() {
     const slot = this.shadowRoot.querySelector('slot[name="tray-link"]');
     if (!slot) return;
-    
+
     const wrapLinks = () => {
       const assignedElements = slot.assignedElements();
 
@@ -61,9 +61,9 @@ class Linktray extends HTMLElement {
         if (element.tagName === 'A') {
           const li = document.createElement('li');
           li.setAttribute('slot', 'tray-link');
-          element.removeAttribute('slot'); 
+          element.removeAttribute('slot');
           element.parentNode.insertBefore(li, element);
-          
+
           const chevron = document.createElement('span');
           chevron.classList.add('chevron');
           chevron.innerHTML = `
@@ -72,15 +72,15 @@ class Linktray extends HTMLElement {
             </svg> `;
           element.appendChild(chevron);
           li.appendChild(element);
-      } else if (element.tagName === 'LI') {
+        } else if (element.tagName === 'LI') {
           if (element.querySelector('a')) {
             element.setAttribute('slot', 'tray-link');
           } else {
             element.remove();
           }
-          } else {
+        } else {
           element.remove();
-          }
+        }
       });
     };
 
