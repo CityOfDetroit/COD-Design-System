@@ -33,10 +33,8 @@ export const Grid = {
       [class^="col-"] cod-service-button {
         height: 100%;
         width: 100%;
-      }
-      [class^="col-"] cod-service-button::part(base) {
-        height: 100%;
-        width: 100%;
+
+        min-width: 0px;
       }
     </style>
     <div
