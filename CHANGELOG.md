@@ -1,3 +1,15 @@
+# v3.0.0-alpha.7 (Wed Jun 18 2025)
+
+#### 🚀 Enhancement
+
+- [Update service button padding, sizing, and expose CSS parts](https://github.com/CityOfDetroit/COD-Design-System/pull/348)
+
+# v3.0.0-alpha.6 (Wed Jun 18 2025)
+
+#### 🚀 Bug Fix
+
+- [Use latest button in map component](https://github.com/CityOfDetroit/COD-Design-System/pull/346)
+
 # v3.0.0-alpha.5 (Wed Jun 04 2025)
 
 #### 🚀 Enhancement
