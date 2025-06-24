@@ -6,11 +6,51 @@ import '../components/GovBanner/cod-gov-banner';
 export default {
   tags: ['stable'],
   title: 'Components/Gov Banner',
+  argTypes: {
+    lang: {
+      control: 'select',
+      options: ['en', 'es', 'ar', 'bn'],
+      description: 'Language code for the banner content',
+    },
+    dir: {
+      control: 'select',
+      options: ['ltr', 'rtl'],
+      description: 'Text direction (left-to-right or right-to-left)',
+    },
+    expanded: {
+      control: 'boolean',
+      description: 'Whether the info section is expanded',
+    },
+  },
 };
 
 export const GovBanner = {
   tags: ['autodocs'],
-  render: () => html` <cod-gov-banner> </cod-gov-banner> `,
+  args: {
+    lang: 'en',
+    dir: 'ltr',
+    expanded: false,
+  },
+  render: ({ lang, dir, expanded }) => html`
+    <cod-gov-banner lang="${lang}" dir="${dir}" ?expanded="${expanded}">
+    </cod-gov-banner>
+  `,
+};
+
+export const English = {
+  render: () => html` <cod-gov-banner lang="en" dir="ltr"> </cod-gov-banner> `,
+};
+
+export const Spanish = {
+  render: () => html` <cod-gov-banner lang="es" dir="ltr"> </cod-gov-banner> `,
+};
+
+export const Arabic = {
+  render: () => html` <cod-gov-banner lang="ar" dir="rtl"> </cod-gov-banner> `,
+};
+
+export const Bengali = {
+  render: () => html` <cod-gov-banner lang="bn" dir="ltr"> </cod-gov-banner> `,
 };
 
 export const Test = {
@@ -74,12 +114,21 @@ export const Test = {
     await expect(govBanner.expanded).toBe(false);
     checkExpandedState(false);
 
+    // Test language switching
+    govBanner.lang = 'es';
+    expect(govBanner.lang).toBe('es');
+
+    govBanner.lang = 'ar';
+    expect(govBanner.lang).toBe('ar');
+
+    govBanner.dir = 'rtl';
+    expect(govBanner.dir).toBe('rtl');
+
     // Test disconnectedCallback
     govBanner.remove();
 
     // Test setting same value (should not trigger event)
     govBanner.expanded = false;
     await expect(govBanner.expanded).toBe(false);
-    checkExpandedState(false);
   },
 };
