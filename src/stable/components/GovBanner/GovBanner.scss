@@ -15,9 +15,9 @@
   padding: 0.5rem 1rem;
   max-width: 1200px;
   margin: 0 auto;
-  
+
   // RTL support
-  [dir="rtl"] & {
+  [dir='rtl'] & {
     direction: rtl;
   }
 }
@@ -26,9 +26,9 @@
   display: flex;
   align-items: center;
   gap: 1rem;
-  
+
   // RTL support - reverse the order and adjust spacing
-  [dir="rtl"] & {
+  [dir='rtl'] & {
     flex-direction: row-reverse;
   }
 }
@@ -73,9 +73,9 @@
     color: inherit;
     padding: 0;
     font-size: inherit;
-    
+
     // RTL support - adjust margin
-    [dir="rtl"] & {
+    [dir='rtl'] & {
       margin-left: 0;
       margin-right: 0.25rem;
     }
@@ -94,9 +94,9 @@
       display: inline-flex;
       align-items: center;
       margin-left: 0.25rem;
-      
+
       // RTL support - adjust margin
-      [dir="rtl"] & {
+      [dir='rtl'] & {
         margin-left: 0;
         margin-right: 0.25rem;
       }
@@ -118,9 +118,9 @@
   background-color: #f8f9fa;
   width: 100%;
   border-top: 1px solid #dee2e6;
-  
+
   // RTL support
-  [dir="rtl"] & {
+  [dir='rtl'] & {
     direction: rtl;
   }
 }
@@ -132,9 +132,9 @@
   margin: 0 auto;
   padding: 1.5rem 1rem;
   gap: 2rem;
-  
+
   // RTL support
-  [dir="rtl"] & {
+  [dir='rtl'] & {
     flex-direction: row-reverse;
   }
 }
@@ -144,9 +144,9 @@
   gap: 1rem;
   align-items: flex-start;
   flex: 1;
-  
+
   // RTL support - reverse the flex direction for Arabic
-  [dir="rtl"] & {
+  [dir='rtl'] & {
     flex-direction: row-reverse;
     text-align: right;
   }
@@ -199,9 +199,9 @@
     justify-content: center;
     margin-top: 0.0625rem;
     width: 100%;
-    
+
     // RTL support - reset margins for mobile
-    [dir="rtl"] & {
+    [dir='rtl'] & {
       margin-left: 0;
       margin-right: 0;
     }
@@ -219,9 +219,9 @@
     justify-content: flex-start;
     padding-top: 0.75rem;
     padding-bottom: 0.75rem;
-    
+
     // RTL support - adjust alignment for mobile
-    [dir="rtl"] & {
+    [dir='rtl'] & {
       justify-content: flex-end;
     }
   }
@@ -230,9 +230,9 @@
     align-items: flex-start;
     text-align: center;
     word-wrap: break-word;
-    
+
     // RTL support
-    [dir="rtl"] & {
+    [dir='rtl'] & {
       align-items: flex-end;
     }
   }

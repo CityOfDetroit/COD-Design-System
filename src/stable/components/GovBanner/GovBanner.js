@@ -8,9 +8,11 @@ const translations = {
     officialWebsite: 'An official website of the City of Detroit.',
     hereHowYouKnow: "Here's how you know",
     officialWebsitesUseGov: 'Official websites use .gov',
-    govWebsiteDescription: 'A <b>.gov</b> website belongs to an official government organization in the United States.',
+    govWebsiteDescription:
+      'A <b>.gov</b> website belongs to an official government organization in the United States.',
     secureGovWebsites: 'Secure .gov websites use HTTPS',
-    httpsDescription: 'A <b>lock</b> (🔒) or <b>https://</b> means you\'ve safely connected to the .gov website. Share sensitive information only on official, secure websites.'
+    httpsDescription:
+      "A <b>lock</b> (🔒) or <b>https://</b> means you've safely connected to the .gov website. Share sensitive information only on official, secure websites.",
   },
   es: {
     cityOf: 'Ciudad de',
@@ -18,9 +20,11 @@ const translations = {
     officialWebsite: 'Un sitio web oficial de la Ciudad de Detroit.',
     hereHowYouKnow: 'Así es como lo sabes',
     officialWebsitesUseGov: 'Los sitios web oficiales usan .gov',
-    govWebsiteDescription: 'Un sitio web <b>.gov</b> pertenece a una organización gubernamental oficial de los Estados Unidos.',
+    govWebsiteDescription:
+      'Un sitio web <b>.gov</b> pertenece a una organización gubernamental oficial de los Estados Unidos.',
     secureGovWebsites: 'Los sitios web .gov seguros usan HTTPS',
-    httpsDescription: 'Un <b>candado</b> (🔒) o <b>https://</b> significa que te has conectado de forma segura al sitio web .gov. Comparte información confidencial solo en sitios web oficiales y seguros.'
+    httpsDescription:
+      'Un <b>candado</b> (🔒) o <b>https://</b> significa que te has conectado de forma segura al sitio web .gov. Comparte información confidencial solo en sitios web oficiales y seguros.',
   },
   ar: {
     cityOf: 'مدينة',
@@ -28,9 +32,11 @@ const translations = {
     officialWebsite: 'موقع إلكتروني رسمي لمدينة ديترويت.',
     hereHowYouKnow: 'إليك كيف تعرف',
     officialWebsitesUseGov: 'المواقع الرسمية تستخدم .gov',
-    govWebsiteDescription: 'موقع <b>.gov</b> ينتمي إلى منظمة حكومية رسمية في الولايات المتحدة.',
+    govWebsiteDescription:
+      'موقع <b>.gov</b> ينتمي إلى منظمة حكومية رسمية في الولايات المتحدة.',
     secureGovWebsites: 'المواقع الآمنة .gov تستخدم HTTPS',
-    httpsDescription: '<b>القفل</b> (🔒) أو <b>https://</b> يعني أنك اتصلت بأمان بموقع .gov. شارك المعلومات الحساسة فقط على المواقع الرسمية والآمنة.'
+    httpsDescription:
+      '<b>القفل</b> (🔒) أو <b>https://</b> يعني أنك اتصلت بأمان بموقع .gov. شارك المعلومات الحساسة فقط على المواقع الرسمية والآمنة.',
   },
   bn: {
     cityOf: 'শহর',
@@ -38,10 +44,12 @@ const translations = {
     officialWebsite: 'ডেট্রয়েট শহরের একটি সরকারি ওয়েবসাইট।',
     hereHowYouKnow: 'আপনি কীভাবে জানবেন',
     officialWebsitesUseGov: 'সরকারি ওয়েবসাইটগুলি .gov ব্যবহার করে',
-    govWebsiteDescription: 'একটি <b>.gov</b> ওয়েবসাইট মার্কিন যুক্তরাষ্ট্রের একটি সরকারি সংস্থার অন্তর্গত।',
+    govWebsiteDescription:
+      'একটি <b>.gov</b> ওয়েবসাইট মার্কিন যুক্তরাষ্ট্রের একটি সরকারি সংস্থার অন্তর্গত।',
     secureGovWebsites: 'নিরাপদ .gov ওয়েবসাইটগুলি HTTPS ব্যবহার করে',
-    httpsDescription: 'একটি <b>তালা</b> (🔒) বা <b>https://</b> মানে আপনি .gov ওয়েবসাইটের সাথে নিরাপদে সংযুক্ত হয়েছেন। শুধুমাত্র সরকারি, নিরাপদ ওয়েবসাইটে সংবেদনশীল তথ্য শেয়ার করুন।'
-  }
+    httpsDescription:
+      'একটি <b>তালা</b> (🔒) বা <b>https://</b> মানে আপনি .gov ওয়েবসাইটের সাথে নিরাপদে সংযুক্ত হয়েছেন। শুধুমাত্র সরকারি, নিরাপদ ওয়েবসাইটে সংবেদনশীল তথ্য শেয়ার করুন।',
+  },
 };
 
 class GovBanner extends HTMLElement {
@@ -115,7 +123,7 @@ class GovBanner extends HTMLElement {
     const currentLang = this.lang;
     const currentDir = this.dir;
     const t = translations[currentLang] || translations.en;
-    
+
     this.shadowRoot.innerHTML = `
       <style>
         ${styles}

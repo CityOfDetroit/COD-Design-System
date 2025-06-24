@@ -10,18 +10,18 @@ export default {
     lang: {
       control: 'select',
       options: ['en', 'es', 'ar', 'bn'],
-      description: 'Language code for the banner content'
+      description: 'Language code for the banner content',
     },
     dir: {
-      control: 'select', 
+      control: 'select',
       options: ['ltr', 'rtl'],
-      description: 'Text direction (left-to-right or right-to-left)'
+      description: 'Text direction (left-to-right or right-to-left)',
     },
     expanded: {
       control: 'boolean',
-      description: 'Whether the info section is expanded'
-    }
-  }
+      description: 'Whether the info section is expanded',
+    },
+  },
 };
 
 export const GovBanner = {
@@ -29,13 +29,10 @@ export const GovBanner = {
   args: {
     lang: 'en',
     dir: 'ltr',
-    expanded: false
+    expanded: false,
   },
   render: ({ lang, dir, expanded }) => html`
-    <cod-gov-banner 
-      lang="${lang}" 
-      dir="${dir}"
-      ?expanded="${expanded}">
+    <cod-gov-banner lang="${lang}" dir="${dir}" ?expanded="${expanded}">
     </cod-gov-banner>
   `,
 };
@@ -120,10 +117,10 @@ export const Test = {
     // Test language switching
     govBanner.lang = 'es';
     expect(govBanner.lang).toBe('es');
-    
+
     govBanner.lang = 'ar';
     expect(govBanner.lang).toBe('ar');
-    
+
     govBanner.dir = 'rtl';
     expect(govBanner.dir).toBe('rtl');
 
