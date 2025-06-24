@@ -1,3 +1,9 @@
+# v3.0.0-alpha.8 (Tues Jun 24 2025)
+
+#### 🚀 Enhancement
+
+- [Support internalization of .gov banner](https://github.com/CityOfDetroit/COD-Design-System/pull/350)
+
 # v3.0.0-alpha.7 (Wed Jun 18 2025)
 
 #### 🚀 Enhancement
