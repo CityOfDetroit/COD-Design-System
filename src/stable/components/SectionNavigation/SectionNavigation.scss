@@ -97,6 +97,7 @@
     margin: 0;
     justify-content: space-between;
     border: none;
+    box-sizing: border-box; // ✅ ensure width includes padding
   }
 
   :host ::slotted([slot='header']) {
@@ -124,7 +125,9 @@
   .section-nav {
     display: none;
     background-color: #fff;
-    padding: 0.5rem 0;
+    width: 100%; // ✅ force dropdown to match header width
+    box-sizing: border-box; // ✅ ensure width includes padding
+    padding: 0; // ✅ remove padding that might cause overflow
     margin: 0;
 
     ul {
@@ -135,7 +138,7 @@
 
   :host .section-nav ::slotted(a) {
     display: block;
-    padding: 0.75rem 1rem;
+    padding: 0.75rem 1rem; // ✅ add padding here instead of section-nav
     margin: 0;
     border: none;
     color: #000;
