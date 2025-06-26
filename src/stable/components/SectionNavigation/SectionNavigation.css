@@ -11,9 +11,11 @@
 }
 
 .section-header {
+  all: unset;
   display: flex;
   align-items: center;
   margin-right: 2em;
+  cursor: default;
 }
 
 :host ::slotted([slot='header']) {
@@ -65,6 +67,10 @@
   transition: transform 0.3s ease;
 }
 
+.chevron-icon {
+  display: none;
+}
+
 @media (max-width: 991.98px) {
   .section-container {
     flex-direction: column;
@@ -84,7 +90,10 @@
     margin: 0;
     justify-content: space-between;
     border: none;
+    display: flex;
     box-sizing: border-box;
+    cursor: pointer;
+    appearance: none;
   }
   :host ::slotted([slot='header']) {
     font-size: 1em;
@@ -95,26 +104,40 @@
   :host ::slotted([slot='header'])::before {
     display: none;
   }
-  .toggle-button {
+  .chevron-icon {
     display: flex;
     align-items: center;
-    padding: 0.25em;
   }
-  .toggle-button svg {
+  .chevron-icon svg {
     width: 20px;
     height: 20px;
+    transition: transform 0.3s ease;
+  }
+  .section-container.expanded .chevron-icon svg {
+    transform: rotate(180deg);
   }
   .section-nav {
-    display: none;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition:
+      max-height 0.5s ease-in-out,
+      padding 0.5s ease-in-out,
+      opacity 0.4s ease-in-out;
     background-color: #fff;
     width: 100%;
-    box-sizing: border-box;
     padding: 0;
     margin: 0;
+    box-sizing: border-box;
   }
   .section-nav ul {
     flex-direction: column;
     gap: 0;
+  }
+  .section-container.expanded .section-nav {
+    max-height: 500px;
+    padding: 0.5em 0;
+    opacity: 1;
   }
   :host .section-nav ::slotted(a) {
     display: block;

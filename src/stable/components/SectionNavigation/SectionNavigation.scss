@@ -15,9 +15,11 @@
 }
 
 .section-header {
+  all: unset;
   display: flex;
   align-items: center;
   margin-right: 2rem;
+  cursor: default; 
 }
 
 :host ::slotted([slot='header']) {
@@ -73,6 +75,10 @@
   }
 }
 
+.chevron-icon {
+  display: none; 
+}
+
 @include media-breakpoint-down(lg) {
   .section-container {
     flex-direction: column;
@@ -90,15 +96,18 @@
     }
   }
 
-  .section-header {
-    width: 100%;
-    background-color: #ffc107;
-    padding: 0.75rem 1rem;
-    margin: 0;
-    justify-content: space-between;
-    border: none;
-    box-sizing: border-box; // ✅ ensure width includes padding
-  }
+.section-header {
+  width: 100%;
+  background-color: #ffc107;
+  padding: 0.75rem 1rem;
+  margin: 0;
+  justify-content: space-between;
+  border: none;
+  display: flex;
+  box-sizing: border-box;
+  cursor: pointer; 
+  appearance: none;
+}
 
   :host ::slotted([slot='header']) {
     font-size: 1rem;
@@ -111,34 +120,46 @@
     }
   }
 
-  .toggle-button {
-    display: flex;
-    align-items: center;
-    padding: 0.25rem;
+  .chevron-icon {
+  display: flex;
+  align-items: center;
 
-    svg {
-      width: 20px;
-      height: 20px;
-    }
+  svg {
+    width: 20px;
+    height: 20px;
+    transition: transform 0.3s ease;
   }
+}
 
-  .section-nav {
-    display: none;
-    background-color: #fff;
-    width: 100%; // ✅ force dropdown to match header width
-    box-sizing: border-box; // ✅ ensure width includes padding
-    padding: 0; // ✅ remove padding that might cause overflow
-    margin: 0;
+.section-container.expanded .chevron-icon svg {
+  transform: rotate(180deg);
+}
 
-    ul {
-      flex-direction: column;
-      gap: 0;
-    }
+.section-nav {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0; 
+  transition: max-height 0.5s ease-in-out, padding 0.5s ease-in-out, opacity 0.4s ease-in-out;
+  background-color: #fff;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+
+  ul {
+    flex-direction: column;
+    gap: 0;
   }
+}
 
+.section-container.expanded .section-nav {
+  max-height: 500px;
+  padding: 0.5rem 0;
+  opacity: 1; 
+}
   :host .section-nav ::slotted(a) {
     display: block;
-    padding: 0.75rem 1rem; // ✅ add padding here instead of section-nav
+    padding: 0.75rem 1rem;
     margin: 0;
     border: none;
     color: #000;
