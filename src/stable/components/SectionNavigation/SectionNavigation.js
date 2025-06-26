@@ -66,31 +66,18 @@ class SectionNavigation extends HTMLElement {
     this.setAttribute('expanded', (!isExpanded).toString());
   }
 
-  // _updateExpansion() {
-  //   const button = this.shadowRoot.querySelector('.toggle-button');
-  //   const container = this.shadowRoot.querySelector('.section-container');
-  //   const isExpanded = this.getAttribute('expanded') === 'true';
-
-  //   if (button) {
-  //     button.setAttribute('aria-expanded', isExpanded.toString());
-  //   }
-  //   if (container) {
-  //     container.classList.toggle('expanded', isExpanded);
-  //   }
-  // }
-
   _updateExpansion() {
-  const button = this.shadowRoot.querySelector('.section-header'); // FIXED
-  const container = this.shadowRoot.querySelector('.section-container');
-  const isExpanded = this.getAttribute('expanded') === 'true';
+    const button = this.shadowRoot.querySelector('.section-header'); // FIXED
+    const container = this.shadowRoot.querySelector('.section-container');
+    const isExpanded = this.getAttribute('expanded') === 'true';
 
-  if (button) {
-    button.setAttribute('aria-expanded', isExpanded.toString());
+    if (button) {
+      button.setAttribute('aria-expanded', isExpanded.toString());
+    }
+    if (container) {
+      container.classList.toggle('expanded', isExpanded);
+    }
   }
-  if (container) {
-    container.classList.toggle('expanded', isExpanded);
-  }
-}
 
   _wrapSlottedLinks() {
     const slot = this.shadowRoot.querySelector('slot[name="nav-items"]');

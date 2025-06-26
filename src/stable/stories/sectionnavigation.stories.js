@@ -87,10 +87,10 @@ export const Test = {
       const container = shadow.querySelector('.section-container');
       const toggleButton = shadow.querySelector('.section-header');
 
-
       expect(container.classList.contains('expanded')).toBe(isExpanded);
-      expect(toggleButton.getAttribute('aria-expanded')).toBe(isExpanded.toString());
-
+      expect(toggleButton.getAttribute('aria-expanded')).toBe(
+        isExpanded.toString(),
+      );
     };
 
     // Test initial state
