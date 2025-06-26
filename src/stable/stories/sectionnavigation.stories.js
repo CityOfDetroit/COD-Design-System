@@ -89,7 +89,8 @@ export const Test = {
 
 
       expect(container.classList.contains('expanded')).toBe(isExpanded);
-      expect(button.getAttribute('aria-expanded')).toBe(isExpanded.toString());
+      expect(toggleButton.getAttribute('aria-expanded')).toBe(isExpanded.toString());
+
     };
 
     // Test initial state
