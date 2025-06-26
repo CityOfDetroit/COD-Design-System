@@ -85,7 +85,8 @@ export const Test = {
     // Helper function to check expanded state
     const checkExpandedState = (isExpanded) => {
       const container = shadow.querySelector('.section-container');
-      const button = shadow.querySelector('.toggle-button');
+      const toggleButton = shadow.querySelector('.section-header');
+
 
       expect(container.classList.contains('expanded')).toBe(isExpanded);
       expect(button.getAttribute('aria-expanded')).toBe(isExpanded.toString());
@@ -95,7 +96,8 @@ export const Test = {
     checkExpandedState(false);
 
     // Test button click to expand
-    const toggleButton = shadow.querySelector('.toggle-button');
+    const toggleButton = shadow.querySelector('.section-header');
+
     await userEvent.click(toggleButton);
     checkExpandedState(true);
 
