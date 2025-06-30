@@ -3,6 +3,7 @@
 #### 🐛 Bug Fix
 
 - [Style and A11Y fixes for section navigation component](https://github.com/CityOfDetroit/COD-Design-System/pull/351)
+- [Fix button default styling in section nav](https://github.com/CityOfDetroit/COD-Design-System/pull/353)
 
 # v3.0.0-alpha.8 (Tues Jun 24 2025)
 
