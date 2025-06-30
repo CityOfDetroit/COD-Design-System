@@ -20,8 +20,7 @@ export const SectionNavigation = {
       .section-header {
         white-space: nowrap;
         text-transform: uppercase;
-        font-size: 1rem;
-        font-weight: bold;
+        font-weight: 700;
       }
     </style>
     <cod-section-navigation>

@@ -23,20 +23,8 @@
 }
 
 :host ::slotted([slot='header']) {
-  margin: 0;
-  position: relative;
-  padding-left: 0.75rem;
-
-  &::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 4px;
-    height: 1rem;
-    background-color: #ffc107;
-  }
+  padding-left: 0.5rem;
+  border-left: 4px solid #ffc107;
 }
 
 .section-nav {
@@ -55,12 +43,6 @@
     margin: 0;
     padding: 0;
   }
-}
-
-:host .section-nav ::slotted(a) {
-  border-bottom: none;
-  padding: 0.25rem 0;
-  display: block;
 }
 
 .toggle-button {
@@ -99,7 +81,7 @@
   .section-header {
     width: 100%;
     background-color: #ffc107;
-    padding: 0.75rem 1rem;
+    padding: 0.5rem 1rem;
     margin: 0;
     justify-content: space-between;
     border: none;
@@ -110,14 +92,12 @@
   }
 
   :host ::slotted([slot='header']) {
-    font-size: 1rem;
     padding-left: 0;
-    text-transform: none;
-    font-weight: 600;
+    border-left: none;
+  }
 
-    &::before {
-      display: none;
-    }
+  :host ::slotted([slot='nav-items']) {
+    margin-bottom: 0.5rem;
   }
 
   .chevron-icon {
@@ -138,14 +118,12 @@
   .section-nav {
     max-height: 0;
     overflow: hidden;
-    opacity: 0;
     transition:
       max-height 0.5s ease-in-out,
-      padding 0.5s ease-in-out,
-      opacity 0.4s ease-in-out;
+      padding 0.5s ease-in-out;
     background-color: #fff;
     width: 100%;
-    padding: 0;
+    padding: 0 1rem;
     margin: 0;
     box-sizing: border-box;
 
@@ -157,15 +135,6 @@
 
   .section-container.expanded .section-nav {
     max-height: 500px;
-    padding: 0.5rem 0;
-    opacity: 1;
-  }
-  :host .section-nav ::slotted(a) {
-    display: block;
-    padding: 0.75rem 1rem;
-    margin: 0;
-    border: none;
-    color: #000;
-    text-decoration: none;
+    padding: 0.5rem 1rem;
   }
 }

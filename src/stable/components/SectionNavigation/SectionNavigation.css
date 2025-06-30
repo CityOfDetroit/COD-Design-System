@@ -19,19 +19,8 @@
 }
 
 :host ::slotted([slot='header']) {
-  margin: 0;
-  position: relative;
-  padding-left: 0.75em;
-}
-:host ::slotted([slot='header'])::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 4px;
-  height: 1em;
-  background-color: #ffc107;
+  padding-left: 0.5em;
+  border-left: 4px solid #ffc107;
 }
 
 .section-nav {
@@ -48,12 +37,6 @@
 .section-nav li {
   margin: 0;
   padding: 0;
-}
-
-:host .section-nav ::slotted(a) {
-  border-bottom: none;
-  padding: 0.25em 0;
-  display: block;
 }
 
 .toggle-button {
@@ -86,7 +69,7 @@
   .section-header {
     width: 100%;
     background-color: #ffc107;
-    padding: 0.75em 1em;
+    padding: 0.5em 1em;
     margin: 0;
     justify-content: space-between;
     border: none;
@@ -96,13 +79,11 @@
     appearance: none;
   }
   :host ::slotted([slot='header']) {
-    font-size: 1em;
     padding-left: 0;
-    text-transform: none;
-    font-weight: 600;
+    border-left: none;
   }
-  :host ::slotted([slot='header'])::before {
-    display: none;
+  :host ::slotted([slot='nav-items']) {
+    margin-bottom: 0.5em;
   }
   .chevron-icon {
     display: flex;
@@ -119,14 +100,12 @@
   .section-nav {
     max-height: 0;
     overflow: hidden;
-    opacity: 0;
     transition:
       max-height 0.5s ease-in-out,
-      padding 0.5s ease-in-out,
-      opacity 0.4s ease-in-out;
+      padding 0.5s ease-in-out;
     background-color: #fff;
     width: 100%;
-    padding: 0;
+    padding: 0 1em;
     margin: 0;
     box-sizing: border-box;
   }
@@ -136,16 +115,7 @@
   }
   .section-container.expanded .section-nav {
     max-height: 500px;
-    padding: 0.5em 0;
-    opacity: 1;
-  }
-  :host .section-nav ::slotted(a) {
-    display: block;
-    padding: 0.75em 1em;
-    margin: 0;
-    border: none;
-    color: #000;
-    text-decoration: none;
+    padding: 0.5em 1em;
   }
 }
 
