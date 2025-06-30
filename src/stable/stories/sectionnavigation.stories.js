@@ -18,7 +18,6 @@ export const SectionNavigation = {
       }
 
       .section-header {
-        font-family: 'Montserrat', sans-serif;
         white-space: nowrap;
         text-transform: uppercase;
         font-weight: 700;
