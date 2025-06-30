@@ -1,3 +1,9 @@
+# v3.0.0-alpha.9 (Monday Jun 30 2025)
+
+#### 🐛 Bug Fix
+
+- [Style and A11Y fixes for section navigation component](https://github.com/CityOfDetroit/COD-Design-System/pull/351)
+
 # v3.0.0-alpha.8 (Tues Jun 24 2025)
 
 #### 🚀 Enhancement
@@ -12,7 +18,7 @@
 
 # v3.0.0-alpha.6 (Wed Jun 18 2025)
 
-#### 🚀 Bug Fix
+#### 🐛 Bug Fix
 
 - [Use latest button in map component](https://github.com/CityOfDetroit/COD-Design-System/pull/346)
 
