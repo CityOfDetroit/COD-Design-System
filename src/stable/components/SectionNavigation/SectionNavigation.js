@@ -54,7 +54,7 @@ class SectionNavigation extends HTMLElement {
   }
 
   _setupListeners() {
-    const toggle = this.shadowRoot.querySelector('.section-header');
+    const toggle = this.shadowRoot.querySelector('button.section-header');
 
     if (toggle) {
       toggle.addEventListener('click', this._handleToggle.bind(this));
@@ -67,7 +67,7 @@ class SectionNavigation extends HTMLElement {
   }
 
   _updateExpansion() {
-    const button = this.shadowRoot.querySelector('.section-header'); // FIXED
+    const button = this.shadowRoot.querySelector('button.section-header');
     const container = this.shadowRoot.querySelector('.section-container');
     const isExpanded = this.getAttribute('expanded') === 'true';
 
