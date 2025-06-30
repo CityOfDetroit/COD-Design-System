@@ -10,17 +10,61 @@
   align-items: baseline;
 }
 
-.section-header {
-  all: unset;
+.desktop-version .section-header {
   display: flex;
   align-items: center;
   margin-right: 2em;
   cursor: default;
 }
 
-:host ::slotted([slot='header']) {
-  padding-left: 0.5em;
-  border-left: 4px solid #ffc107;
+.mobile-version {
+  flex-direction: column;
+  margin-bottom: 0;
+  border: 1px solid #dee2e6;
+}
+.mobile-version .section-header {
+  width: 100%;
+  background-color: #ffc107;
+  padding: 0.5em 1em;
+  margin: 0;
+  justify-content: space-between;
+  align-items: center;
+  border: none;
+  display: flex;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+.mobile-version .chevron-icon {
+  display: flex;
+  align-items: center;
+}
+.mobile-version .chevron-icon svg {
+  width: 20px;
+  height: 20px;
+  transition: transform 0.3s ease-in-out;
+}
+.mobile-version .section-nav {
+  max-height: 0;
+  overflow: hidden;
+  transition:
+    max-height 0.3s ease-in-out,
+    padding 0.3s ease-in-out;
+  background-color: #fff;
+  width: 100%;
+  padding: 0 1em;
+  margin: 0;
+  box-sizing: border-box;
+}
+.mobile-version .section-nav ul {
+  flex-direction: column;
+  gap: 0;
+}
+.mobile-version.expanded .section-nav {
+  max-height: 500px;
+  padding: 0.5em 1em;
+}
+.mobile-version.expanded .chevron-icon svg {
+  transform: rotate(180deg);
 }
 
 .section-nav {
@@ -39,84 +83,17 @@
   padding: 0;
 }
 
-.toggle-button {
-  display: none;
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
+.desktop-version ::slotted([slot='header']) {
+  padding-left: 0.5em;
+  border-left: 4px solid #ffc107;
 }
-.toggle-button svg {
-  transition: transform 0.3s ease;
+.mobile-version ::slotted([slot='header']) {
+  padding-left: 0;
+  border-left: none;
 }
 
-.chevron-icon {
-  display: none;
-}
-
-@media (max-width: 991.98px) {
-  .section-container {
-    flex-direction: column;
-    margin-bottom: 0;
-    border: 1px solid #dee2e6;
-  }
-  .section-container.expanded .section-nav {
-    display: block;
-  }
-  .section-container.expanded .toggle-button svg {
-    transform: rotate(180deg);
-  }
-  .section-header {
-    width: 100%;
-    background-color: #ffc107;
-    padding: 0.5em 1em;
-    margin: 0;
-    justify-content: space-between;
-    border: none;
-    display: flex;
-    box-sizing: border-box;
-    cursor: pointer;
-    appearance: none;
-  }
-  :host ::slotted([slot='header']) {
-    padding-left: 0;
-    border-left: none;
-  }
-  :host ::slotted([slot='nav-items']) {
-    margin-bottom: 0.5em;
-  }
-  .chevron-icon {
-    display: flex;
-    align-items: center;
-  }
-  .chevron-icon svg {
-    width: 20px;
-    height: 20px;
-    transition: transform 0.3s ease;
-  }
-  .section-container.expanded .chevron-icon svg {
-    transform: rotate(180deg);
-  }
-  .section-nav {
-    max-height: 0;
-    overflow: hidden;
-    transition:
-      max-height 0.5s ease-in-out,
-      padding 0.5s ease-in-out;
-    background-color: #fff;
-    width: 100%;
-    padding: 0 1em;
-    margin: 0;
-    box-sizing: border-box;
-  }
-  .section-nav ul {
-    flex-direction: column;
-    gap: 0;
-  }
-  .section-container.expanded .section-nav {
-    max-height: 500px;
-    padding: 0.5em 1em;
-  }
+.mobile-version ::slotted([slot='nav-items']) {
+  margin-bottom: 0.5em;
 }
 
 /*# sourceMappingURL=SectionNavigation.css.map */

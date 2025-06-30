@@ -14,19 +14,77 @@
   align-items: baseline;
 }
 
-.section-header {
-  all: unset;
-  display: flex;
-  align-items: center;
-  margin-right: 2rem;
-  cursor: default;
+// Desktop version styles
+.desktop-version {
+  .section-header {
+    display: flex;
+    align-items: center;
+    margin-right: 2rem;
+    cursor: default;
+  }
 }
 
-:host ::slotted([slot='header']) {
-  padding-left: 0.5rem;
-  border-left: 4px solid #ffc107;
+// Mobile version styles
+.mobile-version {
+  flex-direction: column;
+  margin-bottom: 0;
+  border: 1px solid #dee2e6;
+
+  .section-header {
+    width: 100%;
+    background-color: #ffc107;
+    padding: 0.5rem 1rem;
+    margin: 0;
+    justify-content: space-between;
+    align-items: center;
+    border: none;
+    display: flex;
+    box-sizing: border-box;
+    cursor: pointer;
+  }
+
+  .chevron-icon {
+    display: flex;
+    align-items: center;
+
+    svg {
+      width: 20px;
+      height: 20px;
+      transition: transform 0.3s ease-in-out;
+    }
+  }
+
+  .section-nav {
+    max-height: 0;
+    overflow: hidden;
+    transition:
+      max-height 0.3s ease-in-out,
+      padding 0.3s ease-in-out;
+    background-color: #fff;
+    width: 100%;
+    padding: 0 1rem;
+    margin: 0;
+    box-sizing: border-box;
+
+    ul {
+      flex-direction: column;
+      gap: 0;
+    }
+  }
+
+  &.expanded {
+    .section-nav {
+      max-height: 500px;
+      padding: 0.5rem 1rem;
+    }
+
+    .chevron-icon svg {
+      transform: rotate(180deg);
+    }
+  }
 }
 
+// Shared styles
 .section-nav {
   flex-grow: 1;
 
@@ -45,96 +103,22 @@
   }
 }
 
-.toggle-button {
-  display: none;
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-
-  svg {
-    transition: transform 0.3s ease;
-  }
-}
-
-.chevron-icon {
-  display: none;
-}
-
-@include media-breakpoint-down(lg) {
-  .section-container {
-    flex-direction: column;
-    margin-bottom: 0;
-    border: 1px solid #dee2e6;
-
-    &.expanded {
-      .section-nav {
-        display: block;
-      }
-
-      .toggle-button svg {
-        transform: rotate(180deg);
-      }
-    }
+// Header slot styling
+::slotted([slot='header']) {
+  // Desktop styling
+  .desktop-version & {
+    padding-left: 0.5rem;
+    border-left: 4px solid #ffc107;
   }
 
-  .section-header {
-    width: 100%;
-    background-color: #ffc107;
-    padding: 0.5rem 1rem;
-    margin: 0;
-    justify-content: space-between;
-    border: none;
-    display: flex;
-    box-sizing: border-box;
-    cursor: pointer;
-    appearance: none;
-  }
-
-  :host ::slotted([slot='header']) {
+  // Mobile styling (no border/padding)
+  .mobile-version & {
     padding-left: 0;
     border-left: none;
   }
+}
 
-  :host ::slotted([slot='nav-items']) {
-    margin-bottom: 0.5rem;
-  }
-
-  .chevron-icon {
-    display: flex;
-    align-items: center;
-
-    svg {
-      width: 20px;
-      height: 20px;
-      transition: transform 0.3s ease;
-    }
-  }
-
-  .section-container.expanded .chevron-icon svg {
-    transform: rotate(180deg);
-  }
-
-  .section-nav {
-    max-height: 0;
-    overflow: hidden;
-    transition:
-      max-height 0.5s ease-in-out,
-      padding 0.5s ease-in-out;
-    background-color: #fff;
-    width: 100%;
-    padding: 0 1rem;
-    margin: 0;
-    box-sizing: border-box;
-
-    ul {
-      flex-direction: column;
-      gap: 0;
-    }
-  }
-
-  .section-container.expanded .section-nav {
-    max-height: 500px;
-    padding: 0.5rem 1rem;
-  }
+// Nav items styling for mobile
+.mobile-version ::slotted([slot='nav-items']) {
+  margin-bottom: 0.5rem;
 }

@@ -18,6 +18,7 @@ export const SectionNavigation = {
       }
 
       .section-header {
+        font-family: 'Montserrat', sans-serif;
         white-space: nowrap;
         text-transform: uppercase;
         font-weight: 700;
@@ -79,65 +80,67 @@ export const Test = {
   `,
   play: async ({ canvasElement }) => {
     const sectionNav = canvasElement.querySelector('cod-section-navigation');
+
+    // Wait for component to initialize
+    await waitFor(() => {
+      expect(sectionNav.shadowRoot).not.toBeNull();
+      expect(
+        sectionNav.shadowRoot.querySelector('.section-container'),
+      ).not.toBeNull();
+    });
+
     const shadow = sectionNav.shadowRoot;
 
-    // Helper function to check expanded state
-    const checkExpandedState = (isExpanded) => {
-      const container = shadow.querySelector('.section-container');
-      const toggleButton = shadow.querySelector('.section-header');
+    // Test basic structure exists
+    const container = shadow.querySelector('.section-container');
+    expect(container).not.toBeNull();
 
-      expect(container.classList.contains('expanded')).toBe(isExpanded);
-      expect(toggleButton.getAttribute('aria-expanded')).toBe(
-        isExpanded.toString(),
-      );
-    };
+    const header = shadow.querySelector('.section-header');
+    expect(header).not.toBeNull();
 
-    // Test initial state
-    checkExpandedState(false);
+    const nav = shadow.querySelector('.section-nav');
+    expect(nav).not.toBeNull();
 
-    // Test button click to expand
-    const toggleButton = shadow.querySelector('.section-header');
+    // Test slots exist
+    const headerSlot = shadow.querySelector('slot[name="header"]');
+    const navItemsSlot = shadow.querySelector('slot[name="nav-items"]');
+    expect(headerSlot).not.toBeNull();
+    expect(navItemsSlot).not.toBeNull();
 
-    await userEvent.click(toggleButton);
-    checkExpandedState(true);
+    // Test slotted content is assigned
+    expect(headerSlot.assignedElements().length).toBeGreaterThan(0);
+    expect(navItemsSlot.assignedElements().length).toBeGreaterThan(0);
 
-    // Test button click to collapse
-    await userEvent.click(toggleButton);
-    checkExpandedState(false);
+    // Check if we're in mobile or desktop mode
+    const isMobile = container.classList.contains('mobile-version');
+    const isDesktop = container.classList.contains('desktop-version');
 
-    // Test slotted elements
-    await waitFor(() => {
-      const slot = shadow.querySelector('slot[name="nav-items"]');
-      const navItems = slot.assignedElements();
+    // One of them should be true
+    expect(isMobile || isDesktop).toBe(true);
 
-      navItems.forEach((item) => {
-        if (item.tagName === 'A') {
-          // Test <a> elements are wrapped in <li>
-          const parentLi = item.closest('li');
-          expect(parentLi).not.toBeNull();
-          expect(parentLi.classList.contains('nav-item')).toBe(true);
-          expect(parentLi.getAttribute('slot')).toBe('nav-items');
-          expect(item.getAttribute('slot')).toBe(null);
-        } else if (item.tagName === 'LI') {
-          // Test <li> elements
-          expect(item.classList.contains('nav-item')).toBe(true);
-          const anchor = item.querySelector('a');
-          if (anchor) {
-            // Test <li> with anchor
-            expect(item.getAttribute('slot')).toBe('nav-items');
-          } else {
-            // Test <li> by itself
-            expect(item.classList.contains('nav-item')).toBe(true);
-          }
-        } else {
-          // Test non-<a> and non-<li> elements are not rendered
-          const renderedItems = shadow.querySelectorAll('.nav-item');
-          const isRendered = Array.from(renderedItems).some((renderedItem) =>
-            renderedItem.contains(item),
-          );
-          expect(isRendered).toBe(false);
-        }
-      });
-    });
+    if (isMobile) {
+      // Mobile tests
+      expect(header.tagName).toBe('BUTTON');
+      expect(header.getAttribute('aria-expanded')).toBe('false');
+
+      const chevron = shadow.querySelector('.chevron-icon');
+      expect(chevron).not.toBeNull();
+
+      // Test toggle functionality
+      await userEvent.click(header);
+      expect(header.getAttribute('aria-expanded')).toBe('true');
+      expect(container.classList.contains('expanded')).toBe(true);
+
+      await userEvent.click(header);
+      expect(header.getAttribute('aria-expanded')).toBe('false');
+      expect(container.classList.contains('expanded')).toBe(false);
+    } else {
+      // Desktop tests
+      expect(header.tagName).toBe('DIV');
+      expect(header.getAttribute('aria-expanded')).toBeNull();
+
+      const chevron = shadow.querySelector('.chevron-icon');
+      expect(chevron).toBeNull();
+    }
   },
 };

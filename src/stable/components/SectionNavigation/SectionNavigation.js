@@ -1,24 +1,40 @@
 import styles from '!!raw-loader!./SectionNavigation.css';
 
-const template = document.createElement('template');
-template.innerHTML = `
+const desktopTemplate = document.createElement('template');
+desktopTemplate.innerHTML = `
 <style>
 ${styles}
 </style>
-<div class="section-container">
-<button type="button" class="section-header" aria-label="Toggle navigation" aria-expanded="false">
-  <slot name="header">On This Page</slot>
-  <span class="chevron-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+<div class="section-container desktop-version">
+  <div class="section-header">
+    <slot name="header">On This Page</slot>
+  </div>
+  <nav class="section-nav" aria-labelledby="section-heading">
+    <ul>
+      <slot name="nav-items"></slot>
+    </ul>
+  </nav>
+</div>
+`;
+
+const mobileTemplate = document.createElement('template');
+mobileTemplate.innerHTML = `
+<style>
+${styles}
+</style>
+<div class="section-container mobile-version">
+  <button type="button" class="section-header" aria-label="Toggle navigation" aria-expanded="false">
+    <slot name="header">On This Page</slot>
+    <span class="chevron-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
         <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/>
       </svg>
-  </span>
-</button>
-
+    </span>
+  </button>
   <nav class="section-nav" aria-labelledby="section-heading">
-  <ul>
-    <slot name="nav-items"></slot>
-  </ul>
+    <ul>
+      <slot name="nav-items"></slot>
+    </ul>
   </nav>
 </div>
 `;
@@ -26,8 +42,9 @@ ${styles}
 class SectionNavigation extends HTMLElement {
   constructor() {
     super();
-    const shadow = this.attachShadow({ mode: 'open' });
-    shadow.appendChild(template.content.cloneNode(true));
+    this.attachShadow({ mode: 'open' });
+    this._mediaQuery = window.matchMedia('(max-width: 991.98px)'); // Bootstrap lg breakpoint
+    this._isMobile = this._mediaQuery.matches;
   }
 
   static get observedAttributes() {
@@ -44,20 +61,60 @@ class SectionNavigation extends HTMLElement {
     if (!this.hasAttribute('expanded')) {
       this.setAttribute('expanded', 'false');
     }
-    this._setupListeners();
+
+    this._mediaQuery.addEventListener(
+      'change',
+      this._handleMediaChange.bind(this),
+    );
+    this._render();
     this._wrapSlottedLinks();
   }
 
   disconnectedCallback() {
-    const toggle = this.shadowRoot.querySelector('.toggle-button');
-    toggle.removeEventListener('click', this._handleToggle);
+    this._mediaQuery.removeEventListener('change', this._handleMediaChange);
+    this._removeListeners();
+  }
+
+  _handleMediaChange(e) {
+    const wasMobile = this._isMobile;
+    this._isMobile = e.matches;
+
+    if (wasMobile !== this._isMobile) {
+      this._render();
+    }
+  }
+
+  _render() {
+    // Clear existing content
+    this.shadowRoot.innerHTML = '';
+
+    // Remove existing listeners
+    this._removeListeners();
+
+    // Render appropriate template
+    const template = this._isMobile ? mobileTemplate : desktopTemplate;
+    this.shadowRoot.appendChild(template.content.cloneNode(true));
+
+    // Setup listeners for new content
+    this._setupListeners();
+
+    // Update expansion state
+    this._updateExpansion();
+  }
+
+  _removeListeners() {
+    const toggle = this.shadowRoot.querySelector('button.section-header');
+    if (toggle) {
+      toggle.removeEventListener('click', this._handleToggle);
+    }
   }
 
   _setupListeners() {
-    const toggle = this.shadowRoot.querySelector('button.section-header');
-
-    if (toggle) {
-      toggle.addEventListener('click', this._handleToggle.bind(this));
+    if (this._isMobile) {
+      const toggle = this.shadowRoot.querySelector('button.section-header');
+      if (toggle) {
+        toggle.addEventListener('click', this._handleToggle.bind(this));
+      }
     }
   }
 
@@ -67,6 +124,8 @@ class SectionNavigation extends HTMLElement {
   }
 
   _updateExpansion() {
+    if (!this._isMobile) return;
+
     const button = this.shadowRoot.querySelector('button.section-header');
     const container = this.shadowRoot.querySelector('.section-container');
     const isExpanded = this.getAttribute('expanded') === 'true';
@@ -116,4 +175,5 @@ class SectionNavigation extends HTMLElement {
     slot.addEventListener('slotchange', wrapLinks);
   }
 }
+
 export { SectionNavigation as default };
