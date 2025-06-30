@@ -23,6 +23,7 @@
   border: 1px solid #dee2e6;
 }
 .mobile-version .section-header {
+  all: unset;
   width: 100%;
   background-color: #ffc107;
   padding: 0.5em 1em;
