@@ -1,6 +1,6 @@
 import { html } from 'lit-html';
 import '../components/atoms/ActionButton/cod-action-button';
-import '../components/atoms/Icon/cod-icon';
+import '../../stable/components/Icon/cod-icon';
 import { COMMON_STORY_ARGS } from '../../shared/js/storybook/args-utils';
 
 export default {
