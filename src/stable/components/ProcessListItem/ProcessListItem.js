@@ -4,6 +4,7 @@ const template = document.createElement('template');
 
 template.innerHTML = `
 <li class="cod-process-list__item" part="base">
+  <div class="cod-process-list__counter" part="counter"></div>
   <div class="cod-process-list__heading" part="heading">
     <slot name="heading"></slot>
   </div>
