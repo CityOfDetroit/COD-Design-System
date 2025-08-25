@@ -1,6 +1,8 @@
 import './components/GovBanner/cod-gov-banner.js';
 import './components/SectionNavigation/cod-section-navigation.js';
 import './components/ServiceButton/cod-service-button.js';
+import './components/ProcessList/cod-process-list.js';
+import './components/ProcessListItem/cod-process-list-item.js';
 import './components/Drawer/cod-drawer.js';
 import './components/Button/cod-button.js';
 import './components/ButtonGroup/cod-button-group.js';
