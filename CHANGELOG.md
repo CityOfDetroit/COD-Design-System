@@ -1,3 +1,9 @@
+# v3.0.0-alpha.10 (Monday Aug 25 2025)
+
+#### 🚀 Enhancement
+
+- [Implement process list component](https://github.com/CityOfDetroit/COD-Design-System/pull/356)
+
 # v3.0.0-alpha.9 (Monday Jun 30 2025)
 
 #### 🐛 Bug Fix
