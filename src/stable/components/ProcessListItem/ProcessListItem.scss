@@ -1,0 +1,87 @@
+@import '../../../scss/cod-uxds-bs-base';
+@import '../../../scss/cod-uxds-bs-utilities';
+@import '../../../scss/cod-uxds-bs-host';
+@import '../../../scss/cod-uxds-style-guide';
+
+:host {
+  display: block;
+  position: relative;
+}
+
+.cod-process-list__item {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 2rem 4rem;
+  position: relative;
+
+  // Square step indicator (counter)
+  &::before {
+    background-color: var(--cod-process-list-counter-background-color);
+    border: var(--cod-process-list-counter-border-width) solid var(--cod-process-list-counter-border-color);
+    color: var(--cod-process-list-counter-text-color);
+    content: counter(cod-process-list-counter);
+    counter-increment: cod-process-list-counter;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    height: var(--cod-process-list-counter-size);
+    width: var(--cod-process-list-counter-size);
+    left: 0;
+    position: absolute;
+    top: 0;
+    z-index: 1;
+  }
+
+  // Connector line between items (except last)
+  &::after {
+    display: block;
+    :host([data-hide-connector]) & {
+      display: none;
+    }
+    background-color: var(--cod-process-list-connector-color);
+    content: '';
+    height: calc(100% - var(--cod-process-list-counter-size) - var(--cod-process-list-counter-gap-width));
+    left: calc(var(--cod-process-list-counter-size) / 2 - var(--cod-process-list-connector-width) / 2);
+    position: absolute;
+    top: calc(var(--cod-process-list-counter-size) + var(--cod-process-list-counter-gap-width));
+    width: var(--cod-process-list-connector-width, 2px);
+    z-index: 0;
+  }
+}
+
+.cod-process-list__heading {
+  color: var(--cod-process-list-heading-color);
+  font-family: var(--cod-process-list-heading-font-family);
+  font-size: var(--cod-process-list-heading-font-size);
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0 0 0.5rem 0;
+}
+
+.cod-process-list__content {
+  color: var(--cod-process-list-text-color);
+  font-family: var(--cod-process-list-font-family);
+  font-size: var(--cod-process-list-font-size);
+  line-height: 1.5;
+
+  // Style any nested lists
+  ::slotted(ul),
+  ::slotted(ol) {
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  ::slotted(li) {
+    margin-bottom: 0.5rem;
+  }
+
+  ::slotted(p) {
+    margin-top: 0;
+    margin-bottom: 1rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
