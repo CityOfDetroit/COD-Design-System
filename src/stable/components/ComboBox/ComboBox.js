@@ -58,7 +58,7 @@ export default class ComboBox extends HTMLElement {
       'required',
       'disabled',
       'name',
-      'id'
+      'id',
     ];
   }
 
@@ -87,7 +87,7 @@ export default class ComboBox extends HTMLElement {
       required: false,
       disabled: false,
       name: '',
-      id: ''
+      id: '',
     };
 
     // Bind methods
@@ -160,12 +160,12 @@ export default class ComboBox extends HTMLElement {
   _parseOptions() {
     const options = [];
     const optionElements = this.querySelectorAll('option');
-    
-    optionElements.forEach(option => {
+
+    optionElements.forEach((option) => {
       options.push({
         value: option.value,
         text: option.textContent.trim(),
-        selected: option.hasAttribute('selected')
+        selected: option.hasAttribute('selected'),
       });
     });
 
@@ -173,7 +173,7 @@ export default class ComboBox extends HTMLElement {
     this._state.filteredOptions = [...options];
 
     // Set selected value from options
-    const selectedOption = options.find(opt => opt.selected);
+    const selectedOption = options.find((opt) => opt.selected);
     if (selectedOption) {
       this._state.selectedValue = selectedOption.value;
       this._state.inputValue = selectedOption.text;
@@ -194,20 +194,24 @@ export default class ComboBox extends HTMLElement {
     this._hiddenInput = document.createElement('input');
     this._hiddenInput.type = 'hidden';
     this._hiddenInput.value = this._state.selectedValue || '';
-    
+
     // Set name and other attributes
     if (this._state.name) {
       this._hiddenInput.name = this._state.name;
     }
-    
+
     // Append to the component (light DOM)
     this.appendChild(this._hiddenInput);
   }
 
   _setupEventListeners() {
     const input = this.shadowRoot.querySelector('.combo-box-input');
-    const toggleButton = this.shadowRoot.querySelector('.combo-box-toggle-button');
-    const clearButton = this.shadowRoot.querySelector('.combo-box-clear-button');
+    const toggleButton = this.shadowRoot.querySelector(
+      '.combo-box-toggle-button',
+    );
+    const clearButton = this.shadowRoot.querySelector(
+      '.combo-box-clear-button',
+    );
 
     input.addEventListener('input', this._handleInputChange);
     input.addEventListener('keydown', this._handleInputKeyDown);
@@ -215,14 +219,18 @@ export default class ComboBox extends HTMLElement {
     input.addEventListener('blur', this._handleInputBlur);
     toggleButton.addEventListener('click', this._handleToggleClick);
     clearButton.addEventListener('click', this._handleClearClick);
-    
+
     document.addEventListener('click', this._handleDocumentClick);
   }
 
   _removeEventListeners() {
     const input = this.shadowRoot.querySelector('.combo-box-input');
-    const toggleButton = this.shadowRoot.querySelector('.combo-box-toggle-button');
-    const clearButton = this.shadowRoot.querySelector('.combo-box-clear-button');
+    const toggleButton = this.shadowRoot.querySelector(
+      '.combo-box-toggle-button',
+    );
+    const clearButton = this.shadowRoot.querySelector(
+      '.combo-box-clear-button',
+    );
 
     if (input) {
       input.removeEventListener('input', this._handleInputChange);
@@ -230,15 +238,15 @@ export default class ComboBox extends HTMLElement {
       input.removeEventListener('focus', this._handleInputFocus);
       input.removeEventListener('blur', this._handleInputBlur);
     }
-    
+
     if (toggleButton) {
       toggleButton.removeEventListener('click', this._handleToggleClick);
     }
-    
+
     if (clearButton) {
       clearButton.removeEventListener('click', this._handleClearClick);
     }
-    
+
     document.removeEventListener('click', this._handleDocumentClick);
   }
 
@@ -305,16 +313,18 @@ export default class ComboBox extends HTMLElement {
     setTimeout(() => {
       if (!this.shadowRoot.contains(document.activeElement)) {
         this._closeList();
-        
+
         // If user typed a filter but didn't select an option, clear the filter
         const currentInput = this._state.inputValue;
-        const hasMatchingOption = this._state.options.some(option => 
-          option.text.toLowerCase() === currentInput.toLowerCase()
+        const hasMatchingOption = this._state.options.some(
+          (option) => option.text.toLowerCase() === currentInput.toLowerCase(),
         );
-        
+
         // If the current input doesn't match any option exactly, revert to selected value
         if (!hasMatchingOption) {
-          const selectedOption = this._state.options.find(opt => opt.value === this._state.selectedValue);
+          const selectedOption = this._state.options.find(
+            (opt) => opt.value === this._state.selectedValue,
+          );
           this._state.inputValue = selectedOption ? selectedOption.text : '';
           this._updateInputValue();
           this._render();
@@ -344,17 +354,26 @@ export default class ComboBox extends HTMLElement {
   }
 
   _handleDocumentClick(event) {
-    if (!this.contains(event.target) && !this.shadowRoot.contains(event.target)) {
+    if (
+      !this.contains(event.target) &&
+      !this.shadowRoot.contains(event.target)
+    ) {
       this._closeList();
     }
   }
 
   _filterOptions(query) {
-    if (this._state.customFilter && typeof window[this._state.customFilter] === 'function') {
-      this._state.filteredOptions = window[this._state.customFilter](this._state.options, query);
+    if (
+      this._state.customFilter &&
+      typeof window[this._state.customFilter] === 'function'
+    ) {
+      this._state.filteredOptions = window[this._state.customFilter](
+        this._state.options,
+        query,
+      );
     } else {
-      this._state.filteredOptions = this._state.options.filter(option =>
-        option.text.toLowerCase().includes(query.toLowerCase())
+      this._state.filteredOptions = this._state.options.filter((option) =>
+        option.text.toLowerCase().includes(query.toLowerCase()),
       );
     }
     this._state.activeIndex = this._state.filteredOptions.length > 0 ? 0 : -1;
@@ -381,7 +400,9 @@ export default class ComboBox extends HTMLElement {
     if (option) {
       this._state.selectedValue = option.value;
       this._state.inputValue = option.text;
-      this._state.selectedIndex = this._state.options.findIndex(opt => opt.value === option.value);
+      this._state.selectedIndex = this._state.options.findIndex(
+        (opt) => opt.value === option.value,
+      );
       this._closeList();
       this._updateInputValue();
       this._updateHiddenInput();
@@ -406,7 +427,7 @@ export default class ComboBox extends HTMLElement {
   _scrollToActiveOption() {
     const listbox = this.shadowRoot.querySelector('.combo-box-list');
     const activeOption = listbox.querySelector('[aria-selected="true"]');
-    
+
     if (activeOption) {
       activeOption.scrollIntoView({ block: 'nearest' });
     }
@@ -434,9 +455,11 @@ export default class ComboBox extends HTMLElement {
   _updateStatus() {
     const status = this.shadowRoot.querySelector('.combo-box-status');
     const count = this._state.filteredOptions.length;
-    
+
     if (this._state.isOpen) {
-      status.textContent = `${count} option${count !== 1 ? 's' : ''} available.`;
+      status.textContent = `${count} option${
+        count !== 1 ? 's' : ''
+      } available.`;
     } else {
       status.textContent = '';
     }
@@ -444,7 +467,7 @@ export default class ComboBox extends HTMLElement {
 
   _renderOptions() {
     const listbox = this.shadowRoot.querySelector('.combo-box-list');
-    
+
     if (!this._state.isOpen) {
       listbox.style.display = 'none';
       return;
@@ -458,7 +481,10 @@ export default class ComboBox extends HTMLElement {
       li.className = 'combo-box-option';
       li.setAttribute('role', 'option');
       li.setAttribute('data-index', index.toString());
-      li.setAttribute('aria-selected', (index === this._state.activeIndex).toString());
+      li.setAttribute(
+        'aria-selected',
+        (index === this._state.activeIndex).toString(),
+      );
       li.textContent = option.text;
 
       if (index === this._state.activeIndex) {
@@ -479,8 +505,12 @@ export default class ComboBox extends HTMLElement {
 
   _render() {
     const input = this.shadowRoot.querySelector('.combo-box-input');
-    const toggleButton = this.shadowRoot.querySelector('.combo-box-toggle-button');
-    const clearButton = this.shadowRoot.querySelector('.combo-box-clear-button');
+    const toggleButton = this.shadowRoot.querySelector(
+      '.combo-box-toggle-button',
+    );
+    const clearButton = this.shadowRoot.querySelector(
+      '.combo-box-clear-button',
+    );
 
     // Check if there's a selection to show clear button
     const hasSelection = this._state.selectedValue && this._state.inputValue;
@@ -500,7 +530,9 @@ export default class ComboBox extends HTMLElement {
     if (this._state.id) {
       input.id = this._state.id;
       input.setAttribute('aria-describedby', `${this._state.id}-status`);
-      this.shadowRoot.querySelector('.combo-box-status').id = `${this._state.id}-status`;
+      this.shadowRoot.querySelector(
+        '.combo-box-status',
+      ).id = `${this._state.id}-status`;
     }
 
     // Update button states
@@ -511,7 +543,10 @@ export default class ComboBox extends HTMLElement {
     const container = this.shadowRoot.querySelector('.combo-box');
     container.classList.toggle('combo-box--disabled', this._state.disabled);
     container.classList.toggle('combo-box--open', this._state.isOpen);
-    container.classList.toggle('combo-box--has-selection', hasSelection && !this._state.disabled);
+    container.classList.toggle(
+      'combo-box--has-selection',
+      hasSelection && !this._state.disabled,
+    );
 
     this._updateAriaAttributes();
     this._renderOptions();
@@ -521,9 +556,9 @@ export default class ComboBox extends HTMLElement {
     const event = new CustomEvent('change', {
       detail: {
         value: this._state.selectedValue,
-        text: this._state.inputValue
+        text: this._state.inputValue,
       },
-      bubbles: true
+      bubbles: true,
     });
     this.dispatchEvent(event);
   }
@@ -534,7 +569,7 @@ export default class ComboBox extends HTMLElement {
   }
 
   set value(val) {
-    const option = this._state.options.find(opt => opt.value === val);
+    const option = this._state.options.find((opt) => opt.value === val);
     if (option) {
       this._state.selectedValue = val;
       this._state.inputValue = option.text;

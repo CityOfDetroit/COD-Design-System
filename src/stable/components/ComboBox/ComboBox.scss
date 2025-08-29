@@ -36,7 +36,9 @@
   background-color: var(--cod-body-bg);
   background-image: none;
   border: 1px solid var(--cod-border-color);
-  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  transition:
+    border-color 0.15s ease-in-out,
+    box-shadow 0.15s ease-in-out;
 
   &:focus {
     color: var(--cod-body-color);
@@ -179,7 +181,9 @@
   background-color: transparent;
   border: 0;
   cursor: pointer;
-  transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out;
+  transition:
+    background-color 0.15s ease-in-out,
+    color 0.15s ease-in-out;
 
   &:hover,
   &:focus,

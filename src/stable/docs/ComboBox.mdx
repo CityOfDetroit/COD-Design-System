@@ -19,8 +19,9 @@ import '../../../.storybook/docs'; // Import all documentation components
 # Combo Box
 
 <div className="component-summary">
-  ComboBox allows users to select from a large list of options with filtering capabilities. 
-  It's ideal for scenarios with more than 15 options where users need to search to find their selection.
+  ComboBox allows users to select from a large list of options with filtering
+  capabilities. It's ideal for scenarios with more than 15 options where users
+  need to search to find their selection.
 </div>
 
 ## Usage
@@ -32,29 +33,34 @@ import '../../../.storybook/docs'; // Import all documentation components
 ## Usability Guidance
 
 ### When to Use
+
 - **Large option lists**: Use a combo box when there are more than 15 choices in a dropdown list
 - **Limited screen space**: When screen real estate is limited and you need a compact selection interface
 - **Searchable content**: When users benefit from being able to type and filter through options
 
 ### When to Consider Something Else
+
 - **Small number of options**: For fewer options, use a `select` element or `radio` buttons instead
 - **Critical accessibility concerns**: Consider alternative selection methods for essential functionality
 
 ### Best Practices
 
 #### Content and Options
+
 - **Use familiar option strings** that users can easily match and recognize
 - **Include recognizable spellings** or common abbreviations in your options
 - **Provide a good default option** when most users will choose a particular selection
 - **Avoid dependent options** that change based on other selections, as this can be confusing
 
 #### User Experience
+
 - **Do not auto-submit** the form when an option is selected
 - **Include a separate submit button** for users to confirm their choice
 - **Test thoroughly** with members of your target audience to ensure usability
 - **Provide clear labels** and helpful placeholder text to guide users
 
 #### Implementation
+
 - Always include proper labeling for accessibility
 - Ensure keyboard navigation works smoothly
 - Test with assistive technologies like screen readers
@@ -135,6 +141,7 @@ data={JSON.stringify([
 ComboBox components are designed with comprehensive accessibility features following WAI-ARIA guidelines:
 
 ### Keyboard Navigation
+
 - **Tab**: Focus the combo box
 - **Arrow Down/Up**: Navigate through options or open the dropdown
 - **Enter**: Select the currently highlighted option
@@ -142,22 +149,26 @@ ComboBox components are designed with comprehensive accessibility features follo
 - **Type**: Filter options by typing characters
 
 ### Screen Reader Support
+
 - Uses appropriate ARIA attributes (`role="combobox"`, `aria-expanded`, `aria-haspopup`)
 - Provides live status updates for filtered results
 - Maintains proper focus management throughout interactions
 - Associates labels with inputs using proper labeling techniques
 
 ### Visual Accessibility
+
 - High contrast mode support with enhanced borders
 - Respects user preferences for reduced motion
 - Maintains focus indicators that meet WCAG guidelines
 
 ### Form Integration
+
 - Properly integrates with HTML forms and validation
 - Supports required field validation
 - Maintains form data persistence and submission
 
 ### Best Practices for Accessibility
+
 1. **Always provide a label** - Use the label slot for proper form labeling
 2. **Test with assistive technology** - Verify functionality with screen readers
 3. **Provide meaningful placeholder text** - Help users understand the expected input

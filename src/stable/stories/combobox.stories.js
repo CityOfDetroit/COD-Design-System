@@ -21,7 +21,7 @@ const fruitOptions = [
   { value: 'pineapple', text: 'Pineapple' },
   { value: 'raspberry', text: 'Raspberry' },
   { value: 'strawberry', text: 'Strawberry' },
-  { value: 'watermelon', text: 'Watermelon' }
+  { value: 'watermelon', text: 'Watermelon' },
 ];
 
 const colorOptions = [
@@ -42,7 +42,7 @@ const colorOptions = [
   { value: 'navy', text: 'Navy' },
   { value: 'teal', text: 'Teal' },
   { value: 'silver', text: 'Silver' },
-  { value: 'gold', text: 'Gold' }
+  { value: 'gold', text: 'Gold' },
 ];
 
 export default {
@@ -56,7 +56,7 @@ The ComboBox component allows users to select from a large list of options with 
 It's ideal for scenarios with more than 15 options where users need to search or filter to find their selection.
 
 Includes full keyboard navigation and accessibility support.
-        `
+        `,
       },
       source: {
         format: 'html',
@@ -73,7 +73,7 @@ Includes full keyboard navigation and accessibility support.
       },
     },
     defaultValue: {
-      name: 'default', 
+      name: 'default',
       control: { type: 'text' },
       description: 'Default value to select when the component loads.',
       table: {
@@ -126,7 +126,7 @@ Includes full keyboard navigation and accessibility support.
 
 // Helper function to create options
 const createOptions = (comboBox, options) => {
-  options.forEach(option => {
+  options.forEach((option) => {
     const optionElement = document.createElement('option');
     optionElement.value = option.value;
     optionElement.textContent = option.text;
@@ -138,7 +138,7 @@ const createOptions = (comboBox, options) => {
 const Template = (args) => {
   const container = document.createElement('div');
   container.style.width = '300px';
-  
+
   const comboBox = document.createElement('cod-combo-box');
 
   // Set attributes from args
@@ -172,7 +172,7 @@ Usage.tags = ['!dev'];
 export const BasicExample = () => {
   const container = document.createElement('div');
   container.style.width = '300px';
-  
+
   const comboBox = document.createElement('cod-combo-box');
   comboBox.setAttribute('placeholder', 'Choose a fruit...');
   comboBox.setAttribute('name', 'fruit');
@@ -192,7 +192,8 @@ BasicExample.storyName = 'Basic Example';
 BasicExample.parameters = {
   docs: {
     description: {
-      story: 'A basic combo box with fruit options. Type to filter the list or use arrow keys to navigate.',
+      story:
+        'A basic combo box with fruit options. Type to filter the list or use arrow keys to navigate.',
     },
   },
 };
@@ -201,7 +202,7 @@ BasicExample.parameters = {
 export const WithDefaultValue = () => {
   const container = document.createElement('div');
   container.style.width = '300px';
-  
+
   const comboBox = document.createElement('cod-combo-box');
   comboBox.setAttribute('placeholder', 'Choose a color...');
   comboBox.setAttribute('default', 'blue');
@@ -231,7 +232,7 @@ WithDefaultValue.parameters = {
 export const Required = () => {
   const container = document.createElement('div');
   container.style.width = '300px';
-  
+
   const comboBox = document.createElement('cod-combo-box');
   comboBox.setAttribute('placeholder', 'This field is required');
   comboBox.setAttribute('required', '');
@@ -252,7 +253,8 @@ Required.storyName = 'Required Field';
 Required.parameters = {
   docs: {
     description: {
-      story: 'Use the `required` attribute to make the field required for form validation.',
+      story:
+        'Use the `required` attribute to make the field required for form validation.',
     },
   },
 };
@@ -261,7 +263,7 @@ Required.parameters = {
 export const Disabled = () => {
   const container = document.createElement('div');
   container.style.width = '300px';
-  
+
   const comboBox = document.createElement('cod-combo-box');
   comboBox.setAttribute('placeholder', 'This field is disabled');
   comboBox.setAttribute('disabled', '');
@@ -304,7 +306,7 @@ export const CustomFilter = () => {
     };
   `;
   container.appendChild(script);
-  
+
   const comboBox = document.createElement('cod-combo-box');
   comboBox.setAttribute('placeholder', 'Start typing...');
   comboBox.setAttribute('filter', 'customFruitFilter');
@@ -325,7 +327,8 @@ CustomFilter.storyName = 'Custom Filtering';
 CustomFilter.parameters = {
   docs: {
     description: {
-      story: 'Use the `filter` attribute to specify a custom filter function. This example filters by "starts with" instead of "contains".',
+      story:
+        'Use the `filter` attribute to specify a custom filter function. This example filters by "starts with" instead of "contains".',
     },
   },
 };
@@ -334,12 +337,12 @@ CustomFilter.parameters = {
 export const FormIntegration = () => {
   const container = document.createElement('div');
   container.style.width = '400px';
-  
+
   const form = document.createElement('form');
   form.style.display = 'flex';
   form.style.flexDirection = 'column';
   form.style.gap = '16px';
-  
+
   // Fruit combo box
   const fruitComboBox = document.createElement('cod-combo-box');
   fruitComboBox.setAttribute('placeholder', 'Choose your favorite...');
@@ -350,7 +353,7 @@ export const FormIntegration = () => {
   fruitLabel.setAttribute('slot', 'label');
   fruitLabel.textContent = 'Favorite Fruit *';
   fruitComboBox.appendChild(fruitLabel);
-  
+
   createOptions(fruitComboBox, fruitOptions);
 
   // Color combo box
@@ -362,7 +365,7 @@ export const FormIntegration = () => {
   colorLabel.setAttribute('slot', 'label');
   colorLabel.textContent = 'Favorite Color';
   colorComboBox.appendChild(colorLabel);
-  
+
   createOptions(colorComboBox, colorOptions);
 
   // Submit button
@@ -389,16 +392,20 @@ export const FormIntegration = () => {
     for (let [key, value] of formData.entries()) {
       data[key] = value;
     }
-    output.innerHTML = `<strong>Form Data:</strong><br><pre>${JSON.stringify(data, null, 2)}</pre>`;
+    output.innerHTML = `<strong>Form Data:</strong><br><pre>${JSON.stringify(
+      data,
+      null,
+      2,
+    )}</pre>`;
   });
 
   form.appendChild(fruitComboBox);
   form.appendChild(colorComboBox);
   form.appendChild(submitBtn);
-  
+
   container.appendChild(form);
   container.appendChild(output);
-  
+
   return container;
 };
 
@@ -406,7 +413,8 @@ FormIntegration.storyName = 'Form Integration';
 FormIntegration.parameters = {
   docs: {
     description: {
-      story: 'Example showing how combo boxes integrate with forms. The selected values are included in form submission.',
+      story:
+        'Example showing how combo boxes integrate with forms. The selected values are included in form submission.',
     },
   },
 };
