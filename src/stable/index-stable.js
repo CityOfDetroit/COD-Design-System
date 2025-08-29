@@ -6,6 +6,7 @@ import './components/ProcessListItem/cod-process-list-item.js';
 import './components/Drawer/cod-drawer.js';
 import './components/Button/cod-button.js';
 import './components/ButtonGroup/cod-button-group.js';
+import './components/ComboBox/cod-combo-box.js';
 import './components/Tag/cod-tag.js';
 import './components/Card/cod-card.js';
 import './components/PhotoButton/cod-photo-button.js';
