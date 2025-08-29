@@ -1,0 +1,239 @@
+@import '../../../scss/cod-uxds-bs-base';
+@import '../../../scss/cod-uxds-bs-utilities';
+@import '../../../scss/cod-uxds-bs-host';
+@import '../../../scss/cod-uxds-style-guide';
+
+.combo-box {
+  position: relative;
+  width: 100%;
+
+  &--disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+  }
+}
+
+.combo-box-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: var(--cod-body-color);
+}
+
+.combo-box-wrapper {
+  position: relative;
+  display: flex;
+  width: 100%;
+}
+
+.combo-box-input {
+  flex: 1;
+  padding: 0.375rem 2.5rem 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--cod-body-color);
+  background-color: var(--cod-body-bg);
+  background-image: none;
+  border: 1px solid var(--cod-border-color);
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
+  &:focus {
+    color: var(--cod-body-color);
+    background-color: var(--cod-body-bg);
+    border-color: #86b7fe;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+  }
+
+  &:disabled {
+    background-color: var(--cod-secondary-bg);
+    border-color: var(--cod-border-color);
+    opacity: 1;
+    cursor: not-allowed;
+  }
+
+  &::placeholder {
+    color: var(--cod-secondary-color);
+    opacity: 1;
+  }
+}
+
+.combo-box--has-selection {
+  .combo-box-clear-button {
+    display: flex;
+  }
+}
+
+.combo-box-clear-button {
+  position: absolute;
+  top: 0;
+  right: 2.5rem;
+  bottom: 0;
+  z-index: 3;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  padding: 0;
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+
+  &:hover:not(:disabled) {
+    background-color: rgba(220, 53, 69, 0.1);
+    color: #dc3545;
+  }
+
+  &:focus {
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgba(220, 53, 69, 0.25);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.65;
+  }
+}
+
+.combo-box-clear-icon {
+  width: 1rem;
+  height: 1rem;
+  fill: currentColor;
+}
+
+.combo-box-toggle-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  padding: 0;
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+
+  &:hover:not(:disabled) {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+
+  &:focus {
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.65;
+  }
+}
+
+.combo-box-toggle-icon {
+  width: 1rem;
+  height: 1rem;
+  fill: currentColor;
+  transition: transform 0.15s ease-in-out;
+
+  .combo-box--open & {
+    transform: rotate(180deg);
+  }
+}
+
+.combo-box-list {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  display: none;
+  max-height: 200px;
+  margin: 0.125rem 0 0 0;
+  padding: 0;
+  overflow-y: auto;
+  list-style: none;
+  background-color: var(--cod-body-bg);
+  border: 1px solid var(--cod-border-color);
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+
+  .combo-box--open & {
+    display: block;
+  }
+}
+
+.combo-box-option {
+  display: block;
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  margin-bottom: 0;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--cod-body-color);
+  text-decoration: none;
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+  transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out;
+
+  &:hover,
+  &:focus,
+  &--active {
+    color: var(--cod-primary);
+    background-color: var(--cod-primary-bg-subtle);
+  }
+
+  &--no-results {
+    color: var(--cod-secondary-color);
+    cursor: default;
+    font-style: italic;
+
+    &:hover,
+    &:focus {
+      color: var(--cod-secondary-color);
+      background-color: transparent;
+    }
+  }
+}
+
+.combo-box-status {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+// High contrast mode support
+@media (prefers-contrast: high) {
+  .combo-box-input {
+    border-width: 2px;
+  }
+
+  .combo-box-list {
+    border-width: 2px;
+  }
+
+  .combo-box-option {
+    &:hover,
+    &:focus,
+    &--active {
+      border: 2px solid;
+    }
+  }
+}
+
+// Reduced motion support
+@media (prefers-reduced-motion: reduce) {
+  .combo-box-input,
+  .combo-box-toggle-button,
+  .combo-box-toggle-icon,
+  .combo-box-option {
+    transition: none;
+  }
+}

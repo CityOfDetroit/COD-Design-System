@@ -1,0 +1,164 @@
+import {
+  Meta,
+  Canvas,
+  Title,
+  Subtitle,
+  Description,
+  Primary,
+  Controls,
+  Stories,
+  Story,
+  Source,
+} from '@storybook/blocks';
+import * as ComboBoxStories from '../stories/combobox.stories';
+
+import '../../../.storybook/docs'; // Import all documentation components
+
+<Meta of={ComboBoxStories} />
+
+# Combo Box
+
+<div className="component-summary">
+  ComboBox allows users to select from a large list of options with filtering capabilities. 
+  It's ideal for scenarios with more than 15 options where users need to search to find their selection.
+</div>
+
+## Usage
+
+<Story of={ComboBoxStories.Usage} inline={true} />
+<Source of={ComboBoxStories.Usage} />
+<Controls of={ComboBoxStories.Usage} />
+
+## Usability Guidance
+
+### When to Use
+- **Large option lists**: Use a combo box when there are more than 15 choices in a dropdown list
+- **Limited screen space**: When screen real estate is limited and you need a compact selection interface
+- **Searchable content**: When users benefit from being able to type and filter through options
+
+### When to Consider Something Else
+- **Small number of options**: For fewer options, use a `select` element or `radio` buttons instead
+- **Critical accessibility concerns**: Consider alternative selection methods for essential functionality
+
+### Best Practices
+
+#### Content and Options
+- **Use familiar option strings** that users can easily match and recognize
+- **Include recognizable spellings** or common abbreviations in your options
+- **Provide a good default option** when most users will choose a particular selection
+- **Avoid dependent options** that change based on other selections, as this can be confusing
+
+#### User Experience
+- **Do not auto-submit** the form when an option is selected
+- **Include a separate submit button** for users to confirm their choice
+- **Test thoroughly** with members of your target audience to ensure usability
+- **Provide clear labels** and helpful placeholder text to guide users
+
+#### Implementation
+- Always include proper labeling for accessibility
+- Ensure keyboard navigation works smoothly
+- Test with assistive technologies like screen readers
+- Consider custom filtering logic for domain-specific use cases
+
+## Examples
+
+<Stories of={ComboBoxStories} includePrimary={false} />
+
+## Slots
+
+<doc-slots-table
+data={JSON.stringify([
+{"name": "label", "description": "The combo box's label text."},
+{"name": "(default)", "description": "Option elements that define the available choices."}
+])}>
+</doc-slots-table>
+
+## HTML Attributes / JS Properties
+
+<doc-js-properties-table
+data={JSON.stringify([
+{"name": "placeholder", "description": "Placeholder text shown when no value is selected.", "type": "string", "defaultValue": "''", "reflects": true},
+{"name": "default", "description": "Default value to select when the component loads.", "type": "string", "defaultValue": "''", "reflects": true},
+{"name": "filter", "description": "Name of global function to use for custom filtering.", "type": "string", "defaultValue": "''", "reflects": true},
+{"name": "required", "description": "Makes the combo box required for form validation.", "type": "boolean", "defaultValue": "false", "reflects": true},
+{"name": "disabled", "description": "Disables the combo box.", "type": "boolean", "defaultValue": "false", "reflects": true},
+{"name": "name", "description": "The name attribute for form submission.", "type": "string", "defaultValue": "''", "reflects": true},
+{"name": "id", "description": "The id attribute for the input element.", "type": "string", "defaultValue": "''", "reflects": true},
+{"name": "value", "description": "The currently selected value (readonly).", "type": "string", "defaultValue": "''", "reflects": false}
+])}>
+</doc-js-properties-table>
+
+## Events
+
+<doc-events-table
+data={JSON.stringify([
+{"name": "change", "description": "Emitted when the selection changes.", "detail": "{ value: string, text: string }"}
+])}>
+</doc-events-table>
+
+## Methods
+
+<doc-methods-table
+data={JSON.stringify([
+{"name": "clear", "description": "Clears the current selection.", "parameters": ""},
+{"name": "focus", "description": "Focuses the input element.", "parameters": ""}
+])}>
+</doc-methods-table>
+
+## Custom CSS Properties
+
+<doc-css-custom-properties-table
+data={JSON.stringify([])}>
+</doc-css-custom-properties-table>
+
+## CSS Parts
+
+<doc-css-parts-table
+data={JSON.stringify([
+{"name": "container", "description": "The component's main wrapper."},
+{"name": "label", "description": "The label element."},
+{"name": "wrapper", "description": "The input and button wrapper."},
+{"name": "input", "description": "The text input element."},
+{"name": "clear", "description": "The clear selection button (appears when item is selected)."},
+{"name": "toggle", "description": "The dropdown toggle button."},
+{"name": "listbox", "description": "The dropdown list container."},
+{"name": "status", "description": "The screen reader status announcement element."}
+])}>
+</doc-css-parts-table>
+
+## Dependencies
+
+<doc-dependencies-list data={JSON.stringify([])}></doc-dependencies-list>
+
+## Accessibility
+
+ComboBox components are designed with comprehensive accessibility features following WAI-ARIA guidelines:
+
+### Keyboard Navigation
+- **Tab**: Focus the combo box
+- **Arrow Down/Up**: Navigate through options or open the dropdown
+- **Enter**: Select the currently highlighted option
+- **Escape**: Close the dropdown and clear focus
+- **Type**: Filter options by typing characters
+
+### Screen Reader Support
+- Uses appropriate ARIA attributes (`role="combobox"`, `aria-expanded`, `aria-haspopup`)
+- Provides live status updates for filtered results
+- Maintains proper focus management throughout interactions
+- Associates labels with inputs using proper labeling techniques
+
+### Visual Accessibility
+- High contrast mode support with enhanced borders
+- Respects user preferences for reduced motion
+- Maintains focus indicators that meet WCAG guidelines
+
+### Form Integration
+- Properly integrates with HTML forms and validation
+- Supports required field validation
+- Maintains form data persistence and submission
+
+### Best Practices for Accessibility
+1. **Always provide a label** - Use the label slot for proper form labeling
+2. **Test with assistive technology** - Verify functionality with screen readers
+3. **Provide meaningful placeholder text** - Help users understand the expected input
+4. **Consider alternative selection methods** for critical functionality when accessibility is a primary concern
