@@ -308,7 +308,7 @@ export default class ComboBox extends HTMLElement {
     this._openList();
   }
 
-  _handleInputBlur(event) {
+  _handleInputBlur(_event) {
     // Delay closing to allow for option clicks
     setTimeout(() => {
       if (!this.shadowRoot.contains(document.activeElement)) {

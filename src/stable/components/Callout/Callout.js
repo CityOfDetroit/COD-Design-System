@@ -36,7 +36,7 @@ const ICONS = {
   </svg>`,
   emergency: `<svg viewBox="0 0 16 16" fill="currentColor">
     <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5m.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
-  </svg>`
+  </svg>`,
 };
 
 export default class Callout extends HTMLElement {
@@ -49,7 +49,7 @@ export default class Callout extends HTMLElement {
     this._state = {
       variant: 'info',
       slim: false,
-      noIcon: false
+      noIcon: false,
     };
 
     const shadow = this.attachShadow({ mode: 'open' });
@@ -87,7 +87,7 @@ export default class Callout extends HTMLElement {
     variableStyles.textContent = varStyles;
     const calloutStyles = document.createElement('style');
     calloutStyles.textContent = styles;
-    
+
     this.shadowRoot.appendChild(bootStyles);
     this.shadowRoot.appendChild(variableStyles);
     this.shadowRoot.appendChild(calloutStyles);
@@ -101,17 +101,17 @@ export default class Callout extends HTMLElement {
 
   _updateClasses() {
     const classes = ['cod-callout'];
-    
+
     // Add variant class
     if (this._state.variant && this._state.variant !== 'info') {
       classes.push(`cod-callout--${this._state.variant}`);
     }
-    
+
     // Add modifier classes
     if (this._state.slim) {
       classes.push('cod-callout--slim');
     }
-    
+
     if (this._state.noIcon) {
       classes.push('cod-callout--no-icon');
     }
@@ -157,7 +157,7 @@ export default class Callout extends HTMLElement {
   _hideEmptyHeading() {
     const headingSlot = this.shadowRoot.querySelector('slot[name="heading"]');
     const hasHeadingContent = headingSlot.assignedNodes().length > 0;
-    
+
     if (!hasHeadingContent) {
       this._heading.style.display = 'none';
     }

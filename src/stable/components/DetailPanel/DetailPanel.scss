@@ -1,0 +1,176 @@
+@import '../../../scss/cod-uxds-bs-base';
+@import '../../../scss/cod-uxds-bs-utilities';
+@import '../../../scss/cod-uxds-bs-host';
+@import '../../../scss/cod-uxds-style-guide';
+
+:host {
+  display: block;
+
+  // CSS Custom Properties for theming
+  --cod-detail-panel-background-color: transparent;
+  --cod-detail-panel-border-color: #dee2e6;
+  --cod-detail-panel-border-radius: 0;
+  --cod-detail-panel-heading-background: #{$cod-light-grey};
+  --cod-detail-panel-heading-color: #{$cod-near-black};
+  --cod-detail-panel-body-background: transparent;
+  --cod-detail-panel-body-color: #{$cod-near-black};
+  --cod-detail-panel-body-padding: 1rem;
+  --cod-detail-panel-button-padding: 1rem 1.25rem;
+  --cod-detail-panel-button-focus-color: #{$primary};
+  --cod-detail-panel-icon-size: 1rem;
+}
+
+.cod-detail-panel {
+  background-color: var(--cod-detail-panel-background-color);
+  border: 1px solid var(--cod-detail-panel-border-color);
+  border-radius: var(--cod-detail-panel-border-radius);
+  margin-bottom: 1rem;
+  font-family: inherit;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  &__content {
+    display: block;
+  }
+
+  &__heading {
+    margin: 0;
+    display: block;
+  }
+
+  &__button {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: var(--cod-detail-panel-button-padding);
+    font-size: inherit;
+    font-weight: 500;
+    line-height: 1.5;
+    text-align: left;
+    color: var(--cod-detail-panel-heading-color);
+    background-color: var(--cod-detail-panel-heading-background);
+    border: none;
+    border-radius: var(--cod-detail-panel-border-radius);
+    cursor: pointer;
+    transition:
+      color 0.15s ease-in-out,
+      background-color 0.15s ease-in-out;
+
+    &:hover {
+      background-color: color-mix(
+        in srgb,
+        var(--cod-detail-panel-border-color) 20%,
+        transparent
+      );
+    }
+
+    &:focus {
+      outline: 2px solid var(--cod-detail-panel-button-focus-color);
+      outline-offset: 2px;
+      z-index: 1;
+    }
+
+    &:focus:not(:focus-visible) {
+      outline: none;
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--cod-detail-panel-button-focus-color);
+      outline-offset: 2px;
+    }
+  }
+
+  &__button-text {
+    flex: 1;
+    min-width: 0;
+  }
+
+  &__icon {
+    flex-shrink: 0;
+    width: var(--cod-detail-panel-icon-size);
+    height: var(--cod-detail-panel-icon-size);
+    margin-left: 1rem;
+    color: var(--cod-detail-panel-heading-color);
+    transition: transform 0.15s ease-in-out;
+
+    svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+  }
+
+  &__content--expanded &__icon {
+    transform: rotate(0deg);
+  }
+
+  &__body {
+    padding: var(--cod-detail-panel-body-padding);
+    background-color: var(--cod-detail-panel-body-background);
+    color: var(--cod-detail-panel-body-color);
+    border-top: 1px solid var(--cod-detail-panel-border-color);
+  }
+
+  // Bordered variant
+  &--bordered {
+    border: 2px solid var(--cod-detail-panel-border-color);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+    .cod-detail-panel__button {
+      border-radius: var(--cod-detail-panel-border-radius);
+    }
+  }
+
+  // When panel is first/last child, adjust border radius
+  &:first-child .cod-detail-panel__button {
+    border-radius: var(--cod-detail-panel-border-radius);
+  }
+
+  &:last-child .cod-detail-panel__button {
+    border-radius: var(--cod-detail-panel-border-radius);
+  }
+
+  &:first-child:last-child .cod-detail-panel__button {
+    border-radius: var(--cod-detail-panel-border-radius);
+  }
+
+  // When expanded, adjust button border radius
+  &__content--expanded .cod-detail-panel__button {
+    border-radius: var(--cod-detail-panel-border-radius);
+  }
+}
+
+// Group styling when multiple panels are used together
+.cod-detail-panel + .cod-detail-panel {
+  margin-top: -1px;
+
+  .cod-detail-panel__button {
+    border-radius: 0;
+  }
+}
+
+.cod-detail-panel:first-child .cod-detail-panel__button {
+  border-radius: var(--cod-detail-panel-border-radius);
+}
+
+.cod-detail-panel:last-child
+  .cod-detail-panel__button:not([aria-expanded='true']) {
+  border-radius: var(--cod-detail-panel-border-radius);
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  .cod-detail-panel {
+    &__button {
+      padding: 0.75rem 1rem;
+    }
+
+    &__body {
+      padding: 0.75rem 1rem;
+    }
+  }
+}
