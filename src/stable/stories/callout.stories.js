@@ -9,34 +9,35 @@ export default {
       control: { type: 'select' },
       options: ['info', 'success', 'warning', 'error', 'emergency'],
       defaultValue: 'info',
-      description: 'The type of callout to display'
+      description: 'The type of callout to display',
     },
     slim: {
       control: { type: 'boolean' },
       defaultValue: false,
-      description: 'Makes the callout more compact'
+      description: 'Makes the callout more compact',
     },
     noIcon: {
       control: { type: 'boolean' },
       defaultValue: false,
-      description: 'Removes the left border bar'
+      description: 'Removes the left border bar',
     },
     heading: {
       control: { type: 'text' },
       defaultValue: 'Callout Heading',
-      description: 'The heading text for the callout'
+      description: 'The heading text for the callout',
     },
     content: {
       control: { type: 'text' },
-      defaultValue: 'This is the callout content. It provides important information to the user.',
-      description: 'The main content of the callout'
-    }
+      defaultValue:
+        'This is the callout content. It provides important information to the user.',
+      description: 'The main content of the callout',
+    },
   },
 };
 
 const Template = (args) => {
   const callout = document.createElement('cod-callout');
-  
+
   // Set attributes
   if (args.variant && args.variant !== 'info') {
     callout.setAttribute('variant', args.variant);
@@ -70,7 +71,8 @@ export const Default = {
   args: {
     variant: 'info',
     heading: 'Information',
-    content: 'This is an informational callout with important details for the user.'
+    content:
+      'This is an informational callout with important details for the user.',
   },
 };
 
@@ -79,7 +81,7 @@ export const Success = {
   args: {
     variant: 'success',
     heading: 'Success',
-    content: 'Your action has been completed successfully.'
+    content: 'Your action has been completed successfully.',
   },
 };
 
@@ -88,7 +90,7 @@ export const Warning = {
   args: {
     variant: 'warning',
     heading: 'Warning',
-    content: 'Please review this information carefully before proceeding.'
+    content: 'Please review this information carefully before proceeding.',
   },
 };
 
@@ -97,7 +99,7 @@ export const Error = {
   args: {
     variant: 'error',
     heading: 'Error',
-    content: 'An error has occurred. Please check your input and try again.'
+    content: 'An error has occurred. Please check your input and try again.',
   },
 };
 
@@ -106,7 +108,7 @@ export const Emergency = {
   args: {
     variant: 'emergency',
     heading: 'Emergency Alert',
-    content: 'This is an urgent message that requires immediate attention.'
+    content: 'This is an urgent message that requires immediate attention.',
   },
 };
 
@@ -116,7 +118,7 @@ export const Slim = {
     variant: 'info',
     slim: true,
     heading: 'Compact Callout',
-    content: 'This is a slim version of the callout with reduced padding.'
+    content: 'This is a slim version of the callout with reduced padding.',
   },
 };
 
@@ -126,7 +128,7 @@ export const NoIcon = {
     variant: 'warning',
     noIcon: true,
     heading: 'No Left Border',
-    content: 'This callout has no left border bar for a cleaner look.'
+    content: 'This callout has no left border bar for a cleaner look.',
   },
 };
 
@@ -135,14 +137,14 @@ export const NoHeading = {
   args: {
     variant: 'success',
     heading: '',
-    content: 'This callout has no heading, just the main content text.'
+    content: 'This callout has no heading, just the main content text.',
   },
 };
 
 export const RichContent = {
   render: (args) => {
     const callout = document.createElement('cod-callout');
-    
+
     if (args.variant && args.variant !== 'info') {
       callout.setAttribute('variant', args.variant);
     }
@@ -167,6 +169,6 @@ export const RichContent = {
     return callout;
   },
   args: {
-    variant: 'info'
+    variant: 'info',
   },
 };

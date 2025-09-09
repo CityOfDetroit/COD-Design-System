@@ -389,7 +389,7 @@ export const FormIntegration = () => {
     e.preventDefault();
     const formData = new FormData(form);
     const data = {};
-    for (let [key, value] of formData.entries()) {
+    for (const [key, value] of formData.entries()) {
       data[key] = value;
     }
     output.innerHTML = `<strong>Form Data:</strong><br><pre>${JSON.stringify(

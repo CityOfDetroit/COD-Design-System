@@ -36,7 +36,8 @@
     width: var(--cod-callout-bar-width);
     height: 100%;
     background-color: var(--cod-callout-border-color);
-    border-radius: var(--cod-callout-border-radius) 0 0 var(--cod-callout-border-radius);
+    border-radius: var(--cod-callout-border-radius) 0 0
+      var(--cod-callout-border-radius);
   }
 
   &__content {

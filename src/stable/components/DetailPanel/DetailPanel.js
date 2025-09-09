@@ -32,7 +32,7 @@ const ICONS = {
   </svg>`,
   expanded: `<svg viewBox="0 0 16 16" fill="currentColor">
     <path fill-rule="evenodd" d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708l6-6z"/>
-  </svg>`
+  </svg>`,
 };
 
 export default class DetailPanel extends HTMLElement {
@@ -45,7 +45,7 @@ export default class DetailPanel extends HTMLElement {
     this._state = {
       expanded: false,
       bordered: false,
-      allowMultiple: false
+      allowMultiple: false,
     };
 
     const shadow = this.attachShadow({ mode: 'open' });
@@ -59,7 +59,9 @@ export default class DetailPanel extends HTMLElement {
     this._icon = shadow.querySelector('.cod-detail-panel__icon');
 
     // Generate unique ID for accessibility
-    this._panelId = `cod-detail-panel-${Math.random().toString(36).substr(2, 9)}`;
+    this._panelId = `cod-detail-panel-${Math.random()
+      .toString(36)
+      .substr(2, 9)}`;
     this._body.id = this._panelId;
     this._button.setAttribute('aria-controls', this._panelId);
 
@@ -99,7 +101,7 @@ export default class DetailPanel extends HTMLElement {
     variableStyles.textContent = varStyles;
     const panelStyles = document.createElement('style');
     panelStyles.textContent = styles;
-    
+
     this.shadowRoot.appendChild(bootStyles);
     this.shadowRoot.appendChild(variableStyles);
     this.shadowRoot.appendChild(panelStyles);
@@ -113,7 +115,7 @@ export default class DetailPanel extends HTMLElement {
 
   _updateClasses() {
     const classes = ['cod-detail-panel'];
-    
+
     if (this._state.bordered) {
       classes.push('cod-detail-panel--bordered');
     }
@@ -123,7 +125,7 @@ export default class DetailPanel extends HTMLElement {
 
   _updateExpandedState() {
     this._button.setAttribute('aria-expanded', this._state.expanded.toString());
-    
+
     if (this._state.expanded) {
       this._body.hidden = false;
       this._content.classList.add('cod-detail-panel__content--expanded');
@@ -185,8 +187,11 @@ export default class DetailPanel extends HTMLElement {
   _focusPreviousPanel() {
     const allPanels = Array.from(document.querySelectorAll('cod-detail-panel'));
     const currentIndex = allPanels.indexOf(this);
-    const previousPanel = allPanels[currentIndex - 1] || allPanels[allPanels.length - 1];
-    previousPanel?.shadowRoot?.querySelector('.cod-detail-panel__button')?.focus();
+    const previousPanel =
+      allPanels[currentIndex - 1] || allPanels[allPanels.length - 1];
+    previousPanel?.shadowRoot
+      ?.querySelector('.cod-detail-panel__button')
+      ?.focus();
   }
 
   // Public API
@@ -217,8 +222,10 @@ export default class DetailPanel extends HTMLElement {
   _collapseSiblingPanels() {
     const parent = this.parentElement;
     if (parent) {
-      const siblingPanels = parent.querySelectorAll('cod-detail-panel:not([allow-multiple])');
-      siblingPanels.forEach(panel => {
+      const siblingPanels = parent.querySelectorAll(
+        'cod-detail-panel:not([allow-multiple])',
+      );
+      siblingPanels.forEach((panel) => {
         if (panel !== this) {
           panel.collapse();
         }

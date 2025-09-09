@@ -15,34 +15,35 @@ export default {
     expanded: {
       control: { type: 'boolean' },
       defaultValue: false,
-      description: 'Whether the panel is initially expanded'
+      description: 'Whether the panel is initially expanded',
     },
     bordered: {
       control: { type: 'boolean' },
       defaultValue: false,
-      description: 'Adds enhanced border styling'
+      description: 'Adds enhanced border styling',
     },
     allowMultiple: {
       control: { type: 'boolean' },
       defaultValue: false,
-      description: 'Allows multiple panels to be expanded simultaneously'
+      description: 'Allows multiple panels to be expanded simultaneously',
     },
     heading: {
       control: { type: 'text' },
       defaultValue: 'Panel Heading',
-      description: 'The heading text for the panel'
+      description: 'The heading text for the panel',
     },
     content: {
       control: { type: 'text' },
-      defaultValue: 'This is the panel content that can be expanded and collapsed.',
-      description: 'The main content of the panel'
-    }
+      defaultValue:
+        'This is the panel content that can be expanded and collapsed.',
+      description: 'The main content of the panel',
+    },
   },
 };
 
 const Template = (args) => {
   const panel = document.createElement('cod-detail-panel');
-  
+
   // Set attributes
   if (args.expanded) {
     panel.setAttribute('expanded', '');
@@ -77,7 +78,8 @@ export const Default = {
   render: Template.bind({}),
   args: {
     heading: 'First Amendment',
-    content: 'Congress shall make no law respecting an establishment of religion, or prohibiting the free exercise thereof; or abridging the freedom of speech, or of the press; or the right of the people peaceably to assemble, and to petition the Government for a redress of grievances.'
+    content:
+      'Congress shall make no law respecting an establishment of religion, or prohibiting the free exercise thereof; or abridging the freedom of speech, or of the press; or the right of the people peaceably to assemble, and to petition the Government for a redress of grievances.',
   },
 };
 
@@ -86,7 +88,8 @@ export const Expanded = {
   args: {
     expanded: true,
     heading: 'Panel Initially Expanded',
-    content: 'This panel starts in an expanded state, showing its content immediately upon page load.'
+    content:
+      'This panel starts in an expanded state, showing its content immediately upon page load.',
   },
 };
 
@@ -95,19 +98,20 @@ export const Bordered = {
   args: {
     bordered: true,
     heading: 'Bordered Panel',
-    content: 'This panel uses the bordered variant with enhanced styling including thicker borders and subtle shadow effects.'
+    content:
+      'This panel uses the bordered variant with enhanced styling including thicker borders and subtle shadow effects.',
   },
 };
 
 export const WithHeadingLevels = {
   render: () => {
     const container = document.createElement('div');
-    
+
     // Create panels with different heading levels
     const levels = ['h4', 'h4', 'h4', 'h4'];
     levels.forEach((level) => {
       const panel = document.createElement('cod-detail-panel');
-      
+
       const heading = document.createElement(level);
       heading.setAttribute('slot', 'heading');
       heading.style.marginBottom = '0';
@@ -129,12 +133,12 @@ export const WithHeadingLevels = {
 export const MultipleExpanded = {
   render: () => {
     const container = document.createElement('div');
-    
+
     // Create multiple panels that can be expanded simultaneously
     for (let i = 1; i <= 3; i++) {
       const panel = document.createElement('cod-detail-panel');
       panel.setAttribute('allow-multiple', '');
-      
+
       if (i === 1) {
         panel.setAttribute('expanded', '');
       }
@@ -160,11 +164,11 @@ export const MultipleExpanded = {
 export const AccordionGroup = {
   render: () => {
     const container = document.createElement('div');
-    
+
     // Create multiple panels that work as an accordion (single expansion)
     for (let i = 1; i <= 4; i++) {
       const panel = document.createElement('cod-detail-panel');
-      
+
       if (i === 2) {
         panel.setAttribute('expanded', '');
       }
@@ -193,7 +197,7 @@ export const AccordionGroup = {
 export const RichContent = {
   render: () => {
     const panel = document.createElement('cod-detail-panel');
-    
+
     const heading = document.createElement('span');
     heading.setAttribute('slot', 'heading');
     heading.style.fontWeight = 'bold';

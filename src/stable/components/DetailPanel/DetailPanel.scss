@@ -56,10 +56,16 @@
     border: none;
     border-radius: var(--cod-detail-panel-border-radius);
     cursor: pointer;
-    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out;
+    transition:
+      color 0.15s ease-in-out,
+      background-color 0.15s ease-in-out;
 
     &:hover {
-      background-color: color-mix(in srgb, var(--cod-detail-panel-border-color) 20%, transparent);
+      background-color: color-mix(
+        in srgb,
+        var(--cod-detail-panel-border-color) 20%,
+        transparent
+      );
     }
 
     &:focus {
@@ -141,7 +147,7 @@
 // Group styling when multiple panels are used together
 .cod-detail-panel + .cod-detail-panel {
   margin-top: -1px;
-  
+
   .cod-detail-panel__button {
     border-radius: 0;
   }
@@ -151,7 +157,8 @@
   border-radius: var(--cod-detail-panel-border-radius);
 }
 
-.cod-detail-panel:last-child .cod-detail-panel__button:not([aria-expanded="true"]) {
+.cod-detail-panel:last-child
+  .cod-detail-panel__button:not([aria-expanded='true']) {
   border-radius: var(--cod-detail-panel-border-radius);
 }
 
