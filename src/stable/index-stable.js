@@ -11,3 +11,4 @@ import './components/Callout/cod-callout.js';
 import './components/Tag/cod-tag.js';
 import './components/Card/cod-card.js';
 import './components/PhotoButton/cod-photo-button.js';
+import './components/DetailPanel/cod-detail-panel.js';

@@ -4019,16 +4019,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/addon-a11y@npm:^8.6.4":
-  version: 8.6.4
-  resolution: "@storybook/addon-a11y@npm:8.6.4"
+"@storybook/addon-a11y@npm:^9.1.7":
+  version: 9.1.7
+  resolution: "@storybook/addon-a11y@npm:9.1.7"
   dependencies:
-    "@storybook/addon-highlight": 8.6.4
-    "@storybook/test": 8.6.4
+    "@storybook/global": ^5.0.0
     axe-core: ^4.2.0
   peerDependencies:
-    storybook: ^8.6.4
-  checksum: 9f690f3a784f51ea8822543747d5aaaeeebaff7b2e030ae54e7deb05ff4af87d5e8bdc1d6bdefbf7410cc58247114feb751efe2d598755b950187ec67470be85
+    storybook: ^9.1.7
+  checksum: ae2c345159e25a212708a46c9d511e916b62bbb82e44645086e5051cf48e83b8a2527a8c18308ea6b24dc44c2893518a6d4533e1d628ba4bb945802c37807e83
   languageName: node
   linkType: hard
 
@@ -7278,7 +7277,7 @@ __metadata:
     "@chromatic-com/storybook": ^3
     "@fullcalendar/core": ^6.1.11
     "@fullcalendar/daygrid": ^6.1.11
-    "@storybook/addon-a11y": ^8.6.4
+    "@storybook/addon-a11y": ^9.1.7
     "@storybook/addon-actions": ^8.6.4
     "@storybook/addon-coverage": ^1.0.5
     "@storybook/addon-essentials": ^8.6.4
