@@ -1,3 +1,16 @@
+# v3.0.1 (Fri Nov 21 2025)
+
+#### 🐛 Bug Fix
+
+- Feature.363 [#364](https://github.com/CityOfDetroit/COD-Design-System/pull/364) ([@jedgar1mx](https://github.com/jedgar1mx))
+- Adding detail panel component to stable, incresing release version. [#362](https://github.com/CityOfDetroit/COD-Design-System/pull/362) ([@jedgar1mx](https://github.com/jedgar1mx))
+
+#### Authors: 1
+
+- J Edgar Montes ([@jedgar1mx](https://github.com/jedgar1mx))
+
+---
+
 # v3.0.0-alpha.10 (Monday Aug 25 2025)
 
 #### 🚀 Enhancement
