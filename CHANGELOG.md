@@ -1,4 +1,4 @@
-# v3.0.1 (Fri Nov 21 2025)
+# v3.0.0-alpha.12 (Fri Nov 21 2025)
 
 #### 🐛 Bug Fix
 
