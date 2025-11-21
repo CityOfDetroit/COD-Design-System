@@ -269,19 +269,26 @@ export default class Map extends HTMLElement {
         const tmpMap = this.map;
         if (sources) {
           this.map.on('style.load', () => {
+            console.log(sources);
             sources = JSON.parse(sources);
             sources.forEach((source) => {
-              const tempSource = { type: 'geojson' };
-              source.source ? (tempSource.data = source.source) : 0;
-              source.sourceCluster
-                ? (tempSource.cluster = source.sourceCluster)
-                : 0;
-              source.sourceClusterMaxZoom
-                ? (tempSource.clusterMaxZoom = source.sourceClusterMaxZoom)
-                : 0;
-              source.sourceClusterRadius
-                ? (tempSource.clusterRadius = source.sourceClusterRadius)
-                : 0;
+              const tempSource = {}
+              if(source.sourceType == 'vector'){
+                tempSource.type = 'vector';
+                tempSource.tiles = [source.source];
+              }else{
+                tempSource.type = 'geojson';
+                source.source ? (tempSource.data = source.source) : 0;
+                source.sourceCluster
+                  ? (tempSource.cluster = source.sourceCluster)
+                  : 0;
+                source.sourceClusterMaxZoom
+                  ? (tempSource.clusterMaxZoom = source.sourceClusterMaxZoom)
+                  : 0;
+                source.sourceClusterRadius
+                  ? (tempSource.clusterRadius = source.sourceClusterRadius)
+                  : 0;
+              }
               tmpMap.addSource(source.name, tempSource);
 
               source.layers.forEach((layer) => {
@@ -340,6 +347,7 @@ export default class Map extends HTMLElement {
       case 'line':
         tmpLayer.type = layer.type;
         tmpLayer.source = layer.source;
+        layer.sourceLayer ? tmpLayer['source-layer'] = layer.sourceLayer : 0;
         layer.minZoom ? (tmpLayer.minzoom = layer.minZoom) : 0;
         layer.maxZoom ? (tmpLayer.maxzoom = layer.maxZoom) : 0;
         layer.active
@@ -356,6 +364,7 @@ export default class Map extends HTMLElement {
       case 'text':
         tmpLayer.type = 'symbol';
         tmpLayer.source = layer.source;
+        layer.sourceLayer ? tmpLayer['source-layer'] = layer.sourceLayer : 0;
         layer.minZoom ? (tmpLayer.minzoom = layer.minZoom) : 0;
         layer.maxZoom ? (tmpLayer.maxzoom = layer.maxZoom) : 0;
         layer.filter ? (tmpLayer.filter = layer.filter) : 0;
@@ -379,6 +388,7 @@ export default class Map extends HTMLElement {
       case 'image':
         tmpLayer.type = 'symbol';
         tmpLayer.source = layer.source;
+        layer.sourceLayer ? tmpLayer['source-layer'] = layer.sourceLayer : 0;
         layer.minZoom ? (tmpLayer.minzoom = layer.minZoom) : 0;
         layer.maxZoom ? (tmpLayer.maxzoom = layer.maxZoom) : 0;
         layer.filter ? (tmpLayer.filter = layer.filter) : 0;
@@ -398,6 +408,7 @@ export default class Map extends HTMLElement {
       case 'circle':
         tmpLayer.type = layer.type;
         tmpLayer.source = layer.source;
+        layer.sourceLayer ? tmpLayer['source-layer'] = layer.sourceLayer : 0;
         tmpLayer.clickable = layer.clickable;
         layer.minZoom ? (tmpLayer.minzoom = layer.minZoom) : 0;
         layer.maxZoom ? (tmpLayer.maxzoom = layer.maxZoom) : 0;
@@ -417,6 +428,7 @@ export default class Map extends HTMLElement {
       case 'fill':
         tmpLayer.type = layer.type;
         tmpLayer.source = layer.source;
+        layer.sourceLayer ? tmpLayer['source-layer'] = layer.sourceLayer : 0;
         tmpLayer.clickable = layer.clickable;
         layer.minZoom ? (tmpLayer.minzoom = layer.minZoom) : 0;
         layer.maxZoom ? (tmpLayer.maxzoom = layer.maxZoom) : 0;
