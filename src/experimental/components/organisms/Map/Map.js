@@ -269,7 +269,6 @@ export default class Map extends HTMLElement {
         const tmpMap = this.map;
         if (sources) {
           this.map.on('style.load', () => {
-            console.log(sources);
             sources = JSON.parse(sources);
             sources.forEach((source) => {
               const tempSource = {}
