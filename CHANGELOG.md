@@ -1,3 +1,20 @@
+# v3.0.0-alpha.13 (Fri Dec 12 2025)
+
+#### 🐛 Bug Fix
+
+- V3.0.0 alpha.13 [#365](https://github.com/CityOfDetroit/COD-Design-System/pull/365) ([@jedgar1mx](https://github.com/jedgar1mx))
+
+#### ⚠️ Pushed to `master`
+
+- Updates to Geocoder to use multiple parents, updates to Map, new package version. (jedgar1mx@gmail.com)
+
+#### Authors: 2
+
+- Edgar Montes (jedgar1mx@gmail.com)
+- J Edgar Montes ([@jedgar1mx](https://github.com/jedgar1mx))
+
+---
+
 # v3.0.0-alpha.12 (Fri Nov 21 2025)
 
 #### 🐛 Bug Fix

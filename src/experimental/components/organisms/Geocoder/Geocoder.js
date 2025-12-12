@@ -74,7 +74,9 @@ export default class Geocoder extends HTMLElement {
   }
 
   supplementGeocoder(address, geocoder, type) {
-    const app = document.getElementsByTagName('my-home-info');
+    const parentComponent = geocoder.getAttribute('data-parent-component');
+    let app = null;
+    (parentComponent) ? app = document.getElementsByTagName(parentComponent) : app = document.getElementsByTagName('my-home-info');
     let tempAddr = address.split(',');
     tempAddr = tempAddr[0];
     tempAddr = tempAddr.split(' ');
@@ -142,6 +144,7 @@ export default class Geocoder extends HTMLElement {
                           'data-parcel-id',
                           JSON.stringify(data.candidates[0]),
                         );
+                        geocoder.form.reset();
                         // geocoder.controller.panel.loaderToggle(true);
                         // geocoder.controller.panel.clearPanel();
                         // geocoder.controller.dataManager.buildData(data.candidates[0], geocoder.controller);
@@ -149,10 +152,12 @@ export default class Geocoder extends HTMLElement {
                         geocoder.parcelStatus = 'Valid';
                         geocoder.needGeocode(address, geocoder, location);
                         geocoder.clearSuggestions(geocoder);
+                        console.log(app);
                         app[0].setAttribute(
                           'data-parcel-id',
                           JSON.stringify(parcel),
                         );
+                        geocoder.form.reset();
                         // geocoder.controller.panel.loaderToggle(true);
                         // geocoder.controller.panel.clearPanel();
                         // geocoder.controller.dataManager.buildData(parcel, geocoder.controller);

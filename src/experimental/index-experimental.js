@@ -44,6 +44,7 @@ import './components/organisms/Carousel/cod-carousel';
 import './components/organisms/Form/cod-form';
 import './components/organisms/Modal/cod-modal';
 import './components/organisms/Map/cod-map';
+import './components/organisms/Geocoder/cod-geocoder';
 import './components/organisms/ImgSlider/cod-img-slider';
 import './components/organisms/Table/cod-table';
 import './components/organisms/VideoPlayer/cod-videoplayer';

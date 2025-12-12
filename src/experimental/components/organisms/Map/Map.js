@@ -13,6 +13,7 @@ export default class Map extends HTMLElement {
       'data-clickable-layers',
       'data-zoom',
       'data-center',
+      'data-location'
     ];
   }
 
@@ -318,6 +319,43 @@ export default class Map extends HTMLElement {
       case 'data-center': {
         const tempCenter = newValue.split(',');
         this.map.setCenter([tempCenter[0], tempCenter[1]]);
+        break;
+      }
+
+      case 'data-location': {
+        const locationPoint = JSON.parse(this.getAttribute('data-location'));
+        console.log(locationPoint);
+        if (locationPoint) {
+          const coord = [
+            locationPoint.location.x,
+            locationPoint.location.y,
+          ];
+          const marker = new maplibregl.Marker();
+          marker.setLngLat(coord);
+          marker.addTo(this.map);
+          this.map.flyTo({
+            // These options control the ending camera position: centered at
+            // the target, at zoom level 9, and north up.
+            center: coord,
+            zoom: 16,
+            bearing: 0,
+
+            // These options control the flight curve, making it move
+            // slowly and zoom out almost completely before starting
+            // to pan.
+            speed: 1.5, // make the flying slow
+            curve: 1, // change the speed at which it zooms out
+
+            // This can be any easing function: it takes a number between
+            // 0 and 1 and returns another number between 0 and 1.
+            easing: function (t) {
+              return t;
+            },
+
+            // this animation is considered essential with respect to prefers-reduced-motion
+            essential: true,
+          });
+        }
         break;
       }
 
