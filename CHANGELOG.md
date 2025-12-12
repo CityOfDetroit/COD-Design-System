@@ -1,8 +1,8 @@
-# v3.0.1 (Fri Dec 12 2025)
+# v3.0.0-alpha.13 (Fri Dec 12 2025)
 
 #### 🐛 Bug Fix
 
-- V3.0.0 alpha.12 [#365](https://github.com/CityOfDetroit/COD-Design-System/pull/365) ([@jedgar1mx](https://github.com/jedgar1mx))
+- V3.0.0 alpha.13 [#365](https://github.com/CityOfDetroit/COD-Design-System/pull/365) ([@jedgar1mx](https://github.com/jedgar1mx))
 
 #### ⚠️ Pushed to `master`
 
