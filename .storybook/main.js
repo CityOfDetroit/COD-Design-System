@@ -1,17 +1,17 @@
-module.exports = {
+import remarkGfm from 'remark-gfm';
+
+export default {
   stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
   addons: [
     '@storybook/addon-links',
-    '@storybook/addon-essentials',
     '@storybook/addon-a11y',
     '@storybook/addon-coverage',
-    '@storybook/addon-interactions',
-    '@storybook/addon-webpack5-compiler-babel',
     '@chromatic-com/storybook',
-    'storybook-addon-tag-badges'
+    'storybook-addon-tag-badges',
+    '@storybook/addon-docs',
   ],
   framework: {
-    name: '@storybook/web-components-webpack5',
+    name: '@storybook/web-components-vite',
     options: {},
   },
   features: {
@@ -19,11 +19,11 @@ module.exports = {
   },
   staticDirs: ['../public'],
   docs: {
-    // Add the MDX configuration here:
     mdx: {
-      remarkPlugins: [
-        require('remark-gfm')
-      ],
-    }
+      remarkPlugins: [remarkGfm],
+    },
+  },
+  core: {
+    builder: '@storybook/builder-vite',
   },
 };

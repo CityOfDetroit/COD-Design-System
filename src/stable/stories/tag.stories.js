@@ -1,5 +1,5 @@
 import { html } from 'lit-html';
-import { expect } from '@storybook/test';
+import { expect } from 'storybook/test';
 import '../components/Tag/cod-tag';
 
 export default {

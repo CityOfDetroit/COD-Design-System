@@ -1,6 +1,6 @@
 import { html } from 'lit-html';
 import '../../stable/components/ServiceButton/cod-service-button';
-import { expect } from '@storybook/test';
+import { expect } from 'storybook/test';
 
 export default {
   tags: ['stable'],

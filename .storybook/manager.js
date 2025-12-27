@@ -1,8 +1,8 @@
 import CODTheme from './CODTheme';
-import { addons } from '@storybook/manager-api';
+import { addons } from 'storybook/manager-api';
 import {
-  defaultConfig,
-} from 'storybook-addon-tag-badges'
+  defaultConfig
+} from 'storybook-addon-tag-badges/manager-helpers'
 
 addons.setConfig({
   theme: CODTheme,

@@ -1,6 +1,6 @@
 import { html } from 'lit-html';
-import { expect } from '@storybook/test';
-import { userEvent } from '@storybook/test';
+import { expect } from 'storybook/test';
+import { userEvent } from 'storybook/test';
 import '../components/GovBanner/cod-gov-banner';
 
 export default {

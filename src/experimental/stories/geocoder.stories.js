@@ -10,3 +10,8 @@ export const loaded = {
   tags: ['autodocs'],
   render: () => html`<cod-geocoder></cod-geocoder>`,
 };
+
+export const parentContainer = {
+  tags: ['autodocs'],
+  render: () => html`<test-parent></test-parent><cod-geocoder data-parent-component="test-parent"></cod-geocoder>`,
+};
