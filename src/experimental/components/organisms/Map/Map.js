@@ -1,6 +1,7 @@
 'use strict';
 import maplibregl from 'maplibre-gl';
 import mapStyle from './style.json';
+import mapStyleDark from './styleDark.json';
 import styles from '!!raw-loader!./Map.css';
 import maplibreStyles from '!!raw-loader!../../../../../node_modules/maplibre-gl/dist/maplibre-gl.css';
 export default class Map extends HTMLElement {
@@ -13,7 +14,8 @@ export default class Map extends HTMLElement {
       'data-clickable-layers',
       'data-zoom',
       'data-center',
-      'data-location'
+      'data-location',
+      'data-basemap'
     ];
   }
 
@@ -56,6 +58,13 @@ export default class Map extends HTMLElement {
 
   attributeChangedCallback(name, oldValue, newValue) {
     switch (name) {
+      case 'data-basemap': {
+        console.log(newValue);
+        if(newValue == 'dark'){
+          this.map.setStyle(mapStyleDark);
+        }
+        break;
+      }
       case 'data-map-state': {
         const tempMap = this;
         const locationPoint = JSON.parse(this.getAttribute('data-location'));
@@ -324,7 +333,6 @@ export default class Map extends HTMLElement {
 
       case 'data-location': {
         const locationPoint = JSON.parse(this.getAttribute('data-location'));
-        console.log(locationPoint);
         if (locationPoint) {
           const coord = [
             locationPoint.location.x,
