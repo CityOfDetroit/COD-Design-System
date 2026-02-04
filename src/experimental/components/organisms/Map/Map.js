@@ -15,7 +15,7 @@ export default class Map extends HTMLElement {
       'data-zoom',
       'data-center',
       'data-location',
-      'data-basemap'
+      'data-basemap',
     ];
   }
 
@@ -59,7 +59,7 @@ export default class Map extends HTMLElement {
   attributeChangedCallback(name, oldValue, newValue) {
     switch (name) {
       case 'data-basemap': {
-        if(newValue == 'dark'){
+        if (newValue === 'dark') {
           this.map.setStyle(mapStyleDark);
         }
         break;
@@ -280,11 +280,11 @@ export default class Map extends HTMLElement {
           this.map.on('style.load', () => {
             sources = JSON.parse(sources);
             sources.forEach((source) => {
-              const tempSource = {}
-              if(source.sourceType == 'vector'){
+              const tempSource = {};
+              if (source.sourceType === 'vector') {
                 tempSource.type = 'vector';
                 tempSource.tiles = [source.source];
-              }else{
+              } else {
                 tempSource.type = 'geojson';
                 source.source ? (tempSource.data = source.source) : 0;
                 source.sourceCluster
@@ -333,10 +333,7 @@ export default class Map extends HTMLElement {
       case 'data-location': {
         const locationPoint = JSON.parse(this.getAttribute('data-location'));
         if (locationPoint) {
-          const coord = [
-            locationPoint.location.x,
-            locationPoint.location.y,
-          ];
+          const coord = [locationPoint.location.x, locationPoint.location.y];
           const marker = new maplibregl.Marker();
           marker.setLngLat(coord);
           marker.addTo(this.map);
@@ -391,7 +388,7 @@ export default class Map extends HTMLElement {
       case 'line':
         tmpLayer.type = layer.type;
         tmpLayer.source = layer.source;
-        layer.sourceLayer ? tmpLayer['source-layer'] = layer.sourceLayer : 0;
+        layer.sourceLayer ? (tmpLayer['source-layer'] = layer.sourceLayer) : 0;
         layer.minZoom ? (tmpLayer.minzoom = layer.minZoom) : 0;
         layer.maxZoom ? (tmpLayer.maxzoom = layer.maxZoom) : 0;
         layer.active
@@ -408,7 +405,7 @@ export default class Map extends HTMLElement {
       case 'text':
         tmpLayer.type = 'symbol';
         tmpLayer.source = layer.source;
-        layer.sourceLayer ? tmpLayer['source-layer'] = layer.sourceLayer : 0;
+        layer.sourceLayer ? (tmpLayer['source-layer'] = layer.sourceLayer) : 0;
         layer.minZoom ? (tmpLayer.minzoom = layer.minZoom) : 0;
         layer.maxZoom ? (tmpLayer.maxzoom = layer.maxZoom) : 0;
         layer.filter ? (tmpLayer.filter = layer.filter) : 0;
@@ -432,7 +429,7 @@ export default class Map extends HTMLElement {
       case 'image':
         tmpLayer.type = 'symbol';
         tmpLayer.source = layer.source;
-        layer.sourceLayer ? tmpLayer['source-layer'] = layer.sourceLayer : 0;
+        layer.sourceLayer ? (tmpLayer['source-layer'] = layer.sourceLayer) : 0;
         layer.minZoom ? (tmpLayer.minzoom = layer.minZoom) : 0;
         layer.maxZoom ? (tmpLayer.maxzoom = layer.maxZoom) : 0;
         layer.filter ? (tmpLayer.filter = layer.filter) : 0;
@@ -452,7 +449,7 @@ export default class Map extends HTMLElement {
       case 'circle':
         tmpLayer.type = layer.type;
         tmpLayer.source = layer.source;
-        layer.sourceLayer ? tmpLayer['source-layer'] = layer.sourceLayer : 0;
+        layer.sourceLayer ? (tmpLayer['source-layer'] = layer.sourceLayer) : 0;
         tmpLayer.clickable = layer.clickable;
         layer.minZoom ? (tmpLayer.minzoom = layer.minZoom) : 0;
         layer.maxZoom ? (tmpLayer.maxzoom = layer.maxZoom) : 0;
@@ -472,7 +469,7 @@ export default class Map extends HTMLElement {
       case 'fill':
         tmpLayer.type = layer.type;
         tmpLayer.source = layer.source;
-        layer.sourceLayer ? tmpLayer['source-layer'] = layer.sourceLayer : 0;
+        layer.sourceLayer ? (tmpLayer['source-layer'] = layer.sourceLayer) : 0;
         tmpLayer.clickable = layer.clickable;
         layer.minZoom ? (tmpLayer.minzoom = layer.minZoom) : 0;
         layer.maxZoom ? (tmpLayer.maxzoom = layer.maxZoom) : 0;

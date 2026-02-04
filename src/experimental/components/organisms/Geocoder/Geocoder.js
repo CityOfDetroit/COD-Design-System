@@ -76,7 +76,9 @@ export default class Geocoder extends HTMLElement {
   supplementGeocoder(address, geocoder, type) {
     const parentComponent = geocoder.getAttribute('data-parent-component');
     let app = null;
-    (parentComponent) ? app = document.getElementsByTagName(parentComponent) : app = document.getElementsByTagName('my-home-info');
+    parentComponent
+      ? (app = document.getElementsByTagName(parentComponent))
+      : (app = document.getElementsByTagName('my-home-info'));
     let tempAddr = address.split(',');
     tempAddr = tempAddr[0];
     tempAddr = tempAddr.split(' ');
@@ -152,7 +154,6 @@ export default class Geocoder extends HTMLElement {
                         geocoder.parcelStatus = 'Valid';
                         geocoder.needGeocode(address, geocoder, location);
                         geocoder.clearSuggestions(geocoder);
-                        console.log(app);
                         app[0].setAttribute(
                           'data-parcel-id',
                           JSON.stringify(parcel),

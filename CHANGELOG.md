@@ -1,3 +1,18 @@
+# v3.0.0-alpha.14 (Wed Feb 04 2026)
+
+#### 🐛 Bug Fix
+
+- Remove console logs. [#369](https://github.com/CityOfDetroit/COD-Design-System/pull/369) ([@jedgar1mx](https://github.com/jedgar1mx))
+- Adding dark mode to map component. [#368](https://github.com/CityOfDetroit/COD-Design-System/pull/368) ([@jedgar1mx](https://github.com/jedgar1mx))
+- 3.0.0 alpha13 [#366](https://github.com/CityOfDetroit/COD-Design-System/pull/366) ([@jedgar1mx](https://github.com/jedgar1mx))
+- V3.0.0 alpha.12 [#365](https://github.com/CityOfDetroit/COD-Design-System/pull/365) ([@jedgar1mx](https://github.com/jedgar1mx))
+
+#### Authors: 1
+
+- J Edgar Montes ([@jedgar1mx](https://github.com/jedgar1mx))
+
+---
+
 # v3.0.0-alpha.13 (Fri Dec 12 2025)
 
 #### 🐛 Bug Fix
