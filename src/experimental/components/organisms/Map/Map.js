@@ -59,7 +59,6 @@ export default class Map extends HTMLElement {
   attributeChangedCallback(name, oldValue, newValue) {
     switch (name) {
       case 'data-basemap': {
-        console.log(newValue);
         if(newValue == 'dark'){
           this.map.setStyle(mapStyleDark);
         }
