@@ -1,3 +1,15 @@
+# v3.0.1 (Mon Apr 06 2026)
+
+#### 🐛 Bug Fix
+
+- Adding resize function to map component. [#372](https://github.com/CityOfDetroit/COD-Design-System/pull/372) ([@jedgar1mx](https://github.com/jedgar1mx))
+
+#### Authors: 1
+
+- J Edgar Montes ([@jedgar1mx](https://github.com/jedgar1mx))
+
+---
+
 # v3.0.0-alpha.14 (Wed Feb 04 2026)
 
 #### 🐛 Bug Fix
