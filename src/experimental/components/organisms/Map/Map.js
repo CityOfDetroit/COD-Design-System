@@ -16,6 +16,7 @@ export default class Map extends HTMLElement {
       'data-center',
       'data-location',
       'data-basemap',
+      'data-resize',
     ];
   }
 
@@ -62,6 +63,10 @@ export default class Map extends HTMLElement {
         if (newValue === 'dark') {
           this.map.setStyle(mapStyleDark);
         }
+        break;
+      }
+      case 'data-resize': {
+        this.map.resize();
         break;
       }
       case 'data-map-state': {
