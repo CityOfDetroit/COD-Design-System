@@ -1,3 +1,20 @@
+# v3.0.1 (Tue Apr 14 2026)
+
+#### 🐛 Bug Fix
+
+- Fixing a11y issues on service buttons,govbanner and drawer. [#375](https://github.com/CityOfDetroit/COD-Design-System/pull/375) ([@jedgar1mx](https://github.com/jedgar1mx))
+- Adding resize function to map component. [#372](https://github.com/CityOfDetroit/COD-Design-System/pull/372) ([@jedgar1mx](https://github.com/jedgar1mx))
+
+#### 📝 Documentation
+
+- 3.0.0 alpha.15 [#373](https://github.com/CityOfDetroit/COD-Design-System/pull/373) ([@jedgar1mx](https://github.com/jedgar1mx))
+
+#### Authors: 1
+
+- J Edgar Montes ([@jedgar1mx](https://github.com/jedgar1mx))
+
+---
+
 # v3.0.0-alpha.15 (Mon Apr 06 2026)
 
 #### 🐛 Bug Fix
