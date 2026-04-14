@@ -51,6 +51,7 @@ a.service-button .title {
   font-size: 24px;
   font-weight: 700;
   color: #eaf0f0;
+  background-color: #004445;
   margin-bottom: 8px;
 }
 a.service-button .subtitle {
@@ -59,6 +60,7 @@ a.service-button .subtitle {
   font-size: 16px;
   font-weight: 400;
   color: #eaf0f0;
+  background-color: #004445;
 }
 
 /*# sourceMappingURL=ServiceButton.css.map */
