@@ -101,9 +101,6 @@ export default class Button extends HTMLElement {
       case 'square':
         this._state.square = newValue !== null;
         break;
-      case 'square':
-        this._state.square = newValue !== null;
-        break;
     }
 
     // Re-render the component whenever an attribute changes
@@ -148,9 +145,13 @@ export default class Button extends HTMLElement {
 
       // Copy all children from button to anchor
       while (button.firstChild) {
-        if(button.firstChild.name != 'suffix' && button.firstChild.name != 'prefix' && button.firstChild.tagName == 'SLOT'){
+        if (
+          button.firstChild.name !== 'suffix' &&
+          button.firstChild.name !== 'prefix' &&
+          button.firstChild.tagName === 'SLOT'
+        ) {
           anchor.appendChild(button.firstChild);
-        }else{
+        } else {
           trash.appendChild(button.firstChild);
         }
       }
