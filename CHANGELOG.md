@@ -1,3 +1,15 @@
+# v3.0.1 (Wed Apr 29 2026)
+
+#### 🐛 Bug Fix
+
+- Adding label to button-link, adding label to detail panel button. [#378](https://github.com/CityOfDetroit/COD-Design-System/pull/378) ([@jedgar1mx](https://github.com/jedgar1mx))
+
+#### Authors: 1
+
+- J Edgar Montes ([@jedgar1mx](https://github.com/jedgar1mx))
+
+---
+
 # v3.0.0-alpha.16 (Tue Apr 14 2026)
 
 #### 🐛 Bug Fix
