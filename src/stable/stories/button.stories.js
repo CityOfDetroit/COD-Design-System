@@ -87,7 +87,7 @@ export default {
     },
     linkLabel: {
       control: { type: 'text' },
-      description: "Aria label for link button.",
+      description: 'Aria label for link button.',
       table: {
         defaultValue: { summary: '' },
       },
