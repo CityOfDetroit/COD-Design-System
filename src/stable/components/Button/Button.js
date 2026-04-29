@@ -23,6 +23,7 @@ export default class Button extends HTMLElement {
       'caret',
       'loading',
       'href',
+      'data-label',
       'target',
       'download',
       'rel',
@@ -85,6 +86,9 @@ export default class Button extends HTMLElement {
       case 'href':
         this._state.href = newValue || '';
         break;
+      case 'data-label':
+        this.shadowRoot.querySelector('a').setAttribute('aria-label', newValue);
+        break;
       case 'target':
         this._state.target = newValue || '';
         break;
@@ -93,6 +97,9 @@ export default class Button extends HTMLElement {
         break;
       case 'rel':
         this._state.rel = newValue || '';
+        break;
+      case 'square':
+        this._state.square = newValue !== null;
         break;
       case 'square':
         this._state.square = newValue !== null;
@@ -137,10 +144,15 @@ export default class Button extends HTMLElement {
       // Replace button with anchor
       const button = this.shadowRoot.querySelector('button');
       const anchor = document.createElement('a');
+      const trash = document.createElement('span');
 
       // Copy all children from button to anchor
       while (button.firstChild) {
-        anchor.appendChild(button.firstChild);
+        if(button.firstChild.name != 'suffix' && button.firstChild.name != 'prefix' && button.firstChild.tagName == 'SLOT'){
+          anchor.appendChild(button.firstChild);
+        }else{
+          trash.appendChild(button.firstChild);
+        }
       }
 
       // Copy classes and part attribute

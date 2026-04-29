@@ -11,7 +11,8 @@ template.innerHTML = `
         class="cod-detail-panel__button" 
         part="button"
         type="button" 
-        aria-expanded="false">
+        aria-expanded="false"
+        aria-label="Expand panel button">
         <span class="cod-detail-panel__button-text">
           <slot name="heading"></slot>
         </span>
