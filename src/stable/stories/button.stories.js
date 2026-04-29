@@ -85,6 +85,13 @@ export default {
         defaultValue: { summary: '' },
       },
     },
+    linkLabel: {
+      control: { type: 'text' },
+      description: "Aria label for link button.",
+      table: {
+        defaultValue: { summary: '' },
+      },
+    },
     target: {
       control: { type: 'text' },
       description: 'Where to display the linked URL (only used with href).',
@@ -106,6 +113,7 @@ export default {
     loading: false,
     square: false,
     href: '',
+    linkLabel: '',
     target: '',
     label: 'Button',
   },
@@ -124,6 +132,7 @@ const Template = (args) => {
   if (args.loading) button.setAttribute('loading', '');
   if (args.square) button.setAttribute('square', '');
   if (args.href) button.setAttribute('href', args.href);
+  if (args.linkLabel) button.setAttribute('data-label', args.linkLabel);
   if (args.target) button.setAttribute('target', args.target);
 
   // Set content
@@ -288,23 +297,27 @@ export const Link = () => {
   const link1 = document.createElement('cod-button');
   link1.setAttribute('href', 'https://example.com/');
   link1.textContent = 'Link';
+  link1.setAttribute('data-label', 'Link');
 
   // New window
   const link2 = document.createElement('cod-button');
   link2.setAttribute('href', 'https://example.com/');
   link2.setAttribute('target', '_blank');
+  link2.setAttribute('data-label', 'New Window');
   link2.textContent = 'New Window';
 
   // Download
   const link3 = document.createElement('cod-button');
   link3.setAttribute('href', '/assets/images/logo.svg');
   link3.setAttribute('download', 'logo.svg');
+  link3.setAttribute('data-label', 'Downlaod');
   link3.textContent = 'Download';
 
   // Disabled
   const link4 = document.createElement('cod-button');
   link4.setAttribute('href', 'https://example.com/');
   link4.setAttribute('disabled', '');
+  link4.setAttribute('data-label', 'Disabled');
   link4.textContent = 'Disabled';
 
   container.appendChild(link1);
