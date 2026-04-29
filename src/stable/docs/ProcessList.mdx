@@ -1,0 +1,141 @@
+import {
+  Meta,
+  Canvas,
+  Title,
+  Subtitle,
+  Description,
+  Primary,
+  Controls,
+  Stories,
+  Story,
+  Source,
+} from '@storybook/blocks';
+import * as ProcessListStories from '../stories/processlist.stories';
+
+import '../../../.storybook/docs'; // Import all documentation components
+
+<Meta of={ProcessListStories} />
+
+# Process List
+
+<div className="component-summary">
+  Process lists display the steps or stages of important instructions or
+  processes. They help users understand sequential workflows and provide clear
+  visual hierarchy for multi-step procedures.
+</div>
+
+## Usage
+
+Use process lists to create a clear hierarchy and help users easily differentiate between individual steps or stages in a process. The component uses square step indicators (instead of round) and connecting lines to visually guide users through the sequence.
+
+<Canvas>
+  <Story of={ProcessListStories.Usage} />
+  <Source of={ProcessListStories.Usage} />
+</Canvas>
+<Controls of={ProcessListStories.Usage} />
+
+## When to use
+
+- **Displaying high-level sequential steps** - Use process lists to create a clear hierarchy and help users easily differentiate between individual steps or stages in a process.
+- **Instructions or procedures** - When you need to guide users through a multi-step workflow.
+- **Process documentation** - To explain how city services, applications, or procedures work.
+
+## When to consider something else
+
+- **Multi-page forms or wizards** - Use a step indicator component for processes that span multiple pages.
+- **Current status or progress** - Use progress indicators when showing the user's current position in an active process.
+- **Non-sequential content** - Use unordered lists for content that doesn't have a logical order.
+- **Simple content formatting** - Use standard ordered/unordered lists for basic content organization.
+
+## Usability guidance
+
+- **Be thoughtful about the number of steps** - A process list should include between three and ten steps to prevent it from getting too unwieldy or confusing.
+- **Use consistent headings** - Headings should be written with a parallel structure (e.g., all start with an action verb), including consistent end punctuation.
+- **Keep headings concise** - Headings should be short enough to fit on one line when possible.
+- **Add rich content as needed** - The body of each list item can display additional content including HTML, images, lists, links, and other components.
+- **Maintain logical order** - Ensure the steps follow a logical sequence that makes sense to users.
+- **Provide clear instructions** - Each step should have clear, actionable content.
+
+## Examples
+
+<Stories of={ProcessListStories} includePrimary={false} />
+
+## Components
+
+The Process List system consists of two components that work together:
+
+- **`<cod-process-list>`** - The container component that manages the overall list
+- **`<cod-process-list-item>`** - Individual step components that contain the content
+
+## Slots
+
+### Process List
+
+<doc-slots-table
+data={JSON.stringify([
+{"name": "(default)", "description": "Contains cod-process-list-item elements."}
+])}>
+</doc-slots-table>
+
+### Process List Item
+
+<doc-slots-table
+data={JSON.stringify([
+{"name": "heading", "description": "The step title or heading."},
+{"name": "(default)", "description": "The main content for the step (paragraphs, lists, etc.)."}
+])}>
+</doc-slots-table>
+
+## HTML Attributes / JS Properties
+
+<doc-js-properties-table data={JSON.stringify([])}></doc-js-properties-table>
+
+## Events
+
+<doc-events-table data={JSON.stringify([])}></doc-events-table>
+
+## Methods
+
+<doc-methods-table 
+  data={JSON.stringify([])}>
+</doc-methods-table>
+
+## Custom CSS Properties
+
+### Process List Container
+
+<doc-css-custom-properties-table
+data={JSON.stringify([])}
+
+> </doc-css-custom-properties-table>
+
+## CSS Parts
+
+### Process List
+
+<doc-css-parts-table
+data={JSON.stringify([
+{"name": "base", "description": "The component's base wrapper (ol element)."}
+])}>
+</doc-css-parts-table>
+
+### Process List Item
+
+<doc-css-parts-table
+data={JSON.stringify([
+{"name": "base", "description": "The component's base wrapper (li element)."},
+{"name": "heading", "description": "The container that wraps the step heading."},
+{"name": "content", "description": "The container that wraps the step content."}
+])}>
+</doc-css-parts-table>
+
+## Dependencies
+
+<doc-dependencies-list data={JSON.stringify(["<cod-process-list-item>"])}></doc-dependencies-list>
+
+## Accessibility
+
+- **Use semantic heading levels** - Use the correct heading level (h2, h3, h4, etc.) with appropriate hierarchy in your implementation.
+- **Test with screen readers** - Verify that the component works well with assistive technologies.
+
+The process list component uses semantic HTML with proper list structure and includes appropriate ARIA roles for accessibility.

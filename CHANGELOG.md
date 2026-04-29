@@ -1,3 +1,160 @@
+# v3.0.0-alpha.17 (Wed Apr 29 2026)
+
+#### 🐛 Bug Fix
+
+- Adding label to button-link, adding label to detail panel button. [#378](https://github.com/CityOfDetroit/COD-Design-System/pull/378) ([@jedgar1mx](https://github.com/jedgar1mx))
+
+#### Authors: 1
+
+- J Edgar Montes ([@jedgar1mx](https://github.com/jedgar1mx))
+
+---
+
+# v3.0.0-alpha.16 (Tue Apr 14 2026)
+
+#### 🐛 Bug Fix
+
+- Fixing a11y issues on service buttons,govbanner and drawer. [#375](https://github.com/CityOfDetroit/COD-Design-System/pull/375) ([@jedgar1mx](https://github.com/jedgar1mx))
+- Adding resize function to map component. [#372](https://github.com/CityOfDetroit/COD-Design-System/pull/372) ([@jedgar1mx](https://github.com/jedgar1mx))
+
+#### 📝 Documentation
+
+- 3.0.0 alpha.15 [#373](https://github.com/CityOfDetroit/COD-Design-System/pull/373) ([@jedgar1mx](https://github.com/jedgar1mx))
+
+#### Authors: 1
+
+- J Edgar Montes ([@jedgar1mx](https://github.com/jedgar1mx))
+
+---
+
+# v3.0.0-alpha.15 (Mon Apr 06 2026)
+
+#### 🐛 Bug Fix
+
+- Adding resize function to map component. [#372](https://github.com/CityOfDetroit/COD-Design-System/pull/372) ([@jedgar1mx](https://github.com/jedgar1mx))
+
+#### Authors: 1
+
+- J Edgar Montes ([@jedgar1mx](https://github.com/jedgar1mx))
+
+---
+
+# v3.0.0-alpha.14 (Wed Feb 04 2026)
+
+#### 🐛 Bug Fix
+
+- Remove console logs. [#369](https://github.com/CityOfDetroit/COD-Design-System/pull/369) ([@jedgar1mx](https://github.com/jedgar1mx))
+- Adding dark mode to map component. [#368](https://github.com/CityOfDetroit/COD-Design-System/pull/368) ([@jedgar1mx](https://github.com/jedgar1mx))
+- 3.0.0 alpha13 [#366](https://github.com/CityOfDetroit/COD-Design-System/pull/366) ([@jedgar1mx](https://github.com/jedgar1mx))
+- V3.0.0 alpha.12 [#365](https://github.com/CityOfDetroit/COD-Design-System/pull/365) ([@jedgar1mx](https://github.com/jedgar1mx))
+
+#### Authors: 1
+
+- J Edgar Montes ([@jedgar1mx](https://github.com/jedgar1mx))
+
+---
+
+# v3.0.0-alpha.13 (Fri Dec 12 2025)
+
+#### 🐛 Bug Fix
+
+- V3.0.0 alpha.13 [#365](https://github.com/CityOfDetroit/COD-Design-System/pull/365) ([@jedgar1mx](https://github.com/jedgar1mx))
+
+#### ⚠️ Pushed to `master`
+
+- Updates to Geocoder to use multiple parents, updates to Map, new package version. (jedgar1mx@gmail.com)
+
+#### Authors: 2
+
+- Edgar Montes (jedgar1mx@gmail.com)
+- J Edgar Montes ([@jedgar1mx](https://github.com/jedgar1mx))
+
+---
+
+# v3.0.0-alpha.12 (Fri Nov 21 2025)
+
+#### 🐛 Bug Fix
+
+- Feature.363 [#364](https://github.com/CityOfDetroit/COD-Design-System/pull/364) ([@jedgar1mx](https://github.com/jedgar1mx))
+- Adding detail panel component to stable, incresing release version. [#362](https://github.com/CityOfDetroit/COD-Design-System/pull/362) ([@jedgar1mx](https://github.com/jedgar1mx))
+
+#### Authors: 1
+
+- J Edgar Montes ([@jedgar1mx](https://github.com/jedgar1mx))
+
+---
+
+# v3.0.0-alpha.10 (Monday Aug 25 2025)
+
+#### 🚀 Enhancement
+
+- [Implement process list component](https://github.com/CityOfDetroit/COD-Design-System/pull/356)
+
+# v3.0.0-alpha.9 (Monday Jun 30 2025)
+
+#### 🐛 Bug Fix
+
+- [Style and A11Y fixes for section navigation component](https://github.com/CityOfDetroit/COD-Design-System/pull/351)
+- [Fix button default styling in section nav](https://github.com/CityOfDetroit/COD-Design-System/pull/353)
+
+# v3.0.0-alpha.8 (Tues Jun 24 2025)
+
+#### 🚀 Enhancement
+
+- [Support internalization of .gov banner](https://github.com/CityOfDetroit/COD-Design-System/pull/350)
+
+# v3.0.0-alpha.7 (Wed Jun 18 2025)
+
+#### 🚀 Enhancement
+
+- [Update service button padding, sizing, and expose CSS parts](https://github.com/CityOfDetroit/COD-Design-System/pull/348)
+
+# v3.0.0-alpha.6 (Wed Jun 18 2025)
+
+#### 🐛 Bug Fix
+
+- [Use latest button in map component](https://github.com/CityOfDetroit/COD-Design-System/pull/346)
+
+# v3.0.0-alpha.5 (Wed Jun 04 2025)
+
+#### 🚀 Enhancement
+
+- [Styleguide updates and refactors](https://github.com/CityOfDetroit/COD-Design-System/pull/343)
+
+# v3.0.0-alpha.4 (Tue Jun 03 2025)
+
+#### 🐛 Bug Fix
+
+- [Remove experimental component imports in stable](https://github.com/CityOfDetroit/COD-Design-System/pull/342)
+
+# v3.0.0-alpha.3 (Tue Jun 03 2025)
+
+#### 🐛 Bug Fix
+
+- [Disable runtime chunk splitting](https://github.com/CityOfDetroit/COD-Design-System/pull/341)
+
+# v3.0.0-alpha.2 (Wed Apr 16 2025)
+
+#### 🚀 Enhancement
+
+- [Rewrite card and move to stable](https://github.com/CityOfDetroit/COD-Design-System/pull/330)
+- [Rename info button to photo button, rewrite, and move to stable](https://github.com/CityOfDetroit/COD-Design-System/pull/331)
+
+# v3.0.0-alpha.1 (Wed Apr 02 2025)
+
+#### 🚀 Enhancement
+
+- [Change CSS property prefix from `--bs-` to `--cod-`](https://github.com/CityOfDetroit/COD-Design-System/pull/321)
+- [Rewrite and rename offcanvas component to drawer](https://github.com/CityOfDetroit/COD-Design-System/pull/319)
+- [Rewrite button component](https://github.com/CityOfDetroit/COD-Design-System/pull/324)
+- [Add support for contained offcanvas and square buttons](https://github.com/CityOfDetroit/COD-Design-System/pull/325)
+- [Rewrite button group component](https://github.com/CityOfDetroit/COD-Design-System/pull/325)
+- [Remove nav elements from design system](https://github.com/CityOfDetroit/COD-Design-System/pull/323)
+
+#### 🏠 Internal
+
+- [Refactor stylesheets for lean SCSS imports](https://github.com/CityOfDetroit/COD-Design-System/pull/321)
+
 # v2.0.6 (Tues Jun 03 2025)
 
 #### 🐛 Bug Fix

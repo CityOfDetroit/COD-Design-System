@@ -1,0 +1,35 @@
+@import '../../../scss/cod-uxds-bs-base';
+@import '../../../scss/cod-uxds-bs-utilities';
+
+// Import bootstrap card component
+@import 'bootstrap/scss/card';
+
+// Override bootstrap _root.scss.
+@import '../../../scss/cod-uxds-bs-host';
+@import '../../../scss/cod-uxds-style-guide';
+
+:host {
+  display: block;
+}
+
+// Add styles that aren't already in Bootstrap
+
+.card-body {
+  display: block;
+}
+
+// Handle image slot display and sizing
+.card-img {
+  display: none;
+
+  &::slotted(img) {
+    display: block;
+    width: 100%;
+  }
+}
+
+// Hide slots by default until content is provided
+.card-header,
+.card-footer {
+  display: none;
+}

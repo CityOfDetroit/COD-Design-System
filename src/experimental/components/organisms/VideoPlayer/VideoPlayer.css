@@ -1,10 +1,10 @@
 div.modal {
-  --bs-modal-width: 90vw;
+  --cod-modal-width: 90vw;
 }
 
 @media (min-width: 992px) {
   div.modal {
-    --bs-modal-width: 50vw;
+    --cod-modal-width: 50vw;
   }
 }
 .modal {

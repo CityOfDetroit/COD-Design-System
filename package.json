@@ -1,6 +1,6 @@
 {
   "name": "cod-design-system",
-  "version": "2.0.6",
+  "version": "3.0.0-alpha.17",
   "description": "City of Detroit design system",
   "main": "build/stable/assets/js/main.js",
   "repository": {
@@ -69,7 +69,7 @@
     "@storybook/web-components": "^8.6.4",
     "@storybook/web-components-webpack5": "^8.6.4",
     "@svgr/webpack": "^5.5.0",
-    "auto": "^10.43.0",
+    "auto": "^11.3.6",
     "babel-loader": "^8.2.3",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
     "chromatic": "^10.3.1",

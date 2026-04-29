@@ -1,0 +1,29 @@
+@import '../../../scss/cod-uxds-bs-base';
+@import '../../../scss/cod-uxds-bs-utilities';
+
+// Import Bootstrap button styles
+@import 'bootstrap/scss/buttons';
+
+// Override bootstrap _root.scss.
+@import '../../../scss/cod-uxds-bs-host';
+@import '../../../scss/cod-uxds-style-guide';
+
+:host {
+  display: block;
+}
+
+.photo-btn {
+  display: block;
+  padding: 0;
+  text-align: left;
+  border: 0;
+}
+
+.button-img::slotted(img) {
+  display: block;
+  width: 100%;
+}
+
+.button-body {
+  padding: var(--cod-btn-padding-y) var(--cod-btn-padding-x);
+}

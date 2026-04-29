@@ -1,0 +1,162 @@
+@import '../../../scss/cod-uxds-bs-base';
+@import '../../../scss/cod-uxds-bs-utilities';
+@import '../../../scss/cod-uxds-bs-host';
+@import '../../../scss/cod-uxds-style-guide';
+
+:host {
+  display: block;
+
+  // CSS Custom Properties for theming
+  --cod-callout-background-color: #{$cod-light-grey};
+  --cod-callout-border-color: #{$primary};
+  --cod-callout-border-width: 2px;
+  --cod-callout-border-radius: 0;
+  --cod-callout-padding: 1rem;
+  --cod-callout-margin-bottom: 1rem;
+  --cod-callout-font-family: inherit;
+  --cod-callout-text-color: #{$cod-near-black};
+  --cod-callout-heading-color: #{$cod-near-black};
+  --cod-callout-bar-width: 0.5rem;
+}
+
+.cod-callout {
+  position: relative;
+  background-color: var(--cod-callout-background-color);
+  border: var(--cod-callout-border-width) solid var(--cod-callout-border-color);
+  border-radius: var(--cod-callout-border-radius);
+  padding: var(--cod-callout-padding);
+  margin-bottom: var(--cod-callout-margin-bottom);
+  font-family: var(--cod-callout-font-family);
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: var(--cod-callout-bar-width);
+    height: 100%;
+    background-color: var(--cod-callout-border-color);
+    border-radius: var(--cod-callout-border-radius) 0 0
+      var(--cod-callout-border-radius);
+  }
+
+  &__content {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  &__icon {
+    flex-shrink: 0;
+    width: 2rem;
+    height: 2rem;
+    color: var(--cod-callout-border-color);
+
+    svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+  }
+
+  &__body {
+    flex: 1;
+    min-width: 0;
+  }
+
+  &__heading {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 1.3;
+    color: var(--cod-callout-heading-color);
+  }
+
+  &__text {
+    margin: 0;
+    color: var(--cod-callout-text-color);
+    line-height: 1.5;
+  }
+
+  // Variant styles
+  &--info {
+    background-color: color-mix(in srgb, #{$info} 10%, white);
+    border-color: #{$info};
+
+    &::before {
+      background-color: #{$info};
+    }
+  }
+
+  &--warning {
+    background-color: color-mix(in srgb, #{$warning} 10%, white);
+    border-color: #{$warning};
+
+    &::before {
+      background-color: #{$warning};
+    }
+  }
+
+  &--success {
+    background-color: color-mix(in srgb, #{$success} 10%, white);
+    border-color: #{$success};
+
+    &::before {
+      background-color: #{$success};
+    }
+  }
+
+  &--error {
+    background-color: color-mix(in srgb, #{$danger} 10%, white);
+    border-color: #{$danger};
+
+    &::before {
+      background-color: #{$danger};
+    }
+  }
+
+  &--emergency {
+    background-color: color-mix(in srgb, #{$danger} 20%, white);
+    border-color: #{$danger};
+    border-width: 3px;
+
+    &::before {
+      background-color: #{$danger};
+      width: 0.75rem;
+    }
+  }
+
+  // Slim modifier
+  &--slim {
+    padding: 0.25rem 1rem;
+
+    .cod-callout__heading {
+      font-size: 1.125rem;
+      margin-bottom: 0.25rem;
+    }
+  }
+
+  // No icon modifier - removes left bar and icon
+  &--no-icon {
+    padding-left: var(--cod-callout-padding);
+
+    &::before {
+      display: none;
+    }
+
+    .cod-callout__icon {
+      display: none;
+    }
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  .cod-callout {
+    padding: 0.75rem;
+
+    &__heading {
+      font-size: 1.125rem;
+    }
+  }
+}

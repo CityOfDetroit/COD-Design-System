@@ -168,7 +168,6 @@ export class JSPropertiesTable extends HTMLElement {
       const descriptionHeader = document.createElement('th');
       descriptionHeader.className = 'description-column';
       descriptionHeader.textContent = 'Description';
-
       headerRow.appendChild(nameHeader);
       headerRow.appendChild(descriptionHeader);
       headerRow.appendChild(typeHeader);

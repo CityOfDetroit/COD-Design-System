@@ -1,0 +1,105 @@
+@import '../../../scss/cod-uxds-bs-base';
+@import '../../../scss/cod-uxds-bs-utilities';
+
+// Import Bootstrap button styles
+@import 'bootstrap/scss/buttons';
+
+// Override bootstrap _root.scss
+@import '../../../scss/cod-uxds-bs-host';
+@import '../../../scss/cod-uxds-style-guide';
+
+// Custom button styles
+:host {
+  display: inline-block;
+}
+
+// Handle prefix and suffix slots
+slot[name='prefix']::slotted(*) {
+  margin-inline-end: 0.25em;
+}
+
+slot[name='suffix']::slotted(*) {
+  margin-inline-start: 0.25em;
+}
+
+// Caret styles
+.caret-container {
+  margin-inline-start: 0.25em;
+}
+
+.caret {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin-left: 0.25em;
+  vertical-align: middle;
+  border-top: 0.25em solid;
+  border-right: 0.25em solid transparent;
+  border-left: 0.25em solid transparent;
+}
+
+// Spinner styles
+.spinner-border {
+  display: none;
+  width: 1em;
+  height: 1em;
+  margin-inline-start: 0.5em;
+}
+
+.btn,
+.btn.disabled,
+fieldset:disabled .btn {
+  &:disabled {
+    pointer-events: auto;
+    cursor: not-allowed;
+
+    // Prevent active styles when disabled
+    &:active,
+    &.active,
+    .btn-check:checked + & {
+      // Reset to match the disabled styles
+      color: var(--cod-btn-disabled-color) !important;
+      background-color: var(--cod-btn-disabled-bg) !important;
+      border-color: var(--cod-btn-disabled-border-color) !important;
+      // No box-shadow on active+disabled
+      box-shadow: none !important;
+    }
+  }
+}
+
+// Base button styles
+.btn {
+  position: relative;
+  box-sizing: border-box;
+
+  // Spinner styles
+  cod-spinner {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+  }
+
+  // Loading state
+  &.loading {
+    position: relative;
+    cursor: wait;
+
+    // Show spinner when loading
+    cod-spinner {
+      display: inline-block;
+    }
+
+    // Hide content when loading
+    slot {
+      visibility: hidden;
+    }
+  }
+}
+
+.btn-square {
+  --cod-btn-line-height: 0;
+  --cod-btn-padding-x: var(--cod-btn-padding-y);
+}

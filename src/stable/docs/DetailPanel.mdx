@@ -1,0 +1,135 @@
+import {
+  Meta,
+  Canvas,
+  Title,
+  Subtitle,
+  Description,
+  Primary,
+  Controls,
+  Stories,
+  Story,
+  Source,
+} from '@storybook/blocks';
+import * as DetailPanelStories from '../stories/detailpanel.stories';
+
+import '../../../.storybook/docs'; // Import all documentation components
+
+<Meta of={DetailPanelStories} />
+
+# DetailPanel
+
+<div className="component-summary">
+  Detail panels provide a way to progressively disclose content through
+  expandable and collapsible sections. Based on USWDS accordion patterns, they
+  help users focus on specific information while maintaining a clean, organized
+  interface with proper semantic structure and accessibility features.
+</div>
+
+## Usage
+
+Use detail panels to organize content into logical sections that users can expand on demand. The component supports both single-expansion (accordion) and multi-expansion modes, with proper keyboard navigation and screen reader support.
+
+<Canvas>
+  <Story of={DetailPanelStories.Default} />
+  <Source of={DetailPanelStories.Default} />
+</Canvas>
+<Controls of={DetailPanelStories.Default} />
+
+## When to use
+
+- **Progressive disclosure** - Show/hide detailed information to reduce cognitive load
+- **Frequently Asked Questions** - Organize Q&A content in an accessible format
+- **Settings or configuration** - Group related options that users access occasionally
+- **Long-form content** - Break up lengthy content into digestible sections
+- **Space-constrained layouts** - Display more information in limited vertical space
+
+## When to consider something else
+
+- **Critical information** - Don't hide essential information that users need immediately
+- **Simple content** - Use standard text formatting for content that doesn't need hiding
+- **Navigation** - Use dedicated navigation components for site or app navigation
+- **Short content** - If content is brief, collapsing may add unnecessary interaction
+
+## Usability guidance
+
+- **Use descriptive headings** - Write clear, scannable headings that indicate the content within
+- **Maintain semantic structure** - Use appropriate heading levels (h2, h3, etc.) for proper document hierarchy
+- **Group related content** - Keep logically related information together within each panel
+- **Consider default states** - Expand important panels by default when appropriate
+- **Limit the number of panels** - Too many panels can overwhelm users and reduce usability
+
+## Examples
+
+<Stories of={DetailPanelStories} includePrimary={false} />
+
+## Slots
+
+<doc-slots-table
+data={JSON.stringify([
+{"name": "heading", "description": "The heading content for the panel trigger button."},
+{"name": "(default)", "description": "The collapsible content area of the panel."}
+])}>
+</doc-slots-table>
+
+## HTML Attributes / JS Properties
+
+<doc-js-properties-table
+data={JSON.stringify([
+{"name": "expanded", "type": "boolean", "defaultValue": "false", "description": "Controls whether the panel is initially expanded"},
+{"name": "bordered", "type": "boolean", "defaultValue": "false", "description": "Applies enhanced border styling with shadow effects"},
+{"name": "allowMultiple", "type": "boolean", "defaultValue": "false", "description": "When false, expanding one panel collapses siblings (accordion behavior)"}
+])}>
+</doc-js-properties-table>
+
+## Events
+
+<doc-events-table data={JSON.stringify([])}></doc-events-table>
+
+## Methods
+
+<doc-methods-table
+data={JSON.stringify([
+{"name": "expand()", "description": "Programmatically expand the panel"},
+{"name": "collapse()", "description": "Programmatically collapse the panel"},
+{"name": "toggle()", "description": "Toggle the panel between expanded and collapsed states"}
+])}>
+</doc-methods-table>
+
+## Custom CSS Properties
+
+<doc-css-custom-properties-table
+data={JSON.stringify([])}>
+</doc-css-custom-properties-table>
+
+## CSS Parts
+
+<doc-css-parts-table
+data={JSON.stringify([
+{"name": "base", "description": "The component's base wrapper element."},
+{"name": "heading", "description": "The heading container element."},
+{"name": "button", "description": "The clickable trigger button element."},
+{"name": "icon", "description": "The expand/collapse icon element."},
+{"name": "body", "description": "The collapsible content container."}
+])}>
+</doc-css-parts-table>
+
+## Dependencies
+
+<doc-dependencies-list data={JSON.stringify([])}></doc-dependencies-list>
+
+## Accessibility
+
+- **Keyboard Navigation** - Supports Enter, Space, and Arrow key navigation
+- **ARIA Attributes** - Uses `aria-expanded` and `aria-controls` for proper state communication
+- **Screen Reader Support** - Announces expand/collapse state changes to assistive technologies
+- **Focus Management** - Maintains proper focus indicators and tab order
+- **Semantic Structure** - Preserves heading hierarchy through user-controlled heading levels
+- **Progressive Enhancement** - Works without JavaScript by showing all content
+
+### Keyboard Interactions
+
+- **Enter/Space** - Toggle the panel's expanded state
+- **Arrow Up/Down** - Navigate between panels (in accordion mode)
+- **Tab** - Navigate to the next focusable element
+
+The component follows WCAG 2.1 AA guidelines and integrates seamlessly with assistive technologies to ensure an inclusive user experience.

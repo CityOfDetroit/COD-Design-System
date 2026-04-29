@@ -1,0 +1,91 @@
+import {
+  Meta,
+  Canvas,
+  Title,
+  Subtitle,
+  Description,
+  Primary,
+  Controls,
+  Stories,
+  Story,
+  Source,
+} from '@storybook/blocks';
+import * as CardStories from '../stories/card.stories';
+
+import '../../../.storybook/docs'; // Import all documentation components
+
+<Meta of={CardStories} />
+
+# Card
+
+<div className="component-summary">
+  Cards can be used to group related subjects in a container.
+</div>
+
+## Usage
+
+<Canvas>
+  <Story of={CardStories.Usage} />
+  <Source of={CardStories.Usage} />
+</Canvas>
+<Controls of={CardStories.Usage} />
+
+## Examples
+
+<Stories of={CardStories} includePrimary={false} />
+
+## Slots
+
+<doc-slots-table
+data={JSON.stringify([
+{"name": "(default)", "description": "The card's main content."},
+{"name": "header", "description": "An optional header for the card."},
+{"name": "footer", "description": "An optional footer for the card."},
+{"name": "image", "description": "An optional image to render at the start of the card."}
+])}>
+</doc-slots-table>
+
+## HTML Attributes / JS Properties
+
+<doc-js-properties-table data={JSON.stringify([])}></doc-js-properties-table>
+
+## Events
+
+<doc-events-table data={JSON.stringify([])}></doc-events-table>
+
+## Methods
+
+<doc-methods-table 
+  data={JSON.stringify([])}>
+</doc-methods-table>
+
+## Custom CSS Properties
+
+<doc-css-custom-properties-table
+data={JSON.stringify([])}
+
+> </doc-css-custom-properties-table>
+
+## CSS Parts
+
+<doc-css-parts-table
+data={JSON.stringify([
+{"name": "base", "description": "The component's base wrapper."},
+{"name": "image", "description": "The container that wraps the card's image slot."},
+{"name": "header", "description": "The container that wraps the card's header slot."},
+{"name": "body", "description": "The container that wraps the card's main content."},
+{"name": "footer", "description": "The container that wraps the card's footer slot."}
+])}>
+</doc-css-parts-table>
+
+## Dependencies
+
+<doc-dependencies-list data={JSON.stringify([])}></doc-dependencies-list>
+
+## Accessibility
+
+Cards group related content and provide a visual container that helps users understand the relationship between elements. For best accessibility:
+
+- Use semantic headings (`<h1>` through `<h6>`) within cards when appropriate
+- Ensure any interactive elements inside the card (buttons, links) are keyboard accessible
+- Maintain sufficient color contrast between card content and background

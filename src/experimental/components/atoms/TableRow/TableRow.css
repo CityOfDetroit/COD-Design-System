@@ -32,7 +32,7 @@ tr cod-table-cell-header[colspan='5'] {
 }
 
 tr.table-hover:hover {
-  --bs-table-accent-bg: var(--bs-table-hover-bg);
+  --cod-table-accent-bg: var(--cod-table-hover-bg);
 }
 
 @media (max-width: 991.98px) {
@@ -42,13 +42,13 @@ tr.table-hover:hover {
     width: 100%;
   }
   tr.table-stacked:not(.cell-header-block) {
-    border-bottom: 2px solid var(--bs-black);
+    border-bottom: 2px solid var(--cod-black);
   }
   tr.table-stacked.first:not(.cell-header-block) {
-    border-top: 2px solid var(--bs-black);
+    border-top: 2px solid var(--cod-black);
   }
   tr.table-stacked.odd.cell-header-block {
-    border-left: 2px solid var(--bs-black);
+    border-left: 2px solid var(--cod-black);
   }
 }
 

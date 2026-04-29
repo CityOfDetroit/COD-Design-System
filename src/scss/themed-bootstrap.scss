@@ -21,70 +21,13 @@
  * This file is generated from source SASS in src/scss/themed-bootstrap.scss. If you'd like to make
  * changes please change the source file or the code generation script at scripts/compile_bootstrap.sh.
  */
-@import 'detroitmi-bootstrap-base';
-
-// See: https://getbootstrap.com/docs/5.0/utilities/api/
-$utilities: map-merge(
-  $utilities,
-  (
-    // Create specific bg classes for stylized list items.
-    'li-background-color':
-      (
-        property: background-color,
-        class: li-bg,
-        local-vars: (
-          'bg-opacity': 1,
-        ),
-        values:
-          map-merge(
-            $utilities-bg-colors,
-            (
-              'transparent': transparent,
-              'body-secondary':
-                rgba(
-                  var(--#{$prefix}secondary-bg-rgb),
-                  var(--#{$prefix}bg-opacity)
-                ),
-              'body-tertiary':
-                rgba(
-                  var(--#{$prefix}tertiary-bg-rgb),
-                  var(--#{$prefix}bg-opacity)
-                ),
-            )
-          ),
-      ),
-    // Create specific subtle bg classes for stylized list items.
-    'li-subtle-background-color':
-      (
-        property: background-color,
-        class: li-bg,
-        values: $utilities-bg-subtle,
-      )
-  )
-);
+@import 'cod-uxds-bs-base';
+@import 'cod-uxds-bs-utilities';
 
 @import 'bootstrap/scss/bootstrap';
+
 // Override bootstrap _root.scss.
-@import './host';
-@import 'detroitmi-style-guide';
+@import 'cod-uxds-bs-host';
+
+@import 'cod-uxds-style-guide';
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap');
-
-b,
-strong {
-  font-weight: 700;
-}
-
-// _____  _   _  _____  _____  _____ ___  ___
-// /  __ \| | | |/  ___||_   _||  _  ||  \/  |
-// | /  \/| | | |\ `--.   | |  | | | || .  . |
-// | |    | | | | `--. \  | |  | | | || |\/| |
-// | \__/\| |_| |/\__/ /  | |  \ \_/ /| |  | |
-//  \____/ \___/ \____/   \_/   \___/ \_|  |_/
-//  _____  _____ __   __ _      _____  _____
-// /  ___||_   _|\ \ / /| |    |  ___|/  ___|
-// \ `--.   | |   \ V / | |    | |__  \ `--.
-//  `--. \  | |    \ /  | |    |  __|  `--. \
-// /\__/ /  | |    | |  | |____| |___ /\__/ /
-// \____/   \_/    \_/  \_____/\____/ \____/
-//
-// This section contains component specific SASS styles.

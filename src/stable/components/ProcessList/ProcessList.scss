@@ -1,0 +1,34 @@
+@import '../../../scss/cod-uxds-bs-base';
+@import '../../../scss/cod-uxds-bs-utilities';
+@import '../../../scss/cod-uxds-bs-host';
+@import '../../../scss/cod-uxds-style-guide';
+
+:host {
+  display: block;
+
+  // CSS Custom Properties for theming
+  --cod-process-list-counter-background-color: #{$cod-city-green};
+  --cod-process-list-counter-border-color: #{$cod-near-black};
+  --cod-process-list-counter-border-width: 2px;
+  --cod-process-list-counter-font-family: inherit;
+  --cod-process-list-counter-font-size: 1rem;
+  --cod-process-list-counter-gap-color: transparent;
+  --cod-process-list-counter-gap-width: 4px;
+  --cod-process-list-counter-size: 2.5rem;
+  --cod-process-list-counter-text-color: #ffffff;
+  --cod-process-list-connector-color: #c9c9c9;
+  --cod-process-list-connector-width: 2px;
+  --cod-process-list-font-family: inherit;
+  --cod-process-list-font-size: 1rem;
+  --cod-process-list-heading-color: #000;
+  --cod-process-list-heading-font-family: inherit;
+  --cod-process-list-heading-font-size: 1.25rem;
+  --cod-process-list-text-color: #000;
+}
+
+.cod-process-list {
+  counter-reset: cod-process-list-counter;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}

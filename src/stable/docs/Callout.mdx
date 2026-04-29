@@ -1,0 +1,132 @@
+import {
+  Meta,
+  Canvas,
+  Title,
+  Subtitle,
+  Description,
+  Primary,
+  Controls,
+  Stories,
+  Story,
+  Source,
+} from '@storybook/blocks';
+import * as CalloutStories from '../stories/callout.stories';
+
+import '../../../.storybook/docs'; // Import all documentation components
+
+<Meta of={CalloutStories} />
+
+# Callout
+
+<div className="component-summary">
+  Callouts highlight important information and messages to users. They provide a
+  consistent way to communicate status information, warnings, errors, and other
+  critical messages with appropriate visual hierarchy, distinctive icons, and
+  accessibility features.
+</div>
+
+## Usage
+
+Use callouts to draw user attention to important information that requires acknowledgment or action. The component includes multiple variants with distinctive colors and appropriate ARIA roles for different types of messages.
+
+<Canvas>
+  <Story of={CalloutStories.Default} />
+  <Source of={CalloutStories.Default} />
+</Canvas>
+<Controls of={CalloutStories.Default} />
+
+## When to use
+
+- **Status updates** - Confirm successful actions or notify about system status changes
+- **Important information** - Highlight critical details users need to know before proceeding
+- **Warnings** - Alert users to potential issues or required actions
+- **Error messages** - Communicate when something has gone wrong and needs attention
+- **Emergency alerts** - Display urgent messages requiring immediate user attention
+
+## When to consider something else
+
+- **Inline validation** - Use field-level error messages for form validation
+- **Notifications** - Use toast or notification components for temporary system messages
+- **General content highlighting** - Use standard text formatting or cards for less critical information
+- **Navigation cues** - Use breadcrumbs or step indicators for wayfinding
+
+## Usability guidance
+
+- **Use appropriate variants** - Choose the correct variant (info, success, warning, error, emergency) based on the message type
+- **Keep content concise** - Write clear, actionable messages that users can quickly scan and understand
+- **Include headings when helpful** - Use descriptive headings to summarize the message content
+- **Provide next steps** - When appropriate, include clear instructions on what users should do next
+- **Don't overuse** - Limit the number of callouts on a page to maintain their effectiveness
+
+## Examples
+
+<Stories of={CalloutStories} includePrimary={false} />
+
+## Slots
+
+<doc-slots-table
+data={JSON.stringify([
+{"name": "heading", "description": "Optional heading content for the callout."},
+{"name": "(default)", "description": "Main content for the callout message."}
+])}>
+</doc-slots-table>
+
+## HTML Attributes / JS Properties
+
+<doc-js-properties-table
+data={JSON.stringify([
+{"name": "variant", "type": "string", "defaultValue": "info", "description": "The type of callout: 'info', 'success', 'warning', 'error', 'emergency'"},
+{"name": "slim", "type": "boolean", "defaultValue": "false", "description": "Makes the callout more compact with reduced padding"},
+{"name": "noIcon", "type": "boolean", "defaultValue": "false", "description": "Removes the left border bar for a cleaner appearance"}
+])}>
+</doc-js-properties-table>
+
+## Events
+
+<doc-events-table data={JSON.stringify([])}></doc-events-table>
+
+## Methods
+
+<doc-methods-table 
+  data={JSON.stringify([])}>
+</doc-methods-table>
+
+## Custom CSS Properties
+
+<doc-css-custom-properties-table
+data={JSON.stringify([
+{"name": "--cod-callout-background-color", "defaultValue": "Based on variant", "description": "Background color of the callout"},
+{"name": "--cod-callout-border-color", "defaultValue": "Based on variant", "description": "Border color of the callout"},
+{"name": "--cod-callout-text-color", "defaultValue": "#18252a", "description": "Text color within the callout"},
+{"name": "--cod-callout-heading-color", "defaultValue": "#18252a", "description": "Heading text color"},
+{"name": "--cod-callout-padding", "defaultValue": "1em", "description": "Internal padding of the callout"},
+{"name": "--cod-callout-border-radius", "defaultValue": "0.375em", "description": "Border radius of the callout"},
+{"name": "--cod-callout-bar-width", "defaultValue": "0.5em", "description": "Width of the left border bar"}
+])}>
+</doc-css-custom-properties-table>
+
+## CSS Parts
+
+<doc-css-parts-table
+data={JSON.stringify([
+{"name": "base", "description": "The component's base wrapper (div element)."},
+{"name": "icon", "description": "The icon container element."},
+{"name": "body", "description": "The container that wraps the callout content."},
+{"name": "heading", "description": "The heading element (h4)."},
+{"name": "text", "description": "The container that wraps the main text content."}
+])}>
+</doc-css-parts-table>
+
+## Dependencies
+
+<doc-dependencies-list data={JSON.stringify([])}></doc-dependencies-list>
+
+## Accessibility
+
+- **Appropriate ARIA roles** - Uses `role="alert"` for urgent messages, `role="status"` for confirmations, and `role="region"` for informational content
+- **Live regions** - Error and emergency callouts use `aria-live="assertive"`, while warning and success use `aria-live="polite"`
+- **Semantic structure** - Uses proper heading hierarchy and semantic HTML elements
+- **Color independence** - Information is conveyed through text, icons, and structure, not color alone
+- **Screen reader friendly** - Content is properly announced by assistive technologies based on the variant type
+
+The callout component follows WCAG 2.1 AA guidelines and provides appropriate semantic structure for accessibility.

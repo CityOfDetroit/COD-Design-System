@@ -1,0 +1,39 @@
+// City of Detroit's Style Guide stylesheets.
+// Any styles needed to conform the the city style guide
+// that cannot be implemented through bootstrap customization
+// should be placed in this file.
+// -----------------------------------------------------------------------------
+
+// Global typeface settings for the theme.
+h1,
+.h1 {
+  border-left: 0.1em solid #feb70d;
+  padding-left: 0.25em;
+}
+
+.title-line {
+  border-left: none;
+  border-bottom: 0.1em solid #feb70d;
+}
+
+b,
+strong {
+  font-weight: 700;
+}
+
+.btn {
+  --cod-btn-focus-box-shadow: 0 0 0 0.25em
+    rgba(var(--cod-btn-focus-shadow-rgb), 1);
+}
+
+.btn:focus-visible {
+  --cod-btn-focus-shadow-rgb: 0, 0, 255;
+}
+
+// Define focus box-shadow for buttons
+@each $color, $value in $theme-colors {
+  $focus-shadow-rgb: to-rgb($focus-ring-color);
+  .btn-#{$color} {
+    --#{$prefix}btn-focus-shadow-rgb: #{$focus-shadow-rgb};
+  }
+}

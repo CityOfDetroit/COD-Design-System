@@ -1,0 +1,39 @@
+// See: https://getbootstrap.com/docs/5.0/utilities/api/
+$utilities: map-merge(
+  $utilities,
+  (
+    // Create specific bg classes for stylized list items.
+    'li-background-color':
+      (
+        property: background-color,
+        class: li-bg,
+        local-vars: (
+          'bg-opacity': 1,
+        ),
+        values:
+          map-merge(
+            $utilities-bg-colors,
+            (
+              'transparent': transparent,
+              'body-secondary':
+                rgba(
+                  var(--#{$prefix}secondary-bg-rgb),
+                  var(--#{$prefix}bg-opacity)
+                ),
+              'body-tertiary':
+                rgba(
+                  var(--#{$prefix}tertiary-bg-rgb),
+                  var(--#{$prefix}bg-opacity)
+                ),
+            )
+          ),
+      ),
+    // Create specific subtle bg classes for stylized list items.
+    'li-subtle-background-color':
+      (
+        property: background-color,
+        class: li-bg,
+        values: $utilities-bg-subtle,
+      )
+  )
+);

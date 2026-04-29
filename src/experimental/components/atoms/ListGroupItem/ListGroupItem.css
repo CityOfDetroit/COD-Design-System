@@ -4,7 +4,7 @@
 }
 
 .list-group-flush.list-group-item {
-  border-width: 0 0 var(--bs-list-group-border-width);
+  border-width: 0 0 var(--cod-list-group-border-width);
 }
 
 .list-group-flush.list-group-item.last {

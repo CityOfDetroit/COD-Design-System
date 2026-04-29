@@ -1,6 +1,7 @@
 'use strict';
 import maplibregl from 'maplibre-gl';
 import mapStyle from './style.json';
+import mapStyleDark from './styleDark.json';
 import styles from '!!raw-loader!./Map.css';
 import maplibreStyles from '!!raw-loader!../../../../../node_modules/maplibre-gl/dist/maplibre-gl.css';
 export default class Map extends HTMLElement {
@@ -13,6 +14,9 @@ export default class Map extends HTMLElement {
       'data-clickable-layers',
       'data-zoom',
       'data-center',
+      'data-location',
+      'data-basemap',
+      'data-resize',
     ];
   }
 
@@ -55,6 +59,16 @@ export default class Map extends HTMLElement {
 
   attributeChangedCallback(name, oldValue, newValue) {
     switch (name) {
+      case 'data-basemap': {
+        if (newValue === 'dark') {
+          this.map.setStyle(mapStyleDark);
+        }
+        break;
+      }
+      case 'data-resize': {
+        this.map.resize();
+        break;
+      }
       case 'data-map-state': {
         const tempMap = this;
         const locationPoint = JSON.parse(this.getAttribute('data-location'));
@@ -246,16 +260,9 @@ export default class Map extends HTMLElement {
             closeMapBtn.addEventListener('click', () => {
               app[0] ? app[0].setAttribute('data-app-state', 'results') : 0;
             });
-            closeMapBtn.setAttribute('data-primary', true);
-            closeMapBtn.setAttribute('data-label', 'x');
-            closeMapBtn.setAttribute('data-size', 'large');
-            closeMapBtn.setAttribute('data-hover', false);
-            closeMapBtn.setAttribute('data-background-color', 'warning');
-            closeMapBtn.setAttribute('data-img', '');
-            closeMapBtn.setAttribute('data-img-alt', '');
-            closeMapBtn.setAttribute('data-icon', '');
-            closeMapBtn.setAttribute('data-shape', 'square');
-            closeMapBtn.setAttribute('data-extra-classes', 'fw-bold');
+            closeMapBtn.innerText = 'x';
+            closeMapBtn.setAttribute('size', 'large');
+            closeMapBtn.setAttribute('variant', 'warning');
             this.mapWrapper.appendChild(closeMapBtn);
             app[0] ? app[0].setAttribute('data-map-state', 'init') : 0;
             break;
@@ -278,17 +285,23 @@ export default class Map extends HTMLElement {
           this.map.on('style.load', () => {
             sources = JSON.parse(sources);
             sources.forEach((source) => {
-              const tempSource = { type: 'geojson' };
-              source.source ? (tempSource.data = source.source) : 0;
-              source.sourceCluster
-                ? (tempSource.cluster = source.sourceCluster)
-                : 0;
-              source.sourceClusterMaxZoom
-                ? (tempSource.clusterMaxZoom = source.sourceClusterMaxZoom)
-                : 0;
-              source.sourceClusterRadius
-                ? (tempSource.clusterRadius = source.sourceClusterRadius)
-                : 0;
+              const tempSource = {};
+              if (source.sourceType === 'vector') {
+                tempSource.type = 'vector';
+                tempSource.tiles = [source.source];
+              } else {
+                tempSource.type = 'geojson';
+                source.source ? (tempSource.data = source.source) : 0;
+                source.sourceCluster
+                  ? (tempSource.cluster = source.sourceCluster)
+                  : 0;
+                source.sourceClusterMaxZoom
+                  ? (tempSource.clusterMaxZoom = source.sourceClusterMaxZoom)
+                  : 0;
+                source.sourceClusterRadius
+                  ? (tempSource.clusterRadius = source.sourceClusterRadius)
+                  : 0;
+              }
               tmpMap.addSource(source.name, tempSource);
 
               source.layers.forEach((layer) => {
@@ -322,6 +335,39 @@ export default class Map extends HTMLElement {
         break;
       }
 
+      case 'data-location': {
+        const locationPoint = JSON.parse(this.getAttribute('data-location'));
+        if (locationPoint) {
+          const coord = [locationPoint.location.x, locationPoint.location.y];
+          const marker = new maplibregl.Marker();
+          marker.setLngLat(coord);
+          marker.addTo(this.map);
+          this.map.flyTo({
+            // These options control the ending camera position: centered at
+            // the target, at zoom level 9, and north up.
+            center: coord,
+            zoom: 16,
+            bearing: 0,
+
+            // These options control the flight curve, making it move
+            // slowly and zoom out almost completely before starting
+            // to pan.
+            speed: 1.5, // make the flying slow
+            curve: 1, // change the speed at which it zooms out
+
+            // This can be any easing function: it takes a number between
+            // 0 and 1 and returns another number between 0 and 1.
+            easing: function (t) {
+              return t;
+            },
+
+            // this animation is considered essential with respect to prefers-reduced-motion
+            essential: true,
+          });
+        }
+        break;
+      }
+
       default:
         break;
     }
@@ -347,6 +393,7 @@ export default class Map extends HTMLElement {
       case 'line':
         tmpLayer.type = layer.type;
         tmpLayer.source = layer.source;
+        layer.sourceLayer ? (tmpLayer['source-layer'] = layer.sourceLayer) : 0;
         layer.minZoom ? (tmpLayer.minzoom = layer.minZoom) : 0;
         layer.maxZoom ? (tmpLayer.maxzoom = layer.maxZoom) : 0;
         layer.active
@@ -363,6 +410,7 @@ export default class Map extends HTMLElement {
       case 'text':
         tmpLayer.type = 'symbol';
         tmpLayer.source = layer.source;
+        layer.sourceLayer ? (tmpLayer['source-layer'] = layer.sourceLayer) : 0;
         layer.minZoom ? (tmpLayer.minzoom = layer.minZoom) : 0;
         layer.maxZoom ? (tmpLayer.maxzoom = layer.maxZoom) : 0;
         layer.filter ? (tmpLayer.filter = layer.filter) : 0;
@@ -386,6 +434,7 @@ export default class Map extends HTMLElement {
       case 'image':
         tmpLayer.type = 'symbol';
         tmpLayer.source = layer.source;
+        layer.sourceLayer ? (tmpLayer['source-layer'] = layer.sourceLayer) : 0;
         layer.minZoom ? (tmpLayer.minzoom = layer.minZoom) : 0;
         layer.maxZoom ? (tmpLayer.maxzoom = layer.maxZoom) : 0;
         layer.filter ? (tmpLayer.filter = layer.filter) : 0;
@@ -405,6 +454,7 @@ export default class Map extends HTMLElement {
       case 'circle':
         tmpLayer.type = layer.type;
         tmpLayer.source = layer.source;
+        layer.sourceLayer ? (tmpLayer['source-layer'] = layer.sourceLayer) : 0;
         tmpLayer.clickable = layer.clickable;
         layer.minZoom ? (tmpLayer.minzoom = layer.minZoom) : 0;
         layer.maxZoom ? (tmpLayer.maxzoom = layer.maxZoom) : 0;
@@ -424,6 +474,7 @@ export default class Map extends HTMLElement {
       case 'fill':
         tmpLayer.type = layer.type;
         tmpLayer.source = layer.source;
+        layer.sourceLayer ? (tmpLayer['source-layer'] = layer.sourceLayer) : 0;
         tmpLayer.clickable = layer.clickable;
         layer.minZoom ? (tmpLayer.minzoom = layer.minZoom) : 0;
         layer.maxZoom ? (tmpLayer.maxzoom = layer.maxZoom) : 0;

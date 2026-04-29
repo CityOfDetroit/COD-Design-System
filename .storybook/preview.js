@@ -1,5 +1,5 @@
 // .storybook/preview.js
-import 'bootstrap/dist/css/bootstrap.min.css';
+import '../src/shared/themed-bootstrap.css';
 
 export const parameters = {
   actions: {},
