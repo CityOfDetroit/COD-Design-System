@@ -1,3 +1,4 @@
+import { html } from 'lit-html';
 import '../components/organisms/ArticleCard/cod-article-card';
 import { COMMON_STORY_ARGS } from '../../shared/js/storybook/args-utils';
 
@@ -27,6 +28,10 @@ export default {
       description: 'The subtitle of the article. Custom markdown is supported.',
     },
     color: COMMON_STORY_ARGS.bootstrapColor,
+    customColor: {
+      control: { type: 'text' },
+      description: 'Overwrite default colors to build custom versions',
+    },
     show: {
       control: { type: 'boolean' },
       description: 'Toggle to show or hide the article card title text.',
@@ -105,18 +110,21 @@ const Template = (args) => {
   colElt1.classList.add('col');
   colElt1.classList.add('px-0'); // Add bootstrap class to remove left and right padding
   colElt1.appendChild(articleCardElt1);
+  if (args.customColor) articleCardElt1.setAttribute('custom-color', args.customColor);
   rowElt.appendChild(colElt1);
 
   const colElt2 = document.createElement('div');
   colElt2.classList.add('col');
   colElt2.classList.add('px-0'); // Add bootstrap class to remove left and right padding
   colElt2.appendChild(articleCardElt2);
+  if (args.customColor) articleCardElt2.setAttribute('custom-color', args.customColor);
   rowElt.appendChild(colElt2);
 
   const colElt3 = document.createElement('div');
   colElt3.classList.add('col');
   colElt3.classList.add('px-0'); // Add bootstrap class to remove left and right padding
   colElt3.appendChild(articleCardElt3);
+  if (args.customColor) articleCardElt3.setAttribute('custom-color', args.customColor);
   rowElt.appendChild(colElt3);
 
   return rowElt;
@@ -125,4 +133,78 @@ const Template = (args) => {
 export const Primary = {
   tags: ['autodocs'],
   render: Template.bind({}),
+};
+
+export const Custom = {
+  tags: ['autodocs'],
+  render: () => html`
+    <div class="row">
+      <div class="col px-0">
+        <cod-article-card
+          src="https://placehold.co/300x400"
+          href="https://www.example.com"
+          target="_blank"
+          custom-color="#fb932b"
+          ><h2
+            class="text-center text-light"
+            style="text-transform: uppercase; font-weight: 900; font-size: 2.625rem; color: #000 !important;"
+            slot="title"
+          >
+            The Great Money Transfer
+          </h2>
+          <h3
+            class="text-center text-success"
+            style="text-transform: uppercase; font-weight: 700; font-size: 1.625rem; line-height: 116%; color: #000 !important;"
+            slot="subtitle"
+          >
+            The Power of Generational Wealth
+          </h3></cod-article-card
+        >
+      </div>
+      <div class="col px-0">
+        <cod-article-card
+          src="https://placehold.co/300x400"
+          color="primary"
+          href="https://www.example.com"
+          target="_blank"
+          ><h2
+            class="text-center text-light"
+            style="text-transform: uppercase; font-weight: 900; font-size: 2.625rem;"
+            slot="title"
+          >
+            The Great Money Transfer
+          </h2>
+          <h3
+            class="text-center text-success"
+            style="text-transform: uppercase; font-weight: 700; font-size: 1.625rem; line-height: 116%;"
+            slot="subtitle"
+          >
+            The Power of Generational Wealth
+          </h3></cod-article-card
+        >
+      </div>
+      <div class="col px-0">
+        <cod-article-card
+          src="https://placehold.co/300x400"
+          color="primary"
+          href="https://www.example.com"
+          target="_blank"
+          ><h2
+            class="text-center text-light"
+            style="text-transform: uppercase; font-weight: 900; font-size: 2.625rem;"
+            slot="title"
+          >
+            The Great Money Transfer
+          </h2>
+          <h3
+            class="text-center text-success"
+            style="text-transform: uppercase; font-weight: 700; font-size: 1.625rem; line-height: 116%;"
+            slot="subtitle"
+          >
+            The Power of Generational Wealth
+          </h3></cod-article-card
+        >
+      </div>
+    </div>
+  `,
 };
