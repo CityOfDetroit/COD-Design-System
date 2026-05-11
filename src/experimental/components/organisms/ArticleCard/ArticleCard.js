@@ -16,7 +16,7 @@ template.innerHTML = `
 `;
 
 class ArticleCard extends HTMLElement {
-  static observedAttributes = ['show','custom-color'];
+  static observedAttributes = ['show', 'custom-color'];
 
   constructor() {
     // Always call super first in constructor
@@ -55,7 +55,7 @@ class ArticleCard extends HTMLElement {
         break;
       }
 
-      case 'custom-color':{
+      case 'custom-color': {
         this._setColor();
         break;
       }
@@ -84,11 +84,11 @@ class ArticleCard extends HTMLElement {
    */
   _setColor() {
     const overwriteColor = this.getAttribute('custom-color');
-    if(overwriteColor === null){
+    if (overwriteColor === null) {
       const color = this.getAttribute('color');
       const textContainer = this.shadowRoot.querySelector('.text-container');
       textContainer.classList.add(`bg-${color}`);
-    }else{
+    } else {
       const textContainer = this.shadowRoot.querySelector('.text-container');
       textContainer.style.backgroundColor = overwriteColor;
     }

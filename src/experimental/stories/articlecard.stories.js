@@ -110,21 +110,24 @@ const Template = (args) => {
   colElt1.classList.add('col');
   colElt1.classList.add('px-0'); // Add bootstrap class to remove left and right padding
   colElt1.appendChild(articleCardElt1);
-  if (args.customColor) articleCardElt1.setAttribute('custom-color', args.customColor);
+  if (args.customColor)
+    articleCardElt1.setAttribute('custom-color', args.customColor);
   rowElt.appendChild(colElt1);
 
   const colElt2 = document.createElement('div');
   colElt2.classList.add('col');
   colElt2.classList.add('px-0'); // Add bootstrap class to remove left and right padding
   colElt2.appendChild(articleCardElt2);
-  if (args.customColor) articleCardElt2.setAttribute('custom-color', args.customColor);
+  if (args.customColor)
+    articleCardElt2.setAttribute('custom-color', args.customColor);
   rowElt.appendChild(colElt2);
 
   const colElt3 = document.createElement('div');
   colElt3.classList.add('col');
   colElt3.classList.add('px-0'); // Add bootstrap class to remove left and right padding
   colElt3.appendChild(articleCardElt3);
-  if (args.customColor) articleCardElt3.setAttribute('custom-color', args.customColor);
+  if (args.customColor)
+    articleCardElt3.setAttribute('custom-color', args.customColor);
   rowElt.appendChild(colElt3);
 
   return rowElt;
