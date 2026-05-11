@@ -1,3 +1,15 @@
+# v3.0.1 (Mon May 11 2026)
+
+#### 🐛 Bug Fix
+
+- Adding custom overwrite for ArticleCard component. [#382](https://github.com/CityOfDetroit/COD-Design-System/pull/382) ([@jedgar1mx](https://github.com/jedgar1mx))
+
+#### Authors: 1
+
+- J Edgar Montes ([@jedgar1mx](https://github.com/jedgar1mx))
+
+---
+
 # v3.0.0-alpha.17 (Wed Apr 29 2026)
 
 #### 🐛 Bug Fix
