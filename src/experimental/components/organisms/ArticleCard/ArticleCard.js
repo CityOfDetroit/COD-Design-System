@@ -16,7 +16,7 @@ template.innerHTML = `
 `;
 
 class ArticleCard extends HTMLElement {
-  static observedAttributes = ['show'];
+  static observedAttributes = ['show', 'custom-color'];
 
   constructor() {
     // Always call super first in constructor
@@ -52,7 +52,16 @@ class ArticleCard extends HTMLElement {
         } else {
           textContainer?.classList.remove('show');
         }
+        break;
       }
+
+      case 'custom-color': {
+        this._setColor();
+        break;
+      }
+
+      default:
+        break;
     }
   }
 
@@ -74,9 +83,15 @@ class ArticleCard extends HTMLElement {
    * Sets the color of the article card.
    */
   _setColor() {
-    const color = this.getAttribute('color');
-    const textContainer = this.shadowRoot.querySelector('.text-container');
-    textContainer.classList.add(`bg-${color}`);
+    const overwriteColor = this.getAttribute('custom-color');
+    if (overwriteColor === null) {
+      const color = this.getAttribute('color');
+      const textContainer = this.shadowRoot.querySelector('.text-container');
+      textContainer.classList.add(`bg-${color}`);
+    } else {
+      const textContainer = this.shadowRoot.querySelector('.text-container');
+      textContainer.style.backgroundColor = overwriteColor;
+    }
   }
 
   /**
