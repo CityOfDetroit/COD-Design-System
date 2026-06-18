@@ -11,6 +11,22 @@ template.innerHTML = `
 <slot></slot>
 `;
 
+function shouldSetBooleanAttribute(value) {
+  return value === 'true';
+}
+
+function setOrRemoveAttribute(element, attributeName, shouldSet) {
+  if (!element) {
+    return;
+  }
+
+  if (shouldSet) {
+    element.setAttribute(attributeName, 'true');
+  } else {
+    element.removeAttribute(attributeName);
+  }
+}
+
 class Table extends HTMLElement {
   static observedAttributeCbs = {
     'data-stacked': (component, oldValue, newValue) => {
@@ -36,6 +52,50 @@ class Table extends HTMLElement {
         tableHeader?.removeAttribute('data-label-block');
         tableBody?.removeAttribute('data-label-block');
       }
+    },
+    'data-hover': (component, oldValue, newValue) => {
+      const tableBody = component.shadowRoot.querySelector('cod-table-body');
+      setOrRemoveAttribute(
+        tableBody,
+        'data-hover',
+        shouldSetBooleanAttribute(newValue),
+      );
+    },
+    'data-striped-row': (component, oldValue, newValue) => {
+      const tableBody = component.shadowRoot.querySelector('cod-table-body');
+      setOrRemoveAttribute(
+        tableBody,
+        'data-striped-row',
+        shouldSetBooleanAttribute(newValue),
+      );
+    },
+    'data-striped-col': (component, oldValue, newValue) => {
+      const shouldSet = shouldSetBooleanAttribute(newValue);
+      const tableHeader =
+        component.shadowRoot.querySelector('cod-table-header');
+      const tableBody = component.shadowRoot.querySelector('cod-table-body');
+
+      setOrRemoveAttribute(tableHeader, 'data-striped-col', shouldSet);
+      setOrRemoveAttribute(tableBody, 'data-striped-col', shouldSet);
+    },
+    'data-vertical-align': (component, oldValue, newValue) => {
+      const shouldSet = shouldSetBooleanAttribute(newValue);
+      const tableHeader =
+        component.shadowRoot.querySelector('cod-table-header');
+      const tableBody = component.shadowRoot.querySelector('cod-table-body');
+
+      setOrRemoveAttribute(tableHeader, 'data-vertical-align', shouldSet);
+      setOrRemoveAttribute(tableBody, 'data-vertical-align', shouldSet);
+    },
+    'data-scrollable': (component, oldValue, newValue) => {
+      const shouldSet = shouldSetBooleanAttribute(newValue);
+      const tableHeader =
+        component.shadowRoot.querySelector('cod-table-header');
+      const tableBody = component.shadowRoot.querySelector('cod-table-body');
+
+      setOrRemoveAttribute(tableHeader, 'data-scrollable', shouldSet);
+      setOrRemoveAttribute(tableBody, 'data-scrollable', shouldSet);
+      component.tableContainer.className = shouldSet ? 'table-responsive' : '';
     },
   };
 

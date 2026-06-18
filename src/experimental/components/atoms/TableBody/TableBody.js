@@ -14,12 +14,77 @@ template.innerHTML = `
 <slot></slot>
 `;
 
+function shouldSetBooleanAttribute(value) {
+  return value === 'true';
+}
+
+function setOrRemoveAttribute(element, attributeName, shouldSet) {
+  if (!element) {
+    return;
+  }
+
+  if (shouldSet) {
+    element.setAttribute(attributeName, 'true');
+  } else {
+    element.removeAttribute(attributeName);
+  }
+}
+
 class TableBody extends HTMLElement {
   static observedClassAttributes = {
     'data-stacked': stackedTableClass,
     'data-label-block': cellHeaderBlockClass,
   };
-  static observedAttributes = Object.keys(this.observedClassAttributes);
+  static observedAttributeCbs = {
+    'data-hover': (component, oldValue, newValue) => {
+      const shouldSet = shouldSetBooleanAttribute(newValue);
+      const rows = component.shadowRoot.querySelectorAll('cod-table-row');
+
+      rows.forEach((row) => {
+        setOrRemoveAttribute(row, 'data-hover', shouldSet);
+      });
+    },
+    'data-striped-row': (component, oldValue, newValue) => {
+      const shouldSet = shouldSetBooleanAttribute(newValue);
+      const rows = component.shadowRoot.querySelectorAll('cod-table-row');
+
+      rows.forEach((row, index) => {
+        setOrRemoveAttribute(
+          row,
+          'data-striped-row',
+          shouldSet && index % 2 === 0,
+        );
+      });
+    },
+    'data-striped-col': (component, oldValue, newValue) => {
+      const shouldSet = shouldSetBooleanAttribute(newValue);
+      const rows = component.shadowRoot.querySelectorAll('cod-table-row');
+
+      rows.forEach((row) => {
+        setOrRemoveAttribute(row, 'data-striped-col', shouldSet);
+      });
+    },
+    'data-vertical-align': (component, oldValue, newValue) => {
+      const shouldSet = shouldSetBooleanAttribute(newValue);
+      const rows = component.shadowRoot.querySelectorAll('cod-table-row');
+
+      rows.forEach((row) => {
+        setOrRemoveAttribute(row, 'data-vertical-align', shouldSet);
+      });
+    },
+    'data-scrollable': (component, oldValue, newValue) => {
+      const shouldSet = shouldSetBooleanAttribute(newValue);
+      const rows = component.shadowRoot.querySelectorAll('cod-table-row');
+
+      rows.forEach((row) => {
+        setOrRemoveAttribute(row, 'data-scrollable', shouldSet);
+      });
+    },
+  };
+  static observedAttributes = [
+    ...Object.keys(this.observedClassAttributes),
+    ...Object.keys(this.observedAttributeCbs),
+  ];
 
   constructor() {
     // Always call super first in constructor
@@ -94,6 +159,14 @@ class TableBody extends HTMLElement {
         () => {
           return this.shadowRoot.querySelectorAll('cod-table-row');
         },
+      );
+    }
+
+    if (name in TableBody.observedAttributeCbs) {
+      this.handleObservedAttribute(
+        oldValue,
+        newValue,
+        TableBody.observedAttributeCbs[name],
       );
     }
   }
