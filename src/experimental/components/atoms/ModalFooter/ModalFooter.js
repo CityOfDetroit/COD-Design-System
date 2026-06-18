@@ -16,7 +16,7 @@ export default class ModalFooter extends HTMLElement {
     const shadow = this.attachShadow({ mode: 'open' });
     shadow.appendChild(template.content.cloneNode(true));
     this.modalFooter = document.createElement('div');
-    this.closeBtn = document.createElement('cod-button');
+    this.closeBtn = document.createElement('button');
 
     this.shadowRoot.addEventListener('slotchange', () => {
       const tempElements = Array.from(this.children);
@@ -46,9 +46,17 @@ export default class ModalFooter extends HTMLElement {
     const extraClasses = this.getAttribute('data-extra-classes');
 
     const modalFooterClasses = ['modal-footer'];
-    this.closeBtn.setAttribute('data-img-alt', '');
-    this.closeBtn.setAttribute('data-icon', '');
-    this.closeBtn.setAttribute('data-label', 'Close');
+    const closeBtnClasses = ['btn'];
+
+    if (btnExtraClasses !== undefined && btnExtraClasses !== null) {
+      closeBtnClasses.push(...btnExtraClasses.split(' ').filter(Boolean));
+    } else {
+      closeBtnClasses.push('btn-secondary');
+    }
+
+    this.closeBtn.type = 'button';
+    this.closeBtn.className = closeBtnClasses.join(' ');
+    this.closeBtn.textContent = 'Close';
     this.closeBtn.setAttribute('data-bs-dismiss', 'modal');
 
     // TODO: Fix old ESLint errors - see issue #1099
@@ -57,11 +65,6 @@ export default class ModalFooter extends HTMLElement {
       ? modalFooterClasses.push(extraClasses)
       : 0;
 
-    // TODO: Fix old ESLint errors - see issue #1099
-    // eslint-disable-next-line eqeqeq
-    btnExtraClasses != undefined && btnExtraClasses != null
-      ? this.closeBtn.setAttribute('data-extra-classes', btnExtraClasses)
-      : 0;
     this.modalFooter.className = modalFooterClasses.join(' ');
     this.closeBtn.addEventListener('click', this._onClick);
     if (!this.shadowRoot.querySelector('div')) {
