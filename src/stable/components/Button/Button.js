@@ -27,6 +27,7 @@ export default class Button extends HTMLElement {
       'target',
       'download',
       'rel',
+      'type',
       'square',
     ];
   }
@@ -53,6 +54,7 @@ export default class Button extends HTMLElement {
       target: '',
       download: '',
       rel: '',
+      type: 'submit',
       square: false,
     };
 
@@ -98,6 +100,9 @@ export default class Button extends HTMLElement {
       case 'rel':
         this._state.rel = newValue || '';
         break;
+      case 'type':
+        this._state.type = this._normalizeType(newValue);
+        break;
       case 'square':
         this._state.square = newValue !== null;
         break;
@@ -122,6 +127,7 @@ export default class Button extends HTMLElement {
     this._state.target = this.getAttribute('target') || '';
     this._state.download = this.getAttribute('download') || '';
     this._state.rel = this.getAttribute('rel') || '';
+    this._state.type = this._normalizeType(this.getAttribute('type'));
     this._state.square = this.hasAttribute('square');
 
     // Initial render
@@ -206,6 +212,8 @@ export default class Button extends HTMLElement {
       if (this._state.download) {
         element.download = this._state.download;
       }
+    } else {
+      element.type = this._state.type;
     }
 
     // Handle disabled state
@@ -359,7 +367,43 @@ export default class Button extends HTMLElement {
     if (this._state.disabled || this._state.loading) {
       event.preventDefault();
       event.stopPropagation();
+      return;
     }
+
+    if (this._state.href || this._state.type === 'button') {
+      return;
+    }
+
+    const form = this.closest('form');
+    if (!form) {
+      return;
+    }
+
+    queueMicrotask(() => {
+      if (event.defaultPrevented) {
+        return;
+      }
+
+      if (this._state.type === 'reset') {
+        form.reset();
+        return;
+      }
+
+      if (typeof form.requestSubmit === 'function') {
+        form.requestSubmit();
+      } else {
+        form.submit();
+      }
+    });
+  }
+
+  _normalizeType(typeValue) {
+    const normalizedType = (typeValue || 'submit').toLowerCase();
+    if (['submit', 'reset', 'button'].includes(normalizedType)) {
+      return normalizedType;
+    }
+
+    return 'submit';
   }
 
   // Getters and setters
