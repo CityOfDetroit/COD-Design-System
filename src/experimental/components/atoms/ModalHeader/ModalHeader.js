@@ -17,7 +17,7 @@ export default class ModalHeader extends HTMLElement {
     shadow.appendChild(template.content.cloneNode(true));
     this.modalHeader = document.createElement('div');
     this.modalTitle = document.createElement('div');
-    this.closeBtn = document.createElement('cod-button');
+    this.closeBtn = document.createElement('button');
 
     this.shadowRoot.addEventListener('slotchange', () => {
       const tempElements = Array.from(this.children);
@@ -52,9 +52,9 @@ export default class ModalHeader extends HTMLElement {
     const modalHeaderClasses = ['modal-header'];
     this.modalTitle.className = 'modal-title';
     this.modalTitle.id = `${parentID}-label`;
-    this.closeBtn.setAttribute('data-img-alt', '');
-    this.closeBtn.setAttribute('data-icon', '');
-    this.closeBtn.setAttribute('data-close', 'true');
+    this.closeBtn.type = 'button';
+    this.closeBtn.className = 'btn-close';
+    this.closeBtn.setAttribute('aria-label', 'Close');
     this.closeBtn.setAttribute('data-bs-dismiss', 'modal');
 
     // TODO: Fix old ESLint errors - see issue #1099
@@ -65,9 +65,7 @@ export default class ModalHeader extends HTMLElement {
 
     // TODO: Fix old ESLint errors - see issue #1099
     // eslint-disable-next-line eqeqeq
-    btnDark == 'true'
-      ? this.closeBtn.setAttribute('data-extra-classes', 'btn-close-white')
-      : 0;
+    btnDark == 'true' ? this.closeBtn.classList.add('btn-close-white') : 0;
     this.modalHeader.className = modalHeaderClasses.join(' ');
     this.closeBtn.addEventListener('click', this._onClick);
     if (!this.shadowRoot.querySelector('div')) {
