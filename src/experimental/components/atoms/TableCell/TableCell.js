@@ -13,12 +13,48 @@ template.innerHTML = `
 <slot></slot>
 `;
 
+function shouldSetBooleanAttribute(value) {
+  return value === 'true';
+}
+
 class TableCell extends HTMLElement {
   static observedClassAttributes = {
     'data-stacked': stackedTableClass,
     'data-label-block': cellHeaderBlockClass,
   };
-  static observedAttributes = Object.keys(this.observedClassAttributes);
+  static observedAttributeCbs = {
+    'data-striped-row': (component, oldValue, newValue) => {
+      component.tableCell.classList.toggle(
+        'table-striped',
+        shouldSetBooleanAttribute(newValue),
+      );
+    },
+    'data-striped-col': (component, oldValue, newValue) => {
+      component.tableCell.classList.toggle(
+        'table-striped-columns',
+        shouldSetBooleanAttribute(newValue),
+      );
+    },
+    'data-scrollable': (component, oldValue, newValue) => {
+      component.tableCell.classList.toggle(
+        'table-scrollable',
+        shouldSetBooleanAttribute(newValue),
+      );
+    },
+    'data-vertical-align': (component, oldValue, newValue) => {
+      if (oldValue !== null) {
+        component.tableCell.classList.remove(oldValue);
+      }
+
+      if (newValue !== null) {
+        component.tableCell.classList.add(newValue);
+      }
+    },
+  };
+  static observedAttributes = [
+    ...Object.keys(this.observedClassAttributes),
+    ...Object.keys(this.observedAttributeCbs),
+  ];
 
   constructor() {
     // Always call super first in constructor
@@ -107,6 +143,14 @@ class TableCell extends HTMLElement {
         newValue,
         this.tableCell,
         TableCell.observedClassAttributes[name],
+      );
+    }
+
+    if (name in TableCell.observedAttributeCbs) {
+      this.handleObservedAttribute(
+        oldValue,
+        newValue,
+        TableCell.observedAttributeCbs[name],
       );
     }
   }
