@@ -57,6 +57,11 @@ Use Storybooks [built-in test-runner](https://storybook.js.org/docs/react/writin
    $ yarn test:storybook
    ```
 
+### Compiling CSS
+
+After creating your .scss file, use to compile css
+   $ scripts/compile_styles.sh
+
 ### Formatting and Linting
 
 The remote repository will enforce ESLint rules and Prettier formatting.
