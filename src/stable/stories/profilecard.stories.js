@@ -1,0 +1,109 @@
+import { html } from 'lit-html';
+import '../components/ProfileCard/cod-profile-card';
+import { expect } from '@storybook/test';
+
+export default {
+  tags: ['stable'],
+  title: 'Components/ProfileCard',
+  argTypes: {
+    src: { control: 'text', name: 'Image Source' },
+    alt: { control: 'text', name: 'Alt Text' },
+    name: { control: 'text', name: 'Name' },
+    titlePrimary: { control: 'text', name: 'Primary Title' },
+    titleSecondary: { control: 'text', name: 'Secondary Title' },
+    href: { control: 'text', name: 'Profile Link' },
+  },
+};
+
+export const Default = (args) => html`
+  <style>
+    .profile-card-name {
+      font-size: 1.25rem;
+      line-height: 100%;
+      letter-spacing: 0%;
+      font-weight: 600;
+      margin-right: 5px;
+    }
+
+    .profile-card-title {
+      font-size: 1rem;
+      line-height: 100%;
+      letter-spacing: 0%;
+      font-weight: 400;
+      margin-bottom: 5px;
+    }
+  </style>
+  <cod-profile-card src=${args.src} href=${args.href} alt=${args.alt}>
+    <span slot="name" class="profile-card-name">${args.name}</span>
+    <span slot="title" class="profile-card-title">${args.titlePrimary}</span>
+    <span slot="title" class="profile-card-title">${args.titleSecondary}</span>
+  </cod-profile-card>
+`;
+
+Default.args = {
+  src: 'https://placehold.co/400',
+  alt: 'Photo of Jane Doe',
+  name: 'Jane Doe',
+  titlePrimary: 'Frontend Engineer',
+  titleSecondary: 'Frontend Developer',
+  href: 'https://example.com',
+};
+
+export const Test = {
+  render: () => html`
+    <style>
+      .profile-card-name {
+        font-size: 1.25rem;
+        line-height: 100%;
+        letter-spacing: 0%;
+        font-weight: 600;
+        margin-right: 5px;
+      }
+
+      .profile-card-title {
+        font-size: 1rem;
+        line-height: 100%;
+        letter-spacing: 0%;
+        font-weight: 400;
+        margin-bottom: 5px;
+      }
+    </style>
+    <cod-profile-card
+      src="https://placehold.co/400"
+      href="https://example.com"
+      alt="Photo of Jane Doe"
+    >
+      <span slot="name" class="profile-card-name">Jane Doe</span>
+      <span slot="title" class="profile-card-title">Frontend Engineer</span>
+      <span slot="title" class="profile-card-title">Frontend Developer</span>
+    </cod-profile-card>
+  `,
+
+  play: async ({ canvasElement }) => {
+    const profileCard = canvasElement.querySelector('cod-profile-card');
+    const shadow = profileCard.shadowRoot;
+
+    // ===== TEST 1: Image Presence Test =====
+    const img = shadow.querySelector('.profile-image');
+    expect(img).not.toBeNull();
+    expect(img.tagName).toBe('IMG');
+    expect(img.src).toContain('https://placehold.co/400');
+
+    // ===== TEST 2: Link Element Test =====
+    const link = shadow.querySelector('.profile-card');
+    expect(link).not.toBeNull();
+    expect(link.tagName).toBe('A');
+
+    // Verify the href attribute
+    expect(link.hasAttribute('href')).toBe(true);
+    expect(link.getAttribute('href')).toBe(profileCard.getAttribute('href'));
+
+    // Verify the target and rel attributes
+    expect(link.getAttribute('target')).toBe('_blank');
+    expect(link.getAttribute('rel')).toBe('noopener noreferrer');
+
+    // ===== TEST 3: Image Alt Text Test =====
+    const expectedAlt = profileCard.getAttribute('alt') || 'Profile Image';
+    expect(img.alt).toBe(expectedAlt);
+  },
+};

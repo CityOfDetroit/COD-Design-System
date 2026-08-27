@@ -1,0 +1,92 @@
+import {
+  Meta,
+  Canvas,
+  Title,
+  Subtitle,
+  Description,
+  Primary,
+  Controls,
+  Stories,
+  Story,
+  Source,
+} from '@storybook/blocks';
+import * as ProfileCardStories from '../stories/profilecard.stories';
+
+import '../../../.storybook/docs'; // Import all documentation components
+
+<Meta of={ProfileCardStories} />
+
+# Profile Card
+
+<div className="component-summary">
+  Profile Cards are components used to display a user's profile information.
+</div>
+
+## Usage
+
+<Canvas of={ProfileCardStories.Default} />
+
+<Controls of={ProfileCardStories.Default} />
+
+# Examples
+
+### Default
+
+<Description of={ProfileCardStories.Default} />
+<Story of={ProfileCardStories.Default} inline={true} />
+<Source of={ProfileCardStories.Default} />
+
+## Slots
+
+<doc-slots-table
+data={JSON.stringify([
+{"name": "name", "description": "This slot is used to display the person's name in the profile card."},
+{"name": "Primary Title", "description": "This slot contains the person's primary title, like their job position or designation." },
+{"name": "Secondary Title", "description": "This slot contains additional information about the person, such as a secondary job title, a department name, or an affiliation."}
+])}>
+</doc-slots-table>
+
+## HTML Attributes / JS Properties
+
+Supported HTML attributes. If the attribute is reflected in a JS property, that attribute will have a 'reflects' tag next to the name.
+
+<doc-js-properties-table
+data={JSON.stringify([
+{"name": "href", "description": "A link to the page or site containing the person's information. See https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#href", "type": "string", "default": "-", "reflects": false},
+{"name": "src", "description": "The URL to an image asset representing the person's profile photo. See https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#attr-src", "type": "string", "default": "-", "reflects": false}
+])}>
+</doc-js-properties-table>
+
+## Events
+
+<doc-events-table
+data={JSON.stringify([])}>
+</doc-events-table>
+
+## Methods
+
+<doc-methods-table 
+  data={JSON.stringify([])}>
+</doc-methods-table>
+
+## Custom CSS Properties
+
+<doc-css-custom-properties-table 
+  data={JSON.stringify([])}>
+</doc-css-custom-properties-table>
+
+## CSS Parts
+
+<doc-css-parts-table 
+  data={JSON.stringify([])}>
+</doc-css-parts-table>
+
+## Dependencies
+
+<doc-dependencies-list data={JSON.stringify([])}></doc-dependencies-list>
+
+## Accessibility
+
+- **Images (`src`)**: When a profile image is included using the `src` attribute, it should be accompanied by an `alt` attribute describing the person (e.g., `alt="Photo of Jane Doe"`). This ensures screen readers can describe the image content.
+
+- **Links (`href`)**: When the card is made clickable with the `href` attribute, it becomes keyboard-accessible and can be navigated by screen readers.
