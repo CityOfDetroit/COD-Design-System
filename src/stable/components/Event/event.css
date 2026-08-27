@@ -1,0 +1,54 @@
+.event-container {
+  width: fit-content;
+  min-width: 340px;
+  display: flex;
+}
+.event-container .date-info {
+  background-color: #004445;
+  height: 75px;
+  justify-content: center;
+  text-align: center;
+  flex: 0;
+  color: white;
+  font-weight: lighter;
+  padding: 3px 20px;
+  line-height: normal;
+}
+.event-container .date-info .event-date {
+  color: white;
+  flex: 0;
+  font-weight: 900;
+  display: flex;
+}
+.event-container .event-info {
+  flex: 3;
+  padding: 5px 10px;
+}
+.event-container .event-info .event-title {
+  display: flex;
+}
+.event-container .event-info .event-title ::slotted(a) {
+  text-decoration: none !important;
+  border-bottom: 3px solid #279989 !important;
+  color: #000 !important;
+}
+.event-container .event-info .event-title svg {
+  top: 5px;
+  position: relative;
+}
+.event-container .event-info .event-title:hover svg {
+  transform: translate(5px, 0px);
+}
+.event-container .event-info .info-row {
+  display: flex;
+  margin-top: 10px;
+  flex-flow: row wrap;
+}
+.event-container .event-info .info-row .info-item {
+  flex-grow: 1;
+}
+.event-container .event-info .info-row .event-time {
+  font-weight: 900;
+}
+
+/*# sourceMappingURL=event.css.map */

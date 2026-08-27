@@ -1,0 +1,62 @@
+.event-container {
+  width: fit-content;
+  min-width: 340px;
+  display: flex;
+
+  .date-info {
+    background-color: #004445;
+    height: 75px;
+    justify-content: center;
+    text-align: center;
+    flex: 0;
+    color: white;
+    font-weight: lighter;
+    padding: 3px 20px;
+    line-height: normal;
+
+    .event-date {
+      color: white;
+      flex: 0;
+      font-weight: 900;
+      display: flex;
+    }
+  }
+
+  .event-info {
+    flex: 3;
+    padding: 5px 10px;
+
+    .event-title {
+      display: flex;
+
+      ::slotted(a) {
+        text-decoration: none !important;
+        border-bottom: 3px solid #279989 !important;
+        color: #000 !important;
+      }
+
+      svg {
+        top: 5px;
+        position: relative;
+      }
+    }
+
+    .event-title:hover svg {
+      transform: translate(5px, 0px);
+    }
+
+    .info-row {
+      display: flex;
+      margin-top: 10px;
+      flex-flow: row wrap;
+
+      .info-item {
+        flex-grow: 1;
+      }
+
+      .event-time {
+        font-weight: 900;
+      }
+    }
+  }
+}
